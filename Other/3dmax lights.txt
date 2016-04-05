@@ -1,0 +1,1131 @@
+Directionallight
+Free_Area
+Free_Cylinder
+Free_Disc
+Free_Light
+Free_Linear
+Free_Sphere
+IES_Sky
+IES_Sun
+Missing_Light
+Omnilight
+Skylight
+TargetDirectionallight
+Target_Area
+Target_Cylinder
+Target_Disc
+Target_Light
+Target_Linear
+Target_Sphere
+VRayAmbientLight
+VRayIES
+VRayLight
+VRayObjLight
+VRaySun
+freeSpot
+miAreaLight
+miAreaLightomni
+mr_Sky
+mr_Sky_Portal
+mr_Sun
+targetSpot
+
+VRayLight
+  .affect_diffuse : boolean
+  .affect_reflections : boolean
+  .affect_specualr (affect_specular) : boolean
+  .castShadows : boolean
+  .color : RGB color
+  .color_mode : integer
+  .color_temperature : float
+  .cutoffThreshold : float
+  .dome_affect_alpha (Affect_alpha) : boolean
+  .dome_emitRadius : worldUnits
+  .dome_rayDistance : worldUnits
+  .dome_rayDistanceMode : integer
+  .dome_spherical : boolean
+  .dome_targetRadius : worldUnits
+  .dome_visibleOriginal : integer
+  .doubleSided : boolean
+  .enable_viewport_shading : boolean
+  .excludeList : node array
+  .ignoreNormals : boolean
+  .inclExclType : integer
+  .includeList : node array
+  .invisible : boolean
+  .lightDistribution : float
+  .mesh_flip : boolean
+  .mesh_replaceOnPick : boolean
+  .mesh_source : node
+  .multiplier : float
+  .noDecay : boolean
+  .normalizeColor : integer
+  .notUsed : integer
+  .notUsed : integer
+  .on : boolean
+  .preview_distribution (type) : integer
+  .preview_texmap (texmap_preview) : boolean
+  .shadowBias : worldUnits
+  .simplePortal : boolean
+  .size0 : worldUnits
+  .size1 : worldUnits
+  .size2 : worldUnits
+  .skylightPortal : boolean
+  .smoothSurfaceShadows : boolean
+  .storeWithIrradMap : boolean
+  .subdivs : integer
+  .target_distance : worldUnits
+  .targeted : boolean
+  .texmap : texturemap
+  .texmap_adaptiveness : float
+  .texmap_locktodome (Lock_texmap_to_dome_orientation) : integer
+  .texmap_on : boolean
+  .texmap_resolution : integer
+  .type : integer
+  .use_mis : boolean
+  .viewport_wire_color : RGB color
+  .viewport_wire_color_on : boolean
+  
+VRaySun
+  .affect_diffuse : boolean
+  .affect_specualr (alias for affect_specular)
+  .affect_specular : boolean
+  .cast_atmospheric_shadows : boolean
+  .color_mode : integer
+  .enabled : boolean
+  .excludeList : node array
+  .filter_color : RGB color
+  .inclExclType : integer
+  .includeList : node array
+  .indirect_horiz_illum : float
+  .intensity_multiplier : float
+  .invisible : boolean
+  .lighting_units : boolean
+  .ozone : float
+  .photon_emit_radius : worldUnits
+  .shadow_bias : float
+  .shadow_subdivs : integer
+  .size_multiplier : float
+  .sky_model : integer
+  .turbidity : float
+  .water_vapour : float
+
+VRayAmbientLight
+  .color : RGB color
+  .compensate_exposure : boolean
+  .enabled : boolean
+  .excludeList : node array
+  .gi_min_distance : worldUnits
+  .inclExclType : integer
+  .includeList : node array
+  .intensity : float
+  .light_map : texturemap
+  .light_map_multiplier : float
+  .light_map_on : boolean
+  .mode : integer
+  .viewport_wire_color : RGB color
+  .viewport_wire_color_on : boolean
+
+
+SkyLight
+  .castShadows (Cast_Shadows) : boolean
+  .color : RGB color
+  .enabled (alias for on)
+  .multiplier : float
+  .on : boolean
+  .ray_bias : float
+  .rays_per_sample : integer
+  .rgb (alias for color)
+  .sky_color_map : texturemap
+  .sky_color_map_amt : float
+  .sky_color_map_on : boolean
+  .sky_mode (Skylight_Mode) : integer
+
+VRayIES
+  .affect_diffuse : boolean
+  .affect_specular : boolean
+  .area_speculars : boolean
+  .cast_shadows : boolean
+  .color : RGB color
+  .color_mode : integer
+  .color_temperature : float
+  .cutoff : float
+  .diameter : worldUnits
+  .enable_viewport_shading : boolean
+  .enabled : boolean
+  .excludeList : node array
+  .height : worldUnits
+  .ies_file : filename
+  .inclExclType : integer
+  .includeList : node array
+  .length : worldUnits
+  .override_shape : boolean
+  .power : float
+  .rotation_X : float
+  .rotation_Y : float
+  .rotation_Z : float
+  .shadow_bias : worldUnits
+  .shape : integer
+  .shape_subdivs : integer
+  .show_distribution : boolean
+  .target_distance : worldUnits
+  .targeted : boolean
+  .use_light_shape : integer
+  .viewport_wire_color : RGB color
+  .viewport_wire_color_on : boolean
+  .width : worldUnits
+
+Omnilight
+  .absoluteMapBias (Absolute_Bias) : boolean
+  .affectDiffuse : boolean
+  .affectSpecular : boolean
+  .ambientOnly : boolean
+  .atmosColorAmt (Atmosphere_Color_Amount) : percent
+  .atmosOpacity (Atmosphere_Opacity) : percent
+  .atmosShadows : boolean
+  .attenDecay : integer
+  .castShadows : boolean
+  .contrast : float
+  .decayRadius (Decay_Falloff) : float
+  .enabled(on) : boolean
+  .excludeList : node array
+  .farAttenEnd (Attenuation_Far_End) : float
+  .farAttenStart (Attenuation_Far_Start) : float
+  .hsv : HSV color
+  .hue : colorChannel
+  .inclExclType : integer
+  .includeList : node array
+  .lightAffectsShadow : boolean
+  .mapbias (Map_Bias) : float
+  .mapsize (Map_Size) : integer
+  .multiplier : float
+  .nearAttenEnd (Attenuation_Near_End) : float
+  .nearAttenStart (Attenuation_Near_Start) : float
+  .projector : boolean
+  .projectorMap : texturemap
+  .raytracedShadows : boolean
+  .rgb (Color/color) : RGB color
+  .samplerange (Map_Range) : float
+  .saturation : colorChannel
+  .shadowColor (Shadow_Color) : RGB color
+  .shadowMultiplier (Shadow_Density) : float
+  .shadowProjectorMap : texturemap
+  .shadowgenerator
+  .showFarAtten : boolean
+  .showNearAtten : boolean
+  .softenDiffuseEdge (Diffuse_Soften) : float
+  .twoSidedShadows : boolean
+  .type
+  .useFarAtten : boolean
+  .useGlobalShadowSettings : boolean
+  .useNearAtten : boolean
+  .useShadowProjectorMap : boolean
+  .value : colorChannel
+
+Directionallight
+  .absoluteMapBias (Absolute_Bias) : boolean
+  .affectDiffuse : boolean
+  .affectSpecular : boolean
+  .ambientOnly : boolean
+  .aspect (Aspect_Ratio) : float
+  .atmosColorAmt (Atmosphere_Color_Amount) : percent
+  .atmosOpacity (Atmosphere_Opacity) : percent
+  .atmosShadows : boolean
+  .attenDecay : integer
+  .castShadows : boolean
+  .coneShape(lightShape) : integer
+  .contrast : float
+  .decayRadius (Decay_Falloff) : float
+  .enabled(on) : boolean
+  .excludeList : node array
+  .falloff : float
+  .farAttenEnd (Attenuation_Far_End) : float
+  .farAttenStart (Attenuation_Far_Start) : float
+  .hotspot : float
+  .hsv : HSV color
+  .hue : colorChannel
+  .inclExclType : integer
+  .includeList : node array
+  .lightAffectsShadow : boolean
+  .mapbias (Map_Bias) : float
+  .mapsize (Map_Size) : integer
+  .multiplier : float
+  .nearAttenEnd (Attenuation_Near_End) : float
+  .nearAttenStart (Attenuation_Near_Start) : float
+  .overShoot : boolean
+  .projector : boolean
+  .projectorMap : texturemap
+  .raytracedShadows : boolean
+  .rgb (Color/color) : RGB color
+  .samplerange (Map_Range) : float
+  .saturation : colorChannel
+  .shadowColor (Shadow_Color) : RGB color
+  .shadowMultiplier (Shadow_Density) : float
+  .shadowProjectorMap : texturemap
+  .shadowgenerator
+  .showCone : boolean
+  .showFarAtten : boolean
+  .showNearAtten : boolean
+  .softenDiffuseEdge (Diffuse_Soften) : float
+  .twoSidedShadows : boolean
+  .type
+  .useFarAtten : boolean
+  .useGlobalShadowSettings : boolean
+  .useNearAtten : boolean
+  .useShadowProjectorMap : boolean
+  .value : colorChannel
+
+targetSpot
+  .absoluteMapBias (Absolute_Bias) : boolean
+  .affectDiffuse : boolean
+  .affectSpecular : boolean
+  .ambientOnly : boolean
+  .aspect (Aspect_Ratio) : float
+  .atmosColorAmt (Atmosphere_Color_Amount) : percent
+  .atmosOpacity (Atmosphere_Opacity) : percent
+  .atmosShadows : boolean
+  .attenDecay : integer
+  .castShadows : boolean
+  .coneShape(lightShape) : integer
+  .contrast : float
+  .decayRadius (Decay_Falloff) : float
+  .enabled(on) : boolean
+  .excludeList : node array
+  .falloff : float
+  .farAttenEnd (Attenuation_Far_End) : float
+  .farAttenStart (Attenuation_Far_Start) : float
+  .hotspot : float
+  .hsv : HSV color
+  .hue : colorChannel
+  .inclExclType : integer
+  .includeList : node array
+  .lightAffectsShadow : boolean
+  .mapbias (Map_Bias) : float
+  .mapsize (Map_Size) : integer
+  .multiplier : float
+  .nearAttenEnd (Attenuation_Near_End) : float
+  .nearAttenStart (Attenuation_Near_Start) : float
+  .overShoot : boolean
+  .projector : boolean
+  .projectorMap : texturemap
+  .raytracedShadows : boolean
+  .rgb (Color/color) : RGB color
+  .samplerange (Map_Range) : float
+  .saturation : colorChannel
+  .shadowColor (Shadow_Color) : RGB color
+  .shadowMultiplier (Shadow_Density) : float
+  .shadowProjectorMap : texturemap
+  .shadowgenerator
+  .showCone : boolean
+  .showFarAtten : boolean
+  .showNearAtten : boolean
+  .softenDiffuseEdge (Diffuse_Soften) : float
+  .twoSidedShadows : boolean
+  .type
+  .useFarAtten : boolean
+  .useGlobalShadowSettings : boolean
+  .useNearAtten : boolean
+  .useShadowProjectorMap : boolean
+  .value : colorChannel
+
+freeSpot
+  .aspect (Aspect_Ratio) : float
+  .rgb (Color/color) : RGB color
+  .contrast : float
+  .enabled(on) : boolean
+  .type
+  .value : colorChannel
+  .falloff : float
+  .excludeList : node array
+  .includeList : node array
+  .showCone : boolean
+  .multiplier : float
+  .softenDiffuseEdge (Diffuse_Soften) : float
+  .hotspot : float
+  .farAttenStart (Attenuation_Far_Start) : float
+  .farAttenEnd (Attenuation_Far_End) : float
+  .nearAttenStart (Attenuation_Near_Start) : float
+  .nearAttenEnd (Attenuation_Near_End) : float
+  .atmosOpacity (Atmosphere_Opacity) : percent
+  .atmosColorAmt (Atmosphere_Color_Amount) : percent
+  .decayRadius (Decay_Falloff) : float
+  .shadowColor (Shadow_Color) : RGB color
+  .shadowMultiplier (Shadow_Density) : float
+  .hsv : HSV color
+  .hue : colorChannel
+  .saturation : colorChannel
+  .inclExclType : integer
+  .affectDiffuse : boolean
+  .affectSpecular : boolean
+  .useNearAtten : boolean
+  .showNearAtten : boolean
+  .useFarAtten : boolean
+  .showFarAtten : boolean
+  .attenDecay : integer
+  .projector : boolean
+  .projectorMap : texturemap
+  .castShadows : boolean
+  .useGlobalShadowSettings : boolean
+  .raytracedShadows : boolean
+  .overShoot : boolean
+  .coneShape(lightShape) : integer
+  .atmosShadows : boolean
+  .lightAffectsShadow : boolean
+  .shadowProjectorMap : texturemap
+  .useShadowProjectorMap : boolean
+  .ambientOnly : boolean
+  .shadowgenerator
+  .twoSidedShadows : boolean
+  .mapsize (Map_Size) : integer
+  .samplerange (Map_Range) : float
+  .mapbias (Map_Bias) : float
+  .absoluteMapBias (Absolute_Bias) : boolean
+
+TargetDirectionallight
+  .absoluteMapBias (Absolute_Bias) : boolean
+  .affectDiffuse : boolean
+  .affectSpecular : boolean
+  .ambientOnly : boolean
+  .aspect (Aspect_Ratio) : float
+  .atmosColorAmt (Atmosphere_Color_Amount) : percent
+  .atmosOpacity (Atmosphere_Opacity) : percent
+  .atmosShadows : boolean
+  .attenDecay : integer
+  .castShadows : boolean
+  .coneShape(lightShape) : integer
+  .contrast : float
+  .decayRadius (Decay_Falloff) : float
+  .enabled(on) : boolean
+  .excludeList : node array
+  .falloff : float
+  .farAttenEnd (Attenuation_Far_End) : float
+  .farAttenStart (Attenuation_Far_Start) : float
+  .hotspot : float
+  .hsv : HSV color
+  .hue : colorChannel
+  .inclExclType : integer
+  .includeList : node array
+  .lightAffectsShadow : boolean
+  .mapbias (Map_Bias) : float
+  .mapsize (Map_Size) : integer
+  .multiplier : float
+  .nearAttenEnd (Attenuation_Near_End) : float
+  .nearAttenStart (Attenuation_Near_Start) : float
+  .overShoot : boolean
+  .projector : boolean
+  .projectorMap : texturemap
+  .raytracedShadows : boolean
+  .rgb (Color/color) : RGB color
+  .samplerange (Map_Range) : float
+  .saturation : colorChannel
+  .shadowColor (Shadow_Color) : RGB color
+  .shadowMultiplier (Shadow_Density) : float
+  .shadowProjectorMap : texturemap
+  .shadowgenerator
+  .showCone : boolean
+  .showFarAtten : boolean
+  .showNearAtten : boolean
+  .softenDiffuseEdge (Diffuse_Soften) : float
+  .twoSidedShadows : boolean
+  .type
+  .useFarAtten : boolean
+  .useGlobalShadowSettings : boolean
+  .useNearAtten : boolean
+  .useShadowProjectorMap : boolean
+  .value : colorChannel
+
+miAreaLightomni
+  .Area_Enable : boolean
+  .Area_Visible : boolean
+  .Area_Type : integer
+  .Sphere_Radius : worldUnits
+  .Cylinder_Height : worldUnits
+  .Area_U_Samples : integer
+  .Area_V_Samples : integer
+  .Omni_Light
+
+miAreaLight
+  .Area_Enable : boolean
+  .Area_Visible : boolean
+  .Area_Type : integer
+  .Disc_Radius : worldUnits
+  .Rectangle_Height : worldUnits
+  .Rectangle_Width : worldUnits
+  .Area_U_Samples : integer
+  .Area_V_Samples : integer
+  .Target_Spot
+
+IES_Sun
+  .rgb : RGB color
+  .multiplier : float
+  .contrast : percent
+  .softenDiffuseEdge (Diffuse_Soften) : percent
+  .atmosShadows (Atmosphere_Shadows) : boolean
+  .atmosOpacity (Atmosphere_Opacity) : percent
+  .atmosColorAmt (Atmosphere_Color_Amount) : percent
+  .shadowMultiplier (Shadow_Density) : float
+  .targetDistance (Target_Distance) : float
+  .useGlobalShadowSettings (Use_Global_Shadow_Settings) : boolean
+  .hasTarget (Has_Target) : boolean
+  .on : boolean
+  .affectDiffuse (Affect_Diffuse) : boolean
+  .affectSpecular (Affect_Specular) : boolean
+  .castShadows (Cast_Shadows) : boolean
+  .excludeList : value
+  .includeList : value
+  .shadowGenerator : value
+  .shadowGeneratorByName : value
+  .raytracedShadows : value
+  .color : color by value
+  .enabled : bool
+  .twoSidedShadows : boolean
+  .mapsize (Map_Size) : integer
+  .samplerange (Map_Range) : float
+  .mapbias (Map_Bias) : float
+  .absoluteMapBias (Absolute_Bias) : boolean
+
+mr_Sky
+  .Multiplier : float
+  .On : boolean
+  .Haze : float
+  .Redness : float
+  .Saturation : float
+  .GroundColor (Ground_Color) : fRGBA color
+  .NightColor (Night_Color) : fRGBA color
+  .HorizonBlur (Horizon_Blur) : float
+  .HorizonHeight (Horizon_Height) : float
+  .AerialPerspective (Aerial_Perspective) : float
+  .UseAerialPerspective (Use_Aerial_Perspective) : boolean
+  .SkyLightModel (Sky_Model) : integer
+  .PerezDiffuseHorizIlluminance (Perez_Diffuse_Horiz__Illuminance) : float
+  .PerezDirectNormalIlluminance (Perez_Direct_Normal_Illuminance) : float
+  .CIEDiffuseHorizIlluminance (CIE_Diffuse_Horiz__Illuminance) : float
+  .CIEModel (CIE_Model) : integer
+  .PerezDiffuseHorizIrradiance (Perez_Diffuse_Horiz__Irradiance) : float
+  .PerezDirectNormalIrradiance (Perez_Direct_Normal_Irradiacne) : float
+  .Perez_Dew_Point_Temp (Dew_Point_Temp) : float
+  .PerezDiffuseHorizIlluminanceUI (Perez_Diffuse_Horiz__Illuminance) : float
+  .PerezDirectNormalIlluminanceUI (Perez_Direct_Normal_Illuminance_UI) : float
+  .CIEDiffuseHorizIlluminanceUI (CIE_Diffuse_Horiz__Illuminance_UI) : float
+  .CIEDirectNormalIlluminance (CIE_Direct_Normal_Illuminance) : float
+  .CIEDirectNormalIlluminanceUI (CIE_Direct_Normal_Illuminance_UI) : float
+  .enabled (alias for On)
+
+Free_Light
+  .on (Light_On) : boolean
+  .castShadows (Cast_Shadows) : boolean
+  .rgbFilter (Filter_Color) : RGB color
+  .intensity : float
+  .kelvin : float
+  .useKelvin (Use_Kelvin) : boolean
+  .intensityAt (Intensity_At) : float
+  .intensityType (Intensity_Type) : integer
+  .flux : float
+  .originalIntensity (Shape_Area_Shadows) : float
+  .originalFlux : float
+  .useMultiplier (Use_Dimmer) : boolean
+  .multiplier : float
+  .shiftColorWhenDimming (Shift_Color_When_Dimming) : boolean
+  .useFarAttenuation (Use_Far_Attenuation) : boolean
+  .displayFarAttenuationGizmo (Display_Far_Attenuation_Gizmo) : boolean
+  .startFarAttenuation (Start_Far_Attenuation) : worldUnits
+  .endFarAttenuation (Vertical_Circle_Facing_Photometric_Horizontal) : worldUnits
+  .contrast (Light_Contrast) : float
+  .softenDiffuseEdge (Diffuse_Soften) : float
+  .projector : boolean
+  .projectorMap (Projector_Map) : texturemap
+  .affectDiffuse (Affect_Diffuse) : boolean
+  .affectSpecular (Affect_Diffuse) : boolean
+  .ambientOnly (Ambient_Only) : boolean
+  .targetDistance (Target_Distance) : float
+  .light_length : worldUnits
+  .light_width : worldUnits
+  .light_radius : worldUnits
+  .atmosShadows (Atmospheric_Shadows_On) : boolean
+  .atmosOpacity (Atmospheric_Opacity) : float
+  .atmosColorAmt (Atmospheric_Color_Amount) : float
+  .shadowMultiplier (Shadow_Density) : float
+  .shadowColorMapEnable (Use_Shadow_Color_Map) : boolean
+  .shadowColor (Shadow_Color) : RGB color
+  .lightAffectsShadow (Light_Affects_Shadow) : boolean
+  .useGlobalShadowSettings (Use_Global_Params) : boolean
+  .shadowProjectorMap (Shadow_Projector_Map) : texturemap
+  .hotSpot (Beam_Angle) : float
+  .falloff (Field_Angle) : float
+  .showCone (Cone_Display) : boolean
+  .webFile (Web_Filename) : filename
+  .xRotation (X_Rotation) : float
+  .yRotation (Y_Rotation) : float
+  .zRotation (Z_Rotation) : float
+  .type : value
+  .distribution : value
+  .excludeList : value
+  .includeList : value
+  .shadowGenerator : value
+  .shadowGeneratorByName : value
+  .raytracedShadows : value
+  .color : color by value
+  .enabled : bool
+  .twoSidedShadows : boolean
+  .mapsize (Map_Size) : integer
+  .samplerange (Map_Range) : float
+  .mapbias (Map_Bias) : float
+  .absoluteMapBias (Absolute_Bias) : boolean
+
+mr_Sky_Portal
+  .on (Portal_Enabled) : boolean
+  .Area_Visible (Visible) : boolean
+  .light_width (Width) : float
+  .light_length (Length) : float
+  .reversed (Reversed_Flux_Direction) : boolean
+  .multiplier : float
+  .castShadows : boolean
+  .shadow_samples (shadowSamples) : integer
+  .extend_shadows : boolean
+  .map : texturemap
+  .rgbFilter (Filter_Color) : fRGBA color
+  .mode : integer
+  .cutoff (Cutoff_level) : float
+  .cutoff_rr (Unbiased_Cutoff__RR) : boolean
+  .transparency : fRGBA color
+
+Target_Sphere
+  .on (Light_On) : boolean
+  .castShadows (Cast_Shadows) : boolean
+  .rgbFilter (Filter_Color) : RGB color
+  .intensity : float
+  .kelvin : float
+  .useKelvin (Use_Kelvin) : boolean
+  .intensityAt (Intensity_At) : float
+  .intensityType (Intensity_Type) : integer
+  .flux : float
+  .originalIntensity (Shape_Area_Shadows) : float
+  .originalFlux : float
+  .useMultiplier (Use_Dimmer) : boolean
+  .multiplier : float
+  .shiftColorWhenDimming (Shift_Color_When_Dimming) : boolean
+  .useFarAttenuation (Use_Far_Attenuation) : boolean
+  .displayFarAttenuationGizmo (Display_Far_Attenuation_Gizmo) : boolean
+  .startFarAttenuation (Start_Far_Attenuation) : worldUnits
+  .endFarAttenuation (Vertical_Circle_Facing_Photometric_Horizontal) : worldUnits
+  .contrast (Light_Contrast) : float
+  .softenDiffuseEdge (Diffuse_Soften) : float
+  .projector : boolean
+  .projectorMap (Projector_Map) : texturemap
+  .affectDiffuse (Affect_Diffuse) : boolean
+  .affectSpecular (Affect_Diffuse) : boolean
+  .ambientOnly (Ambient_Only) : boolean
+  .targetDistance (Target_Distance) : float
+  .light_length : worldUnits
+  .light_width : worldUnits
+  .light_radius : worldUnits
+  .atmosShadows (Atmospheric_Shadows_On) : boolean
+  .atmosOpacity (Atmospheric_Opacity) : float
+  .atmosColorAmt (Atmospheric_Color_Amount) : float
+  .shadowMultiplier (Shadow_Density) : float
+  .shadowColorMapEnable (Use_Shadow_Color_Map) : boolean
+  .shadowColor (Shadow_Color) : RGB color
+  .lightAffectsShadow (Light_Affects_Shadow) : boolean
+  .useGlobalShadowSettings (Use_Global_Params) : boolean
+  .shadowProjectorMap (Shadow_Projector_Map) : texturemap
+  .hotSpot (Beam_Angle) : float
+  .falloff (Field_Angle) : float
+  .showCone (Cone_Display) : boolean
+  .webFile (Web_Filename) : filename
+  .xRotation (X_Rotation) : float
+  .yRotation (Y_Rotation) : float
+  .zRotation (Z_Rotation) : float
+  .type : value
+  .distribution : value
+  .excludeList : value
+  .includeList : value
+  .shadowGenerator : value
+  .shadowGeneratorByName : value
+  .raytracedShadows : value
+  .color : color by value
+  .enabled : bool
+  .radius : float
+  .twoSidedShadows : boolean
+  .mapsize (Map_Size) : integer
+  .samplerange (Map_Range) : float
+  .mapbias (Map_Bias) : float
+  .absoluteMapBias (Absolute_Bias) : boolean
+
+Free_Area
+  .on (Light_On) : boolean
+  .castShadows (Cast_Shadows) : boolean
+  .rgbFilter (Filter_Color) : RGB color
+  .intensity : float
+  .kelvin : float
+  .useKelvin (Use_Kelvin) : boolean
+  .intensityAt (Intensity_At) : float
+  .intensityType (Intensity_Type) : integer
+  .flux : float
+  .originalIntensity (Shape_Area_Shadows) : float
+  .originalFlux : float
+  .useMultiplier (Use_Dimmer) : boolean
+  .multiplier : float
+  .shiftColorWhenDimming (Shift_Color_When_Dimming) : boolean
+  .useFarAttenuation (Use_Far_Attenuation) : boolean
+  .displayFarAttenuationGizmo (Display_Far_Attenuation_Gizmo) : boolean
+  .startFarAttenuation (Start_Far_Attenuation) : worldUnits
+  .endFarAttenuation (Vertical_Circle_Facing_Photometric_Horizontal) : worldUnits
+  .contrast (Light_Contrast) : float
+  .softenDiffuseEdge (Diffuse_Soften) : float
+  .projector : boolean
+  .projectorMap (Projector_Map) : texturemap
+  .affectDiffuse (Affect_Diffuse) : boolean
+  .affectSpecular (Affect_Diffuse) : boolean
+  .ambientOnly (Ambient_Only) : boolean
+  .targetDistance (Target_Distance) : float
+  .light_length : worldUnits
+  .light_width : worldUnits
+  .light_radius : worldUnits
+  .atmosShadows (Atmospheric_Shadows_On) : boolean
+  .atmosOpacity (Atmospheric_Opacity) : float
+  .atmosColorAmt (Atmospheric_Color_Amount) : float
+  .shadowMultiplier (Shadow_Density) : float
+  .shadowColorMapEnable (Use_Shadow_Color_Map) : boolean
+  .shadowColor (Shadow_Color) : RGB color
+  .lightAffectsShadow (Light_Affects_Shadow) : boolean
+  .useGlobalShadowSettings (Use_Global_Params) : boolean
+  .shadowProjectorMap (Shadow_Projector_Map) : texturemap
+  .hotSpot (Beam_Angle) : float
+  .falloff (Field_Angle) : float
+  .showCone (Cone_Display) : boolean
+  .webFile (Web_Filename) : filename
+  .xRotation (X_Rotation) : float
+  .yRotation (Y_Rotation) : float
+  .zRotation (Z_Rotation) : float
+  .type : value
+  .distribution : value
+  .excludeList : value
+  .includeList : value
+  .shadowGenerator : value
+  .shadowGeneratorByName : value
+  .raytracedShadows : value
+  .color : color by value
+  .enabled : bool
+  .length : float
+  .width : float
+  .twoSidedShadows : boolean
+  .mapsize (Map_Size) : integer
+  .samplerange (Map_Range) : float
+  .mapbias (Map_Bias) : float
+  .absoluteMapBias (Absolute_Bias) : boolean
+
+Target_Disc
+  .on (Light_On) : boolean
+  .castShadows (Cast_Shadows) : boolean
+  .rgbFilter (Filter_Color) : RGB color
+  .intensity : float
+  .kelvin : float
+  .useKelvin (Use_Kelvin) : boolean
+  .intensityAt (Intensity_At) : float
+  .intensityType (Intensity_Type) : integer
+  .flux : float
+  .originalIntensity (Shape_Area_Shadows) : float
+  .originalFlux : float
+  .useMultiplier (Use_Dimmer) : boolean
+  .multiplier : float
+  .shiftColorWhenDimming (Shift_Color_When_Dimming) : boolean
+  .useFarAttenuation (Use_Far_Attenuation) : boolean
+  .displayFarAttenuationGizmo (Display_Far_Attenuation_Gizmo) : boolean
+  .startFarAttenuation (Start_Far_Attenuation) : worldUnits
+  .endFarAttenuation (Vertical_Circle_Facing_Photometric_Horizontal) : worldUnits
+  .contrast (Light_Contrast) : float
+  .softenDiffuseEdge (Diffuse_Soften) : float
+  .projector : boolean
+  .projectorMap (Projector_Map) : texturemap
+  .affectDiffuse (Affect_Diffuse) : boolean
+  .affectSpecular (Affect_Diffuse) : boolean
+  .ambientOnly (Ambient_Only) : boolean
+  .targetDistance (Target_Distance) : float
+  .light_length : worldUnits
+  .light_width : worldUnits
+  .light_radius : worldUnits
+  .atmosShadows (Atmospheric_Shadows_On) : boolean
+  .atmosOpacity (Atmospheric_Opacity) : float
+  .atmosColorAmt (Atmospheric_Color_Amount) : float
+  .shadowMultiplier (Shadow_Density) : float
+  .shadowColorMapEnable (Use_Shadow_Color_Map) : boolean
+  .shadowColor (Shadow_Color) : RGB color
+  .lightAffectsShadow (Light_Affects_Shadow) : boolean
+  .useGlobalShadowSettings (Use_Global_Params) : boolean
+  .shadowProjectorMap (Shadow_Projector_Map) : texturemap
+  .hotSpot (Beam_Angle) : float
+  .falloff (Field_Angle) : float
+  .showCone (Cone_Display) : boolean
+  .webFile (Web_Filename) : filename
+  .xRotation (X_Rotation) : float
+  .yRotation (Y_Rotation) : float
+  .zRotation (Z_Rotation) : float
+  .type : value
+  .distribution : value
+  .excludeList : value
+  .includeList : value
+  .shadowGenerator : value
+  .shadowGeneratorByName : value
+  .raytracedShadows : value
+  .color : color by value
+  .enabled : bool
+  .radius : float
+  .twoSidedShadows : boolean
+  .mapsize (Map_Size) : integer
+  .samplerange (Map_Range) : float
+  .mapbias (Map_Bias) : float
+  .absoluteMapBias (Absolute_Bias) : boolean
+
+
+
+Target_Linear
+  .on (Light_On) : boolean
+  .castShadows (Cast_Shadows) : boolean
+  .rgbFilter (Filter_Color) : RGB color
+  .intensity : float
+  .kelvin : float
+  .useKelvin (Use_Kelvin) : boolean
+  .intensityAt (Intensity_At) : float
+  .intensityType (Intensity_Type) : integer
+  .flux : float
+  .originalIntensity (Shape_Area_Shadows) : float
+  .originalFlux : float
+  .useMultiplier (Use_Dimmer) : boolean
+  .multiplier : float
+  .shiftColorWhenDimming (Shift_Color_When_Dimming) : boolean
+  .useFarAttenuation (Use_Far_Attenuation) : boolean
+  .displayFarAttenuationGizmo (Display_Far_Attenuation_Gizmo) : boolean
+  .startFarAttenuation (Start_Far_Attenuation) : worldUnits
+  .endFarAttenuation (Vertical_Circle_Facing_Photometric_Horizontal) : worldUnits
+  .contrast (Light_Contrast) : float
+  .softenDiffuseEdge (Diffuse_Soften) : float
+  .projector : boolean
+  .projectorMap (Projector_Map) : texturemap
+  .affectDiffuse (Affect_Diffuse) : boolean
+  .affectSpecular (Affect_Diffuse) : boolean
+  .ambientOnly (Ambient_Only) : boolean
+  .targetDistance (Target_Distance) : float
+  .light_length : worldUnits
+  .light_width : worldUnits
+  .light_radius : worldUnits
+  .atmosShadows (Atmospheric_Shadows_On) : boolean
+  .atmosOpacity (Atmospheric_Opacity) : float
+  .atmosColorAmt (Atmospheric_Color_Amount) : float
+  .shadowMultiplier (Shadow_Density) : float
+  .shadowColorMapEnable (Use_Shadow_Color_Map) : boolean
+  .shadowColor (Shadow_Color) : RGB color
+  .lightAffectsShadow (Light_Affects_Shadow) : boolean
+  .useGlobalShadowSettings (Use_Global_Params) : boolean
+  .shadowProjectorMap (Shadow_Projector_Map) : texturemap
+  .hotSpot (Beam_Angle) : float
+  .falloff (Field_Angle) : float
+  .showCone (Cone_Display) : boolean
+  .webFile (Web_Filename) : filename
+  .xRotation (X_Rotation) : float
+  .yRotation (Y_Rotation) : float
+  .zRotation (Z_Rotation) : float
+  .type : value
+  .distribution : value
+  .excludeList : value
+  .includeList : value
+  .shadowGenerator : value
+  .shadowGeneratorByName : value
+  .raytracedShadows : value
+  .color : color by value
+  .enabled : bool
+  .length : float
+  .twoSidedShadows : boolean
+  .mapsize (Map_Size) : integer
+  .samplerange (Map_Range) : float
+  .mapbias (Map_Bias) : float
+  .absoluteMapBias (Absolute_Bias) : boolean
+
+Free_Cylinder
+  .on (Light_On) : boolean
+  .castShadows (Cast_Shadows) : boolean
+  .rgbFilter (Filter_Color) : RGB color
+  .intensity : float
+  .kelvin : float
+  .useKelvin (Use_Kelvin) : boolean
+  .intensityAt (Intensity_At) : float
+  .intensityType (Intensity_Type) : integer
+  .flux : float
+  .originalIntensity (Shape_Area_Shadows) : float
+  .originalFlux : float
+  .useMultiplier (Use_Dimmer) : boolean
+  .multiplier : float
+  .shiftColorWhenDimming (Shift_Color_When_Dimming) : boolean
+  .useFarAttenuation (Use_Far_Attenuation) : boolean
+  .displayFarAttenuationGizmo (Display_Far_Attenuation_Gizmo) : boolean
+  .startFarAttenuation (Start_Far_Attenuation) : worldUnits
+  .endFarAttenuation (Vertical_Circle_Facing_Photometric_Horizontal) : worldUnits
+  .contrast (Light_Contrast) : float
+  .softenDiffuseEdge (Diffuse_Soften) : float
+  .projector : boolean
+  .projectorMap (Projector_Map) : texturemap
+  .affectDiffuse (Affect_Diffuse) : boolean
+  .affectSpecular (Affect_Diffuse) : boolean
+  .ambientOnly (Ambient_Only) : boolean
+  .targetDistance (Target_Distance) : float
+  .light_length : worldUnits
+  .light_width : worldUnits
+  .light_radius : worldUnits
+  .atmosShadows (Atmospheric_Shadows_On) : boolean
+  .atmosOpacity (Atmospheric_Opacity) : float
+  .atmosColorAmt (Atmospheric_Color_Amount) : float
+  .shadowMultiplier (Shadow_Density) : float
+  .shadowColorMapEnable (Use_Shadow_Color_Map) : boolean
+  .shadowColor (Shadow_Color) : RGB color
+  .lightAffectsShadow (Light_Affects_Shadow) : boolean
+  .useGlobalShadowSettings (Use_Global_Params) : boolean
+  .shadowProjectorMap (Shadow_Projector_Map) : texturemap
+  .hotSpot (Beam_Angle) : float
+  .falloff (Field_Angle) : float
+  .showCone (Cone_Display) : boolean
+  .webFile (Web_Filename) : filename
+  .xRotation (X_Rotation) : float
+  .yRotation (Y_Rotation) : float
+  .zRotation (Z_Rotation) : float
+  .type : value
+  .distribution : value
+  .excludeList : value
+  .includeList : value
+  .shadowGenerator : value
+  .shadowGeneratorByName : value
+  .raytracedShadows : value
+  .color : color by value
+  .enabled : bool
+  .length : float
+  .radius : float
+  .twoSidedShadows : boolean
+  .mapsize (Map_Size) : integer
+  .samplerange (Map_Range) : float
+  .mapbias (Map_Bias) : float
+  .absoluteMapBias (Absolute_Bias) : boolean
+
+IES_Sky
+  .multiplier : float
+  .color : RGB color
+  .rays_per_sample : integer
+  .ray_bias : float
+  .on : boolean
+  .castShadows (Cast_Shadows) : boolean
+  .sky_cover : float
+  .enabled (alias for on)
+  .rgb (alias for color)
+
+Free_Disc
+  .on (Light_On) : boolean
+  .castShadows (Cast_Shadows) : boolean
+  .rgbFilter (Filter_Color) : RGB color
+  .intensity : float
+  .kelvin : float
+  .useKelvin (Use_Kelvin) : boolean
+  .intensityAt (Intensity_At) : float
+  .intensityType (Intensity_Type) : integer
+  .flux : float
+  .originalIntensity (Shape_Area_Shadows) : float
+  .originalFlux : float
+  .useMultiplier (Use_Dimmer) : boolean
+  .multiplier : float
+  .shiftColorWhenDimming (Shift_Color_When_Dimming) : boolean
+  .useFarAttenuation (Use_Far_Attenuation) : boolean
+  .displayFarAttenuationGizmo (Display_Far_Attenuation_Gizmo) : boolean
+  .startFarAttenuation (Start_Far_Attenuation) : worldUnits
+  .endFarAttenuation (Vertical_Circle_Facing_Photometric_Horizontal) : worldUnits
+  .contrast (Light_Contrast) : float
+  .softenDiffuseEdge (Diffuse_Soften) : float
+  .projector : boolean
+  .projectorMap (Projector_Map) : texturemap
+  .affectDiffuse (Affect_Diffuse) : boolean
+  .affectSpecular (Affect_Diffuse) : boolean
+  .ambientOnly (Ambient_Only) : boolean
+  .targetDistance (Target_Distance) : float
+  .light_length : worldUnits
+  .light_width : worldUnits
+  .light_radius : worldUnits
+  .atmosShadows (Atmospheric_Shadows_On) : boolean
+  .atmosOpacity (Atmospheric_Opacity) : float
+  .atmosColorAmt (Atmospheric_Color_Amount) : float
+  .shadowMultiplier (Shadow_Density) : float
+  .shadowColorMapEnable (Use_Shadow_Color_Map) : boolean
+  .shadowColor (Shadow_Color) : RGB color
+  .lightAffectsShadow (Light_Affects_Shadow) : boolean
+  .useGlobalShadowSettings (Use_Global_Params) : boolean
+  .shadowProjectorMap (Shadow_Projector_Map) : texturemap
+  .hotSpot (Beam_Angle) : float
+  .falloff (Field_Angle) : float
+  .showCone (Cone_Display) : boolean
+  .webFile (Web_Filename) : filename
+  .xRotation (X_Rotation) : float
+  .yRotation (Y_Rotation) : float
+  .zRotation (Z_Rotation) : float
+  .type : value
+  .distribution : value
+  .excludeList : value
+  .includeList : value
+  .shadowGenerator : value
+  .shadowGeneratorByName : value
+  .raytracedShadows : value
+  .color : color by value
+  .enabled : bool
+  .radius : float
+  .twoSidedShadows : boolean
+  .mapsize (Map_Size) : integer
+  .samplerange (Map_Range) : float
+  .mapbias (Map_Bias) : float
+  .absoluteMapBias (Absolute_Bias) : boolean
+
+Target_Light
+  .on (Light_On) : boolean
+  .castShadows (Cast_Shadows) : boolean
+  .rgbFilter (Filter_Color) : RGB color
+  .intensity : float
+  .kelvin : float
+  .useKelvin (Use_Kelvin) : boolean
+  .intensityAt (Intensity_At) : float
+  .intensityType (Intensity_Type) : integer
+  .flux : float
+  .originalIntensity (Shape_Area_Shadows) : float
+  .originalFlux : float
+  .useMultiplier (Use_Dimmer) : boolean
+  .multiplier : float
+  .shiftColorWhenDimming (Shift_Color_When_Dimming) : boolean
+  .useFarAttenuation (Use_Far_Attenuation) : boolean
+  .displayFarAttenuationGizmo (Display_Far_Attenuation_Gizmo) : boolean
+  .startFarAttenuation (Start_Far_Attenuation) : worldUnits
+  .endFarAttenuation (Vertical_Circle_Facing_Photometric_Horizontal) : worldUnits
+  .contrast (Light_Contrast) : float
+  .softenDiffuseEdge (Diffuse_Soften) : float
+  .projector : boolean
+  .projectorMap (Projector_Map) : texturemap
+  .affectDiffuse (Affect_Diffuse) : boolean
+  .affectSpecular (Affect_Diffuse) : boolean
+  .ambientOnly (Ambient_Only) : boolean
+  .targetDistance (Target_Distance) : float
+  .light_length : worldUnits
+  .light_width : worldUnits
+  .light_radius : worldUnits
+  .atmosShadows (Atmospheric_Shadows_On) : boolean
+  .atmosOpacity (Atmospheric_Opacity) : float
+  .atmosColorAmt (Atmospheric_Color_Amount) : float
+  .shadowMultiplier (Shadow_Density) : float
+  .shadowColorMapEnable (Use_Shadow_Color_Map) : boolean
+  .shadowColor (Shadow_Color) : RGB color
+  .lightAffectsShadow (Light_Affects_Shadow) : boolean
+  .useGlobalShadowSettings (Use_Global_Params) : boolean
+  .shadowProjectorMap (Shadow_Projector_Map) : texturemap
+  .hotSpot (Beam_Angle) : float
+  .falloff (Field_Angle) : float
+  .showCone (Cone_Display) : boolean
+  .webFile (Web_Filename) : filename
+  .xRotation (X_Rotation) : float
+  .yRotation (Y_Rotation) : float
+  .zRotation (Z_Rotation) : float
+  .type : value
+  .distribution : value
+  .excludeList : value
+  .includeList : value
+  .shadowGenerator : value
+  .shadowGeneratorByName : value
+  .raytracedShadows : value
+  .color : color by value
+  .enabled : bool
+  .twoSidedShadows : boolean
+  .mapsize (Map_Size) : integer
+  .samplerange (Map_Range) : float
+  .mapbias (Map_Bias) : float
+  .absoluteMapBias (Absolute_Bias) : boolean
+
+mr_Sun
+  .rgb : RGB color
+  .multiplier (intensity) : float
+  .targetDistance (Target_Distance) : float
+  .useGlobalShadowSettings (Use_Global_Shadow_Settings) : boolean
+  .hasTarget (Has_Target) : boolean
+  .on : boolean
+  .castShadows (Cast_Shadows) : boolean
+  .shadowSamples (Shadow_Samples) : integer
+  .shadowSoftness (Shadow_Softness) : float
+  .inherit (Inherit_from_mr_Sky) : boolean
+  .skymult (Multiplier) : float
+  .haze : float
+  .redblueshift (Redness) : float
+  .saturation : float
+  .horizonheight (Horizon_Height) : float
+  .usephotontarget (Use_Photon_Target) : boolean
+  .photontarget (Photon_Target) : float
+  .excludeList : value
+  .includeList : value
+  .shadowGenerator : value
+  .shadowGeneratorByName : value
+  .raytracedShadows : value
+  .color : color by value
+  .enabled : bool
+  .raytraceBias (Bias) : float
+  .maxDepth (Max_Quadtree_Depth) : integer
+  .twoSidedShadows : boolean
+
+Target_Area
+  .on (Light_On) : boolean
+  .castShadows (Cast_Shadows) : boolean
+  .rgbFilter (Filter_Color) : RGB color
+  .intensity : float
+  .kelvin : float
+  .useKelvin (Use_Kelvin) : boolean
+  .intensityAt (Intensity_At) : float
+  .intensityType (Intensity_Type) : integer
+  .flux : float
+  .originalIntensity (Shape_Area_Shadows) : float
+  .originalFlux : float
+  .useMultiplier (Use_Dimmer) : boolean
+  .multiplier : float
+  .shiftColorWhenDimming (Shift_Color_When_Dimming) : boolean
+  .useFarAttenuation (Use_Far_Attenuation) : boolean
+  .displayFarAttenuationGizmo (Display_Far_Attenuation_Gizmo) : boolean
+  .startFarAttenuation (Start_Far_Attenuation) : worldUnits
+  .endFarAttenuation (Vertical_Circle_Facing_Photometric_Horizontal) : worldUnits
+  .contrast (Light_Contrast) : float
+  .softenDiffuseEdge (Diffuse_Soften) : float
+  .projector : boolean
+  .projectorMap (Projector_Map) : texturemap
+  .affectDiffuse (Affect_Diffuse) : boolean
+  .affectSpecular (Affect_Diffuse) : boolean
+  .ambientOnly (Ambient_Only) : boolean
+  .targetDistance (Target_Distance) : float
+  .light_length : worldUnits
+  .light_width : worldUnits
+  .light_radius : worldUnits
+  .atmosShadows (Atmospheric_Shadows_On) : boolean
+  .atmosOpacity (Atmospheric_Opacity) : float
+  .atmosColorAmt (Atmospheric_Color_Amount) : float
+  .shadowMultiplier (Shadow_Density) : float
+  .shadowColorMapEnable (Use_Shadow_Color_Map) : boolean
+  .shadowColor (Shadow_Color) : RGB color
+  .lightAffectsShadow (Light_Affects_Shadow) : boolean
+  .useGlobalShadowSettings (Use_Global_Params) : boolean
+  .shadowProjectorMap (Shadow_Projector_Map) : texturemap
+  .hotSpot (Beam_Angle) : float
+  .falloff (Field_Angle) : float
+  .showCone (Cone_Display) : boolean
+  .webFile (Web_Filename) : filename
+  .xRotation (X_Rotation) : float
+  .yRotation (Y_Rotation) : float
+  .zRotation (Z_Rotation) : float
+  .type : value
+  .distribution : value
+  .excludeList : value
+  .includeList : value
+  .shadowGenerator : value
+  .shadowGeneratorByName : value
+  .raytracedShadows : value
+  .color : color by value
+  .enabled : bool
+  .length : float
+  .width : float
+  .twoSidedShadows : boolean
+  .mapsize (Map_Size) : integer
+  .samplerange (Map_Range) : float
+  .mapbias (Map_Bias) : float
+  .absoluteMapBias (Absolute_Bias) : boolean
+
