@@ -18,10 +18,11 @@ def gen_ms_by_type(maxKey,suValue,suType=nil)
     transform = "(matrix3 [#{v0.x},#{v0.y},#{v0.z}] [#{v1.x},#{v1.y},#{v1.z}] [#{v2.x},#{v2.y},#{v2.z}] [#{v3.x},#{v3.y},#{v3.z}])"
     s << "#{maxKey}=#{transform}"
   end
+  s << "\n"
   return s
 end
 
-def cnv (input, output)
+def cnv (input, output, type = nil)
     if(output == nil)
         return ""
     end
@@ -29,10 +30,8 @@ def cnv (input, output)
     if (output == "default") 
         return ""
     end
-    return "vr."<< input <<" = "<< output.to_s << "\n"
-
-
-    
+    # return "vr."<< input <<" = "<< output.to_s << "\n"
+    return gen_ms_by_type(input,output,type)    
 end
 
 def get_int(output_xml_node,name)
@@ -78,17 +77,18 @@ end
 
 
 def get_from_xml(output_xml_node,name,type=nil)
-  if (type == nil) 
-    type = "string"
+  if (type == nil)     
+    params = output_xml_node.elementsByTagName( "parameter" )
+    for currentParam in params 
+        paramName = currentParam.attribute("name")
+        if (paramName == name)
+          type = currentParam.attribute("type")
+          break
+        end
+    end 
   end
-  params = output_xml_node.elementsByTagName( "parameter" )
-  for currentParam in params 
-    paramName = currentParam.attribute("name")
-    if (paramName == name)
-      type = currentParam.attribute("type")
-      break
-    end
-  end 
+  
+
   if type=="integer"
     return VRayForSketchUp.get_integer_parameter_value_from_xml_node( output_xml_node, name)
   elsif type=="bool"
@@ -122,7 +122,18 @@ def c (output_xml_node,input, output)
         return ""
     end
     # puts get_from_xml(output_xml_node,output)
-   return cnv(input,get_from_xml(output_xml_node,output) )
+    params = output_xml_node.elementsByTagName( "parameter" )
+    for currentParam in params 
+        paramName = currentParam.attribute("name")
+        if (paramName == input)
+          type = currentParam.attribute("type")
+          break
+        end
+    end 
+
+    out = get_from_xml(output_xml_node,output,type)
+    # puts "#{input} : #{out}   #{type}"
+    return cnv(input, out,type)
 end
 
 def get_all_params_node( parentNode, nodeNames = nil )
