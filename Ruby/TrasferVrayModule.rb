@@ -1,8 +1,8 @@
 require 'sketchup.rb'
 require 'VfSExport.rb'
 
-def gen_ms_by_type(maxKey,suValue,suType)
-  s = "vr."
+def gen_ms_by_type(maxKey,suValue,suType,prefix="vr.")
+  s = prefix
   case suType
     when "filename" 
       s << "#{maxKey}=undefined"
