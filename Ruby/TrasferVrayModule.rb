@@ -6,6 +6,8 @@ def gen_ms_by_type(maxKey,suValue,suType,prefix="vr.")
   case suType
     when "filename" 
       s << "#{maxKey}=undefined"
+    when "bool"
+      s << "#{maxKey}=" << (suValue ? "1" : "0")
     when "string","float","worldunit","integer","double" 
       s << "#{maxKey}=#{suValue.to_s}"
     when "color"  #RGB Color
@@ -23,18 +25,6 @@ def gen_ms_by_type(maxKey,suValue,suType,prefix="vr.")
   return s
 end
 
-<<<<<<< HEAD
-
-def cnv (input, output)
-    if(output)
-        if(output=="default") return ""
-        end
-        return "vr."<< input <<" = "<< output.to_s << "\n"
-    end
-    return ""
-end
-
-=======
 def c (output_xml_node,input, output)
     if (output == "default") 
         return ""
@@ -72,7 +62,6 @@ def cnv (input, output, type = nil)
     return gen_ms_by_type(input,output,type)    
 end
 
->>>>>>> 2fbacd75c5d23e0f200dcea14a30a34508d1c230
 def get_int(output_xml_node,name)
     return VRayForSketchUp.get_integer_parameter_value_from_xml_node( output_xml_node, name)
 end
@@ -191,110 +180,19 @@ def get_all_params_nodes( parentNode )
     
 end
 
-<<<<<<< HEAD
-
-<<<<<<< HEAD
-# def export_settings_output 
-#     s = ""
-#     # s = VRayForSketchUp::StringIO.new
-#     options_hash_as_array = VRayForSketchUp.get_vfs_scene_attribute(VRayForSketchUp::VFS_OPTIONS_DICTIONARY)
-#  #            # if options_hash_as_array != nil
-#     options_hash = VRayForSketchUp.array_to_hash( options_hash_as_array )
-=======
-def export_settings_output 
-	s = ""
-    # s = VRayForSketchUp::StringIO.new
-    options_hash_as_array = VRayForSketchUp.get_vfs_scene_attribute(VRayForSketchUp::VFS_OPTIONS_DICTIONARY)
-=======
 def get_xml_node(key)
-     options_hash_as_array = VRayForSketchUp.get_vfs_scene_attribute(VRayForSketchUp::VFS_OPTIONS_DICTIONARY)
->>>>>>> origin/master
+    options_hash_as_array = VRayForSketchUp.get_vfs_scene_attribute(VRayForSketchUp::VFS_OPTIONS_DICTIONARY)
  #            # if options_hash_as_array != nil
     options_hash = VRayForSketchUp.array_to_hash( options_hash_as_array )
->>>>>>> 2fbacd75c5d23e0f200dcea14a30a34508d1c230
 
-#     # VRayForSketchUp.initScene()
-#     # VfSExport.scene.cache_scene_options()
-#     # options_hash = VfSExport.scene.modified_options_lookup
+    # VRayForSketchUp.initScene()
+    # VfSExport.scene.cache_scene_options()
+    # options_hash = VfSExport.scene.modified_options_lookup
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-#     output_xml_string = options_hash["/SettingsOutput"]
-#     output_xml_doc = VRayXML::QDomDocument.new output_xml_string
-
-#     output_xml_node = VRayForSketchUp.find_asset_in_doc(output_xml_doc, "/SettingsOutput" );
-     
-=======
-	output_xml_string = options_hash["/SettingsOutput"]
-	output_xml_doc = VRayXML::QDomDocument.new output_xml_string
-
-	output_xml_node = VRayForSketchUp.find_asset_in_doc(output_xml_doc, "/SettingsOutput" );
-	 
->>>>>>> 2fbacd75c5d23e0f200dcea14a30a34508d1c230
-    
-#     # if scene.do_animation
-#     #     animEnd = scene.end_time
-#     #     framesPerSec = self.fps
-        
-<<<<<<< HEAD
-#     # end
-    
-#     # puts output_xml_node
-
-
-#     @img_width = get_int( output_xml_node, "img_width")
-#     @img_height = get_int( output_xml_node, "img_height")
-#     override_viewport = get_bool( output_xml_node, "override_viewport" )
-#     if override_viewport
-#         img_width = @img_width
-#         img_height = @img_height
-#     else
-#         img_width = camera.img_width
-#         img_height = camera.img_height
-#     end
-
-#     img_rawFileVFB = get_int( output_xml_node, "img_rawFileVFB")
-#     rgn_width = get_float( output_xml_node, "rgn_width")
-#     img_rawFile = get_bool( output_xml_node, "img_rawFile")
-#     r_height = get_int( output_xml_node, "r_height")
-#     frame_start = get_int( output_xml_node, "frame_start")
-#     # framesList = VRayForSketchUp.get_param_value_node(output_xml_node,"frames","list").elementsByTagName("entry")
-#     frames = get_list_int(output_xml_node,"frames")    
-#     bmp_width = get_int( output_xml_node, "bmp_width")
-#     anim_start = get_double( output_xml_node, "anim_start")
-#     rgn_height = get_float( output_xml_node, "rgn_height")
-#     save_render = get_bool(output_xml_node, "save_render")
-#     frames_per_second = get_float(output_xml_node, "frames_per_second")
-#     frame_stamp_enabled = get_bool(output_xml_node, "frame_stamp_enabled")
-#     rgn_left = get_float(output_xml_node, "rgn_left")
-#     do_animation = get_bool(output_xml_node, "do_animation")
-#     render_frame_range = get_bool(output_xml_node, "render_frame_range")
-#     r_left = get_int( output_xml_node, "r_left")
-#     img_file = get_string(output_xml_node, "img_file")
-#     rgn_top = get_float(output_xml_node,"rgn_top")
-#     img_pixelAspect = get_float(output_xml_node,"img_pixelAspect")
-#     img_imageAspectLocked = get_bool(output_xml_node, "img_imageAspectLocked")
-#     frame_stamp_text = get_string(output_xml_node, "frame_stamp_text")
-#     img_pixelAspectLocked = get_bool(output_xml_node, "img_pixelAspectLocked")
-#     frame_rate = get_int( output_xml_node, "frame_rate")
-#     img_dir = get_string(output_xml_node, "img_dir") 
-#     img_imageAspect = get_float(output_xml_node, "img_imageAspect")
-#     img_separateAlpha = get_bool(output_xml_node, "img_separateAlpha")
-#     anim_end = get_double(output_xml_node, "anim_end")
-#     r_top = get_int( output_xml_node, "r_top")
-#     bmp_height = get_int( output_xml_node, "bmp_height")
-#     r_width =  get_int( output_xml_node, "r_width")
-#     img_file_needFrameNumber = get_bool( output_xml_node, "img_file_needFrameNumber")
-=======
-    # end
-	
-    # puts output_xml_node
-=======
     output_xml_string = options_hash["/#{key}"]
     output_xml_doc = VRayXML::QDomDocument.new output_xml_string
     return VRayForSketchUp.find_asset_in_doc(output_xml_doc, "/#{key}" );
 end
->>>>>>> origin/master
 
 
 def export_settings_output 
@@ -345,37 +243,8 @@ def export_settings_output
     bmp_height = get_int( output_xml_node, "bmp_height")
     r_width =  get_int( output_xml_node, "r_width")
     img_file_needFrameNumber = get_bool( output_xml_node, "img_file_needFrameNumber")
->>>>>>> 2fbacd75c5d23e0f200dcea14a30a34508d1c230
     
    
-<<<<<<< HEAD
-#     s << cnv("output_aspectlock",img_pixelAspectLocked)
-#     s << cnv("output_imageaspect ",img_imageAspect)
-#     s << cnv("output_width",img_width)
-#     s << cnv("output_height",img_height)
-#     s << cnv("output_aspect",img_pixelAspect)
-
-#     s << cnv("output_fileOnly",(not img_rawFile and not img_file == ""))
-#     s << cnv("output_saveFile",(not img_file == ""))
-    
-<<<<<<< HEAD
-#     s << cnv("output_fileName",img_file)
-#     s << cnv("output_saveRawFile",img_rawFile)
-#     # s << cnv("output_rawFileName",img_rawFile)
-
-#     # s << cnv("output_useram",true)
-#   #   s << cnv("output_genpreview",true)
-#   #   .output_splitgbuffer : boolean
-#   # .output_splitfilename : filename
-#   # .output_splitbitmap : bitmap
-#   # .output_getsetsfrommax : boolean
-#   # .output_splitRGB : boolean
-#   # .output_splitAlpha : boolean
-#   # .output_renderType : integer    
-=======
-    s << cnv("output_fileName",img_file)
-    s << cnv("output_saveRawFile",img_rawFile)
-=======
     s << cnv("output_aspectlock",img_pixelAspectLocked)
     s << cnv("output_imageaspect ",img_imageAspect)
     s << cnv("output_width",img_width)
@@ -387,7 +256,6 @@ def export_settings_output
     
     s << cnv("output_fileName","\"#{img_file}\"")
     # s << cnv("output_saveRawFile",img_rawFile)
->>>>>>> origin/master
     # s << cnv("output_rawFileName",img_rawFile)
 
     # s << cnv("output_useram",true)
@@ -403,10 +271,6 @@ def export_settings_output
     s << cnv("output_regxmin",rgn_left)
     s << cnv("output_regxmax",rgn_left+rgn_width)
     s << cnv("output_regymin",rgn_top)
-<<<<<<< HEAD
-    s << cnv("output_regymax",rgn_top+rgn_height)      
->>>>>>> 2fbacd75c5d23e0f200dcea14a30a34508d1c230
-=======
     s << cnv("output_regymax",rgn_top+rgn_height)  
     s << c(output_xml_node,"output_splitAlpha","img_separateAlpha")    
     s << c(output_xml_node,"output_saveFile","save_render")    
@@ -418,93 +282,39 @@ def export_settings_output
     s << c(output_xml_node,"system_frameStamp_string","frame_stamp_text")
     s << c(output_xml_node,"system_frameStamp_justify","default")
     s << c(output_xml_node,"system_frameStamp_fullWidth","default")
->>>>>>> origin/master
     
 
-#     puts s.to_s
-# end
+    puts s.to_s
+end
 
-<<<<<<< HEAD
-# def export_photonMap
-#     s = ""
-#     # s = VRayForSketchUp::StringIO.new
-#     options_hash_as_array = VRayForSketchUp.get_vfs_scene_attribute(VRayForSketchUp::VFS_OPTIONS_DICTIONARY)
-#  #            # if options_hash_as_array != nil
-#     options_hash = VRayForSketchUp.array_to_hash( options_hash_as_array )
-
-#     # VRayForSketchUp.initScene()
-#     # VfSExport.scene.cache_scene_options()
-#     # options_hash = VfSExport.scene.modified_options_lookup
-
-#     output_xml_string = options_hash["/SettingsPhotonMap"]
-#     output_xml_doc = VRayXML::QDomDocument.new output_xml_string
-
-<<<<<<< HEAD
-#     output_xml_node = VRayForSketchUp.find_asset_in_doc(output_xml_doc, "/SettingsPhotonMap" );
-#     # puts output_xml_node
-#     get_all_params_nodes output_xml_node
-#     # puts nodeNames
-
-    
-#     s << cnv("photonMap_searchDist",get_float(output_xml_node,"search_distance" ) )
-#     s << cnv("photonMap_autoDist",get_bool(output_xml_node,"auto_search_distance") )
-#     s << cnv("photonMap_autoSave",get_bool(output_xml_node,"auto_save") )
-#     s << cnv("photonMap_autoSaveFileName",get_string(output_xml_node,"auto_save_file") )
-#     s << cnv("photonMap_bounces",get_int(output_xml_node,"bounces") )
-#     s << cnv("photonMap_maxPhotons",get_int(output_xml_node,"max_photons"))
-
-#     s << cnv("photonMap_convexHullEstimate",get_bool(output_xml_node,"convex_hull_estimate") )
-#     s << cnv("photonMap_dontDelete",get_bool(output_xml_node,"dont_delete") )
-#     s << cnv("photonMap_loadFileName",get_string(output_xml_node,"file") )
-#     s << cnv("photonMap_maxDensity",get_float(output_xml_node,"max_density") )
-
-#     s << cnv("photonMap_mode",get_int(output_xml_node,"mode") )
-#     s << cnv("photonMap_multiplier",get_float(output_xml_node,"multiplier") )
-#     s << cnv("photonMap_retraceBounces", get_int(output_xml_node,"retrace_bounces") )
-#     s << cnv("photonMap_retraceCorners", get_float(output_xml_node,"retrace_corners") )
-#     s << cnv("photonMap_saveFileName", get_string(output_xml_node,"file") )
-#     s << cnv("photonMap_showCalcPhase", get_bool(output_xml_node,"show_calc_phase") )
-#     s << cnv("photonMap_storeDirectLight", get_bool(output_xml_node,"store_direct_light") )
-#     # s << cnv("photonMap_switchToSavedMap", get_bool(output_xml_node,"store_direct_light") )
-#     # s << cnv("photonMap_convert",get_bool(output_xml_node,"max_photons"))
-#     s << cnv("photonMap_interpSamples",get_int(output_xml_node,"prefilter_samples"))
-# end
-=======
-    output_xml_node = VRayForSketchUp.find_asset_in_doc(output_xml_doc, "/SettingsPhotonMap" );
-    # puts output_xml_node
-    # get_all_params_nodes output_xml_node
-    # puts nodeNames
-=======
 def export_photonMap
     s = ""
     output_xml_node = get_xml_node("SettingsPhotonMap");
->>>>>>> origin/master
+    # puts output_xml_node
 
-    s << cnv("photonMap_searchDist",get_float(output_xml_node,"search_distance" ) )
-    s << cnv("photonMap_autoDist",get_bool(output_xml_node,"auto_search_distance") )
-    s << cnv("photonMap_autoSave",get_bool(output_xml_node,"auto_save") )
-    s << cnv("photonMap_autoSaveFileName",get_string(output_xml_node,"auto_save_file") )
-    s << cnv("photonMap_bounces",get_int(output_xml_node,"bounces") )
-    s << cnv("photonMap_maxPhotons",get_int(output_xml_node,"max_photons"))
+    s << c(output_xml_node,"photonMap_searchDist","search_distance" )
+    s << c(output_xml_node,"photonMap_autoDist","auto_search_distance" )
+    s << c(output_xml_node,"photonMap_autoSave","auto_save" )
+    s << c(output_xml_node,"photonMap_autoSaveFileName","auto_save_file" )
+    s << c(output_xml_node,"photonMap_bounces","bounces") 
+    s << c(output_xml_node,"photonMap_maxPhotons","max_photons")
 
-    s << cnv("photonMap_convexHullEstimate",get_bool(output_xml_node,"convex_hull_estimate") )
-    s << cnv("photonMap_dontDelete",get_bool(output_xml_node,"dont_delete") )
-    s << cnv("photonMap_loadFileName",get_string(output_xml_node,"file") )
-    s << cnv("photonMap_maxDensity",get_float(output_xml_node,"max_density") )
-
-    s << cnv("photonMap_mode",get_int(output_xml_node,"mode") )
-    s << cnv("photonMap_multiplier",get_float(output_xml_node,"multiplier") )
-    s << cnv("photonMap_retraceBounces", get_int(output_xml_node,"retrace_bounces") )
-    s << cnv("photonMap_retraceCorners", get_float(output_xml_node,"retrace_corners") )
-    s << cnv("photonMap_saveFileName", get_string(output_xml_node,"file") )
-    s << cnv("photonMap_showCalcPhase", get_bool(output_xml_node,"show_calc_phase") )
-    s << cnv("photonMap_storeDirectLight", get_bool(output_xml_node,"store_direct_light") )
+    s << c(output_xml_node,"photonMap_convexHullEstimate","convex_hull_estimate") 
+    s << c(output_xml_node,"photonMap_dontDelete","dont_delete") 
+    s << c(output_xml_node,"photonMap_loadFileName","file")
+    s << c(output_xml_node,"photonMap_maxDensity","max_density")
+    s << c(output_xml_node,"photonMap_mode","mode")
+    s << c(output_xml_node,"photonMap_multiplier","multiplier")
+    s << c(output_xml_node,"photonMap_retraceBounces", "retrace_bounces") 
+    s << c(output_xml_node,"photonMap_retraceCorners","retrace_corners")
+    s << c(output_xml_node,"photonMap_saveFileName","file")
+    s << c(output_xml_node,"photonMap_showCalcPhase","show_calc_phase")
+    s << c(output_xml_node,"photonMap_storeDirectLight","store_direct_light")
     # s << cnv("photonMap_switchToSavedMap", get_bool(output_xml_node,"store_direct_light") )
     # s << cnv("photonMap_convert",get_bool(output_xml_node,"max_photons"))
-    s << cnv("photonMap_interpSamples",get_int(output_xml_node,"prefilter_samples"))
+    s << c(output_xml_node,"photonMap_interpSamples","prefilter_samples")
     puts s
 end
->>>>>>> 2fbacd75c5d23e0f200dcea14a30a34508d1c230
 
 # def export_irrad_map
 #     s = ""
@@ -530,56 +340,16 @@ def export_option
     s = ""
     output_xml_node = get_xml_node("SettingsOptions");
 
-<<<<<<< HEAD
-    output_xml_node = VRayForSketchUp.find_asset_in_doc(output_xml_doc, "/SettingsOptions" );
-    # puts output_xml_node
-    # get_all_params_nodes output_xml_node
-
-    # s << c(".options_defaultLights",)
-    # s << c(output_xml_doc,"options_defaultLights")
-    
-=======
     s << c(output_xml_node,"options_displacement","geom_displacement")
->>>>>>> origin/master
     # s << cnv(".")
     s << c(output_xml_node,"options_dontRenderImage","gi_dontRenderImage")
     s << c(output_xml_node,"options_displacement","geom_displacement")
     s << c(output_xml_node,"options_filterMaps","mtl_filterMaps")
     s << c(output_xml_node,"options_geom_backfaceCull","geom_backfaceCull")
     s << c(output_xml_node,"options_glossyEffects","mtl_glossy")
-    # s << c(output_xml_node,"options_glossyEffects","mtl_glossy")
-
-<<<<<<< HEAD
-    # s << c(output_xml_node,"options_defaultLights")
-    s << c(output_xml_node,"options_displacement","default")
-    s << c(output_xml_node,"options_displacement","geom_displacement")
-    s << c(output_xml_node,"options_filterMaps","mtl_filterMaps")
-    s << c(output_xml_node,"options_geom_backfaceCull","geom_backfaceCull")
     s << c(output_xml_node,"options_glossyEffects","mtl_glossy")
-    s << c(output_xml_node,"options_hiddenLights","default")
-    s << c(output_xml_node,"options_lights","default")
-      .options_limitDepth (alias for options_overrideDepth_on)
-    s << c(output_xml_node,"options_maps","default")
-      .options_maxDepth (alias for options_overrideDepth)
-    s << c(output_xml_node,"options_maxRayIntensity","default")
-    s << c(output_xml_node,"options_maxRayIntensity_on (options_clampRayIntensity)","default")
-    s << c(output_xml_node,"options_mtl_filterMaps_indirect","default")
-    s << c(output_xml_node,"options_overrideDepth","default")
-    s << c(output_xml_node,"options_overrideDepth_on","default")
-    s << c(output_xml_node,"options_overrideMtl_mtl","default")
-    s << c(output_xml_node,"options_overrideMtl_on","default")
-    s << c(output_xml_node,"options_probabilisticLights","default")
-    s << c(output_xml_node,"options_probabilisticLightsCount","default")
-    s << c(output_xml_node,"options_ray_bias","default")
-    s << c(output_xml_node,"options_reflectionRefraction","default")
-    s << c(output_xml_node,"options_shadows","default")
-    s << c(output_xml_node,"options_showGIOnly","default")
-    s << c(output_xml_node,"options_transpCutoff","default")
-    s << c(output_xml_node,"options_transpMaxLevels","default")
-    s << c(output_xml_node,"options_use3dsMaxPhotometricUnits","default")
-    s << c(output_xml_node,"options_useLegacyModels","default")
-    s << c(output_xml_node,"options_ui_view","default")
-=======
+
+
 #      s << c(output_xml_node,"options_defaultLights","default")
 #         s << c(output_xml_node,"options_displacement","default")
 # s << c(output_xml_node,"options_dontRenderImage","default")
@@ -609,14 +379,15 @@ def export_option
 # s << c(output_xml_node,"options_use3dsMaxPhotometricUnits","default")
 # s << c(output_xml_node,"options_useLegacyModels","default")
 # s << c(output_xml_node,"options_ui_view","default")
->>>>>>> 2fbacd75c5d23e0f200dcea14a30a34508d1c230
 
     puts s
+
 end
 
 def export_lightcache
     s = ""
     output_xml_node = get_xml_node("SettingsLightCache");    
+    # puts output_xml_node
 
     s << c(output_xml_node,"lightcache_adaptiveTracing","adaptive_sampling")
     s << c(output_xml_node,"lightcache_adaptiveTracing_dirsOnly","adaptive_dirs_only")
@@ -637,8 +408,8 @@ def export_lightcache
     s << c(output_xml_node,"lightcache_retrace_on","retrace_enabled")
     s << c(output_xml_node,"lightcache_retrace_threshold","retrace_threshold")
     s << c(output_xml_node,"lightcache_sampleSize","sample_size")
-    s << c(output_xml_node,"lightcache_saveFileName","auto_save_file")
-    s << c(output_xml_node,"lightcache_scale","default")
+    s << c(output_xml_node,"lightcache_saveFileName","file")
+    s << c(output_xml_node,"lightcache_scale","world_scale")
     s << c(output_xml_node,"lightcache_showCalcPhase","show_calc_phase")
     s << c(output_xml_node,"lightcache_storeDirectLight","store_direct_light")
     s << c(output_xml_node,"lightcache_subdivs","subdivs")
@@ -659,9 +430,6 @@ def export_lightcache
     puts s 
 end
 
-<<<<<<< HEAD
-def 
-=======
 def export_raycaster
     s = ""
     output_xml_node = get_xml_node("SettingsRaycaster");    
@@ -847,7 +615,6 @@ def export_rt_engine
     puts s 
 end
 
->>>>>>> origin/master
 
 
 file_loaded("VfSExport.rb")
@@ -855,7 +622,7 @@ file_loaded("TrasferVrayModule.rb")
 # export_settings_output
 # export_photonMap
 # export_irrad_map
-#export_lightcache
+# export_lightcache
 # export_raycaster
 # export_motionblur
 # export_image_sampler
@@ -863,5 +630,5 @@ file_loaded("TrasferVrayModule.rb")
 # export_irradmap
 # export_environment
 # export_camera_dof
-# export_dmc_sampler
-export_rt_engine
+export_dmc_sampler
+# export_rt_engine
