@@ -7,34 +7,76 @@ def cnv (input, output)
 	return "vr."<< input <<" = "<< output.to_s << "\n"
 end
 
+def get_int(output_xml_node,name)
+    return VRayForSketchUp.get_integer_parameter_value_from_xml_node( output_xml_node, name)
+end
+
+def get_bool(output_xml_node,name)
+    return VRayForSketchUp.get_bool_parameter_value_from_xml_node( output_xml_node, name)
+end
+
+def get_float(output_xml_node,name)
+    return VRayForSketchUp.get_float_parameter_value_from_xml_node( output_xml_node, name)
+end
+
+def get_double(output_xml_node,name)
+    return VRayForSketchUp.get_param_value_node( output_xml_node, name,"double")
+end
+
+def get_string(output_xml_node,name)
+    return VRayForSketchUp.get_param_value_node( output_xml_node, name,"string").firstChild.to_s
+end
+
+def get_list_int(output_xml_node,name)
+    framesList = VRayForSketchUp.get_param_value_node(output_xml_node,name,"list").elementsByTagName("entry")
+    frames = [];
+
+    framesList.each{ |frame|
+        frames << frame.firstChild.to_s.to_i
+    }
+    return frames
+end
+
+
+def get_list(output_xml_node,name)
+    framesList = VRayForSketchUp.get_param_value_node(output_xml_node,name,"list").elementsByTagName("entry")
+    frames = [];
+
+    framesList.each{ |frame|
+        frames << frame.firstChild.to_s
+    }
+    return frames
+end
+
 def export_settings_output 
 	s = ""
-	options_hash_as_array = VRayForSketchUp.get_vfs_scene_attribute(VRayForSketchUp::VFS_OPTIONS_DICTIONARY)
-            # if options_hash_as_array != nil
+    # s = VRayForSketchUp::StringIO.new
+    options_hash_as_array = VRayForSketchUp.get_vfs_scene_attribute(VRayForSketchUp::VFS_OPTIONS_DICTIONARY)
+ #            # if options_hash_as_array != nil
     options_hash = VRayForSketchUp.array_to_hash( options_hash_as_array )
+
+    # VRayForSketchUp.initScene()
+    # VfSExport.scene.cache_scene_options()
+    # options_hash = VfSExport.scene.modified_options_lookup
 
 	output_xml_string = options_hash["/SettingsOutput"]
 	output_xml_doc = VRayXML::QDomDocument.new output_xml_string
 
 	output_xml_node = VRayForSketchUp.find_asset_in_doc(output_xml_doc, "/SettingsOutput" );
-
-    scene = VfSExport.scene
-
-	animStart = 0.0
-    animEnd = 0.0
-    framesPerSec = 30.0
-    do_animation = scene.do_animation
-    if do_animation
-        animEnd = self.end_time
-        framesPerSec = self.fps
+	 
+    
+    # if scene.do_animation
+    #     animEnd = scene.end_time
+    #     framesPerSec = self.fps
         
-    end
+    # end
 	
+    # puts output_xml_node
 
 
-	@img_width = VRayForSketchUp.get_integer_parameter_value_from_xml_node( output_xml_node, "img_width")
-    @img_height = VRayForSketchUp.get_integer_parameter_value_from_xml_node( output_xml_node, "img_height")
-    override_viewport = VRayForSketchUp.get_bool_parameter_value_from_xml_node( output_xml_node, "override_viewport" )
+	@img_width = get_int( output_xml_node, "img_width")
+    @img_height = get_int( output_xml_node, "img_height")
+    override_viewport = get_bool( output_xml_node, "override_viewport" )
     if override_viewport
         img_width = @img_width
         img_height = @img_height
@@ -43,90 +85,72 @@ def export_settings_output
         img_height = camera.img_height
     end
 
-    save_image = VRayForSketchUp.get_bool_parameter_value_from_xml_node( output_xml_node, "save_render" )
-    # output_path_xml = VRayForSketchUp.make_string_parameter_xml( "img_file", "" )
-    img_file = ""
+    img_rawFileVFB = get_int( output_xml_node, "img_rawFileVFB")
+    rgn_width = get_float( output_xml_node, "rgn_width")
+    img_rawFile = get_bool( output_xml_node, "img_rawFile")
+    r_height = get_int( output_xml_node, "r_height")
+    @frame_start = get_int( output_xml_node, "frame_start")
+    # framesList = VRayForSketchUp.get_param_value_node(output_xml_node,"frames","list").elementsByTagName("entry")
+    frames = get_list_int(output_xml_node,"frames")    
+    @bmp_width = get_int( output_xml_node, "bmp_width")
+    @anim_start = get_double( output_xml_node, "anim_start")
+    rgn_height = get_float( output_xml_node, "rgn_height")
+    @save_render = get_bool(output_xml_node, "save_render")
+    @frames_per_second = get_float(output_xml_node, "frames_per_second")
+    @frame_stamp_enabled = get_bool(output_xml_node, "frame_stamp_enabled")
+    rgn_left = get_float(output_xml_node, "rgn_left")
+    @do_animation = get_bool(output_xml_node, "do_animation")
+    @render_frame_range = get_bool(output_xml_node, "render_frame_range")
+    @r_left = get_int( output_xml_node, "r_left")
+    img_file = get_string(output_xml_node, "img_file")
+    rgn_top = get_float(output_xml_node,"rgn_top")
+    img_pixelAspect = get_float(output_xml_node,"img_pixelAspect")
+    img_imageAspectLocked = get_bool(output_xml_node, "img_imageAspectLocked")
+    @frame_stamp_text = get_string(output_xml_node, "frame_stamp_text")
+    img_pixelAspectLocked = get_bool(output_xml_node, "img_pixelAspectLocked")
+    @frame_rate = get_int( output_xml_node, "frame_rate")
+    @img_dir = get_string(output_xml_node, "img_dir") 
+    img_imageAspect = get_float(output_xml_node, "img_imageAspect")
+    @img_separateAlpha = get_bool(output_xml_node, "img_separateAlpha")
+    @anim_end = get_double(output_xml_node, "anim_end")
+    @r_top = get_int( output_xml_node, "r_top")
+    @bmp_height = get_int( output_xml_node, "bmp_height")
+    @r_width =  get_int( output_xml_node, "r_width")
+    @img_file_needFrameNumber = get_bool( output_xml_node, "img_file_needFrameNumber")
     
-    # img_width_xml = VRayForSketchUp.make_int_parameter_xml( "img_width", img_width )
-    # img_height_xml = VRayForSketchUp.make_int_parameter_xml("img_height", img_height )
-    # bmp_width_xml = VRayForSketchUp.make_int_parameter_xml("bmp_width", img_width )
-    bmp_width =  img_width
-    # bmp_height_xml = VRayForSketchUp.make_int_parameter_xml( "bmp_height", img_height )
-    bmp_height = img_height
-
-    region = PythonBridge.get_vfb_region()
-    region_width = img_width
-    region_height = img_height
-    region_left = 0
-    region_top = 0
-    if not region.nil?
-        region_left = region[0]
-        region_top = region[1]
-        region_width = region[2] - region[0]
-        region_height = region[3] - region[1]                    
-    end
-    # r_left_xml = VRayForSketchUp.make_int_parameter_xml( "r_left", region_left )
-    # r_top_xml = VRayForSketchUp.make_int_parameter_xml( "r_top", region_top )
-    # r_width_xml = VRayForSketchUp.make_int_parameter_xml( "r_width", region_width )
-    # r_height_xml = VRayForSketchUp.make_int_parameter_xml( "r_height", region_height )
-    # rgn_width_xml =VRayForSketchUp.make_float_parameter_xml("rgn_width", img_width )
-    rgn_width = img_width
-    # rgn_height_xml = VRayForSketchUp.make_float_parameter_xml( "rgn_height", img_height )
-    rgn_height = img_height
-    
-    # anim_fps_xml = VRayForSketchUp.make_float_parameter_xml("frames_per_second", framesPerSec)
-    render_frame_range=VRayForSketchUp.get_bool_parameter_value_from_xml_node( output_xml_node, "render_frame_range")
-    do_animation = VRayForSketchUp.get_bool_parameter_value_from_xml_node( output_xml_node, "do_animation")
-    # frame_start_xml = VRayForSketchUp.make_float_parameter_xml( "frame_start", 0 )
-    frame_start = 0
-    frames = []
-    anim_frames = 0
-    # If the user is not specifying their own frame range, we will set it up automatically.
-     if not render_frame_range
-        # anim_frames_xml = VRayForSketchUp.make_int_list_parameter_xml_from_range( "frames", 0, self.frame_count)
-        frames = [*0..scene.frame_count]
-        # VRayForSketchUp.replace_parameter_in_xml_node( output_xml_node, anim_frames_xml, 1 )
-        anim_frames = 1
-     end
-
-    # anim_start_xml = VRayForSketchUp.make_float_parameter_xml("anim_start", animStart)
-    # anim_end_xml = VRayForSketchUp.make_float_parameter_xml("anim_end", animEnd)
-    
-    output_image_path = VRayForSketchUp.get_param_value_as_text( output_xml_doc, "img_file", "string")
-    if output_image_path.size > 0
-        output_image_dir_path = File.split(output_image_path)[0]
-        if output_image_dir_path.length <= 1 or not PythonBridge.DoesFileExist(output_image_dir_path)
-            puts "an invalid path was specified for the image output path in the V-Ray Render Options, please correct it if you wish to automatically save your render to disk."
-            # output_image_path_param = VRayForSketchUp.make_string_parameter_xml("img_file", "")
-            output_image_path = ""
-            # VRayForSketchUp.replace_parameter_in_xml_node(output_xml_doc, output_image_path_param)   
-        end
-    end
-
-    img_file_needFrameNumber = false
-    if do_animation
-         if not( save_image and ( output_image_path.size > 0) )
-             msg= "You are not setup to save animation render output!"
-             UI.messagebox msg
-             raise msg
-         end
-    #     # There is really no reason for this to be off if animation is going
-        # VRayForSketchUp.replace_parameter_in_xml_node(output_xml_doc, VRayForSketchUp.make_bool_parameter_xml("img_file_needFrameNumber", true ))
-        img_file_needFrameNumber = true
-    end
-    if !save_image
-        # VRayForSketchUp.replace_parameter_in_xml_node( output_xml_node, output_path_xml, 1 )
-        img_file = ""
-    end
+   
+    s << cnv("output_aspectlock",img_pixelAspectLocked)
+    s << cnv("output_imageaspect ",img_imageAspect)
     s << cnv("output_width",img_width)
     s << cnv("output_height",img_height)
-    s << cnv("output_aspect ",region_left)
-    s << cnv("output_fileName",output_image_path)
-    s << cnv("output_regxmin",region_left)
-    s << cnv("output_regxmax",region_left+region_width)
+    s << cnv("output_aspect",img_pixelAspect)
 
-    puts s
+    s << cnv("output_fileOnly",(img_rawFile == "" and not img_file == ""))
+    s << cnv("output_saveFile",(not img_file == ""))
+    
+    s << cnv("output_fileName",img_file)
+    s << cnv("output_saveRawFile",(not img_rawFile == ""))
+    s << cnv("output_rawFileName",img_rawFile)
+
+    # s << cnv("output_useram",true)
+  #   s << cnv("output_genpreview",true)
+  #   .output_splitgbuffer : boolean
+  # .output_splitfilename : filename
+  # .output_splitbitmap : bitmap
+  # .output_getsetsfrommax : boolean
+  # .output_splitRGB : boolean
+  # .output_splitAlpha : boolean
+  # .output_renderType : integer
+
+    s << cnv("output_regxmin",rgn_left)
+    s << cnv("output_regxmax",rgn_left+rgn_width)
+    s << cnv("output_regymin",rgn_top)
+    s << cnv("output_regymax",rgn_top+rgn_height)      
+    
+
+    puts s.to_s
 end
 
-file_loaded("a.rb")
+file_loaded("VfSExport.rb")
+file_loaded("TrasferVrayModule.rb")
 export_settings_output
