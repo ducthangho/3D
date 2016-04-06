@@ -48,6 +48,42 @@ def get_list(output_xml_node,name)
     return frames
 end
 
+def get_all_params_node( parentNode, nodeNames = nil )
+    if nodeNames == nil
+        nodeNames = []
+    end
+    nodes = parentNode.elementsByTagName("parameter")
+    return nil if nodes.length() == 0
+    for currentNode in nodes
+        nodeNames.push currentNode.attribute('name') 
+        # puts currentNode.attribute('name')
+    end
+    return nodeNames
+end
+
+def get_all_params_nodes( parentNode )    
+    nodes = parentNode.elementsByTagName("parameter")
+    return nil if nodes.length() == 0
+    for currentNode in nodes
+        key = currentNode.attribute('name') 
+        type = currentNode.attribute('type')
+        s = "get_"
+        if (type == "integer")
+            s << "int"
+        else
+            s << type.to_s
+        end
+
+        puts "#{key} : #{type}  --> #{s}(output_xml_node,\"#{key}\")"
+        puts ""
+        # puts (key.to_s) << " : " << (type.to_s) << "  --->  " << (s.to_s) << "(output_xml_node," << key
+        # puts (key.to_s) << "\n"
+        
+    end
+    
+end
+
+
 def export_settings_output 
 	s = ""
     # s = VRayForSketchUp::StringIO.new
@@ -151,6 +187,58 @@ def export_settings_output
     puts s.to_s
 end
 
+def export_photonMap
+    s = ""
+    # s = VRayForSketchUp::StringIO.new
+    options_hash_as_array = VRayForSketchUp.get_vfs_scene_attribute(VRayForSketchUp::VFS_OPTIONS_DICTIONARY)
+ #            # if options_hash_as_array != nil
+    options_hash = VRayForSketchUp.array_to_hash( options_hash_as_array )
+
+    # VRayForSketchUp.initScene()
+    # VfSExport.scene.cache_scene_options()
+    # options_hash = VfSExport.scene.modified_options_lookup
+
+    output_xml_string = options_hash["/SettingsPhotonMap"]
+    output_xml_doc = VRayXML::QDomDocument.new output_xml_string
+
+    output_xml_node = VRayForSketchUp.find_asset_in_doc(output_xml_doc, "/SettingsPhotonMap" );
+    # puts output_xml_node
+    get_all_params_nodes output_xml_node
+    # puts nodeNames
+
+    s << cnv("photonMap_bounces",get_int(output_xml_node,"bounces") )
+    s << cnv("photonMap_searchDist",get_float(output_xml_node,"search_distance" ) )
+    s << cnv("photonMap_autoDist",get_bool(output_xml_node,auto_search_distance) )
+    s << cnv("photonMap_autoSave",get_bool(output_xml_node,auto_save) )
+    s << cnv("photonMap_autoSaveFileName",get_string(output_xml_node,auto_save_file) )
+    s << cnv("photonMap_maxPhotons",get_int(output_xml_node,"max_photons"))
+
+    # s << cnv("photonMap_convert",get_bool(output_xml_node,"max_photons"))
+    s << cnv("photonMap_interpSamples",get_int(output_xml_node,"max_photons"))
+end
+
+# def export_irrad_map
+#     s = ""
+#     # s = VRayForSketchUp::StringIO.new
+#     options_hash_as_array = VRayForSketchUp.get_vfs_scene_attribute(VRayForSketchUp::VFS_OPTIONS_DICTIONARY)
+#  #            # if options_hash_as_array != nil
+#     options_hash = VRayForSketchUp.array_to_hash( options_hash_as_array )
+
+#     # VRayForSketchUp.initScene()
+#     # VfSExport.scene.cache_scene_options()
+#     # options_hash = VfSExport.scene.modified_options_lookup
+
+#     output_xml_string = options_hash["/SettingsIrradianceMap"]
+#     output_xml_doc = VRayXML::QDomDocument.new output_xml_string
+
+#     output_xml_node = VRayForSketchUp.find_asset_in_doc(output_xml_doc, "/SettingsIrradianceMap" );
+#     puts output_xml_node
+
+#     s << cnv()
+# end
+
 file_loaded("VfSExport.rb")
 file_loaded("TrasferVrayModule.rb")
-export_settings_output
+# export_settings_output
+export_photonMap
+# export_irrad_map
