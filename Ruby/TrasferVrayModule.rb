@@ -5,6 +5,9 @@ require 'VfSExport.rb'
 
 def cnv (input, output)
     if(output)
+        if (output == "default") 
+            return ""
+        end
         return "vr."<< input <<" = "<< output.to_s << "\n"
 
     end
@@ -54,8 +57,8 @@ def get_list(output_xml_node,name)
 end
 
 
-def get_from_xml(output_xml_node,name)
-  type = "string"
+def get_from_xml(output_xml_node,name,type=nil)
+  if (type == nil) type = "string"
   params = output_xml_node.elementsByTagName( "parameter" )
   for currentParam in params 
     paramName = currentParam.attribute("name")
@@ -73,7 +76,13 @@ def get_from_xml(output_xml_node,name)
   elsif type=="double"
     return VRayForSketchUp.get_param_value_node( output_xml_node, name,"double")
   elsif type=="string"
-    return VRayForSketchUp.get_param_value_node( output_xml_node, name,"string").firstChild.to_s
+    val = VRayForSketchUp.get_param_value_node( output_xml_node, name,"string")
+    return "\"#{val.firstChild.to_s}\"" if val
+    return "\"\""
+  elsif type=="filename"
+    val = VRayForSketchUp.get_param_value_node( output_xml_node, name,"string")
+    return "\"#{val.firstChild.to_s}\"" if val
+    return "\"\""
   elsif type=="list"
     framesList = VRayForSketchUp.get_param_value_node(output_xml_node,name,"list").elementsByTagName("entry")
     frames = [];
@@ -87,7 +96,10 @@ def get_from_xml(output_xml_node,name)
 end
 
 def c (output_xml_node,input, output)
-    puts get_from_xml(output_xml_node,output)
+    if (output == "default") 
+        return ""
+    end
+    # puts get_from_xml(output_xml_node,output)
    return cnv(input,get_from_xml(output_xml_node,output) )
 end
 
@@ -244,7 +256,7 @@ def export_photonMap
 
     output_xml_node = VRayForSketchUp.find_asset_in_doc(output_xml_doc, "/SettingsPhotonMap" );
     # puts output_xml_node
-    get_all_params_nodes output_xml_node
+    # get_all_params_nodes output_xml_node
     # puts nodeNames
 
     
@@ -270,6 +282,7 @@ def export_photonMap
     # s << cnv("photonMap_switchToSavedMap", get_bool(output_xml_node,"store_direct_light") )
     # s << cnv("photonMap_convert",get_bool(output_xml_node,"max_photons"))
     s << cnv("photonMap_interpSamples",get_int(output_xml_node,"prefilter_samples"))
+    puts s
 end
 
 # def export_irrad_map
@@ -356,10 +369,58 @@ def export_option
 
 end
 
+def export_lightcache
+    s = ""
+    # s = VRayForSketchUp::StringIO.new
+    options_hash_as_array = VRayForSketchUp.get_vfs_scene_attribute(VRayForSketchUp::VFS_OPTIONS_DICTIONARY)
+ #            # if options_hash_as_array != nil
+    options_hash = VRayForSketchUp.array_to_hash( options_hash_as_array )
+
+    # VRayForSketchUp.initScene()
+    # VfSExport.scene.cache_scene_options()
+    # options_hash = VfSExport.scene.modified_options_lookup
+
+    output_xml_string = options_hash["/SettingsLightCache"]
+    output_xml_doc = VRayXML::QDomDocument.new output_xml_string
+
+    output_xml_node = VRayForSketchUp.find_asset_in_doc(output_xml_doc, "/SettingsLightCache" );
+    # get_all_params_nodes output_xml_node
+
+
+    s << c(output_xml_node,"lightcache_adaptiveTracing","adaptive_sampling")
+    s << c(output_xml_node,"lightcache_adaptiveTracing_dirsOnly","adaptive_dirs_only")
+    s << c(output_xml_node,"lightcache_autoSave","auto_save")
+    s << c(output_xml_node,"lightcache_autoSaveFileName","auto_save_file")
+    s << c(output_xml_node,"lightcache_bounces","default")
+    s << c(output_xml_node,"lightcache_dontDelete","dont_delete")
+    s << c(output_xml_node,"lightcache_filter_size","filter_size")
+    s << c(output_xml_node,"lightcache_filter_type","filter_type")
+    s << c(output_xml_node,"lightcache_interpSamples","filter_samples")
+    s << c(output_xml_node,"lightcache_loadFileName","default")
+    s << c(output_xml_node,"lightcache_minPathsPerSample","min_paths_per_sample")
+    s << c(output_xml_node,"lightcache_mode","mode")
+    s << c(output_xml_node,"lightcache_multipleViews","multiple_views")
+    s << c(output_xml_node,"lightcache_numPasses","num_passes")
+    s << c(output_xml_node,"lightcache_prefilter_on","prefilter")
+    s << c(output_xml_node,"lightcache_prefilter_samples","prefilter_samples")
+    s << c(output_xml_node,"lightcache_retrace_on","retrace_enabled")
+    s << c(output_xml_node,"lightcache_retrace_threshold","retrace_threshold")
+    s << c(output_xml_node,"lightcache_sampleSize","sample_size")
+    s << c(output_xml_node,"lightcache_saveFileName","auto_save_file")
+    s << c(output_xml_node,"lightcache_scale","default")
+    s << c(output_xml_node,"lightcache_showCalcPhase","show_calc_phase")
+    s << c(output_xml_node,"lightcache_storeDirectLight","store_direct_light")
+    s << c(output_xml_node,"lightcache_subdivs","subdivs")
+    s << c(output_xml_node,"lightcache_switchToSavedMap","default")
+    s << c(output_xml_node,"lightcache_ui_view","default")
+    s << c(output_xml_node,"lightcache_useForGlossyRays","use_for_glossy_rays")
+    puts s 
+end
 
 
 file_loaded("VfSExport.rb")
 file_loaded("TrasferVrayModule.rb")
 # export_settings_output
-export_photonMap
+# export_photonMap
 # export_irrad_map
+export_lightcache
