@@ -22,15 +22,17 @@ def gen_ms_by_type(maxKey,suValue,suType=nil)
 end
 
 def cnv (input, output)
-    if(output)
-        if (output == "default") 
-            return ""
-        end
-        return "vr."<< input <<" = "<< output.to_s << "\n"
-
+    if(output == nil)
+        return ""
     end
 
-    return ""
+    if (output == "default") 
+        return ""
+    end
+    return "vr."<< input <<" = "<< output.to_s << "\n"
+
+
+    
 end
 
 def get_int(output_xml_node,name)
@@ -76,7 +78,9 @@ end
 
 
 def get_from_xml(output_xml_node,name,type=nil)
-  if (type == nil) type = "string"
+  if (type == nil) 
+    type = "string"
+  end
   params = output_xml_node.elementsByTagName( "parameter" )
   for currentParam in params 
     paramName = currentParam.attribute("name")
