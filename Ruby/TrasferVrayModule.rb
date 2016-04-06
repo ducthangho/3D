@@ -79,7 +79,9 @@ def get_double(output_xml_node,name)
 end
 
 def get_string(output_xml_node,name)
-    return VRayForSketchUp.get_param_value_node( output_xml_node, name,"string").firstChild.to_s
+    val = VRayForSketchUp.get_param_value_node( output_xml_node, name,"string")
+    return "\"#{val.firstChild.to_s}\"" if val
+    return "\"\""    
 end
 
 def get_list_int(output_xml_node,name)
@@ -198,63 +200,33 @@ end
 def export_settings_output 
 	s = ""
 	output_xml_node = get_xml_node("SettingsOutput");
+    # get_all_params_nodes output_xml_node
+
 	 
  
-	@img_width = get_int( output_xml_node, "img_width")
-    @img_height = get_int( output_xml_node, "img_height")
-    override_viewport = get_bool( output_xml_node, "override_viewport" )
-    if override_viewport
-        img_width = @img_width
-        img_height = @img_height
-    else
-        img_width = camera.img_width
-        img_height = camera.img_height
-    end
+	
+    rgn_width = get_float( output_xml_node, "rgn_width")    
+    r_height = get_int( output_xml_node, "r_height")    
+    rgn_height = get_float( output_xml_node, "rgn_height")    
+    rgn_left = get_float(output_xml_node, "rgn_left")    
+    r_left = get_int( output_xml_node, "r_left")    
+    rgn_top = get_float(output_xml_node,"rgn_top")    
+    r_top = get_int( output_xml_node, "r_top")    
+    r_width =  get_int( output_xml_node, "r_width")        
+    img_rawFile = get_string( output_xml_node, "img_rawFile")        
+    img_file = get_string( output_xml_node, "img_file")        
 
-    img_rawFileVFB = get_int( output_xml_node, "img_rawFileVFB")
-    rgn_width = get_float( output_xml_node, "rgn_width")
-    img_rawFile = get_bool( output_xml_node, "img_rawFile")
-    r_height = get_int( output_xml_node, "r_height")
-    frame_start = get_int( output_xml_node, "frame_start")
-    # framesList = VRayForSketchUp.get_param_value_node(output_xml_node,"frames","list").elementsByTagName("entry")
-    frames = get_list_int(output_xml_node,"frames")    
-    bmp_width = get_int( output_xml_node, "bmp_width")
-    anim_start = get_double( output_xml_node, "anim_start")
-    rgn_height = get_float( output_xml_node, "rgn_height")
-    save_render = get_bool(output_xml_node, "save_render")
-    frames_per_second = get_float(output_xml_node, "frames_per_second")
-    frame_stamp_enabled = get_bool(output_xml_node, "frame_stamp_enabled")
-    rgn_left = get_float(output_xml_node, "rgn_left")
-    do_animation = get_bool(output_xml_node, "do_animation")
-    render_frame_range = get_bool(output_xml_node, "render_frame_range")
-    r_left = get_int( output_xml_node, "r_left")
-    img_file = get_string(output_xml_node, "img_file")
-    rgn_top = get_float(output_xml_node,"rgn_top")
-    img_pixelAspect = get_float(output_xml_node,"img_pixelAspect")
-    img_imageAspectLocked = get_bool(output_xml_node, "img_imageAspectLocked")
-    frame_stamp_text = get_string(output_xml_node, "frame_stamp_text")
-    img_pixelAspectLocked = get_bool(output_xml_node, "img_pixelAspectLocked")
-    frame_rate = get_int( output_xml_node, "frame_rate")
-    img_dir = get_string(output_xml_node, "img_dir") 
-    img_imageAspect = get_float(output_xml_node, "img_imageAspect")
-    img_separateAlpha = get_bool(output_xml_node, "img_separateAlpha")
-    anim_end = get_double(output_xml_node, "anim_end")
-    r_top = get_int( output_xml_node, "r_top")
-    bmp_height = get_int( output_xml_node, "bmp_height")
-    r_width =  get_int( output_xml_node, "r_width")
-    img_file_needFrameNumber = get_bool( output_xml_node, "img_file_needFrameNumber")
-    
    
-    s << cnv("output_aspectlock",img_pixelAspectLocked)
-    s << cnv("output_imageaspect ",img_imageAspect)
-    s << cnv("output_width",img_width)
-    s << cnv("output_height",img_height)
-    s << cnv("output_aspect",img_pixelAspect)
+    s << c(output_xml_node,"output_aspectlock","img_pixelAspectLocked")
+    s << c(output_xml_node,"output_imageaspect","img_imageAspect")
+    s << c(output_xml_node,"output_width","img_width")
+    s << c(output_xml_node,"output_height","img_height")
+    s << c(output_xml_node,"output_aspect","img_pixelAspect")
 
-    s << cnv("output_fileOnly",(not img_rawFile and not img_file == ""))
+    s << cnv("output_fileOnly",(not img_file == "" and img_rawFile),"bool")
     
     
-    s << cnv("output_fileName","\"#{img_file}\"")
+    s << c(output_xml_node,"output_fileName","img_file")
     # s << cnv("output_saveRawFile",img_rawFile)
     # s << cnv("output_rawFileName",img_rawFile)
 
@@ -268,10 +240,10 @@ def export_settings_output
   # .output_splitAlpha : boolean
   # .output_renderType : integer
 
-    s << cnv("output_regxmin",rgn_left)
-    s << cnv("output_regxmax",rgn_left+rgn_width)
-    s << cnv("output_regymin",rgn_top)
-    s << cnv("output_regymax",rgn_top+rgn_height)  
+    s << cnv("output_regxmin",rgn_left,"float")
+    s << cnv("output_regxmax",rgn_left+rgn_width,"float")
+    s << cnv("output_regymin",rgn_top,"float")
+    s << cnv("output_regymax",rgn_top+rgn_height,"float")  
     s << c(output_xml_node,"output_splitAlpha","img_separateAlpha")    
     s << c(output_xml_node,"output_saveFile","save_render")    
     s << c(output_xml_node,"output_saveRawFile","img_rawFile")
@@ -619,7 +591,7 @@ end
 
 file_loaded("VfSExport.rb")
 file_loaded("TrasferVrayModule.rb")
-# export_settings_output
+export_settings_output
 # export_photonMap
 # export_irrad_map
 # export_lightcache
@@ -630,5 +602,5 @@ file_loaded("TrasferVrayModule.rb")
 # export_irradmap
 # export_environment
 # export_camera_dof
-export_dmc_sampler
+# export_dmc_sampler
 # export_rt_engine
