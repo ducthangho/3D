@@ -39,7 +39,8 @@ def c (output_xml_node,input, output)
     if (output == "default") 
         return ""
     end
-    type = nil
+    # puts get_from_xml(output_xml_node,output)
+	type = nil
     params = output_xml_node.elementsByTagName( "parameter" )
     for currentParam in params 
         paramName = currentParam.attribute("name")
@@ -47,16 +48,19 @@ def c (output_xml_node,input, output)
           type = currentParam.attribute("type").to_s
           break
         end
-    end 
-    if type == nil 
+    end
+ 
+	if type == nil 
         return ""
     end
-    return gen_ms_by_type(input,get_from_xml(output_xml_node,output,type),type)
-    # puts get_from_xml(output_xml_node,output)
-    # return cnv(input,get_from_xml(output_xml_node,output) )
+    out = get_from_xml(output_xml_node,output,type)
+	return gen_ms_by_type(input,out,type)
+    # puts "#{input} : #{out}   #{type}"
+    # return cnv(input, out,type)
 end
 
-def cnv (input, output)
+
+def cnv (input, output, type = nil)
     if(output == nil)
         return ""
     end
@@ -64,10 +68,8 @@ def cnv (input, output)
     if (output == "default") 
         return ""
     end
-    return "vr."<< input <<" = "<< output.to_s << "\n"
-
-
-    
+    # return "vr."<< input <<" = "<< output.to_s << "\n"
+    return gen_ms_by_type(input,output,type)    
 end
 
 >>>>>>> 2fbacd75c5d23e0f200dcea14a30a34508d1c230
@@ -114,9 +116,18 @@ end
 
 
 def get_from_xml(output_xml_node,name,type=nil)
-  if (type == nil) 
-    type = "string"
+  if (type == nil)     
+    params = output_xml_node.elementsByTagName( "parameter" )
+    for currentParam in params 
+        paramName = currentParam.attribute("name")
+        if (paramName == name)
+          type = currentParam.attribute("type")
+          break
+        end
+    end 
   end
+  
+
   if type=="integer"
     return VRayForSketchUp.get_integer_parameter_value_from_xml_node( output_xml_node, name)
   elsif type=="bool"
@@ -144,6 +155,7 @@ def get_from_xml(output_xml_node,name,type=nil)
   end
   return nil
 end
+
 
 
 def get_all_params_node( parentNode, nodeNames = nil )
@@ -179,6 +191,7 @@ def get_all_params_nodes( parentNode )
     
 end
 
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 # def export_settings_output 
@@ -192,6 +205,10 @@ def export_settings_output
 	s = ""
     # s = VRayForSketchUp::StringIO.new
     options_hash_as_array = VRayForSketchUp.get_vfs_scene_attribute(VRayForSketchUp::VFS_OPTIONS_DICTIONARY)
+=======
+def get_xml_node(key)
+     options_hash_as_array = VRayForSketchUp.get_vfs_scene_attribute(VRayForSketchUp::VFS_OPTIONS_DICTIONARY)
+>>>>>>> origin/master
  #            # if options_hash_as_array != nil
     options_hash = VRayForSketchUp.array_to_hash( options_hash_as_array )
 >>>>>>> 2fbacd75c5d23e0f200dcea14a30a34508d1c230
@@ -200,6 +217,7 @@ def export_settings_output
 #     # VfSExport.scene.cache_scene_options()
 #     # options_hash = VfSExport.scene.modified_options_lookup
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 #     output_xml_string = options_hash["/SettingsOutput"]
 #     output_xml_doc = VRayXML::QDomDocument.new output_xml_string
@@ -271,8 +289,19 @@ def export_settings_output
     # end
 	
     # puts output_xml_node
+=======
+    output_xml_string = options_hash["/#{key}"]
+    output_xml_doc = VRayXML::QDomDocument.new output_xml_string
+    return VRayForSketchUp.find_asset_in_doc(output_xml_doc, "/#{key}" );
+end
+>>>>>>> origin/master
 
 
+def export_settings_output 
+	s = ""
+	output_xml_node = get_xml_node("SettingsOutput");
+	 
+ 
 	@img_width = get_int( output_xml_node, "img_width")
     @img_height = get_int( output_xml_node, "img_height")
     override_viewport = get_bool( output_xml_node, "override_viewport" )
@@ -319,6 +348,7 @@ def export_settings_output
 >>>>>>> 2fbacd75c5d23e0f200dcea14a30a34508d1c230
     
    
+<<<<<<< HEAD
 #     s << cnv("output_aspectlock",img_pixelAspectLocked)
 #     s << cnv("output_imageaspect ",img_imageAspect)
 #     s << cnv("output_width",img_width)
@@ -345,6 +375,19 @@ def export_settings_output
 =======
     s << cnv("output_fileName",img_file)
     s << cnv("output_saveRawFile",img_rawFile)
+=======
+    s << cnv("output_aspectlock",img_pixelAspectLocked)
+    s << cnv("output_imageaspect ",img_imageAspect)
+    s << cnv("output_width",img_width)
+    s << cnv("output_height",img_height)
+    s << cnv("output_aspect",img_pixelAspect)
+
+    s << cnv("output_fileOnly",(not img_rawFile and not img_file == ""))
+    
+    
+    s << cnv("output_fileName","\"#{img_file}\"")
+    # s << cnv("output_saveRawFile",img_rawFile)
+>>>>>>> origin/master
     # s << cnv("output_rawFileName",img_rawFile)
 
     # s << cnv("output_useram",true)
@@ -360,13 +403,28 @@ def export_settings_output
     s << cnv("output_regxmin",rgn_left)
     s << cnv("output_regxmax",rgn_left+rgn_width)
     s << cnv("output_regymin",rgn_top)
+<<<<<<< HEAD
     s << cnv("output_regymax",rgn_top+rgn_height)      
 >>>>>>> 2fbacd75c5d23e0f200dcea14a30a34508d1c230
+=======
+    s << cnv("output_regymax",rgn_top+rgn_height)  
+    s << c(output_xml_node,"output_splitAlpha","img_separateAlpha")    
+    s << c(output_xml_node,"output_saveFile","save_render")    
+    s << c(output_xml_node,"output_saveRawFile","img_rawFile")
+    s << c(output_xml_node,"output_renderType","default")
+    s << c(output_xml_node,"output_splitbitmap","default")
+
+    s << c(output_xml_node,"system_frameStamp_on","frame_stamp_enabled")
+    s << c(output_xml_node,"system_frameStamp_string","frame_stamp_text")
+    s << c(output_xml_node,"system_frameStamp_justify","default")
+    s << c(output_xml_node,"system_frameStamp_fullWidth","default")
+>>>>>>> origin/master
     
 
 #     puts s.to_s
 # end
 
+<<<<<<< HEAD
 # def export_photonMap
 #     s = ""
 #     # s = VRayForSketchUp::StringIO.new
@@ -416,8 +474,12 @@ def export_settings_output
     # puts output_xml_node
     # get_all_params_nodes output_xml_node
     # puts nodeNames
+=======
+def export_photonMap
+    s = ""
+    output_xml_node = get_xml_node("SettingsPhotonMap");
+>>>>>>> origin/master
 
-    
     s << cnv("photonMap_searchDist",get_float(output_xml_node,"search_distance" ) )
     s << cnv("photonMap_autoDist",get_bool(output_xml_node,"auto_search_distance") )
     s << cnv("photonMap_autoSave",get_bool(output_xml_node,"auto_save") )
@@ -466,18 +528,9 @@ end
 
 def export_option
     s = ""
-    # s = VRayForSketchUp::StringIO.new
-    options_hash_as_array = VRayForSketchUp.get_vfs_scene_attribute(VRayForSketchUp::VFS_OPTIONS_DICTIONARY)
- #            # if options_hash_as_array != nil
-    options_hash = VRayForSketchUp.array_to_hash( options_hash_as_array )
+    output_xml_node = get_xml_node("SettingsOptions");
 
-    # VRayForSketchUp.initScene()
-    # VfSExport.scene.cache_scene_options()
-    # options_hash = VfSExport.scene.modified_options_lookup
-
-    output_xml_string = options_hash["/SettingsOptions"]
-    output_xml_doc = VRayXML::QDomDocument.new output_xml_string
-
+<<<<<<< HEAD
     output_xml_node = VRayForSketchUp.find_asset_in_doc(output_xml_doc, "/SettingsOptions" );
     # puts output_xml_node
     # get_all_params_nodes output_xml_node
@@ -485,6 +538,9 @@ def export_option
     # s << c(".options_defaultLights",)
     # s << c(output_xml_doc,"options_defaultLights")
     
+=======
+    s << c(output_xml_node,"options_displacement","geom_displacement")
+>>>>>>> origin/master
     # s << cnv(".")
     s << c(output_xml_node,"options_dontRenderImage","gi_dontRenderImage")
     s << c(output_xml_node,"options_displacement","geom_displacement")
@@ -560,21 +616,7 @@ end
 
 def export_lightcache
     s = ""
-    # s = VRayForSketchUp::StringIO.new
-    options_hash_as_array = VRayForSketchUp.get_vfs_scene_attribute(VRayForSketchUp::VFS_OPTIONS_DICTIONARY)
- #            # if options_hash_as_array != nil
-    options_hash = VRayForSketchUp.array_to_hash( options_hash_as_array )
-
-    # VRayForSketchUp.initScene()
-    # VfSExport.scene.cache_scene_options()
-    # options_hash = VfSExport.scene.modified_options_lookup
-
-    output_xml_string = options_hash["/SettingsLightCache"]
-    output_xml_doc = VRayXML::QDomDocument.new output_xml_string
-
-    output_xml_node = VRayForSketchUp.find_asset_in_doc(output_xml_doc, "/SettingsLightCache" );
-    # get_all_params_nodes output_xml_node
-
+    output_xml_node = get_xml_node("SettingsLightCache");    
 
     s << c(output_xml_node,"lightcache_adaptiveTracing","adaptive_sampling")
     s << c(output_xml_node,"lightcache_adaptiveTracing_dirsOnly","adaptive_dirs_only")
@@ -602,11 +644,210 @@ def export_lightcache
     s << c(output_xml_node,"lightcache_subdivs","subdivs")
     s << c(output_xml_node,"lightcache_switchToSavedMap","default")
     s << c(output_xml_node,"lightcache_ui_view","default")
-    s << c(output_xml_node,"lightcache_useForGlossyRays","use_for_glossy_rays")
+    s << c(output_xml_node,"lightcache_useForGlossyRays","use_for_glossy_rays")    
+    s << c(output_xml_node,"filter_size","filter_size")    
+
+
+    s << c(output_xml_node,"progressive_max_render_time","default")
+    s << c(output_xml_node,"progressive_maxSamples","default")
+    s << c(output_xml_node,"progressive_minSamples","default")
+    s << c(output_xml_node,"progressive_noise_threshold","default")
+    s << c(output_xml_node,"progressive_ray_bundle_size","default")
+    s << c(output_xml_node,"progressive_show_mask","default")
+    s << c(output_xml_node,"progressive_track_radius","default")
+
     puts s 
 end
 
+<<<<<<< HEAD
 def 
+=======
+def export_raycaster
+    s = ""
+    output_xml_node = get_xml_node("SettingsRaycaster");    
+    #get_all_params_nodes output_xml_node
+
+
+    s << c(output_xml_node,"system_raycaster_faceLevelCoeff","faceLevelCoef")
+    s << c(output_xml_node,"system_raycaster_maxLevels","maxLevels")
+    s << c(output_xml_node,"system_raycaster_memLimit","dynMemLimit")
+    s << c(output_xml_node,"system_raycaster_minLeafSize","minLeafSize")
+    s << c(output_xml_node,"system_raycaster_optLevel","optLevel")
+    puts s 
+end
+
+def export_motionblur
+    s = ""
+    output_xml_node = get_xml_node("SettingsMotionBlur");    
+    get_all_params_nodes output_xml_node
+
+    s << c(output_xml_node,"moblur_bias","bias")
+    s << c(output_xml_node,"moblur_dmc_minSamples","low_samples")
+    s << c(output_xml_node,"moblur_duration","duration")
+    s << c(output_xml_node,"moblur_geometryParticles","default")
+    s << c(output_xml_node,"moblur_geomSamples","geom_samples")
+    s << c(output_xml_node,"moblur_intervalCenter","interval_center")
+    s << c(output_xml_node,"moblur_on","on")
+    s << c(output_xml_node,"moblur_prepassSamples","default")
+    s << c(output_xml_node,"moblur_shutterEfficiency","default")
+   
+    puts s 
+end
+
+def export_image_sampler
+    s = ""
+    output_xml_node = get_xml_node("SettingsImageSampler");    
+    # get_all_params_nodes output_xml_node
+
+    s << c(output_xml_node,"imageSamper_normal_threshold","subdivision_normals_threshold")
+    s << c(output_xml_node,"imageSamper_renderMask_layers","default")
+    s << c(output_xml_node,"imageSamper_renderMask_texmap","default")
+    s << c(output_xml_node,"imageSampler_mtlID","default")
+    s << c(output_xml_node,"imageSampler_normal","default")
+    s << c(output_xml_node,"imageSampler_outline","subdivision_edges")
+    s << c(output_xml_node,"imageSampler_renderMask_type","default")
+    s << c(output_xml_node,"imageSampler_shadingRate","default")
+    s << c(output_xml_node,"imageSampler_type","type")
+    s << c(output_xml_node,"imageSampler_zvalue","default")
+    s << c(output_xml_node,"imageSampler_zvalue_threshold","default")
+
+    s << c(output_xml_node,"fixedRate_subdivs","fixed_subdivs")
+   
+    puts s 
+end
+
+def export_gi
+    s = ""
+    output_xml_node = get_xml_node("SettingsGI");    
+    # get_all_params_nodes output_xml_node
+
+    s << c(output_xml_node,"gi_ao_amount","ao_amount")
+    s << c(output_xml_node,"gi_ao_on","ao_on")
+    s << c(output_xml_node,"gi_ao_radius","ao_radius")
+    s << c(output_xml_node,"gi_ao_subdivs","ao_subdivs")
+    s << c(output_xml_node,"gi_contrast","contrast")
+    s << c(output_xml_node,"gi_contrast_base","contrast_base")    
+    s << c(output_xml_node,"gi_on","on")
+    s << c(output_xml_node,"gi_primary_multiplier","primary_multiplier")
+    s << c(output_xml_node,"gi_primary_type","primary_engine")
+    s << c(output_xml_node,"gi_rayDistance","ray_distance")
+    s << c(output_xml_node,"gi_rayDistanceOn","ray_distance_on")
+   
+    s << c(output_xml_node,"gi_saturation","saturation")
+    s << c(output_xml_node,"gi_saveMapsPerFrame","save_maps_per_frame")
+    s << c(output_xml_node,"gi_secondary_multiplier","secondary_multiplier")
+    s << c(output_xml_node,"gi_secondary_type","secondary_engine")
+    s << c(output_xml_node,"gi_ui_view","default")
+
+    s << c(output_xml_node,"dmcgi_depth","gi_depth")
+    puts s 
+end
+
+def export_irradmap
+    s = ""
+    output_xml_node = get_xml_node("SettingsIrradianceMap");    
+    # get_all_params_nodes output_xml_node
+   
+    s << c(output_xml_node,"gi_irradmap_blurGI","default")
+    s << c(output_xml_node,"gi_irradmap_colorThreshold","color_threshold")
+    s << c(output_xml_node,"gi_irradmap_detail_on","default")
+    s << c(output_xml_node,"gi_irradmap_detail_radius","detail_radius")
+    s << c(output_xml_node,"gi_irradmap_detail_scale","detail_scale")
+    s << c(output_xml_node,"gi_irradmap_detail_subdivsMult","detail_subdivs_mult")
+    s << c(output_xml_node,"gi_irradmap_distThreshold","distance_threshold")
+    s << c(output_xml_node,"gi_irradmap_interpFrames","interp_frames")
+    s << c(output_xml_node,"gi_irradmap_interpSamples","interp_samples")
+    s << c(output_xml_node,"gi_irradmap_maxRate","max_rate")
+    s << c(output_xml_node,"gi_irradmap_minRate","min_rate")
+    s << c(output_xml_node,"gi_irradmap_multipleViews","multiple_views")
+    s << c(output_xml_node,"gi_irradmap_normalThreshold","normal_threshold")
+    s << c(output_xml_node,"gi_irradmap_preset","default")
+    s << c(output_xml_node,"gi_irradmap_previewMode","default")
+    s << c(output_xml_node,"gi_irradmap_showCalcPhase","show_calc_phase")
+    s << c(output_xml_node,"gi_irradmap_showDirectLight","show_direct_light")
+    s << c(output_xml_node,"gi_irradmap_showSamples","show_samples")
+    s << c(output_xml_node,"gi_irradmap_subdivs","subdivs")
+   
+    puts s 
+end
+
+def export_environment
+    s = ""
+    output_xml_node = get_xml_node("SettingsEnvironment");    
+    # get_all_params_nodes output_xml_node
+   
+    s << c(output_xml_node,"environment_gi_color","gi_color")
+    s << c(output_xml_node,"environment_gi_color_multiplier","default")
+    s << c(output_xml_node,"environment_gi_map","gi_tex")
+    s << c(output_xml_node,"environment_gi_map_on","gi_tex_on")
+    s << c(output_xml_node,"environment_gi_on","use_gi")
+    s << c(output_xml_node,"environment_refract_color","refract_color")
+    s << c(output_xml_node,"environment_refract_color_multiplier","default")
+    s << c(output_xml_node,"environment_refract_map","refract_tex")
+    s << c(output_xml_node,"environment_refract_map_on","refract_tex_on")
+    s << c(output_xml_node,"environment_refract_on","use_refract")
+    s << c(output_xml_node,"environment_rr_color","reflect_color")
+    s << c(output_xml_node,"environment_rr_color_multiplier","reflect_tex_mult")
+    s << c(output_xml_node,"environment_rr_map","reflect_tex")
+    s << c(output_xml_node,"environment_rr_map_on","reflect_tex_on")
+    s << c(output_xml_node,"environment_rr_on","use_reflect")
+   
+    puts s 
+end
+
+def export_camera_dof
+    s = ""
+    output_xml_node = get_xml_node("SettingsCameraDof");    
+    # get_all_params_nodes output_xml_node
+   
+    s << c(output_xml_node,"dof_anisotropy","anisotropy")
+    s << c(output_xml_node,"dof_bias","center_bias")
+    s << c(output_xml_node,"dof_distance","focal_dist")
+    s << c(output_xml_node,"dof_getFromCamera","default")
+    s << c(output_xml_node,"dof_on","on")
+    s << c(output_xml_node,"dof_shutter","aperture")
+    s << c(output_xml_node,"dof_sides_num","sides_num")
+    s << c(output_xml_node,"dof_sides_on","sides_on")
+    s << c(output_xml_node,"dof_sides_rotation","rotation")
+    s << c(output_xml_node,"dof_subdivs","subdivs")
+   
+    puts s 
+end
+
+def export_dmc_sampler
+    s = ""
+    output_xml_node = get_xml_node("SettingsDMCSampler");    
+    # get_all_params_nodes output_xml_node
+   
+    s << c(output_xml_node,"dmc_balance_subdivs","default")
+    s << c(output_xml_node,"dmc_earlyTermination_amount","adaptive_amount")
+    s << c(output_xml_node,"dmc_earlyTermination_minSamples","adaptive_min_samples")
+    s << c(output_xml_node,"dmc_earlyTermination_threshold","adaptive_threshold")
+    s << c(output_xml_node,"dmc_importanceSampling","default")
+    s << c(output_xml_node,"dmc_pathSampler_type","path_sampler_type")
+    s << c(output_xml_node,"dmc_subdivs_mult","subdivs_mult")
+    s << c(output_xml_node,"dmc_timeDependent","time_dependent")
+    
+    s << c(output_xml_node,"dmcgi_subdivs","default")
+   
+    puts s 
+end
+
+def export_rt_engine
+    s = ""
+    output_xml_node = get_xml_node("RTEngine");    
+    # get_all_params_nodes output_xml_node
+
+    s << c(output_xml_node,"dmcgi_depth","gi_depth")         
+    # s << c(output_xml_node,"dmcgi_subdivs","default")
+
+    s << c(output_xml_node,"gi_reflectCaustics","gi_reflective_caustics")
+    s << c(output_xml_node,"gi_refractCaustics","gi_refractive_caustics")
+   
+    puts s 
+end
+
+>>>>>>> origin/master
 
 
 file_loaded("VfSExport.rb")
@@ -614,4 +855,13 @@ file_loaded("TrasferVrayModule.rb")
 # export_settings_output
 # export_photonMap
 # export_irrad_map
-export_lightcache
+#export_lightcache
+# export_raycaster
+# export_motionblur
+# export_image_sampler
+# export_gi
+# export_irradmap
+# export_environment
+# export_camera_dof
+# export_dmc_sampler
+export_rt_engine
