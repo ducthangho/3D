@@ -1,24 +1,47 @@
 require 'sketchup.rb'
 require 'VfSExport.rb'
 
-def gen_ms_by_type(maxKey,suValue,suType=nil)
+def gen_ms_by_type(maxKey,suValue,suType)
   s = "vr."
   case suType
-  when "string","filename"
-    s << "#{maxKey}='#{suValue.to_s}'"
-  when "float","worldunit","integer","double",nil
-    s << "#{maxKey}=#{suValue.to_s}"
-  when "color" #RGB Color
-    s << "#{maxKey}=(#{suValue.r},#{suValue.g},#{suValue.b})"
-  when "transform" #RGB Color
-    v0 = suValue[0]
-    v1 = suValue[1]
-    v2 = suValue[2]
-    v3 = suValue[3]
-    transform = "(matrix3 [#{v0.x},#{v0.y},#{v0.z}] [#{v1.x},#{v1.y},#{v1.z}] [#{v2.x},#{v2.y},#{v2.z}] [#{v3.x},#{v3.y},#{v3.z}])"
-    s << "#{maxKey}=#{transform}"
+    when "filename" 
+      s << "#{maxKey}=undefined"
+    when "string","float","worldunit","integer","double" 
+      s << "#{maxKey}=#{suValue.to_s}"
+    when "color"  #RGB Color
+      s << "#{maxKey}=(#{suValue.r},#{suValue.g},#{suValue.b})"
+    when "transform" 
+      v0 = suValue[0]
+      v1 = suValue[1]
+      v2 = suValue[2]
+      v3 = suValue[3]
+      transform = "(matrix3 [#{v0.x},#{v0.y},#{v0.z}] [#{v1.x},#{v1.y},#{v1.z}] [#{v2.x},#{v2.y},#{v2.z}] [#{v3.x},#{v3.y},#{v3.z}])"
+      s << "#{maxKey}=#{transform}"
+    else return ""
   end
+  s << "\n"
   return s
+end
+
+def c (output_xml_node,input, output)
+    if (output == "default") 
+        return ""
+    end
+    type = nil
+    params = output_xml_node.elementsByTagName( "parameter" )
+    for currentParam in params 
+        paramName = currentParam.attribute("name")
+        if (paramName == output)
+          type = currentParam.attribute("type").to_s
+          break
+        end
+    end 
+    if type == nil 
+        return ""
+    end
+    return gen_ms_by_type(input,get_from_xml(output_xml_node,output,type),type)
+    # puts get_from_xml(output_xml_node,output)
+    # return cnv(input,get_from_xml(output_xml_node,output) )
 end
 
 def cnv (input, output)
@@ -81,14 +104,6 @@ def get_from_xml(output_xml_node,name,type=nil)
   if (type == nil) 
     type = "string"
   end
-  params = output_xml_node.elementsByTagName( "parameter" )
-  for currentParam in params 
-    paramName = currentParam.attribute("name")
-    if (paramName == name)
-      type = currentParam.attribute("type")
-      break
-    end
-  end 
   if type=="integer"
     return VRayForSketchUp.get_integer_parameter_value_from_xml_node( output_xml_node, name)
   elsif type=="bool"
@@ -117,13 +132,6 @@ def get_from_xml(output_xml_node,name,type=nil)
   return nil
 end
 
-def c (output_xml_node,input, output)
-    if (output == "default") 
-        return ""
-    end
-    # puts get_from_xml(output_xml_node,output)
-   return cnv(input,get_from_xml(output_xml_node,output) )
-end
 
 def get_all_params_node( parentNode, nodeNames = nil )
     if nodeNames == nil
