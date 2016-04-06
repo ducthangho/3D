@@ -1,7 +1,25 @@
 require 'sketchup.rb'
 require 'VfSExport.rb'
 
-
+def gen_ms_by_type(maxKey,suValue,suType=nil)
+  s = "vr."
+  case suType
+  when "string","filename"
+    s << "#{maxKey}='#{suValue.to_s}'"
+  when "float","worldunit","integer","double",nil
+    s << "#{maxKey}=#{suValue.to_s}"
+  when "color" #RGB Color
+    s << "#{maxKey}=(#{suValue.r},#{suValue.g},#{suValue.b})"
+  when "transform" #RGB Color
+    v0 = suValue[0]
+    v1 = suValue[1]
+    v2 = suValue[2]
+    v3 = suValue[3]
+    transform = "(matrix3 [#{v0.x},#{v0.y},#{v0.z}] [#{v1.x},#{v1.y},#{v1.z}] [#{v2.x},#{v2.y},#{v2.z}] [#{v3.x},#{v3.y},#{v3.z}])"
+    s << "#{maxKey}=#{transform}"
+  end
+  return s
+end
 
 def cnv (input, output)
     if(output)
