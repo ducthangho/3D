@@ -49,7 +49,16 @@ def get_list(output_xml_node,name)
 end
 
 
-def get_from_xml(output_xml_node,name,type)
+def get_from_xml(output_xml_node,name)
+  type = "string"
+  params = output_xml_node.elementsByTagName( "parameter" )
+  for currentParam in params 
+    paramName = currentParam.attribute("name")
+    if (paramName == name)
+      type = currentParam.attribute("type")
+      break
+    end
+  end 
   if type=="interger"
     return VRayForSketchUp.get_integer_parameter_value_from_xml_node( output_xml_node, name)
   elsif type=="boolean"
