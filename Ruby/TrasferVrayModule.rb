@@ -482,38 +482,20 @@ def export_gi
     s << c(output_xml_node,"gi_ao_radius","ao_radius")
     s << c(output_xml_node,"gi_ao_subdivs","ao_subdivs")
     s << c(output_xml_node,"gi_contrast","contrast")
-    s << c(output_xml_node,"gi_contrast_base","contrast_base")
-    s << c(output_xml_node,"gi_irradmap_blurGI","default")
-    s << c(output_xml_node,"gi_irradmap_colorThreshold","default")
-    s << c(output_xml_node,"gi_irradmap_detail_on (irradmap_detail_on)","default")
-    s << c(output_xml_node,"gi_irradmap_detail_radius (irradmap_detail_radius)","default")
-    s << c(output_xml_node,"gi_irradmap_detail_scale (irradmap_detail_scale)","default")
-    s << c(output_xml_node,"gi_irradmap_detail_subdivsMult (irradmap_detail_subdivsMult)","default")
-    s << c(output_xml_node,"gi_irradmap_distThreshold","default")
-    s << c(output_xml_node,"gi_irradmap_interpFrames","default")
-    s << c(output_xml_node,"gi_irradmap_interpSamples","default")
-    s << c(output_xml_node,"gi_irradmap_maxRate","default")
-    s << c(output_xml_node,"gi_irradmap_minRate","default")
-    s << c(output_xml_node,"gi_irradmap_multipleViews","default")
-    s << c(output_xml_node,"gi_irradmap_normalThreshold","default")
-    s << c(output_xml_node,"gi_irradmap_preset","default")
-    s << c(output_xml_node,"gi_irradmap_previewMode (irradmap_previewMode)","default")
-    s << c(output_xml_node,"gi_irradmap_showCalcPhase","default")
-    s << c(output_xml_node,"gi_irradmap_showDirectLight","default")
-    s << c(output_xml_node,"gi_irradmap_showSamples","default")
-    s << c(output_xml_node,"gi_irradmap_subdivs","default")
+    s << c(output_xml_node,"gi_contrast_base","contrast_base")    
     s << c(output_xml_node,"gi_on","on")
     s << c(output_xml_node,"gi_primary_multiplier","primary_multiplier")
     s << c(output_xml_node,"gi_primary_type","primary_engine")
     s << c(output_xml_node,"gi_rayDistance","ray_distance")
     s << c(output_xml_node,"gi_rayDistanceOn","ray_distance_on")
-    s << c(output_xml_node,"gi_reflectCaustics","reflect_caustics")
-    s << c(output_xml_node,"gi_refractCaustics","refract_caustics")
+   
     s << c(output_xml_node,"gi_saturation","saturation")
     s << c(output_xml_node,"gi_saveMapsPerFrame","save_maps_per_frame")
     s << c(output_xml_node,"gi_secondary_multiplier","secondary_multiplier")
     s << c(output_xml_node,"gi_secondary_type","secondary_engine")
     s << c(output_xml_node,"gi_ui_view","default")
+
+    s << c(output_xml_node,"dmcgi_depth","gi_depth")
     puts s 
 end
 
@@ -548,7 +530,7 @@ end
 def export_environment
     s = ""
     output_xml_node = get_xml_node("SettingsEnvironment");    
-    get_all_params_nodes output_xml_node
+    # get_all_params_nodes output_xml_node
    
     s << c(output_xml_node,"environment_gi_color","gi_color")
     s << c(output_xml_node,"environment_gi_color_multiplier","default")
@@ -569,6 +551,59 @@ def export_environment
     puts s 
 end
 
+def export_camera_dof
+    s = ""
+    output_xml_node = get_xml_node("SettingsCameraDof");    
+    # get_all_params_nodes output_xml_node
+   
+    s << c(output_xml_node,"dof_anisotropy","anisotropy")
+    s << c(output_xml_node,"dof_bias","center_bias")
+    s << c(output_xml_node,"dof_distance","focal_dist")
+    s << c(output_xml_node,"dof_getFromCamera","default")
+    s << c(output_xml_node,"dof_on","on")
+    s << c(output_xml_node,"dof_shutter","aperture")
+    s << c(output_xml_node,"dof_sides_num","sides_num")
+    s << c(output_xml_node,"dof_sides_on","sides_on")
+    s << c(output_xml_node,"dof_sides_rotation","rotation")
+    s << c(output_xml_node,"dof_subdivs","subdivs")
+   
+    puts s 
+end
+
+def export_dmc_sampler
+    s = ""
+    output_xml_node = get_xml_node("SettingsDMCSampler");    
+    # get_all_params_nodes output_xml_node
+   
+    s << c(output_xml_node,"dmc_balance_subdivs","default")
+    s << c(output_xml_node,"dmc_earlyTermination_amount","adaptive_amount")
+    s << c(output_xml_node,"dmc_earlyTermination_minSamples","adaptive_min_samples")
+    s << c(output_xml_node,"dmc_earlyTermination_threshold","adaptive_threshold")
+    s << c(output_xml_node,"dmc_importanceSampling","default")
+    s << c(output_xml_node,"dmc_pathSampler_type","path_sampler_type")
+    s << c(output_xml_node,"dmc_subdivs_mult","subdivs_mult")
+    s << c(output_xml_node,"dmc_timeDependent","time_dependent")
+    
+    s << c(output_xml_node,"dmcgi_subdivs","default")
+   
+    puts s 
+end
+
+def export_rt_engine
+    s = ""
+    output_xml_node = get_xml_node("RTEngine");    
+    # get_all_params_nodes output_xml_node
+
+    s << c(output_xml_node,"dmcgi_depth","gi_depth")         
+    # s << c(output_xml_node,"dmcgi_subdivs","default")
+
+    s << c(output_xml_node,"gi_reflectCaustics","gi_reflective_caustics")
+    s << c(output_xml_node,"gi_refractCaustics","gi_refractive_caustics")
+   
+    puts s 
+end
+
+
 
 file_loaded("VfSExport.rb")
 file_loaded("TrasferVrayModule.rb")
@@ -581,4 +616,7 @@ file_loaded("TrasferVrayModule.rb")
 # export_image_sampler
 # export_gi
 # export_irradmap
-export_environment
+# export_environment
+# export_camera_dof
+# export_dmc_sampler
+export_rt_engine
