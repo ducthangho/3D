@@ -48,6 +48,30 @@ def get_list(output_xml_node,name)
     return frames
 end
 
+
+def get_from_xml(output_xml_node,name,type)
+  if type=="interger"
+    return VRayForSketchUp.get_integer_parameter_value_from_xml_node( output_xml_node, name)
+  elsif type=="boolean"
+    return VRayForSketchUp.get_bool_parameter_value_from_xml_node( output_xml_node, name)
+  elsif type=="float"
+    return VRayForSketchUp.get_float_parameter_value_from_xml_node( output_xml_node, name)
+  elsif type=="double"
+    return VRayForSketchUp.get_param_value_node( output_xml_node, name,"double")
+  elsif type=="string"
+    return VRayForSketchUp.get_param_value_node( output_xml_node, name,"string").firstChild.to_s
+  elsif type=="list"
+    framesList = VRayForSketchUp.get_param_value_node(output_xml_node,name,"list").elementsByTagName("entry")
+    frames = [];
+
+    framesList.each{ |frame|
+        frames << frame.firstChild.to_s.to_i
+    }
+    return frames
+  end
+  return nil
+end
+
 def get_all_params_node( parentNode, nodeNames = nil )
     if nodeNames == nil
         nodeNames = []
