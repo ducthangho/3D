@@ -89,6 +89,13 @@ def get_ms_val(suValue,suType)
     end
     tf << ")"
     return tf
+  when "bool"
+    suValue = suValue.firstChild().nodeValue()
+    if (suValue)
+      return "true"
+    else 
+      return "false"
+    end
   when "string","filename"
     suValue = suValue.firstChild().nodeValue()
     return "'#{suValue.to_s}'"
