@@ -55,7 +55,7 @@ def get_ms_val(suValue,suType)
   when "string"
     suValue = suValue.firstChild().nodeValue()
     return "\"#{suValue.to_s}\""
-  when "filename"
+  when "filename","plugin"
     suValue = suValue.firstChild().nodeValue()
     if suValue.length()==0 
         return "undefined"
@@ -407,7 +407,6 @@ end
 def export_motionblur
     s = ""
     output_xml_node = get_xml_node("SettingsMotionBlur");    
-    get_all_params_nodes output_xml_node
 
     s << c(output_xml_node,"moblur_bias","bias")
     s << c(output_xml_node,"moblur_dmc_minSamples","low_samples")
@@ -563,7 +562,7 @@ end
 
 def export_rt_engine
     s = ""
-    output_xml_node = get_xml_node("RTEngine");    
+    output_xml_node = get_xml_node("RTEngine")    
     # get_all_params_nodes output_xml_node
 
     s << c(output_xml_node,"dmcgi_depth","gi_depth")         
@@ -582,15 +581,7 @@ end
 def  export_adaptiveSubdivision
     s = ""
 
-    options_hash_as_array = VRayForSketchUp.get_vfs_scene_attribute(VRayForSketchUp::VFS_OPTIONS_DICTIONARY)
-
-    options_hash = VRayForSketchUp.array_to_hash( options_hash_as_array )
-
-    output_xml_string = options_hash["/SettingsImageSampler"]
-    output_xml_doc = VRayXML::QDomDocument.new output_xml_string
-
-    output_xml_node = VRayForSketchUp.find_asset_in_doc(output_xml_doc, "/SettingsImageSampler" );
-
+    output_xml_node = get_xml_node("SettingsImageSampler")
 
     # get_all_params_nodes(output_xml_node)
 
@@ -608,19 +599,7 @@ end
 
 def export_adv_irradmap
         s = ""
-
-        options_hash_as_array = VRayForSketchUp.get_vfs_scene_attribute(VRayForSketchUp::VFS_OPTIONS_DICTIONARY)
-
-        options_hash = VRayForSketchUp.array_to_hash( options_hash_as_array )
-
-        output_xml_string = options_hash["/SettingsIrradianceMap"]
-        output_xml_doc = VRayXML::QDomDocument.new output_xml_string
-
-        output_xml_node = VRayForSketchUp.find_asset_in_doc(output_xml_doc, "/SettingsIrradianceMap" );
-
-
-        get_all_params_nodes(output_xml_node)
-
+        output_xml_node = get_xml_node("SettingsIrradianceMap")
 
         s << c(output_xml_node,"adv_irradmap_autoSave","auto_save")
         s << c(output_xml_node,"adv_irradmap_autoSaveFileName","auto_save_file")
@@ -664,7 +643,7 @@ def export_caustic
     s = ""
     output_xml_node = get_xml_node("SettingsCaustics")
 
-    get_all_params_nodes(output_xml_node)
+    # get_all_params_nodes(output_xml_node)
 
     # .casutics_autoSave (alias for caustics_autoSave)
     s << c(output_xml_node,"caustics_autoSave","auto_save")
@@ -689,7 +668,7 @@ def export_colorMapping
     s = ""
     output_xml_node = get_xml_node("SettingsColorMapping")
 
-    get_all_params_nodes(output_xml_node)
+    # get_all_params_nodes(output_xml_node)
 
 
     s << c(output_xml_node,"colorMapping_adaptationOnly","adaptation_only")
@@ -732,15 +711,7 @@ end
 def export_dmc
 
     s = ""
-
-    options_hash_as_array = VRayForSketchUp.get_vfs_scene_attribute(VRayForSketchUp::VFS_OPTIONS_DICTIONARY)
-
-    options_hash = VRayForSketchUp.array_to_hash( options_hash_as_array )
-
     output_xml_node = get_xml_node("SettingsDMCSampler")
-
-    get_all_params_nodes(output_xml_node)
-
     s << c(output_xml_node,"dmc_balance_subdivs (dmc_balanceSubdivs)","default")
     s << c(output_xml_node,"dmc_earlyTermination_amount (mc_earlyTermination_amount)","adaptive_amount")
     s << c(output_xml_node,"dmc_earlyTermination_minSamples (mc_earlyTermination_minSamples)","adaptive_min_samples")
@@ -757,15 +728,9 @@ end
 def export_dmcgi
 
     s = ""
-
     options_hash_as_array = VRayForSketchUp.get_vfs_scene_attribute(VRayForSketchUp::VFS_OPTIONS_DICTIONARY)
-
     options_hash = VRayForSketchUp.array_to_hash( options_hash_as_array )
-
     output_xml_node = get_xml_node("SettingsDMCGI")
-
-    get_all_params_nodes(output_xml_node)
-
     s << c(output_xml_node,"dmcgi_depth (mcgi_depth)","depth")
     s << c(output_xml_node,"dmcgi_subdivs (mcgi_subdivs)","subdivs")
 
@@ -780,13 +745,15 @@ file_loaded("TrasferVrayModule.rb")
 export_photonMap
 export_irradmap
 export_lightcache
-# export_colorMapping
-#export_raycaster
-#export_motionblur
-#export_image_sampler
-# export_gi
-# export_irradmap
-# export_environment
-# export_camera_dof
-# export_dmc_sampler
-# export_rt_engine
+export_colorMapping
+export_dmc
+
+export_raycaster
+export_motionblur
+export_image_sampler
+export_gi
+export_irradmap
+export_environment
+export_camera_dof
+export_dmc_sampler
+export_rt_engine
