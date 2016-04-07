@@ -122,87 +122,6 @@ def gen_ms_by_type(maxKey,suValue,suType,prefix="vr.")
   return s
 end
 
-def c2 (output_xml_node,input, output)
-    if (output == "default") 
-        return ""
-    end
-    # puts get_from_xml(output_xml_node,output)
-	type = nil
-    params = output_xml_node.elementsByTagName( "parameter" )
-    for currentParam in params 
-        paramName = currentParam.attribute("name")
-        if (paramName == output)
-          type = currentParam.attribute("type").to_s
-          break
-        end
-    end
- 
-	if type == nil 
-        return ""
-    end
-    out = get_from_xml(output_xml_node,output,type)
-	return gen_ms_by_type(input,out,type)
-    # puts "#{input} : #{out}   #{type}"
-    # return cnv(input, out,type)
-end
-
-
-def cnv (input, output, type = nil)
-    if(output == nil)
-        return ""
-    end
-
-    if (output == "default") 
-        return ""
-    end
-    # return "vr."<< input <<" = "<< output.to_s << "\n"
-    return gen_ms_by_type(input,output,type)    
-end
-
-def get_int(output_xml_node,name)
-    return VRayForSketchUp.get_integer_parameter_value_from_xml_node( output_xml_node, name)
-end
-
-def get_bool(output_xml_node,name)
-    return VRayForSketchUp.get_bool_parameter_value_from_xml_node( output_xml_node, name)
-end
-
-def get_float(output_xml_node,name)
-    return VRayForSketchUp.get_float_parameter_value_from_xml_node( output_xml_node, name)
-end
-
-def get_double(output_xml_node,name)
-    return VRayForSketchUp.get_param_value_node( output_xml_node, name,"double")
-end
-
-def get_string(output_xml_node,name)
-    val = VRayForSketchUp.get_param_value_node( output_xml_node, name,"string")
-    return "\"#{val.firstChild.to_s}\"" if val
-    return "\"\""    
-end
-
-def get_list_int(output_xml_node,name)
-    framesList = VRayForSketchUp.get_param_value_node(output_xml_node,name,"list").elementsByTagName("entry")
-    frames = [];
-
-    framesList.each{ |frame|
-        frames << frame.firstChild.to_s.to_i
-    }
-    return frames
-end
-
-
-def get_list(output_xml_node,name)
-    framesList = VRayForSketchUp.get_param_value_node(output_xml_node,name,"list").elementsByTagName("entry")
-    frames = [];
-
-    framesList.each{ |frame|
-        frames << frame.firstChild.to_s
-    }
-    return frames
-end
-
-
 def get_from_xml(output_xml_node,name,type=nil)
   if (type == nil)     
     params = output_xml_node.elementsByTagName( "parameter" )
@@ -214,9 +133,7 @@ def get_from_xml(output_xml_node,name,type=nil)
         end
     end 
   end
-  
-
-  if type=="integer"
+    if type=="integer"
     return VRayForSketchUp.get_integer_parameter_value_from_xml_node( output_xml_node, name)
   elsif type=="bool"
     return VRayForSketchUp.get_bool_parameter_value_from_xml_node( output_xml_node, name)
@@ -245,7 +162,6 @@ def get_from_xml(output_xml_node,name,type=nil)
 end
 
 
-
 def get_all_params_node( parentNode, nodeNames = nil )
     if nodeNames == nil
         nodeNames = []
@@ -258,8 +174,6 @@ def get_all_params_node( parentNode, nodeNames = nil )
     end
     return nodeNames
 end
-
-
 
 def get_all_params_nodes( parentNode )    
     nodes = parentNode.elementsByTagName("parameter")
@@ -283,16 +197,9 @@ def get_xml_node(key)
     options_hash_as_array = VRayForSketchUp.get_vfs_scene_attribute(VRayForSketchUp::VFS_OPTIONS_DICTIONARY)
  #            # if options_hash_as_array != nil
     options_hash = VRayForSketchUp.array_to_hash( options_hash_as_array )
-
-    # VRayForSketchUp.initScene()
-    # VfSExport.scene.cache_scene_options()
-    # options_hash = VfSExport.scene.modified_options_lookup
-
     output_xml_string = options_hash["/#{key}"]
     output_xml_doc = VRayXML::QDomDocument.new output_xml_string
-
     return get_all_params_node2(output_xml_doc)
-    return VRayForSketchUp.find_asset_in_doc(output_xml_doc, "/#{key}" );
 end
 
 
@@ -300,10 +207,6 @@ def export_settings_output
 	s = ""
 	output_xml_node = get_xml_node("SettingsOutput");
     # get_all_params_nodes output_xml_node
-
-	 
- 
-	
     rgn_width = get_float( output_xml_node, "rgn_width")    
     r_height = get_int( output_xml_node, "r_height")    
     rgn_height = get_float( output_xml_node, "rgn_height")    
@@ -323,22 +226,8 @@ def export_settings_output
     s << c(output_xml_node,"output_aspect","img_pixelAspect")
 
     s << cnv("output_fileOnly",(not img_file == "" and img_rawFile),"bool")
-    
-    
+     
     s << c(output_xml_node,"output_fileName","img_file")
-    # s << cnv("output_saveRawFile",img_rawFile)
-    # s << cnv("output_rawFileName",img_rawFile)
-
-    # s << cnv("output_useram",true)
-  #   s << cnv("output_genpreview",true)
-  #   .output_splitgbuffer : boolean
-  # .output_splitfilename : filename
-  # .output_splitbitmap : bitmap
-  # .output_getsetsfrommax : boolean
-  # .output_splitRGB : boolean
-  # .output_splitAlpha : boolean
-  # .output_renderType : integer
-
     s << cnv("output_regxmin",rgn_left,"float")
     s << cnv("output_regxmax",rgn_left+rgn_width,"float")
     s << cnv("output_regymin",rgn_top,"float")
@@ -752,28 +641,11 @@ def export_adv_irradmap
         # s << c(output_xml_node,"options_defaultLights","default")d
 end
 
-
-def get_xml_node (param)
-        options_hash_as_array = VRayForSketchUp.get_vfs_scene_attribute(VRayForSketchUp::VFS_OPTIONS_DICTIONARY)
-
-        options_hash = VRayForSketchUp.array_to_hash( options_hash_as_array )
-
-        output_xml_string = options_hash[param]
-        output_xml_doc = VRayXML::QDomDocument.new output_xml_string
-        output_xml_node = VRayForSketchUp.find_asset_in_doc(output_xml_doc, param );
-        return output_xml_node
-end
-
 def export_camera
     s = ""
-
-    options_hash_as_array = VRayForSketchUp.get_vfs_scene_attribute(VRayForSketchUp::VFS_OPTIONS_DICTIONARY)
-
-    options_hash = VRayForSketchUp.array_to_hash( options_hash_as_array )
-
-    output_xml_node = get_xml_node("/CameraPhysical")
-    settingsCameraDof = get_xml_node("/SettingsCameraDof")
-    settingsCamera = get_xml_node("/SettingsCamera")
+    output_xml_node = get_xml_node("CameraPhysical")
+    settingsCameraDof = get_xml_node("SettingsCameraDof")
+    settingsCamera = get_xml_node("SettingsCamera")
     # get_all_params_nodes(settingsCamera)
 
     s << c(settingsCamera,"camera_fish_autoDistance","default")
@@ -790,12 +662,7 @@ end
 
 def export_caustic
     s = ""
-
-    options_hash_as_array = VRayForSketchUp.get_vfs_scene_attribute(VRayForSketchUp::VFS_OPTIONS_DICTIONARY)
-
-    options_hash = VRayForSketchUp.array_to_hash( options_hash_as_array )
-
-    output_xml_node = get_xml_node("/SettingsCaustics")
+    output_xml_node = get_xml_node("SettingsCaustics")
 
     get_all_params_nodes(output_xml_node)
 
@@ -820,12 +687,7 @@ end
 
 def export_colorMapping
     s = ""
-
-    options_hash_as_array = VRayForSketchUp.get_vfs_scene_attribute(VRayForSketchUp::VFS_OPTIONS_DICTIONARY)
-
-    options_hash = VRayForSketchUp.array_to_hash( options_hash_as_array )
-
-    output_xml_node = get_xml_node("/SettingsColorMapping")
+    output_xml_node = get_xml_node("SettingsColorMapping")
 
     get_all_params_nodes(output_xml_node)
 
@@ -852,7 +714,7 @@ def export_Displacement
 
     options_hash = VRayForSketchUp.array_to_hash( options_hash_as_array )
 
-    output_xml_node = get_xml_node("/SettingsDefaultDisplacement")
+    output_xml_node = get_xml_node("SettingsDefaultDisplacement")
 
     # get_all_params_nodes(output_xml_node)
 
@@ -875,7 +737,7 @@ def export_dmc
 
     options_hash = VRayForSketchUp.array_to_hash( options_hash_as_array )
 
-    output_xml_node = get_xml_node("/SettingsDMCSampler")
+    output_xml_node = get_xml_node("SettingsDMCSampler")
 
     get_all_params_nodes(output_xml_node)
 
@@ -900,7 +762,7 @@ def export_dmcgi
 
     options_hash = VRayForSketchUp.array_to_hash( options_hash_as_array )
 
-    output_xml_node = get_xml_node("/SettingsDMCGI")
+    output_xml_node = get_xml_node("SettingsDMCGI")
 
     get_all_params_nodes(output_xml_node)
 
@@ -918,9 +780,10 @@ file_loaded("TrasferVrayModule.rb")
 export_photonMap
 export_irradmap
 export_lightcache
-# export_raycaster
-# export_motionblur
-# export_image_sampler
+# export_colorMapping
+#export_raycaster
+#export_motionblur
+#export_image_sampler
 # export_gi
 # export_irradmap
 # export_environment
