@@ -1,6 +1,103 @@
 require 'sketchup.rb'
 require 'VfSExport.rb'
 
+def get_ms_val(suValue,suType)
+  # puts suValue
+  if (suType == nil) or (suValue==nil) 
+    return nil 
+  end
+  case suType
+  when "color"
+    re = suValue.elementsByTagName("r")
+    ge = suValue.elementsByTagName("g")
+    be = suValue.elementsByTagName("b")
+    r = re[0].firstChild().nodeValue().to_f
+    g = ge[0].firstChild().nodeValue().to_f
+    b = be[0].firstChild().nodeValue().to_f
+    r = r*255
+    g = g*255
+    b = b*255  
+    return "(color #{r.to_i} #{g.to_i} #{b.to_i})"
+  when "acolor"
+    re = suValue.elementsByTagName("r")
+    ge = suValue.elementsByTagName("g")
+    be = suValue.elementsByTagName("b")
+    ae = suValue.elementsByTagName("a")
+    r = re[0].firstChild().nodeValue().to_f
+    g = ge[0].firstChild().nodeValue().to_f
+    b = be[0].firstChild().nodeValue().to_f
+    a = ae[0].firstChild().nodeValue().to_f
+    r = r*255
+    g = g*255
+    b = b*255    
+    return "(color #{r} #{g} #{b}) #{a}"   
+  when "transform"
+    vv = suValue.elementsByTagName( "vector" ) 
+    tf = "(matrix3"
+    for v in vv
+      xn = v.elementsByTagName( "x" ) 
+      yn = v.elementsByTagName( "y" ) 
+      zn = v.elementsByTagName( "z" ) 
+      x = xn[0].firstChild().nodeValue()
+      y = yn[0].firstChild().nodeValue()
+      z = zn[0].firstChild().nodeValue()
+      tf << " [#{x},#{y},#{z}]"
+    end
+    tf << ")"
+    return tf
+  when "bool"
+    suValue = suValue.firstChild().nodeValue()
+    if (suValue)
+      return "true"
+    else 
+      return "false"
+    end
+  when "string"
+    suValue = suValue.firstChild().nodeValue()
+    return "\"#{suValue.to_s}\""
+  when "filename"
+    suValue = suValue.firstChild().nodeValue()
+    if suValue.length()==0 
+        return "undefined"
+    else
+        return "\"#{suValue.to_s}\""
+    end
+  else
+    suValue = suValue.firstChild().nodeValue()
+    return suValue
+  end
+end
+
+def c(suData,maxKey,suKey)
+  if (suData[suKey] == nil) or (suKey == "default")
+    return ""
+  end
+  suVal = suData[suKey].elementsByTagName( "value" )
+  if suVal.length() == 0
+    suVal = ""
+  end
+  maxValue = get_ms_val(suVal[0],suData[suKey].attribute('type').to_s)
+  if maxValue != nil
+    return "\nvr.#{maxKey}=#{maxValue}"
+  else
+    return ""
+  end  
+end
+
+def get_all_params_node2( parentNode, data = nil )
+    if data == nil
+        data = {}
+    end
+    nodes = parentNode.elementsByTagName("parameter")
+    return nil if nodes.length() == 0
+    for currentNode in nodes
+        name = currentNode.attribute('name')
+        data[name] = currentNode
+        # puts "s << ll(suData,'MAX','#{name}')"
+    end
+    return data
+end
+
 def gen_ms_by_type(maxKey,suValue,suType,prefix="vr.")
   s = prefix
   case suType
@@ -25,7 +122,7 @@ def gen_ms_by_type(maxKey,suValue,suType,prefix="vr.")
   return s
 end
 
-def c (output_xml_node,input, output)
+def c2 (output_xml_node,input, output)
     if (output == "default") 
         return ""
     end
@@ -193,6 +290,8 @@ def get_xml_node(key)
 
     output_xml_string = options_hash["/#{key}"]
     output_xml_doc = VRayXML::QDomDocument.new output_xml_string
+
+    return get_all_params_node2(output_xml_doc)
     return VRayForSketchUp.find_asset_in_doc(output_xml_doc, "/#{key}" );
 end
 
@@ -815,10 +914,10 @@ end
 
 file_loaded("VfSExport.rb")
 file_loaded("TrasferVrayModule.rb")
-export_settings_output
-# export_photonMap
-# export_irrad_map
-# export_lightcache
+#export_settings_output
+export_photonMap
+export_irradmap
+export_lightcache
 # export_raycaster
 # export_motionblur
 # export_image_sampler

@@ -96,9 +96,16 @@ def get_ms_val(suValue,suType)
     else 
       return "false"
     end
-  when "string","filename"
+  when "string"
     suValue = suValue.firstChild().nodeValue()
-    return "'#{suValue.to_s}'"
+    return "\"#{suValue.to_s}\""
+  when "filename"
+    suValue = suValue.firstChild().nodeValue()
+    if suValue.length()==0 
+        return "undefined"
+    else
+        return "\"#{suValue.to_s}\""
+    end
   else
     suValue = suValue.firstChild().nodeValue()
     return suValue
@@ -269,7 +276,7 @@ for e in entities
         creatVRayIES(suData)
       end
     else
-      puts "\n ============= Chua co du lieu den tuong ung voi loai den #{lt} =============================="
+      puts "\n -------------------- Chua co du lieu den tuong ung voi loai den #{lt} =============================="
     end
     # if lt == "LightRectangle"
     #   c = VRayForSketchUp.get_integer_parameter_value_from_xml_node( light_xml_doc, "causticSubdivs")
