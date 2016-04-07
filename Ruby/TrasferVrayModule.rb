@@ -589,6 +589,230 @@ end
 
 
 
+
+
+def  export_adaptiveSubdivision
+    s = ""
+
+    options_hash_as_array = VRayForSketchUp.get_vfs_scene_attribute(VRayForSketchUp::VFS_OPTIONS_DICTIONARY)
+
+    options_hash = VRayForSketchUp.array_to_hash( options_hash_as_array )
+
+    output_xml_string = options_hash["/SettingsImageSampler"]
+    output_xml_doc = VRayXML::QDomDocument.new output_xml_string
+
+    output_xml_node = VRayForSketchUp.find_asset_in_doc(output_xml_doc, "/SettingsImageSampler" );
+
+
+    # get_all_params_nodes(output_xml_node)
+
+
+    s << c(output_xml_node,"adaptiveSubdivision_dofMoblurSubdivs (adaptiveSubdivision_dofMoblur_subdivs)","default")
+    s << c(output_xml_node,"adaptiveSubdivision_maxRate","subdivision_maxRate")
+    s << c(output_xml_node,"adaptiveSubdivision_minRate","subdivision_minRate")
+    s << c(output_xml_node,"adaptiveSubdivision_rand","default")
+    s << c(output_xml_node,"adaptiveSubdivision_showSamples","dmc_show_samples")
+    s << c(output_xml_node,"adaptiveSubdivision_threshold","default")
+
+    puts s
+end
+
+
+def export_adv_irradmap
+        s = ""
+
+        options_hash_as_array = VRayForSketchUp.get_vfs_scene_attribute(VRayForSketchUp::VFS_OPTIONS_DICTIONARY)
+
+        options_hash = VRayForSketchUp.array_to_hash( options_hash_as_array )
+
+        output_xml_string = options_hash["/SettingsIrradianceMap"]
+        output_xml_doc = VRayXML::QDomDocument.new output_xml_string
+
+        output_xml_node = VRayForSketchUp.find_asset_in_doc(output_xml_doc, "/SettingsIrradianceMap" );
+
+
+        get_all_params_nodes(output_xml_node)
+
+
+        s << c(output_xml_node,"adv_irradmap_autoSave","auto_save")
+        s << c(output_xml_node,"adv_irradmap_autoSaveFileName","auto_save_file")
+        s << c(output_xml_node,"adv_irradmap_calcInterpSamples","calc_interp_samples")
+        s << c(output_xml_node,"adv_irradmap_checkSampleVisibility","check_sample_visibility")
+        s << c(output_xml_node,"adv_irradmap_dontDelete","dont_delete")
+        s << c(output_xml_node,"adv_irradmap_interpolationType","interpolation_mode")
+        # s << c(output_xml_node,"adv_irradmap_limitSearchRange","default")
+        s << c(output_xml_node,"adv_irradmap_loadFileName","file")
+        s << c(output_xml_node,"adv_irradmap_lookupType","lookup_mode")
+        s << c(output_xml_node,"adv_irradmap_mode","mode")
+        s << c(output_xml_node,"adv_irradmap_randomize","randomize_samples")
+        s << c(output_xml_node,"adv_irradmap_saveFileName","default")
+        s << c(output_xml_node,"adv_irradmap_switchToSavedMap","default")
+        s << c(output_xml_node,"adv_irradmap_useCurrentPassSamples","default")
+
+        puts s
+        # s << c(output_xml_node,"options_defaultLights","default")d
+end
+
+
+def get_xml_node (param)
+        options_hash_as_array = VRayForSketchUp.get_vfs_scene_attribute(VRayForSketchUp::VFS_OPTIONS_DICTIONARY)
+
+        options_hash = VRayForSketchUp.array_to_hash( options_hash_as_array )
+
+        output_xml_string = options_hash[param]
+        output_xml_doc = VRayXML::QDomDocument.new output_xml_string
+        output_xml_node = VRayForSketchUp.find_asset_in_doc(output_xml_doc, param );
+        return output_xml_node
+end
+
+def export_camera
+    s = ""
+
+    options_hash_as_array = VRayForSketchUp.get_vfs_scene_attribute(VRayForSketchUp::VFS_OPTIONS_DICTIONARY)
+
+    options_hash = VRayForSketchUp.array_to_hash( options_hash_as_array )
+
+    output_xml_node = get_xml_node("/CameraPhysical")
+    settingsCameraDof = get_xml_node("/SettingsCameraDof")
+    settingsCamera = get_xml_node("/SettingsCamera")
+    # get_all_params_nodes(settingsCamera)
+
+    s << c(settingsCamera,"camera_fish_autoDistance","default")
+    s << c(settingsCamera,"camera_fish_curve","curve")
+    s << c(settingsCamera,"camera_fish_distance","dist")
+    s << c(settingsCamera,"camera_fov","fov")
+    s << c(output_xml_node,"camera_motion_blur","use_moblur")
+    s << c(settingsCamera,"camera_overrideFOV","override_fov")
+    s << c(settingsCamera,"camera_type","type")
+    s << c(settingsCamera,"camera_cyl_height","height")
+
+    puts s
+end
+
+def export_caustic
+    s = ""
+
+    options_hash_as_array = VRayForSketchUp.get_vfs_scene_attribute(VRayForSketchUp::VFS_OPTIONS_DICTIONARY)
+
+    options_hash = VRayForSketchUp.array_to_hash( options_hash_as_array )
+
+    output_xml_node = get_xml_node("/SettingsCaustics")
+
+    get_all_params_nodes(output_xml_node)
+
+    # .casutics_autoSave (alias for caustics_autoSave)
+    s << c(output_xml_node,"caustics_autoSave","auto_save")
+    s << c(output_xml_node,"caustics_autoSaveFileName","auto_save_file")
+    s << c(output_xml_node,"caustics_dontDelete","dont_delete")
+    s << c(output_xml_node,"caustics_loadFileName","file")
+    s << c(output_xml_node,"caustics_maxDensity (caustics_maxDens)","max_density")
+    s << c(output_xml_node,"caustics_maxPhotons","max_photons")
+    s << c(output_xml_node,"caustics_mode","mode")
+    s << c(output_xml_node,"caustics_multiplier","multiplier")
+    s << c(output_xml_node,"caustics_on","on")
+    s << c(output_xml_node,"caustics_saveFileName","auto_save_file")
+    s << c(output_xml_node,"caustics_searchDist","search_distance")
+    s << c(output_xml_node,"caustics_showCalcPhase (caustics_directVisualization)","show_calc_phase")
+    s << c(output_xml_node,"caustics_switchToSavedMap","default")
+    s << c(output_xml_node,"caustics_ui_view","default")
+
+    puts s
+end
+
+def export_colorMapping
+    s = ""
+
+    options_hash_as_array = VRayForSketchUp.get_vfs_scene_attribute(VRayForSketchUp::VFS_OPTIONS_DICTIONARY)
+
+    options_hash = VRayForSketchUp.array_to_hash( options_hash_as_array )
+
+    output_xml_node = get_xml_node("/SettingsColorMapping")
+
+    get_all_params_nodes(output_xml_node)
+
+
+    s << c(output_xml_node,"colorMapping_adaptationOnly","adaptation_only")
+    s << c(output_xml_node,"colorMapping_affectBackground","affect_background")
+    s << c(output_xml_node,"colorMapping_brightMult","bright_mult")
+    s << c(output_xml_node,"colorMapping_clampLevel","clamp_level")
+    s << c(output_xml_node,"colorMapping_clampOutput","clamp_output")
+    s << c(output_xml_node,"colorMapping_darkMult","dark_mult")
+    s << c(output_xml_node,"colorMapping_gamma","gamma")
+    s << c(output_xml_node,"colorMapping_linearWorkflow","linearWorkflow")
+    s << c(output_xml_node,"colorMapping_subpixel","subpixel_mapping")
+    s << c(output_xml_node,"colorMapping_type","type")
+    # s << c(output_xml_node,"colormapping_ui_view","default")
+
+    puts s
+end
+
+def export_Displacement
+    s = ""
+
+    options_hash_as_array = VRayForSketchUp.get_vfs_scene_attribute(VRayForSketchUp::VFS_OPTIONS_DICTIONARY)
+
+    options_hash = VRayForSketchUp.array_to_hash( options_hash_as_array )
+
+    output_xml_node = get_xml_node("/SettingsDefaultDisplacement")
+
+    # get_all_params_nodes(output_xml_node)
+
+    s << c(output_xml_node,"displacement_amount","amount")
+    s << c(output_xml_node,"displacement_edgeLength","edgeLength")
+    s << c(output_xml_node,"displacement_maxSubdivs","maxSubdivs")
+    s << c(output_xml_node,"displacement_overrideMax","override_on")
+    s << c(output_xml_node,"displacement_relative","relative")
+    s << c(output_xml_node,"displacement_tightBounds","tightBounds")
+    s << c(output_xml_node,"displacement_viewDependent","viewDependent")
+
+    puts s
+end
+
+def export_dmc
+
+    s = ""
+
+    options_hash_as_array = VRayForSketchUp.get_vfs_scene_attribute(VRayForSketchUp::VFS_OPTIONS_DICTIONARY)
+
+    options_hash = VRayForSketchUp.array_to_hash( options_hash_as_array )
+
+    output_xml_node = get_xml_node("/SettingsDMCSampler")
+
+    get_all_params_nodes(output_xml_node)
+
+    s << c(output_xml_node,"dmc_balance_subdivs (dmc_balanceSubdivs)","default")
+    s << c(output_xml_node,"dmc_earlyTermination_amount (mc_earlyTermination_amount)","adaptive_amount")
+    s << c(output_xml_node,"dmc_earlyTermination_minSamples (mc_earlyTermination_minSamples)","adaptive_min_samples")
+    s << c(output_xml_node,"dmc_earlyTermination_threshold (mc_earlyTermination_threshold)","adaptive_threshold")
+    s << c(output_xml_node,"dmc_importanceSampling (mc_importanceSampling)","default")
+    s << c(output_xml_node,"dmc_pathSampler_type (mc_pathSampler_type)","path_sampler_type")
+    s << c(output_xml_node,"dmc_subdivs_mult (mc_subdivs_mult)","subdivs_mult")
+    s << c(output_xml_node,"dmc_timeDependent (mc_lockToPixels)","time_dependent")
+    
+    puts s
+end
+
+
+def export_dmcgi
+
+    s = ""
+
+    options_hash_as_array = VRayForSketchUp.get_vfs_scene_attribute(VRayForSketchUp::VFS_OPTIONS_DICTIONARY)
+
+    options_hash = VRayForSketchUp.array_to_hash( options_hash_as_array )
+
+    output_xml_node = get_xml_node("/SettingsDMCGI")
+
+    get_all_params_nodes(output_xml_node)
+
+    s << c(output_xml_node,"dmcgi_depth (mcgi_depth)","depth")
+    s << c(output_xml_node,"dmcgi_subdivs (mcgi_subdivs)","subdivs")
+
+    puts s
+
+end
+
+
 file_loaded("VfSExport.rb")
 file_loaded("TrasferVrayModule.rb")
 export_settings_output
