@@ -543,25 +543,36 @@ def export_irradmap
     puts s
 end
 
+# def get_valueNode(valueNodes)
+#   string s = ""
+#   valueNodes.elementsByTagName
+# end
 
 def print(xml_node,prefix)
     params = xml_node.elementsByTagName("parameter")
     # puts params.length
+
+    a = prefix.gsub("-"," ");
+    indent = "#{a}  -"
+
     params.each do |node|
         # puts  "#{node}"
         name = node.attribute("name")
         type = node.attribute("type")
-        puts "#{prefix}#{name} : #{type}"
+        valueNodes = node.elementsByTagName("value");
+        values = get_ms_val(valueNodes[0],type)
+        # valueNodes.each do |v|
+        #   values << v.firstChild.to_s << " "
+        # end
+
+        puts "#{prefix}#{name} : #{type} : #{values}"
         if(!(isPrimitiveType type))
             # asset = lay xml node ma bi tham chieu toi, co gia tri luu trong bien type
             url = node.firstChild.firstChild.to_s
             # puts "url  -> #{url}"
             asset = VRayForSketchUp.find_asset_in_doc(xml_node,url)
-            if(asset!=nil) 
-
-                a = prefix.gsub("-"," ");
-                indent = "#{a}  -"
-                puts url
+            if(asset!=nil)                 
+                # puts url
                 # print(asset)
                 # puts "asset ->\n#{asset}"
                 print(asset,indent)
@@ -592,7 +603,7 @@ def export_environment
     s = ""
     output_xml_node = get_xml_node("SettingsEnvironment");
     puts "-------------------------------------------------------------*"
-    # print_keyType "SettingsEnvironment"
+    print_keyType "SettingsEnvironment"
 
     s << c(output_xml_node,"environment_gi_color","gi_color")
     s << c(output_xml_node,"environment_gi_color_multiplier","default")
