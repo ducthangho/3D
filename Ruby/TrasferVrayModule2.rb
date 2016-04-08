@@ -548,6 +548,74 @@ end
 #   valueNodes.elementsByTagName
 # end
 
+def get_ms_val_M(suValue,suType)
+    # puts suValue
+    if (suType == nil) or (suValue==nil)
+        return nil
+    end
+    case suType
+    when "color"
+        re = suValue.elementsByTagName("r")
+        ge = suValue.elementsByTagName("g")
+        be = suValue.elementsByTagName("b")
+        r = re[0].firstChild().nodeValue().to_f
+        g = ge[0].firstChild().nodeValue().to_f
+        b = be[0].firstChild().nodeValue().to_f
+        r = r*255
+        g = g*255
+        b = b*255
+        return "(color #{r.to_i} #{g.to_i} #{b.to_i})"
+    when "acolor"
+        re = suValue.elementsByTagName("r")
+        ge = suValue.elementsByTagName("g")
+        be = suValue.elementsByTagName("b")
+        ae = suValue.elementsByTagName("a")
+        r = re[0].firstChild().nodeValue().to_f
+        g = ge[0].firstChild().nodeValue().to_f
+        b = be[0].firstChild().nodeValue().to_f
+        a = ae[0].firstChild().nodeValue().to_f
+        r = r*255
+        g = g*255
+        b = b*255
+        return "(color #{r} #{g} #{b}) #{a}"
+    when "transform"
+        vv = suValue.elementsByTagName( "vector" )
+        tf = "(matrix3"
+        for v in vv
+            xn = v.elementsByTagName( "x" )
+            yn = v.elementsByTagName( "y" )
+            zn = v.elementsByTagName( "z" )
+            x = xn[0].firstChild().nodeValue()
+            y = yn[0].firstChild().nodeValue()
+            z = zn[0].firstChild().nodeValue()
+            tf << " [#{x},#{y},#{z}]"
+        end
+        tf << ")"
+        return tf
+    when "bool"
+        suValue = suValue.firstChild().nodeValue()
+        if (suValue)
+            return "true"
+        else
+            return "false"
+        end
+    when "string"
+        suValue = suValue.firstChild().nodeValue()
+        return "\"#{suValue.to_s}\""
+    when "filename","plugin"
+        suValue = suValue.firstChild().nodeValue()
+        if suValue.length()==0
+            return "undefined"
+        else
+            return "\"#{suValue.to_s}\""
+        end
+    else
+        suValue = suValue.firstChild().nodeValue()
+        return suValue
+    end
+end
+
+
 def print(xml_node,prefix)
     params = xml_node.elementsByTagName("parameter")
     # puts params.length
@@ -560,7 +628,7 @@ def print(xml_node,prefix)
         name = node.attribute("name")
         type = node.attribute("type")
         valueNodes = node.elementsByTagName("value");
-        values = get_ms_val(valueNodes[0],type)
+        values = get_ms_val_M(valueNodes[0],type)
         # valueNodes.each do |v|
         #   values << v.firstChild.to_s << " "
         # end
