@@ -615,8 +615,12 @@ def get_ms_val_M(suValue,suType)
     end
 end
 
-
-def print(xml_node,prefix)
+count = 0;
+def print(all_asset,xml_node,prefix,count)
+    # count = count + 1
+    # if(count>3) 
+    #   return 3
+    # end
     params = xml_node.elementsByTagName("parameter")
     # puts params.length
 
@@ -637,13 +641,14 @@ def print(xml_node,prefix)
         if(!(isPrimitiveType type))
             # asset = lay xml node ma bi tham chieu toi, co gia tri luu trong bien type
             url = node.firstChild.firstChild.to_s
+            # puts "url -> #{url}"
             # puts "url  -> #{url}"
-            asset = VRayForSketchUp.find_asset_in_doc(xml_node,url)
+            asset = VRayForSketchUp.find_asset_in_doc(all_asset,url)
             if(asset!=nil)                 
-                # puts url
+                # puts "#{indent}(#{count})url -> #{url} -> asset: #{asset}"
                 # print(asset)
                 # puts "asset ->\n#{asset}"
-                print(asset,indent)
+                print(all_asset,asset,indent,count)
             end
         end
     end
@@ -658,11 +663,11 @@ def print_keyType(key)
     output_xml_doc = VRayXML::QDomDocument.new output_xml_string
 
 
-    # puts "******************************"
+    puts "******************************"
     # puts output_xml_doc
-    # puts "******************************"
+    puts "******************************"
 
-    print(output_xml_doc,"")
+    print(output_xml_doc,output_xml_doc,"",0)
 
     # duyet tat ca cac tham so parameter cua node
 end
