@@ -13,7 +13,7 @@ $print_obj = false
 $print_ms = true
 $print_xml = false
 
-$print_list_ms = true
+$print_list_ms = false
 
 
 def get_ms_val(suValue,suType)
@@ -101,7 +101,8 @@ def get_ms_val(suValue,suType)
         return tf
     when "bool"
         suValue = suValue.firstChild().nodeValue()
-        if (suValue==1)
+     
+        if (suValue==1) or (suValue=="1")
             return "true"
         else
             return "false"
@@ -275,6 +276,10 @@ def ms_TexSky(sData)
   s << ms(sData,"y3d_sun.turbidity","sun.turbidity",nil,true)
   s << ms(sData,"y3d_sun.intensity_multiplier","sun.intensity_multiplier",nil,true)
   s << ms(sData,"y3d_sun.sky_model","sun.sky_model",nil,true)
+  s << ms(sData,"y3d_sun.transform","sun.transform",nil,true)
+  sData["sun"]["color_mode"] = "1"
+  # puts sData["sun"]
+  s << ms(sData,"y3d_sun.color_mode","sun.color_mode",nil,true)
   ysun = s
   s = ""
   s << ms(sData,"y3d_sky.multiplier","size_multiplier",nil,true)
@@ -354,17 +359,29 @@ def ms (suData,maxKey,suKey,ovr_type=nil,ovr_key=false)
   if (ovr_type!=nil) 
     case ovr_type
     when "bool"
-      if (suVal)
+      if (suVal==1) or (suVal=="true")
           suVal =  "true"
       else
           suVal = "false"
       end      
     when "on_off"
-      if (suVal)
+      if (suVal==1) or (suVal=="true")
           suVal =  "on"
       else
           suVal = "off"
-      end          
+      end         
+    when "0_1"
+      if (suVal==1) or (suVal=="true")
+          suVal =  "1"
+      else
+          suVal = "0"
+      end   
+    when "not_b"
+      if (suVal==1) or (suVal=="true")
+          suVal =  "false"
+      else
+          suVal = "true"
+      end   
     end
   end
   return "\n#{maxKey}=#{suVal}" if ovr_key
@@ -540,7 +557,7 @@ def get_xml_option_node(key)
     puts output_xml_string if $print_xml
     o = VRayXML::QDomDocument.new output_xml_string
     oo = make_max_from_xml(o,"settings")
-    puts "\n\n//////////////////////// KEY:#{key} //////////////////////"
+    puts "\n\n--//////////////////////// KEY:#{key} //////////////////////"
     puts "========================TREE==============================" if $print_tree
     sData = make_tree(oo)
     puts "========================TREE END==========================" if $print_tree
@@ -575,12 +592,12 @@ def export_environment
     s << ms(sData,'environment_gi_color','gi_color')
     s << ms(sData,'MAX','environment_volume')
     s << ms(sData,'environment_rr_color','reflect_color')
-    s << ms(sData,'MAX','use_reflect')
+    s << ms(sData,'environment_rr_on','use_reflect')
     s << ms(sData,'MAX','bg_color')
-    # s << ms_plugins(sData,'MAX','reflect_tex')   t:TexAColorOp
+    # s << ms_plugins(sData,'MAX','reflect_tex')
     s << ms(sData,'MAX','refract_tex_tex')
-    s << ms(sData,'MAX','reflect_tex_on')
-    # s << ms_plugins(sData,'environment_refract_map','refract_tex')   t:TexAColorOp
+    s << ms(sData,'environment_rr_map_on','reflect_tex_on')
+    s << ms_plugins(sData,'environment_refract_map','refract_tex')
     s << ms(sData,'MAX','reflect_tex_mult')
     s << ms(sData,'environment_gi_map_on','gi_tex_on')
     s << ms_plugins(sData,'environment_rr_map','bg_tex')
@@ -659,15 +676,15 @@ def export_image_sampler
     s = ""
     s << ms(sData,'MAX','dmc_minSubdivs')
     s << ms(sData,'MAX','subdivision_normals')
-    s << ms(sData,'MAX','subdivision_maxRate')
+    s << ms(sData,'adaptiveSubdivision_maxRate','subdivision_maxRate')
     s << ms(sData,'MAX','subdivision_threshold')
     s << ms(sData,'MAX','dmc_threshold')
     s << ms(sData,'MAX','dmc_maxSubdivs')
-    s << ms(sData,'MAX','subdivision_minRate')
+    s << ms(sData,'adaptiveSubdivision_minRate','subdivision_minRate')
     s << ms(sData,'fixedRate_subdivs','fixed_subdivs')
     s << ms(sData,'MAX','subdivision_jitter')
     s << ms(sData,'MAX','dmc_use_dmc_sampler_thresh')
-    s << ms(sData,'MAX','dmc_show_samples')
+    s << ms(sData,'adaptiveSubdivision_showSamples','dmc_show_samples')
     s << ms(sData,'imageSamper_normal_threshold','subdivision_normals_threshold')
     s << ms(sData,'imageSampler_type','type')
     s << ms(sData,'imageSampler_outline','subdivision_edges')
@@ -788,7 +805,7 @@ def export_lightcache
     s << ms(sData,'lightcache_subdivs','subdivs')
     s << ms(sData,'lightcache_saveFileName','file')
     s << ms(sData,'lightcache_autoSave','auto_save')
-    s << ms(sData,'lightcache_showCalcPhase','show_calc_phase')
+    s << ms(sData,'lightcache_showCalcPhase','show_calc_phase',"0_1")
     s << ms(sData,'MAX','depth')
     s << ms(sData,'lightcache_multipleViews','multiple_views')
     s << ms(sData,'lightcache_autoSaveFileName','auto_save_file')
@@ -796,14 +813,14 @@ def export_lightcache
     s << ms(sData,'lightcache_retrace_threshold','retrace_threshold')
     s << ms(sData,'lightcache_prefilter_samples','prefilter_samples')
     s << ms(sData,'lightcache_minPathsPerSample','min_paths_per_sample')
-    s << ms(sData,'lightcache_scale','world_scale')
+    s << ms(sData,'lightcache_scale','world_scale',"0_1")
     s << ms(sData,'lightcache_filter_type','filter_type')
     s << ms(sData,'MAX','adaptive_dirs_only')
     s << ms(sData,'lightcache_interpSamples','filter_samples')
     s << ms(sData,'lightcache_filter_size','filter_size')
     s << ms(sData,'lightcache_dontDelete','dont_delete')
     s << ms(sData,'lightcache_sampleSize','sample_size')
-    s << ms(sData,'lightcache_storeDirectLight','store_direct_light')
+    s << ms(sData,'lightcache_storeDirectLight','store_direct_light',"0_1")
     s << ms(sData,'lightcache_retrace_on','retrace_enabled')
     s << ms(sData,'lightcache_mode','mode')
     s << ms(sData,'lightcache_numPasses','num_passes')
@@ -873,28 +890,28 @@ end
 def export_camera_dof
     sData = get_xml_option_node("SettingsCameraDof");
     s = ""
-    s << ms(sData,'MAX','on')
-    s << ms(sData,'MAX','subdivs')
-    s << ms(sData,'MAX','anisotropy')
-    s << ms(sData,'MAX','focal_dist')
-    s << ms(sData,'MAX','sides_on')
-    s << ms(sData,'MAX','center_bias')
-    s << ms(sData,'MAX','sides_num')
-    s << ms(sData,'MAX','rotation')
+    s << ms(sData,'dof_on','on')
+    s << ms(sData,'dof_subdivs','subdivs')
+    s << ms(sData,'dof_anisotropy','anisotropy')
+    s << ms(sData,'dof_distance','focal_dist')
+    s << ms(sData,'dof_sides_on','sides_on')
+    s << ms(sData,'dof_bias','center_bias')
+    s << ms(sData,'dof_sides_num','sides_num')
+    s << ms(sData,'dof_sides_rotation','rotation')
     s << ms(sData,'MAX','override_focal_dist')
-    s << ms(sData,'MAX','aperture')
+    s << ms(sData,'dof_shutter','aperture')
     
     puts s
 end
 def export_dmc_sampler
     sData = get_xml_option_node("SettingsDMCSampler");
     s = ""
-    s << ms(sData,'MAX','adaptive_min_samples')
-    s << ms(sData,'MAX','adaptive_amount')
-    s << ms(sData,'MAX','path_sampler_type')
-    s << ms(sData,'MAX','subdivs_mult')
-    s << ms(sData,'MAX','adaptive_threshold')
-    s << ms(sData,'MAX','time_dependent')
+    s << ms(sData,'dmc_earlyTermination_minSamples','adaptive_min_samples')
+    s << ms(sData,'dmc_earlyTermination_amount','adaptive_amount')
+    s << ms(sData,'dmc_pathSampler_type','path_sampler_type')
+    s << ms(sData,'dmc_subdivs_mult','subdivs_mult')
+    s << ms(sData,'dmc_earlyTermination_threshold','adaptive_threshold')
+    s << ms(sData,'dmc_timeDependent','time_dependent')
     puts s
 end
 def export_rt_engine
@@ -903,7 +920,7 @@ def export_rt_engine
     s << ms(sData,'MAX','separate_window')
     s << ms(sData,'MAX','trace_depth')
     s << ms(sData,'MAX','use_opencl')
-    s << ms(sData,'MAX','gi_reflective_caustics')
+    s << ms(sData,'gi_reflectCaustics','gi_reflective_caustics')
     s << ms(sData,'MAX','coherent_tracing')
     s << ms(sData,'MAX','show_mask')
     s << ms(sData,'MAX','enabled')
@@ -916,9 +933,9 @@ def export_rt_engine
     s << ms(sData,'MAX','stereo_mode')
     s << ms(sData,'MAX','stop_when_render_done')
     s << ms(sData,'MAX','noise_threshold')
-    s << ms(sData,'MAX','gi_depth')
+    s << ms(sData,'dmcgi_depth','gi_depth')
     s << ms(sData,'MAX','rt_mode')
-    s << ms(sData,'MAX','gi_refractive_caustics')
+    s << ms(sData,'gi_refractCaustics','gi_refractive_caustics')
     s << ms(sData,'MAX','opencl_texsize')
     s << ms(sData,'MAX','stereo_focus')
     
@@ -937,61 +954,71 @@ def export_adv_irradmap
     puts s
 end
 def export_camera
-    sData = get_xml_option_node("CameraPhysical");
+    # sData = get_xml_option_node("CameraPhysical");
+    sData = get_xml_option_node("SettingsCamera");
     s = ""
-    s << ms(sData,'MAX','shutter_speed')
-    s << ms(sData,'MAX','use_moblur')
-    s << ms(sData,'MAX','distortion')
-    s << ms(sData,'MAX','subdivs')
-    s << ms(sData,'MAX','ISO')
-    s << ms(sData,'MAX','lens_shift')
-    s << ms(sData,'MAX','film_width')
-    s << ms(sData,'MAX','specify_fov')
-    s << ms(sData,'MAX','latency')
-    s << ms(sData,'MAX','fov')
-    s << ms(sData,'MAX','focus_distance')
-    s << ms(sData,'MAX','focal_length')
-    s << ms(sData,'MAX','shutter_offset')
-    s << ms(sData,'MAX','white_balance')
-    s << ms(sData,'MAX','f_number')
-    s << ms(sData,'MAX','type')
-    s << ms(sData,'MAX','blades_rotation')
-    s << ms(sData,'MAX','targeted')
-    s << ms(sData,'MAX','dof_display_threshold')
-    s << ms(sData,'MAX','blades_num')
-    s << ms(sData,'MAX','blades_enable')
-    s << ms(sData,'MAX','horizontal_shift')
-    s << ms(sData,'MAX','zoom_factor')
-    s << ms(sData,'MAX','horizontal_offset')
-    s << ms(sData,'MAX','shutter_angle')
-    s << ms(sData,'MAX','exposure')
-    s << ms(sData,'MAX','specify_focus')
+
+    s << ms(sData,'camera_fov','fov')
+    s << ms(sData,'camera_fish_distance','dist')
+    s << ms(sData,'camera_fish_curve','curve')
+    s << ms(sData,'camera_cyl_height','height')
+    s << ms(sData,'camera_overrideFOV','override_fov')
     s << ms(sData,'MAX','dont_affect_settings')
-    s << ms(sData,'MAX','use_dof')
-    s << ms(sData,'MAX','anisotropy')
-    s << ms(sData,'MAX','target_distance')
-    s << ms(sData,'MAX','specify_film_width')
-    s << ms(sData,'MAX','vertical_offset')
-    s << ms(sData,'MAX','override_focal_length')
-    s << ms(sData,'MAX','center_bias')
-    s << ms(sData,'MAX','vignetting')
+    s << ms(sData,'MAX','auto_fit')
+    s << ms(sData,'camera_type','type')
+    # s << ms(sData,'MAX','anisotropy')
+    # s << ms(sData,'MAX','blades_enable')
+    # s << ms(sData,'MAX','blades_num')
+    # s << ms(sData,'MAX','blades_rotation')
+    # s << ms(sData,'MAX','center_bias')
+    # s << ms(sData,'MAX','distortion')
+    # s << ms(sData,'MAX','dof_display_threshold')
+    # s << ms(sData,'MAX','dont_affect_settings')
+    # s << ms(sData,'MAX','exposure')
+    # s << ms(sData,'MAX','f_number')
+    # s << ms(sData,'MAX','film_width')
+    # s << ms(sData,'MAX','focal_length')
+    # s << ms(sData,'MAX','focus_distance')
+    # s << ms(sData,'MAX','fov')
+    # s << ms(sData,'MAX','horizontal_offset')
+    # s << ms(sData,'MAX','horizontal_shift')
+    # s << ms(sData,'MAX','ISO')
+    # s << ms(sData,'MAX','latency')
+    # s << ms(sData,'MAX','lens_shift')
+    # s << ms(sData,'MAX','override_focal_length')
+    # s << ms(sData,'MAX','shutter_angle')
+    # s << ms(sData,'MAX','shutter_offset')
+    # s << ms(sData,'MAX','shutter_speed')
+    # s << ms(sData,'MAX','specify_film_width')
+    # s << ms(sData,'MAX','specify_focus')
+    # s << ms(sData,'MAX','specify_fov')
+    # s << ms(sData,'MAX','subdivs')
+    # s << ms(sData,'MAX','target_distance')
+    # s << ms(sData,'MAX','targeted')
+    # s << ms(sData,'MAX','type')
+    # s << ms(sData,'MAX','use_dof')
+    # s << ms(sData,'MAX','use_moblur')
+    # s << ms(sData,'MAX','vertical_offset')
+    # s << ms(sData,'MAX','vignetting')
+    # s << ms(sData,'MAX','white_balance')
+    # s << ms(sData,'MAX','zoom_factor')
     
     puts s
 end
 def export_caustic
     sData = get_xml_option_node("SettingsCaustics")
     s = ""
-    s << ms(sData,'MAX','on')
-    s << ms(sData,'MAX','file')
-    s << ms(sData,'MAX','show_calc_phase')
-    s << ms(sData,'MAX','dont_delete')
-    s << ms(sData,'MAX','max_photons')
-    s << ms(sData,'MAX','max_density')
-    s << ms(sData,'MAX','mode')
-    s << ms(sData,'MAX','auto_save_file')
-    s << ms(sData,'MAX','multiplier')
-    s << ms(sData,'MAX','search_distance')
-    s << ms(sData,'MAX','auto_save')
+    s << ms(sData,'caustics_on','on')
+    s << ms(sData,'caustics_loadFileName','file')
+    s << ms(sData,'caustics_showCalcPhase','show_calc_phase')
+    s << ms(sData,'caustics_dontDelete','dont_delete')
+    s << ms(sData,'caustics_maxPhotons','max_photons')
+    s << ms(sData,'caustics_maxDensity','max_density')
+    s << ms(sData,'caustics_mode','mode')
+    s << ms(sData,'caustics_autoSaveFileName','auto_save_file')
+    s << ms(sData,'caustics_multiplier','multiplier')
+    s << ms(sData,'caustics_searchDist','search_distance')
+    s << ms(sData,'caustics_autoSave','auto_save')
     s = ""
     puts s
 end
@@ -999,31 +1026,31 @@ def export_colorMapping
     sData = get_xml_option_node("SettingsColorMapping")
     # creat_list_ms(sData) if $print_list_ms
     s = ""
-    s << ms(sData,'MAX','clamp_output')
-    s << ms(sData,'MAX','dark_mult')
-    s << ms(sData,'MAX','bright_mult')
-    s << ms(sData,'MAX','adaptation_only')
+    s << ms(sData,'colorMapping_clampOutput','clamp_output')
+    s << ms(sData,'colorMapping_darkMult','dark_mult')
+    s << ms(sData,'colorMapping_brightMult','bright_mult')
+    # s << ms(sData,'colorMapping_adaptationOnly','adaptation_only')
     s << ms(sData,'MAX','gamma_correct_ldr_textures')
-    s << ms(sData,'MAX','subpixel_mapping')
-    s << ms(sData,'MAX','clamp_level')
+    s << ms(sData,'colorMapping_subpixel','subpixel_mapping')
+    s << ms(sData,'colorMapping_clampLevel','clamp_level')
     s << ms(sData,'MAX','input_gamma')
-    s << ms(sData,'MAX','affect_background')
-    s << ms(sData,'MAX','type')
-    s << ms(sData,'MAX','linearWorkflow')
-    s << ms(sData,'MAX','gamma')
+    s << ms(sData,'colorMapping_affectBackground','affect_background')
+    s << ms(sData,'colorMapping_type','type')
+    s << ms(sData,'colorMapping_linearWorkflow','linearWorkflow')
+    s << ms(sData,'colorMapping_gamma','gamma')
     s << ms(sData,'MAX','gamma_correct_rgb')
     puts s
 end
 def export_Displacement
     sData = get_xml_option_node("SettingsDefaultDisplacement");
     s = ""
-    s << ms(sData,'MAX','override_on')
-    s << ms(sData,'MAX','tightBounds')
-    s << ms(sData,'MAX','maxSubdivs')
-    s << ms(sData,'MAX','edgeLength')
-    s << ms(sData,'MAX','relative')
-    s << ms(sData,'MAX','viewDependent')
-    s << ms(sData,'MAX','amount')
+    s << ms(sData,'displacement_overrideMax','override_on')
+    s << ms(sData,'displacement_tightBounds','tightBounds')
+    s << ms(sData,'displacement_maxSubdivs','maxSubdivs')
+    s << ms(sData,'displacement_edgeLength','edgeLength')
+    s << ms(sData,'displacement_relative','relative')
+    s << ms(sData,'displacement_viewDependent','viewDependent')
+    s << ms(sData,'displacement_amount','amount')
     puts s
 end
 
@@ -1031,14 +1058,102 @@ def export_dmcgi
     sData = get_xml_option_node("SettingsDMCGI");
     # creat_list_ms(sData) if $print_list_ms
     s = ""
-    s << ms(sData,'MAX','subdivs')
-    s << ms(sData,'MAX','depth')
+    s << ms(sData,'dmcgi_subdivs','subdivs')
+    s << ms(sData,'dmcgi_depth','depth')
     puts s
+end
+
+def export_settings_output 
+    sData = get_xml_option_node("SettingsOutput");
+    s = ""
+    rgn_width = sData["rgn_width"].to_f 
+    r_height = sData["r_height"].to_i
+    rgn_height = sData["rgn_height"].to_f
+    rgn_left = sData["rgn_left"].to_f
+    r_left = sData["r_left"].to_i
+    rgn_top = sData["rgn_top"].to_f
+    r_top = sData["r_top"].to_i
+    r_width = sData["r_width"].to_i
+    img_rawFile = sData["img_rawFile"].to_s
+    img_file = sData["img_file"].to_s
+
+    sData["output_regxmax"] = rgn_left+rgn_width
+    sData["output_regymax"] = rgn_top+rgn_height
+
+    s << ms(sData,'output_regxmin','rgn_left')
+    s << ms(sData,'output_regxmax','output_regxmax')
+    s << ms(sData,'output_regymin','rgn_top')
+    s << ms(sData,'output_regymax','output_regymax')
+
+    s << ms(sData,'MAX','anim_end')
+    s << ms(sData,'MAX','anim_start')
+    s << ms(sData,'MAX','bmp_height')
+    s << ms(sData,'MAX','bmp_width')
+    s << ms(sData,'MAX','do_animation')
+    s << ms(sData,'MAX','frame_rate')
+    s << ms(sData,'system_frameStamp_on','frame_stamp_enabled')
+    s << ms(sData,'system_frameStamp_string','frame_stamp_text')
+    s << ms(sData,'MAX','frame_start')
+    s << ms(sData,'MAX','frames')
+    s << ms(sData,'MAX','frames_per_second')
+    s << ms(sData,'MAX','img_dir')
+    s << ms(sData,'MAX','img_file_needFrameNumber')    
+    s << ms(sData,'MAX','img_pixelAspectLocked')
+    s << ms(sData,'output_saveRawFile','img_rawFile')
+    s << ms(sData,'MAX','img_rawFileVFB')
+    s << ms(sData,'output_splitAlpha','img_separateAlpha')
+    
+    # s << ms(sData,'output_getsetsfrommax','override_viewport')
+    s << ms(sData,'output_getsetsfrommax','override_viewport',"not_b")
+
+
+    s << ms(sData,'MAX','r_height')
+    s << ms(sData,'MAX','r_left')
+    s << ms(sData,'MAX','r_top')
+    s << ms(sData,'MAX','r_width')
+    s << ms(sData,'MAX','render_frame_range')
+    s << ms(sData,'MAX','rgn_height')
+    s << ms(sData,'MAX','rgn_left')
+    s << ms(sData,'MAX','rgn_top')
+    s << ms(sData,'MAX','rgn_width')
+    s << ms(sData,'output_saveFile','save_render')
+    s << ms(sData,'output_aspect','img_pixelAspect')
+    s << ms(sData,'output_aspectlock','img_imageAspectLocked')
+    s << ms(sData,'output_fileName','img_file')
+    s << ms(sData,'output_height','img_height')
+    s << ms(sData,'output_imageaspect','img_imageAspect')
+    s << ms(sData,'output_width','img_width')
+    # s << c(output_xml_node,"output_aspectlock","img_pixelAspectLocked")
+    # s << c(output_xml_node,"output_imageaspect","img_imageAspect")
+    # s << c(output_xml_node,"output_width","img_width")
+    # s << c(output_xml_node,"output_height","img_height")
+    # s << c(output_xml_node,"output_aspect","img_pixelAspect")
+
+    # s << cnv("output_fileOnly",(not img_file == "" and img_rawFile),"bool")
+     
+    # s << c(output_xml_node,"output_fileName","img_file")
+    # s << cnv("output_regxmin",rgn_left,"float")
+    # s << cnv("output_regxmax",rgn_left+rgn_width,"float")
+    # s << cnv("output_regymin",rgn_top,"float")
+    # s << cnv("output_regymax",rgn_top+rgn_height,"float")  
+    # s << c(output_xml_node,"output_splitAlpha","img_separateAlpha")    
+    # s << c(output_xml_node,"output_saveFile","save_render")    
+    # s << c(output_xml_node,"output_saveRawFile","img_rawFile")
+    # s << c(output_xml_node,"output_renderType","default")
+    # s << c(output_xml_node,"output_splitbitmap","default")
+
+    # s << c(output_xml_node,"system_frameStamp_on","frame_stamp_enabled")
+    # s << c(output_xml_node,"system_frameStamp_string","frame_stamp_text")
+    # s << c(output_xml_node,"system_frameStamp_justify","default")
+    # s << c(output_xml_node,"system_frameStamp_fullWidth","default")
+    
+
+    puts s.to_s
 end
 
 
 puts "#{$prefix_cv} = renderers.current\n"
-#export_settings_output
+export_settings_output
 export_photonMap
 export_image_sampler
 export_gi
@@ -1046,7 +1161,6 @@ export_environment
 
 export_lightcache
 export_colorMapping
-export_dmc
 export_dmcgi
 export_caustic
 export_camera
