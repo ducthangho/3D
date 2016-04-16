@@ -13,7 +13,9 @@ $print_obj = false
 $print_ms = true
 $print_xml = false
 
-$print_list_ms = false
+$print_list_ms = true
+
+
 def get_ms_val(suValue,suType)
     if (suType == nil) or (suValue==nil)
         return nil
@@ -315,13 +317,12 @@ def ms_plugins(sData,maxKey,suKey,print_out = false,level=0)
   if (print_out)
     pre =  ("-----"*level)
     puts "#{pre}s << ms_plugins(sData,'#{maxKey}','#{suKey}')   t:#{y3d_name}" if $print_list_ms
+  else
+    if ['TexBitmap', 'TexSky', 'TexAColorOp','UVWGenChannel'].include? y3d_name
+      out = eval("ms_#{y3d_name}(data)")
+      # puts out
+    end
   end
-
-  if ['TexBitmap', 'TexSky', 'TexAColorOp','UVWGenChannel'].include? y3d_name
-    out = eval("ms_#{y3d_name}(data)")
-    # puts out
-  end
-
   # if (y3d_name=="TexBitmap")
   #   out = ms_TexBitmap(data)
   # elsif (y3d_name=="TexSky")
@@ -335,7 +336,7 @@ def ms_plugins(sData,maxKey,suKey,print_out = false,level=0)
   data.each do |key, val|
     # puts "key:#{key}:::"
     if val["y3d_name"]!=nil
-      oo = ms_plugins(data,"MAX",key,true,level+1) 
+      oo = ms_plugins(data,"MAX",key,print_out,level+1) 
       if oo!=nil 
         out << oo
       end
@@ -500,7 +501,7 @@ end
 
 #dung de in ra dong lenh s << ms mac dinh
 def creat_list_ms(sData)
-  $print_list_ms = true
+  puts "========================MS PRINT FUNC==============================" if $print_list_ms
   sData.each do |key, val|
     if val["y3d_type"]==nil
       puts "s << ms(sData,'MAX','#{key}')\n" 
@@ -508,6 +509,7 @@ def creat_list_ms(sData)
       ms_plugins(sData,'MAX',key,true)
     end
   end
+  puts "========================MS PRINT FUNC END==========================" if $print_list_ms
 end
 
 def export_light
@@ -538,18 +540,18 @@ def get_xml_option_node(key)
     puts output_xml_string if $print_xml
     o = VRayXML::QDomDocument.new output_xml_string
     oo = make_max_from_xml(o,"settings")
+    puts "\n\n//////////////////////// KEY:#{key} //////////////////////"
     puts "========================TREE==============================" if $print_tree
     sData = make_tree(oo)
     puts "========================TREE END==========================" if $print_tree
-    # creat_list_ms(sData)
+    creat_list_ms(sData) if $print_list_ms 
     puts "-------------------MAXSCRIPT:#{key}-----------------------"
     return sData
 end
 
 def export_environment
-    
     sData = get_xml_option_node("SettingsEnvironment");
-    # creat_list_ms(sData) 
+    # creat_list_ms(sData) if $print_list_ms 
     s = ""
     s << ms(sData,'MAX','reflect_tex_tex')
     s << ms(sData,'MAX','num_environment_objects')
@@ -609,7 +611,7 @@ end
 def export_gi
     s = ""
     sData = get_xml_option_node("SettingsGI");
-    # creat_list_ms(sData) # dung de in ra dong lenh s << ms mac dinh
+    # creat_list_ms(sData) if $print_list_ms # dung de in ra dong lenh s << ms mac dinh
 
     s << ms(sData,'MAX','on')
     s << ms(sData,'gi_saturation','saturation')
@@ -653,7 +655,7 @@ end
 def export_image_sampler
     
     sData = get_xml_option_node("SettingsImageSampler");
-    # creat_list_ms(sData)
+    # creat_list_ms(sData) if $print_list_ms
     s = ""
     s << ms(sData,'MAX','dmc_minSubdivs')
     s << ms(sData,'MAX','subdivision_normals')
@@ -689,7 +691,7 @@ end
 
 def export_photonMap
     sData = get_xml_option_node("SettingsPhotonMap");
-    # creat_list_ms(sData)
+    # creat_list_ms(sData) if $print_list_ms
     s = ""
     s << ms(sData,'MAX','prefilter_samples')
     s << ms(sData,'photonMap_loadFileName','file')
@@ -736,7 +738,7 @@ end
 
 def export_option
     sData = get_xml_option_node("SettingsOptions");
-    # creat_list_ms(sData)
+    # creat_list_ms(sData) if $print_list_ms
     s = ""
     s << ms(sData,'MAX','light_doDefaultLights')
     s << ms(sData,'MAX','batch_render')
@@ -747,17 +749,17 @@ def export_option
     s << ms(sData,'MAX','misc_lowThreadPriority')
     s << ms(sData,'MAX','misc_abortOnMissingAsset')
     s << ms(sData,'MAX','misc_useCachedAssets')
-    s << ms(sData,'MAX','geom_backfaceCull')
+    s << ms(sData,'options_geom_backfaceCull','geom_backfaceCull')
     s << ms(sData,'MAX','mtl_transpMaxLevels')
     s << ms(sData,'MAX','ray_bias')
-    s << ms(sData,'MAX','mtl_glossy')
+    s << ms(sData,'options_glossyEffects','mtl_glossy')
     s << ms(sData,'MAX','light_doHiddenLights')
     s << ms(sData,'MAX','geom_doHidden')
     s << ms(sData,'MAX','mtl_uninvertedNormalBump')
-    s << ms(sData,'MAX','geom_displacement')
+    s << ms(sData,'options_displacement','geom_displacement')
     s << ms(sData,'MAX','mtl_doMaps')
     s << ms(sData,'MAX','mtl_reflectionRefraction')
-    s << ms(sData,'MAX','mtl_filterMaps')
+    s << ms(sData,'options_filterMaps','mtl_filterMaps')
     s << ms(sData,'MAX','mtl_override_on')
     s << ms(sData,'MAX','mtl_limitDepth')
     s << ms(sData,'MAX','mtl_filterMapsForSecondaryRays')
@@ -779,7 +781,7 @@ end
 
 def export_lightcache
     sData = get_xml_option_node("SettingsLightCache");
-    # creat_list_ms(sData)
+    # creat_list_ms(sData) if $print_list_ms
     s = ""
     s << ms(sData,'lightcache_useForGlossyRays','use_for_glossy_rays')
     s << ms(sData,'lightcache_prefilter_on','prefilter')
@@ -810,97 +812,236 @@ end
 
 def export_raycaster
     sData = get_xml_option_node("SettingsRaycaster");
-    creat_list_ms(sData)
     s = ""
+    s << ms(sData,'system_raycaster_maxLevels','maxLevels')
+    s << ms(sData,'MAX','defaultGeometryType')
+    s << ms(sData,'system_raycaster_memLimit','dynMemLimit')
+    s << ms(sData,'system_raycaster_optLevel','optLevel')
+    s << ms(sData,'system_raycaster_minLeafSize','minLeafSize')
+    s << ms(sData,'system_raycaster_faceLevelCoeff','faceLevelCoef')
+    
     puts s
 end
 
 def export_motionblur
     sData = get_xml_option_node("SettingsMotionBlur");
-    creat_list_ms(sData)
     s = ""
+    s << ms(sData,'moblur_on','on')
+    s << ms(sData,'moblur_geomSamples','geom_samples')
+    s << ms(sData,'MAX','subdivs')
+    s << ms(sData,'moblur_intervalCenter','interval_center')
+    s << ms(sData,'moblur_bias','bias')
+    s << ms(sData,'moblur_duration','duration')
+    s << ms(sData,'moblur_dmc_minSamples','low_samples')
+    
     puts s
 end
 
 def export_irradmap
     sData = get_xml_option_node("SettingsIrradianceMap");
-    creat_list_ms(sData)
     s = ""
+    s << ms(sData,'gi_irradmap_subdivs','subdivs')
+    s << ms(sData,'MAX','file')
+    s << ms(sData,'MAX','auto_save')
+    s << ms(sData,'MAX','lookup_mode')
+    s << ms(sData,'gi_irradmap_showCalcPhase','show_calc_phase')
+    s << ms(sData,'gi_irradmap_multipleViews','multiple_views')
+    s << ms(sData,'gi_irradmap_detail_radius','detail_radius')
+    s << ms(sData,'gi_irradmap_colorThreshold','color_threshold')
+    s << ms(sData,'MAX','interpolation_mode')
+    s << ms(sData,'MAX','randomize_samples')
+    s << ms(sData,'gi_irradmap_maxRate','max_rate')
+    s << ms(sData,'MAX','auto_save_file')
+    s << ms(sData,'gi_irradmap_showSamples','show_samples')
+    s << ms(sData,'gi_irradmap_showDirectLight','show_direct_light')
+    s << ms(sData,'MAX','check_sample_visibility')
+    s << ms(sData,'gi_irradmap_minRate','min_rate')
+    s << ms(sData,'gi_irradmap_distThreshold','distance_threshold')
+    s << ms(sData,'gi_irradmap_normalThreshold','normal_threshold')
+    s << ms(sData,'gi_irradmap_detail_subdivsMult','detail_subdivs_mult')
+    s << ms(sData,'gi_irradmap_interpSamples','interp_samples')
+    s << ms(sData,'gi_irradmap_interpFrames','interp_frames')
+    s << ms(sData,'MAX','multipass')
+    s << ms(sData,'MAX','calc_interp_samples')
+    s << ms(sData,'MAX','detail_scale')
+    s << ms(sData,'MAX','dont_delete')
+    s << ms(sData,'MAX','detail_enhancement')
+    s << ms(sData,'MAX','mode')
+    
     puts s
 end
 def export_camera_dof
     sData = get_xml_option_node("SettingsCameraDof");
-    creat_list_ms(sData)
     s = ""
+    s << ms(sData,'MAX','on')
+    s << ms(sData,'MAX','subdivs')
+    s << ms(sData,'MAX','anisotropy')
+    s << ms(sData,'MAX','focal_dist')
+    s << ms(sData,'MAX','sides_on')
+    s << ms(sData,'MAX','center_bias')
+    s << ms(sData,'MAX','sides_num')
+    s << ms(sData,'MAX','rotation')
+    s << ms(sData,'MAX','override_focal_dist')
+    s << ms(sData,'MAX','aperture')
+    
     puts s
 end
 def export_dmc_sampler
     sData = get_xml_option_node("SettingsDMCSampler");
-    creat_list_ms(sData)
     s = ""
+    s << ms(sData,'MAX','adaptive_min_samples')
+    s << ms(sData,'MAX','adaptive_amount')
+    s << ms(sData,'MAX','path_sampler_type')
+    s << ms(sData,'MAX','subdivs_mult')
+    s << ms(sData,'MAX','adaptive_threshold')
+    s << ms(sData,'MAX','time_dependent')
     puts s
 end
 def export_rt_engine
     sData = get_xml_option_node("RTEngine");
-    creat_list_ms(sData)
     s = ""
+    s << ms(sData,'MAX','separate_window')
+    s << ms(sData,'MAX','trace_depth')
+    s << ms(sData,'MAX','use_opencl')
+    s << ms(sData,'MAX','gi_reflective_caustics')
+    s << ms(sData,'MAX','coherent_tracing')
+    s << ms(sData,'MAX','show_mask')
+    s << ms(sData,'MAX','enabled')
+    s << ms(sData,'MAX','bundle_size')
+    s << ms(sData,'MAX','max_sample_level')
+    s << ms(sData,'MAX','stereo_eye_distance')
+    s << ms(sData,'MAX','max_render_time')
+    s << ms(sData,'MAX','samples_per_pixel')
+    s << ms(sData,'MAX','use_gi')
+    s << ms(sData,'MAX','stereo_mode')
+    s << ms(sData,'MAX','stop_when_render_done')
+    s << ms(sData,'MAX','noise_threshold')
+    s << ms(sData,'MAX','gi_depth')
+    s << ms(sData,'MAX','rt_mode')
+    s << ms(sData,'MAX','gi_refractive_caustics')
+    s << ms(sData,'MAX','opencl_texsize')
+    s << ms(sData,'MAX','stereo_focus')
+    
     puts s
 end
 def export_adaptiveSubdivision
     sData = get_xml_option_node("SettingsImageSampler");
-    creat_list_ms(sData)
+    # creat_list_ms(sData) if $print_list_ms
     s = ""
     puts s
 end
 def export_adv_irradmap
     sData = get_xml_option_node("SettingsIrradianceMap");
-    creat_list_ms(sData)
+    # creat_list_ms(sData) if $print_list_ms
     s = ""
     puts s
 end
 def export_camera
     sData = get_xml_option_node("CameraPhysical");
-    creat_list_ms(sData)
     s = ""
+    s << ms(sData,'MAX','shutter_speed')
+    s << ms(sData,'MAX','use_moblur')
+    s << ms(sData,'MAX','distortion')
+    s << ms(sData,'MAX','subdivs')
+    s << ms(sData,'MAX','ISO')
+    s << ms(sData,'MAX','lens_shift')
+    s << ms(sData,'MAX','film_width')
+    s << ms(sData,'MAX','specify_fov')
+    s << ms(sData,'MAX','latency')
+    s << ms(sData,'MAX','fov')
+    s << ms(sData,'MAX','focus_distance')
+    s << ms(sData,'MAX','focal_length')
+    s << ms(sData,'MAX','shutter_offset')
+    s << ms(sData,'MAX','white_balance')
+    s << ms(sData,'MAX','f_number')
+    s << ms(sData,'MAX','type')
+    s << ms(sData,'MAX','blades_rotation')
+    s << ms(sData,'MAX','targeted')
+    s << ms(sData,'MAX','dof_display_threshold')
+    s << ms(sData,'MAX','blades_num')
+    s << ms(sData,'MAX','blades_enable')
+    s << ms(sData,'MAX','horizontal_shift')
+    s << ms(sData,'MAX','zoom_factor')
+    s << ms(sData,'MAX','horizontal_offset')
+    s << ms(sData,'MAX','shutter_angle')
+    s << ms(sData,'MAX','exposure')
+    s << ms(sData,'MAX','specify_focus')
+    s << ms(sData,'MAX','dont_affect_settings')
+    s << ms(sData,'MAX','use_dof')
+    s << ms(sData,'MAX','anisotropy')
+    s << ms(sData,'MAX','target_distance')
+    s << ms(sData,'MAX','specify_film_width')
+    s << ms(sData,'MAX','vertical_offset')
+    s << ms(sData,'MAX','override_focal_length')
+    s << ms(sData,'MAX','center_bias')
+    s << ms(sData,'MAX','vignetting')
+    
     puts s
 end
 def export_caustic
-    sData = get_xml_option_node("SettingsCaustics");
-    creat_list_ms(sData)
+    sData = get_xml_option_node("SettingsCaustics")
+    s = ""
+    s << ms(sData,'MAX','on')
+    s << ms(sData,'MAX','file')
+    s << ms(sData,'MAX','show_calc_phase')
+    s << ms(sData,'MAX','dont_delete')
+    s << ms(sData,'MAX','max_photons')
+    s << ms(sData,'MAX','max_density')
+    s << ms(sData,'MAX','mode')
+    s << ms(sData,'MAX','auto_save_file')
+    s << ms(sData,'MAX','multiplier')
+    s << ms(sData,'MAX','search_distance')
+    s << ms(sData,'MAX','auto_save')
     s = ""
     puts s
 end
 def export_colorMapping
-    sData = get_xml_option_node("SettingsColorMapping");
-    creat_list_ms(sData)
+    sData = get_xml_option_node("SettingsColorMapping")
+    # creat_list_ms(sData) if $print_list_ms
     s = ""
+    s << ms(sData,'MAX','clamp_output')
+    s << ms(sData,'MAX','dark_mult')
+    s << ms(sData,'MAX','bright_mult')
+    s << ms(sData,'MAX','adaptation_only')
+    s << ms(sData,'MAX','gamma_correct_ldr_textures')
+    s << ms(sData,'MAX','subpixel_mapping')
+    s << ms(sData,'MAX','clamp_level')
+    s << ms(sData,'MAX','input_gamma')
+    s << ms(sData,'MAX','affect_background')
+    s << ms(sData,'MAX','type')
+    s << ms(sData,'MAX','linearWorkflow')
+    s << ms(sData,'MAX','gamma')
+    s << ms(sData,'MAX','gamma_correct_rgb')
     puts s
 end
 def export_Displacement
     sData = get_xml_option_node("SettingsDefaultDisplacement");
-    creat_list_ms(sData)
     s = ""
+    s << ms(sData,'MAX','override_on')
+    s << ms(sData,'MAX','tightBounds')
+    s << ms(sData,'MAX','maxSubdivs')
+    s << ms(sData,'MAX','edgeLength')
+    s << ms(sData,'MAX','relative')
+    s << ms(sData,'MAX','viewDependent')
+    s << ms(sData,'MAX','amount')
     puts s
 end
-def export_dmc
-    sData = get_xml_option_node("SettingsDMCSampler");
-    creat_list_ms(sData)
-    s = ""
-    puts s
-end
+
 def export_dmcgi
     sData = get_xml_option_node("SettingsDMCGI");
-    creat_list_ms(sData)
+    # creat_list_ms(sData) if $print_list_ms
     s = ""
+    s << ms(sData,'MAX','subdivs')
+    s << ms(sData,'MAX','depth')
     puts s
 end
 
 
 puts "#{$prefix_cv} = renderers.current\n"
 #export_settings_output
-# export_photonMap
-# export_image_sampler
-# export_gi
+export_photonMap
+export_image_sampler
+export_gi
 export_environment
 
 export_lightcache
