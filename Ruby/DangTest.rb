@@ -359,25 +359,25 @@ def ms (suData,maxKey,suKey,ovr_type=nil,ovr_key=false)
   if (ovr_type!=nil) 
     case ovr_type
     when "bool"
-      if (suVal==1) or (suVal=="true")
+      if (suVal==1) or (suVal=="true") or (suVal=="1")
           suVal =  "true"
       else
           suVal = "false"
       end      
     when "on_off"
-      if (suVal==1) or (suVal=="true")
+      if (suVal==1) or (suVal=="true") or (suVal=="1")
           suVal =  "on"
       else
           suVal = "off"
       end         
     when "0_1"
-      if (suVal==1) or (suVal=="true")
+      if (suVal==1) or (suVal=="true") or (suVal=="1")
           suVal =  "1"
       else
           suVal = "0"
       end   
     when "not_b"
-      if (suVal==1) or (suVal=="true")
+      if (suVal==1) or (suVal=="true") or (suVal=="1")
           suVal =  "false"
       else
           suVal = "true"
@@ -1120,8 +1120,8 @@ def export_settings_output
     s << ms(sData,'output_aspect','img_pixelAspect')
     s << ms(sData,'output_aspectlock','img_imageAspectLocked')
     s << ms(sData,'output_fileName','img_file')
-    s << ms(sData,'output_height','img_height')
     s << ms(sData,'output_imageaspect','img_imageAspect')
+    s << ms(sData,'output_height','img_height')
     s << ms(sData,'output_width','img_width')
     # s << c(output_xml_node,"output_aspectlock","img_pixelAspectLocked")
     # s << c(output_xml_node,"output_imageaspect","img_imageAspect")
