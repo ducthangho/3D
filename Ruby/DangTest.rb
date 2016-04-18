@@ -276,19 +276,45 @@ def ms_TexSky(sData)
   s << ms(sData,"y3d_sun.turbidity","sun.turbidity",nil,true)
   s << ms(sData,"y3d_sun.intensity_multiplier","sun.intensity_multiplier",nil,true)
   s << ms(sData,"y3d_sun.sky_model","sun.sky_model",nil,true)
-  s << ms(sData,"y3d_sun.transform","sun.transform",nil,true)
-  sData["sun"]["color_mode"] = "1"
-  # puts sData["sun"]
-  s << ms(sData,"y3d_sun.color_mode","sun.color_mode",nil,true)
+  # s << ms(sData,"y3d_sun.transform","sun.transform",nil,true)
+
+  # sData["sun"]["color_mode"] = "1"
+  # s << ms(sData,"y3d_sun.color_mode","sun.color_mode",nil,true)
+
   ysun = s
   s = ""
-  s << ms(sData,"y3d_sky.multiplier","size_multiplier",nil,true)
-  ysky = s
+  # s << ms(sData,"y3d_sky.multiplier","size_multiplier",nil,true)
+  # ysky = s
+  # model = Sketchup.active_model
+  # si = model.shadow_info
+#   s = "\n-----Create Daylight system------
+# dl = DaylightSystemFactory2.Create sunClass:VRaySun skyClass:Skylight
+# vrk = getClassInstances VRaySky
+# y3d_sun = dl.getSun()
+# y3d_sky = dl.getSky()#{ysun}#{ysky}
+# idl = getClassInstances Daylight
+# dl1 = idl[idl.count]
+# dl1.Latitude = #{si['Latitude']}
+# dl1.Longitude = #{si['Longitude']}
+# #{$prefix_cv} = vrk[vrk.count]"
+
+#   s = "\n-----Create Daylight system------
+# delete $Daylight*
+# DaylightSystemFactory2.Create sunClass:VRaySun skyClass:Skylight
+# vrk = getClassInstances VRaySky
+# y3d_sun = $Daylight001.sun
+# y3d_sky = $Daylight001.sky#{ysun}#{ysky}
+# idl = getClassInstances Daylight
+# dl1 = idl[idl.count]
+# dl1.Latitude = #{si['Latitude']}
+# dl1.Longitude = #{si['Longitude']}
+# #{$prefix_cv} = vrk[vrk.count]"
+
   s = "\n-----Create Daylight system------
-dl = DaylightSystemFactory2.Create sunClass:VRaySun skyClass:Skylight
 vrk = getClassInstances VRaySky
-y3d_sun = dl.getSun()
-y3d_sky = dl.getSky()#{ysun}#{ysky}
+dl = getClassInstances DaylightAssemblyHead
+dl[dl.count].sun = VRaySun()
+y3d_sun = dl[dl.count].sun#{ysun}
 #{$prefix_cv} = vrk[vrk.count]"
   s << ms(sData,"indirect_horiz_illum","horiz_illum")
   s << ms(sData,"MAX","up_vector")
@@ -416,7 +442,8 @@ def creatVRayLight(sData)
   s << ms(sData,'MAX','tex_adaptive')
   s << ms(sData,'doubleSided','doubleSided')
   s << ms(sData,'affect_diffuse','affectDiffuse')
-  s << ms(sData,'MAX','v_size')
+  s << ms(sData,'size0','v_size')
+  s << ms(sData,'size1','u_size')
   s << ms(sData,'noDecay','noDecay')
   s << ms(sData,'MAX','shadowColor_tex')
   s << ms(sData,'MAX','causticSubdivs')
@@ -439,7 +466,7 @@ def creatVRayLight(sData)
   s << ms(sData,'invisible','invisible')
   s << ms(sData,'shadowBias','shadowBias')
   s << ms(sData,'MAX','nsamples')
-  s << ms(sData,'MAX','u_size')
+
   s << ms(sData,'castShadows','shadows',"on_off")
   s << ms(sData,'MAX','color_tex')
   s << ms(sData,'affect_specualr','affectSpecular')
@@ -953,6 +980,50 @@ def export_adv_irradmap
     s = ""
     puts s
 end
+
+def export_camera_physical
+    # sData = get_xml_option_node("CameraPhysical");
+    sData = get_xml_option_node("CameraPhysical");
+    s = ""
+    s << ms(sData,'MAX','shutter_speed')
+    s << ms(sData,'MAX','use_moblur')
+    s << ms(sData,'MAX','distortion')
+    s << ms(sData,'MAX','subdivs')
+    s << ms(sData,'MAX','ISO')
+    s << ms(sData,'MAX','lens_shift')
+    s << ms(sData,'MAX','film_width')
+    s << ms(sData,'MAX','specify_fov')
+    s << ms(sData,'MAX','latency')
+    s << ms(sData,'MAX','fov')
+    s << ms(sData,'MAX','focus_distance')
+    s << ms(sData,'MAX','focal_length')
+    s << ms(sData,'MAX','shutter_offset')
+    s << ms(sData,'MAX','white_balance')
+    s << ms(sData,'MAX','f_number')
+    s << ms(sData,'MAX','type')
+    s << ms(sData,'MAX','blades_rotation')
+    s << ms(sData,'MAX','targeted')
+    s << ms(sData,'MAX','dof_display_threshold')
+    s << ms(sData,'MAX','blades_num')
+    s << ms(sData,'MAX','blades_enable')
+    s << ms(sData,'MAX','horizontal_shift')
+    s << ms(sData,'MAX','zoom_factor')
+    s << ms(sData,'MAX','horizontal_offset')
+    s << ms(sData,'MAX','shutter_angle')
+    s << ms(sData,'MAX','exposure')
+    s << ms(sData,'MAX','specify_focus')
+    s << ms(sData,'MAX','dont_affect_settings')
+    s << ms(sData,'MAX','use_dof')
+    s << ms(sData,'MAX','anisotropy')
+    s << ms(sData,'MAX','target_distance')
+    s << ms(sData,'MAX','specify_film_width')
+    s << ms(sData,'MAX','vertical_offset')
+    s << ms(sData,'MAX','override_focal_length')
+    s << ms(sData,'MAX','center_bias')
+    s << ms(sData,'MAX','vignetting')
+    puts s
+end
+
 def export_camera
     # sData = get_xml_option_node("CameraPhysical");
     sData = get_xml_option_node("SettingsCamera");
@@ -1177,7 +1248,7 @@ export_option
 
 
 export_light
-
+export_camera_physical
 # puts_maxLight('VRayLight')
 # puts_maxLight('VRayIES')
 
