@@ -32,7 +32,7 @@ fn setIFacesFromSelect obj =
 		(
 			tmp = yface()
 			tmp.index = i
-			uu.getArea #{i} &myx &myy &mywidth &myheight &myareaUVW &g
+			u.getArea #{i} &myx &myy &mywidth &myheight &myareaUVW &g
 			tmp.f_area = g
 			tmp.unwrap_type = 1
 			append importantFacesArray tmp
@@ -128,6 +128,6 @@ fn createY3DMenu =
 	theAction = menuMan.createActionItem "SelectImportantFaces" "Yeu 3D"
 	y3dMenu.addItem theAction (y3dMenu.numItems()+1)
 	menuMan.updateMenuBar()
-
+)
 
 createY3DMenu()
