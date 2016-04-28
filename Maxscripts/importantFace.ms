@@ -8,6 +8,7 @@ global s1 = undefined
 global u1 = undefined
 global bestSet = #()
 global best = -1
+global isolate_select = true
 
 -- Tim tap cac mat co tong dien tich lon nhat ma be hon tham so narea
 
@@ -48,7 +49,7 @@ fn findBestFit bSet narea =
 		)
 	)
 )
-
+-- Sap xep cac mat uu tien theo do lon dien tich tu to den nho
 fn sortByArea = -- co the dung qsort
 (
 	listed = sort(for i in importantFacesArray collect i.f_area)
@@ -63,7 +64,7 @@ fn sortByArea = -- co the dung qsort
 	)
 	importantFacesArray = tmp
 )
-
+-- Chia deu cac mat quan trong theo so nhom sinh ra
 fn splitGroupByTileCount =
 (
 	totalArea = 0
@@ -85,8 +86,6 @@ fn splitGroupByTileCount =
 					best = nowArea
 					bestSet = #()
 					findBestFit2 #() nowArea
--- 					print "-z-"
--- 					print nowArea
 					if bestSet.count > 0 then 
 					(
 						for b = 1 to bestSet.count do
@@ -112,7 +111,7 @@ fn splitGroupByTileCount =
 	)
 	print importantFacesArray
 )
-
+-- Di chuyen cac nhom mat quan trong sang tile rieng
 fn moveByTile =
 (
 	udim = 1001
@@ -130,6 +129,7 @@ fn moveByTile =
 		(
 			u1.selectFaces theFacesToSelect 
 			u1.flattenMapNoParams()
+-- 			u1.packNoParams()
 			move_v = (i+1)/10
 			move_u = i - move_v*10
 			u1.unwrap2.MoveSelected [move_u,move_v,0]
@@ -199,6 +199,11 @@ fn SelFaceButtonClick =
 		MessageBox "Please select at least one object!" title: "Warning!"
 	) else (
 		max modify mode
+		if isolate_select == true then 
+		(
+			actionMan.executeAction 0 "197"  -- Tools: Isolate Selection
+			max tool zoomextents all
+		)
 		s1 = selection[1]	
 		if (classof s1.baseobject) != Editable_Poly then convertto s1 editable_poly
 		subobjectLevel = 0
@@ -229,6 +234,12 @@ fn runUnwrap =
 -- 	y3dFlattenUV allfaces
 	
 )
+
+fn doBake mapSize= 
+(
+
+)
+
 
 rollout selectFaceRollout "Select Important Face" width:340 height:487
 (
@@ -293,6 +304,7 @@ rollout selectFaceRollout "Select Important Face" width:340 height:487
 	)
 	
 	on btnAddList pressed do (
+		if isolate_select == true then actionMan.executeAction 0 "261"  -- Tools: End Isolate
 		if s1!=undefined then setIFacesFromSelect s1
 		lbIFaceData = #()
 		sortByArea()
