@@ -148,6 +148,40 @@ fn moveByTile =
 	)
 )
 
+fn setMaterialIdFace = 
+(
+	if s1==undefined then (
+		MessageBox "Something wrong!!!"
+		return false
+	)
+	udim = 1001
+	for i = 1 to tileCount-1 do (
+		udim = udim+1
+		for j = 1 to importantFacesArray.count do (
+			if importantFacesArray[j].udim == udim then(
+				polyOp.setFaceMatID s1 importantFacesArray[j].index (i+1)
+				print j
+			)
+		)
+	)
+	
+	print "Other:"
+	otherFaces = #()
+	for i = 1 to (u1.numberPolygons()) do append otherFaces i
+	for j = 1 to importantFacesArray.count do 
+	(
+		k = findItem otherFaces importantFacesArray[j].index
+		if (k>0) then deleteItem otherFaces k
+	)	
+	
+	print otherFaces
+	if otherFaces.count > 0 then 
+	(	
+		for i = 1 to otherFaces.count do
+		polyOp.setFaceMatID s1 otherFaces[i] 1
+	)
+)
+
 fn getIFaceByIndex idx = 
 (
 	for i = 1 to importantFacesArray.count do
@@ -261,6 +295,11 @@ rollout selectFaceRollout "Select Important Face" width:340 height:487
 	dropDownList ddlMapChannel "" pos:[218,368] width:83 height:21 items:#("1", "2", "3", "4", "5", "6", "7", "8", "9")
 	label lbl4 "Map channel" pos:[153,369] width:62 height:19
 	
+	on selectFaceRollout open do (
+		spnTileCount.value = tileCount
+		ddlMapChannel.selection = mapChannel
+	)
+
 	on spnTileCount changed val do (
 		tileCount = val
 	)
@@ -275,7 +314,6 @@ rollout selectFaceRollout "Select Important Face" width:340 height:487
 	
 	on btnRun pressed do (
 		runUnwrap()
-		print spnTileCount.value
 		DestroyDialog selectFaceRollout
 	)
 	
@@ -294,6 +332,7 @@ rollout selectFaceRollout "Select Important Face" width:340 height:487
 	)
 	
 	on btnAutoSel pressed do (
+		spnTileCount.value = tileCount
 		if edtNumFace .text== "" then (
 			edtNumFace .text = "5"
 			numAutoFace = 5
@@ -330,7 +369,15 @@ macroScript SelectImportantFaces category:"Yeu 3D" --some macro script
 	importantFacesArray = #()
 	s1 = undefined
 	u1 = undefined
+	-- spnTileCount.value = tileCount
+
 	createdialog selectFaceRollout
+)
+
+macroScript SetMaterialID category:"Yeu 3D" --some macro script
+(
+	MessageBox "You have to bake object before run it!!"
+	setMaterialIdFace()
 )
 
 fn createY3DMenu =
@@ -344,7 +391,9 @@ fn createY3DMenu =
 	y3dSubMenu = menuMan.createSubMenuItem "Yeu 3D" y3dMenu 
 	theMainMenu.addItem y3dSubMenu (theMainMenu.numItems()+1) 
 	theAction = menuMan.createActionItem "SelectImportantFaces" "Yeu 3D"
+	theAction2 = menuMan.createActionItem "SetMaterialID" "Yeu 3D"
 	y3dMenu.addItem theAction (y3dMenu.numItems()+1)
+	y3dMenu.addItem theAction2 (y3dMenu.numItems()+1)
 	menuMan.updateMenuBar()
 )
 
