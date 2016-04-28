@@ -10,6 +10,20 @@ global bestSet = #()
 global best = -1
 
 -- Tim tap cac mat co tong dien tich lon nhat ma be hon tham so narea
+
+fn findBestFit2 bSet narea =
+(
+	for k = 1 to importantFacesArray.count do 
+	(
+		if (importantFacesArray[k].udim==1000)and(importantFacesArray[k].f_area<narea) then (
+			append bSet k
+			narea = narea-importantFacesArray[k].f_area
+		)
+	)
+	bestSet = bSet
+	best = narea
+)
+
 fn findBestFit bSet narea =
 (	
 	hasFit = false
@@ -19,13 +33,11 @@ fn findBestFit bSet narea =
 		if kk>0 then continue
 		if (importantFacesArray[k].udim==1000)and(importantFacesArray[k].f_area<narea) then (
 			append bSet k
--- 			print "xx"
--- 			print importantFacesArray[k].f_area
--- 			narea -= importantFacesArray[k].f_area
+			kk = bSet.count
 			hasFit = true
 			importantFacesArray[k].udim += 1000 
 			findBestFit bSet (narea-importantFacesArray[k].f_area)
-			deleteItem bSet bSet.count
+			deleteItem bSet kk 
 			importantFacesArray[k].udim -= 1000 
 		) 
 	)
@@ -72,7 +84,7 @@ fn splitGroupByTileCount =
 					importantFacesArray[j].udim = 1001+iTile
 					best = nowArea
 					bestSet = #()
-					findBestFit #() nowArea
+					findBestFit2 #() nowArea
 -- 					print "-z-"
 -- 					print nowArea
 					if bestSet.count > 0 then 
@@ -114,22 +126,26 @@ fn moveByTile =
 		)
 		-- chon face
 -- 		s1.selectedFaces #{}
-		u1.selectFaces #{}
-		u1.selectFaces theFacesToSelect 
-		u1.flattenMapNoParams()
-		move_v = (i+1)/10
-		move_u = i - move_v*10
-		u1.unwrap2.MoveSelected [move_u,move_v,0]
+		if theFacesToSelect.count >0 then 
+		(
+			u1.selectFaces theFacesToSelect 
+			u1.flattenMapNoParams()
+			move_v = (i+1)/10
+			move_u = i - move_v*10
+			u1.unwrap2.MoveSelected [move_u,move_v,0]
+		)
 	)
 	
 -- 	print "Other:"
--- 	otherFaces = #{}
--- 	for i = 1 to (u1.numberPolygons()) do append otherFaces i
--- 	for j = 1 to importantFacesArray.count do 	deleteItem otherFaces importantFacesArray[j].index
+	otherFaces = #{}
+	for i = 1 to (u1.numberPolygons()) do append otherFaces i
+	for j = 1 to importantFacesArray.count do 	deleteItem otherFaces importantFacesArray[j].index
 -- 	print otherFaces
--- 	u1.selectFaces #{}
--- 	u1.selectFaces otherFaces 
--- 	u1.flattenMapNoParams()
+	if otherFaces.count > 0 then 
+	(	
+		u1.selectFaces otherFaces 
+		u1.flattenMapNoParams()
+	)
 )
 
 fn getIFaceByIndex idx = 
