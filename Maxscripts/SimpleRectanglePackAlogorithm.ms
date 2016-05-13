@@ -67,18 +67,16 @@ fn breakEdgeWidth areaReg p =
 
 fn breakEdgeHeight areaReg p = 
 (
--- 	format "vi tri: %p\n" p
--- 	format "vung can break: %p\n" areaReg
+
 	if(p.y > areaReg.y and  p.y < (areaReg.height + areaReg.y)) do
 	(	
--- 		print "co vao day khong"
 		local height1 = p.y - areaReg.y
 		local height2 = areaReg.height - height1
 		local r1 = SAreaReg x:areaReg.x y:areaReg.y width:areaReg.width height:height1 isFree:areaReg.isFree
 		local r2 = SAreaReg x:areaReg.x y:p.y width:areareg.width height:height2 isFree:areaReg.isFree
 		return #(r1,r2)
 	)
--- 	print "khong vao day"
+
 	return #(areaReg)
 )
 
@@ -90,7 +88,6 @@ fn breakAreaReg areaReg p =
 		for i = 1 to ar.count do 
 		(
 			local ar2 = breakEdgeHeight ar[i] p
--- 			format "in ra xem nao %" ar2
 			join r ar2
 		) 
 	else 
@@ -181,7 +178,6 @@ fn packTile listReg enclosingReg n &packedAll=
 		unpacked = #()
 		for j = 1 to a.count do 
 		(	
-			print a[j]
 			if (a[j].x != -1) then append packed a[j]
 			else append unpacked a[j]
 		)
