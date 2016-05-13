@@ -5,6 +5,7 @@ global oDTGeometry
 global aSOPoly
 global showMODialog
 global bakeMaterials = #()
+global notOneSelect = true
 
 include "y3d_unwrap.ms"
 include "bakeTile.ms"
@@ -14,7 +15,7 @@ fn sLibCopyAndPasteLayerFromNodeToNode copyObj pasteObj =
 	myLayerName = copyObj.layer.name
 	myLayer = layermanager.getLayerFromName myLayerName
 	myLayer.addnode pasteObj
-	return udnefined
+	return undefined
 	)
 
 fn aSOPoly objs keepOriginals centerPivot pivotPlacement = 
@@ -160,17 +161,32 @@ fn doAttach =
 				-- chon kieu la poly, mesh, .., tam thoi poly
 				aSOPoly objs false true "Center"
 				-- aSOPoly objs aSOKeepOriginals aSOCenterPivot aSOPivotPlacement
+
 			)
 	)
+-- fn doAttach =
+-- 	(
+-- 		notOneSelect = true
+-- 		objs = for i in selection collect i
+-- 		if objs.count < 2 then 
+-- 			(
+-- 				if objs.count == 1 then notOneSelect=false
+-- 			)
+-- 		else 
+-- 			(
+-- 				-- chon kieu la poly, mesh, .., tam thoi poly
+-- 				aSOPoly objs false true "Center"
+-- 				-- aSOPoly objs aSOKeepOriginals aSOCenterPivot aSOPivotPlacement
+-- 			)
+-- 	)
 
 fn doBake = 
 	(
 		-- switch to original material IDs
 		if oldMatId.count > 0 then setMatIdByArray s1 oldMatId
 		prefixFName = ""
-		for i = 1 to tileCount do 
+		for i = 1 to tileArray.count do 
 			bakeTile s1 tileArray[i].sizeX tileArray[i].sizeY mapChannel tileArray[i].u tileArray[i].v 1
-		prefixFName = ""
 	)
 
 fn setDefaultSize sx sy =
@@ -183,37 +199,50 @@ fn setMatObject obj =
 	(
 		select obj
 		modPanel.addModToSelection (Unwrap_UVW ()) ui:on
+		modPanel.setCurrentObject obj.baseObject
+		subobjectLevel = 4
 		uu = obj.modifiers[#Unwrap_UVW]
 		allfaces = for i = 1 to (uu.numberPolygons()) collect i
-		iTile = tileArray.count
-		while allfaces.count > 0 do
+		for t = 1 to tileArray.count do
 			(
 				sFaces = #{}
 				for i=1 to allfaces.count do 
+					if allfaces[i]!=-1 then
 					(
 						k = polyOp.getFaceMatID obj allfaces[i]
-						if k==iTile then
+						if k==t then
 							(
 								append sFaces allfaces[i]
-								delete allfaces i
+								allfaces[i] = -1
 							)
 					)
-
-				-- bakeMaterials[iTile]
+				-- polyOp.setFaceSelection obj sFaces
+				if sFaces.count>0 then 
+					(
+						obj.SetSelection #Face sFaces
+						obj.material = bakeMaterials[t]
+					)
 			)
 	)
 
 fn makeBakeMaterial =
 	(
+
+		oname = s1.name
+		setMaterialIdFace s1
+		modPanel.setCurrentObject s1.baseObject
+		oDTDetachSelection true true true true "Center"
+
 		bakeMaterials = #()
 		for i = 1 to tileArray.count do 
 			(
 				dmap = BitmapTexture()
 				fname = 1000+i
-				dmap.filename = bakeFolder + prefixFName + (fname as string) + ".jpg"
+				dmap.filename = bakeFolder +"\\"+ prefixFName + (fname as string) + ".jpg"
 				dmap.coords.mapChannel = mapChannel
 
 				bm = Standard()
+				bm.name = oname + "_bake_" + (i as string) 
 				bm.specularlevel = 0
 				bm.Glossiness = 0
 				bm.useSelfIllumColor = off
@@ -227,24 +256,22 @@ fn makeBakeMaterial =
 				append bakeMaterials bm
 			)
 		-- chinh lai material ID theo ket qua bake
-		setMaterialIdFace s1
-		-- ungroup cac doi tuong
-		oDTDetachSelection true true true true "Center"
+		-- setMaterialIdFace s1
+		-- print bakeMaterials
+		-- -- ungroup cac doi tuong
+		-- modPanel.setCurrentObject s1.baseObject
+		-- -- if (notOneSelect) then 	
+		-- 	oDTDetachSelection true true true true "Center"
 
 		objs = for i in selection collect i
-		for o in objs do 
-			(
-				setMatObject o
-			)
-		-- oDTDetachSelection oDTDeleteOriginal oDTKeepWireColor oDTSelectResult oDTCenterPivot oDTPivotPlacement 
+		for o in objs do setMatObject o
 	)
 
 rollout y3dBakeRollout "Y3D Baker" width:320 height:751
 (
-	button btnDetach "Ungroup" pos:[30,632] width:80 height:32
 	button btnUnwrapMO "Unwrap" pos:[51,189] width:80 height:32
 	button btnBake "Bake" pos:[30,527] width:80 height:32
-	button btnMakeMat "Make bake material" pos:[126,634] width:136 height:32
+	button btnMakeMat "Make bake material" pos:[30,634] width:136 height:32
 	button btnDoAll "Do all + CLose" pos:[198,702] width:106 height:32
 	button btnReset "Reset" pos:[113,702] width:80 height:32
 	groupBox grp1 "Step 1: Pre Bake" pos:[15,15] width:290 height:101
@@ -331,19 +358,19 @@ rollout y3dBakeRollout "Y3D Baker" width:320 height:751
 			edtBakeFile.text = ""
 			)
 		)
-	-- on btnAttach pressed  do doAttach()
-	on btnDetach pressed  do
-		(
 
-		)
 	on btnUnwrapMO pressed  do unwrapStep()
 	on btnBake pressed  do doBake()
-	on btnMakeMat pressed  do
-		print "hi"
+	on btnMakeMat pressed do 
+		(
+			-- oDTDetachSelection true true true true "Center"
+			makeBakeMaterial()
+		)
 	on btnDoAll pressed  do
 		(
 			unwrapStep()
 			doBake()
+			makeBakeMaterial()
 		)
 	on btnReset pressed  do
 		print "hi"
@@ -375,10 +402,8 @@ rollout y3dBakeRollout "Y3D Baker" width:320 height:751
 	on ddlMapType selected sel do 
 		(
 			mapBakeType = ddlMapType.selection
-			print sel
 		)
 	on ddlDSize selected sel do	setDefaultSize (ddlDSize.items[sel] as Integer) (ddlDSize.items[sel] as Integer)
-		
 )
 
 

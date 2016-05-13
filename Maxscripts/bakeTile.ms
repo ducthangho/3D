@@ -1,4 +1,5 @@
 --Translate tile to original coordinate
+global bakeVrayCompleteTile
 
 fn bakeVrayCompleteTile obj sizeX sizeY MapChannel u v = 
 (
@@ -29,7 +30,7 @@ fn bake  obj sizeX sizeY Mapchannel tileName bakeMapType bakeMapTypeName =
 	be1 = bakeMapType --instance of the bake element class
 	be1.outputSzX = sizeX
 	be1.outputSzY = sizeY
-	be1.fileType = (getDir #image+"\\"+obj.name+bakeMapTypeName+tileName+".tga")
+	be1.fileType = (getDir #image+"\\"+obj.name+bakeMapTypeName+tileName+".jpg")
 	be1.fileName = filenameFromPath be1.fileType
 	be1.filterOn = true --enable filtering
 	--be1.shadowsOn = false --disable shadows
@@ -53,4 +54,4 @@ fn BakeVrayCompletemap obj sizeX sizeY Mapchannel tileName =
 	bake obj sizeX sizeY Mapchannel tileName bakeMaptype "VrayCompletemap"
 )
 
-bakeDiffuseTile $ 1024 1024 2 0 0
+-- bakeDiffuseTile $ 1024 1024 2 0 0
