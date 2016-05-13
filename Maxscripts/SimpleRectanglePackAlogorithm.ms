@@ -42,7 +42,7 @@ fn findPlace reg listArea enclosingReg =
 			local area2 = listArea[j]
 			if area2.isFree == false do continue
 			if area2.x > area.x then 
-			break else
+			exit else
 			(
 				if ((area.height + area2.height) >= reg.height and (area.height+area.y == area2.y)) do return Pos x:area.x y:area.y
 			)
@@ -67,18 +67,18 @@ fn breakEdgeWidth areaReg p =
 
 fn breakEdgeHeight areaReg p = 
 (
-	format "vi tri: %p\n" p
-	format "vung can break: %p\n" areaReg
+-- 	format "vi tri: %p\n" p
+-- 	format "vung can break: %p\n" areaReg
 	if(p.y > areaReg.y and  p.y < (areaReg.height + areaReg.y)) do
 	(	
-		print "co vao day khong"
+-- 		print "co vao day khong"
 		local height1 = p.y - areaReg.y
 		local height2 = areaReg.height - height1
 		local r1 = SAreaReg x:areaReg.x y:areaReg.y width:areaReg.width height:height1 isFree:areaReg.isFree
 		local r2 = SAreaReg x:areaReg.x y:p.y width:areareg.width height:height2 isFree:areaReg.isFree
 		return #(r1,r2)
 	)
-	print "khong vao day"
+-- 	print "khong vao day"
 	return #(areaReg)
 )
 
@@ -90,7 +90,7 @@ fn breakAreaReg areaReg p =
 		for i = 1 to ar.count do 
 		(
 			local ar2 = breakEdgeHeight ar[i] p
-			format "in ra xem nao %" ar2
+-- 			format "in ra xem nao %" ar2
 			join r ar2
 		) 
 	else 
@@ -168,6 +168,34 @@ fn pack listReg enclosingReg =
 	return listReg
 )
 
+fn packTile listReg enclosingReg n &packedAll= 
+(
+	local r = #()
+	packedAll = false
+	
+	local unpacked = listReg
+	for i = 1 to n do
+	(
+		local a = pack unpacked enclosingReg
+		local packed = #()
+		unpacked = #()
+		for j = 1 to a.count do 
+		(	
+			print a[j]
+			if (a[j].x != -1) then append packed a[j]
+			else append unpacked a[j]
+		)
+		append r packed
+		
+		if unpacked.count == 0 do 
+		(
+			packedAll = true 
+			exit
+		)
+	)
+	return r
+)	
+
 enclosingReg = MRectangle width:36 height:40
 r1 = MRectangle width:15 height:30
 listReg = #(r1)
@@ -225,7 +253,13 @@ r5 =  MRectangle width: 10 height:10
 --  (if the x property of MRectable is -1 then this rectangle will not be packed)
 listReg = #(r1,r2,r3,r4,r5)
 -- call pack function
-pack listReg enclosingReg
+
+numTile = 2
+packedAll = false
+r = packTile listReg enclosingReg numTile &packedAll
+
+print r
+print packedAll
 
 -- print the result, the new place of each rectangle contain in x and y property
-print listreg
+--print listreg
