@@ -192,50 +192,50 @@ fn packTile listReg enclosingReg n &packedAll=
 	return r
 )	
 
-enclosingReg = MRectangle width:36 height:40
-r1 = MRectangle width:15 height:30
-listReg = #(r1)
-listArea = #(SAreaReg x:0 y:0 width:enclosingReg.width height:enclosingReg.height isFree:true)
-p = findPlace r1 listArea enclosingReg
-place r1 p
-print r1
-updateListArea &ListArea r1
-print ListArea
+-- enclosingReg = MRectangle width:36 height:40
+-- r1 = MRectangle width:15 height:30
+-- listReg = #(r1)
+-- listArea = #(SAreaReg x:0 y:0 width:enclosingReg.width height:enclosingReg.height isFree:true)
+-- p = findPlace r1 listArea enclosingReg
+-- place r1 p
+-- print r1
+-- updateListArea &ListArea r1
+-- print ListArea
 
-r2 = MRectangle width: 20 height:25
-p = findPlace r2 listArea enclosingReg
-place r2 p
-print r2
-updateListArea &ListArea r2
-print listArea
+-- r2 = MRectangle width: 20 height:25
+-- p = findPlace r2 listArea enclosingReg
+-- place r2 p
+-- print r2
+-- updateListArea &ListArea r2
+-- print listArea
 
-r5 =  MRectangle width: 10 height:10
-p = findPlace r5 listArea enclosingReg
-place r5 p
-print r5
-updateListArea &listArea r5
-print listArea
+-- r5 =  MRectangle width: 10 height:10
+-- p = findPlace r5 listArea enclosingReg
+-- place r5 p
+-- print r5
+-- updateListArea &listArea r5
+-- print listArea
 
-r4 = MRectangle width:20 height:8
-p = findPlace r4 listArea enclosingReg
-place r4 p
-print r4
-updateListArea &listArea r4
-print listArea
+-- r4 = MRectangle width:20 height:8
+-- p = findPlace r4 listArea enclosingReg
+-- place r4 p
+-- print r4
+-- updateListArea &listArea r4
+-- print listArea
 
-r3 = MRectangle width:9 height: 7
-p = findPlace r3 listArea enclosingReg
-place r3 p
-print r3
-updateListArea &listArea r3
-print listArea
+-- r3 = MRectangle width:9 height: 7
+-- p = findPlace r3 listArea enclosingReg
+-- place r3 p
+-- print r3
+-- updateListArea &listArea r3
+-- print listArea
 
-listReg = #(r1,r2,r3,r4,r5)
-print listReg
+-- listReg = #(r1,r2,r3,r4,r5)
+-- print listReg
 
-pack listReg enclosingReg
+-- pack listReg enclosingReg
 
-print listReg
+-- print listReg
 
 --------------------------------------example----------------
 -- the rectangle will be holding all list specific regtangle
