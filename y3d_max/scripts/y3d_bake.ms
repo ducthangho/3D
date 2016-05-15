@@ -1,5 +1,4 @@
-global s1 = undefined
-global u1 = undefined
+(
 global oDTDetachSelection
 global oDTGeometry
 global aSOPoly
@@ -7,10 +6,10 @@ global showMODialog
 global bakeMaterials = #()
 global notOneSelect = true
 
-include "y3d_unwrap.ms"
-include "bakeTile.ms"
+-- include "$userScripts\y3d_max\scripts\y3d_unwrap.ms"
+-- include "$userScripts\y3d_max\scripts\bakeTile.ms"
 
-fn sLibCopyAndPasteLayerFromNodeToNode copyObj pasteObj = 
+fn sLibCopyAndPasteLayerFromNodeToNode copyObj pasteObj =
 	(
 	myLayerName = copyObj.layer.name
 	myLayer = layermanager.getLayerFromName myLayerName
@@ -18,7 +17,7 @@ fn sLibCopyAndPasteLayerFromNodeToNode copyObj pasteObj =
 	return undefined
 	)
 
-fn aSOPoly objs keepOriginals centerPivot pivotPlacement = 
+fn aSOPoly objs keepOriginals centerPivot pivotPlacement =
 	(
 	allpoly = true
 	for o in objs do
@@ -37,21 +36,21 @@ fn aSOPoly objs keepOriginals centerPivot pivotPlacement =
 			oldObjs = #()
 			newObjs = #()
 			maxops.clonenodes objs cloneType:#copy actualNodeList:&oldObjs newNodes:&newObjs
-			
+
 			-- Convert Objects
 			for o in newObjs do (if (classOf o != Editable_Poly) do (convertToPoly o))
 			InstanceMgr.MakeObjectsUnique newObjs #individual
-	
+
 			-- Prep Progressbar
 			progressStart "objectAttacher"
 			escapeEnable = false
 			numOfItems = objs.count
 			currentIteration = 0
-	
+
 			-- Start process
-			while (newObjs.count > 1) do 
+			while (newObjs.count > 1) do
 				(
-				for i = newObjs.count to 2 by -2 do 
+				for i = newObjs.count to 2 by -2 do
 					(
 					if getProgressCancel() == true then exit
 					currentIteration += 1
@@ -63,10 +62,10 @@ fn aSOPoly objs keepOriginals centerPivot pivotPlacement =
 					)
 				)
 			progressEnd()
-			
+
 			-- Convert
 			convertTo newObjs[1] PolyMeshObject
-			if centerPivot == true then 
+			if centerPivot == true then
 				(
 				if pivotPlacement == 1 then newObjs[1].pivot = [(newObjs[1].max.x+newObjs[1].min.x)/2, (newObjs[1].max.y+newObjs[1].min.y)/2, (newObjs[1].max.z+newObjs[1].min.z)/2]
 				else if pivotPlacement == 2 then newObjs[1].pivot = [(newObjs[1].max.x+newObjs[1].min.x)/2, (newObjs[1].max.y+newObjs[1].min.y)/2, newObjs[1].min.z]
@@ -81,7 +80,7 @@ fn aSOPoly objs keepOriginals centerPivot pivotPlacement =
 		)
 	)
 
-fn oDTGeometry obj deleteOriginal keepWireColor CenterPivot PivotPlacement = 
+fn oDTGeometry obj deleteOriginal keepWireColor CenterPivot PivotPlacement =
 	(
 	disableSceneRedraw()
 	try
@@ -97,13 +96,13 @@ fn oDTGeometry obj deleteOriginal keepWireColor CenterPivot PivotPlacement =
 			-- prep
 			if getCommandPanelTaskMode() == #modify then max create mode
 			newDetachedObjName = obj.name + "_Detached" + (sLibPadValue i 2)
-			
+
 			-- do detach
 			newObj.EditablePoly.SetSelection #Face #{1}
 			newObj.selectElement()
 			facesToDetach = polyop.getFaceSelection newObj
 			polyop.detachFaces newObj facesToDetach asNode:true delete:true name:newDetachedObjName
-			
+
 			-- set new poly object properties
 			newDetachedObj = getnodebyname newDetachedObjName
 			sLibCopyAndPasteLayerFromNodeToNode obj newDetachedObj
@@ -112,7 +111,7 @@ fn oDTGeometry obj deleteOriginal keepWireColor CenterPivot PivotPlacement =
 			replacePrompt("Objects Detached: " + (i as string))
 			i += 1
 			append oDTDetachedObjects newDetachedObj
-			if centerPivot == true then 
+			if centerPivot == true then
 				(
 				if pivotPlacement == 1 then newDetachedObj.pivot = [(newDetachedObj.max.x+newDetachedObj.min.x)/2, (newDetachedObj.max.y+newDetachedObj.min.y)/2, (newDetachedObj.max.z+newDetachedObj.min.z)/2]
 				else if pivotPlacement == 2 then newDetachedObj.pivot = [(newDetachedObj.max.x+newDetachedObj.min.x)/2, (newDetachedObj.max.y+newDetachedObj.min.y)/2, newDetachedObj.min.z]
@@ -127,7 +126,7 @@ fn oDTGeometry obj deleteOriginal keepWireColor CenterPivot PivotPlacement =
 	completeRedraw()
 	)
 
-fn oDTDetachSelection oDTDeleteOriginal oDTKeepWireColor oDTSelectResult oDTCenterPivot oDTPivotPlacement = 
+fn oDTDetachSelection oDTDeleteOriginal oDTKeepWireColor oDTSelectResult oDTCenterPivot oDTPivotPlacement =
 	(
 	objs = for i in selection collect i
 	if objs.count < 1 then MessageBox "Please select an object." title:"objectDetacher"
@@ -138,7 +137,7 @@ fn oDTDetachSelection oDTDeleteOriginal oDTKeepWireColor oDTSelectResult oDTCent
 		for i in objs do
 			(
 			if classof i == Editable_mesh or classof i == Editable_Poly then oDTGeometry i oDTDeleteOriginal oDTKeepWireColor oDTCenterPivot oDTPivotPlacement
-			else if superclassof i == Shape then 
+			else if superclassof i == Shape then
 				()
 			else error = true
 			)
@@ -156,7 +155,7 @@ fn doAttach =
 	(
 		objs = for i in selection collect i
 		if objs.count < 2 then MessageBox "Please select 2 objects or more." title:"objectAttacher"
-		else 
+		else
 			(
 				-- chon kieu la poly, mesh, .., tam thoi poly
 				aSOPoly objs false true "Center"
@@ -168,11 +167,11 @@ fn doAttach =
 -- 	(
 -- 		notOneSelect = true
 -- 		objs = for i in selection collect i
--- 		if objs.count < 2 then 
+-- 		if objs.count < 2 then
 -- 			(
 -- 				if objs.count == 1 then notOneSelect=false
 -- 			)
--- 		else 
+-- 		else
 -- 			(
 -- 				-- chon kieu la poly, mesh, .., tam thoi poly
 -- 				aSOPoly objs false true "Center"
@@ -180,12 +179,12 @@ fn doAttach =
 -- 			)
 -- 	)
 
-fn doBake = 
+fn doBake =
 	(
 		-- switch to original material IDs
 		if oldMatId.count > 0 then setMatIdByArray s1 oldMatId
 		prefixFName = ""
-		for i = 1 to tileArray.count do 
+		for i = 1 to tileArray.count do
 			bakeTile s1 tileArray[i].sizeX tileArray[i].sizeY mapChannel tileArray[i].u tileArray[i].v 1
 	)
 
@@ -197,6 +196,7 @@ fn setDefaultSize sx sy =
 
 fn setMatObject obj =
 	(
+		-- print obj.name
 		select obj
 		modPanel.addModToSelection (Unwrap_UVW ()) ui:on
 		modPanel.setCurrentObject obj.baseObject
@@ -205,22 +205,27 @@ fn setMatObject obj =
 		allfaces = for i = 1 to (uu.numberPolygons()) collect i
 		for t = 1 to tileArray.count do
 			(
-				sFaces = #{}
-				for i=1 to allfaces.count do 
+				local sFaces = #{}
+				for i=1 to allfaces.count do
 					if allfaces[i]!=-1 then
 					(
-						k = polyOp.getFaceMatID obj allfaces[i]
+						k = polyOp.getFaceMatID obj i
 						if k==t then
 							(
-								append sFaces allfaces[i]
+								append sFaces i
 								allfaces[i] = -1
 							)
 					)
 				-- polyOp.setFaceSelection obj sFaces
-				if sFaces.count>0 then 
+				if sFaces.count>0 then
 					(
 						obj.SetSelection #Face sFaces
 						obj.material = bakeMaterials[t]
+					)
+				else
+					(
+						obj.material.mapEnabled[t] = off
+						obj.material.materialList[t] = undefined
 					)
 			)
 	)
@@ -234,7 +239,7 @@ fn makeBakeMaterial =
 		oDTDetachSelection true true true true "Center"
 
 		bakeMaterials = #()
-		for i = 1 to tileArray.count do 
+		for i = 1 to tileArray.count do
 			(
 				dmap = BitmapTexture()
 				fname = 1000+i
@@ -242,7 +247,7 @@ fn makeBakeMaterial =
 				dmap.coords.mapChannel = mapChannel
 
 				bm = Standard()
-				bm.name = oname + "_bake_" + (i as string) 
+				bm.name = oname + "_bake_" + (i as string)
 				bm.specularlevel = 0
 				bm.Glossiness = 0
 				bm.useSelfIllumColor = off
@@ -260,7 +265,7 @@ fn makeBakeMaterial =
 		-- print bakeMaterials
 		-- -- ungroup cac doi tuong
 		-- modPanel.setCurrentObject s1.baseObject
-		-- -- if (notOneSelect) then 	
+		-- -- if (notOneSelect) then
 		-- 	oDTDetachSelection true true true true "Center"
 
 		objs = for i in selection collect i
@@ -311,7 +316,7 @@ rollout y3dBakeRollout "Y3D Baker" width:320 height:751
 					lbxListTex.items = tmp
 				)
 		)
-	fn unwrapStep = 
+	fn unwrapStep =
 		(
 			doUnwrap()
 			items = #()
@@ -338,21 +343,21 @@ rollout y3dBakeRollout "Y3D Baker" width:320 height:751
 			)
 	)
 
-	on edtBakeFile changed text do 
+	on edtBakeFile changed text do
 		(
 			bakeFolder = edtBakeFile.text
 		)
 
-	on btnOpen pressed do 
+	on btnOpen pressed do
 		(
 		mypath = getSavePath()
-		if mypath != undefined then 
+		if mypath != undefined then
 			(
 			if mypath[mypath.count] != "\\" then mypath = mypath + "\\"
 			bakeFolder = mypath
 			edtBakeFile.text = mypath
 			)
-		else 
+		else
 			(
 			bakeFolder = ""
 			edtBakeFile.text = ""
@@ -361,7 +366,7 @@ rollout y3dBakeRollout "Y3D Baker" width:320 height:751
 
 	on btnUnwrapMO pressed  do unwrapStep()
 	on btnBake pressed  do doBake()
-	on btnMakeMat pressed do 
+	on btnMakeMat pressed do
 		(
 			-- oDTDetachSelection true true true true "Center"
 			makeBakeMaterial()
@@ -379,7 +384,7 @@ rollout y3dBakeRollout "Y3D Baker" width:320 height:751
 			spnTWidth.value = tileArray[sel].sizeX
 			spnTHeight.value = tileArray[sel].sizeY
 		)
-	on btnSelectImportant pressed  do 
+	on btnSelectImportant pressed  do
 		(
 			doAttach()
 			doSelectImportant()
@@ -396,10 +401,10 @@ rollout y3dBakeRollout "Y3D Baker" width:320 height:751
 	on btn768 pressed  do updateTexSelected sx:768 sy:768
 	on btn1024 pressed  do updateTexSelected sx:1024 sy:1024
 	on btn2048 pressed  do updateTexSelected sx:2048 sy:2048
-	
+
 	on spnTileCount changed val do tileCount = val
 	on spnMapChannel changed val do mapChannel = val
-	on ddlMapType selected sel do 
+	on ddlMapType selected sel do
 		(
 			mapBakeType = ddlMapType.selection
 		)
@@ -407,8 +412,8 @@ rollout y3dBakeRollout "Y3D Baker" width:320 height:751
 )
 
 
-fn showMODialog = 
+fn showMODialog =
 	(
 		createdialog y3dBakeRollout
 	)
-showMODialog()
+)

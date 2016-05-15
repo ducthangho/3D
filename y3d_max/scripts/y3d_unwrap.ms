@@ -1,39 +1,43 @@
+(
 global numAutoFace = 5
-global importantFacesArray = #()
-global lbIFaceData = #("")
+
 global tileCount = 4
 global mapChannel = 4
-struct yface (index, f_area, area_uvw, fw, fh, udim)
-struct tileStruct (u,v,sizeX,sizeY)
+
 global s1 = undefined
 global u1 = undefined
 global bestSet = #()
 global best = -1
 global isolate_select = true
-global selectFaceRollout
-global setMaterialIdFace
--- global doAddList
+
+global selFaceMode = 1
+global defaultSizeX = 512
+global defaultSizeY = 512
+global defaultMapType = 1
+
+global tileArray = #()
+global bakeInfos = #()
+global oldMatId = #()
+global newMatId = #()
+global importantFacesArray = #()
+
+struct yface (index, f_area, area_uvw, fw, fh, udim)
+struct tileStruct (u,v,sizeX,sizeY)
+struct bakeInfoItem (old_mat_id,new_mat_id,old_mats)
+
+--function
 global setIFacesFromSelect
 global doSelectImportant
 global doUnwrap
-global uvArrayToBake = #()
-global oldMatId = #()
-global newMatId = #()
+global selectFaceRollout
+global setMaterialIdFace
 global setMatIdByArray
-global selFaceMode = 1
-
-global defaultSizeX = 512
-global defaultSizeY = 512
-global defaultMapType = 1 -- Vray complete map
-global tileArray = #()
-global objInfoArr = #()
-
 
 -- Tim tap cac mat co tong dien tich lon nhat ma be hon tham so narea
 
 fn findBestFit2 bSet narea =
 (
-	for k = 1 to importantFacesArray.count do 
+	for k = 1 to importantFacesArray.count do
 	(
 		if (importantFacesArray[k].udim==1000)and(importantFacesArray[k].area_uvw<=narea) then (
 			append bSet k
@@ -44,37 +48,13 @@ fn findBestFit2 bSet narea =
 	best = narea
 )
 
--- fn findBestFit bSet narea =
--- (	
--- 	hasFit = false
--- 	for k = 1 to importantFacesArray.count do 
--- 	(
--- 		kk = findItem bSet k
--- 		if kk>0 then continue
--- 		if (importantFacesArray[k].udim==1000)and(importantFacesArray[k].f_area<=narea) then (
--- 			append bSet k
--- 			kk = bSet.count
--- 			hasFit = true
--- 			importantFacesArray[k].udim += 1000 
--- 			findBestFit bSet (narea-importantFacesArray[k].f_area)
--- 			deleteItem bSet kk 
--- 			importantFacesArray[k].udim -= 1000 
--- 		) 
--- 	)
--- 	if hasFit==false then (
--- 		if narea<best then (
--- 			best = narea
--- 			bestSet = bSet
--- 		)
--- 	)
--- )
 -- Sap xep cac mat uu tien theo do lon dien tich tu to den nho
 fn sortByArea = -- co the dung qsort
 (
 	listed = sort(for i in importantFacesArray collect i.area_uvw)
 	tmp = #()
 	for i =  listed.count to 1 by -1 do (
-		for j = 1 to importantFacesArray.count do 
+		for j = 1 to importantFacesArray.count do
 			if importantFacesArray[j].area_uvw == listed[i] then (
 				append tmp importantFacesArray[j]
 				deleteItem importantFacesArray j
@@ -87,12 +67,12 @@ fn sortByArea = -- co the dung qsort
 fn splitGroupByTileCount =
 (
 	totalArea = 0
-	if  importantFacesArray.count < 1 then 
+	if  importantFacesArray.count < 1 then
 	(
 		MessageBox "No face selected!!"
 		return false
 	)
-	for i = 1 to importantFacesArray.count do 
+	for i = 1 to importantFacesArray.count do
 	(
 		totalArea += importantFacesArray[i].area_uvw
 	)
@@ -115,7 +95,7 @@ fn splitGroupByTileCount =
 					best = nowArea
 					bestSet = #()
 					findBestFit2 #() nowArea
-					if bestSet.count > 0 then 
+					if bestSet.count > 0 then
 					(
 						for b = 1 to bestSet.count do
 						(
@@ -123,7 +103,7 @@ fn splitGroupByTileCount =
 							totalArea = totalArea - importantFacesArray[bestSet[b]].area_uvw
 						)
 					)
-					if best > maxBest then 
+					if best > maxBest then
 					(
 						maxBest = best
 						maxBestTile = iTile
@@ -144,7 +124,7 @@ fn splitGroupByTileCount =
 		)
 	)
 	-- cho cac mat chua duoc gan udim vao 1 tile con trong nhieu nhat
-	for j = 1 to importantFacesArray.count do 
+	for j = 1 to importantFacesArray.count do
 	(
 		if importantFacesArray[j].udim == 1000 then importantFacesArray[j].udim = 1001+maxBestTile
 	)
@@ -158,7 +138,7 @@ fn moveByTile uu =
 	udim = 1001
 	for i = 1 to tileCount-1 do (
 		udim = udim+1
-		theFacesToSelect = #{} 
+		theFacesToSelect = #{}
 		for j = 1 to importantFacesArray.count do (
 			if importantFacesArray[j].udim == udim then(
 				append theFacesToSelect importantFacesArray[j].index
@@ -166,70 +146,66 @@ fn moveByTile uu =
 		)
 		-- chon face
 -- 		s1.selectedFaces #{}
-		if theFacesToSelect.count >0 then 
+		if theFacesToSelect.count >0 then
 		(
-			uu.selectFaces theFacesToSelect 
+			uu.selectFaces theFacesToSelect
 			uu.flattenMapNoParams()
 			-- uu.packNoParams()
 			move_v = (i+1)/10
 			move_u = i - move_v*10
 			uu.unwrap2.MoveSelected [move_u,move_v,0]
 			tileArray[i+1] = tileStruct u:move_u v:move_v sizeX:defaultSizeX sizeY:defaultSizeY
-			-- tmp.u = move_u
-			-- tmp.v = move_v
-			-- tmp.sizeX = defaultTexSize
-			-- tmp.sizeY = defaultTexSize
-			-- tileArray[i+1] = tmp
 		)
 	)
-	
+
 -- 	print "Other:"
 	otherFaces = #{}
 	for i = 1 to (uu.numberPolygons()) do append otherFaces i
 	for j = 1 to importantFacesArray.count do deleteItem otherFaces importantFacesArray[j].index
 -- 	print otherFaces
-	if otherFaces.count > 0 then 
-	(	
-		uu.selectFaces otherFaces 
+	if otherFaces.count > 0 then
+	(
+		uu.selectFaces otherFaces
 		uu.flattenMapNoParams()
 		-- uu.packNoParams()
 	)
 )
 
-fn setMaterialIdFace obj = 
+fn setMaterialIdFace obj =
 (
 	if obj==undefined then (
 		MessageBox "Something wrong!!!"
 		return false
 	)
-	otherFaces = #()
-	for i = 1 to (obj.modifiers["y3d_unwrap"].numberPolygons()) do 
+	local otherFaces = #()
+	oldMatId = #()
+	newMatId = #()
+	for i = 1 to (obj.modifiers["y3d_unwrap"].numberPolygons()) do
 		(
 			oldMatId[i] = 0
 			newMatId[i] = 0
 			append otherFaces i
 		)
 
-	for j = 1 to importantFacesArray.count do 
+	for j = 1 to importantFacesArray.count do
 		(
-			-- print importantFacesArray[j].index
 			oldMatId[importantFacesArray[j].index] = -1
 		)
 
-	if otherFaces.count > 0 then 
-	(	
+	if otherFaces.count > 0 then
+	(
 		for i = 1 to otherFaces.count do
 			(
 				-- k = findItem otherFaces importantFacesArray[j].index
-				-- if (k>0) then deleteItem otherFaces k	
+				-- if (k>0) then deleteItem otherFaces k
 				if (oldMatId[i]!=-1) then
 					(
-						oldMatId[i] = polyOp.getFaceMatID obj otherFaces[i] 
+						oldMatId[i] = polyOp.getFaceMatID obj otherFaces[i]
 						newMatId[i] = 1
 						-- polyOp.setFaceMatID s1 otherFaces[i] 1
 					)
 			)
-		
+
 	)
 
 	udim = 1001
@@ -250,29 +226,22 @@ fn setMaterialIdFace obj =
 		)
 	)
 	setMatIdByArray obj newMatId
-	-- otherFaces = #()
-	-- for i = 1 to (u1.numberPolygons()) do append otherFaces i	
-	-- print "old"
-	-- print oldMatId
-	-- print "new"
-	-- print newMatId
 )
 
 fn setMatIdByArray obj arr=
 	(
-		if arr.count < 1 then 
+		if arr.count < 1 then
 			(
 				MessageBox "Du lieu sai!"
 				return false
 			)
-		-- allfaces = for i = 1 to arr.count collect i
 		for i = 1 to arr.count do
 			(
 				polyOp.setFaceMatID obj i arr[i]
 			)
 	)
 
-fn getIFaceByIndex idx = 
+fn getIFaceByIndex idx =
 	(
 		for i = 1 to importantFacesArray.count do
 		(
@@ -281,27 +250,12 @@ fn getIFaceByIndex idx =
 		return false
 	)
 
--- fn y3dFlattenUV selFaces = 
--- (
--- 	uVFMPolyAngle = 45.0
--- 	uVFMSpacing = 0.02
--- 	uVFMNormalize = true
--- 	uVFMRotate = true
--- 	uVFMFillHoles = false
--- 	uVFMLayout = 1
--- 	uVFMPos = [400,400]
---     u1.setMapChannel mapChannel
--- 	u1.setPreventFlattening off
--- 	u1.selectFaces (selFaces as bitarray)
--- 	u1.flattenMap uVFMPolyAngle #([1,0,0], [-1,0,0], [0,1,0], [0,-1,0], [0,0,1], [0,0,-1]) uVFMSpacing uVFMNormalize (uVFMLayout-1) uVFMRotate uVFMFillHoles	
--- )
-
-fn setIFacesFromSelect obj = 
+fn setIFacesFromSelect obj =
 	(
 		u = obj.modifiers["y3d_unwrap"]
 		sp = u.getSelectedPolygons()
 		if sp.count < 1 then (
-			MessageBox "No face selected" 
+			MessageBox "No face selected"
 		)else(
 			importantFacesArray = #()
 			for i in sp do
@@ -319,22 +273,22 @@ fn setIFacesFromSelect obj =
 		)
 	)
 
-fn SelFaceButtonClick = 
+fn SelFaceButtonClick =
 	(
 		if selection.count == 0 then (
 			MessageBox "Please select at least one object!" title: "Warning!"
 		) else (
 			max modify mode
-			if isolate_select == true then 
+			if isolate_select == true then
 			(
 				actionMan.executeAction 0 "197"  -- Tools: Isolate Selection
 				max tool zoomextents all
 			)
-			s1 = selection[1]	
+			s1 = selection[1]
 			if (classof s1.baseobject) != Editable_Poly then convertto s1 editable_poly
 			subobjectLevel = 0
 			s1.ignoreBackfacing  = true
-			
+
 			if (s1.modifiers["y3d_unwrap"]==undefined) then (
 				u1 = unwrap_UVW()
 				u1.name = "y3d_unwrap"
@@ -347,65 +301,47 @@ fn SelFaceButtonClick =
 			u1.setPreventFlattening off
 			u1.selectFaces #{}
 			u1.flattenMapNoParams()
-			u1.packNoParams()		
+			u1.packNoParams()
 		)
 	)
 
 fn runUnwrap =
 	(
-		-- u1 = s1.modifiers["y3d_unwrap"]
-		-- allfaces = for i = 1 to (u1.numberPolygons()) collect i
-	 --    u1.setMapChannel mapChannel
-		-- u1.setPreventFlattening off
-		-- u1.selectFaces (allfaces  as bitarray)
-		-- u1.flattenMapNoParams()
-		-- u1.packNoParams()
 		if u1!=undefined then moveByTile u1
-	-- 	y3dFlattenUV allfaces
-		
 	)
 
-fn doAddList = 
+fn doAddList =
 	(
+		if s1==undefined then return false
 		if isolate_select == true then actionMan.executeAction 0 "261"  -- Tools: End Isolate
-		if s1!=undefined then setIFacesFromSelect s1
+		setIFacesFromSelect s1
 		sortByArea()
 		splitGroupByTileCount()
 	)
 
-fn doSelectImportant = 
+fn doSelectImportant =
 	(
-		if selFaceMode == 1 then 
+		if selFaceMode == 1 then
 			(
 				SelFaceButtonClick()
 			)
-		else 
+		else
 			(
 				MessageBox "Zzz.."
 			)
 	)
 
-fn doUnwrap = 
+fn doUnwrap =
 	(
-		if selFaceMode == 1 then 
+		if selFaceMode == 1 then
 			(
 				doAddList()
 				if u1!=undefined then moveByTile u1
 			)
-		else 
+		else
 			(
 				MessageBox "Zz.."
 			)
 	)
--- macroScript SelectImportantFaces 
--- category:"Select Important Faces"
--- internalCategory:"Yeu 3D"
--- (
--- 	lbIFaceData = #("")
--- 	importantFacesArray = #()
--- 	s1 = undefined
--- 	u1 = undefined
--- 	-- spnTileCount.value = tileCount
 
--- 	createdialog selectFaceRollout
--- )
+)
