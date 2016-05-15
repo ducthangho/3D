@@ -1,15 +1,29 @@
 (
 global oDTDetachSelection
 global oDTGeometry
+global oDTDetachedObjects
+
 global aSOPoly
 global showMODialog
 global bakeMaterials = #()
 global notOneSelect = true
 
+
 -- include "$userScripts\y3d_max\scripts\y3d_unwrap.ms"
 -- include "$userScripts\y3d_max\scripts\bakeTile.ms"
 
-fn sLibCopyAndPasteLayerFromNodeToNode copyObj pasteObj =
+fn PadValue n pad =
+	(
+	local a = (n as string)
+	for w = 1 to 99999 do
+		(
+		if a.count < pad then a = "0" + a
+		else exit
+		)
+	return a
+	)
+
+fn CopyAndPasteLayerFromNodeToNode copyObj pasteObj =
 	(
 	myLayerName = copyObj.layer.name
 	myLayer = layermanager.getLayerFromName myLayerName
@@ -95,7 +109,7 @@ fn oDTGeometry obj deleteOriginal keepWireColor CenterPivot PivotPlacement =
 			(
 			-- prep
 			if getCommandPanelTaskMode() == #modify then max create mode
-			newDetachedObjName = obj.name + "_Detached" + (sLibPadValue i 2)
+			newDetachedObjName = obj.name + "_Detached" + (PadValue i 2)
 
 			-- do detach
 			newObj.EditablePoly.SetSelection #Face #{1}
@@ -105,7 +119,7 @@ fn oDTGeometry obj deleteOriginal keepWireColor CenterPivot PivotPlacement =
 
 			-- set new poly object properties
 			newDetachedObj = getnodebyname newDetachedObjName
-			sLibCopyAndPasteLayerFromNodeToNode obj newDetachedObj
+			CopyAndPasteLayerFromNodeToNode obj newDetachedObj
 			if keepWireColor == true then newDetachedObj.wirecolor = MyColor else newDetachedObj.wirecolor = (color (random 0 255) (random 0 255) (random 0 255))
 			if doMesh == true then convertTo newDetachedObj (Editable_Mesh)
 			replacePrompt("Objects Detached: " + (i as string))
@@ -285,8 +299,8 @@ rollout y3dBakeRollout "Y3D Baker" width:320 height:751
 	editText edtBakeFile "" pos:[29,308] width:201 height:20
 	button btnOpen "Open" pos:[231,308] width:55 height:22
 	label lbl1 "Folder to save bake image" pos:[32,287] width:137 height:21
-	comboBox ddlMapType "Bake map type" pos:[32,341] width:144 height:1 items:#("Vray Complete Map", "Diffuse Color")
-	comboBox ddlDSize "Default Size" pos:[200,341] width:87 height:1 items:#("256", "512", "1024", "2048", "4096")
+	-- comboBox ddlMapType "Bake map type" pos:[32,341] width:144 height:1 items:#("Vray Complete Map", "Diffuse Color")
+	-- comboBox ddlDSize "Default Size" pos:[200,341] width:87 height:1 items:#("256", "512", "1024", "2048", "4096")
 	listBox lbxListTex "Textures to bake" pos:[32,398] width:143 height:7
 	button btnSelectImportant "Group + Select Important" pos:[37,77] width:152 height:32
 	radioButtons rdoSelectType "Select Type" pos:[35,36] width:150 height:30 labels:#("Face", "Element") default:1 columns:2
@@ -301,6 +315,8 @@ rollout y3dBakeRollout "Y3D Baker" width:320 height:751
 	spinner spnTileCount "Tile Count" pos:[60,163] width:80 height:16 range:[0,100,0] type:#integer scale:1
 	spinner spnMapChannel "Map Channel" pos:[180,163] width:110 height:16 enabled:true range:[0,100,0] type:#integer scale:1
 	groupBox grp25 "Step 2: Unwrap" pos:[15,136] width:290 height:102
+	dropDownList ddlMapType "Bake map type" pos:[32,341] width:144 height:40 items:#("Vray Complete Map", "Diffuse Color")
+	dropDownList ddlDSize "Default Size" pos:[200,340] width:87 height:40 enabled:true items:#("128", "256", "512", "768", "1024", "2048") selection:3
 
 	fn updateTexSelected sx:0 sy:0 =
 		(
