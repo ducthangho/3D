@@ -19,7 +19,7 @@ macroScript y3dbake
 category:"y3d"
 internalCategory:"Yêu 3D"
 tooltip:"Y3D Baker"
-Icon:#("y3d_bakeUI2",1)
+Icon:#("cws",3)
 (
 
 	fn createY3DMenu =

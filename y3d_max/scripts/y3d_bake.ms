@@ -165,33 +165,32 @@ fn oDTDetachSelection oDTDeleteOriginal oDTKeepWireColor oDTSelectResult oDTCent
 		)
 	)
 
+-- fn doAttach =
+-- 	(
+-- 		objs = for i in selection collect i
+-- 		if objs.count < 2 then MessageBox "Please select 2 objects or more." title:"objectAttacher"
+-- 		else
+-- 			(
+-- 				-- chon kieu la poly, mesh, .., tam thoi poly
+-- 				aSOPoly objs false true "Center"
+--
+-- 			)
+-- 	)
 fn doAttach =
 	(
+		notOneSelect = true
 		objs = for i in selection collect i
-		if objs.count < 2 then MessageBox "Please select 2 objects or more." title:"objectAttacher"
+		if objs.count < 2 then
+			(
+				if objs.count == 1 then notOneSelect=false
+			)
 		else
 			(
 				-- chon kieu la poly, mesh, .., tam thoi poly
 				aSOPoly objs false true "Center"
 				-- aSOPoly objs aSOKeepOriginals aSOCenterPivot aSOPivotPlacement
-
 			)
 	)
--- fn doAttach =
--- 	(
--- 		notOneSelect = true
--- 		objs = for i in selection collect i
--- 		if objs.count < 2 then
--- 			(
--- 				if objs.count == 1 then notOneSelect=false
--- 			)
--- 		else
--- 			(
--- 				-- chon kieu la poly, mesh, .., tam thoi poly
--- 				aSOPoly objs false true "Center"
--- 				-- aSOPoly objs aSOKeepOriginals aSOCenterPivot aSOPivotPlacement
--- 			)
--- 	)
 
 fn doBake =
 	(
@@ -211,28 +210,54 @@ fn setDefaultSize sx sy =
 fn setMatObject obj =
 	(
 		-- print obj.name
-		select obj
-		modPanel.addModToSelection (Unwrap_UVW ()) ui:on
-		modPanel.setCurrentObject obj.baseObject
+
+		-- local uu
+		-- modPanel.addModToSelection (Unwrap_UVW ()) ui:on
+		uu = u1
+		if notOneSelect then
+			(
+				select obj
+				modPanel.addModToSelection (Unwrap_UVW ()) ui:on
+				uu = obj.modifiers[obj.modifiers.count]
+				modPanel.setCurrentObject obj.baseObject
+				subobjectLevel = 4
+			)
 		subobjectLevel = 4
-		uu = obj.modifiers[#Unwrap_UVW]
-		allfaces = for i = 1 to (uu.numberPolygons()) collect i
+		-- return false
+		allfaces = #()
+		mid = #()
+		-- allfaces = for i = 1 to (uu.numberPolygons()) collect i
+		for i = 1 to (uu.numberPolygons()) do
+			(
+				append allfaces i
+				append mid (polyOp.getFaceMatID obj i)
+			)
+		print mid
 		for t = 1 to tileArray.count do
 			(
+				print "-**--t="
+				print t
 				local sFaces = #{}
 				for i=1 to allfaces.count do
 					if allfaces[i]!=-1 then
 					(
-						k = polyOp.getFaceMatID obj i
+						k = mid[i]
+						print "k ="
+						print k
 						if k==t then
 							(
+								-- print (k as string) + ":" + (i as string)
 								append sFaces i
 								allfaces[i] = -1
 							)
 					)
+				print "SFace"
+				print sFaces
 				-- polyOp.setFaceSelection obj sFaces
 				if sFaces.count>0 then
 					(
+						-- if notOneSelect then obj.SetSelection #Face sFaces
+						-- else polyOp.setFaceSelection obj sFaces
 						obj.SetSelection #Face sFaces
 						obj.material = bakeMaterials[t]
 					)
@@ -241,7 +266,12 @@ fn setMatObject obj =
 						obj.material.mapEnabled[t] = off
 						obj.material.materialList[t] = undefined
 					)
+				-- obj.modifiers[obj.modifiers.count] = uu
+				print "uv:"
+				obj.modifiers[1] = uu
 			)
+
+		-- if !notOneSelect then s1 = obj
 	)
 
 fn makeBakeMaterial =
@@ -250,7 +280,7 @@ fn makeBakeMaterial =
 		oname = s1.name
 		setMaterialIdFace s1
 		modPanel.setCurrentObject s1.baseObject
-		oDTDetachSelection true true true true "Center"
+		if notOneSelect then oDTDetachSelection true true true true "Center"
 
 		bakeMaterials = #()
 		for i = 1 to tileArray.count do
@@ -281,12 +311,19 @@ fn makeBakeMaterial =
 		-- modPanel.setCurrentObject s1.baseObject
 		-- -- if (notOneSelect) then
 		-- 	oDTDetachSelection true true true true "Center"
+		if notOneSelect then
+			(
+				objs = for i in selection collect i
+				for o in objs do setMatObject o
+			)
+		else
+			(
+				setMatObject s1
+			)
 
-		objs = for i in selection collect i
-		for o in objs do setMatObject o
 	)
 
-rollout y3dBakeRollout "Y3D Baker" width:320 height:751
+rollout y3dBakeRollout "Y3D Baker" width:320 height:750
 (
 	button btnUnwrapMO "Unwrap" pos:[51,189] width:80 height:32
 	button btnBake "Bake" pos:[30,527] width:80 height:32
@@ -316,7 +353,7 @@ rollout y3dBakeRollout "Y3D Baker" width:320 height:751
 	spinner spnMapChannel "Map Channel" pos:[180,163] width:110 height:16 enabled:true range:[0,100,0] type:#integer scale:1
 	groupBox grp25 "Step 2: Unwrap" pos:[15,136] width:290 height:102
 	dropDownList ddlMapType "Bake map type" pos:[32,341] width:144 height:40 items:#("Vray Complete Map", "Diffuse Color")
-	dropDownList ddlDSize "Default Size" pos:[200,340] width:87 height:40 enabled:true items:#("128", "256", "512", "768", "1024", "2048") selection:3
+	dropDownList ddlDSize "Default Size" pos:[200,340] width:87 height:40 enabled:true items:#("128", "256", "512", "768", "1024", "2048") selection:1
 
 	fn updateTexSelected sx:0 sy:0 =
 		(
