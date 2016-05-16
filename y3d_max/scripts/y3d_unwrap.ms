@@ -334,24 +334,10 @@ fn doSelectImportant =
 			)
 	)
 
----------------------- ham cu: Dang --------------
-fn doUnwrap2 =
-	(
-		if selFaceMode == 1 then
-			(
-				doAddList()
-				if u1!=undefined then moveByTile u1
-			)
-		else
-			(
-				MessageBox "Zz.."
-			)
-	)
 
-)
 ---- begin: function minh them -----
 fn recalculate &faces u =
-(	
+(
 	local x = 0
 	local y = 0
 	local width = 0
@@ -364,7 +350,7 @@ fn recalculate &faces u =
 	(
 		index = faces[i].index
 		u.unwrap4.getArea (#(index) as bitarray) &x &y &width &height &areaUVW &areaGeom
-		
+
 		faces[i].x = x
 		faces[i].y = y
 		faces[i].fw = width
@@ -375,7 +361,7 @@ fn recalculate &faces u =
 )
 
 
-fn getListRects faces = 
+fn getListRects faces =
 (
 	local r = #()
 	for i = 1 to faces.count do
@@ -386,9 +372,9 @@ fn getListRects faces =
 	return r
 )
 
-fn MultiplyAsInt listRect n invert= 
+fn MultiplyAsInt listRect n invert=
 (
-	if invert == false then 
+	if invert == false then
 	(
 		for i = 1 to listRect.count do
 		(
@@ -396,7 +382,7 @@ fn MultiplyAsInt listRect n invert=
 			listRect[i].width = floor (n * r.width + 0.5)
 			listRect[i].height = floor (n * r.height+0.5)
 		)
-	)else 
+	)else
 	(
 		for i = 1 to listRect.count do
 		(
@@ -405,18 +391,24 @@ fn MultiplyAsInt listRect n invert=
 			listRect[i].height = (r.height as float) / n
 		)
 	)
-	
+
 	return listRect
 )
 
-fn repos &faces r s u= 
+fn repos &faces r s u=
 (
-	
-	print "aaaaa" 
+
+	print "aaaaa"
 	print faces[1].x
-	
+	tileArray = #()
+	-- tileArray[1] = tileStruct u:0 v:0 sizeX:defaultSizeX sizeY:defaultSizeY
+	-- tileArray[i+1] = tileStruct u:move_u v:move_v sizeX:defaultSizeX sizeY:defaultSizeY
 	for i =1 to r.count do
 	(
+		local uidm_u = mod i 10
+		local udim_v = i / 10
+		local udim = 1001 + uidm_u + udim_v * 10
+
 		local l = r[i]
 		for j =1 to l.count do
 			for k = 1 to faces.count do
@@ -425,58 +417,54 @@ fn repos &faces r s u=
 				(
 					local x = l[j].x / s
 					local y = l[j].y  / s
-					
 					format " x y = % % \n" x y
-					
-					local uidm_u = mod i 10
-					local udim_v = i / 10
-					local udim = 1001 + uidm_u + udim_v * 10
-					
 					faces[k].udim = udim
-					u.unwrap2.selectFaces (#(faces[k].index) as bitarray)
+					u.unwrap2.selectFaces (#{faces[k].index})
 					u.unwrap2.moveSelected [-faces[k].x , -faces[k].y, 0 ]
 					u.unwrap2.moveSelected [uidm_u + x ,udim_v + y , 0 ]
 					faces[k].x = uidm_u + x
 					faces[k].y = udim_v + y
 				)
 			)
+		tileArray[i] = tileStruct u:uidm_u v:udim_v sizeX:defaultSizeX sizeY:defaultSizeY
 	)
 )
 
-fn packFace &faces u = 
-(	
+fn packFace &faces u =
+(
 	local n = 1000
-	local listRect = getListRects faces 
+	local listRect = getListRects faces
 	listRect = MultiplyAsInt listRect n false
 	local enclosingRect = MRectangle width:n height: n
 	local packedAll = false
 	local r = packTile listRect enclosingRect 1000 &packedAll
-	
+
 	repos &faces r n u
+
 )
 
-fn rePosition &faces u = 
+fn rePosition &faces u =
 (
 	recalculate &faces u
 	packFace &faces u
 )
 
-fn test = 
+fn test =
 (
 	n = 1000
 	print importantFacesArray
 	recalculate &importantFacesArray u1
-	listRect = getListRects importantFacesArray 
+	listRect = getListRects importantFacesArray
 	print listRect
 	listRect = MultiplyAsInt listRect n false
-	
-	
+
+
 	packedAll = true
 	enclosingRect = MRectangle width:n height: n
-	
+
 	r = packTile listRect enclosingRect 1000 &packedAll
 	print r[1]
-	
+
 	r2 = #()
 	for i = 1 to r.count do
 	(
@@ -486,7 +474,7 @@ fn test =
 	r = r2
 	faces = importantFacesArray
 	u = u1
-	
+
 	for i =1 to r.count do
 	(
 		local l = r[i]
@@ -497,13 +485,13 @@ fn test =
 				(
 					local x = l[j].x / n
 					local y = l[j].y / n
-					
+
 					format " x y = % % \n" x y
-					
+
 					local uidm_u = mod i 10
 					local udim_v = i / 10
 					local udim = 1001 + uidm_u + udim_v * 10
-					
+
 					faces[k].udim = udim
 					u.unwrap2.selectFaces (#(faces[k].index) as bitarray)
 					u.unwrap2.moveSelected [-faces[k].x , -faces[k].y, 0 ]
@@ -513,9 +501,9 @@ fn test =
 				)
 			)
 	)
-	
+
 	reposition &importantFacesArray u1
-	
+
 	print u1
 	print listRect
 	print r.count
@@ -523,9 +511,9 @@ fn test =
 )
 ----------------------------------------------------------------------------------------------------
 -------------main function: is the first call function, it call other function -----------------
-fn doUnwrap = 
+fn doUnwrap =
 	(
-		if selFaceMode == 1 then 
+		if selFaceMode == 1 then
 			(
 				doAddList()
 				if u1!=undefined do
@@ -534,9 +522,25 @@ fn doUnwrap =
 					rePosition importantFacesArray u1
 				)
 			)
-		else 
+		else
 			(
 				MessageBox "Zz.."
 			)
+	)
+
+	---------------------- ham cu: Dang --------------
+	fn doUnwrap2 =
+		(
+			if selFaceMode == 1 then
+				(
+					doAddList()
+					if u1!=undefined then moveByTile u1
+				)
+			else
+				(
+					MessageBox "Zz.."
+				)
+		)
+
 	)
 -----end: function minh them----------------------

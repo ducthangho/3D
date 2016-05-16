@@ -213,51 +213,36 @@ fn setMatObject obj =
 
 		-- local uu
 		-- modPanel.addModToSelection (Unwrap_UVW ()) ui:on
-		uu = u1
-		if notOneSelect then
-			(
-				select obj
-				modPanel.addModToSelection (Unwrap_UVW ()) ui:on
-				uu = obj.modifiers[obj.modifiers.count]
-				modPanel.setCurrentObject obj.baseObject
-				subobjectLevel = 4
-			)
+		if not notOneSelect then convertToPoly obj
+		select obj
+		modPanel.addModToSelection (Unwrap_UVW ()) ui:on
+		uu = obj.modifiers[obj.modifiers.count]
+		uu.unwrap.setMapChannel mapChannel
+		modPanel.setCurrentObject obj.baseObject
 		subobjectLevel = 4
-		-- return false
 		allfaces = #()
 		mid = #()
-		-- allfaces = for i = 1 to (uu.numberPolygons()) collect i
 		for i = 1 to (uu.numberPolygons()) do
 			(
 				append allfaces i
 				append mid (polyOp.getFaceMatID obj i)
 			)
-		print mid
 		for t = 1 to tileArray.count do
 			(
-				print "-**--t="
-				print t
 				local sFaces = #{}
 				for i=1 to allfaces.count do
 					if allfaces[i]!=-1 then
 					(
 						k = mid[i]
-						print "k ="
-						print k
 						if k==t then
 							(
-								-- print (k as string) + ":" + (i as string)
 								append sFaces i
 								allfaces[i] = -1
 							)
 					)
-				print "SFace"
-				print sFaces
 				-- polyOp.setFaceSelection obj sFaces
 				if sFaces.count>0 then
 					(
-						-- if notOneSelect then obj.SetSelection #Face sFaces
-						-- else polyOp.setFaceSelection obj sFaces
 						obj.SetSelection #Face sFaces
 						obj.material = bakeMaterials[t]
 					)
@@ -266,12 +251,7 @@ fn setMatObject obj =
 						obj.material.mapEnabled[t] = off
 						obj.material.materialList[t] = undefined
 					)
-				-- obj.modifiers[obj.modifiers.count] = uu
-				print "uv:"
-				obj.modifiers[1] = uu
 			)
-
-		-- if !notOneSelect then s1 = obj
 	)
 
 fn makeBakeMaterial =

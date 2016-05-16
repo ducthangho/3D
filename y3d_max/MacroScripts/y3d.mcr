@@ -1,20 +1,3 @@
-
-	-- macroScript SelectImportantFaces
-	-- category:"y3d"
-	-- internalCategory:"Yêu 3D"
-	-- tooltip: "Test Menu Item"
-	-- (
-	--  MessageBox "sac"
-	-- )
-
-	-- macroScript SetMaterialID
-	-- category:"y3d" --some macro script
-	-- internalCategory:"Yêu 3D"
-	-- (
-	--  MessageBox "sac"
-	-- )
-
-
 macroScript y3dbake
 category:"y3d"
 internalCategory:"Yêu 3D"
@@ -50,10 +33,3 @@ Icon:#("cws",3)
 	u1 = undefined
 	showMODialog()
 )
-
-
--- macroScript y3d_menu
--- category:"y3d"
--- (
-
--- )
