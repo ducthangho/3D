@@ -41,6 +41,7 @@ Icon:#("cws",3)
 
 	createY3DMenu()
 
+	Include "$userScripts/scripts/SimpleRectanglePackAlogorithm.ms"
 	Include "$userScripts/scripts/y3d_unwrap.ms"
 	Include "$userScripts/scripts/bakeTile.ms"
 	Include "$userScripts/scripts/y3d_bake.ms"
@@ -48,7 +49,6 @@ Icon:#("cws",3)
 	s1 = undefined
 	u1 = undefined
 	showMODialog()
-
 )
 
 
