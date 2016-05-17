@@ -2,6 +2,8 @@
 struct MRectangle (x=-1.0,y=-1.0,width,height,id)
 struct SAreaReg (x,y,width,height,isFree)
 struct Pos (x,y)
+struct tileStruct (u,v,sizeX,sizeY)
+
 global bestSet = #()
 global best = -1
 
