@@ -242,23 +242,33 @@ fn packTile listReg enclosingReg n &packedAll=
 
 --------------------------------------example----------------
 -- the rectangle will be holding all list specific regtangle
--- enclosingReg = MRectangle width:40 height:40
+enclosingReg = MRectangle width:500 height:500
 -- list regtangle to be packed 
--- r1 = MRectangle width:15 height:30 id:1
--- r2 = MRectangle width: 20 height:25 id:2
--- r3 = MRectangle width:9 height: 7 id:3
--- r4 = MRectangle width:20 height:8 id:4
--- r5 =  MRectangle width: 10 height:10 id:5
+r1 = MRectangle width:15 height:30 id:1
+r2 = MRectangle width: 20 height:25 id:2
+r3 = MRectangle width:9 height: 7 id:3
+r4 = MRectangle width:20 height:8 id:4
+r5 =  MRectangle width: 10 height:10 id:5
 --  (if the x property of MRectable is -1 then this rectangle will not be packed)
--- listReg = #(r1,r2,r3,r4,r5)
+listReg = #(r1,r2,r3,r4,r5)
 -- call pack function
 
--- numTile = 2
--- packedAll = false
--- r = packTile listReg enclosingReg numTile &packedAll
+for i = 1 to 50 do 
+(
+	w = random 1 30
+	h = random 1 40
+	r = MRectangle width:w height:h 
+	append listReg r
+)
 
--- print r[1]
--- print packedAll
+print listReg
+
+numTile = 10
+packedAll = false
+r = packTile listReg enclosingReg numTile &packedAll
+
+print r[1]
+print packedAll
 
 -- print the result, the new place of each rectangle contain in x and y property
 --print listreg
