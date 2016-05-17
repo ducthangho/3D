@@ -105,7 +105,7 @@ fn moveByTile uu =
 		tileArray = #()
 		tileArray[1] = tileStruct u:0 v:0 sizeX:defaultSizeX sizeY:defaultSizeY
 		udim = 1001
-		for i = 1 to tileCount-1 do (
+		for i = 2 to tileCount do (
 			udim = udim+1
 			theFacesToSelect = #{}
 			for j = 1 to importantFacesArray.count do (
@@ -119,11 +119,12 @@ fn moveByTile uu =
 			(
 				uu.selectFaces theFacesToSelect
 				uu.flattenMapNoParams()
-				-- uu.packNoParams()
-				move_v = (i+1)/10
-				move_u = i - move_v*10
+				-- uu.packNoParams() 1
+				move_v = (i-1)/10
+				-- move_u = i - move_v*10
+				move_u = mod (i-1) 10
 				uu.unwrap2.MoveSelected [move_u,move_v,0]
-				tileArray[i+1] = tileStruct u:move_u v:move_v sizeX:defaultSizeX sizeY:defaultSizeY
+				tileArray[i] = tileStruct u:move_u v:move_v sizeX:defaultSizeX sizeY:defaultSizeY
 			)
 		)
 

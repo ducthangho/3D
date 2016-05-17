@@ -263,7 +263,7 @@ fn repos &faces r s u=
 	(
 
 		tileArray = #()
-		-- tileArray[1] = tileStruct u:0 v:0 sizeX:defaultSizeX sizeY:defaultSizeY
+		tileArray[1] = tileStruct u:0 v:0 sizeX:defaultSizeX sizeY:defaultSizeY
 		-- tileArray[i+1] = tileStruct u:move_u v:move_v sizeX:defaultSizeX sizeY:defaultSizeY
 		for i =1 to r.count do
 		(
@@ -288,7 +288,7 @@ fn repos &faces r s u=
 						faces[k].y = udim_v + y
 					)
 				)
-			tileArray[i] = tileStruct u:uidm_u v:udim_v sizeX:defaultSizeX sizeY:defaultSizeY
+			tileArray[i+1] = tileStruct u:uidm_u v:udim_v sizeX:defaultSizeX sizeY:defaultSizeY
 		)
 	)
 

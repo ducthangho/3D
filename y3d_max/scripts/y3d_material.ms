@@ -112,16 +112,17 @@ fn makeBakeMaterial obj notOne mChanel=
 
 				bm = Standard()
 				bm.name = oname + "_bake_" + (i as string)
-				bm.specularlevel = 0
-				bm.Glossiness = 0
-				bm.useSelfIllumColor = off
-				bm.twoSided = on
-				bm.selfIllumAmount = 100
-				bm.Ambient = color 0 0 0
-				bm.diffuse = color 128 128 128
-				bm.specular = color 0 0 0
-				bm.bumpMapAmount = 100
+				-- bm.specularlevel = 0
+				-- bm.Glossiness = 0
+				bm.useSelfIllumColor = on
+				-- bm.twoSided = on
+				-- bm.selfIllumAmount = 100
+				-- bm.Ambient = color 0 0 0
+				-- bm.diffuse = color 128 128 128
+				-- bm.specular = color 0 0 0
+				-- bm.bumpMapAmount = 100
 				bm.diffuseMap = dmap
+				bm.selfillumMap = dmap
 				append bakeMaterials bm
 			)
 		-- chinh lai material ID theo ket qua bake

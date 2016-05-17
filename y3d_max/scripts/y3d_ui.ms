@@ -1,6 +1,6 @@
 (
 global selFaceMode = 1
-global packType = 1
+global packType = 2
 global notOneSelect = true
 
 global showMODialog
@@ -62,7 +62,7 @@ rollout y3dBakeRollout "Y3D Baker" width:320 height:750
 		button btn1024 "1024" pos:[222,492] width:30 height:20
 		button btn2048 "2048" pos:[256,492] width:30 height:20
 		button btn768 "768" pos:[188,492] width:30 height:20
-		spinner spnTileCount "Tile Count" pos:[60,163] width:80 height:16 range:[0,100,0] type:#integer scale:1
+		spinner spnTileCount "Tile Count" pos:[60,163] width:80 height:16 range:[0,1000,0] type:#integer scale:1
 		spinner spnMapChannel "Map Channel" pos:[180,163] width:110 height:16 enabled:true range:[0,100,0] type:#integer scale:1
 		groupBox grp25 "Step 2: Unwrap" pos:[15,136] width:290 height:102
 		dropDownList ddlMapType "Bake map type" pos:[32,341] width:144 height:40 items:#("Vray Complete Map", "Diffuse Color")
