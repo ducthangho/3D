@@ -24,12 +24,13 @@ Icon:#("cws",3)
 
 	createY3DMenu()
 
-	Include "$userScripts/scripts/SimpleRectanglePackAlogorithm.ms"
+	Include "$userScripts/lib/y3d_lib.ms"
+	Include "$userScripts/scripts/y3d_pack.ms"
+	Include "$userScripts/scripts/y3d_material.ms"
 	Include "$userScripts/scripts/y3d_unwrap.ms"
-	Include "$userScripts/scripts/bakeTile.ms"
 	Include "$userScripts/scripts/y3d_bake.ms"
-	importantFacesArray = #()
-	s1 = undefined
-	u1 = undefined
+	Include "$userScripts/scripts/y3d_ui.ms"
+
+	resetAll
 	showMODialog()
 )
