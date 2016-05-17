@@ -10,11 +10,12 @@ if y3dInit != true then
 	global numAutoFace = 5
 	global tileCount = 4
 	global mapChannel = 4
-	global oDTDetachedObjects
 
 	global resetBakeFlow
 	global attachPoly
 	global detachSelection
+	global oldBakeGroup
+	global newBakeGroup
 
 	fn resetBakeFlow =
 		(
@@ -22,6 +23,8 @@ if y3dInit != true then
 			importantFacesArray = #()
 			if mapChannel == undefined then mapChannel = 4
 			if tileCount == undefined then tileCount = 4
+			oldBakeGroup = undefined
+			newBakeGroup = #()
 		)
 
 	fn PadValue n pad =
@@ -106,6 +109,11 @@ if y3dInit != true then
 			)
 		)
 
+	fn clearNewBake =
+		(
+			for o in newBakeGroup do delete o
+		)
+
 	fn detachGeometry obj deleteOriginal keepWireColor CenterPivot PivotPlacement =
 		(
 		disableSceneRedraw()
@@ -136,7 +144,7 @@ if y3dInit != true then
 				if doMesh == true then convertTo newDetachedObj (Editable_Mesh)
 				replacePrompt("Objects Detached: " + (i as string))
 				i += 1
-				append oDTDetachedObjects newDetachedObj
+				append newBakeGroup newDetachedObj
 				if centerPivot == true then
 					(
 					if pivotPlacement == 1 then newDetachedObj.pivot = [(newDetachedObj.max.x+newDetachedObj.min.x)/2, (newDetachedObj.max.y+newDetachedObj.min.y)/2, (newDetachedObj.max.z+newDetachedObj.min.z)/2]
@@ -146,6 +154,11 @@ if y3dInit != true then
 				)
 			delete newObj
 			if deleteOriginal == true then delete obj
+			else
+				(
+					oldBakeGroup = obj
+					hide oldBakeGroup
+				)
 			)
 		catch (MessageBox "An error has occured. You may want to undo." title:"objectDetacher")
 		enableSceneRedraw()
@@ -155,11 +168,12 @@ if y3dInit != true then
 	fn detachSelection oDTDeleteOriginal oDTKeepWireColor oDTSelectResult oDTCenterPivot oDTPivotPlacement =
 		(
 		objs = for i in selection collect i
+		print objs
 		if objs.count < 1 then MessageBox "Please select an object." title:"objectDetacher"
 		else
 			(
 			error = false
-			oDTDetachedObjects = #()
+			newBakeGroup = #()
 			for i in objs do
 				(
 				if classof i == Editable_mesh or classof i == Editable_Poly then detachGeometry i oDTDeleteOriginal oDTKeepWireColor oDTCenterPivot oDTPivotPlacement
@@ -167,11 +181,11 @@ if y3dInit != true then
 					()
 				else error = true
 				)
-			if oDTDetachedObjects.count > 0 then
+			if newBakeGroup.count > 0 then
 				(
-				if oDTSelectResult == true then (select oDTDetachedObjects;replacePrompt(""))
+				if oDTSelectResult == true then (select newBakeGroup;replacePrompt(""))
 				else deselect selection
-				oDTDetachedObjects = #()
+				-- newBakeGroup = #()
 				)
 			if error == true then MessageBox "At least one of your objects could not be affected by this script. Please convert to an Editable Mesh or Poly." title:"objectDetacher"
 			)

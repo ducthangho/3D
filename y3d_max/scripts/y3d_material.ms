@@ -1,11 +1,55 @@
 (
 global bakeMaterials = #()
+global oldMaterials = #()
 global oldMatId = #()
 global newMatId = #()
 
 global makeBakeMaterial
 global setMatIdByArray
 global setMaterialIdFace
+global restoreOldMat
+
+-- fn emptyCurrentMatLib =
+-- 	(
+-- 		while currentMaterialLibrary.count > 0 do
+-- 		(
+-- 			for mat in currentMaterialLibrary do deleteItem currentMaterialLibrary mat.name
+-- 		)--end while
+-- 	)
+
+-- fn saveOldMat obj=
+-- 	(
+-- 		oldMaterials = #()
+-- 		mclass = classof obj.material
+-- 		if (mclass != Multimaterial) then
+-- 			(
+-- 				append oldMaterials obj.material
+-- 			)
+-- 		else
+-- 			(
+-- 				oldMaterials = obj.material.materialList
+-- 			)
+-- 	)
+
+fn restoreOldMat =
+	(
+		if oldBakeGroup==undefined then
+			(
+				MessageBox "Dữ liệu cũ đã mất không thể khôi phục!"
+				return false
+			)
+		-- xoa cac doi tuong vua duoc detach va gan bake material
+		print newBakeGroup
+		for o in newBakeGroup do delete o
+
+		-- hien lai object luc chua detach
+		unhide oldBakeGroup
+		select oldBakeGroup
+		s1 = oldBakeGroup
+		u1 = oldBakeGroup.modifiers["y3d_unwrap"]
+		if oldMatId.count > 0 then setMatIdByArray s1 oldMatId
+		print "Undo OK"
+	)
 
 fn setMatObject obj notOne mChanel =
 	(
@@ -56,7 +100,7 @@ fn makeBakeMaterial obj notOne mChanel=
 		setMaterialIdFace obj importantFacesArray
 		modPanel.setCurrentObject obj.baseObject
 		-- detach neu co nhieu object duoc chon
-		if notOne then detachSelection true true true true "Center"
+		if notOne then detachSelection false true true true "Center"
 
 		bakeMaterials = #()
 		for i = 1 to tileArray.count do

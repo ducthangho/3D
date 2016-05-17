@@ -67,6 +67,8 @@ rollout y3dBakeRollout "Y3D Baker" width:320 height:750
 		groupBox grp25 "Step 2: Unwrap" pos:[15,136] width:290 height:102
 		dropDownList ddlMapType "Bake map type" pos:[32,341] width:144 height:40 items:#("Vray Complete Map", "Diffuse Color")
 		dropDownList ddlDSize "Default Size" pos:[200,340] width:87 height:40 enabled:true items:#("128", "256", "512", "768", "1024", "2048") selection:1
+		button btnUndo "Undo" pos:[172,634] width:86 height:32
+		button btnUVEditor "Open UV Editor" pos:[139,189] width:96 height:32
 
 		fn updateTexSelected sx:0 sy:0 =
 			(
@@ -108,6 +110,8 @@ rollout y3dBakeRollout "Y3D Baker" width:320 height:750
 						)
 				)
 		)
+
+		on btnUndo pressed  do restoreOldMat()
 
 		on edtBakeFile changed text do
 			(
@@ -179,6 +183,8 @@ rollout y3dBakeRollout "Y3D Baker" width:320 height:750
 				mapBakeType = ddlMapType.selection
 			)
 		on ddlDSize selected sel do	setDefaultSize (ddlDSize.items[sel] as Integer) (ddlDSize.items[sel] as Integer)
+		on btnUVEditor pressed  do
+			print "hi"
 	)
 
 fn showMODialog =
