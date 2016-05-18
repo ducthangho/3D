@@ -1,4 +1,4 @@
-(
+
 global selFaceMode = 1
 global packType = 1
 global notOneSelect = true
@@ -207,4 +207,3 @@ fn resetAll =
 		newMatId = #()
 	)
 --end--
-)

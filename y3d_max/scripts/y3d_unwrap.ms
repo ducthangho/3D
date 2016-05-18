@@ -1,5 +1,4 @@
 (
-
 global s1 = undefined
 global u1 = undefined
 
@@ -282,5 +281,4 @@ fn doUnwrap selectMode packType =
 		if packType == 1 then doUnwrap1 selectMode
 		else if packType == 2 then doUnwrap2 selectMode
 	)
-
 )
