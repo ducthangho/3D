@@ -156,7 +156,10 @@ fn setIFacesFromSelect obj =
 		u = obj.modifiers["y3d_unwrap"]
 		sp = u.getSelectedPolygons()
 		if sp.count < 1 then (
-			MessageBox "No face selected"
+			importantFacesArray = #()
+			stepDone = 0
+			-- MessageBox "No face selected" +(stepDone as string)
+			-- print stepDone
 		)else(
 			importantFacesArray = #()
 			for i in sp do
@@ -177,6 +180,7 @@ fn setIFacesFromSelect obj =
 fn SelFaceButtonClick =
 	(
 		if selection.count == 0 then (
+			stepDone = 0
 			MessageBox "Please select at least one object!" title: "Warning!"
 		) else (
 			max modify mode
@@ -203,6 +207,7 @@ fn SelFaceButtonClick =
 			u1.selectFaces #{}
 			u1.flattenMapNoParams()
 			u1.packNoParams()
+			stepDone = 1
 		)
 	)
 
@@ -211,8 +216,15 @@ fn doAddList =
 		if s1==undefined then return false
 		if isolate_select == true then actionMan.executeAction 0 "261"  -- Tools: End Isolate
 		setIFacesFromSelect s1
-		sortByArea()
-		splitGroupByTileCount()
+		if (stepDone == 1) then
+			(
+				sortByArea()
+				splitGroupByTileCount()
+			)
+		else
+			(
+				-- MessageBox "No face selected"
+			)
 	)
 
 fn doSelectImportant selectMode =
@@ -232,11 +244,15 @@ fn doUnwrap1 selectMode =
 		if selectMode == 1 then
 			(
 				doAddList()
-				if u1!=undefined then moveByTile u1
+				if stepDone == 1 then
+					(
+						if u1!=undefined then moveByTile u1
+					)
 			)
 		else
 			(
-				MessageBox "Zz.."
+				MessageBox "Che do chon mat chua support.."
+				stepDone = 0
 			)
 	)
 
@@ -245,15 +261,19 @@ fn doUnwrap2 selectMode =
 		if selectMode == 1 then
 			(
 				doAddList()
-				if u1!=undefined do
-				(
-					moveByTile u1
-					rePosition importantFacesArray u1
-				)
+				if stepDone == 1 then
+					(
+						if u1!=undefined then
+							(
+								moveByTile u1
+								rePosition importantFacesArray u1
+							)
+					)
 			)
 		else
 			(
-				MessageBox "Zz.."
+				MessageBox "Che do chon mat chua support.."
+				stepDone = 0
 			)
 	)
 

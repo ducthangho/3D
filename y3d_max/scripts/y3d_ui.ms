@@ -28,6 +28,7 @@ fn doBake =
 		prefixFName = ""
 		for i = 1 to tileArray.count do
 			bakeTile s1 tileArray[i].sizeX tileArray[i].sizeY mapChannel tileArray[i].u tileArray[i].v 1
+		stepDone = 3
 	)
 
 fn setDefaultSize sx sy =
@@ -87,13 +88,18 @@ rollout y3dBakeRollout "Y3D Baker" width:320 height:750
 		fn unwrapStep =
 			(
 				doUnwrap selFaceMode packType
-				items = #()
-				for i=1 to tileArray.count do
+				-- MessageBox (stepDone as string)
+				if stepDone == 1 then
 					(
-						name =	"Tile "+(i as string)+":["+(tileArray[i].sizeX as string)+" x "+(tileArray[i].sizeY as string)+"]"
-						append items name
+						items = #()
+						for i=1 to tileArray.count do
+							(
+								name =	"Tile "+(i as string)+":["+(tileArray[i].sizeX as string)+" x "+(tileArray[i].sizeY as string)+"]"
+								append items name
+							)
+						lbxListTex.items = items
+						stepDone = 2
 					)
-				lbxListTex.items = items
 			)
 
 		on y3dBakeRollout open do (
@@ -142,9 +148,9 @@ rollout y3dBakeRollout "Y3D Baker" width:320 height:750
 			)
 		on btnDoAll pressed  do
 			(
-				unwrapStep()
-				doBake()
-				makeBakeMaterial s1 notOneSelect mapChannel
+				if stepDone==1 then unwrapStep()
+				if stepDone==2 then doBake()
+				if stepDone==3 then makeBakeMaterial s1 notOneSelect mapChannel
 			)
 		on btnReset pressed  do
 			(

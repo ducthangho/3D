@@ -7,6 +7,7 @@
 	global prefixFName = ""
 	global mapBakeType
 	global bakeVrayCompleteTile
+	global filetype_bake = "jpg"
 
 	fn bake  obj sizeX sizeY Mapchannel fname bakeMapType bakeMapTypeName =
 	(
@@ -15,12 +16,13 @@
 		be1.outputSzX = sizeX
 		be1.outputSzY = sizeY
 		-- be1.fileType = (bakeFolder+"\\"+obj.name+bakeMapTypeName+tileName+".jpg")
-		be1.fileType = (bakeFolder+"\\"+prefixFName+fname+".jpg")
+		be1.fileType = (bakeFolder+"\\"+prefixFName+fname+"."+filetype_bake)
 		be1.fileName = filenameFromPath be1.fileType
 		be1.filterOn = true --enable filtering
 		--be1.shadowsOn = false --disable shadows
 		--be1.lightingOn = false --disable lighting
 		be1.enabled = true --enable baking
+
 
 		obj.INodeBakeProperties.addBakeElement be1 --add first element
 		obj.INodeBakeProperties.bakeEnabled = true --enabling baking
@@ -33,9 +35,11 @@
 
 	fn BakeVrayCompletemap obj sizeX sizeY Mapchannel fname =
 	(
-		bakeMaptype = Vraycompletemap()
+		bm = Vraycompletemap()
+		bm.color_mapping = true
+		bm.targetMapSlotName = "Self-Illumination"
 		--showProperties bakeMaptype
-		bake obj sizeX sizeY Mapchannel fname bakeMaptype "VrayCompletemap"
+		bake obj sizeX sizeY Mapchannel fname bm "VrayCompletemap"
 	)
 
 	fn bakeTile obj sizeX sizeY MapChannel u v mapType=

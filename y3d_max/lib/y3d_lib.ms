@@ -16,6 +16,7 @@ if y3dInit != true then
 	global detachSelection
 	global oldBakeGroup
 	global newBakeGroup
+	global stepDone = 0
 
 	fn resetBakeFlow =
 		(
@@ -25,6 +26,7 @@ if y3dInit != true then
 			if tileCount == undefined then tileCount = 4
 			oldBakeGroup = undefined
 			newBakeGroup = #()
+			stepDone = 0
 		)
 
 	fn PadValue n pad =
