@@ -122,7 +122,8 @@ fn moveByTile uu =
 				-- uu.packNoParams() 1
 				move_v = (i-1)/10
 				-- move_u = i - move_v*10
-				move_u = mod (i-1) 10
+				-- move_u = mod (i-1) 10
+				move_u = (i-1) - move_v*10
 				uu.unwrap2.MoveSelected [move_u,move_v,0]
 				tileArray[i] = tileStruct u:move_u v:move_v sizeX:defaultSizeX sizeY:defaultSizeY
 			)

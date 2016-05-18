@@ -266,11 +266,11 @@ fn repos &faces r s u=
 
 		tileArray = #()
 		tileArray[1] = tileStruct u:0 v:0 sizeX:defaultSizeX sizeY:defaultSizeY
-		-- tileArray[i+1] = tileStruct u:move_u v:move_v sizeX:defaultSizeX sizeY:defaultSizeY
 		for i =1 to r.count do
 		(
-			local uidm_u = mod i 10
 			local udim_v = i / 10
+			-- local uidm_u = mod i 10
+			local uidm_u = i-udim_v*10
 			local udim = 1001 + uidm_u + udim_v * 10
 
 			local l = r[i]
