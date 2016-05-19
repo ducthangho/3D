@@ -11,12 +11,10 @@ global defaultMapType = 1
 struct yface (index, f_area, area_uvw, fw, fh, udim, x, y)
 struct tileStruct (u,v,sizeX,sizeY)
 
-
 --function
 global setIFacesFromSelect
 global doSelectImportant
 global doUnwrap
-
 
 -- Sap xep cac mat uu tien theo do lon dien tich tu to den nho
 fn sortByArea = -- co the dung qsort
@@ -255,7 +253,8 @@ fn doUnwrap1 selectMode =
 			)
 	)
 
-fn doUnwrap2 selectMode =
+--------------------- ham cu cua Dang ------------------------------
+fn doUnwrap3 selectMode =
 	(
 		if selectMode == 1 then
 			(
@@ -276,8 +275,42 @@ fn doUnwrap2 selectMode =
 			)
 	)
 
+------------------------ begin: ham Minh them -------------------------------
+-----------------------------------------------------------------------------
+fn scaleIslandsBydensity islands density u= 
+(
+	areaTile = (minx*miny) / density
+	
+	for i = 1 to islands.count do 
+	(
+		local island = islands[i]
+		local area_uvw_abs = island.area_uvw * areaTile
+		local scaleArea = island.f_area/area_uvw_abs
+		local scaleEdge = sqrt scaleArea
+	)
+)
+	
+fn doUnwrap2 selectMode =
+	(
+		if selectMode == 1 then
+			(
+				print "hehehehehe"
+				u1.unwrap2.flattenMapNoParams()
+				setIFacesFromSelect s1
+				unwrapSelection u1
+			)
+		else
+			(
+				MessageBox "Che do chon mat chua support.."
+				stepDone = 0
+			)
+	)
+
+
+---------------------------------end : ham Minh them --------------------------------------
 fn doUnwrap selectMode packType =
 	(
+		print "Hello"
 		if packType == 1 then doUnwrap1 selectMode
 		else if packType == 2 then doUnwrap2 selectMode
 	)

@@ -1,4 +1,5 @@
 struct SIsland (indexes,f_area,area_uvw,fw,fh,udim,x,y)
+struct Sface (index, f_area, area_uvw, fw, fh, udim, x, y, flag)
 
 fn recalculate &faces u =
 (	
@@ -12,7 +13,7 @@ fn recalculate &faces u =
 
 	for i = 1 to faces.count do
 	(
-		index = faces[i].index
+		local index = faces[i].index
 		u.unwrap4.getArea (#(index) as bitarray) &x &y &width &height &areaUVW &areaGeom
 		
 		faces[i].x = x
@@ -29,6 +30,7 @@ fn getListRectsForIsland islands =
 	local r = #()
 	for i = 1 to islands.count do
 	(
+		format "??? ---% %----??\n" islands.count islands[i]
 		local reg = MRectangle width:islands[i].fw height:islands[i].fh id:islands[i].indexes old_x: islands[i].x old_y:islands[i].y
 		append r reg
 	)
@@ -112,7 +114,6 @@ fn packFace &faces u =
 	local enclosingRect = MRectangle width:n height: n
 	local packedAll = false
 	local r = packTile listRect enclosingRect 1000 &packedAll
-	
 	repos &faces r n u
 )
 
@@ -176,9 +177,8 @@ function getIslandInfo listIndexes u =
 	return islands
 )
 
-fn getIsland &faces u = 
+fn getSFace faces = 
 (
-	struct Sface (index, f_area, area_uvw, fw, fh, udim, x, y, flag)
 	local tempFaces = #()
 	for i = 1 to faces.count do 
 	(
@@ -187,12 +187,18 @@ fn getIsland &faces u =
 		append tempFaces a
 	)
 	
+	return tempFaces 
+)
+
+fn getIsland &faces u = 
+(	
+	local tempFaces = getSFace faces
 	local r = getIslandIndexes tempFaces u
 	islands = getIslandInfo r u
 	return islands
 )
 
-fn reposIslands islands pack n u = 
+fn reposIslands islands pack n u beginTile= 
 (	
 	local udim_u 
 	local udim_v
@@ -204,8 +210,8 @@ fn reposIslands islands pack n u =
 		(
 			local r = rects[j]
 			format "r.index %\n" r.id
-			udim_u = mod i 10
-			udim_v = i / 10
+			udim_u = mod (i+beginTile - 1) 10
+			udim_v = (i+beginTile - 1) / 10
 -- 			udim = 1001 + udim_u + udim_v*10
 			u.unwrap2.selectFaces r.id
 			local x = r.x / n
@@ -218,7 +224,7 @@ fn reposIslands islands pack n u =
 	)
 )
 
-fn packisland islands u = 
+fn packisland islands u beginTile = 
 (
 	local n = 1000
 	local listRect = getListRectsForIsland islands
@@ -226,35 +232,128 @@ fn packisland islands u =
 	local enclosingRect = MRectangle width:n height: n
 	local packedAll = false
 	local r = packTile listRect enclosingRect 1000 &packedAll
-	reposIslands islands r n u
+	reposIslands islands r n u beginTile
+	return r.count
 )
 
 fn rePosition &faces u = 
 (
 -- 	recalculate &faces u
 	islands = getIsland &faces u
-	packIsland islands u
+	packIsland islands u 1
+)
+-- struct SIsland (indexes,f_area,area_uvw,fw,fh,udim,x,y)
+
+
+
+fn getIslandFitSize islands tileSize density u =
+(
+	local tileWidth = tileSize[1]
+	local tileHeight = tileSize[2]
+	
+	local areaTile = (tileWidth * tileHeight) /  density
+	
+	local islandsFit = #()
+	local islandsNotFit = #()
+	for i = 1 to islands.count do 
+	(
+		local island = islands[i]
+		local uvw_area_abs = island.area_uvw * areaTile
+		local scaleArea = island.f_area/uvw_area_abs
+		local scaleEdge = sqrt scaleArea
+		local islandWidth = island.fw * scaleEdge
+		local islandHeight = island.fh * scaleEdge
+		
+		format "----------------------------------------\n"
+		format "island: %\n" island
+		format "areatile: %, tileSize: %, density: %\n" areaTile tileSize density
+		format "area_uvw: %, are_uvw_abs: %, f_area: %\n" island.area_uvw uvw_area_abs island.f_area
+		format "scalse Area: %, scaleEdge: %, islandWidth: %, islandHeight: %\n" scaleArea scaleEdge islandWidth islandHeight
+		format "-------------------****-----------------\n"
+		
+		if(islandWidth <=1  and islandHeight <=1) then
+		(
+			u.unwrap2.selectFaces island.indexes
+			u.unwrap2.scaleSelectedXY scaleEdge scaleEdge [island.x,island.y,0]
+			island.fw = islandWidth
+			island.fh = islandHeight
+			island.area_uvw = island.area_uvw * scaleArea
+			append islandsFit island
+		)else
+		(
+			append islandsNotFit island
+		)
+	)
+	local r = #()
+	append r islandsFit
+	append r islandsNotFit
+	return r
+)
+
+fn getTile i tileSize = 
+(
+	format "tilesize: %" tileSize
+	u = mod i 10
+	v = i / 10
+	return tileStruct u:u v:v sizeX:tileSize[1] sizeY:tileSize[2]
+)
+
+fn packIslandTile islands listTileSize density u = 
+(
+	print listTileSize
+	local beginTile = 1
+	local tempIsland = islands
+	sum = 0
+	for i = 1 to listTileSize.count do
+	(
+		if(tempIsland.count == 0) do exit
+		local tileSize = listTileSize[i]
+		local r = getIslandFitSize tempIsland tileSize density u
+		local islandsFit = r[1]
+		local numTile = packIsland islandsFit u beginTile
+		beginTile = beginTile+numTile
+		tempIsland = r[2]
+		for j = 1 to numTile do 
+		(
+			sum = sum + 1
+			tile = getTile sum tileSize
+			append tileArray tile
+		)
+	)
+)
+	
+fn unwrapSelection u = 
+(
+	local islands = getIsland importantFacesArray u
+	
+	local tileSize1 = #(512,512)
+	local tileSize2 = #(1024,1024)
+	local tileSize3 = #(2048,2048)
+	local listTileSize = #(tileSize1,tileSize2,tileSize3)
+	local density = 128
+	
+	packIslandTile islands listTileSize density u
 )
 
 fn test = 
 (
-	n = 1000
+	print u1
 	print importantFacesArray
-	print importantFacesArray.count
-	recalculate &importantFacesArray u1
-	islands = getIsland &importantFacesArray u1
-	listRect = getListRectsForIsland islands
-	listRect = MultiplyAsInt listRect n false
-	enclosingRect = MRectangle width:n height: n
-	packedAll = false
-	r = packTile listRect enclosingRect 1000 &packedAll
-	reposIslands islands r n u1
-	
-	print listRect
+	islands = getIsland importantFacesArray u1
 	print islands
-	print r[1]
 	
-	format "a %\n" islands[1]
+	tileSize1 = #(512,512)
+	tileSize2 = #(1024,1024)
+	tileSize3 = #(2048,2048)
+	listTileSize = #(tileSize1,tileSize2,tileSize3)
+	density = 128
+	
+	r = getIslandFitSize islands tileSize1 density u1
+	print r[1].count
+	print r[2].count
+	
+	
+	r = getIslandFitSize r[2] tileSize2 density u1
 )
 
 ------- Old Pack ------------

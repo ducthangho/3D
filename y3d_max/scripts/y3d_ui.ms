@@ -1,6 +1,6 @@
 
 global selFaceMode = 1
-global packType = 1
+global packType = 2
 global notOneSelect = true
 
 global showMODialog
