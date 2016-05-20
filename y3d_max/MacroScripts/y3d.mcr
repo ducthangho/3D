@@ -29,8 +29,8 @@ Icon:#("cws",3)
 	Include "$userScripts/scripts/SimpleRectanglePackAlogorithm.ms"
 	Include "$userScripts/scripts/y3d_bake.ms"
 	Include "$userScripts/scripts/y3d_pack.ms"
-	Include "$userScripts/scripts/y3d_material.ms"
 	Include "$userScripts/scripts/y3d_unwrap.ms"
+	Include "$userScripts/scripts/y3d_material.ms"
 	Include "$userScripts/scripts/y3d_ui.ms"
 
 	resetAll()

@@ -171,7 +171,7 @@ fn setIFacesFromSelect obj =
 				tmp.fh = my_height
 				append importantFacesArray tmp
 			)
-			exportObj obj importantFacesArray
+			getUVFromBlender obj importantFacesArray
 		)
 	)
 
@@ -295,8 +295,7 @@ fn doUnwrap2 selectMode =
 	(
 		if selectMode == 1 then
 			(
-				print "hehehehehe"
-				u1.unwrap2.flattenMapNoParams()
+				-- u1.unwrap2.flattenMapNoParams()
 				setIFacesFromSelect s1
 				unwrapSelection u1
 			)

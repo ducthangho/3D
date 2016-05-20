@@ -22,7 +22,7 @@ def move_uv(move_u,move_v,ob,faceIds):
 		# 	bm.faces[i].select = True
 		# bmesh.update_edit_mesh(ob.data, True)
 		bpy.ops.uv.smart_project()
-		bpy.context.area.type = 'IMAGE_EDITOR'
+		#bpy.context.area.type = 'IMAGE_EDITOR'
 		#bpy.context.screen.areas[4].type = 'IMAGE_EDITOR'
 		# print(bpy.context.screen.areas[0].type)
 
@@ -56,8 +56,7 @@ def getY3dObj():
 	objPath = 'D:\\y3d.obj'
 	# bpy.ops.import_scene.obj(objPath)
 	bpy.ops.import_scene.obj(filepath=objPath)
-	print("chzao")
-	ob = bpy.data.objects[0]
+	ob = bpy.data.objects['Y3D_temp']
 	print (ob.name)
 	if ob.type == 'MESH':
 		# faceIds = readY3DInfo(os.path.join('D:\\','y3d.bin'))
@@ -66,6 +65,7 @@ def getY3dObj():
 		scene = bpy.context.scene
 		scene.objects.active = ob
 		ob.select = True
+		# bpy.ops.export_scene.obj(filepath=objPath, use_selection=True,use_selection=True, axis_forward='-Z', axis_up='Y')
 		bpy.ops.export_scene.obj(filepath=objPath, use_selection=True, axis_forward='-Z', axis_up='Y')
 
 
