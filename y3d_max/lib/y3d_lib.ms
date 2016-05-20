@@ -16,6 +16,7 @@ if y3dInit != true then
 	global detachSelection
 	global oldBakeGroup
 	global newBakeGroup
+	global originalObjects
 	global stepDone = 0
 
 	fn resetBakeFlow =
@@ -25,6 +26,7 @@ if y3dInit != true then
 			if mapChannel == undefined then mapChannel = 4
 			if tileCount == undefined then tileCount = 4
 			oldBakeGroup = undefined
+			originalObjects = #()
 			newBakeGroup = #()
 			stepDone = 0
 		)
@@ -110,6 +112,71 @@ if y3dInit != true then
 			completeRedraw()
 			)
 		)
+
+	fn attachMesh objs keepOriginals centerPivot pivotPlacement =
+		(
+		allmesh = true
+		for o in objs do
+			(
+			if (canConvertTo o TriMeshGeometry) == false then allmesh = false
+			)
+		if allmesh == false then
+			(
+			MessageBox "Not all of the selected objects can be converted to an EditableMesh. Please choose a different selection or run this script in a different mode." title:"objectAttacher"
+			)
+		else
+			(
+			disableSceneRedraw()
+			try
+				(
+				-- copy objects
+				oldObjs = #()
+				newObjs = #()
+				maxops.clonenodes objs cloneType:#copy actualNodeList:&oldObjs newNodes:&newObjs
+
+				-- Convert Objects
+				for o in newObjs do (if (classOf o != Editable_mesh) do (convertToMesh o))
+				InstanceMgr.MakeObjectsUnique newObjs #individual
+
+				-- Prep Progressbar
+				progressStart "objectAttacher"
+				escapeEnable = false
+				numOfItems = objs.count
+				currentIteration = 0
+
+				-- Start process
+				while (newObjs.count > 1) do
+					(
+					for i = newObjs.count to 2 by -2 do
+						(
+						if getProgressCancel() == true then exit
+						currentIteration += 1
+						m = ((currentIteration as float)/(numOfItems as float))*100
+						attachTo = newObjs[i]
+						attach attachTo newObjs[i-1]
+						deleteItem newObjs (i-1)
+						progressUpdate m
+						)
+					)
+				progressEnd()
+
+				-- Convert
+				convertTo newObjs[1] TriMeshGeometry
+				if centerPivot == true then
+					(
+					if pivotPlacement == 1 then newObjs[1].pivot = [(newObjs[1].max.x+newObjs[1].min.x)/2, (newObjs[1].max.y+newObjs[1].min.y)/2, (newObjs[1].max.z+newObjs[1].min.z)/2]
+					else if pivotPlacement == 2 then newObjs[1].pivot = [(newObjs[1].max.x+newObjs[1].min.x)/2, (newObjs[1].max.y+newObjs[1].min.y)/2, newObjs[1].min.z]
+					else if pivotPlacement == 3 then newObjs[1].pivot = [0,0,0]
+					)
+				if keepOriginals == false then for i in oldObjs do delete i
+				select newObjs[1]
+				)
+			catch (MessageBox "An error has occured when trying to attach one of the objects. You may want to undo." title:"objectAttacher")
+			enableSceneRedraw()
+			completeRedraw()
+			)
+		)
+
 
 	fn clearNewBake =
 		(

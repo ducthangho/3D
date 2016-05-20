@@ -171,6 +171,7 @@ fn setIFacesFromSelect obj =
 				tmp.fh = my_height
 				append importantFacesArray tmp
 			)
+			exportObj obj importantFacesArray
 		)
 	)
 
@@ -277,11 +278,11 @@ fn doUnwrap3 selectMode =
 
 ------------------------ begin: ham Minh them -------------------------------
 -----------------------------------------------------------------------------
-fn scaleIslandsBydensity islands density u= 
+fn scaleIslandsBydensity islands density u=
 (
 	areaTile = (minx*miny) / density
-	
-	for i = 1 to islands.count do 
+
+	for i = 1 to islands.count do
 	(
 		local island = islands[i]
 		local area_uvw_abs = island.area_uvw * areaTile
@@ -289,7 +290,7 @@ fn scaleIslandsBydensity islands density u=
 		local scaleEdge = sqrt scaleArea
 	)
 )
-	
+
 fn doUnwrap2 selectMode =
 	(
 		if selectMode == 1 then
