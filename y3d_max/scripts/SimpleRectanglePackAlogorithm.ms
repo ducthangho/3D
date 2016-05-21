@@ -1,6 +1,8 @@
 struct MRectangle (x=-1.0,y=-1.0,width,height,id, old_x, old_y)
 struct SAreaReg (x,y,width,height,isFree)
 struct Pos (x,y)
+aw = 3
+ah = 4
 
 fn compareOffsetXthenY regArea1 regArea2 = 
 (
@@ -44,33 +46,109 @@ fn isOverlap rect1 rect2 =
 	return true
 )
 
+fn hasNStepBottom Area step = 
+(
+	if step == 1 then return true
+	else
+	(	
+		tArea = area
+		while (tArea.bottom != undefined) do
+			step -= 1
+		if step == 1 do return true
+	)
+	return false
+)
+
+fn fIndex w h = 
+(
+	return h*aw + w
+)
+
+fn findHeightStep i j reg listArea area= 
+(
+	if area.height >= reg.height then return 0 else
+	(		
+		local needHeight = reg.height
+		local currentHeight = area.height
+		local t = i+1
+		local bottomArea = undefined
+		if t <= ah do bottomArea = listArea[t][j]
+		local stepheight = 0	
+		while ( bottomArea != undefined and bottomArea.isFree == true and currentHeight < needHeight) do
+		(	
+			stepHeight += 1
+			currentHeight = currentHeight + bottomArea.height
+			if(currentHeight >= needHeight) then 
+			(
+				return stepHeight
+			)
+			else
+			(
+				t += 1
+				if t <= ah then bottomArea = listArea[t][j] else bottomArea = undefined
+			)
+		)
+	)
+	
+	return -1
+)
+
+fn findWidthStep i j reg listArea area heightStep = 
+(
+	if area.width >= reg.width then return 0 else
+	(		
+		local needWidth = reg.width
+		local currentWidth = area.width
+		local t = j+1
+		local stepWidth = 0
+		local leftArea = undefined
+		if t <= aw then leftArea = listArea[i][t] 
+			
+		while (leftArea != undefined and leftArea.isFree == true and currentWidth < needWidth and (hasStepHeight i t heightStep listArea) ) do
+		(
+			stepWidth += 1
+			currentWidth += leftArea.width
+			if(currentWidth >= needWidth) then return stepWidth
+			else
+			(
+				t += 1
+				if t <= aw then leftArea = listArea[i][t] else leftArea = undefined
+			)
+		)
+	)
+	
+	return -1
+)
+	
+
+fn hasStepHeight i j stepHeight listArea = 
+(
+	for step = 1 to stepHeight do
+	(	
+		if  listArea[i+step][j].isFree == false do return false
+	)
+	return true
+)
+
 
 fn findPlace reg listArea enclosingReg = 
 (	
-	qsort listArea compareOffsetXthenY
-
-	for i = 1 to listArea.count do 
-	(	
-		if listArea[i].isFree == false do continue
-
-		local area = listArea[i]
-		if reg.width > (enclosingReg.width - area.x) do return Pos x:-1 y:-1
-		if reg.height > (enclosingReg.height - area.y) do continue
-	
-		local tempRect = MRectangle x:area.x y:area.y width:reg.width height:reg.height
-		local flag = true
-		for j = 1 to listArea.count do
+	for j = 1 to aw do
+		for i = 1 to ah do
 		(
-			area2 = listArea[j]
-			if (area2.isFree == false and (isOverlap tempRect area2) == true) do 
-			(	
-				flag = false
-				exit				
+			local area = listArea[i][j]
+			if area.x + reg.width > enclosingReg.width do return #(-1,-1,-1,-1,-1,-1)
+			if area.isFree == true do
+			(
+				local heightStep = findHeightStep i j  reg listArea area
+				if heightStep >= 0 do 
+				(
+					local widthStep = findWidthStep i j reg listArea area heightStep
+					if widthStep >=0 do return #(area.x,area.y,i,j,heightStep+i,widthStep+j)
+				)
 			)
 		)
-		if flag == true do return Pos x:area.x y:area.y
-	)
-	return Pos x:-1 y:-1
+	return #(-1,-1,-1,-1,-1,-1)
 )
 
 fn breakEdgeWidth areaReg p = 
@@ -80,7 +158,7 @@ fn breakEdgeWidth areaReg p =
 		local width1 = p.x - areaReg.x
 		local width2 = areaReg.width - width1
 	
-		local r1 = SAreaReg x:areaReg.x y:areaReg.y width:width1 height: areaReg.height isFree: areaReg.isFree
+		local r1 = SAreaReg x:areaReg.x y:areaReg.y width:width1 height: areaReg.height isFree: areaReg.isFree leftA:areaReg.leftA rightA:areaReg.rightA topA:areaReg.topA bottomA:areaReg.bottomA 
 		local r2 = SAreaReg x:p.x y:areaReg.y width:width2 height:areaReg.height isFree: areaReg.isFree
 		return #(r1,r2)
 	)
@@ -126,43 +204,69 @@ fn unplace reg =
 	reg.x = reg.y = -1
 )
 
-fn place reg p = 
+fn place reg x y = 
 (
-	reg.x = p.x
-	reg.y = p.y
+	reg.x = x
+	reg.y = y
 )
 
-fn updateListArea &listArea reg = 
+fn updateListArea &listArea reg brow bcol erow ecol = 
 (	
-	local r = #()
-	local p = Pos x:(reg.x+reg.width) y:(reg.y + reg.height)
-	for i = 1 to listArea.count do 
-	(	
-		local ar = breakAreaReg listArea[i] p
-		join r ar 
-	)
-	
-	for i = 1 to r.count do 
+	local area = listArea[1][ecol]
+	local maxWidthPos = area.x+area.width
+	local mwp = reg.x+reg.width
+	local w2 = maxWidthPos - mwp
+	local w1 = mwp - area.x
+	if w2 > 0 do
 	(
-		if( (r[i].isFree == true) and (isOverLap r[i] reg)==true) then 
+		aw += 1
+		for i = 1 to ah do
 		(
-			r[i].isFree = false
+			local area2 = listArea[i][ecol]
+			area2.width = w1
+			area =  SAreaReg x:(area2.x+w1) y:area2.y width:w2 height:area2.height isFree:area2.isFree
+			insertItem area listArea[i] (ecol+1)
 		)
 	)
-	listArea = r
+	area = listArea[erow][1]
+	local maxHeightPos = area.y + area.height
+	local heightPosRect = reg.y+reg.height
+	local h2 = maxHeightPos - heightPosRect
+	local h1 = heightPosRect - area.y
+	if h2 > 0 do 
+	(
+		local newRow = #()
+		ah += 1
+		for i = 1 to aw do
+		(
+			local area2 = listArea[erow][i]
+			area2.height = h1
+			area = SAreaReg x:area2.x y:(area2.y+h1) width:area.width height:h2 isFree:area2.isFree
+			append newRow area
+		)
+		
+		insertItem newRow listArea (erow+1)
+	)
+	
+	for i = brow to erow do
+		for j = bcol to ecol do
+			listArea[i][j].isFree = false
 )
 
 fn pack listReg enclosingReg = 
 (
 	qsort listReg invertCompareHeight	
-	local listArea = #(SAreaReg x:0 y:0 width:enclosingReg.width height:enclosingReg.height isFree:true)
+	local listArea = #(#(SAreaReg x:0 y:0 width:enclosingReg.width height:enclosingReg.height isFree:true))
+	aw = 1
+	ah = 1
 	for i=1 to listReg.count do
 	(	
-		local p = findPlace listReg[i] listArea enclosingReg
-		if ( p.x >=0 ) do
+		reg = listReg[i]
+		local p = findPlace reg listArea enclosingReg
+		if ( p[1] >=0 ) do
 		(
-			place listReg[i] p
-			updateListArea &listArea listReg[i] 
+			place reg p[1] p[2]
+			updateListArea &listArea reg p[3] p[4] p[5] p[6]
 		)			
 	)
 	return listReg
@@ -195,42 +299,80 @@ fn packTile listReg enclosingReg n &packedAll=
 	return r
 )	
 
+
+-- area11 = SAreaReg x:0 y:0 width:15 height:25 isFree:false
+-- area12 = SAreaReg x:15 y:0 width:20 height:25 isFree:false
+-- area13 = SAreaReg x:35 y:0 width:5 height: 25 isFree:true
+
+-- area21 = SAreaReg x:0 y:25 width:15 height:5 isFree:false
+-- area22 = SAreaReg x:15 y:25 width:20 height:5 isFree:true
+-- area23 = SAreaReg x:35 y:25 width:5 height:5 isFree:true
+
+-- area31 = SAreaReg x:0 y:30 width:15 height:10 isFree:true
+-- area32 = SAreaReg x:15 y:30 width:20 height:10 isFree:true
+-- area33 = SAreaReg x:35 y:30 width:5 height:10 isFree:true
+
+-- area41 = SAreaReg x:0 y:40 width:15 height:8 isFree:true
+-- area42 = SAreaReg x:15 y:40 width:20 height:8 isFree:true
+-- area43 = SAreaReg x:35 y:40 width:5 height:8 isFree:true
+
+-- aw = 3
+-- ah = 4
+-- listArea = #(#(area11,area12,area13),#(area21,area22,area23),#(area31,area32,area33),#(area41,area42,area43))
+-- 	
+-- 	
+-- enclosingReg = MRectangle width:40 height:40
+-- r3 = MRectangle x:0 y:30 width:38 height:12
+-- p = findPlace r3 listArea enclosingReg
+
+-- updateListArea  &listArea r3  3 1 4 3  
+-- 	
+-- print listArea.count
+-- print listArea[4]
+
+--------------------------------------- test 2-----------------------------------------
+
 -- enclosingReg = MRectangle width:40 height:40
 -- r1 = MRectangle width:15 height:30
 -- listReg = #(r1)
--- listArea = #(SAreaReg x:0 y:0 width:enclosingReg.width height:enclosingReg.height isFree:true)
+-- listArea = #(#(SAreaReg x:0 y:0 width:enclosingReg.width height:enclosingReg.height isFree:true))
+-- aw = 1 
+-- ah = 1
 -- p = findPlace r1 listArea enclosingReg
--- place r1 p
+-- place r1 p[1] p[2]
 -- print r1
--- updateListArea &ListArea r1
+-- updateListArea &ListArea r1 p[3] p[4] p[5] p[6]
 -- print ListArea
 
 -- r2 = MRectangle width: 20 height:25
 -- p = findPlace r2 listArea enclosingReg
--- place r2 p
+-- place r2 p[1] p[2]
 -- print r2
--- updateListArea &ListArea r2
+-- updateListArea &ListArea r2 p[3] p[4] p[5] p[6]
 -- print listArea
 
 -- r5 =  MRectangle width: 10 height:10
 -- p = findPlace r5 listArea enclosingReg
--- place r5 p
+-- place r5 p[1] p[2]
 -- print r5
--- updateListArea &listArea r5
+-- updateListArea &listArea r5 p[3] p[4] p[5] p[6]
 -- print listArea
+
+-- print aw
+-- print ah
 
 -- r4 = MRectangle width:20 height:8
 -- p = findPlace r4 listArea enclosingReg
--- place r4 p
+-- place r4 p[1] p[2]
 -- print r4
--- updateListArea &listArea r4
+-- updateListArea &listArea r4 p[3] p[4] p[5] p[6]
 -- print listArea
 
 -- r3 = MRectangle width:9 height: 7
 -- p = findPlace r3 listArea enclosingReg
--- place r3 p
+-- place r3 p[1] p[2]
 -- print r3
--- updateListArea &listArea r3
+-- updateListArea &listArea r3 p[3] p[4] p[5] p[6]
 -- print listArea
 
 -- listReg = #(r1,r2,r3,r4,r5)
@@ -253,7 +395,8 @@ fn packTile listReg enclosingReg n &packedAll=
 -- listReg = #(r1,r2,r3,r4,r5)
 -- call pack function
 
--- for i = 1 to 50 do 
+-- listReg = #()
+-- for i = 1 to 500 do 
 -- (
 -- 	w = random 1 30
 -- 	h = random 1 40
@@ -261,7 +404,7 @@ fn packTile listReg enclosingReg n &packedAll=
 -- 	append listReg r
 -- )
 
--- print listReg
+-- print listReg.count
 
 -- numTile = 10
 -- packedAll = false

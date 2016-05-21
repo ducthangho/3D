@@ -1,4 +1,4 @@
-struct MRectangle (x=-1.0,y=-1.0,width,height,id)
+struct MRectangle (x=-1.0,y=-1.0,width,height,id, old_x, old_y)
 struct SAreaReg (x,y,width,height,isFree)
 struct Pos (x,y)
 
@@ -25,6 +25,25 @@ fn invertCompareHeight reg1 reg2  =
 (
 	-(compareHeightReg reg1 reg2)
 )
+
+fn isOverlap rect1 rect2 = 
+(
+	local left1 = rect1.x
+	local above1 = rect1.y
+	local right1 = rect1.x + rect1.width
+	local below1 = rect1.y + rect1.height
+ 	
+	local left2 = rect2.x
+	local above2 = rect2.y
+	local right2 = rect2.x + rect2.width
+	local below2 = rect2.y + rect2.height
+	
+	if (right1 <= left2 or below1 <= above2 or right2 <= left1 or below2 <= above1) do 
+		return false
+
+	return true
+)
+
 
 fn findPlace reg listArea enclosingReg = 
 (	
@@ -111,24 +130,6 @@ fn place reg p =
 (
 	reg.x = p.x
 	reg.y = p.y
-)
-
-fn isOverlap rect1 rect2 = 
-(
-	local left1 = rect1.x
-	local above1 = rect1.y
-	local right1 = rect1.x + rect1.width
-	local below1 = rect1.y + rect1.height
- 	
-	local left2 = rect2.x
-	local above2 = rect2.y
-	local right2 = rect2.x + rect2.width
-	local below2 = rect2.y + rect2.height
-	
-	if (right1 <= left2 or below1 <= above2 or right2 <= left1 or below2 <= above1) do 
-		return false
-
-	return true
 )
 
 fn updateListArea &listArea reg = 
@@ -241,23 +242,35 @@ fn packTile listReg enclosingReg n &packedAll=
 
 --------------------------------------example----------------
 -- the rectangle will be holding all list specific regtangle
-enclosingReg = MRectangle width:40 height:40
+-- enclosingReg = MRectangle width:500 height:500
 -- list regtangle to be packed 
-r1 = MRectangle width:15 height:30 id:1
-r2 = MRectangle width: 20 height:25 id:2
-r3 = MRectangle width:9 height: 7 id:3
-r4 = MRectangle width:20 height:8 id:4
-r5 =  MRectangle width: 10 height:10 id:5
+-- r1 = MRectangle width:15 height:30 id:1
+-- r2 = MRectangle width: 20 height:25 id:2
+-- r3 = MRectangle width:9 height: 7 id:3
+-- r4 = MRectangle width:20 height:8 id:4
+-- r5 =  MRectangle width: 10 height:10 id:5
 --  (if the x property of MRectable is -1 then this rectangle will not be packed)
-listReg = #(r1,r2,r3,r4,r5)
+-- listReg = #(r1,r2,r3,r4,r5)
 -- call pack function
 
-numTile = 2
-packedAll = false
-r = packTile listReg enclosingReg numTile &packedAll
+-- for i = 1 to 50 do 
+-- (
+-- 	w = random 1 30
+-- 	h = random 1 40
+-- 	r = MRectangle width:w height:h 
+-- 	append listReg r
+-- )
 
-print r[1]
-print packedAll
+-- print listReg
+
+-- numTile = 10
+-- packedAll = false
+-- r = packTile listReg enclosingReg numTile &packedAll
+
+-- print r[1]
+-- print packedAll
 
 -- print the result, the new place of each rectangle contain in x and y property
 --print listreg
+
+-- print "ok load file simplerectanglePackAlogorithm.ms"
