@@ -331,7 +331,7 @@ fn unwrapSelection u =
 	local tileSize2 = #(1024,1024)
 	local tileSize3 = #(2048,2048)
 	local listTileSize = #(tileSize1,tileSize2,tileSize3)
-	local density = 128
+	local density = 64
 
 	packIslandTile islands listTileSize density u
 )

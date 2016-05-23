@@ -241,7 +241,7 @@ fn updateListArea &listArea reg brow bcol erow ecol =
 		(
 			local area2 = listArea[erow][i]
 			area2.height = h1
-			area = SAreaReg x:area2.x y:(area2.y+h1) width:area.width height:h2 isFree:area2.isFree
+			area = SAreaReg x:area2.x y:(area2.y+h1) width:area2.width height:h2 isFree:area2.isFree
 			append newRow area
 		)
 		
@@ -384,7 +384,7 @@ fn packTile listReg enclosingReg n &packedAll=
 
 --------------------------------------example----------------
 -- the rectangle will be holding all list specific regtangle
--- enclosingReg = MRectangle width:500 height:500
+
 -- list regtangle to be packed 
 -- r1 = MRectangle width:15 height:30 id:1
 -- r2 = MRectangle width: 20 height:25 id:2
@@ -395,22 +395,26 @@ fn packTile listReg enclosingReg n &packedAll=
 -- listReg = #(r1,r2,r3,r4,r5)
 -- call pack function
 
--- listReg = #()
--- for i = 1 to 500 do 
--- (
--- 	w = random 1 30
--- 	h = random 1 40
--- 	r = MRectangle width:w height:h 
--- 	append listReg r
--- )
+enclosingReg = MRectangle width:500 height:500
+aw = 1 
+ah = 1
+listReg = #()
+for i = 1 to 100 do 
+(
+	w = random 1 30
+	h = random 1 40
+	r = MRectangle width:w height:h 
+	append listReg r
+)
 
--- print listReg.count
+print listReg.count
 
--- numTile = 10
--- packedAll = false
--- r = packTile listReg enclosingReg numTile &packedAll
+numTile = 10
+packedAll = false
+r = packTile listReg enclosingReg numTile &packedAll
 
--- print r[1]
+print r.count
+
 -- print packedAll
 
 -- print the result, the new place of each rectangle contain in x and y property

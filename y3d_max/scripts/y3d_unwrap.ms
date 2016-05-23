@@ -171,7 +171,7 @@ fn setIFacesFromSelect obj =
 				tmp.fh = my_height
 				append importantFacesArray tmp
 			)
-			getUVFromBlender obj importantFacesArray
+-- 			getUVFromBlender obj importantFacesArray
 		)
 	)
 
@@ -278,24 +278,24 @@ fn doUnwrap3 selectMode =
 
 ------------------------ begin: ham Minh them -------------------------------
 -----------------------------------------------------------------------------
-fn scaleIslandsBydensity islands density u=
-(
-	areaTile = (minx*miny) / density
+-- fn scaleIslandsBydensity islands density u=
+-- (
+-- 	areaTile = (minx*miny) / density
 
-	for i = 1 to islands.count do
-	(
-		local island = islands[i]
-		local area_uvw_abs = island.area_uvw * areaTile
-		local scaleArea = island.f_area/area_uvw_abs
-		local scaleEdge = sqrt scaleArea
-	)
-)
+-- 	for i = 1 to islands.count do
+-- 	(
+-- 		local island = islands[i]
+-- 		local area_uvw_abs = island.area_uvw * areaTile
+-- 		local scaleArea = island.f_area/area_uvw_abs
+-- 		local scaleEdge = sqrt scaleArea
+-- 	)
+-- )
 
 fn doUnwrap2 selectMode =
 	(
 		if selectMode == 1 then
 			(
-				-- u1.unwrap2.flattenMapNoParams()
+				u1.unwrap2.flattenMapNoParams()
 				setIFacesFromSelect s1
 				unwrapSelection u1
 			)
