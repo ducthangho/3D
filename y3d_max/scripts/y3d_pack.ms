@@ -215,10 +215,8 @@ fn reposIslands islands pack n u beginTile=
 		for j = 1 to rects.count do
 		(
 			local r = rects[j]
-			format "r.index %\n" r.id
 			udim_u = mod (i+beginTile - 1) 10
 			udim_v = (i+beginTile - 1) / 10
--- 			udim = 1001 + udim_u + udim_v*10
 			u.unwrap2.selectFaces r.id
 			local x = (r.x as float)/ n
 			local y = (r.y as float)/ n
@@ -243,13 +241,9 @@ fn packisland islands u beginTile n =
 
 fn rePosition &faces u =
 (
--- 	recalculate &faces u
 	local islands = getIsland &faces u
 	packIsland islands u 1 1
 )
--- struct SIsland (indexes,f_area,area_uvw,fw,fh,udim,x,y)
-
-
 
 fn getIslandFitSizeAndScale islands tileSize density u =
 (
@@ -403,14 +397,20 @@ fn scaleIslandInfo islands listTileSize density =
 
 fn scaleIslandAndPack islands listTileSize maxSizeTile density u roundFactor= 
 (
+	print "list islands:"
+	print islands
+	
 	local t = scaleIslandInfo islands listTileSize density
 	
-	local a = t[3]
+	print "list islands2:"
+	print islands
+	
+	local a = t[1]
 	local listFit = t[2]
 	local listUnFit = t[3]
 	local tileSize = t[4]
 	
-	for island in listFit do
+	for island in a do
 	(
 		u.unwrap2.selectFaces island.indexes
 		scaleEdge = island.data[1]
@@ -420,15 +420,10 @@ fn scaleIslandAndPack islands listTileSize maxSizeTile density u roundFactor=
 		island.area_uvw = island.data[4]
 	)
 	
-	for island in listUnFit do
-	(
-		u.unwrap2.selectFaces island.indexes
-		scaleEdge = island.data[1]
-		u.unwrap2.scaleSelectedXY scaleEdge scaleEdge [island.x,island.y,0]
-		island.fw = island.data[2]
-		island.fh = island.data[3]
-		island.area_uvw = island.data[4]
-	)
+	print "list islands3:"
+	print islands
+	print "listFit"
+	print listFit
 	
 	local numTile = packisland listFit u 1 roundFactor
 	local numTile2 = 0
@@ -445,10 +440,7 @@ fn scaleIslandAndPack islands listTileSize maxSizeTile density u roundFactor=
 		local tile = getTile i maxSizeTile
 		append TileArray tile
 	)
-	print "listUnFit: "
-	print listUnFit.count
-	print "TileArray"
-	print TileArray
+
 )
 
 fn unwrapSelection u =
@@ -478,8 +470,6 @@ fn test =
 	packIsland islands u1 1 1
 		
 	scaleIslandAndPack islands listTileSize maxSizeTile density u1
-	
-	
 	
 	print islands
 )
