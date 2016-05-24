@@ -135,7 +135,7 @@ fn moveByTile uu =
 		(
 			uu.selectFaces otherFaces
 			uu.flattenMapNoParams()
-			-- uu.packNoParams()
+			uu.packNoParams()
 		)
 	)
 
@@ -265,7 +265,7 @@ fn doUnwrap3 selectMode =
 						if u1!=undefined then
 							(
 								moveByTile u1
--- 								rePosition importantFacesArray u1
+								rePosition importantFacesArray u1
 							)
 					)
 			)
