@@ -80,8 +80,6 @@ fn Multiply10powerX listRect n invert=
 
 fn repos &faces r s u=
 (
-
-	print "aaaaa"
 	print faces[1].x
 
 	for i =1 to r.count do
@@ -199,8 +197,8 @@ fn getSFace faces =
 fn getIsland &faces u =
 (
 	local tempFaces = getSFace faces
-	local r = getIslandIndexes tempFaces u
-	islands = getIslandInfo r u
+	local islandIndexes = getIslandIndexes tempFaces u
+	islands = getIslandInfo islandIndexes u
 	return islands
 )
 
@@ -331,6 +329,7 @@ fn scaleIslandInfo islands listTileSize density =
 
 	for j = 1 to maxIndex do
 	(
+		listFit = #()
 		maxTileSizeNeedIndex = j
 		local flag = true
 		for i = 1 to islands.count do
@@ -343,24 +342,15 @@ fn scaleIslandInfo islands listTileSize density =
 			local scaleArea = island.f_area/uvw_area_abs
 			local scaleEdge = sqrt scaleArea				
 			local islandWidth = island.fw * scaleEdge				
-			local islandheight 
+			local islandheight = island.fh * scaleEdge
 			local area 
-			if islandWidth>1 then
-			(
-				flag = false
-				if (maxTileSizeNeedIndex < maxIndex) do exit
-			)					
-			else(
-				local islandHeight = island.fh * scaleEdge
-				if islandHeight>1 then
-				(
-					flag = false
-					if (maxTileSizeNeedIndex < maxIndex) do exit						
-				)						
-			)
+		
 			
 			if (islandWidth > 1 or islandheight > 1) then
 			(
+				flag = false
+				if maxTileSizeNeedIndex < maxIndex do exit
+					
 				if (islandWidth > islandheight) then
 				(
 					islandWidth = 1
@@ -385,9 +375,8 @@ fn scaleIslandInfo islands listTileSize density =
 			
 		)
 		
-		if (flag == true and maxTileSizeNeedIndex < maxIndex) do
+		if (flag == true) do
 		(
-			listFit = islands
 			exit
 		)				
 	)
@@ -397,12 +386,11 @@ fn scaleIslandInfo islands listTileSize density =
 
 fn scaleIslandAndPack islands listTileSize maxSizeTile density u roundFactor= 
 (
-	print "list islands:"
+	print "island1: "
 	print islands
-	
 	local t = scaleIslandInfo islands listTileSize density
 	
-	print "list islands2:"
+	print "island2: "
 	print islands
 	
 	local a = t[1]
@@ -420,15 +408,21 @@ fn scaleIslandAndPack islands listTileSize maxSizeTile density u roundFactor=
 		island.area_uvw = island.data[4]
 	)
 	
-	print "list islands3:"
+	print "island3: "
 	print islands
-	print "listFit"
+	print "listFit: "
 	print listFit
+	print "listUnFit:"
+	print listUnFit
 	
-	local numTile = packisland listFit u 1 roundFactor
+	local numTile = 0
+	if listFit.count !=0 do
+		numTile = packisland listFit u 1 roundFactor
 	local numTile2 = 0
 	if listUnFit.count != 0 do 
-		numTile2 = packisland listUnFit u numTile roundFactor
+	(			
+		numTile2 = packisland listUnFit u (numTile+1) roundFactor
+	)
 	
 	for i = 1 to numTile do
 	(
@@ -440,7 +434,6 @@ fn scaleIslandAndPack islands listTileSize maxSizeTile density u roundFactor=
 		local tile = getTile i maxSizeTile
 		append TileArray tile
 	)
-
 )
 
 fn unwrapSelection u =
@@ -450,18 +443,31 @@ fn unwrapSelection u =
 	local tileSize2 = #(1024,1024)
 	local listTileSize = #(tileSize1,tileSize2)
 	local maxSizeTile = #(2048,2048)
-	local density = 64
-	scaleIslandAndPack islands listTileSize maxSizeTile density u 1
+	local density = 128
+	scaleIslandAndPack islands listTileSize maxSizeTile density u 1000
 )
 
 fn test =
 (
+	
+	float x
+	float y
+	float width
+	float height
+	float areaUVW
+	float areaGeom
+	
+	r.modifiers['unwrap_uvw'].unwrap4.getArea #{26} &x &y &width &height &areaUVW &areaGeom
+	print areaGeom
+	
 	print importantFacesArray
 	print u1
 	islands = getIsland importantFacesArray u1
 	format "island : %\n" islands[1]
 	print islands
+	print s1
 	
+	setIFacesFromSelect s1
 	tileSize1 = #(512,512)
 	listTileSize = #(tileSize1)
 	maxSizeTile = #(2048,2048)
