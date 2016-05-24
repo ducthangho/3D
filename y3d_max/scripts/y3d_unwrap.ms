@@ -254,7 +254,7 @@ fn doUnwrap1 selectMode =
 			)
 	)
 
---------------------- ham cu cua Dang ------------------------------
+--------------------- ham cu cua anh Dang ------------------------------
 fn doUnwrap3 selectMode =
 	(
 		if selectMode == 1 then
@@ -265,7 +265,7 @@ fn doUnwrap3 selectMode =
 						if u1!=undefined then
 							(
 								moveByTile u1
-								rePosition importantFacesArray u1
+-- 								rePosition importantFacesArray u1
 							)
 					)
 			)
@@ -278,18 +278,6 @@ fn doUnwrap3 selectMode =
 
 ------------------------ begin: ham Minh them -------------------------------
 -----------------------------------------------------------------------------
--- fn scaleIslandsBydensity islands density u=
--- (
--- 	areaTile = (minx*miny) / density
-
--- 	for i = 1 to islands.count do
--- 	(
--- 		local island = islands[i]
--- 		local area_uvw_abs = island.area_uvw * areaTile
--- 		local scaleArea = island.f_area/area_uvw_abs
--- 		local scaleEdge = sqrt scaleArea
--- 	)
--- )
 
 fn doUnwrap2 selectMode =
 	(
