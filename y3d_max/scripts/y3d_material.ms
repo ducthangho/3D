@@ -80,7 +80,7 @@ fn setMatObject obj notOne mChanel =
 							)
 					)
 				-- polyOp.setFaceSelection obj sFaces
-				if sFaces.count>0 then
+				if sFaces.numberSet>0 then
 					(
 						obj.SetSelection #Face sFaces
 						obj.material = bakeMaterials[t]

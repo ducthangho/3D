@@ -18,19 +18,21 @@ global doUnwrap
 
 -- Sap xep cac mat uu tien theo do lon dien tich tu to den nho
 fn sortByArea = -- co the dung qsort
-(
-	listed = sort(for i in importantFacesArray collect i.area_uvw)
-	tmp = #()
-	for i =  listed.count to 1 by -1 do (
-		for j = 1 to importantFacesArray.count do
-			if importantFacesArray[j].area_uvw == listed[i] then (
-				append tmp importantFacesArray[j]
-				deleteItem importantFacesArray j
-				exit
-			)
+	(
+		listed = sort(for i in importantFacesArray collect i.area_uvw)
+		tmp = #()
+		for i =  listed.count to 1 by -1 do (
+			for j = 1 to importantFacesArray.count do
+				if importantFacesArray[j].area_uvw == listed[i] then (
+					append tmp importantFacesArray[j]
+					deleteItem importantFacesArray j
+					exit
+				)
+		)
+		importantFacesArray = tmp
+		-- print "sortA"
+		-- print importantFacesArray
 	)
-	importantFacesArray = tmp
-)
 -- Chia deu cac mat quan trong theo so nhom sinh ra
 fn splitGroupByTileCount =
 	(
@@ -95,10 +97,13 @@ fn splitGroupByTileCount =
 		(
 			if importantFacesArray[j].udim == 1000 then importantFacesArray[j].udim = 1001+maxBestTile
 		)
+		-- print "vua chia xong ----------------------"
+		-- print importantFacesArray
 	)
 -- Di chuyen cac nhom mat quan trong sang tile rieng
 fn moveByTile uu =
 	(
+		print importantFacesArray
 		tileArray = #()
 		tileArray[1] = tileStruct u:0 v:0 sizeX:defaultSizeX sizeY:defaultSizeY
 		udim = 1001
@@ -111,9 +116,11 @@ fn moveByTile uu =
 				)
 			)
 			-- chon face
-	-- 		s1.selectedFaces #{}
-			if theFacesToSelect.count >0 then
+	-- 		s1.selectedFaces #
+
+			if theFacesToSelect.numberSet  >0 then
 			(
+				
 				uu.selectFaces theFacesToSelect
 				uu.flattenMapNoParams()
 				-- uu.packNoParams() 1
@@ -134,7 +141,7 @@ fn moveByTile uu =
 		if otherFaces.count > 0 then
 		(
 			uu.selectFaces otherFaces
-			uu.flattenMapNoParams()
+			-- uu.flattenMapNoParams()
 			-- uu.packNoParams()
 		)
 	)
@@ -163,15 +170,28 @@ fn setIFacesFromSelect obj =
 			(
 				tmp = yface()
 				tmp.index = i
-				u.getArea #{i} &myx &myy &my_width &my_height &myareaUVW &g
-				tmp.f_area = g
-				tmp.area_uvw = myareaUVW
-				tmp.udim = 1000
-				tmp.fw = my_width
-				tmp.fh = my_height
+				-- u.getArea #{i} &myx &myy &my_width &my_height &myareaUVW &g
+				-- tmp.f_area = g
+				-- tmp.area_uvw = myareaUVW
+				-- tmp.udim = 1000
+				-- tmp.fw = my_width
+				-- tmp.fh = my_height
 				append importantFacesArray tmp
 			)
--- 			getUVFromBlender obj importantFacesArray
+			getUVFromBlender obj importantFacesArray
+			-- tinh lai uv moi
+			u = obj.modifiers["y3d_unwrap"]
+			for i=1 to importantFacesArray.count do
+			(
+				u.getArea #{importantFacesArray[i].index} &myx &myy &my_width &my_height &myareaUVW &g
+				importantFacesArray[i].f_area = g
+				importantFacesArray[i].area_uvw = myareaUVW
+				importantFacesArray[i].udim = 1000
+				importantFacesArray[i].fw = my_width
+				importantFacesArray[i].fh = my_height
+				importantFacesArray[i].x = myx
+				importantFacesArray[i].y = myy
+			)
 		)
 	)
 
@@ -214,6 +234,7 @@ fn doAddList =
 		if s1==undefined then return false
 		if isolate_select == true then actionMan.executeAction 0 "261"  -- Tools: End Isolate
 		setIFacesFromSelect s1
+
 		if (stepDone == 1) then
 			(
 				sortByArea()
@@ -244,7 +265,11 @@ fn doUnwrap1 selectMode =
 				doAddList()
 				if stepDone == 1 then
 					(
-						if u1!=undefined then moveByTile u1
+						if queryBox "Do you want to continue?" beep:false then
+							(
+								u1 = s1.modifiers["y3d_unwrap"]
+								if u1!=undefined then moveByTile u1
+							)
 					)
 			)
 		else
@@ -295,9 +320,14 @@ fn doUnwrap2 selectMode =
 	(
 		if selectMode == 1 then
 			(
-				u1.unwrap2.flattenMapNoParams()
+				-- u1.unwrap2.flattenMapNoParams()
+				if isolate_select == true then actionMan.executeAction 0 "261" 
 				setIFacesFromSelect s1
-				unwrapSelection u1
+				if queryBox "Do you want to continue?" beep:false then
+					(
+						u1 = s1.modifiers["y3d_unwrap"]
+						unwrapSelection u1 	
+					)
 			)
 		else
 			(
