@@ -24,7 +24,6 @@ Icon:#("cws",3)
 
 	createY3DMenu()
 	
-	Include "$userScripts/scripts/SimpleRectanglePackAlogorithm.ms"
 	Include "$userScripts/lib/y3d_lib.ms"
 	Include "$userScripts/lib/blender_unwrap.ms"
 	Include "$userScripts/scripts/SimpleRectanglePackAlogorithm.ms"
