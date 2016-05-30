@@ -1,7 +1,7 @@
 macroScript y3d_v1
 category:"y3d"
-toolTip:"Y3D v1"
-ButtonText:"Y3D v1"
+toolTip:"Multi tile Bake v1"
+ButtonText:"Multi tile Bake v1"
 Icon:#("cws",3)
 (
 	Include "$scripts\y3d\lib\ylib.ms"

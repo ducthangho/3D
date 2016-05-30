@@ -1,6 +1,6 @@
 macroScript y3dtoolset
 category:"y3d"
-tooltip:"Switch Script"
+tooltip:"Reload Script"
 internalCategory:"Yêu 3D"
 Icon:#("cws",3)
 (
@@ -12,14 +12,9 @@ Icon:#("cws",3)
 			button btnRunScript "Reload script" pos:[10,207] width:128 height:30
 			dropDownList ddlSelectScript "Select script" pos:[10,158] width:128 height:40 items:sVer
 			
-			-- on y3dInstallRollout open do 
-			-- 	(
-			-- 		ddlSelectScript.items = sVer
-			-- 	)
 			on ddlSelectScript selected sel do
 				(
 					verIndex = sel
-					print(sel)
 				)
 
 			on btnRunScript pressed  do

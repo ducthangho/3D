@@ -9,6 +9,8 @@ if yInit != true then
 	global createY3DMenu
 	global yInclude
 	global copy_override
+	global y3dMenu
+	global addMenuItem
 
 	fn yInclude fpath =
 		(
@@ -87,6 +89,12 @@ if yInit != true then
 			menuMan.updateMenuBar()
 		)
 
+	fn addMenuItem iName iType=
+		(
+			theAction = menuMan.createActionItem iName iType
+			y3dMenu.addItem theAction -1
+			menuMan.updateMenuBar()
+		)
 
 	print "y3d v 1.0 has been loaded"
 	loadIni()

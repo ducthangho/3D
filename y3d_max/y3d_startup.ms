@@ -5,15 +5,6 @@ try (--close if possible
 	DestroyDialog ybarRollout;
 ) catch();
 
--- rollout ybarRollout "YBar" width:34 height:192
--- (
--- 	button btn1 "y1" pos:[5,5] width:24 height:24
--- 	-- on ybarRollout open do 
--- 	-- 	(
--- 	-- 		ybarRollout.addControl #button #btn2 "z2" "pos:[5,34] width:24 height:24"
--- 	-- 		ybarRollout.addHandler #btn2 #pressed codeStr: "MessageBox @hihi@" filter:on
--- 	-- 	)
--- )
 Include "$scripts\y3d\lib\ylib.ms"
 
 rci = rolloutCreator "ybarRollout" "YBar" width:34 height:192
@@ -26,13 +17,10 @@ for i=1 to sVer.count do
 		-- codeS = "MessageBox @"+sVer[i]+"@"
 		codeS = "macros.run @y3d@ @y3d_"+(sVer[i] as string)+"@"
 		rci.addHandler bname #pressed codeStr: codeS
+
+		addMenuItem ("y3d_"+sVer[i]) "y3d"
 	)
 
--- rci.addControl #button #btn2 "z2" pos:[5,34] width:24 height:24
--- rci.addHandler #btn_1 #pressed codeStr: "MessageBox @hihi@" filter:on
-
-
 CreateDialog (rci.end())
-
 cui.RegisterDialogBar ybarRollout
-cui.DockDialogBar ybarRollout #cui_dock_right 
+cui.DockDialogBar ybarRollout #cui_dock_right

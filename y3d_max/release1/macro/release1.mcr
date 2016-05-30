@@ -1,7 +1,6 @@
 macroScript y3d_release1
 category:"y3d"
-toolTip:"Y3D r1"
-ButtonText:"r1"
+ButtonText:"release1"
 Icon:#("cws",1)
 (
 	Include "$scripts\y3d\lib\ylib.ms"
