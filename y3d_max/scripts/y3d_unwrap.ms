@@ -155,9 +155,15 @@ fn getIFaceByIndex idx =
 		return false
 	)
 
-fn updateGlobalVariable obj =
+fn updateGlobalVariable =
 (
-	
+	global s1 = $
+	--addModifier s1 (unwrap_UVW())
+	max modify mode
+	modPanel.addModToSelection (Unwrap_UVW ()) ui:on
+	subobjectLevel = 3
+	s1.modifiers[1].setMapChannel 2
+	global u1 = s1.modifiers[1]
 )
 
 
@@ -185,12 +191,15 @@ fn setIFacesFromSelect obj =
 				append importantFacesArray tmp
 			)
 -- 			getUVFromBlender obj importantFacesArray  -- goi Ham cua Anh Dang
-			getUVFromBlenderFBX obj importantFacesArray -- goi Ham cua Minh
 			-- tinh lai uv moi
-			updateGlobalVariable obj
+--			u = obj.modifiers["y3d_unwrap"]  --comment Ham Anh Dang
+			getUVFromBlenderFBX obj importantFacesArray -- goi Ham cua Minh
+			
+			-------------begin: Minh Them -----------------
+			updateGlobalVariable()
 			obj = $
 			u = u1
-			--u = obj.modifiers["y3d_unwrap"]  --comment Ham Anh Dang
+			-------------end: Minh Them -----------------
 			for i=1 to importantFacesArray.count do
 			(
 				u.getArea #{importantFacesArray[i].index} &myx &myy &my_width &my_height &myareaUVW &g
@@ -201,6 +210,8 @@ fn setIFacesFromSelect obj =
 				importantFacesArray[i].fh = my_height
 				importantFacesArray[i].x = myx
 				importantFacesArray[i].y = myy
+
+				format "posx: %\n" myx
 			)
 		)
 	)
@@ -311,15 +322,26 @@ fn doUnwrap3 selectMode =
 	)
 ---------------------#begin: ham cua Minh --------------------------------------
 
+fn copyMaterial oldObj newObj = 
+(
+	newObj.material = oldObj.material
+)
+
 fn doUnwrap2 selectMode =
-	(
-		print "goi ham nay"
-		
+	(		
 		if selectMode == 1 then
 			(
 				--u1.unwrap2.flattenMapNoParams()
+				local oldObj = s1
 				setIFacesFromSelect s1
-				--unwrapSelection u1
+
+				local newObj = s1
+				format "OldObject: %, new OBJ: %\n" oldObj newObj
+				unwrapSelection u1
+				
+				copyMaterial oldObj newObj
+				print "--------------------------------------------------------------------"
+				format "newObjMaterial: %,\n oldObjMaterial: %\n" newObj.material oldObj.material
 			)
 		else
 			(
@@ -332,8 +354,6 @@ fn doUnwrap2 selectMode =
 ---------------------------------end : ham Minh them --------------------------------------
 fn doUnwrap selectMode packType =
 	(
-		print "-------------------------------------------"
-		print packType
 		if packType == 1 then doUnwrap1 selectMode
 		else if packType == 2 then doUnwrap2 selectMode
 	)

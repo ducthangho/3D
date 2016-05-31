@@ -130,9 +130,13 @@ fn getNumfaceSelected u =
 
 function getIslandIndexes tempFaces u =
 (
+	print "Here getIsland: "
 	local r = #()
 	for i = 1 to tempFaces.count do
-	(
+	(		
+
+			format "vong lap %" i
+
 			if tempFaces[i].flag != -1 do continue
 
 			u.unwrap2.selectFaces (#(tempFaces[i].index) as bitarray)
@@ -289,7 +293,6 @@ fn getIslandFitSizeAndScale islands tileSize density u =
 
 fn getTile i tileSize =
 (
-	format "tilesize: %" tileSize
 	u = mod i 10
 	v = i / 10
 	return tileStruct u:u v:v sizeX:tileSize[1] sizeY:tileSize[2]

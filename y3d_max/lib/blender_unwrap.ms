@@ -211,6 +211,10 @@ fn getUVFromBlender obj faceArray =
 		local val = DOSCommand(cmd)
 
 		ImportObjectFromFBXFile obj importFileBlender
+
+		format "Here :%\n" $
+
+		$.name = $.name+"_import"
 	)
 	
 	
