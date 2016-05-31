@@ -70,7 +70,6 @@ def smart_unwrap(ob,faceIds,selMode = True):
 		bpy.ops.uv.smart_project()
 		bpy.ops.object.mode_set(mode='OBJECT', toggle=False)
 
-
 def readY3DInfo(filePath):
 	faceIds = []
 	f = open(filePath, "rb")
@@ -105,6 +104,5 @@ def getY3dObj():
 		ob.select = True
 		# bpy.ops.export_scene.obj(filepath=objPath, use_selection=True, use_materials=False, axis_forward='-Z', axis_up='Y')
 		bpy.ops.export_scene.obj(filepath='D:\\y3d.obj', use_selection=True,global_scale =1, use_materials=False, use_vertex_groups=True, axis_forward=fw, axis_up=up)
-
 
 getY3dObj()

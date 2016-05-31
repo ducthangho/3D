@@ -147,7 +147,6 @@ def pack(listRect, enclosingRect):
 	global ah
 	aw = ah = 1
 	for rect in listRect:
-		# print ("----dskjdhahdbsjdb--------")
 		p = findPlace(rect,listArea,enclosingRect)
 		if (p[0]>=0):
 			place(rect,p[0],p[1])
@@ -248,20 +247,20 @@ def packTile(listRect,enclosingRect,n,packedAll):
 
 
 #-------------------------test3----------------------------------
-enclosingRect = MRectangle(width = 500,height = 500)
-listRect = []
+# enclosingRect = MRectangle(width = 500,height = 500)
+# listRect = []
 
-from random import randint
-for i in range(2000):
-	w = randint(1,30)
-	h = randint(1,40)
-	r = MRectangle(width=w,height=h)
-	listRect.append(r) 
+# from random import randint
+# for i in range(2000):
+# 	w = randint(1,30)
+# 	h = randint(1,40)
+# 	r = MRectangle(width=w,height=h)
+# 	listRect.append(r) 
 
-packedAll = [False]
-n = 10
-r = packTile(listRect,enclosingRect,n,packedAll)
+# packedAll = [False]
+# n = 10
+# r = packTile(listRect,enclosingRect,n,packedAll)
 
-print (listRect)
-pack(listRect, enclosingRect)
-print (listRect)
+# print (listRect)
+# pack(listRect, enclosingRect)
+# print (listRect)

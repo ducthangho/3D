@@ -161,4 +161,69 @@ fn getUVFromBlender obj faceArray =
 		-- 		delete $Y3D_temp
 		-- 	)
 	)
-)
+	
+	
+		--------------------------begin:Ham Minh Them------------------
+
+	exportFolder = "F:\\WorkSpace\\3Ds Max\\Building Phong Tam Project\\export\\blender\\"
+	exportFileName = "3DSexport.fbx"
+	binaryFile = "ImportantFace.bin"
+	blenderExe = "\"C:\\Program Files\\Blender Foundation\\Blender\\blender.exe\""
+	pythonScript = getDir #userscripts+"\\scripts\\y3d_blender_unwrap_fbx.py"
+	pythonScriptTest = getDir #userscripts+"\\scripts\\test.py"
+	importFileBlender = "export.fbx"
+	
+	fn WriteImportantFacesToFile obj faceArray = 
+	(
+		local binFile = fopen (exportFolder+binaryFile)  "wb"
+		WriteLong binFile faceArray.count #unsigned
+		local vv
+		for i = 1 to faceArray.count do
+			(
+				vv = faceArray[i].index as integer
+				WriteLong binFile vv
+			)
+		fclose binFile
+	)
+
+	fn exportObjectToFBXFile obj exportFileName= 
+	(
+		-----------the most bad influence exportion's param --------------
+		FBXExporterSetParam "NormalsPerPoly" False
+
+		local filePath = exportFolder + exportFileName
+		exportFile filePath #noPrompt selectedOnly:true
+
+	)
+
+	fn ImportObjectFromFBXFile obj importFileName = 
+	(
+		local filePath = exportFolder + importFileName
+		importFile filePath #noPrompt
+	)
+
+	fn getUVFromBlenderFBX obj faceArray = 
+	(
+		WriteImportantFacesToFile obj faceArray
+		exportObjectToFBXFile obj exportFileName 
+
+		local cmd = blenderExe + " -b -P "+pythonScript
+		local val = DOSCommand(cmd)
+
+		ImportObjectFromFBXFile obj importFileBlender
+	)
+	
+	
+	fn test = 
+	(
+-- 		cmd = ("C:\Program\ Files\Blender\ Foundation\Blender\blender.exe ")
+-- 		val = DOSCommand (blenderExe +" -b -P F:\\WorkSpace\\3D\\y3d_max\\scripts\\test.py")
+-- 		val = DOSCommand ("python F:\\WorkSpace\\3D\\y3d_max\\scripts\\test.py")
+		val = DOSCommand ("\"c:\Program Files\Blender Foundation\Blender\blender.exe\" -b -P F:\\WorkSpace\\3D\\y3d_max\\scripts\\test.py")
+		print val
+		val = DOSCommand ("\"c:\Program Files\Blender Foundation\Blender\blender\" -b -P F:\\WorkSpace\\3D\\y3d_max\\scripts\\y3d_blender_unwrap_fbx.py")
+		cmd = blenderExe + " -b -P "+pythonScript
+		val = DOSCommand(cmd)
+	)
+	------------------------end: Ham MinhThem -------------------
+)	

@@ -155,6 +155,12 @@ fn getIFaceByIndex idx =
 		return false
 	)
 
+fn updateGlobalVariable obj =
+(
+	
+)
+
+
 fn setIFacesFromSelect obj =
 	(
 		u = obj.modifiers["y3d_unwrap"]
@@ -178,9 +184,13 @@ fn setIFacesFromSelect obj =
 				-- tmp.fh = my_height
 				append importantFacesArray tmp
 			)
-			getUVFromBlender obj importantFacesArray
+-- 			getUVFromBlender obj importantFacesArray  -- goi Ham cua Anh Dang
+			getUVFromBlenderFBX obj importantFacesArray -- goi Ham cua Minh
 			-- tinh lai uv moi
-			u = obj.modifiers["y3d_unwrap"]
+			updateGlobalVariable obj
+			obj = $
+			u = u1
+			--u = obj.modifiers["y3d_unwrap"]  --comment Ham Anh Dang
 			for i=1 to importantFacesArray.count do
 			(
 				u.getArea #{importantFacesArray[i].index} &myx &myy &my_width &my_height &myareaUVW &g
@@ -279,8 +289,8 @@ fn doUnwrap1 selectMode =
 			)
 	)
 
-
-fn doUnwrap2 selectMode =
+-----------------#ham cu anh Dang --------------------------------
+fn doUnwrap3 selectMode =
 	(
 		if selectMode == 1 then
 			(
@@ -299,12 +309,31 @@ fn doUnwrap2 selectMode =
 				stepDone = 0
 			)
 	)
+---------------------#begin: ham cua Minh --------------------------------------
+
+fn doUnwrap2 selectMode =
+	(
+		print "goi ham nay"
+		
+		if selectMode == 1 then
+			(
+				--u1.unwrap2.flattenMapNoParams()
+				setIFacesFromSelect s1
+				--unwrapSelection u1
+			)
+		else
+			(
+				MessageBox "Che do chon mat chua support.."
+				stepDone = 0
+			)
+	)
 
 
 ---------------------------------end : ham Minh them --------------------------------------
 fn doUnwrap selectMode packType =
 	(
-		print "Hello"
+		print "-------------------------------------------"
+		print packType
 		if packType == 1 then doUnwrap1 selectMode
 		else if packType == 2 then doUnwrap2 selectMode
 	)
