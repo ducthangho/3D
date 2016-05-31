@@ -4,7 +4,7 @@ toolTip:"Multi tile Bake v1"
 ButtonText:"Multi tile Bake v1"
 Icon:#("cws",3)
 (
-	Include "$scripts\y3d\lib\ylib.ms"
+	Include "$userScripts\y3d\lib\ylib.ms"
 	-- try (--close if possible
 	-- 	symbolicPaths.addUserPath "$ypath" ypath
 	-- ) catch();

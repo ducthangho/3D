@@ -89,6 +89,7 @@ if yInit != true then
 			menuMan.updateMenuBar()
 		)
 
+
 	fn addMenuItem iName iType=
 		(
 			theAction = menuMan.createActionItem iName iType
@@ -96,6 +97,11 @@ if yInit != true then
 			menuMan.updateMenuBar()
 		)
 
+	y3dMenu = menuMan.findMenu "Yêu 3D"
+	if (y3dMenu != undefined) do (
+		menuMan.unRegisterMenu y3dMenu
+	)
+	y3dMenu = menuMan.createMenu "Yêu 3D"
 	print "y3d v 1.0 has been loaded"
 	loadIni()
 	yInit = true

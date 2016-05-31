@@ -13,7 +13,7 @@ fn saveIni =
 		ypath = path
 		verIndex = 1
 
-		folderTo = pathConfig.GetDir #scripts + "\\y3d"
+		folderTo = pathConfig.GetDir #userScripts + "\\y3d"
 		y3dDir = makeDir folderTo
 		libDir = makeDir (folderTo+"\\lib")
 		fileTo = folderTo+"\\lib\\ylib.ms"

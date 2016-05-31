@@ -4,7 +4,7 @@ tooltip:"Reload Script"
 internalCategory:"Yêu 3D"
 Icon:#("cws",3)
 (
-	Include "$scripts\y3d\lib\ylib.ms"
+	Include "$userScripts\y3d\lib\ylib.ms"
 	rollout y3dInstallRollout "Y3D toolsets" width:148 height:257
 		(
 

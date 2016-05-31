@@ -4,6 +4,6 @@ toolTip:"Y3D v2"
 ButtonText:"v2"
 Icon:#("cws",1)
 (
-	Include "$scripts\y3d\lib\ylib.ms"
+	Include "$userScripts\y3d\lib\ylib.ms"
 	yInclude "v2\scripts\y3d_ui.ms"
 )

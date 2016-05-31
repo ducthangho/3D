@@ -5,7 +5,7 @@ try (--close if possible
 	DestroyDialog ybarRollout;
 ) catch();
 
-Include "$scripts\y3d\lib\ylib.ms"
+Include "$userScripts\y3d\lib\ylib.ms"
 
 rci = rolloutCreator "ybarRollout" "YBar" width:34 height:192
 rci.begin() 

@@ -3,6 +3,6 @@ category:"y3d"
 ButtonText:"release1"
 Icon:#("cws",1)
 (
-	Include "$scripts\y3d\lib\ylib.ms"
+	Include "$userScripts\y3d\lib\ylib.ms"
 	yInclude "release1\scripts\y3d_ui.ms"
 )
