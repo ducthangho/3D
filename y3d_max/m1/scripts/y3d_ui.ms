@@ -140,7 +140,7 @@ rollout y3dBakeRollout "Y3D Baker" width:320 height:700
 	(
 		resetAll()
 		lbxListTex.items = #()
-		MessageBox "Dữ liệu đã được reset"
+		MessageBox "D? li?u dã du?c reset"
 	)
 	on edtBakeFile changed text do
 	(
@@ -220,4 +220,8 @@ fn resetAll =
 		s1 = undefined
 		u1 = undefined
 		oldMatId = #()
-		newMatId =
+		newMatId = #()
+	)
+--end--
+resetAll()
+showMODialog()

@@ -199,6 +199,7 @@ fn getUVFromBlender obj faceArray =
 
 	fn ImportObjectFromFBXFile importFileName = 
 	(
+		FBXImporterSetParam "Mode" #create
 		local filePath = exportFolder + importFileName
 		importFile filePath #noPrompt
 	)
