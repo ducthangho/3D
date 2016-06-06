@@ -103,10 +103,6 @@ rollout y3dBakeRollout "Y3D Baker" width:320 height:700
 			)
 
 
-
-
-
-
 	on y3dBakeRollout open do
 	(
 				spnTileCount.value = tileCount

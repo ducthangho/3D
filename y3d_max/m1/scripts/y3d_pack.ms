@@ -128,41 +128,33 @@ fn getNumfaceSelected u =
 		return numface
 )
 
-function getIslandIndexes tempFaces u =
-(
-	print "Here getIsland: "
+function getIslandIndexes_v2 uOld uNew =
+(	
 	local r = #()
-	for i = 1 to tempFaces.count do
-	(		
-
-			format "vong lap %" i
-
-			if tempFaces[i].flag != -1 do continue
-
-			u.unwrap2.selectFaces (#(tempFaces[i].index) as bitarray)
-			u.unwrap.expandSelection()
-			local selectedFace = u.unwrap2.getSelectedFaces()
-			local numSelectedFace = selectedFace.numberSet
-			local count = 1
-
-			while (numSelectedFace > count ) do
-			(
-				count = numSelectedFace
-				u.unwrap.expandSelection()
-				selectedFace = u.unwrap2.getSelectedFaces()
-				numSelectedFace = selectedFace.numberSet
+	local userSelected = uOld.getSelectedFaces()
+	local isFinish = false
+	while not isFinish do
+	(
+		for i in userSelected do
+		(
+			format "i = %" i
+			uNew.unwrap2.selectFaces #{i} 
+			local count = 2
+			local numSelected = 1
+			while (count > numSelected) do
+			(	
+				count = numSelected
+				uNew.unwrap.expandSelection()
+				numSelected = (uNew.unwrap2.getSelectedFaces()).numberSet
 			)
-
-			tempArray = selectedFace as array
-			for j = 1 to tempArray.count do
-				for k =1 to tempFaces.count do
-				(
-					if tempArray[j] == tempFaces[k].index do tempFaces[k].flag = 1
-				)
-
-			append r selectedFace
+			selected = uNew.unwrap2.getSelectedFaces()
+			append r selected
+			userSelected = userSelected - selected
+			if userSelected.numberSet == 0 do isFinish = true
+			exit
+		)
+		exit
 	)
-
 	return r
 )
 
@@ -198,10 +190,9 @@ fn getSFace faces =
 	return tempFaces
 )
 
-fn getIsland &faces u =
+fn getIsland sp u =
 (
-	local tempFaces = getSFace faces
-	local islandIndexes = getIslandIndexes tempFaces u
+	local islandIndexes = getIslandIndexes sp u
 	islands = getIslandInfo islandIndexes u
 	return islands
 )
@@ -375,7 +366,6 @@ fn scaleIslandInfo islands listTileSize density =
 			)
 			
 			island.data = data
-			
 		)
 		
 		if (flag == true) do
@@ -439,61 +429,42 @@ fn scaleIslandAndPack islands listTileSize maxSizeTile density u roundFactor=
 	)
 )
 
-fn unwrapSelection u =
+fn unwrapSelection u sp =
 (
-	local islands = getIsland importantFacesArray u
+	local islands = getIsland sp u
 	local tileSize1 = #(512,512)
 	local tileSize2 = #(1024,1024)
 	local listTileSize = #(tileSize1,tileSize2)
 	local maxSizeTile = #(2048,2048)
 	local density = 128
-	scaleIslandAndPack islands listTileSize maxSizeTile density u 1000
+-- 	scaleIslandAndPack islands listTileSize maxSizeTile density u 1000
+)
+
+
+fn unwrapSelection_v2 oldObj newObj =
+(
+		local islands = getIsland_v2 obdObj newObj
 )
 
 fn test =
 (
-	
-	float x
-	float y
-	float width
-	float height
-	float areaUVW
-	float areaGeom
-	
-	r.modifiers['unwrap_uvw'].unwrap4.getArea #{26} &x &y &width &height &areaUVW &areaGeom
-	print areaGeom
-	
-	print importantFacesArray
+	print  selectedPolygon
 	print u1
-	islands = getIsland importantFacesArray u1
-	format "island : %\n" islands[1]
-	print islands
-	print s1
-	
-	setIFacesFromSelect s1
-	tileSize1 = #(512,512)
-	listTileSize = #(tileSize1)
-	maxSizeTile = #(2048,2048)
-	density = 64
-	
-	packIsland islands u1 1 1
-		
-	scaleIslandAndPack islands listTileSize maxSizeTile density u1
-	
-	print islands
+	r = getIslandIndexes_v2 uOld uNew
+	print r
 )
 
 ------- Old Pack ------------
 -- Tim tap cac mat co tong dien tich lon nhat ma be hon tham so narea
 fn findBestFit bSet narea importantFaces=
+(
+	for k = 1 to importantFaces.count do
 	(
-		for k = 1 to importantFaces.count do
-		(
-			if (importantFaces[k].udim==1000)and(importantFaces[k].area_uvw<=narea) then (
-				append bSet k
-				narea = narea-importantFaces[k].area_uvw
-			)
+		if (importantFaces[k].udim==1000)and(importantFaces[k].area_uvw<=narea) then (
+			append bSet k
+			narea = narea-importantFaces[k].area_uvw
 		)
-		bestSet = bSet
-		best = narea
 	)
+	bestSet = bSet
+	best = narea
+)

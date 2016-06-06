@@ -128,7 +128,7 @@ fn getUVFromBlender obj faceArray =
 
 		print "importing....."
 
-		theINI =objimp.getIniName()
+		theINI = objimp.getIniName()
 		setIniSetting theINI"General" "ResetScene" "0"
 		setIniSetting theINI"Objects" "AsEditablePoly" "1"
 		setIniSetting theINI"Objects" "SingleMesh" "1"
@@ -165,14 +165,18 @@ fn getUVFromBlender obj faceArray =
 	
 	
 		--------------------------begin:Ham Minh Them------------------
-
+	
+	blenderExe = "\"C:\\Program Files\\Blender Foundation\\Blender\\blender.exe\""
+	
 	exportFolder = "F:\\WorkSpace\\3Ds Max\\Building Phong Tam Project\\export\\blender\\"
 	exportFileName = "3DSexport.fbx"
 	binaryFile = "ImportantFace.bin"
-	blenderExe = "\"C:\\Program Files\\Blender Foundation\\Blender\\blender.exe\""
-	pythonScript = getDir #userscripts+"\\scripts\\y3d_blender_unwrap_fbx.py"
-	pythonScriptTest = getDir #userscripts+"\\scripts\\test.py"
 	importFileBlender = "export.fbx"
+	blenderFile = "unwraper.blend"
+	
+	scriptFolder  = getDir #userscripts+"\\m1\scripts\\"
+	pythonScript = scriptFolder + "y3d_blender_unwrap_fbx.py"
+	pythonScriptTest = scriptFolder + "test.py"
 	
 	fn WriteImportantFacesToFile obj faceArray = 
 	(
@@ -189,12 +193,9 @@ fn getUVFromBlender obj faceArray =
 
 	fn exportObjectToFBXFile obj exportFileName= 
 	(
-		-----------the most bad influence exportion's param --------------
 		FBXExporterSetParam "NormalsPerPoly" False
-
 		local filePath = exportFolder + exportFileName
 		exportFile filePath #noPrompt selectedOnly:true
-
 	)
 
 	fn ImportObjectFromFBXFile importFileName = 
@@ -214,7 +215,6 @@ fn getUVFromBlender obj faceArray =
 
 		ImportObjectFromFBXFile importFileBlender
 
-		format "Here :%\n" $
 		$.name = $.name+"_import"
 	)
 	
@@ -228,6 +228,7 @@ fn getUVFromBlender obj faceArray =
 		val = DOSCommand ("\"c:\Program Files\Blender Foundation\Blender\blender.exe\" -b -P F:\\WorkSpace\\3D\\y3d_max\\scripts\\test.py")
 		print val
 		val = DOSCommand ("\"c:\Program Files\Blender Foundation\Blender\blender\" -b -P F:\\WorkSpace\\3D\\y3d_max\\scripts\\y3d_blender_unwrap_fbx.py")
+		blender = exportFolder + blenderFile
 		cmd = blenderExe + " -b -P "+pythonScript
 		val = DOSCommand(cmd)
 	)

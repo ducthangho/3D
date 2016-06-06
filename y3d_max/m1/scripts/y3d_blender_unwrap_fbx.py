@@ -16,9 +16,10 @@ def importFBX(fileName):
 
 def deleteAllObject():
 	if bpy.ops.object.mode_set.poll():
+	   print ("Halo")
 	   bpy.ops.object.mode_set(mode='OBJECT')
-	   bpy.ops.object.select_all(action='SELECT')
-	   bpy.ops.object.delete(use_global=True)
+	bpy.ops.object.select_all(action='SELECT')
+	bpy.ops.object.delete(use_global=True)
 			  
 	
 def readY3DInfo(filePath):
@@ -68,13 +69,29 @@ def smart_unwrap(obj,importantFace):
 	bmesh.update_edit_mesh(obj.data, True)
 	bpy.ops.uv.smart_project()
 
-	bpy.ops.mesh.select_all(action='INVERT')
+	bpy.ops.mesh.select_all(action='SELECT')
+	me = obj.data
+	bm = bmesh.from_edit_mesh(me)
+	bm.faces.ensure_lookup_table()
+	for id in importantFace:
+		print (id-1)
+		bm.faces[id-1].select = False
+	bmesh.update_edit_mesh(obj.data, True)
+
 	bpy.ops.uv.smart_project()
+
+	ob = bpy.context.object
+	count = 0
+	for poly in ob.data.polygons:
+		if poly.select == True:
+			count+=1
+	print ('count = {}'.format(count))
 	
 def unWrapObjectFromBlender(fileName):
 	deleteAllObject()
 	importFBX(ExportFolder+fileName)
 	importantFace = readY3DInfo(ExportFolder+binFile)
+
 
 	obj = bpy.data.objects[0]
 	obj.select = True
@@ -85,6 +102,18 @@ def unWrapObjectFromBlender(fileName):
 	smart_unwrap(obj,importantFace)
 	exportFBX(exportFile)
 	
+#deleteAllObject()
+#importFBX(ExportFolder+importFile)
+#importantFace = readY3DInfo(ExportFolder+binFile)
+#print(importantFace)
+
+#obj = bpy.data.objects[0]
+#obj.select = True
+#scene = bpy.context.scene
+#scene.objects.active = obj
+#bpy.ops.object.mode_set(mode='EDIT')
+#smart_unwrap(obj,importantFace)
+#exportFBX(exportFile)
 
 unWrapObjectFromBlender(importFile)
 

@@ -153,7 +153,7 @@ fn getIFaceByIndex idx =
 		return false
 	)
 
-fn updateGlobalVariable =
+fn updateGlobalVarToNewObj =
 (
 	global s1 = $
 	--addModifier s1 (unwrap_UVW())
@@ -172,46 +172,19 @@ fn setIFacesFromSelect obj =
 		if sp.count < 1 then (
 			importantFacesArray = #()
 			stepDone = 0
-			-- MessageBox "No face selected" +(stepDone as string)
-			-- print stepDone
 		)else(
 			importantFacesArray = #()
 			for i in sp do
 			(
 				tmp = yface()
 				tmp.index = i
-				-- u.getArea #{i} &myx &myy &my_width &my_height &myareaUVW &g
-				-- tmp.f_area = g
-				-- tmp.area_uvw = myareaUVW
-				-- tmp.udim = 1000
-				-- tmp.fw = my_width
-				-- tmp.fh = my_height
 				append importantFacesArray tmp
 			)
--- 			getUVFromBlender obj importantFacesArray  -- goi Ham cua Anh Dang
-			-- tinh lai uv moi
---			u = obj.modifiers["y3d_unwrap"]  --comment Ham Anh Dang
 			getUVFromBlenderFBX obj importantFacesArray -- goi Ham cua Minh
-			
-			-------------begin: Minh Them -----------------
-			updateGlobalVariable()
-			obj = $
+			updateGlobalVarToNewObj()
 			u = u1
-			-------------end: Minh Them -----------------
-			for i=1 to importantFacesArray.count do
-			(
-				u.getArea #{importantFacesArray[i].index} &myx &myy &my_width &my_height &myareaUVW &g
-				importantFacesArray[i].f_area = g
-				importantFacesArray[i].area_uvw = myareaUVW
-				importantFacesArray[i].udim = 1000
-				importantFacesArray[i].fw = my_width
-				importantFacesArray[i].fh = my_height
-				importantFacesArray[i].x = myx
-				importantFacesArray[i].y = myy
-
-				format "posx: %\n" myx
-			)
 		)
+		return sp
 	)
 
 fn SelFaceButtonClick =
@@ -248,6 +221,7 @@ fn SelFaceButtonClick =
 		)
 	)
 
+	
 fn doAddList =
 	(
 		if s1==undefined then return false
@@ -265,11 +239,43 @@ fn doAddList =
 			)
 	)
 
+
+fn SelFaceBtnClickNoFatten =
+	(
+		if selection.count == 0 then (
+			stepDone = 0
+			MessageBox "Please select at least one object!" title: "Warning!"
+		) else (
+			max modify mode
+			if isolate_select == true then
+			(
+				actionMan.executeAction 0 "197"  -- Tools: Isolate Selection
+				max tool zoomextents all
+			)
+			s1 = selection[1]
+			if (classof s1.baseobject) != Editable_Poly then convertto s1 editable_poly
+			subobjectLevel = 0
+			s1.ignoreBackfacing  = true
+
+			if (s1.modifiers["y3d_unwrap"]==undefined) then (
+				u1 = unwrap_UVW()
+				u1.name = "y3d_unwrap"
+				addModifier s1 u1
+			)
+			u1 = s1.modifiers["y3d_unwrap"]
+			modPanel.setCurrentObject s1.modifiers[#y3d_unwrap]
+			subobjectLevel = 3
+			stepDone = 1
+		)
+		
+	)
+
 fn doSelectImportant selectMode =
 	(
 		if selectMode == 1 then
 			(
-				SelFaceButtonClick()
+-- 				SelFaceButtonClick()  -- comment ham Anh dagn
+				SelFaceBtnClickNoFatten()  -- goi ham cua Minh
 			)
 		else
 			(
@@ -326,27 +332,27 @@ fn copyMaterial oldObj newObj =
 )
 
 fn doUnwrap2 selectMode =
-	(		
-		if selectMode == 1 then
-			(
-				--u1.unwrap2.flattenMapNoParams()
-				local oldObj = s1
-				setIFacesFromSelect s1
-
-				local newObj = s1
-				format "OldObject: %, new OBJ: %\n" oldObj newObj
-				unwrapSelection u1
-				
-				copyMaterial oldObj newObj
-				print "--------------------------------------------------------------------"
-				format "newObjMaterial: %,\n oldObjMaterial: %\n" newObj.material oldObj.material
-			)
-		else
-			(
-				MessageBox "Che do chon mat chua support.."
-				stepDone = 0
-			)
-	)
+(		
+	if selectMode == 1 then
+		(
+			local oldObj = s1
+			local sp = setIFacesFromSelect s1
+			
+			print "Selected Polygon"
+			selectedPolygon = sp  --var for test
+			
+			local newObj = s1
+			global uOld = oldObj.modifiers[1]
+			global uNew = newObj.modifiers[1]
+-- 				unwrapSelection_v2 uOld uNew
+-- 				copyMaterial oldObj newObj
+		)
+	else
+		(
+			MessageBox "Che do chon mat chua support.."
+			stepDone = 0
+		)
+)
 
 
 ---------------------------------end : ham Minh them --------------------------------------
