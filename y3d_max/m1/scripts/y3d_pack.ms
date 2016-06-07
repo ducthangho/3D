@@ -430,6 +430,8 @@ fn scaleIslandAndPack islands listTileSize maxSizeTile density u roundFactor=
 	
 	print "numTile-------:"
 	print numTile
+	print "numTile2-------:"
+	print numTile2
 	
 	for i = 1 to numTile do
 	(

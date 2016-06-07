@@ -344,8 +344,8 @@ fn doUnwrap2 selectMode =
 			local newObj = s1
 			global uOld = oldObj.modifiers[1]
 			global uNew = newObj.modifiers[1]
--- 				unwrapSelection_v2 uOld uNew
--- 				copyMaterial oldObj newObj
+			unwrapSelection uOld uNew
+			copyMaterial oldObj newObj
 		)
 	else
 		(
