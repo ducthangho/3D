@@ -55,6 +55,13 @@ def exportFBX(exportFile):
 		   global_scale=1.0, apply_unit_scale=True, bake_space_transform=False, object_types={'MESH'},
 			use_mesh_modifiers=True, mesh_smooth_type='OFF',	use_mesh_edges=False, use_tspace=False, use_custom_props=False, add_leaf_bones=True, primary_bone_axis='Y', secondary_bone_axis='X', use_armature_deform_only=False, bake_anim=True, bake_anim_use_all_bones=True, bake_anim_use_nla_strips=True, bake_anim_use_all_actions=True, bake_anim_force_startend_keying=True, bake_anim_step=1.0, bake_anim_simplify_factor=1.0, use_anim=True, use_anim_action_all=True, use_default_take=True, use_anim_optimize=True, anim_optimize_precision=6.0, path_mode='AUTO', embed_textures=False, batch_mode='OFF', use_batch_own_dir=True, use_metadata=True)
 
+def getNumFaceSelected():
+	ob = bpy.context.object
+	count = 0
+	for poly in ob.data.polygons:
+		if poly.select == True:
+			count+=1
+	return count
 
 def smart_unwrap(obj,importantFace):
 	bpy.context.object.data.uv_textures.active_index = 1
@@ -64,7 +71,7 @@ def smart_unwrap(obj,importantFace):
 	bm = bmesh.from_edit_mesh(me)
 	bm.faces.ensure_lookup_table()
 	for id in importantFace:
-		print (id-1)
+		# print (id-1)
 		bm.faces[id-1].select = True
 	bmesh.update_edit_mesh(obj.data, True)
 	bpy.ops.uv.smart_project()
@@ -74,19 +81,12 @@ def smart_unwrap(obj,importantFace):
 	bm = bmesh.from_edit_mesh(me)
 	bm.faces.ensure_lookup_table()
 	for id in importantFace:
-		print (id-1)
+		# print (id-1)
 		bm.faces[id-1].select = False
 	bmesh.update_edit_mesh(obj.data, True)
 
 	bpy.ops.uv.smart_project()
 
-	ob = bpy.context.object
-	count = 0
-	for poly in ob.data.polygons:
-		if poly.select == True:
-			count+=1
-	print ('count = {}'.format(count))
-	
 def unWrapObjectFromBlender(fileName):
 	deleteAllObject()
 	importFBX(ExportFolder+fileName)

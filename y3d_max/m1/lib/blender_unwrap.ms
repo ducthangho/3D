@@ -193,7 +193,19 @@ fn getUVFromBlender obj faceArray =
 
 	fn exportObjectToFBXFile obj exportFileName= 
 	(
-		FBXExporterSetParam "NormalsPerPoly" False
+		print "heloooooooo"
+-- 		FBXExporterSetParam "NormalsPerPoly" false
+-- 		FBXImporterSetParam "Animation" false
+-- 		FBXImporterSetParam "ASCII" false
+-- 		FBXImporterSetParam "AxisConversionMethod" "Fbx_Root"
+-- 		FBXImporterSetParam "BakeAnimation" false
+-- 		FBXImporterSetParam "Cameras" false
+-- 		FBXImporterSetParam "FileVersion" "FBX201400"
+-- 		FBXImporterSetParam "SmoothingGroups" false
+-- 		FBXImporterSetParam "SmoothMeshExport" false
+-- 		FBXImporterSetParam "TangentSpaceExport" false
+-- 		FBXImporterSetParam "Triangulate" false
+
 		local filePath = exportFolder + exportFileName
 		exportFile filePath #noPrompt selectedOnly:true
 	)

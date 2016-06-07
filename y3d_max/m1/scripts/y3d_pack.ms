@@ -57,7 +57,7 @@ fn Multiply10powerX listRect n invert=
 		(
 			local r = listRect[i]
 			w = n*r.width
-			h = n*r.width
+			h = n*r.height
 			if w > 10 then
 				listRect[i].width = floor (w + 0.5)
 			else listRect[i].width = w
@@ -128,36 +128,6 @@ fn getNumfaceSelected u =
 		return numface
 )
 
-function getIslandIndexes_v2 uOld uNew =
-(	
-	local r = #()
-	local userSelected = uOld.getSelectedFaces()
-	local isFinish = false
-	while not isFinish do
-	(
-		for i in userSelected do
-		(
-			format "i = %" i
-			uNew.unwrap2.selectFaces #{i} 
-			local count = 2
-			local numSelected = 1
-			while (count > numSelected) do
-			(	
-				count = numSelected
-				uNew.unwrap.expandSelection()
-				numSelected = (uNew.unwrap2.getSelectedFaces()).numberSet
-			)
-			selected = uNew.unwrap2.getSelectedFaces()
-			append r selected
-			userSelected = userSelected - selected
-			if userSelected.numberSet == 0 do isFinish = true
-			exit
-		)
-		exit
-	)
-	return r
-)
-
 function getIslandInfo listIndexes u =
 (
 	local x =1
@@ -190,10 +160,28 @@ fn getSFace faces =
 	return tempFaces
 )
 
-fn getIsland sp u =
+fn getIslandIndexes uOld uNew = 
 (
-	local islandIndexes = getIslandIndexes sp u
-	islands = getIslandInfo islandIndexes u
+	local r = #()
+	uNew.unwrap2.setTVElementMode true
+	local userSelected = uOld.getSelectedFaces()
+	while userSelected.numberSet != 0 do
+		for i in userSelected do
+		(
+			uNew.selectFaces #{i}
+			uNew.selectElement()
+			selected = uNew.getSelectedFaces()
+			append r selected
+			userSelected = userSelected - selected
+			exit
+		)
+	return r
+)
+
+fn getIsland uOld uNew =
+(
+	local islandIndexes = getIslandIndexes uOld uNew
+	islands = getIslandInfo islandIndexes uNew
 	return islands
 )
 
@@ -228,6 +216,7 @@ fn packisland islands u beginTile n =
 	local enclosingRect = MRectangle width:n height: n
 	local packedAll = false
 	local r = packTile listRect enclosingRect 1000 &packedAll
+	
 	reposIslands islands r n u beginTile
 	return r.count
 )
@@ -339,7 +328,6 @@ fn scaleIslandInfo islands listTileSize density =
 			local islandheight = island.fh * scaleEdge
 			local area 
 		
-			
 			if (islandWidth > 1 or islandheight > 1) then
 			(
 				flag = false
@@ -377,37 +365,60 @@ fn scaleIslandInfo islands listTileSize density =
 	return #(islands,listFit,listUnFit,listTileSize[maxTileSizeNeedIndex])
 )
 
+fn updateIslandInfo islands u = 
+(
+	local x =1
+	local y = 1
+	local width =1
+	local height =1
+	local area_uvw = 1
+	local f_area =1
+	
+	for island in islands do 
+	(
+		u.unwrap4.getArea island.indexes &x &y &width &height &area_uvw &areaGeom
+		island.f_area = areaGeom
+		island.area_uvw = area_uvw
+		island.fw = width
+		island.fh = height
+		island.x = x
+		island.y = y
+	)
+)
+
 fn scaleIslandAndPack islands listTileSize maxSizeTile density u roundFactor= 
 (
-	print "island1: "
-	print islands
 	local t = scaleIslandInfo islands listTileSize density
-	
-	print "island2: "
-	print islands
-	
+
 	local a = t[1]
 	local listFit = t[2]
 	local listUnFit = t[3]
 	local tileSize = t[4]
 	
+	print "island"
+	print islands
+	print "listFit"
+	print listFit
+	print "List UnFit"
+	print listUnFit
 	for island in a do
 	(
 		u.unwrap2.selectFaces island.indexes
 		scaleEdge = island.data[1]
 		u.unwrap2.scaleSelectedXY scaleEdge scaleEdge [island.x,island.y,0]
-		island.fw = island.data[2]
-		island.fh = island.data[3]
-		island.area_uvw = island.data[4]
 	)
 	
-	print "island3: "
+	updateIslandInfo a u
+	
+	
+	print "island"
 	print islands
-	print "listFit: "
+	print "listFit"
 	print listFit
-	print "listUnFit:"
+	print "List UnFit"
 	print listUnFit
 	
+
 	local numTile = 0
 	if listFit.count !=0 do
 		numTile = packisland listFit u 1 roundFactor
@@ -416,6 +427,9 @@ fn scaleIslandAndPack islands listTileSize maxSizeTile density u roundFactor=
 	(			
 		numTile2 = packisland listUnFit u (numTile+1) roundFactor
 	)
+	
+	print "numTile-------:"
+	print numTile
 	
 	for i = 1 to numTile do
 	(
@@ -429,15 +443,15 @@ fn scaleIslandAndPack islands listTileSize maxSizeTile density u roundFactor=
 	)
 )
 
-fn unwrapSelection u sp =
+fn unwrapSelection uOld uNew =
 (
-	local islands = getIsland sp u
+	local islands = getIsland uOld uNew
 	local tileSize1 = #(512,512)
 	local tileSize2 = #(1024,1024)
 	local listTileSize = #(tileSize1,tileSize2)
 	local maxSizeTile = #(2048,2048)
 	local density = 128
--- 	scaleIslandAndPack islands listTileSize maxSizeTile density u 1000
+	scaleIslandAndPack islands listTileSize maxSizeTile density uNew 1000
 )
 
 
@@ -448,10 +462,36 @@ fn unwrapSelection_v2 oldObj newObj =
 
 fn test =
 (
-	print  selectedPolygon
-	print u1
-	r = getIslandIndexes_v2 uOld uNew
-	print r
+	uOld 
+	uNew 
+	(uOld.getSelectedFaces()).numberSet
+	r = getIslandIndexes uOld uNew
+	islands = getIsland uOld uNew
+	r = unwrapSelection uOld uNew
+	
+	tileSize1 = #(512,512)
+	tileSize2 = #(1024,1024)
+	listTileSize = #(tileSize1,tileSize2)
+	maxSizeTile = #(2048,2048)
+	density = 128	
+		
+	scaleIslandAndPack islands listTileSize maxSizeTile density uNew 1000
+		
+	print islands
+	print islands.count
+	
+	n = 1000
+	listRect = getListRectsForIsland islands
+	listRect = Multiply10powerX listRect n false
+	enclosingRect = MRectangle width:n height: n
+	packedAll = false
+	r = packTile listRect enclosingRect 1000 &packedAll	
+	
+	reposIslands islands r n uNew 1
+	
+	print r[1]
+	print r.count
+	print listRect
 )
 
 ------- Old Pack ------------
