@@ -1,5 +1,6 @@
 ypath = undefined
 yInit = false
+ySetup = true
 fn saveIni =
 	(
 		local path = getThisScriptFilename() 
@@ -26,6 +27,12 @@ saveIni()
 ss = ypath + "lib\ylib.ms"
 ss =  "include \""+ss+"\""
 execute ss
+
+fFrom = ypath+"y3d_160.jpg"
+fTo = (getdir #userMacros) +"\\y3d_160.jpg"
+
+copy_override fFrom fTo
+
 
 fFrom = ypath+"y3d_main.mcr"
 fTo = (getdir #userMacros) +"\\y3d_main.mcr"

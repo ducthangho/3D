@@ -1,8 +1,17 @@
 global yInit
 if yInit != true then
 (
-	global sVer = #("v1","v2","release1","m1")
-	global ypath = undefined
+	global sVer = #("v1","m1","r1")
+	for i=1 to sVer.count do
+		(
+			execute("global "+sVer[i]+"_init")
+		)
+
+	global ypath
+	global presetDir = ((getdir #plugcfg) + "\\y3d\\presets\\")
+	global workspaceDir = ((getdir #scene) + "\\y3d\\")
+	global yFile
+	global gVarTmp -- use as a global tempory variable
 	global verIndex = 1
 	global loadIni
 	global reset_script
@@ -11,6 +20,10 @@ if yInit != true then
 	global copy_override
 	global y3dMenu
 	global addMenuItem
+	global saveIniArray
+	global loadIniArray
+	global initSetting
+	
 
 	fn yInclude fpath =
 		(
@@ -27,15 +40,19 @@ if yInit != true then
 					if ss[i] == "\\" then
 					(
 						ss = replace ss i 1 "/"
-					)
+					)					
+
 				)
+
 			ss =  "include \""+ss+"\""
+			print ss
 			execute ss
 		)
 
 	fn loadIni =
 		(
-			presetDir = ((getdir #plugcfg) + "\\y3d\\presets\\")
+			if (getDirectories workspaceDir).count == 0 then makeDir workspaceDir
+			local inputFName
 			inputFName = presetDir + "y3d.ini"
 			if ((getfiles inputFName).count != 0) then
 				(
@@ -53,18 +70,46 @@ if yInit != true then
 					ypath = getFilenamePath ypath
 					verIndex = 1
 				)
-			print ypath
+		)
+
+	fn loadIniArray fName keys =
+		(
+			if (getDirectories presetDir).count == 0 then makeDir presetDir
+			inputFName = presetDir + fName
+			if ((getfiles inputFName).count != 0) then
+				(
+					for i=1 to keys.count do
+						(
+							yFile = inputFName
+							execute("gVarTmp=getINISetting yFile \"Y3D\" \""+keys[i]+"\"")
+							execute("if gVarTmp != OK then PSetting."+keys[i]+" = gVarTmp")
+						)
+				)
+		)
+
+	fn saveIniArray fName keys =
+		(
+			local outputFile=""
+			if (getDirectories presetDir).count == 0 then makeDir presetDir
+			outputFile = presetDir + fName
+			if ((getfiles outputFile).count != 0) then deleteFile outputFile
+			for i=1 to keys.count do
+				(
+					local val
+					yFile = outputFile
+					val = execute("PSetting."+keys[i]) as string
+					execute("setINISetting yFile \"Y3D\" \""+keys[i]+"\" \""+val+"\"")
+				)
 		)
 
 	fn reset_script vIndex =
 		(
 			vname = sVer[vIndex]
-			fFrom = ypath+vname+"\\macro\\"+sVer[vIndex]+".mcr"
-			fTo = (getdir #userMacros) +"\\y3d-"+sVer[vIndex]+".mcr"
-			-- if ((getfiles dTo).count != 0) then deleteFile dTo
-			-- copyFile dFrom dTo
+			execute(vname+"_init=false")
+			fFrom = ypath+vname+"\\macro\\"+vname+".mcr"
+			fTo = (getdir #userMacros) +"\\y3d-"+vname+".mcr"
 			copy_override fFrom fTo
-			macros.load (ypath+sVer[vIndex]+"\macro")
+			macros.load (ypath+vname+"\macro")
 		)
 
 	fn copy_override fFrom fTo =
@@ -89,7 +134,6 @@ if yInit != true then
 			menuMan.updateMenuBar()
 		)
 
-
 	fn addMenuItem iName iType=
 		(
 			theAction = menuMan.createActionItem iName iType
@@ -97,12 +141,7 @@ if yInit != true then
 			menuMan.updateMenuBar()
 		)
 
-	y3dMenu = menuMan.findMenu "Yêu 3D"
-	if (y3dMenu != undefined) do (
-		menuMan.unRegisterMenu y3dMenu
-	)
-	y3dMenu = menuMan.createMenu "Yêu 3D"
-	print "y3d v 1.0 has been loaded"
+	print "ylib has been loaded"
 	loadIni()
 	yInit = true
 )

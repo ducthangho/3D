@@ -1,34 +1,93 @@
-if v1_init != true then
+
+-- global variables and functions
+if r1_init != true then
 (
+	
+
 	struct bakeInfoItem (old_mat_id,new_mat_id,old_mats)
-
-	global tileArray = #()
 	global bakeInfos = #()
-	global importantFacesArray = #()
-
-	global numAutoFace = 5
-	global tileCount = 4
-	global mapChannel = 4
-
-	global resetBakeFlow
 	global attachPoly
 	global detachSelection
 	global oldBakeGroup
 	global newBakeGroup
 	global originalObjects
-	global stepDone = 0
 
-	fn resetBakeFlow =
+	-- global form
+	global yf_main
+	global yf_main_setting
+	global yf_input_name
+
+
+	global TaskList
+	global currentTask
+	global currentJob
+
+	global PSetting
+	global TileBake
+	global PackType1
+	global PackType2
+
+	global projectName
+
+	struct pSettingClass
 		(
-			tileArray = #()
-			importantFacesArray = #()
-			if mapChannel == undefined then mapChannel = 4
-			if tileCount == undefined then tileCount = 4
-			oldBakeGroup = undefined
-			originalObjects = #()
-			newBakeGroup = #()
-			stepDone = 0
+			mapChannel=4,
+			numAutoFace=5,
+			tileCount=4,
+			selFaceMode=1,
+			packType=1,
+			bakeMapType=1,
+			defaultTileSize=128,
+
+			-- fn resetSetting useIni=
+			-- 	(
+			-- 		if (useIni==false) then
+			-- 			(
+			-- 				mapChannel=4
+			-- 				numAutoFace=5
+			-- 				tileCount=4
+			-- 				selFaceMode=1
+			-- 				packType=1
+			-- 			)
+			-- 		else
+			-- 			(
+
+			-- 			)
+
+			-- 	),
+
+			fn saveAsDefault =
+				(
+					keys = #(
+						"numAutoFace",
+						"tileCount",
+						"selFaceMode",
+						"mapChannel",
+						"packType",
+						"bakeMapType",
+						"defaultTileSize"
+					)
+					saveIniArray "\\r1.ini" keys
+				),
+
+			fn loadSetting =
+				(
+					keys = #(
+						"numAutoFace",
+						"tileCount",
+						"selFaceMode",
+						"mapChannel",
+						"packType",
+						"bakeMapType",
+						"defaultTileSize"
+					)
+					loadIniArray "\\r1.ini" keys		
+					-- mapChannel = mapChannel as integer
+					-- selFaceMode = selFaceMode as integer
+				)
+
 		)
+	PSetting = pSettingClass() -- project setting
 
 	fn PadValue n pad =
 		(
@@ -176,12 +235,6 @@ if v1_init != true then
 			)
 		)
 
-
-	fn clearNewBake =
-		(
-			for o in newBakeGroup do delete o
-		)
-
 	fn detachGeometry obj deleteOriginal keepWireColor CenterPivot PivotPlacement =
 		(
 		disableSceneRedraw()
@@ -259,6 +312,20 @@ if v1_init != true then
 			)
 		)
 
-	print "v1 has been loaded"
-	v1_init = true
+	fn beginSelect selectType =
+		(
+
+		)
+
+	if ySetup==true then
+		(
+			PSetting.saveAsDefault()
+		)
+	else
+		(
+			PSetting.loadSetting()
+		)	
+
+	print "r1 has been loaded"
+	r1_init = true
 )
