@@ -1,7 +1,7 @@
 global yInit
 if yInit != true then
 (
-	global sVer = #("v1","m1","r1")
+	global sVer = #("v1","m1","r1","r2")
 	for i=1 to sVer.count do
 		(
 			execute("global "+sVer[i]+"_init")
