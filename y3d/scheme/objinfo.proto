@@ -1,0 +1,32 @@
+
+// See README.txt for information and build instructions.
+//
+// Note: START and END tags are used in comments to define sections used in
+// tutorials.  They are not part of the syntax for Protocol Buffers.
+//
+// To get an in-depth walkthrough of this file and the related examples, see:
+// https://developers.google.com/protocol-buffers/docs/tutorials
+
+// [START declaration]
+syntax = "proto3";
+package y3d;
+// [END declaration]
+
+// [START csharp_declaration]
+option csharp_namespace = "Y3DMax.Data";
+// [END csharp_declaration]
+
+// [START messages]
+message ObjItem {
+  string oname = 1;
+  uint32 idx = 2; 
+  int32 num_faces = 3;
+  repeated float pos = 4;
+  repeated float omin = 5;
+  repeated float omax = 6;
+  repeated int32 xref = 7;
+}
+
+message ObjList {
+  repeated ObjItem objs = 1;
+}

@@ -1,0 +1,49 @@
+
+// See README.txt for information and build instructions.
+//
+// Note: START and END tags are used in comments to define sections used in
+// tutorials.  They are not part of the syntax for Protocol Buffers.
+//
+// To get an in-depth walkthrough of this file and the related examples, see:
+// https://developers.google.com/protocol-buffers/docs/tutorials
+
+// [START declaration]
+syntax = "proto3";
+package y3d;
+// [END declaration]
+
+// [START csharp_declaration]
+option csharp_namespace = "Y3D.Models";
+// [END csharp_declaration]
+
+// [START messages]
+
+message Point3 {
+	float x = 1;
+	float y = 2;
+	float z = 3;
+}
+
+message Box3 {
+	Point3 pmin = 1;
+	Point3 pmax = 2;
+}
+
+message YObject {
+  string oname = 1;
+  int32 num_faces = 2;
+  Point3 pos = 3;
+  Box3 bbox = 4;
+  repeated int32 xref = 5;
+}
+
+message YGroup {
+  string gname = 1;
+  repeated YObject objs = 2;
+}
+
+message YArea {
+  string aname = 1;
+  repeated YGroup groups = 2;
+  repeated YObject objs = 3;
+}
