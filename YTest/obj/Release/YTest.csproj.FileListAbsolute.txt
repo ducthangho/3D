@@ -1,0 +1,17 @@
+D:\y3d\code\y3d\YTest\bin\Release\YTest.exe.config
+D:\y3d\code\y3d\YTest\bin\Release\YTest.exe
+D:\y3d\code\y3d\YTest\bin\Release\YTest.pdb
+D:\y3d\code\y3d\YTest\bin\Release\Google.Protobuf.dll
+D:\y3d\code\y3d\YTest\bin\Release\ObjectListView.dll
+D:\y3d\code\y3d\YTest\bin\Release\y3d.dll
+D:\y3d\code\y3d\YTest\bin\Release\YMax.dll
+D:\y3d\code\y3d\YTest\bin\Release\y3d.pdb
+D:\y3d\code\y3d\YTest\bin\Release\YMax.pdb
+D:\y3d\code\y3d\YTest\bin\Release\ObjectListView.xml
+D:\y3d\code\y3d\YTest\obj\Release\YTest.csprojResolveAssemblyReference.cache
+D:\y3d\code\y3d\YTest\obj\Release\YTest.Form1.resources
+D:\y3d\code\y3d\YTest\obj\Release\YTest.Properties.Resources.resources
+D:\y3d\code\y3d\YTest\obj\Release\YTest.Sidebar1.resources
+D:\y3d\code\y3d\YTest\obj\Release\YTest.csproj.GenerateResource.Cache
+D:\y3d\code\y3d\YTest\obj\Release\YTest.exe
+D:\y3d\code\y3d\YTest\obj\Release\YTest.pdb

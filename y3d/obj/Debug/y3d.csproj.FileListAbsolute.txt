@@ -1,0 +1,14 @@
+D:\y3d\code\y3d\y3d\bin\Debug\y3d.pdb
+D:\y3d\code\y3d\y3d\bin\Debug\Newtonsoft.Json.dll
+D:\y3d\code\y3d\y3d\bin\Debug\Newtonsoft.Json.xml
+D:\y3d\code\y3d\y3d\obj\Debug\y3d.Form1.resources
+D:\y3d\code\y3d\y3d\obj\Debug\y3d.Properties.Resources.resources
+D:\y3d\code\y3d\y3d\obj\Debug\y3d.csproj.GenerateResource.Cache
+D:\y3d\code\y3d\y3d\obj\Debug\y3d.pdb
+D:\y3d\code\y3d\y3d\bin\Debug\Google.Protobuf.dll
+D:\y3d\code\y3d\y3d\bin\Debug\ObjectListView.dll
+D:\y3d\code\y3d\y3d\bin\Debug\ObjectListView.xml
+D:\y3d\code\y3d\y3d\bin\Debug\y3d.dll.config
+D:\y3d\code\y3d\y3d\bin\Debug\y3d.dll
+D:\y3d\code\y3d\y3d\obj\Debug\y3d.dll
+D:\y3d\code\y3d\y3d\obj\Debug\y3d.csprojResolveAssemblyReference.cache
