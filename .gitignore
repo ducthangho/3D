@@ -4,4 +4,13 @@ ref/*
 y3d/ymax/bin/*
 y3d/ytest/bin/*
 y3d/y3d/bin/*
+y3d/y3d/obj/*
+y3d/ytest/obj/*
+y3d/ymax/obj/*
+y3d/ycpp/obj/*
+*.opendb
+*.tlog
+*.db
+*.pdb
+*.cache
 
