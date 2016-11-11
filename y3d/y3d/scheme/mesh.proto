@@ -1,0 +1,82 @@
+
+// See README.txt for information and build instructions.
+//
+// Note: START and END tags are used in comments to define sections used in
+// tutorials.  They are not part of the syntax for Protocol Buffers.
+//
+// To get an in-depth walkthrough of this file and the related examples, see:
+// https://developers.google.com/protocol-buffers/docs/tutorials
+
+// [START declaration]
+syntax = "proto3";
+package y3d;
+// [END declaration]
+
+// [START csharp_declaration]
+option csharp_namespace = "y3d.Data";
+// [END csharp_declaration]
+
+// [START messages]
+
+message Point3 {
+	float x = 1;
+	float y = 2;
+	float z = 3;
+}
+
+message Box3 {
+	Point3 pmin = 1;
+	Point3 pmax = 2;
+}
+
+message MNMap {  
+	repeated int32 f = 1;
+	repeated Point3 v = 2;
+	int32 channel = 3;
+}
+
+message TriFace {
+	int32 v0 = 1;
+	int32 v1 = 2;
+	int32 v2 = 3;
+	uint32 smGroup = 4;
+	uint32 material = 5;
+}
+
+message QuadFace {
+	int32 v0 = 1;
+	int32 v1 = 2;
+	int32 v2 = 3;
+	int32 v3 = 4;
+	uint32 smGroup = 5;
+	uint32 material = 6;
+}
+
+
+message Mesh {
+	repeated Point3 v = 1;
+
+	repeated TriFace f3 = 13;
+	repeated QuadFace f4 = 14;
+
+	int32 selLevel = 3;
+	int32 dispFlag = 4;
+	Box3 bdgBox = 5;
+	repeated MNMap m = 6;
+	repeated bool vSel = 7;
+	repeated bool eSel = 8;
+	repeated bool fSel = 9;
+	repeated bool eVis = 10;
+	repeated Point3 mpNormal = 11;
+	repeated int32 mpFace = 12;
+}
+
+message YObject {
+	string name = 1;
+	int32 type = 2;
+	Mesh mesh = 3;
+}
+
+message YObjectList {
+  repeated YObject objs = 1;
+}
