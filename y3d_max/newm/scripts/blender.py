@@ -51,6 +51,7 @@ def unwrapFromBlender():
 	
 	selectedFace = readSelectefFace(ExportFolder+binarySelectedFace)
 	obj = bpy.data.objects[0]
+	obj.name += "_blend"
 	obj.select = True
 	scene = bpy.context.scene
 	scene.objects.active = obj
@@ -104,6 +105,7 @@ def test(binFile):
 def separateObject():
 	bpy.ops.object.mode_set(mode='OBJECT')
 	bpy.ops.object.duplicate(linked=False, mode='TRANSLATION')
+	bpy.context.active_object.name = "temp"
 
 	nodes = []
 	f = open(ExportFolder+binaryFacesObjects,"rb")
@@ -115,11 +117,40 @@ def separateObject():
 		nodes.append([name,numFace])
 		print ([name,numFace])
 	f.close()
-	
+
+	bpy.context.tool_settings.mesh_select_mode = (False, False, True)
+
+	count = 0
+	a = len(nodes)
+
 	for node in nodes:
 		numFace = node[1]
 		name = node[0]
-		print (name)
+
+		count += 1
+		if count > a - 1 :
+			bpy.context.active_object.name = name
+			break
+		obj = bpy.context.active_object
+
+		if bpy.ops.object.mode_set.poll():
+			bpy.ops.object.mode_set(mode='OBJECT')
+			bpy.ops.object.select_all(action='DESELECT')
+
+		bpy.ops.object.mode_set(mode='EDIT')
+		bpy.ops.mesh.select_all(action='DESELECT')
+
+		me = obj.data
+		bm = bmesh.from_edit_mesh(me)
+		bm.faces.ensure_lookup_table()
+		
+		for x in range(0,numFace):
+			bm.faces[x].select = True	
+
+		bpy.ops.mesh.separate(type='SELECTED')
+		bpy.context.selected_objects[0].name = name
+		bm.free()
+		bmesh.update_edit_mesh(obj.data, True)
 
 def test2(binFile):
 	unwrapFromBlender()
