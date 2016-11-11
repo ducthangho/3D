@@ -18,7 +18,7 @@ namespace YMax.Utilities
             Loader.Core.PushPrompt("XIN CHAOOOOOOO");
         }
 
-        public static void zz1(IntPtr obj, IntPtr info)
+        /*public static void zz1(IntPtr obj, IntPtr info)
         {
             var contructor = typeof(YArea).GetConstructors()[0];
 
@@ -40,9 +40,9 @@ namespace YMax.Utilities
             //System.Windows.Forms.MessageBox.Show("oe oeo oe oe1");
             var b = inf.CallParam.GetType();
             System.Windows.Forms.MessageBox.Show(b.ToString());
-        }
+        }//*/
         public static GlobalDelegates.Delegate5 fileSaveHandler = new GlobalDelegates.Delegate5(meomeo);
-        public static GlobalDelegates.Delegate5 zun1 = new GlobalDelegates.Delegate5(zz1);
+        //public static GlobalDelegates.Delegate5 zun1 = new GlobalDelegates.Delegate5(zz1);
 
         public static Actions.YMaxCommand ycommand = new Actions.YMaxCommand();
     }

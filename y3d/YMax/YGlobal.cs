@@ -106,7 +106,7 @@ namespace YMax
 
 
                 Loader.Global.RegisterNotification(Utilities.YProject.fileSaveHandler, null, SystemNotificationCode.FilePreSave);
-                Loader.Global.RegisterNotification(Utilities.YProject.zun1, null, SystemNotificationCode.Custom1);
+                //Loader.Global.RegisterNotification(Utilities.YProject.zun1, null, SystemNotificationCode.Custom1);
                 Loader.Global.ISceneEventManager.RegisterCallback(Utilities.YProject.ycommand, false, 50, true);
 
                 Actions.YExitCommand a = new Actions.YExitCommand();

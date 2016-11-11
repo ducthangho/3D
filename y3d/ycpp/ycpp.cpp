@@ -23,21 +23,68 @@
 #include <sstream>
 #include <cstring>
 #include "notify.h"
-
+#include <map>
 
 #define ycpp_CLASS_ID	Class_ID(0x68356c8d, 0x877e862a)
 
 
+inline int GetSceneNodes(INodeTab& i_nodeTab, INode* i_currentNode /*=NULL*/)
+{
+	int i;
+	if (i_currentNode == nullptr)
+	{
+		i_currentNode = GetCOREInterface()->GetRootNode();
+	}
+	else // IGame will crash 3ds Max if it is initialized with the root node.
+	{
+		i_nodeTab.AppendNode(i_currentNode);
+	}
+	for (i = 0; i < i_currentNode->NumberOfChildren(); i++)
+	{
+		GetSceneNodes(i_nodeTab, i_currentNode->GetChildNode(i));
+	}
+	return i_nodeTab.Count();
+}
+
 class ycpp : public GUP
 {
+
+	
+
 
 	static void TimeUnitsChanged(void *param, NotifyInfo *info)
 	{
 		mprintf(L"Day la time unit change: duoc goi tu ben Dotnet");
 	}
 
-	static void MyCustom1(void *param, NotifyInfo *info) {
-		mprintf(L"Day la CPP: duoc goi tu ben Dotnet");
+	static void FixNames(void *param, NotifyInfo *info) {
+		INodeTab nRef;
+		GetSceneNodes(nRef, nullptr);
+		auto* ip = GetCOREInterface();
+		
+		auto* nameMaker = ip->NewNameMaker();
+		GetCOREInterface13()->SetNameSuffixLength(2);
+		std::map<MSTR, int> mnames;
+
+		for (int i = 0; i < nRef.Count(); ++i) {			
+			auto* node = nRef[i];
+			MSTR nodeName(node->GetName());
+			MSTR tmp(nodeName);
+			tmp.toLower();
+			if (mnames.find(tmp) == mnames.end()) {
+				mnames[tmp]++;
+			}
+			else if (mnames[tmp]++ > 0) {
+				mprintf(L"Renaming %s ", nodeName);
+				nameMaker->MakeUniqueName(nodeName);
+				node->SetName(nodeName.data());
+				tmp = nodeName;
+				tmp.toLower();
+				mnames[tmp]++;
+				mprintf(L"to %s \n", nodeName);
+			};
+
+		}
 	}
 public:
 	//Constructor/Destructor
@@ -85,13 +132,19 @@ ClassDesc2* GetycppDesc() {
 
 ycpp::ycpp()
 {
-	RegisterNotification(TimeUnitsChanged, this, NOTIFY_TIMEUNITS_CHANGE);
-	RegisterNotification(MyCustom1, this, NOTIFY_FILE_PRE_SAVE);
+	//RegisterNotification(TimeUnitsChanged, this, NOTIFY_TIMEUNITS_CHANGE);
+	//RegisterNotification(FixNames, this, NOTIFY_FILE_POST_OPEN_PROCESS);
+	//RegisterNotification(FixNames, this, NOTIFY_FILE_POST_OPEN);
+	RegisterNotification(FixNames, this, 4098);
+	
 }
 
 ycpp::~ycpp()
 {
-	UnRegisterNotification(TimeUnitsChanged, this, NOTIFY_TIMEUNITS_CHANGE);
+	//UnRegisterNotification(TimeUnitsChanged, this, NOTIFY_TIMEUNITS_CHANGE);
+	//UnRegisterNotification(FixNames, this, NOTIFY_FILE_POST_OPEN_PROCESS);
+	//UnRegisterNotification(FixNames, this, NOTIFY_FILE_POST_OPEN);
+	UnRegisterNotification(FixNames, this, 4098);
 
 }
 
@@ -104,7 +157,7 @@ void ycpp::DeleteThis()
 // Activate and Stay Resident
 DWORD ycpp::Start()
 {
-	mprintf(L"Xin chao dong bao day la YCPP /n");
+	//mprintf(L"Xin chao dong bao day la YCPP \n");
 	
 	#pragma message(TODO("Do plugin initialization here"))
 	#pragma message(TODO("Return if you want remain loaded or not"))
