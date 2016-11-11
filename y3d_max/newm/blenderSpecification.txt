@@ -1,0 +1,6 @@
+Các bước thực hiện bên blender:
+
+1 - import file fbx
+2 - đọc các mặt được chọn từ file binary
+3 - unwrap các mặt được chọn và các mặt không được chọn từ blender
+4 - export từ blender ra fbx 

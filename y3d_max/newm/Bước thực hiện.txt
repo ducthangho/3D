@@ -1,0 +1,33 @@
+Bước 1: 
+	- Attach nhóm các object cần và chọn mặt
+
+Bước 2:
+	- chuyển sang blender và unwrap các mặt được chọn và các mặt không được chọn
+
+Bước 3:
+	- chuyển lại sang bên 3ds max để thực hiện pack phần unwrap
+
+Bước 4: 
+	- detach lại ra đúng các object như ban đầu
+
+
+Chi tiêt:
+
+Bước 1:
+	- Chọn các object
+	- Và attach được object A
+	- Convert A thành editable mesh  //đảm bảo object bên 3ds max và blender có cùng số mặt như nhau
+	- Chọn theo chế độ subelement là poly
+	- Lưu index của các mặt được chọn ra file bin
+Bước 2:
+	- export sang fbx
+	- thực hiện cmd
+	- cmd làm nhiệm vụ: 
+	        + unwrap các mặt được chọn và không được chọn (đã được lưu thông tin)
+	        + export lại object ra file fbx
+Bước 3:
+	- import lại file fbx từ blender
+	- pack những mặt được chọn
+
+Bước 4:
+	- nt

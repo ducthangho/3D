@@ -1,7 +1,8 @@
 global yInit
 if yInit != true then
 (
-	global sVer = #("v1","v2","release1","m1")
+	print "new m"
+	global sVer = #("v1","v2","release1","m1","newm")
 	global ypath = undefined
 	global verIndex = 1
 	global loadIni
