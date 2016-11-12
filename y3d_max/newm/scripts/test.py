@@ -1,1 +1,2 @@
-f = open(binFile,"rb")
+while True:
+	print ("ssssssssss")

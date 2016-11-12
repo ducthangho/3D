@@ -14,6 +14,8 @@ rollout DraftUIForTest "Untitled" width:190 height:303
 		fclose binFile
 
 		exportObjectToFBX $ exportFileName
+		cmd = blenderPath + " -b -P "+pythonScript
+		val = DOSCommand(cmd)
 	)
 
 	on btnAttach pressed do
@@ -60,4 +62,15 @@ fn readBinaryFile binaryFile =
 )
 
 createdialog DraftUIForTest
-readBinaryFile (exportFolder + binaryFacesObjects)
+--readBinaryFile (exportFolder + binaryFacesObjects)
+
+fn test = 
+(
+	local pythonScript = scriptFolder + "blender.py"
+	cmd = blenderPath + " -b -P "+ pythonScript
+	Project\export\blender\3dsMax.blend\" -b -P \"F:\WorkSpace\3D\y3d_max\newm\scripts\blender.py\""
+	print cmd
+	val = DOSCommand(cmd)
+)
+
+test()
