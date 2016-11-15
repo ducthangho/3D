@@ -67,6 +67,7 @@ namespace YMax
                 actionTable = Loader.Global.ActionTable.Create(idActionTable, 0, ref actionTableName);
                 actionTable.AppendOperation(new Actions.Y3DMainActionItem());
                 actionTable.AppendOperation(new Actions.ObjectManagerItem());
+                actionTable.AppendOperation(new Actions.Y3DTestActionItem());
                 actionCallback = new Actions.Y3DActionCallback();
                 actionManager.RegisterActionTable(actionTable);
                 actionManager.ActivateActionTable(actionCallback as ActionCallback, idActionTable);
@@ -104,8 +105,7 @@ namespace YMax
 
                 Loader.Global.COREInterface.MenuManager.UpdateMenuBar();
 
-
-                Loader.Global.RegisterNotification(Utilities.YProject.fileSaveHandler, null, SystemNotificationCode.FilePreSave);
+                //Loader.Global.RegisterNotification(Utilities.YProject.fileSaveHandler, null, SystemNotificationCode.FilePreSave);
                 //Loader.Global.RegisterNotification(Utilities.YProject.zun1, null, SystemNotificationCode.Custom1);
                 Loader.Global.ISceneEventManager.RegisterCallback(Utilities.YProject.ycommand, false, 50, true);
 

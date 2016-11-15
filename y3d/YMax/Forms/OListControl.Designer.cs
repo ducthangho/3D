@@ -56,9 +56,10 @@
             this.button1 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnThumbnail = new System.Windows.Forms.Button();
+            this.btnVer = new System.Windows.Forms.Button();
+            this.btnBakeNormal = new System.Windows.Forms.Button();
+            this.btnLow = new System.Windows.Forms.Button();
             this.btnXref = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.yoFastListView)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -317,9 +318,10 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.button4);
-            this.groupBox2.Controls.Add(this.button5);
-            this.groupBox2.Controls.Add(this.button3);
+            this.groupBox2.Controls.Add(this.btnThumbnail);
+            this.groupBox2.Controls.Add(this.btnVer);
+            this.groupBox2.Controls.Add(this.btnBakeNormal);
+            this.groupBox2.Controls.Add(this.btnLow);
             this.groupBox2.Controls.Add(this.btnXref);
             this.groupBox2.Location = new System.Drawing.Point(4, 493);
             this.groupBox2.Name = "groupBox2";
@@ -328,32 +330,41 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Object Detail";
             // 
-            // button4
+            // btnThumbnail
             // 
-            this.button4.Location = new System.Drawing.Point(7, 53);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(124, 23);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "Version manager";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnThumbnail.Location = new System.Drawing.Point(108, 53);
+            this.btnThumbnail.Name = "btnThumbnail";
+            this.btnThumbnail.Size = new System.Drawing.Size(97, 24);
+            this.btnThumbnail.TabIndex = 5;
+            this.btnThumbnail.Text = "Thumbnail";
+            this.btnThumbnail.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // btnVer
             // 
-            this.button5.Location = new System.Drawing.Point(7, 82);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(96, 24);
-            this.button5.TabIndex = 3;
-            this.button5.Text = "Bake normal";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnVer.Location = new System.Drawing.Point(149, 21);
+            this.btnVer.Name = "btnVer";
+            this.btnVer.Size = new System.Drawing.Size(56, 23);
+            this.btnVer.TabIndex = 4;
+            this.btnVer.Text = "Ver";
+            this.btnVer.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnBakeNormal
             // 
-            this.button3.Location = new System.Drawing.Point(69, 21);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(112, 24);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Make low poly";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnBakeNormal.Location = new System.Drawing.Point(6, 53);
+            this.btnBakeNormal.Name = "btnBakeNormal";
+            this.btnBakeNormal.Size = new System.Drawing.Size(96, 24);
+            this.btnBakeNormal.TabIndex = 3;
+            this.btnBakeNormal.Text = "Bake normal";
+            this.btnBakeNormal.UseVisualStyleBackColor = true;
+            // 
+            // btnLow
+            // 
+            this.btnLow.Location = new System.Drawing.Point(69, 21);
+            this.btnLow.Name = "btnLow";
+            this.btnLow.Size = new System.Drawing.Size(74, 24);
+            this.btnLow.TabIndex = 2;
+            this.btnLow.Text = "Low poly";
+            this.btnLow.UseVisualStyleBackColor = true;
             // 
             // btnXref
             // 
@@ -416,9 +427,10 @@
         private System.Windows.Forms.Button btnXref;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnVer;
+        private System.Windows.Forms.Button btnBakeNormal;
         private System.Windows.Forms.Label lbVerType;
+        private System.Windows.Forms.Button btnThumbnail;
+        private System.Windows.Forms.Button btnLow;
     }
 }

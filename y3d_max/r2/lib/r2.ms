@@ -13,6 +13,7 @@ if r2_init != true then
 	global originalObjects
 
 	global test_xref
+	global new_project_from_file
 
 	-- global form
 	global yf_main
@@ -322,6 +323,19 @@ if r2_init != true then
 	fn test_xref oname = 
 		(
 			MessageBox oname
+		)
+
+	fn new_project_from_file fname = 
+		(
+			MessageBox fname
+			resetMaxFile #noPrompt
+			mergeMaxFile fname #select #noRedraw #mergeDups #useMergedMtlDups #neverReparent quiet:true
+			local arrObjects = selection as array --
+			MessageBox (arrObjects.count as string)
+			for obj in arrObjects where obj.parent == undefined do
+				(
+					print obj.name
+				)
 		)
 
 	if ySetup==true then

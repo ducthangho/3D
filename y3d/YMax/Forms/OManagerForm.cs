@@ -13,8 +13,6 @@ namespace YMax.Forms
     public partial class OManagerForm : Form
     {
         private readonly Actions.ObjectManagerItem yAction;
-        private byte sizeMode = 1;
-        private byte oldSizeMode = 2;
         public OManagerForm(Actions.ObjectManagerItem yAction)
         {
             InitializeComponent();

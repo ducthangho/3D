@@ -32,17 +32,30 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Autodesk.Max">
       <HintPath>..\YMax\Refs\Autodesk.Max.dll</HintPath>
       <Private>False</Private>
-    </Reference>
-    <Reference Include="CSharpUtilities">
-      <HintPath>..\..\..\..\app\Autodesk\3ds Max 2015 SDK\maxsdk\assemblies\x64\Release\CSharpUtilities.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="ExplorerFramework">
-      <HintPath>..\..\..\..\app\Autodesk\3ds Max 2015 SDK\maxsdk\assemblies\x64\Release\ExplorerFramework.dll</HintPath>
     </Reference>
     <Reference Include="Google.Protobuf">
       <HintPath>..\YMax\Refs\Google.Protobuf.dll</HintPath>
@@ -51,21 +64,9 @@
       <HintPath>C:\Program Files\Autodesk\3ds Max 2015 SDK\maxsdk\assemblies\x64\Release\ManagedServices.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="MaxCustomControls">
-      <HintPath>..\..\..\..\app\Autodesk\3ds Max 2015 SDK\maxsdk\assemblies\x64\Release\MaxCustomControls.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="MaxMaterialBindings">
-      <HintPath>..\..\..\..\app\Autodesk\3ds Max 2015 SDK\maxsdk\assemblies\x64\Release\MaxMaterialBindings.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="ObjectListView, Version=2.9.1.1072, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4, processorArchitecture=MSIL">
       <HintPath>..\packages\ObjectListView.Official.2.9.1\lib\net20\ObjectListView.dll</HintPath>
       <Private>True</Private>
-    </Reference>
-    <Reference Include="SceneExplorer">
-      <HintPath>..\..\..\..\app\Autodesk\3ds Max 2015 SDK\maxsdk\assemblies\x64\Release\SceneExplorer.dll</HintPath>
-      <Private>False</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

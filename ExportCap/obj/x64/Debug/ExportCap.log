@@ -1,0 +1,323 @@
+﻿  DllEntry.cpp
+  ExportCap.cpp
+c:\program files (x86)\cap'n proto\include\kj\common.h(754): warning C4100: '__p': unreferenced formal parameter (compiling source file DllEntry.cpp)
+c:\program files (x86)\cap'n proto\include\kj\common.h(754): warning C4100: '__p': unreferenced formal parameter (compiling source file ExportCap.cpp)
+c:\program files (x86)\cap'n proto\include\kj\memory.h(92): warning C4100: 'pointer': unreferenced formal parameter (compiling source file DllEntry.cpp)
+c:\program files (x86)\cap'n proto\include\kj\memory.h(92): warning C4100: 'pointer': unreferenced formal parameter (compiling source file ExportCap.cpp)
+c:\program files (x86)\cap'n proto\include\kj\std\iostream.h(73): warning C4100: 'minBytes': unreferenced formal parameter (compiling source file ExportCap.cpp)
+c:\program files (x86)\cap'n proto\include\kj\std\iostream.h(73): warning C4100: 'minBytes': unreferenced formal parameter (compiling source file DllEntry.cpp)
+c:\program files (x86)\cap'n proto\include\capnp\common.h(62): warning C4100: 'other': unreferenced formal parameter (compiling source file ExportCap.cpp)
+c:\program files (x86)\cap'n proto\include\capnp\common.h(62): warning C4100: 'other': unreferenced formal parameter (compiling source file DllEntry.cpp)
+c:\program files (x86)\cap'n proto\include\capnp\common.h(63): warning C4100: 'other': unreferenced formal parameter (compiling source file ExportCap.cpp)
+c:\program files (x86)\cap'n proto\include\capnp\common.h(63): warning C4100: 'other': unreferenced formal parameter (compiling source file DllEntry.cpp)
+c:\program files (x86)\cap'n proto\include\capnp\layout.h(565): warning C4267: 'initializing': conversion from 'size_t' to 'capnp::BitCount32', possible loss of data (compiling source file ExportCap.cpp)
+c:\program files (x86)\cap'n proto\include\capnp\layout.h(565): warning C4267: 'initializing': conversion from 'size_t' to 'capnp::BitCount32', possible loss of data (compiling source file DllEntry.cpp)
+c:\program files (x86)\cap'n proto\include\capnp\layout.h(973): warning C4100: 'offset': unreferenced formal parameter (compiling source file DllEntry.cpp)
+c:\program files (x86)\cap'n proto\include\capnp\layout.h(973): warning C4100: 'offset': unreferenced formal parameter (compiling source file ExportCap.cpp)
+c:\program files (x86)\cap'n proto\include\capnp\layout.h(990): warning C4100: 'offset': unreferenced formal parameter (compiling source file ExportCap.cpp)
+c:\program files (x86)\cap'n proto\include\capnp\layout.h(990): warning C4100: 'offset': unreferenced formal parameter (compiling source file DllEntry.cpp)
+c:\program files (x86)\cap'n proto\include\capnp\layout.h(1026): warning C4100: 'value': unreferenced formal parameter (compiling source file ExportCap.cpp)
+c:\program files (x86)\cap'n proto\include\capnp\layout.h(1026): warning C4100: 'value': unreferenced formal parameter (compiling source file DllEntry.cpp)
+c:\program files (x86)\cap'n proto\include\capnp\layout.h(1026): warning C4100: 'offset': unreferenced formal parameter (compiling source file ExportCap.cpp)
+c:\program files (x86)\cap'n proto\include\capnp\layout.h(1026): warning C4100: 'offset': unreferenced formal parameter (compiling source file DllEntry.cpp)
+c:\program files (x86)\cap'n proto\include\capnp\layout.h(1057): warning C4100: 'offset': unreferenced formal parameter (compiling source file ExportCap.cpp)
+c:\program files (x86)\cap'n proto\include\capnp\layout.h(1057): warning C4100: 'offset': unreferenced formal parameter (compiling source file DllEntry.cpp)
+c:\program files (x86)\cap'n proto\include\capnp\layout.h(1082): warning C4100: 'offset': unreferenced formal parameter (compiling source file ExportCap.cpp)
+c:\program files (x86)\cap'n proto\include\capnp\layout.h(1082): warning C4100: 'offset': unreferenced formal parameter (compiling source file DllEntry.cpp)
+c:\program files (x86)\cap'n proto\include\capnp\layout.h(1126): warning C4100: 'index': unreferenced formal parameter (compiling source file ExportCap.cpp)
+c:\program files (x86)\cap'n proto\include\capnp\layout.h(1126): warning C4100: 'index': unreferenced formal parameter (compiling source file DllEntry.cpp)
+c:\program files (x86)\cap'n proto\include\capnp\layout.h(1158): warning C4100: 'value': unreferenced formal parameter (compiling source file ExportCap.cpp)
+c:\program files (x86)\cap'n proto\include\capnp\layout.h(1158): warning C4100: 'index': unreferenced formal parameter (compiling source file ExportCap.cpp)
+c:\program files (x86)\cap'n proto\include\capnp\layout.h(1158): warning C4100: 'value': unreferenced formal parameter (compiling source file DllEntry.cpp)
+c:\program files (x86)\cap'n proto\include\capnp\layout.h(1158): warning C4100: 'index': unreferenced formal parameter (compiling source file DllEntry.cpp)
+c:\program files (x86)\cap'n proto\include\capnp\layout.h(1183): warning C4100: 'index': unreferenced formal parameter (compiling source file ExportCap.cpp)
+c:\program files (x86)\cap'n proto\include\capnp\layout.h(1183): warning C4100: 'index': unreferenced formal parameter (compiling source file DllEntry.cpp)
+c:\program files (x86)\cap'n proto\include\capnp\any.h(929): warning C4100: 'defaultBytes': unreferenced formal parameter (compiling source file ExportCap.cpp)
+c:\program files (x86)\cap'n proto\include\capnp\any.h(929): warning C4100: 'defaultBytes': unreferenced formal parameter (compiling source file DllEntry.cpp)
+c:\program files (x86)\cap'n proto\include\capnp\any.h(928): warning C4100: 'defaultValue': unreferenced formal parameter (compiling source file ExportCap.cpp)
+c:\program files (x86)\cap'n proto\include\capnp\any.h(928): warning C4100: 'defaultValue': unreferenced formal parameter (compiling source file DllEntry.cpp)
+c:\program files (x86)\cap'n proto\include\capnp\any.h(934): warning C4100: 'defaultBytes': unreferenced formal parameter (compiling source file ExportCap.cpp)
+c:\program files (x86)\cap'n proto\include\capnp\any.h(934): warning C4100: 'defaultBytes': unreferenced formal parameter (compiling source file DllEntry.cpp)
+c:\program files (x86)\cap'n proto\include\capnp\any.h(933): warning C4100: 'defaultValue': unreferenced formal parameter (compiling source file ExportCap.cpp)
+c:\program files (x86)\cap'n proto\include\capnp\any.h(933): warning C4100: 'defaultValue': unreferenced formal parameter (compiling source file DllEntry.cpp)
+c:\program files (x86)\cap'n proto\include\kj\string-tree.h(92): warning C4100: 's': unreferenced formal parameter (compiling source file ExportCap.cpp)
+c:\program files (x86)\cap'n proto\include\kj\string-tree.h(92): warning C4100: 's': unreferenced formal parameter (compiling source file DllEntry.cpp)
+c:\program files (x86)\cap'n proto\include\kj\string-tree.h(93): warning C4100: 's': unreferenced formal parameter (compiling source file ExportCap.cpp)
+c:\program files (x86)\cap'n proto\include\kj\string-tree.h(93): warning C4100: 's': unreferenced formal parameter (compiling source file DllEntry.cpp)
+c:\program files (x86)\cap'n proto\include\kj\string-tree.h(97): warning C4100: 's': unreferenced formal parameter (compiling source file ExportCap.cpp)
+c:\program files (x86)\cap'n proto\include\kj\string-tree.h(97): warning C4100: 's': unreferenced formal parameter (compiling source file DllEntry.cpp)
+c:\program files (x86)\cap'n proto\include\kj\string-tree.h(98): warning C4100: 's': unreferenced formal parameter (compiling source file ExportCap.cpp)
+c:\program files (x86)\cap'n proto\include\kj\string-tree.h(98): warning C4100: 's': unreferenced formal parameter (compiling source file DllEntry.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(266): warning C4239: nonstandard extension used: 'argument': conversion from 'Point3' to 'Point3 &' (compiling source file ExportCap.cpp)
+  c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(266): note: A non-const reference may only be bound to an lvalue (compiling source file ExportCap.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(277): warning C4239: nonstandard extension used: 'argument': conversion from 'Matrix3' to 'Matrix3 &' (compiling source file ExportCap.cpp)
+  c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(277): note: A non-const reference may only be bound to an lvalue (compiling source file ExportCap.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(323): warning C4456: declaration of 'p' hides previous local declaration (compiling source file ExportCap.cpp)
+  c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(313): note: see declaration of 'p' (compiling source file ExportCap.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(330): warning C4456: declaration of 'tm' hides previous local declaration (compiling source file ExportCap.cpp)
+  c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(311): note: see declaration of 'tm' (compiling source file ExportCap.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(266): warning C4239: nonstandard extension used: 'argument': conversion from 'Point3' to 'Point3 &' (compiling source file DllEntry.cpp)
+  c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(266): note: A non-const reference may only be bound to an lvalue (compiling source file DllEntry.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(315): warning C4189: 'obj': local variable is initialized but not referenced (compiling source file ExportCap.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(277): warning C4239: nonstandard extension used: 'argument': conversion from 'Matrix3' to 'Matrix3 &' (compiling source file DllEntry.cpp)
+  c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(277): note: A non-const reference may only be bound to an lvalue (compiling source file DllEntry.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(360): warning C4100: 'sels': unreferenced formal parameter (compiling source file ExportCap.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(365): warning C4100: 'sels': unreferenced formal parameter (compiling source file ExportCap.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(371): warning C4100: 'sels': unreferenced formal parameter (compiling source file ExportCap.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(382): warning C4100: 'sels': unreferenced formal parameter (compiling source file ExportCap.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(323): warning C4456: declaration of 'p' hides previous local declaration (compiling source file DllEntry.cpp)
+  c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(313): note: see declaration of 'p' (compiling source file DllEntry.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(330): warning C4456: declaration of 'tm' hides previous local declaration (compiling source file DllEntry.cpp)
+  c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(311): note: see declaration of 'tm' (compiling source file DllEntry.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(473): warning C4100: 'sels': unreferenced formal parameter (compiling source file ExportCap.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(315): warning C4189: 'obj': local variable is initialized but not referenced (compiling source file DllEntry.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(519): warning C4100: 'f': unreferenced formal parameter (compiling source file ExportCap.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(360): warning C4100: 'sels': unreferenced formal parameter (compiling source file DllEntry.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(365): warning C4100: 'sels': unreferenced formal parameter (compiling source file DllEntry.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(371): warning C4100: 'sels': unreferenced formal parameter (compiling source file DllEntry.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(382): warning C4100: 'sels': unreferenced formal parameter (compiling source file DllEntry.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(473): warning C4100: 'sels': unreferenced formal parameter (compiling source file DllEntry.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(1046): warning C4100: 'f': unreferenced formal parameter (compiling source file ExportCap.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(519): warning C4100: 'f': unreferenced formal parameter (compiling source file DllEntry.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(1075): warning C4100: 'printAll': unreferenced formal parameter (compiling source file ExportCap.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(1075): warning C4100: 'in': unreferenced formal parameter (compiling source file ExportCap.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(1080): warning C4100: 'in': unreferenced formal parameter (compiling source file ExportCap.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(1084): warning C4100: 'in': unreferenced formal parameter (compiling source file ExportCap.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(1088): warning C4100: 'in': unreferenced formal parameter (compiling source file ExportCap.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(1093): warning C4100: 'in': unreferenced formal parameter (compiling source file ExportCap.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(1218): warning C4100: 'in': unreferenced formal parameter (compiling source file ExportCap.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(1223): warning C4100: 'in': unreferenced formal parameter (compiling source file ExportCap.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(1501): warning C4100: 'o': unreferenced formal parameter (compiling source file ExportCap.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(1046): warning C4100: 'f': unreferenced formal parameter (compiling source file DllEntry.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(1075): warning C4100: 'printAll': unreferenced formal parameter (compiling source file DllEntry.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(1075): warning C4100: 'in': unreferenced formal parameter (compiling source file DllEntry.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(1080): warning C4100: 'in': unreferenced formal parameter (compiling source file DllEntry.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(1084): warning C4100: 'in': unreferenced formal parameter (compiling source file DllEntry.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(1088): warning C4100: 'in': unreferenced formal parameter (compiling source file DllEntry.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(1093): warning C4100: 'in': unreferenced formal parameter (compiling source file DllEntry.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(1218): warning C4100: 'in': unreferenced formal parameter (compiling source file DllEntry.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(1223): warning C4100: 'in': unreferenced formal parameter (compiling source file DllEntry.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(1501): warning C4100: 'o': unreferenced formal parameter (compiling source file DllEntry.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(1703): warning C4100: 'mesh': unreferenced formal parameter (compiling source file ExportCap.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(1703): warning C4100: 'mesh': unreferenced formal parameter (compiling source file DllEntry.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(1834): warning C4267: 'argument': conversion from 'size_t' to 'int32_t', possible loss of data (compiling source file ExportCap.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(1840): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data (compiling source file ExportCap.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(1857): warning C4267: 'argument': conversion from 'size_t' to 'int32_t', possible loss of data (compiling source file ExportCap.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(1834): warning C4267: 'argument': conversion from 'size_t' to 'int32_t', possible loss of data (compiling source file DllEntry.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(1840): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data (compiling source file DllEntry.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(1857): warning C4267: 'argument': conversion from 'size_t' to 'int32_t', possible loss of data (compiling source file DllEntry.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(2105): warning C4100: 'isUndo': unreferenced formal parameter (compiling source file ExportCap.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(2143): warning C4100: 'isUndo': unreferenced formal parameter (compiling source file ExportCap.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(2184): warning C4459: declaration of 'ip' hides global declaration (compiling source file ExportCap.cpp)
+  c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(126): note: see declaration of 'ip' (compiling source file ExportCap.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(2105): warning C4100: 'isUndo': unreferenced formal parameter (compiling source file DllEntry.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(2273): warning C4100: 'obj': unreferenced formal parameter (compiling source file ExportCap.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(2143): warning C4100: 'isUndo': unreferenced formal parameter (compiling source file DllEntry.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(2278): warning C4100: 'obj': unreferenced formal parameter (compiling source file ExportCap.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(2184): warning C4459: declaration of 'ip' hides global declaration (compiling source file DllEntry.cpp)
+  c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(126): note: see declaration of 'ip' (compiling source file DllEntry.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(2273): warning C4100: 'obj': unreferenced formal parameter (compiling source file DllEntry.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(2278): warning C4100: 'obj': unreferenced formal parameter (compiling source file DllEntry.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(2588): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data (compiling source file ExportCap.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(2588): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data (compiling source file DllEntry.cpp)
+  c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\dllentry.cpp(78): TODO: Perform initialization here.
+  c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\dllentry.cpp(87): TODO: Perform un-initialization here.
+  c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.cpp(122): TODO: Return the 'i-th' file name extension (i.e. "3DS").
+  c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.cpp(128): TODO: Return long ASCII description (i.e. "Targa 2.0 Image File"
+  c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.cpp(134): TODO: Return short ASCII description (i.e. "Targa")
+  c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.cpp(140): TODO: Return ASCII Author name
+  c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.cpp(146): TODO: Return ASCII Copyright message
+  c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.cpp(164): TODO: Return Version number * 100 (i.e. v3.01 = 301)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.cpp(175): warning C4459: declaration of 'ip' hides global declaration
+  c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(126): note: see declaration of 'ip' (compiling source file ExportCap.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.cpp(175): warning C4100: 'ip': unreferenced formal parameter
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.cpp(208): warning C4459: declaration of 'ip' hides global declaration
+  c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(126): note: see declaration of 'ip' (compiling source file ExportCap.cpp)
+  c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.cpp(357): TODO: Initialize and open your file to write
+  c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.cpp(358): TODO: Access IGameScene object to extract useful information.
+  c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.cpp(360): TODO: return TRUE if the file was exported properly.
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.cpp(208): warning C4100: 'options': unreferenced formal parameter
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.cpp(208): warning C4100: 'suppressPrompts': unreferenced formal parameter
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.cpp(208): warning C4100: 'ei': unreferenced formal parameter
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.cpp(244): warning C4189: 'lopts': local variable is initialized but not referenced
+c:\program files (x86)\cap'n proto\include\capnp\pointer-helpers.h(88): warning C4267: 'argument': conversion from 'size_t' to 'capnp::uint', possible loss of data (compiling source file DllEntry.cpp)
+  c:\program files (x86)\cap'n proto\include\capnp\pointer-helpers.h(87): note: while compiling class template member function 'void capnp::_::PointerHelpers<capnp::List<capnp::Text,capnp::Kind::BLOB>,capnp::Kind::LIST>::set(capnp::_::PointerBuilder,kj::ArrayPtr<const capnp::Text::Reader>)' (compiling source file DllEntry.cpp)
+  c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\3d.capnp.h(3114): note: see reference to function template instantiation 'void capnp::_::PointerHelpers<capnp::List<capnp::Text,capnp::Kind::BLOB>,capnp::Kind::LIST>::set(capnp::_::PointerBuilder,kj::ArrayPtr<const capnp::Text::Reader>)' being compiled (compiling source file DllEntry.cpp)
+  c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\3d.capnp.h(3102): note: see reference to class template instantiation 'capnp::_::PointerHelpers<capnp::List<capnp::Text,capnp::Kind::BLOB>,capnp::Kind::LIST>' being compiled (compiling source file DllEntry.cpp)
+c:\program files (x86)\cap'n proto\include\capnp\pointer-helpers.h(88): warning C4267: 'argument': conversion from 'size_t' to 'capnp::uint', possible loss of data (compiling source file ExportCap.cpp)
+  c:\program files (x86)\cap'n proto\include\capnp\pointer-helpers.h(87): note: while compiling class template member function 'void capnp::_::PointerHelpers<capnp::List<capnp::Text,capnp::Kind::BLOB>,capnp::Kind::LIST>::set(capnp::_::PointerBuilder,kj::ArrayPtr<const capnp::Text::Reader>)' (compiling source file ExportCap.cpp)
+  c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\3d.capnp.h(3114): note: see reference to function template instantiation 'void capnp::_::PointerHelpers<capnp::List<capnp::Text,capnp::Kind::BLOB>,capnp::Kind::LIST>::set(capnp::_::PointerBuilder,kj::ArrayPtr<const capnp::Text::Reader>)' being compiled (compiling source file ExportCap.cpp)
+  c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\3d.capnp.h(3102): note: see reference to class template instantiation 'capnp::_::PointerHelpers<capnp::List<capnp::Text,capnp::Kind::BLOB>,capnp::Kind::LIST>' being compiled (compiling source file ExportCap.cpp)
+c:\program files (x86)\cap'n proto\include\kj\common.h(519): warning C4245: 'return': conversion from 'int' to 'unsigned char', signed/unsigned mismatch (compiling source file DllEntry.cpp)
+  c:\program files (x86)\cap'n proto\include\kj\common.h(526): note: see reference to function template instantiation 'T kj::MaxValue_::maxUnsigned<unsigned char>(void) const' being compiled
+          with
+          [
+              T=unsigned char
+          ] (compiling source file DllEntry.cpp)
+c:\program files (x86)\cap'n proto\include\kj\common.h(519): warning C4245: 'return': conversion from 'int' to 'unsigned short', signed/unsigned mismatch (compiling source file DllEntry.cpp)
+  c:\program files (x86)\cap'n proto\include\kj\common.h(527): note: see reference to function template instantiation 'T kj::MaxValue_::maxUnsigned<unsigned short>(void) const' being compiled
+          with
+          [
+              T=unsigned short
+          ] (compiling source file DllEntry.cpp)
+c:\program files (x86)\cap'n proto\include\kj\common.h(519): warning C4245: 'return': conversion from 'int' to 'unsigned char', signed/unsigned mismatch (compiling source file ExportCap.cpp)
+  c:\program files (x86)\cap'n proto\include\kj\common.h(526): note: see reference to function template instantiation 'T kj::MaxValue_::maxUnsigned<unsigned char>(void) const' being compiled
+          with
+          [
+              T=unsigned char
+          ] (compiling source file ExportCap.cpp)
+c:\program files (x86)\cap'n proto\include\kj\common.h(519): warning C4245: 'return': conversion from 'int' to 'unsigned short', signed/unsigned mismatch (compiling source file ExportCap.cpp)
+  c:\program files (x86)\cap'n proto\include\kj\common.h(527): note: see reference to function template instantiation 'T kj::MaxValue_::maxUnsigned<unsigned short>(void) const' being compiled
+          with
+          [
+              T=unsigned short
+          ] (compiling source file ExportCap.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(1290): warning C4239: nonstandard extension used: 'argument': conversion from 'format3d::Point3::Builder' to 'format3d::Point3::Builder &' (compiling source file DllEntry.cpp)
+  c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(1290): note: A non-const reference may only be bound to an lvalue (compiling source file DllEntry.cpp)
+  c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(1603): note: see reference to function template instantiation 'void storeMesh<MNMesh,format3d::Mesh::Builder>(MNMESH_IN &,MNMESH_OUT &,Matrix3 &,int,Box3 *)' being compiled
+          with
+          [
+              MNMESH_IN=MNMesh,
+              MNMESH_OUT=format3d::Mesh::Builder
+          ] (compiling source file DllEntry.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(1290): warning C4239: nonstandard extension used: 'argument': conversion from 'format3d::Point3::Builder' to 'format3d::Point3::Builder &' (compiling source file ExportCap.cpp)
+  c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(1290): note: A non-const reference may only be bound to an lvalue (compiling source file ExportCap.cpp)
+  c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(1603): note: see reference to function template instantiation 'void storeMesh<MNMesh,format3d::Mesh::Builder>(MNMESH_IN &,MNMESH_OUT &,Matrix3 &,int,Box3 *)' being compiled
+          with
+          [
+              MNMESH_IN=MNMesh,
+              MNMESH_OUT=format3d::Mesh::Builder
+          ] (compiling source file ExportCap.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(1565): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data (compiling source file DllEntry.cpp)
+  c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(1620): note: see reference to function template instantiation 'void saveMNMeshUVW<format3d::Mesh::Builder>(ObjectWrapper &,Mesh &,MNMESH_OUT &,BOOL)' being compiled
+          with
+          [
+              MNMESH_OUT=format3d::Mesh::Builder
+          ] (compiling source file DllEntry.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(1565): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data (compiling source file ExportCap.cpp)
+  c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(1620): note: see reference to function template instantiation 'void saveMNMeshUVW<format3d::Mesh::Builder>(ObjectWrapper &,Mesh &,MNMESH_OUT &,BOOL)' being compiled
+          with
+          [
+              MNMESH_OUT=format3d::Mesh::Builder
+          ] (compiling source file ExportCap.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(1566): warning C4189: 'j': local variable is initialized but not referenced (compiling source file DllEntry.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(1480): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data (compiling source file DllEntry.cpp)
+  c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(1604): note: see reference to function template instantiation 'void saveMNMeshUVW<format3d::Mesh::Builder>(PolyObject &,MNMesh &,MNMESH_OUT &,BOOL)' being compiled
+          with
+          [
+              MNMESH_OUT=format3d::Mesh::Builder
+          ] (compiling source file DllEntry.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(1566): warning C4189: 'j': local variable is initialized but not referenced (compiling source file ExportCap.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(1480): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data (compiling source file ExportCap.cpp)
+  c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(1604): note: see reference to function template instantiation 'void saveMNMeshUVW<format3d::Mesh::Builder>(PolyObject &,MNMesh &,MNMESH_OUT &,BOOL)' being compiled
+          with
+          [
+              MNMESH_OUT=format3d::Mesh::Builder
+          ] (compiling source file ExportCap.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(1481): warning C4189: 'j': local variable is initialized but not referenced (compiling source file DllEntry.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(1481): warning C4189: 'j': local variable is initialized but not referenced (compiling source file ExportCap.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(1519): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data (compiling source file DllEntry.cpp)
+  c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(1612): note: see reference to function template instantiation 'void saveMNMeshUVW<TriObject,format3d::Mesh::Builder>(Obj &,Mesh &,MNMESH_OUT &,BOOL)' being compiled
+          with
+          [
+              Obj=TriObject,
+              MNMESH_OUT=format3d::Mesh::Builder
+          ] (compiling source file DllEntry.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(1519): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data (compiling source file ExportCap.cpp)
+  c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(1612): note: see reference to function template instantiation 'void saveMNMeshUVW<TriObject,format3d::Mesh::Builder>(Obj &,Mesh &,MNMESH_OUT &,BOOL)' being compiled
+          with
+          [
+              Obj=TriObject,
+              MNMESH_OUT=format3d::Mesh::Builder
+          ] (compiling source file ExportCap.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(1520): warning C4189: 'j': local variable is initialized but not referenced (compiling source file DllEntry.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(1520): warning C4189: 'j': local variable is initialized but not referenced (compiling source file ExportCap.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(1879): warning C4189: 'mesh': local variable is initialized but not referenced (compiling source file DllEntry.cpp)
+  c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(1909): note: see reference to function template instantiation 'void saveObject<PolyObject>(OBJ &,format3d::Object::Builder &,Matrix3 &,int)' being compiled
+          with
+          [
+              OBJ=PolyObject
+          ] (compiling source file DllEntry.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(1879): warning C4189: 'mesh': local variable is initialized but not referenced (compiling source file ExportCap.cpp)
+  c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(1909): note: see reference to function template instantiation 'void saveObject<PolyObject>(OBJ &,format3d::Object::Builder &,Matrix3 &,int)' being compiled
+          with
+          [
+              OBJ=PolyObject
+          ] (compiling source file ExportCap.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(2431): warning C4100: 'node': unreferenced formal parameter (compiling source file DllEntry.cpp)
+  c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(2466): note: see reference to function template instantiation 'void saveObject<Object>(INode *,Obj &,TCHAR *,Matrix3 &,DWORD,int,wchar_t *)' being compiled
+          with
+          [
+              Obj=Object
+          ] (compiling source file DllEntry.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(2431): warning C4100: 'node': unreferenced formal parameter (compiling source file ExportCap.cpp)
+  c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(2466): note: see reference to function template instantiation 'void saveObject<Object>(INode *,Obj &,TCHAR *,Matrix3 &,DWORD,int,wchar_t *)' being compiled
+          with
+          [
+              Obj=Object
+          ] (compiling source file ExportCap.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(602): warning C4800: 'int': forcing value to bool 'true' or 'false' (performance warning) (compiling source file DllEntry.cpp)
+  c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(1305): note: see reference to function template instantiation 'void copyArr<BitArray,capnp::List<bool,capnp::Kind::PRIMITIVE>::Builder>(ARR_IN &,ARR_OUT &)' being compiled
+          with
+          [
+              ARR_IN=BitArray,
+              ARR_OUT=capnp::List<bool,capnp::Kind::PRIMITIVE>::Builder
+          ] (compiling source file DllEntry.cpp)
+  c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(1603): note: see reference to function template instantiation 'void storeMesh<MNMesh,format3d::Mesh::Builder>(MNMESH_IN &,MNMESH_OUT &,Matrix3 &,int,Box3 *)' being compiled
+          with
+          [
+              MNMESH_IN=MNMesh,
+              MNMESH_OUT=format3d::Mesh::Builder
+          ] (compiling source file DllEntry.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(602): warning C4800: 'int': forcing value to bool 'true' or 'false' (performance warning) (compiling source file ExportCap.cpp)
+  c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(1305): note: see reference to function template instantiation 'void copyArr<BitArray,capnp::List<bool,capnp::Kind::PRIMITIVE>::Builder>(ARR_IN &,ARR_OUT &)' being compiled
+          with
+          [
+              ARR_IN=BitArray,
+              ARR_OUT=capnp::List<bool,capnp::Kind::PRIMITIVE>::Builder
+          ] (compiling source file ExportCap.cpp)
+  c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(1603): note: see reference to function template instantiation 'void storeMesh<MNMesh,format3d::Mesh::Builder>(MNMESH_IN &,MNMESH_OUT &,Matrix3 &,int,Box3 *)' being compiled
+          with
+          [
+              MNMESH_IN=MNMesh,
+              MNMESH_OUT=format3d::Mesh::Builder
+          ] (compiling source file ExportCap.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(1497): warning C4800: 'BOOL': forcing value to bool 'true' or 'false' (performance warning) (compiling source file DllEntry.cpp)
+  c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(1508): note: see reference to function template instantiation 'bool hasUVW<Obj>(OBJ &)' being compiled
+          with
+          [
+              Obj=TriObject,
+              OBJ=TriObject
+          ] (compiling source file DllEntry.cpp)
+  c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(1612): note: see reference to function template instantiation 'void saveMNMeshUVW<TriObject,format3d::Mesh::Builder>(Obj &,Mesh &,MNMESH_OUT &,BOOL)' being compiled
+          with
+          [
+              Obj=TriObject,
+              MNMESH_OUT=format3d::Mesh::Builder
+          ] (compiling source file DllEntry.cpp)
+c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(1497): warning C4800: 'BOOL': forcing value to bool 'true' or 'false' (performance warning) (compiling source file ExportCap.cpp)
+  c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(1508): note: see reference to function template instantiation 'bool hasUVW<Obj>(OBJ &)' being compiled
+          with
+          [
+              Obj=TriObject,
+              OBJ=TriObject
+          ] (compiling source file ExportCap.cpp)
+  c:\users\ducthangho\documents\visual studio 2015\projects\exportcap\exportcap\exportcap.h(1612): note: see reference to function template instantiation 'void saveMNMeshUVW<TriObject,format3d::Mesh::Builder>(Obj &,Mesh &,MNMESH_OUT &,BOOL)' being compiled
+          with
+          [
+              Obj=TriObject,
+              MNMESH_OUT=format3d::Mesh::Builder
+          ] (compiling source file ExportCap.cpp)
+  ExportCap.obj : MSIL .netmodule or module compiled with /GL found; restarting link with /LTCG; add /LTCG to the link command line to improve linker performance
+     Creating library C:\Users\ducthangho\Documents\Visual Studio 2015\Projects\ExportCap\ExportCap\\obj\x64\Debug\\ExportCap.lib and object C:\Users\ducthangho\Documents\Visual Studio 2015\Projects\ExportCap\ExportCap\\obj\x64\Debug\\ExportCap.exp
+  Generating code
+  Finished generating code
+  ExportCap.vcxproj -> C:\Program Files\Autodesk\3ds Max 2015\plugins\ExportCap.dle
+  ExportCap.vcxproj -> C:\Program Files\Autodesk\3ds Max 2015\plugins\ExportCap.dle.pdb (Full PDB)
+  ==== RunMUIRCT: Start ====
+  RunMUIRCT: WARNING - Could not find version info in file: C:\Program Files\Autodesk\3ds Max 2015\plugins\ExportCap.dle
+  
+  There is no version resource in the file 
+  Language neutral file (C:\Program Files\Autodesk\3ds Max 2015\plugins\en-US\ExportCap.dle.ln) successfully created
+  MUI file (C:\Program Files\Autodesk\3ds Max 2015\plugins\en-US\ExportCap.dle.mui) successfully created 
+  ==== RunMUIRCT: Successs ====
