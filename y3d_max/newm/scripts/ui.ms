@@ -1,23 +1,20 @@
 rollout DraftUIForTest "Untitled" width:190 height:303
 (
-	button btnUnwrap "ExportFBX" pos:[44,111] width:90 height:34
+	button btnUnwrap "ExportFBX" pos:[46,96] width:90 height:34
 	button btnAttach "Attach các object" pos:[41,24] width:99 height:35
 	
-	on btnUnwrap pressed do
-	(
-		local sf = for i in $.selectedFaces collect i.index
-		local binFile = fopen (exportFolder + binarySelectedFace)  "wb"
-		for i = 1 to sf.count do
-		(
-			WriteLong binFile sf[i]
-		)
-		fclose binFile
+	button btnMakeLowPoly "MakeLowPoly" pos:[16,164] width:78 height:32
+	edittext edtRatio "ratio" pos:[106,164] width:76 height:35
 
-		exportObjectToFBX $ exportFileName
-		cmd = blenderPath + " -b -P "+pythonScript
-		val = DOSCommand(cmd)
+	on DraftUIForTest open do
+	(
+		edtRatio.text = "0.1"
 	)
 
+	on btnUnwrap pressed do
+	(
+		unwrap()
+	)
 	on btnAttach pressed do
 	(
 		convertToPoly $
@@ -43,6 +40,38 @@ rollout DraftUIForTest "Untitled" width:190 height:303
 		max modify mode
 		subobjectLevel = 4
 	)
+
+	on btnMakeLowPoly pressed  do
+	(	
+		local ratio = edtRatio.text as float
+		makeLowPoly ratio
+	)
+)
+
+fn unwrap = 
+(	
+	local sf = for i in $.selectedFaces collect i.index
+		local binFile = fopen (exportFolder + binarySelectedFace)  "wb"
+		for i = 1 to sf.count do
+		(
+			WriteLong binFile sf[i]
+		)
+		fclose binFile
+	
+		exportObjectToFBX $ exportFileName
+	
+		local pythonScript = scriptFolder + "blender.py"
+		local cmd = blenderPath + " -b -P "+ pythonScript + " -- unwrap"
+		val = DOSCommand(cmd)
+)
+
+fn makeLowPoly ratio = 
+(	
+	exportObjectToFBX $ exportHightPolyFileName
+	local pythonScript = scriptFolder + "blender.py"
+	local cmd = blenderPath + " -b -P "+ pythonScript + " -- makeLowPoly "+ ratio as string
+	--local cmd = blenderPath + " -b -P "+ pythonScript + " -- makeLowPoly "
+	val = DOSCommand(cmd)
 )
 
 fn readBinaryFile binaryFile = 
@@ -62,15 +91,3 @@ fn readBinaryFile binaryFile =
 )
 
 createdialog DraftUIForTest
---readBinaryFile (exportFolder + binaryFacesObjects)
-
-fn test = 
-(
-	local pythonScript = scriptFolder + "blender.py"
-	cmd = blenderPath + " -b -P "+ pythonScript
-	Project\export\blender\3dsMax.blend\" -b -P \"F:\WorkSpace\3D\y3d_max\newm\scripts\blender.py\""
-	print cmd
-	val = DOSCommand(cmd)
-)
-
-test()

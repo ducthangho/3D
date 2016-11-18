@@ -1,5 +1,6 @@
 global exportFolder = "F:\\WorkSpace\\3Ds Max\\Building Phong Tam Project\\export\\blender\\"
 global exportFileName = "3dsNodes.fbx";
+global exportHightPolyFileName = "3dsNodesHightPoly.fbx"
 global binaryFacesObjects = "3dsFaces.bin"
 global binarySelectedFace = "3dsSelectedFace.bin"
 global blenderPath = "\"C:\\Program Files\\Blender Foundation\\Blender\\blender.exe\""

@@ -1,15 +1,20 @@
 import bpy
 import struct
 import bmesh
+import sys
 
 ExportFolder = "F:\\WorkSpace\\3Ds Max\\Building Phong Tam Project\\export\\blender\\"
 importFileName  = "3dsNodes.fbx"
 exportFileName = "blenderNodes.fbx"
+importFileNameLowPoly = "3dsNodesHightPoly.fbx"
+exportFileNameLowPoly = "blenderNodesLowPoly.fbx"
 lowPolyFileName = "blenderLowPoly.fbx"
 binarySelectedFace = "3dsSelectedFace.bin"
 binaryFacesObjects = "3dsFaces.bin"
-saveFile = "F:\\WorkSpace\\3Ds Max\\Building Phong Tam Project\\export\\blender\\3dsMax.blend"
-
+savedFile = "F:\\WorkSpace\\3Ds Max\\Building Phong Tam Project\\export\\blender\\3dsMax.blend"
+savedFileAfterMakeLowPoly = "F:\\WorkSpace\\3Ds Max\\Building Phong Tam Project\\export\\blender\\saveFileAfterMakeLowPoly.blend"
+argMakeLowPoly = 'makeLowPoly'
+argUnwrap = 'unwrap'
 
 def importFBX(filePath):
 	 bpy.ops.import_scene.fbx(filepath=filePath, axis_forward='-Z', axis_up='Y', directory="", filter_glob="*.fbx", ui_tab='MAIN', use_manual_orientation=False,
@@ -35,10 +40,8 @@ def readSelectefFace(binFile):
 			break;
 		fid = struct.unpack('i',n)[0]
 		faceIds.append(fid)
-		print (fid)
 	f.close()
 	return faceIds
-# importFBX(ExportFolder+fileName)
 
 def readcstr(f):
 	buf = bytearray()
@@ -50,10 +53,15 @@ def readcstr(f):
 			buf = buf + b
 
 def deleteAllObject():
-	if bpy.ops.object.mode_set.poll():
-		bpy.ops.object.mode_set(mode='OBJECT')
-		bpy.ops.object.select_all(action='SELECT')
-		bpy.ops.object.delete(use_global=True)
+	if(len(bpy.data.objects)!=0):
+		if bpy.ops.object.mode_set.poll():
+			bpy.ops.object.mode_set(mode='OBJECT')
+			bpy.ops.object.select_all(action='SELECT')
+			bpy.ops.object.delete(use_global=True)
+		else:
+			bpy.data.objects[0].select = True
+			bpy.ops.object.select_all(action='SELECT')
+			bpy.ops.object.delete(use_global=True)
 
 def unwrapFromBlender():
 	deleteAllObject()
@@ -92,115 +100,49 @@ def unwrapFromBlender():
 	bm.free()
 	bpy.ops.uv.smart_project()
 
-def test(binFile):
-	f = open(binFile,"rb")
-
-	n = readcstr(f)
-	print (n)
-	print (struct.unpack('i',f.read(4))[0])
-
-	n = readcstr(f)
-	print (n)
-	print (struct.unpack('i',f.read(4))[0])
-
-	n = readcstr(f)
-	print (n)
-	print (struct.unpack('i',f.read(4))[0])
-
-	n = readcstr(f)
-	print (n)
-	a = f.read(4)
-	print (len(n))
-
-def separateObject():
-	bpy.ops.object.mode_set(mode='OBJECT')
-	bpy.ops.object.duplicate(linked=False, mode='TRANSLATION')
-	bpy.context.active_object.name = "temp"
-
-	nodes = []
-	f = open(ExportFolder+binaryFacesObjects,"rb")
-	while(True):
-		name = readcstr(f)
-		if len(name) == 0 :
-			break
-		numFace = struct.unpack('i',f.read(4))[0]
-		nodes.append([name,numFace])
-		print ([name,numFace])
-	f.close()
-
-	bpy.context.tool_settings.mesh_select_mode = (False, False, True)
-
-	count = 0
-	a = len(nodes)
-
-	for node in nodes:
-		numFace = node[1]
-		name = node[0]
-
-		count += 1
-		if count > a - 1 :
-			bpy.context.active_object.name = name
-			bpy.context.active_object["LowPoly"] = 1
-			bpy.context.active_object["NumFace"] = numFace
-			break
-		obj = bpy.context.active_object
-
-		if bpy.ops.object.mode_set.poll():
-			bpy.ops.object.mode_set(mode='OBJECT')
-			bpy.ops.object.select_all(action='DESELECT')
-
-		bpy.ops.object.mode_set(mode='EDIT')
-		bpy.ops.mesh.select_all(action='DESELECT')
-
-		me = obj.data
-		bm = bmesh.from_edit_mesh(me)
-		bm.faces.ensure_lookup_table()
-		
-		for x in range(0,numFace):
-			bm.faces[x].select = True	
-
-		bpy.ops.mesh.separate(type='SELECTED')
-		bpy.context.selected_objects[0].name = name
-		bpy.context.selected_objects[0]["LowPoly"] = 1
-		bpy.context.selected_objects[0]["NumFace"] = numFace
-		bm.free()
-		bmesh.update_edit_mesh(obj.data, True)
-
-def makeLowPoly():
-	bpy.ops.object.mode_set(mode='OBJECT')
-	for obj in bpy.data.objects:
-		if "LowPoly" in obj:
-			bpy.context.scene.objects.active = obj
-			numFace = obj["NumFace"]
-			if numFace < 576:
-				continue
-			bpy.ops.object.modifier_add(type='DECIMATE')
-			print ("Numface: "+str(numFace))
-			if numFace > 991:
-				bpy.context.object.modifiers["Decimate"].ratio = 0.09
-			elif numFace > 575:
-				bpy.context.object.modifiers["Decimate"].ratio = 0.45
-			bpy.ops.object.modifier_apply(apply_as='DATA',modifier='Decimate')
-
-def test2(binFile):
-	unwrapFromBlender()
-
-def test3():
-	unwrapFromBlender()
 	exportFBX(exportFileName)
-	separateObject()
-	makeLowPoly()
-	bpy.ops.wm.save_as_mainfile(filepath=saveFile)
-	
-	if bpy.ops.object.mode_set.poll():
-		bpy.ops.object.mode_set(mode='OBJECT')
-		bpy.ops.object.select_all(action='DESELECT')
-	for obj in bpy.data.objects:
-		if "LowPoly" in obj:
-			obj.select = True
-	exportFBX(lowPolyFileName)
-	# test(ExportFolder+binaryFacesObjects)
+	bpy.ops.wm.save_as_mainfile(filepath=savedFile)
 
-# test2(ExportFolder+binarySelectedFace)
-# test(ExportFolder+binaryFacesObjects)
-test3()
+def makeLowPoly(ratio = None):
+	if ratio == None:
+		deleteAllObject()
+		importFBX(ExportFolder+importFileNameLowPoly)
+		for obj in bpy.data.objects:
+				numFace = len(obj.data.polygons)
+				if numFace < 576:
+					continue
+				bpy.context.scene.objects.active = obj
+				bpy.ops.object.modifier_add(type='DECIMATE')
+				if numFace > 991:
+					bpy.context.object.modifiers["Decimate"].ratio = 0.09
+				elif numFace > 575:
+					bpy.context.object.modifiers["Decimate"].ratio = 0.45
+				bpy.ops.object.modifier_apply(apply_as='DATA',modifier='Decimate')
+	else:
+		deleteAllObject()
+		importFBX(ExportFolder+importFileNameLowPoly)
+		for obj in bpy.data.objects:
+				bpy.context.scene.objects.active = obj
+				bpy.ops.object.modifier_add(type='DECIMATE')
+				bpy.context.object.modifiers["Decimate"].ratio = ratio
+				bpy.ops.object.modifier_apply(apply_as='DATA',modifier='Decimate')
+	
+	exportFBX(exportFileNameLowPoly)	
+	bpy.ops.wm.save_as_mainfile(filepath=savedFileAfterMakeLowPoly)
+
+def test():
+	argv = sys.argv
+	argv = argv[argv.index("--") + 1:]  # get all args after "--"
+
+	if(argv[0] == argMakeLowPoly):
+		if(len(argv) == 1):
+			makeLowPoly()
+		else:
+			ratio = float(argv[1])
+			makeLowPoly(ratio)
+
+	if(argv[0] == argUnwrap):
+		unwrapFromBlender()
+	
+# test()
+unwrapFromBlender()
