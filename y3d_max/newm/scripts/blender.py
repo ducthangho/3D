@@ -11,8 +11,8 @@ exportFileNameLowPoly = "blenderNodesLowPoly.fbx"
 lowPolyFileName = "blenderLowPoly.fbx"
 binarySelectedFace = "3dsSelectedFace.bin"
 binaryFacesObjects = "3dsFaces.bin"
-savedFile = "F:\\WorkSpace\\3Ds Max\\Building Phong Tam Project\\export\\blender\\3dsMax.blend"
-savedFileAfterMakeLowPoly = "F:\\WorkSpace\\3Ds Max\\Building Phong Tam Project\\export\\blender\\saveFileAfterMakeLowPoly.blend"
+savedFile = ExportFolder+"3dsMax.blend"
+savedFileAfterMakeLowPoly = ExportFolder + "saveFileAfterMakeLowPoly.blend"
 argMakeLowPoly = 'makeLowPoly'
 argUnwrap = 'unwrap'
 
@@ -64,7 +64,6 @@ def deleteAllObject():
 			bpy.ops.object.delete(use_global=True)
 
 def unwrapFromBlender():
-	deleteAllObject()
 	importFBX(ExportFolder+importFileName)
 	
 	selectedFace = readSelectefFace(ExportFolder+binarySelectedFace)
@@ -104,9 +103,8 @@ def unwrapFromBlender():
 	bpy.ops.wm.save_as_mainfile(filepath=savedFile)
 
 def makeLowPoly(ratio = None):
+	importFBX(ExportFolder+importFileNameLowPoly)
 	if ratio == None:
-		deleteAllObject()
-		importFBX(ExportFolder+importFileNameLowPoly)
 		for obj in bpy.data.objects:
 				numFace = len(obj.data.polygons)
 				if numFace < 576:
@@ -119,8 +117,6 @@ def makeLowPoly(ratio = None):
 					bpy.context.object.modifiers["Decimate"].ratio = 0.45
 				bpy.ops.object.modifier_apply(apply_as='DATA',modifier='Decimate')
 	else:
-		deleteAllObject()
-		importFBX(ExportFolder+importFileNameLowPoly)
 		for obj in bpy.data.objects:
 				bpy.context.scene.objects.active = obj
 				bpy.ops.object.modifier_add(type='DECIMATE')
@@ -144,5 +140,4 @@ def test():
 	if(argv[0] == argUnwrap):
 		unwrapFromBlender()
 	
-# test()
-unwrapFromBlender()
+test()
