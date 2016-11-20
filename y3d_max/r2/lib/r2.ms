@@ -2,8 +2,6 @@
 -- global variables and functions
 if r2_init != true then
 (
-	
-
 	struct bakeInfoItem (old_mat_id,new_mat_id,old_mats)
 	global bakeInfos = #()
 	global attachPoly
@@ -14,6 +12,7 @@ if r2_init != true then
 
 	global test_xref
 	global new_project_from_file
+	global yxref_selected
 
 	-- global form
 	global yf_main
@@ -337,6 +336,52 @@ if r2_init != true then
 					print obj.name
 				)
 		)
+
+	fn exportObjectToFBX filename exportFolder = 
+	(
+		if (exportFolder =="") then
+			exportFolder = maxFilePath
+		local filePath = exportFolder + filename
+		exportFile filePath #noPrompt selectedOnly:true 
+	)
+
+	fn makeLowPoly ratio = 
+	(	
+		tempPath = pathConfig.GetDir #temp
+		blenderPath = "\"C:\\Program Files\\Blender Foundation\\Blender\\blender.exe\""
+		exportFile (tempPath + "\\3dsNodesHightPoly.fbx") #noPrompt selectedOnly:true 
+		local pythonScript = ypath  + "\\r2\\python\\blender.py"
+		-- local cmd = blenderPath + " -b -P \"" + pythonScript + "\" -- makeLowPoly "+ ratio as string
+		local cmd = blenderPath + " --factory-startup -b -P \"" + pythonScript + "\""
+		cmd += " -- \"" + tempPath + "\""
+		cmd += " makeLowPoly"
+		if (ratio!=-1) then
+			cmd += " " + ratio as string
+		print cmd
+		val = DOSCommand(cmd)
+	)
+
+	fn yxref_selected = 
+	(
+		fname = substring maxFileName 1 (maxFileName.count-4)
+		path = maxFilePath + fname + "_test_"
+		high_path = path + "high.max"
+		low_path = path + "low.max"
+		saveNodes selection high_path
+		makeLowPoly -1
+		saveNodes selection low_path
+		max delete
+		xref_b = objXRefMgr.AddXRefItemsFromFile low_path
+		items = #()
+		xref_b.GetItems #XRefObjectType &items
+		for item in items do 
+			(
+				objXRefMgr.SetProxyItemSrcFile item high_path
+			)
+		-- oxb = xref_b.getItem 1 #XRefObjectType
+		-- objXRefMgr.SetProxyItemSrcFile oxb high_path
+
+	)
 
 	if ySetup==true then
 		(

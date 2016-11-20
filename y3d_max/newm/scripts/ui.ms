@@ -1,3 +1,18 @@
+fn makeLowPoly ratio = 
+(	
+	tempPath = pathConfig.GetDir #temp
+	blenderPath = "\"C:\\Program Files\\Blender Foundation\\Blender\\blender.exe\""
+	exportFile (tempPath + "\\3dsNodesHightPoly.fbx") #noPrompt selectedOnly:true 
+	local pythonScript = ypath  + "\\newm\\scripts\\blender.py"
+	local cmd = blenderPath + " --factory-startup -b -P \"" + pythonScript + "\""
+	cmd += " -- \"" + tempPath + "\""
+	cmd += " makeLowPoly"
+	if (ratio!=-1) then
+		cmd += " " + ratio as string
+	print cmd
+	val = DOSCommand(cmd)
+)
+
 rollout DraftUIForTest "Untitled" width:190 height:303
 (
 	button btnUnwrap "ExportFBX" pos:[46,96] width:90 height:34
@@ -44,6 +59,8 @@ rollout DraftUIForTest "Untitled" width:190 height:303
 	on btnMakeLowPoly pressed  do
 	(	
 		local ratio = edtRatio.text as float
+		if (edtRatio.text=="") then
+			ratio = -1;
 		makeLowPoly ratio
 	)
 )
@@ -65,14 +82,16 @@ fn unwrap =
 		val = DOSCommand(cmd)
 )
 
-fn makeLowPoly ratio = 
-(	
-	exportObjectToFBX $ exportHightPolyFileName
-	local pythonScript = scriptFolder + "blender.py"
-	local cmd = blenderPath + " -b -P "+ pythonScript + " -- makeLowPoly "+ ratio as string
-	--local cmd = blenderPath + " -b -P "+ pythonScript + " -- makeLowPoly "
-	val = DOSCommand(cmd)
-)
+-- fn makeLowPoly ratio = 
+-- (	
+-- 	exportObjectToFBX $ exportHightPolyFileName
+-- 	local pythonScript = scriptFolder + "blender.py"
+-- 	local cmd = blenderPath + " -b -P "+ pythonScript + " -- makeLowPoly "+ ratio as string
+-- 	print cmd
+-- 	val = DOSCommand(cmd)
+-- )
+
+
 
 fn readBinaryFile binaryFile = 
 (	
