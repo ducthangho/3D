@@ -109,6 +109,7 @@ def makeLowPoly(ExportFolder = "D:\\", ratio = None):
 	importFBX(ExportFolder+importFileNameLowPoly)
 	if ratio == None:
 		for obj in bpy.data.objects:
+			if (obj.type=='MESH'):
 				numFace = len(obj.data.polygons)
 				if numFace < 576:
 					continue
@@ -121,6 +122,7 @@ def makeLowPoly(ExportFolder = "D:\\", ratio = None):
 				bpy.ops.object.modifier_apply(apply_as='DATA',modifier='Decimate')
 	else:
 		for obj in bpy.data.objects:
+			if (obj.type=='MESH'):
 				bpy.context.scene.objects.active = obj
 				bpy.ops.object.modifier_add(type='DECIMATE')
 				bpy.context.object.modifiers["Decimate"].ratio = ratio

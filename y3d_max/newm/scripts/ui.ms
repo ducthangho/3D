@@ -10,7 +10,8 @@ fn makeLowPoly ratio =
 	if (ratio!=-1) then
 		cmd += " " + ratio as string
 	print cmd
-	val = DOSCommand(cmd)
+	-- cmd += "; set /p uname=uname:"
+	val = HiddenDOSCommand cmd
 )
 
 rollout DraftUIForTest "Untitled" width:190 height:303

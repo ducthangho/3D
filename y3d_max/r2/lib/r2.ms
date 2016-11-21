@@ -351,15 +351,15 @@ if r2_init != true then
 		blenderPath = "\"C:\\Program Files\\Blender Foundation\\Blender\\blender.exe\""
 		exportFile (tempPath + "\\3dsNodesHightPoly.fbx") #noPrompt selectedOnly:true 
 		local pythonScript = ypath  + "\\r2\\python\\blender.py"
-		-- local cmd = blenderPath + " -b -P \"" + pythonScript + "\" -- makeLowPoly "+ ratio as string
 		local cmd = blenderPath + " --factory-startup -b -P \"" + pythonScript + "\""
 		cmd += " -- \"" + tempPath + "\""
 		cmd += " makeLowPoly"
 		if (ratio!=-1) then
 			cmd += " " + ratio as string
 		print cmd
-		val = DOSCommand(cmd)
+		val = HiddenDOSCommand(cmd)
 	)
+
 
 	fn yxref_selected = 
 	(
@@ -369,14 +369,17 @@ if r2_init != true then
 		low_path = path + "low.max"
 		saveNodes selection high_path
 		makeLowPoly -1
-		saveNodes selection low_path
 		max delete
+		importFile (pathConfig.GetDir #temp + "\\blenderNodesLowPoly.fbx") #noPrompt
+		saveNodes selection low_path
+		
 		xref_b = objXRefMgr.AddXRefItemsFromFile low_path
 		items = #()
 		xref_b.GetItems #XRefObjectType &items
 		for item in items do 
 			(
 				objXRefMgr.SetProxyItemSrcFile item high_path
+				item.proxyItemName = item.objectName
 			)
 		-- oxb = xref_b.getItem 1 #XRefObjectType
 		-- objXRefMgr.SetProxyItemSrcFile oxb high_path
