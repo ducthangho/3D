@@ -111,6 +111,9 @@ namespace YMax
 
                 Actions.YExitCommand a = new Actions.YExitCommand();
                 Loader.Core.RegisterExitMAXCallback(a);
+
+                //Loader.Core.DisableSceneRedraw();
+                
                 //Loader.Global.BroadcastNotification(SystemNotificationCode.FilePreSave);
                 //Loader.Core.regi
                 return 0;

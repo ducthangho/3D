@@ -18,6 +18,10 @@ namespace YMax.Utilities
             Loader.Core.PushPrompt("XIN CHAOOOOOOO");
         }
 
+        public static void loadPSetting()
+        {
+
+        }
         /*public static void zz1(IntPtr obj, IntPtr info)
         {
             var contructor = typeof(YArea).GetConstructors()[0];

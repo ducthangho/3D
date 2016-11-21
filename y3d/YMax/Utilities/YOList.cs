@@ -49,8 +49,10 @@ namespace YMax.Utilities
         }
         static private List<YArea> AllYArea = new List<YArea>();
 
-        static void getMesh(IIGameScene gs)
+        static void getMesh(IIGameScene gs, INodeTab node_to_xref)
         {
+            List<string> oname_high = new List<string>();
+           
             var meshes = gs.GetIGameNodeByType(Autodesk.Max.IGameObject.ObjectTypes.Mesh);
             try
             {
@@ -82,6 +84,13 @@ namespace YMax.Utilities
                         {
                             var f = Utilities.YProject.face_range.fr[rid];
                             meshNode.MaxNode.WireColor = Color.FromArgb(f.color.R, f.color.G, f.color.B);
+
+                            //if ((rid== Utilities.YProject.face_range.fr.Count) || (rid== Utilities.YProject.face_range.fr.Count-1))
+                            if (yo.Mesh.NumFaces>10000)
+                            {
+                                oname_high.Add(yo.Name);
+                                node_to_xref.AppendNode(Loader.Core.GetINodeByName(yo.Name), true,1000);
+                            }
                         }
                         else
                         {
@@ -167,6 +176,8 @@ namespace YMax.Utilities
                 Loader.Global.TheListener.EditStream.Printf("\n" + e.Message);
                 throw;
             }
+            
+            //Loader.Core.ConvertFlagedNodesToXRefs()
         }
 
         static void getCam(IIGameScene gs)
@@ -237,6 +248,8 @@ namespace YMax.Utilities
         public static void TestGroup()
         {
             var root = Loader.Core.RootNode;
+            //Loader.Core.RootNode.SetGroupHeadOpen(true);
+            //Loader.Core.RootNode.SetGroupMemberOpen(true);
             if (root.NumberOfChildren>0)
             {
                 for (int i = 0; i < root.NumberOfChildren; i++)
@@ -245,6 +258,8 @@ namespace YMax.Utilities
                     Loader.Global.TheListener.EditStream.Printf(n.Name+ " G  \n", null);
                     if (n.IsGroupHead)
                     {
+                        n.SetGroupHeadOpen(true);
+                        //n.SetGroupMemberOpen(true);
                         var yg = new YGroup();
                         yg.Name = n.Name;
                         mapGroup.Add(n.Name, yg);
@@ -282,11 +297,25 @@ namespace YMax.Utilities
             //var root = Loader.Core.RootNode;
             var gameScene = Loader.Global.IGameInterface;
             gameScene.InitialiseIGame(false);
-
+            var node_to_xref = Loader.Global.NodeTab.Create();
             TestGroup();
-            getMesh(gameScene);
+            getMesh(gameScene, node_to_xref);
             getCam(gameScene);
             getLight(gameScene);
+            Loader.Core.OpenGroup(node_to_xref, false);
+            Loader.Core.SelectNodeTab(node_to_xref,true,true);
+            ManagedServices.MaxscriptSDK.ExecuteMaxscriptCommand("yxref_selected(); actionMan.executeAction 0 \"40876\"");
+            //Loader.Global.ObjXRefManager.
+            //Loader.Core.SaveNodesAsVersion("D:\\00.max", node_to_xref,2015);
+            //var XrefManager = Loader.Global.IObjXRefManager8.Instance;
+
+
+
+            //Loader.Global.IObjXRefRecord
+            //XrefManager.SetRecordSrcFile(Loader.Global.IObjXRefRecord., "D:\\00.max");
+
+            //var x = Loader.Global.IObjXRefRecord;
+
             //var meshes = gameScene.GetIGameNodeByType(Autodesk.Max.IGameObject.ObjectTypes.Mesh);
             //var m = Loader.Global.NewDefaultStdMat;
             //m.SetDiffuse(Loader.Global.Color.Create(255, 0, 255),0);
