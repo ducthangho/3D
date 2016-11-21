@@ -367,12 +367,19 @@ if r2_init != true then
 		path = maxFilePath + fname + "_test_"
 		high_path = path + "high.max"
 		low_path = path + "low.max"
+		ResetPivot selection
+		-- ResetTransform selection
+		-- for nn in selection do 
+		-- 	(
+		-- 		ResetPivot nn
+		-- 		ResetTransform nn
+		-- 	)
 		saveNodes selection high_path
 		makeLowPoly -1
 		max delete
 		importFile (pathConfig.GetDir #temp + "\\blenderNodesLowPoly.fbx") #noPrompt
 		saveNodes selection low_path
-		
+		max delete
 		xref_b = objXRefMgr.AddXRefItemsFromFile low_path
 		items = #()
 		xref_b.GetItems #XRefObjectType &items
@@ -381,9 +388,6 @@ if r2_init != true then
 				objXRefMgr.SetProxyItemSrcFile item high_path
 				item.proxyItemName = item.objectName
 			)
-		-- oxb = xref_b.getItem 1 #XRefObjectType
-		-- objXRefMgr.SetProxyItemSrcFile oxb high_path
-
 	)
 
 	if ySetup==true then

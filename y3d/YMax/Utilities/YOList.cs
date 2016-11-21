@@ -295,6 +295,7 @@ namespace YMax.Utilities
             //Loader.Core.FileOpen();
             //MaxscriptSDK.ExecuteMaxscriptCommand("max mtledit");
             //var root = Loader.Core.RootNode;
+            Loader.Global.BroadcastNotification(SystemNotificationCode.Custom1); // rename object from C++
             var gameScene = Loader.Global.IGameInterface;
             gameScene.InitialiseIGame(false);
             var node_to_xref = Loader.Global.NodeTab.Create();
