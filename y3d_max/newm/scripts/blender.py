@@ -3,8 +3,7 @@ import struct
 import bmesh
 import sys
 
-# ExportFolder = "F:\\WorkSpace\\3Ds Max\\Building Phong Tam Project\\export\\blender\\"
-# ExportFolder = "D:\\"
+ExportFolder = "C:/Users/Pham Le Minh/AppData/Local/Autodesk/3dsMax/2015 - 64bit/ENU/temp/"
 
 importFileName  = "3dsNodes.fbx"
 exportFileName = "blenderNodes.fbx"
@@ -13,10 +12,10 @@ exportFileNameLowPoly = "blenderNodesLowPoly.fbx"
 lowPolyFileName = "blenderLowPoly.fbx"
 binarySelectedFace = "3dsSelectedFace.bin"
 binaryFacesObjects = "3dsFaces.bin"
-# savedFile = ExportFolder+"3dsMax.blend"
-# savedFileAfterMakeLowPoly = ExportFolder + "saveFileAfterMakeLowPoly.blend"
-# argMakeLowPoly = 'makeLowPoly'
-# argUnwrap = 'unwrap'
+savedFile = "3dsMax.blend"
+savedFileAfterMakeLowPoly = "saveFileAfterMakeLowPoly.blend"
+argMakeLowPoly = 'makeLowPoly'
+argUnwrap = 'unwrap'
 
 def importFBX(filePath):
 	print(filePath)
@@ -66,9 +65,10 @@ def deleteAllObject():
 			bpy.ops.object.delete(use_global=True)
 
 def unwrapFromBlender(ExportFolder = "D:\\"):
+	deleteAllObject()
 	importFBX(ExportFolder+importFileName)
-	
 	selectedFace = readSelectefFace(ExportFolder+binarySelectedFace)
+
 	obj = bpy.data.objects[0]
 	obj.name += "_blend"
 	obj.select = True
@@ -102,7 +102,7 @@ def unwrapFromBlender(ExportFolder = "D:\\"):
 	bpy.ops.uv.smart_project()
 
 	exportFBX(ExportFolder+exportFileName)
-	bpy.ops.wm.save_as_mainfile(filepath=(ExportFolder+"3dsMax.blend"))
+	bpy.ops.wm.save_as_mainfile(filepath=(ExportFolder+savedFile))
 
 def makeLowPoly(ExportFolder = "D:\\", ratio = None):
 	deleteAllObject()
@@ -128,35 +128,23 @@ def makeLowPoly(ExportFolder = "D:\\", ratio = None):
 				bpy.context.object.modifiers["Decimate"].ratio = ratio
 				bpy.ops.object.modifier_apply(apply_as='DATA',modifier='Decimate')
 	exportFBX(ExportFolder+exportFileNameLowPoly)	
-	bpy.ops.wm.save_as_mainfile(filepath=(ExportFolder + "saveFileAfterMakeLowPoly.blend"))
-
-# def test():
-# 	argv = sys.argv
-# 	argv = argv[argv.index("--") + 1:]  # get all args after "--"
-
-# 	if(argv[0] == argMakeLowPoly):
-# 		if(len(argv) == 1):
-# 			makeLowPoly()
-# 		else:
-# 			ratio = float(argv[1])
-# 			makeLowPoly(ratio)
-
-# 	if(argv[0] == argUnwrap):
-# 		unwrapFromBlender()
-	
-# test()
+	bpy.ops.wm.save_as_mainfile(filepath=(ExportFolder + savedFileAfterMakeLowPoly))
 
 def yrun():
+	global ExportFolder
+	print (ExportFolder)
 	argv = sys.argv
-	argv = argv[argv.index("--") + 1:]  # get all args after "--"
-	ExportFolder = argv[0] + "\\" # truyen tham so la duong dan temp cua 3dmax
-	print(ExportFolder)
-	if(argv[1] == "makeLowPoly"):
+	argv = argv[argv.index("--") + 1:]  
+	
+	if(argv[0] == argMakeLowPoly):
+		ExportFolder = argv[1] + "\\" 
 		if(len(argv) == 3):
 			ratio = float(argv[2])
 			makeLowPoly(ExportFolder,ratio)			
 		else:
 			makeLowPoly(ExportFolder)		
-	elif (argv[1] == "unwrap"):
-			unwrapFromBlender()		
+	elif (argv[0] == argUnwrap):
+		ExportFolder = argv[1] + "\\" 
+		unwrapFromBlender(ExportFolder)	
+
 yrun()

@@ -10,6 +10,7 @@ global blenderPath = "\"C:\\Program Files\\Blender Foundation\\Blender\\blender.
 global scriptFolder  = ypath  + "\\newm\\scripts"
 global pythonScript =  scriptFolder + "\\blender.py"
 global blenderFile = exportFolder+"\\3dsMax.blend"
+global DoscommandOutput = ypath + "\\hiddencmdout.tmp"
 
 
 fn exportObjectToFBX path = 
