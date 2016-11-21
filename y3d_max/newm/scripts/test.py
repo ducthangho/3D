@@ -1,2 +1,2 @@
 while True:
-	print ("ssssssssss")
+	print (r"ssss\n\n\n\n\\nssssss")

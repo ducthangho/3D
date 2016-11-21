@@ -1,17 +1,19 @@
 fn makeLowPoly ratio = 
 (	
-	tempPath = pathConfig.GetDir #temp
-	blenderPath = "\"C:\\Program Files\\Blender Foundation\\Blender\\blender.exe\""
-	exportFile (tempPath + "\\3dsNodesHightPoly.fbx") #noPrompt selectedOnly:true 
-	local pythonScript = ypath  + "\\newm\\scripts\\blender.py"
+	if $selection.count == 0 then return ""
+	ResetPivot $
+	local filePath = tempPath + "\\" +exportHightPolyFileName
+	exportFile filePath #noPrompt selectedOnly:true 
+-- 	augument order: 	1 : What to do , 2 : ExportFolder, 3 : other need argument
 	local cmd = blenderPath + " --factory-startup -b -P \"" + pythonScript + "\""
-	cmd += " -- \"" + tempPath + "\""
-	cmd += " makeLowPoly"
+	cmd += " -- makeLowPoly \""+tempPath + "\""
 	if (ratio!=-1) then
 		cmd += " " + ratio as string
+	cmd += " > " + DoscommandOutput 
 	print cmd
-	-- cmd += "; set /p uname=uname:"
 	val = HiddenDOSCommand cmd
+	delete $
+	importObjectFromFBXFile  (tempPath + "\\"+ importLowPolyFileName)
 )
 
 rollout DraftUIForTest "Untitled" width:190 height:303
@@ -35,9 +37,9 @@ rollout DraftUIForTest "Untitled" width:190 height:303
 	(
 		convertToPoly $
 		convertToMesh $
+		local binFile = fopen (exportFolder +"\\"+ binaryFacesObjects)  "wb"
 		if (selection.count > 1) do 
 		(
-			local binFile = fopen (exportFolder + binaryFacesObjects)  "wb"
 			local finalObj = $[1]
 			WriteString binFile (finalObj.name as string)
 			WriteLong binFile (finalObj.numFaces as integer)
@@ -51,8 +53,8 @@ rollout DraftUIForTest "Untitled" width:190 height:303
 				WriteLong binFile (numFaces as integer)
 				attach finalObj obj
 			)
-			fclose binFile
 		)
+		fclose binFile
 		max modify mode
 		subobjectLevel = 4
 	)
@@ -69,29 +71,39 @@ rollout DraftUIForTest "Untitled" width:190 height:303
 fn unwrap = 
 (	
 	local sf = for i in $.selectedFaces collect i.index
-		local binFile = fopen (exportFolder + binarySelectedFace)  "wb"
-		for i = 1 to sf.count do
-		(
-			WriteLong binFile sf[i]
-		)
-		fclose binFile
-	
-		exportObjectToFBX $ exportFileName
-	
-		local pythonScript = scriptFolder + "blender.py"
-		local cmd = blenderPath + " -b -P "+ pythonScript + " -- unwrap"
-		val = DOSCommand(cmd)
+	local binFile = fopen (exportFolder +"\\"+ binarySelectedFace)  "wb"
+	for i = 1 to sf.count do
+	(
+		WriteLong binFile sf[i]
+	)
+	fclose binFile
+	exportObjectToFBX  (exportFolder + "\\" + exportFileName)
+	local cmd = blenderPath + " -b -P "+ pythonScript + " -- unwrap " + "\"" + tempPath + "\""
+	cmd += " > " + DoscommandOutput 
+	print cmd
+	val = HiddenDOSCommand(cmd)
 )
 
 -- fn makeLowPoly ratio = 
 -- (	
--- 	exportObjectToFBX $ exportHightPolyFileName
+-- 	exportObjectToFBX exportFolder + "\\" + exportHightPolyFileName
 -- 	local pythonScript = scriptFolder + "blender.py"
 -- 	local cmd = blenderPath + " -b -P "+ pythonScript + " -- makeLowPoly "+ ratio as string
 -- 	print cmd
--- 	val = DOSCommand(cmd)
+-- 	val = HiddenDOSCommand(cmd)
 -- )
 
+fn test = 
+(
+	local scriptFolder = ypath  + "\\newm\\scripts\\"
+	local pythonScript = scriptFolder  + "test.py"
+	local DoscommandOutput = scriptFolder + "hiddencmdout.tmp"
+	local cmd = blenderPath + " -b -P "+ pythonScript + " > "+ DoscommandOutput
+	print cmd
+	Doscommand (cmd)
+	--HiddenDoscommand "dir > %temp%\\hiddencmdout.tmp" startpath:"c:\\"
+	
+)
 
 
 fn readBinaryFile binaryFile = 
@@ -111,3 +123,5 @@ fn readBinaryFile binaryFile =
 )
 
 createdialog DraftUIForTest
+
+--test()
