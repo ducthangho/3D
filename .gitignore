@@ -13,6 +13,3 @@ y3d/ycpp/obj/*
 *.db
 *.pdb
 *.cache
-
-y3d/.vs/y3d/v14/.suo
-*.suo

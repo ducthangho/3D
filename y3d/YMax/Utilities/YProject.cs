@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using Autodesk.Max;
 using System.Runtime.InteropServices;
 using Y3D.Entities;
+using Utils;
+
+
 namespace YMax.Utilities
 {
     class YProject
@@ -18,6 +21,21 @@ namespace YMax.Utilities
             Loader.Core.PushPrompt("XIN CHAOOOOOOO");
         }
 
+        public static void testHandle(IntPtr obj, IntPtr info)
+        {
+            // and use Interface.SelNodeCount + Interface.GetSelNode(i) here
+            INotifyInfo inf = Loader.Global.NotifyInfo.Marshal(info);
+            string str = DateTime.Now.ToShortTimeString() + "Notification: ";
+            str += inf.CallParam + "  ..  ";
+            str += (SystemNotificationCode)inf.Intcode;
+
+            System.Windows.Forms.MessageBox.Show("Sending ... : " + info.ToInt64());
+
+            MyEventHandler handler = new MyEventHandler();
+            handler.handle(obj, info);
+
+            //Loader.Core.PushPrompt("Hello");
+        }
         public static void loadPSetting()
         {
 
@@ -46,6 +64,7 @@ namespace YMax.Utilities
             System.Windows.Forms.MessageBox.Show(b.ToString());
         }//*/
         public static GlobalDelegates.Delegate5 fileSaveHandler = new GlobalDelegates.Delegate5(meomeo);
+        public static GlobalDelegates.Delegate5 thang_test1 = new GlobalDelegates.Delegate5(testHandle);
         //public static GlobalDelegates.Delegate5 zun1 = new GlobalDelegates.Delegate5(zz1);
 
         public static Actions.YMaxCommand ycommand = new Actions.YMaxCommand();

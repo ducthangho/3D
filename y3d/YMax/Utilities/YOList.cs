@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-//using Y3D.Models;
 using Y3D.Entities;
 using Google.Protobuf;
 using Autodesk.Max;
@@ -51,12 +50,14 @@ namespace YMax.Utilities
 
         static void getMesh(IIGameScene gs, INodeTab node_to_xref)
         {
+            Loader.Global.TheListener.EditStream.Printf("MESH:" + "\n", null);
             List<string> oname_high = new List<string>();
            
             var meshes = gs.GetIGameNodeByType(Autodesk.Max.IGameObject.ObjectTypes.Mesh);
-            try
-            {
+
                 for (int ix = 0; ix < meshes.Count; ++ix)
+                {
+                try
                 {
 #if MAX2017
                 var indexer = ix;
@@ -64,15 +65,43 @@ namespace YMax.Utilities
                     var indexer = new IntPtr(ix);
 #endif
                     var meshNode = meshes[indexer];
+                    Loader.Global.TheListener.EditStream.Printf(meshNode.Name + "\n", null);
                     IIGameMesh node = meshNode.IGameObject.AsGameMesh();
                     //var sb = meshNode.NodeID;
                     //Loader.Global.TheListener.EditStream.Printf(sb.ToString() + "\n", null);
                     //if (meshNode.NodeParent != null)
                     //    Loader.Global.TheListener.EditStream.Printf(meshNode.NodeParent.Name + ":" + meshNode.Name + "\n", null);
                     var isInit = node.InitializeData;
-                    //Loader.Global.TheListener.EditStream.Printf(node.MaxObject.ClassName + "\n", null);
+                    ////Loader.Global.TheListener.EditStream.Printf(node.MaxObject.ClassName + "\n", null);
                     //if ((node.MaxObject.ClassName == "Editable Mesh") || (node.MaxObject.ClassName == "Editable Poly"))
-                    if (node.MaxObject.ClassName != "Target")
+                    var cname = node.MaxObject.ClassName;
+                    YMesh.Types.MeshType mtype = YMesh.Types.MeshType.Unknown; // chuyen thanh None o protobuf scheme sau
+                    if (cname == "Editable Mesh")
+                        mtype = YMesh.Types.MeshType.EditableMesh;
+                    else if (cname == "Editable Poly")
+                        mtype = YMesh.Types.MeshType.EditablePoly;
+                    else if (cname == "Box")
+                        mtype = YMesh.Types.MeshType.Box;
+                    else if (cname == "Cone")
+                        mtype = YMesh.Types.MeshType.Cone;
+                    else if (cname == "Sphere")
+                        mtype = YMesh.Types.MeshType.Sphere;
+                    else if (cname == "GeoSphere")
+                        mtype = YMesh.Types.MeshType.GeoSphere;
+                    else if (cname == "Cylinder")
+                        mtype = YMesh.Types.MeshType.Cylinder;
+                    else if (cname == "Tube")
+                        mtype = YMesh.Types.MeshType.Tube;
+                    else if (cname == "Pyramid")
+                        mtype = YMesh.Types.MeshType.Pyramid;
+                    else if (cname == "Teapot")
+                        mtype = YMesh.Types.MeshType.Teapot;
+                    else if (cname == "Plane")
+                        mtype = YMesh.Types.MeshType.Plane;
+                    //Loader.Global.TheListener.EditStream.Printf(cname + "\n", null);
+                    //if ((cname == "Editable Mesh") || (cname == "Editable Poly") || (cname == "Camera") )
+                    //if ((cname != "Target")&&(cname !="Dummy"))
+                    if (mtype != YMesh.Types.MeshType.Unknown)
                     {
                         var yo = new YObject();
                         yo.Mesh = new YMesh();
@@ -86,7 +115,7 @@ namespace YMax.Utilities
                             meshNode.MaxNode.WireColor = Color.FromArgb(f.color.R, f.color.G, f.color.B);
 
                             //if ((rid== Utilities.YProject.face_range.fr.Count) || (rid== Utilities.YProject.face_range.fr.Count-1))
-                            if (yo.Mesh.NumFaces>10000)
+                            if (yo.Mesh.NumFaces>1000)
                             {
                                 oname_high.Add(yo.Name);
                                 node_to_xref.AppendNode(Loader.Core.GetINodeByName(yo.Name), true,1000);
@@ -96,32 +125,33 @@ namespace YMax.Utilities
                         {
                             meshNode.MaxNode.WireColor = Color.Gray;
                         }
-                        if (node.MaxObject.ClassName == "Editable Mesh")
-                            yo.Mesh.Mtype = YMesh.Types.MeshType.EditableMesh;
-                        else if (node.MaxObject.ClassName == "Editable Poly")
-                            yo.Mesh.Mtype = YMesh.Types.MeshType.EditablePoly;
-                        else if (node.MaxObject.ClassName == "Box")
-                            yo.Mesh.Mtype = YMesh.Types.MeshType.Box;
-                        else if (node.MaxObject.ClassName == "Cone")
-                            yo.Mesh.Mtype = YMesh.Types.MeshType.Cone;
-                        else if (node.MaxObject.ClassName == "Sphere")
-                            yo.Mesh.Mtype = YMesh.Types.MeshType.Sphere;
-                        else if (node.MaxObject.ClassName == "GeoSphere")
-                            yo.Mesh.Mtype = YMesh.Types.MeshType.GeoSphere;
-                        else if (node.MaxObject.ClassName == "Cylinder")
-                            yo.Mesh.Mtype = YMesh.Types.MeshType.Cylinder;
-                        else if (node.MaxObject.ClassName == "Tube")
-                            yo.Mesh.Mtype = YMesh.Types.MeshType.Tube;
-                        else if (node.MaxObject.ClassName == "Pyramid")
-                            yo.Mesh.Mtype = YMesh.Types.MeshType.Pyramid;
-                        else if (node.MaxObject.ClassName == "Teapot")
-                            yo.Mesh.Mtype = YMesh.Types.MeshType.Teapot;
-                        else if (node.MaxObject.ClassName == "Plane")
-                            yo.Mesh.Mtype = YMesh.Types.MeshType.Plane;
-                        //if ((node.MaxObject.ClassName == "Editable Mesh") || (node.MaxObject.ClassName == "Editable Poly"))
+                        yo.Mesh.Mtype = mtype;
+                        //if (cname == "Editable Mesh")
+                        //    yo.Mesh.Mtype = YMesh.Types.MeshType.EditableMesh;
+                        //else if (cname == "Editable Poly")
+                        //    yo.Mesh.Mtype = YMesh.Types.MeshType.EditablePoly;
+                        //else if (cname == "Box")
+                        //    yo.Mesh.Mtype = YMesh.Types.MeshType.Box;
+                        //else if (cname == "Cone")
+                        //    yo.Mesh.Mtype = YMesh.Types.MeshType.Cone;
+                        //else if (cname == "Sphere")
+                        //    yo.Mesh.Mtype = YMesh.Types.MeshType.Sphere;
+                        //else if (cname == "GeoSphere")
+                        //    yo.Mesh.Mtype = YMesh.Types.MeshType.GeoSphere;
+                        //else if (cname == "Cylinder")
+                        //    yo.Mesh.Mtype = YMesh.Types.MeshType.Cylinder;
+                        //else if (cname == "Tube")
+                        //    yo.Mesh.Mtype = YMesh.Types.MeshType.Tube;
+                        //else if (cname == "Pyramid")
+                        //    yo.Mesh.Mtype = YMesh.Types.MeshType.Pyramid;
+                        //else if (cname == "Teapot")
+                        //    yo.Mesh.Mtype = YMesh.Types.MeshType.Teapot;
+                        //else if (cname == "Plane")
+                        //    yo.Mesh.Mtype = YMesh.Types.MeshType.Plane;
+                        //if ((cname == "Editable Mesh") || (cname == "Editable Poly"))
                         //{
                         //    yo.Mesh.NumFaces = node.NumberOfPolygons;
-                        //} else if (node.MaxObject.ClassName != "Target")
+                        //} else if (cname != "Target")
                         //{
                         //    yo.Mesh.NumFaces = node.NumberOfFaces;
                         //}
@@ -169,16 +199,17 @@ namespace YMax.Utilities
                         //yoo.Add(yo);
                     }
                 }
-            }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message);
-                Loader.Global.TheListener.EditStream.Printf("\n" + e.Message);
-                throw;
+                //MessageBox.Show(e.Message);
+                Loader.Global.TheListener.EditStream.Printf("\n Error:" + e.Message + "\n");
+                //throw;
             }
-            
-            //Loader.Core.ConvertFlagedNodesToXRefs()
+
         }
+
+        //Loader.Core.ConvertFlagedNodesToXRefs()
+    }
 
         static void getCam(IIGameScene gs)
         {

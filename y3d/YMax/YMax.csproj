@@ -117,6 +117,12 @@
     <Compile Include="Forms\AGSidebar.Designer.cs">
       <DependentUpon>AGSidebar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\AnalyzeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AnalyzeForm.Designer.cs">
+      <DependentUpon>AnalyzeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FilterSidebar.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -181,6 +187,9 @@
     <EmbeddedResource Include="Forms\AGSidebar.resx">
       <DependentUpon>AGSidebar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AnalyzeForm.resx">
+      <DependentUpon>AnalyzeForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FilterSidebar.resx">
       <DependentUpon>FilterSidebar.cs</DependentUpon>
     </EmbeddedResource>
@@ -233,6 +242,11 @@
     <None Include="Resources\collapse.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Utils\Utils.vcxproj">
+      <Project>{283aa4c8-a9f4-4e6e-8c7b-5c87a9271319}</Project>
+      <Name>Utils</Name>
+      <Private>False</Private>
+    </ProjectReference>
     <ProjectReference Include="..\y3d\y3d.csproj">
       <Project>{d42995b2-e7c8-4090-883c-b2598350b9aa}</Project>
       <Name>y3d</Name>

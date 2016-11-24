@@ -25,4 +25,3 @@ D:\Code\Github\3D\y3d\y3d\obj\Release\y3d.Properties.Resources.resources
 D:\Code\Github\3D\y3d\y3d\obj\Release\y3d.csproj.GenerateResource.Cache
 D:\Code\Github\3D\y3d\y3d\obj\Release\y3d.dll
 D:\Code\Github\3D\y3d\y3d\obj\Release\y3d.pdb
-D:\Code\Github\3D\y3d\y3d\obj\Release\y3d.csprojResolveAssemblyReference.cache

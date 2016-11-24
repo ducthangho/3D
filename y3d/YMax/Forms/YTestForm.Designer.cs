@@ -30,6 +30,7 @@
         {
             this.btnCustom1 = new System.Windows.Forms.Button();
             this.btnCustom2 = new System.Windows.Forms.Button();
+            this.btnThangTest = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnCustom1
@@ -52,11 +53,22 @@
             this.btnCustom2.UseVisualStyleBackColor = true;
             this.btnCustom2.Click += new System.EventHandler(this.btnCustom2_Click);
             // 
+            // btnThangTest
+            // 
+            this.btnThangTest.Location = new System.Drawing.Point(240, 12);
+            this.btnThangTest.Name = "btnThangTest";
+            this.btnThangTest.Size = new System.Drawing.Size(97, 36);
+            this.btnThangTest.TabIndex = 7;
+            this.btnThangTest.Text = "Thang test";
+            this.btnThangTest.UseVisualStyleBackColor = true;
+            this.btnThangTest.Click += new System.EventHandler(this.btnThangTest_Click);
+            // 
             // YTestForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(636, 367);
+            this.Controls.Add(this.btnThangTest);
             this.Controls.Add(this.btnCustom1);
             this.Controls.Add(this.btnCustom2);
             this.Name = "YTestForm";
@@ -71,5 +83,6 @@
 
         private System.Windows.Forms.Button btnCustom1;
         private System.Windows.Forms.Button btnCustom2;
+        private System.Windows.Forms.Button btnThangTest;
     }
 }

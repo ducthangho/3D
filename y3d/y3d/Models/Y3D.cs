@@ -36,50 +36,55 @@ namespace Y3D.Entities {
             "EhAKCGV4cG9uZW50GAggASgCEhkKEWV4Y2x1ZGVkTWVzaGVzSWRzGAkgAygJ",
             "Eh0KFWluY2x1ZGVkT25seU1lc2hlc0lkcxgKIAMoCSI4CgdZQ2FtZXJhEhAK",
             "CHJvdGF0aW9uGAMgAygCEg4KBnRhcmdldBgEIAMoAhILCgNmb3YYBSABKAIi",
-            "wgMKBVlNZXNoEhEKCW51bV9mYWNlcxgBIAEoBRIYCgRiYm94GAIgASgLMgou",
+            "zwMKBVlNZXNoEhEKCW51bV9mYWNlcxgBIAEoBRIYCgRiYm94GAIgASgLMgou",
             "eTNkLllCb3gzEg4KBnJlc19pZBgDIAEoCRIMCgR4cmVmGAQgAygFEiYKB3hz",
             "dGF0dXMYBSABKA4yFS55M2QuWU1lc2guWHJlZlN0YXR1cxIiCgVtdHlwZRgG",
-            "IAEoDjITLnkzZC5ZTWVzaC5NZXNoVHlwZSKxAQoITWVzaFR5cGUSEQoNRWRp",
-            "dGFibGVfTWVzaBAAEhEKDUVkaXRhYmxlX1BvbHkQARIHCgNCb3gQAhIICgRD",
-            "b25lEAMSCgoGU3BoZXJlEAQSDQoJR2VvU3BoZXJlEAUSDAoIQ3lsaW5kZXIQ",
-            "BhIICgRUdWJlEAcSCQoFVG9ydXMQCBILCgdQeXJhbWlkEAkSCgoGVGVhcG90",
-            "EAoSCQoFUGxhbmUQCxIKCgZUYXJnZXQQDCJuCgpYcmVmU3RhdHVzEgwKCE9S",
-            "SUdJTkFMEAASDgoKWFJFRl9ISUdIVBABEgwKCFhSRUZfTE9XEAISFAoQWFJF",
-            "Rl9MT1dfRElTUExBWRADEgcKA0JPWBAEEgoKBk1FUkdFRBAFEgkKBUZJTkFM",
-            "EAYivwIKB1lPYmplY3QSDAoEbmFtZRgBIAEoCRIZCgNwb3MYAyABKAsyDC55",
-            "M2QuWVBvaW50MxImCgVleHRyYRgFIAMoCzIXLnkzZC5ZT2JqZWN0LkV4dHJh",
-            "RW50cnkSHgoFb3R5cGUYBiABKA4yDy55M2QuT2JqZWN0VHlwZRIMCgR0YWdz",
-            "GAcgAygJEg8KB2NhdGVfaWQYCCABKAUSHAoFbGlnaHQYCiABKAsyCy55M2Qu",
-            "WUxpZ2h0SAASHgoGY2FtZXJhGAsgASgLMgwueTNkLllDYW1lcmFIABIaCgRt",
-            "ZXNoGAwgASgLMgoueTNkLllNZXNoSAAaQgoKRXh0cmFFbnRyeRILCgNrZXkY",
-            "ASABKAkSIwoFdmFsdWUYAiABKAsyFC5nb29nbGUucHJvdG9idWYuQW55OgI4",
-            "AUIGCgRkYXRhInEKBllHcm91cBIMCgRuYW1lGAEgASgJEhoKBG9ianMYAiAD",
-            "KAsyDC55M2QuWU9iamVjdBIdCghjaGlsZHJlbhgDIAMoCzILLnkzZC5ZR3Jv",
-            "dXASHgoHZ3ZfdHlwZRgEIAEoDjINLnkzZC5HVmVyVHlwZSJOCgVZQXJlYRIM",
-            "CgRuYW1lGAEgASgJEhsKBmdyb3VwcxgCIAMoCzILLnkzZC5ZR3JvdXASGgoE",
-            "b2JqcxgDIAMoCzIMLnkzZC5ZT2JqZWN0IkgKCVlHcm91cFZlchINCgV2bmFt",
-            "ZRgBIAEoCRIeCglncm91cERhdGEYAiABKAsyCy55M2QuWUdyb3VwEgwKBHN0",
-            "ZXAYAyABKAUigQIKCkN1c3RvbUF0dHISDAoEbmFtZRgBIAEoCRIjCgV2YWx1",
-            "ZRgCIAEoCzIULmdvb2dsZS5wcm90b2J1Zi5BbnkSIwoEdHlwZRgDIAEoDjIV",
-            "LnkzZC5DdXN0b21BdHRyLkFUeXBlIpoBCgVBVHlwZRIKCgZTVFJJTkcQABIH",
-            "CgNJTlQQARIJCgVGTE9BVBACEggKBEJPT0wQAxIKCgZQT0lOVDMQBBIQCgxB",
-            "UlJBWV9TVFJJTkcQBRINCglBUlJBWV9JTlQQBhIPCgtBUlJBWV9GTE9BVBAH",
-            "EggKBFRFWFQQCBIJCgVDT0xPUhAJEgkKBU9ORU9GEAoSCQoFT1RIRVIQCyI4",
-            "CgdBdHRyU2V0Eg0KBXNuYW1lGAEgASgJEh4KBWF0dHJzGAIgAygLMg8ueTNk",
-            "LkN1c3RvbUF0dHIiXQoKRmlsdGVyVmlldxIeCgVvdHlwZRgBIAEoDjIPLnkz",
-            "ZC5PYmplY3RUeXBlEhIKCmZhY2VfcmFuZ2UYAiABKAUSDgoGc2VhcmNoGAMg",
-            "ASgJEgsKA2FpZBgEIAEoBSKFAgoLUHJvamVjdEluZm8SDQoFcG5hbWUYASAB",
-            "KAkSDAoEcGF0aBgCIAEoCRISCgpmYWNlX3JhbmdlGAMgAygFEiAKC2NvdW50",
-            "X2NvbG9yGAQgAygLMgsueTNkLllDb2xvchIeCgVmdmlldxgFIAMoCzIPLnkz",
-            "ZC5GaWx0ZXJWaWV3EhkKBWFyZWFzGAYgAygLMgoueTNkLllBcmVhEioKBWd2",
-            "ZXJzGAcgAygLMhsueTNkLlByb2plY3RJbmZvLkd2ZXJzRW50cnkaPAoKR3Zl",
-            "cnNFbnRyeRILCgNrZXkYASABKAkSHQoFdmFsdWUYAiABKAsyDi55M2QuWUdy",
-            "b3VwVmVyOgI4ASIqCghQU2V0dGluZxIeCgVleHRyYRgCIAMoCzIPLnkzZC5D",
-            "dXN0b21BdHRyIjEKB1lTeXN0ZW0SJgoPZGVmYXVsdFBTZXR0aW5nGAEgASgL",
-            "Mg0ueTNkLlBTZXR0aW5nKkcKCk9iamVjdFR5cGUSDAoIR0VPTUVUUlkQABIJ",
-            "CgVMSUdIVBABEgoKBkNBTUVSQRACEgkKBVNIQVBFEAMSCQoFT1RIRVIQBCo/",
-            "CghHVmVyVHlwZRIKCgZOT19WRVIQABIMCghPUklHSU5BTBABEgsKB0lOX0JB",
-            "S0UQAhIMCghTVEFOREFSRBADQg+qAgxZM0QuRW50aXRpZXNiBnByb3RvMw=="));
+            "IAEoDjITLnkzZC5ZTWVzaC5NZXNoVHlwZSK+AQoITWVzaFR5cGUSCwoHVW5r",
+            "bm93bhAAEhEKDUVkaXRhYmxlX01lc2gQARIRCg1FZGl0YWJsZV9Qb2x5EAIS",
+            "BwoDQm94EAMSCgoGU3BoZXJlEAQSDQoJR2VvU3BoZXJlEAUSDAoIQ3lsaW5k",
+            "ZXIQBhIICgRUdWJlEAcSCQoFVG9ydXMQCBILCgdQeXJhbWlkEAkSCgoGVGVh",
+            "cG90EAoSCQoFUGxhbmUQCxIKCgZUYXJnZXQQDBIICgRDb25lEA0ibgoKWHJl",
+            "ZlN0YXR1cxIMCghPUklHSU5BTBAAEg4KClhSRUZfSElHSFQQARIMCghYUkVG",
+            "X0xPVxACEhQKEFhSRUZfTE9XX0RJU1BMQVkQAxIHCgNCT1gQBBIKCgZNRVJH",
+            "RUQQBRIJCgVGSU5BTBAGIr8CCgdZT2JqZWN0EgwKBG5hbWUYASABKAkSGQoD",
+            "cG9zGAMgASgLMgwueTNkLllQb2ludDMSJgoFZXh0cmEYBSADKAsyFy55M2Qu",
+            "WU9iamVjdC5FeHRyYUVudHJ5Eh4KBW90eXBlGAYgASgOMg8ueTNkLk9iamVj",
+            "dFR5cGUSDAoEdGFncxgHIAMoCRIPCgdjYXRlX2lkGAggASgFEhwKBWxpZ2h0",
+            "GAogASgLMgsueTNkLllMaWdodEgAEh4KBmNhbWVyYRgLIAEoCzIMLnkzZC5Z",
+            "Q2FtZXJhSAASGgoEbWVzaBgMIAEoCzIKLnkzZC5ZTWVzaEgAGkIKCkV4dHJh",
+            "RW50cnkSCwoDa2V5GAEgASgJEiMKBXZhbHVlGAIgASgLMhQuZ29vZ2xlLnBy",
+            "b3RvYnVmLkFueToCOAFCBgoEZGF0YSKyAQoFWUFyZWESDAoEbmFtZRgBIAEo",
+            "CRIbCgZncm91cHMYAiADKAsyCy55M2QuWUdyb3VwEhoKBG9ianMYAyADKAsy",
+            "DC55M2QuWU9iamVjdBIkCgVndmVycxgGIAMoCzIVLnkzZC5ZQXJlYS5HdmVy",
+            "c0VudHJ5GjwKCkd2ZXJzRW50cnkSCwoDa2V5GAEgASgJEh0KBXZhbHVlGAIg",
+            "ASgLMg4ueTNkLllHcm91cFZlcjoCOAEifwoGWUdyb3VwEgwKBG5hbWUYASAB",
+            "KAkSGgoEb2JqcxgCIAMoCzIMLnkzZC5ZT2JqZWN0Eh0KCGNoaWxkcmVuGAMg",
+            "AygLMgsueTNkLllHcm91cBIeCgdndl90eXBlGAQgASgOMg0ueTNkLkdWZXJU",
+            "eXBlEgwKBHhyZWYYBSADKAkiSAoJWUdyb3VwVmVyEg0KBXZuYW1lGAEgASgJ",
+            "Eh4KCWdyb3VwRGF0YRgCIAEoCzILLnkzZC5ZR3JvdXASDAoEc3RlcBgDIAEo",
+            "BSKBAgoKQ3VzdG9tQXR0chIMCgRuYW1lGAEgASgJEiMKBXZhbHVlGAIgASgL",
+            "MhQuZ29vZ2xlLnByb3RvYnVmLkFueRIjCgR0eXBlGAMgASgOMhUueTNkLkN1",
+            "c3RvbUF0dHIuQVR5cGUimgEKBUFUeXBlEgoKBlNUUklORxAAEgcKA0lOVBAB",
+            "EgkKBUZMT0FUEAISCAoEQk9PTBADEgoKBlBPSU5UMxAEEhAKDEFSUkFZX1NU",
+            "UklORxAFEg0KCUFSUkFZX0lOVBAGEg8KC0FSUkFZX0ZMT0FUEAcSCAoEVEVY",
+            "VBAIEgkKBUNPTE9SEAkSCQoFT05FT0YQChIJCgVPVEhFUhALIjgKB0F0dHJT",
+            "ZXQSDQoFc25hbWUYASABKAkSHgoFYXR0cnMYAiADKAsyDy55M2QuQ3VzdG9t",
+            "QXR0ciJdCgpGaWx0ZXJWaWV3Eh4KBW90eXBlGAEgASgOMg8ueTNkLk9iamVj",
+            "dFR5cGUSEgoKZmFjZV9yYW5nZRgCIAEoBRIOCgZzZWFyY2gYAyABKAkSCwoD",
+            "YWlkGAQgASgFIoABCgtQcm9qZWN0SW5mbxINCgVwbmFtZRgBIAEoCRIMCgRw",
+            "YXRoGAIgASgJEhIKCmZhY2VfcmFuZ2UYAyADKAUSIAoLY291bnRfY29sb3IY",
+            "BCADKAsyCy55M2QuWUNvbG9yEh4KBWZ2aWV3GAUgAygLMg8ueTNkLkZpbHRl",
+            "clZpZXciJgoJWUFyZWFMaXN0EhkKBWFyZWFzGAEgAygLMgoueTNkLllBcmVh",
+            "Ij4KCFBTZXR0aW5nEh4KBWV4dHJhGAIgAygLMg8ueTNkLkN1c3RvbUF0dHIS",
+            "EgoKbWF4X3JlY2VudBgDIAEoBSK5AQoHWVN5c3RlbRImCgxkZWZhdWx0X2lu",
+            "Zm8YASABKAsyEC55M2QuUHJvamVjdEluZm8SJgoPZGVmYXVsdF9zZXR0aW5n",
+            "GAIgASgLMg0ueTNkLlBTZXR0aW5nEi0KCW5hbWVfcGF0aBgDIAMoCzIaLnkz",
+            "ZC5ZU3lzdGVtLk5hbWVQYXRoRW50cnkaLwoNTmFtZVBhdGhFbnRyeRILCgNr",
+            "ZXkYASABKAkSDQoFdmFsdWUYAiABKAk6AjgBKkcKCk9iamVjdFR5cGUSDAoI",
+            "R0VPTUVUUlkQABIJCgVMSUdIVBABEgoKBkNBTUVSQRACEgkKBVNIQVBFEAMS",
+            "CQoFT1RIRVIQBCo/CghHVmVyVHlwZRIKCgZOT19WRVIQABIMCghPUklHSU5B",
+            "TBABEgsKB0lOX0JBS0UQAhIMCghTVEFOREFSRBADQg+qAgxZM0QuRW50aXRp",
+            "ZXNiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.AnyReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Y3D.Entities.ObjectType), typeof(global::Y3D.Entities.GVerType), }, new pbr::GeneratedClrTypeInfo[] {
@@ -91,15 +96,16 @@ namespace Y3D.Entities {
             new pbr::GeneratedClrTypeInfo(typeof(global::Y3D.Entities.YCamera), global::Y3D.Entities.YCamera.Parser, new[]{ "Rotation", "Target", "Fov" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Y3D.Entities.YMesh), global::Y3D.Entities.YMesh.Parser, new[]{ "NumFaces", "Bbox", "ResId", "Xref", "Xstatus", "Mtype" }, null, new[]{ typeof(global::Y3D.Entities.YMesh.Types.MeshType), typeof(global::Y3D.Entities.YMesh.Types.XrefStatus) }, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Y3D.Entities.YObject), global::Y3D.Entities.YObject.Parser, new[]{ "Name", "Pos", "Extra", "Otype", "Tags", "CateId", "Light", "Camera", "Mesh" }, new[]{ "Data" }, null, new pbr::GeneratedClrTypeInfo[] { null, }),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Y3D.Entities.YGroup), global::Y3D.Entities.YGroup.Parser, new[]{ "Name", "Objs", "Children", "GvType" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Y3D.Entities.YArea), global::Y3D.Entities.YArea.Parser, new[]{ "Name", "Groups", "Objs" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Y3D.Entities.YArea), global::Y3D.Entities.YArea.Parser, new[]{ "Name", "Groups", "Objs", "Gvers" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Y3D.Entities.YGroup), global::Y3D.Entities.YGroup.Parser, new[]{ "Name", "Objs", "Children", "GvType", "Xref" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Y3D.Entities.YGroupVer), global::Y3D.Entities.YGroupVer.Parser, new[]{ "Vname", "GroupData", "Step" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Y3D.Entities.CustomAttr), global::Y3D.Entities.CustomAttr.Parser, new[]{ "Name", "Value", "Type" }, null, new[]{ typeof(global::Y3D.Entities.CustomAttr.Types.AType) }, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Y3D.Entities.AttrSet), global::Y3D.Entities.AttrSet.Parser, new[]{ "Sname", "Attrs" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Y3D.Entities.FilterView), global::Y3D.Entities.FilterView.Parser, new[]{ "Otype", "FaceRange", "Search", "Aid" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Y3D.Entities.ProjectInfo), global::Y3D.Entities.ProjectInfo.Parser, new[]{ "Pname", "Path", "FaceRange", "CountColor", "Fview", "Areas", "Gvers" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Y3D.Entities.PSetting), global::Y3D.Entities.PSetting.Parser, new[]{ "Extra" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Y3D.Entities.YSystem), global::Y3D.Entities.YSystem.Parser, new[]{ "DefaultPSetting" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Y3D.Entities.ProjectInfo), global::Y3D.Entities.ProjectInfo.Parser, new[]{ "Pname", "Path", "FaceRange", "CountColor", "Fview" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Y3D.Entities.YAreaList), global::Y3D.Entities.YAreaList.Parser, new[]{ "Areas" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Y3D.Entities.PSetting), global::Y3D.Entities.PSetting.Parser, new[]{ "Extra", "MaxRecent" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Y3D.Entities.YSystem), global::Y3D.Entities.YSystem.Parser, new[]{ "DefaultInfo", "DefaultSetting", "NamePath" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, })
           }));
     }
     #endregion
@@ -1376,10 +1382,10 @@ namespace Y3D.Entities {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     public static partial class Types {
       public enum MeshType {
-        [pbr::OriginalName("Editable_Mesh")] EditableMesh = 0,
-        [pbr::OriginalName("Editable_Poly")] EditablePoly = 1,
-        [pbr::OriginalName("Box")] Box = 2,
-        [pbr::OriginalName("Cone")] Cone = 3,
+        [pbr::OriginalName("Unknown")] Unknown = 0,
+        [pbr::OriginalName("Editable_Mesh")] EditableMesh = 1,
+        [pbr::OriginalName("Editable_Poly")] EditablePoly = 2,
+        [pbr::OriginalName("Box")] Box = 3,
         [pbr::OriginalName("Sphere")] Sphere = 4,
         [pbr::OriginalName("GeoSphere")] GeoSphere = 5,
         [pbr::OriginalName("Cylinder")] Cylinder = 6,
@@ -1389,6 +1395,7 @@ namespace Y3D.Entities {
         [pbr::OriginalName("Teapot")] Teapot = 10,
         [pbr::OriginalName("Plane")] Plane = 11,
         [pbr::OriginalName("Target")] Target = 12,
+        [pbr::OriginalName("Cone")] Cone = 13,
       }
 
       public enum XrefStatus {
@@ -1463,9 +1470,6 @@ namespace Y3D.Entities {
     /// <summary>Field number for the "pos" field.</summary>
     public const int PosFieldNumber = 3;
     private global::Y3D.Entities.YPoint3 pos_;
-    /// <summary>
-    ///  int32 num_faces = 2;
-    /// </summary>
     public global::Y3D.Entities.YPoint3 Pos {
       get { return pos_; }
       set {
@@ -1766,12 +1770,172 @@ namespace Y3D.Entities {
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+  public sealed partial class YArea : pb::IMessage<YArea> {
+    private static readonly pb::MessageParser<YArea> _parser = new pb::MessageParser<YArea>(() => new YArea());
+    public static pb::MessageParser<YArea> Parser { get { return _parser; } }
+
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Y3D.Entities.Y3DReflection.Descriptor.MessageTypes[8]; }
+    }
+
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    public YArea() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    public YArea(YArea other) : this() {
+      name_ = other.name_;
+      groups_ = other.groups_.Clone();
+      objs_ = other.objs_.Clone();
+      gvers_ = other.gvers_.Clone();
+    }
+
+    public YArea Clone() {
+      return new YArea(this);
+    }
+
+    /// <summary>Field number for the "name" field.</summary>
+    public const int NameFieldNumber = 1;
+    private string name_ = "";
+    public string Name {
+      get { return name_; }
+      set {
+        name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "groups" field.</summary>
+    public const int GroupsFieldNumber = 2;
+    private static readonly pb::FieldCodec<global::Y3D.Entities.YGroup> _repeated_groups_codec
+        = pb::FieldCodec.ForMessage(18, global::Y3D.Entities.YGroup.Parser);
+    private readonly pbc::RepeatedField<global::Y3D.Entities.YGroup> groups_ = new pbc::RepeatedField<global::Y3D.Entities.YGroup>();
+    public pbc::RepeatedField<global::Y3D.Entities.YGroup> Groups {
+      get { return groups_; }
+    }
+
+    /// <summary>Field number for the "objs" field.</summary>
+    public const int ObjsFieldNumber = 3;
+    private static readonly pb::FieldCodec<global::Y3D.Entities.YObject> _repeated_objs_codec
+        = pb::FieldCodec.ForMessage(26, global::Y3D.Entities.YObject.Parser);
+    private readonly pbc::RepeatedField<global::Y3D.Entities.YObject> objs_ = new pbc::RepeatedField<global::Y3D.Entities.YObject>();
+    public pbc::RepeatedField<global::Y3D.Entities.YObject> Objs {
+      get { return objs_; }
+    }
+
+    /// <summary>Field number for the "gvers" field.</summary>
+    public const int GversFieldNumber = 6;
+    private static readonly pbc::MapField<string, global::Y3D.Entities.YGroupVer>.Codec _map_gvers_codec
+        = new pbc::MapField<string, global::Y3D.Entities.YGroupVer>.Codec(pb::FieldCodec.ForString(10), pb::FieldCodec.ForMessage(18, global::Y3D.Entities.YGroupVer.Parser), 50);
+    private readonly pbc::MapField<string, global::Y3D.Entities.YGroupVer> gvers_ = new pbc::MapField<string, global::Y3D.Entities.YGroupVer>();
+    public pbc::MapField<string, global::Y3D.Entities.YGroupVer> Gvers {
+      get { return gvers_; }
+    }
+
+    public override bool Equals(object other) {
+      return Equals(other as YArea);
+    }
+
+    public bool Equals(YArea other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Name != other.Name) return false;
+      if(!groups_.Equals(other.groups_)) return false;
+      if(!objs_.Equals(other.objs_)) return false;
+      if (!Gvers.Equals(other.Gvers)) return false;
+      return true;
+    }
+
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Name.Length != 0) hash ^= Name.GetHashCode();
+      hash ^= groups_.GetHashCode();
+      hash ^= objs_.GetHashCode();
+      hash ^= Gvers.GetHashCode();
+      return hash;
+    }
+
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Name.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Name);
+      }
+      groups_.WriteTo(output, _repeated_groups_codec);
+      objs_.WriteTo(output, _repeated_objs_codec);
+      gvers_.WriteTo(output, _map_gvers_codec);
+    }
+
+    public int CalculateSize() {
+      int size = 0;
+      if (Name.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
+      }
+      size += groups_.CalculateSize(_repeated_groups_codec);
+      size += objs_.CalculateSize(_repeated_objs_codec);
+      size += gvers_.CalculateSize(_map_gvers_codec);
+      return size;
+    }
+
+    public void MergeFrom(YArea other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Name.Length != 0) {
+        Name = other.Name;
+      }
+      groups_.Add(other.groups_);
+      objs_.Add(other.objs_);
+      gvers_.Add(other.gvers_);
+    }
+
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 10: {
+            Name = input.ReadString();
+            break;
+          }
+          case 18: {
+            groups_.AddEntriesFrom(input, _repeated_groups_codec);
+            break;
+          }
+          case 26: {
+            objs_.AddEntriesFrom(input, _repeated_objs_codec);
+            break;
+          }
+          case 50: {
+            gvers_.AddEntriesFrom(input, _map_gvers_codec);
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
   public sealed partial class YGroup : pb::IMessage<YGroup> {
     private static readonly pb::MessageParser<YGroup> _parser = new pb::MessageParser<YGroup>(() => new YGroup());
     public static pb::MessageParser<YGroup> Parser { get { return _parser; } }
 
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Y3D.Entities.Y3DReflection.Descriptor.MessageTypes[8]; }
+      get { return global::Y3D.Entities.Y3DReflection.Descriptor.MessageTypes[9]; }
     }
 
     pbr::MessageDescriptor pb::IMessage.Descriptor {
@@ -1789,6 +1953,7 @@ namespace Y3D.Entities {
       objs_ = other.objs_.Clone();
       children_ = other.children_.Clone();
       gvType_ = other.gvType_;
+      xref_ = other.xref_.Clone();
     }
 
     public YGroup Clone() {
@@ -1833,6 +1998,15 @@ namespace Y3D.Entities {
       }
     }
 
+    /// <summary>Field number for the "xref" field.</summary>
+    public const int XrefFieldNumber = 5;
+    private static readonly pb::FieldCodec<string> _repeated_xref_codec
+        = pb::FieldCodec.ForString(42);
+    private readonly pbc::RepeatedField<string> xref_ = new pbc::RepeatedField<string>();
+    public pbc::RepeatedField<string> Xref {
+      get { return xref_; }
+    }
+
     public override bool Equals(object other) {
       return Equals(other as YGroup);
     }
@@ -1848,6 +2022,7 @@ namespace Y3D.Entities {
       if(!objs_.Equals(other.objs_)) return false;
       if(!children_.Equals(other.children_)) return false;
       if (GvType != other.GvType) return false;
+      if(!xref_.Equals(other.xref_)) return false;
       return true;
     }
 
@@ -1857,6 +2032,7 @@ namespace Y3D.Entities {
       hash ^= objs_.GetHashCode();
       hash ^= children_.GetHashCode();
       if (GvType != 0) hash ^= GvType.GetHashCode();
+      hash ^= xref_.GetHashCode();
       return hash;
     }
 
@@ -1875,6 +2051,7 @@ namespace Y3D.Entities {
         output.WriteRawTag(32);
         output.WriteEnum((int) GvType);
       }
+      xref_.WriteTo(output, _repeated_xref_codec);
     }
 
     public int CalculateSize() {
@@ -1887,6 +2064,7 @@ namespace Y3D.Entities {
       if (GvType != 0) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) GvType);
       }
+      size += xref_.CalculateSize(_repeated_xref_codec);
       return size;
     }
 
@@ -1902,6 +2080,7 @@ namespace Y3D.Entities {
       if (other.GvType != 0) {
         GvType = other.GvType;
       }
+      xref_.Add(other.xref_);
     }
 
     public void MergeFrom(pb::CodedInputStream input) {
@@ -1927,145 +2106,8 @@ namespace Y3D.Entities {
             gvType_ = (global::Y3D.Entities.GVerType) input.ReadEnum();
             break;
           }
-        }
-      }
-    }
-
-  }
-
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-  public sealed partial class YArea : pb::IMessage<YArea> {
-    private static readonly pb::MessageParser<YArea> _parser = new pb::MessageParser<YArea>(() => new YArea());
-    public static pb::MessageParser<YArea> Parser { get { return _parser; } }
-
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::Y3D.Entities.Y3DReflection.Descriptor.MessageTypes[9]; }
-    }
-
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    public YArea() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    public YArea(YArea other) : this() {
-      name_ = other.name_;
-      groups_ = other.groups_.Clone();
-      objs_ = other.objs_.Clone();
-    }
-
-    public YArea Clone() {
-      return new YArea(this);
-    }
-
-    /// <summary>Field number for the "name" field.</summary>
-    public const int NameFieldNumber = 1;
-    private string name_ = "";
-    public string Name {
-      get { return name_; }
-      set {
-        name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "groups" field.</summary>
-    public const int GroupsFieldNumber = 2;
-    private static readonly pb::FieldCodec<global::Y3D.Entities.YGroup> _repeated_groups_codec
-        = pb::FieldCodec.ForMessage(18, global::Y3D.Entities.YGroup.Parser);
-    private readonly pbc::RepeatedField<global::Y3D.Entities.YGroup> groups_ = new pbc::RepeatedField<global::Y3D.Entities.YGroup>();
-    public pbc::RepeatedField<global::Y3D.Entities.YGroup> Groups {
-      get { return groups_; }
-    }
-
-    /// <summary>Field number for the "objs" field.</summary>
-    public const int ObjsFieldNumber = 3;
-    private static readonly pb::FieldCodec<global::Y3D.Entities.YObject> _repeated_objs_codec
-        = pb::FieldCodec.ForMessage(26, global::Y3D.Entities.YObject.Parser);
-    private readonly pbc::RepeatedField<global::Y3D.Entities.YObject> objs_ = new pbc::RepeatedField<global::Y3D.Entities.YObject>();
-    public pbc::RepeatedField<global::Y3D.Entities.YObject> Objs {
-      get { return objs_; }
-    }
-
-    public override bool Equals(object other) {
-      return Equals(other as YArea);
-    }
-
-    public bool Equals(YArea other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (Name != other.Name) return false;
-      if(!groups_.Equals(other.groups_)) return false;
-      if(!objs_.Equals(other.objs_)) return false;
-      return true;
-    }
-
-    public override int GetHashCode() {
-      int hash = 1;
-      if (Name.Length != 0) hash ^= Name.GetHashCode();
-      hash ^= groups_.GetHashCode();
-      hash ^= objs_.GetHashCode();
-      return hash;
-    }
-
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (Name.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(Name);
-      }
-      groups_.WriteTo(output, _repeated_groups_codec);
-      objs_.WriteTo(output, _repeated_objs_codec);
-    }
-
-    public int CalculateSize() {
-      int size = 0;
-      if (Name.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
-      }
-      size += groups_.CalculateSize(_repeated_groups_codec);
-      size += objs_.CalculateSize(_repeated_objs_codec);
-      return size;
-    }
-
-    public void MergeFrom(YArea other) {
-      if (other == null) {
-        return;
-      }
-      if (other.Name.Length != 0) {
-        Name = other.Name;
-      }
-      groups_.Add(other.groups_);
-      objs_.Add(other.objs_);
-    }
-
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            input.SkipLastField();
-            break;
-          case 10: {
-            Name = input.ReadString();
-            break;
-          }
-          case 18: {
-            groups_.AddEntriesFrom(input, _repeated_groups_codec);
-            break;
-          }
-          case 26: {
-            objs_.AddEntriesFrom(input, _repeated_objs_codec);
+          case 42: {
+            xref_.AddEntriesFrom(input, _repeated_xref_codec);
             break;
           }
         }
@@ -2759,8 +2801,6 @@ namespace Y3D.Entities {
       faceRange_ = other.faceRange_.Clone();
       countColor_ = other.countColor_.Clone();
       fview_ = other.fview_.Clone();
-      areas_ = other.areas_.Clone();
-      gvers_ = other.gvers_.Clone();
     }
 
     public ProjectInfo Clone() {
@@ -2820,24 +2860,6 @@ namespace Y3D.Entities {
       get { return fview_; }
     }
 
-    /// <summary>Field number for the "areas" field.</summary>
-    public const int AreasFieldNumber = 6;
-    private static readonly pb::FieldCodec<global::Y3D.Entities.YArea> _repeated_areas_codec
-        = pb::FieldCodec.ForMessage(50, global::Y3D.Entities.YArea.Parser);
-    private readonly pbc::RepeatedField<global::Y3D.Entities.YArea> areas_ = new pbc::RepeatedField<global::Y3D.Entities.YArea>();
-    public pbc::RepeatedField<global::Y3D.Entities.YArea> Areas {
-      get { return areas_; }
-    }
-
-    /// <summary>Field number for the "gvers" field.</summary>
-    public const int GversFieldNumber = 7;
-    private static readonly pbc::MapField<string, global::Y3D.Entities.YGroupVer>.Codec _map_gvers_codec
-        = new pbc::MapField<string, global::Y3D.Entities.YGroupVer>.Codec(pb::FieldCodec.ForString(10), pb::FieldCodec.ForMessage(18, global::Y3D.Entities.YGroupVer.Parser), 58);
-    private readonly pbc::MapField<string, global::Y3D.Entities.YGroupVer> gvers_ = new pbc::MapField<string, global::Y3D.Entities.YGroupVer>();
-    public pbc::MapField<string, global::Y3D.Entities.YGroupVer> Gvers {
-      get { return gvers_; }
-    }
-
     public override bool Equals(object other) {
       return Equals(other as ProjectInfo);
     }
@@ -2854,8 +2876,6 @@ namespace Y3D.Entities {
       if(!faceRange_.Equals(other.faceRange_)) return false;
       if(!countColor_.Equals(other.countColor_)) return false;
       if(!fview_.Equals(other.fview_)) return false;
-      if(!areas_.Equals(other.areas_)) return false;
-      if (!Gvers.Equals(other.Gvers)) return false;
       return true;
     }
 
@@ -2866,8 +2886,6 @@ namespace Y3D.Entities {
       hash ^= faceRange_.GetHashCode();
       hash ^= countColor_.GetHashCode();
       hash ^= fview_.GetHashCode();
-      hash ^= areas_.GetHashCode();
-      hash ^= Gvers.GetHashCode();
       return hash;
     }
 
@@ -2887,8 +2905,6 @@ namespace Y3D.Entities {
       faceRange_.WriteTo(output, _repeated_faceRange_codec);
       countColor_.WriteTo(output, _repeated_countColor_codec);
       fview_.WriteTo(output, _repeated_fview_codec);
-      areas_.WriteTo(output, _repeated_areas_codec);
-      gvers_.WriteTo(output, _map_gvers_codec);
     }
 
     public int CalculateSize() {
@@ -2902,8 +2918,6 @@ namespace Y3D.Entities {
       size += faceRange_.CalculateSize(_repeated_faceRange_codec);
       size += countColor_.CalculateSize(_repeated_countColor_codec);
       size += fview_.CalculateSize(_repeated_fview_codec);
-      size += areas_.CalculateSize(_repeated_areas_codec);
-      size += gvers_.CalculateSize(_map_gvers_codec);
       return size;
     }
 
@@ -2920,8 +2934,6 @@ namespace Y3D.Entities {
       faceRange_.Add(other.faceRange_);
       countColor_.Add(other.countColor_);
       fview_.Add(other.fview_);
-      areas_.Add(other.areas_);
-      gvers_.Add(other.gvers_);
     }
 
     public void MergeFrom(pb::CodedInputStream input) {
@@ -2952,12 +2964,99 @@ namespace Y3D.Entities {
             fview_.AddEntriesFrom(input, _repeated_fview_codec);
             break;
           }
-          case 50: {
-            areas_.AddEntriesFrom(input, _repeated_areas_codec);
+        }
+      }
+    }
+
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+  public sealed partial class YAreaList : pb::IMessage<YAreaList> {
+    private static readonly pb::MessageParser<YAreaList> _parser = new pb::MessageParser<YAreaList>(() => new YAreaList());
+    public static pb::MessageParser<YAreaList> Parser { get { return _parser; } }
+
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Y3D.Entities.Y3DReflection.Descriptor.MessageTypes[15]; }
+    }
+
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    public YAreaList() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    public YAreaList(YAreaList other) : this() {
+      areas_ = other.areas_.Clone();
+    }
+
+    public YAreaList Clone() {
+      return new YAreaList(this);
+    }
+
+    /// <summary>Field number for the "areas" field.</summary>
+    public const int AreasFieldNumber = 1;
+    private static readonly pb::FieldCodec<global::Y3D.Entities.YArea> _repeated_areas_codec
+        = pb::FieldCodec.ForMessage(10, global::Y3D.Entities.YArea.Parser);
+    private readonly pbc::RepeatedField<global::Y3D.Entities.YArea> areas_ = new pbc::RepeatedField<global::Y3D.Entities.YArea>();
+    public pbc::RepeatedField<global::Y3D.Entities.YArea> Areas {
+      get { return areas_; }
+    }
+
+    public override bool Equals(object other) {
+      return Equals(other as YAreaList);
+    }
+
+    public bool Equals(YAreaList other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if(!areas_.Equals(other.areas_)) return false;
+      return true;
+    }
+
+    public override int GetHashCode() {
+      int hash = 1;
+      hash ^= areas_.GetHashCode();
+      return hash;
+    }
+
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    public void WriteTo(pb::CodedOutputStream output) {
+      areas_.WriteTo(output, _repeated_areas_codec);
+    }
+
+    public int CalculateSize() {
+      int size = 0;
+      size += areas_.CalculateSize(_repeated_areas_codec);
+      return size;
+    }
+
+    public void MergeFrom(YAreaList other) {
+      if (other == null) {
+        return;
+      }
+      areas_.Add(other.areas_);
+    }
+
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
             break;
-          }
-          case 58: {
-            gvers_.AddEntriesFrom(input, _map_gvers_codec);
+          case 10: {
+            areas_.AddEntriesFrom(input, _repeated_areas_codec);
             break;
           }
         }
@@ -2972,7 +3071,7 @@ namespace Y3D.Entities {
     public static pb::MessageParser<PSetting> Parser { get { return _parser; } }
 
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Y3D.Entities.Y3DReflection.Descriptor.MessageTypes[15]; }
+      get { return global::Y3D.Entities.Y3DReflection.Descriptor.MessageTypes[16]; }
     }
 
     pbr::MessageDescriptor pb::IMessage.Descriptor {
@@ -2987,6 +3086,7 @@ namespace Y3D.Entities {
 
     public PSetting(PSetting other) : this() {
       extra_ = other.extra_.Clone();
+      maxRecent_ = other.maxRecent_;
     }
 
     public PSetting Clone() {
@@ -3002,6 +3102,16 @@ namespace Y3D.Entities {
       get { return extra_; }
     }
 
+    /// <summary>Field number for the "max_recent" field.</summary>
+    public const int MaxRecentFieldNumber = 3;
+    private int maxRecent_;
+    public int MaxRecent {
+      get { return maxRecent_; }
+      set {
+        maxRecent_ = value;
+      }
+    }
+
     public override bool Equals(object other) {
       return Equals(other as PSetting);
     }
@@ -3014,12 +3124,14 @@ namespace Y3D.Entities {
         return true;
       }
       if(!extra_.Equals(other.extra_)) return false;
+      if (MaxRecent != other.MaxRecent) return false;
       return true;
     }
 
     public override int GetHashCode() {
       int hash = 1;
       hash ^= extra_.GetHashCode();
+      if (MaxRecent != 0) hash ^= MaxRecent.GetHashCode();
       return hash;
     }
 
@@ -3029,11 +3141,18 @@ namespace Y3D.Entities {
 
     public void WriteTo(pb::CodedOutputStream output) {
       extra_.WriteTo(output, _repeated_extra_codec);
+      if (MaxRecent != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(MaxRecent);
+      }
     }
 
     public int CalculateSize() {
       int size = 0;
       size += extra_.CalculateSize(_repeated_extra_codec);
+      if (MaxRecent != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(MaxRecent);
+      }
       return size;
     }
 
@@ -3042,6 +3161,9 @@ namespace Y3D.Entities {
         return;
       }
       extra_.Add(other.extra_);
+      if (other.MaxRecent != 0) {
+        MaxRecent = other.MaxRecent;
+      }
     }
 
     public void MergeFrom(pb::CodedInputStream input) {
@@ -3053,6 +3175,10 @@ namespace Y3D.Entities {
             break;
           case 18: {
             extra_.AddEntriesFrom(input, _repeated_extra_codec);
+            break;
+          }
+          case 24: {
+            MaxRecent = input.ReadInt32();
             break;
           }
         }
@@ -3067,7 +3193,7 @@ namespace Y3D.Entities {
     public static pb::MessageParser<YSystem> Parser { get { return _parser; } }
 
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Y3D.Entities.Y3DReflection.Descriptor.MessageTypes[16]; }
+      get { return global::Y3D.Entities.Y3DReflection.Descriptor.MessageTypes[17]; }
     }
 
     pbr::MessageDescriptor pb::IMessage.Descriptor {
@@ -3081,21 +3207,45 @@ namespace Y3D.Entities {
     partial void OnConstruction();
 
     public YSystem(YSystem other) : this() {
-      DefaultPSetting = other.defaultPSetting_ != null ? other.DefaultPSetting.Clone() : null;
+      DefaultInfo = other.defaultInfo_ != null ? other.DefaultInfo.Clone() : null;
+      DefaultSetting = other.defaultSetting_ != null ? other.DefaultSetting.Clone() : null;
+      namePath_ = other.namePath_.Clone();
     }
 
     public YSystem Clone() {
       return new YSystem(this);
     }
 
-    /// <summary>Field number for the "defaultPSetting" field.</summary>
-    public const int DefaultPSettingFieldNumber = 1;
-    private global::Y3D.Entities.PSetting defaultPSetting_;
-    public global::Y3D.Entities.PSetting DefaultPSetting {
-      get { return defaultPSetting_; }
+    /// <summary>Field number for the "default_info" field.</summary>
+    public const int DefaultInfoFieldNumber = 1;
+    private global::Y3D.Entities.ProjectInfo defaultInfo_;
+    public global::Y3D.Entities.ProjectInfo DefaultInfo {
+      get { return defaultInfo_; }
       set {
-        defaultPSetting_ = value;
+        defaultInfo_ = value;
       }
+    }
+
+    /// <summary>Field number for the "default_setting" field.</summary>
+    public const int DefaultSettingFieldNumber = 2;
+    private global::Y3D.Entities.PSetting defaultSetting_;
+    public global::Y3D.Entities.PSetting DefaultSetting {
+      get { return defaultSetting_; }
+      set {
+        defaultSetting_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "name_path" field.</summary>
+    public const int NamePathFieldNumber = 3;
+    private static readonly pbc::MapField<string, string>.Codec _map_namePath_codec
+        = new pbc::MapField<string, string>.Codec(pb::FieldCodec.ForString(10), pb::FieldCodec.ForString(18), 26);
+    private readonly pbc::MapField<string, string> namePath_ = new pbc::MapField<string, string>();
+    /// <summary>
+    ///   Name Project : Path to 
+    /// </summary>
+    public pbc::MapField<string, string> NamePath {
+      get { return namePath_; }
     }
 
     public override bool Equals(object other) {
@@ -3109,13 +3259,17 @@ namespace Y3D.Entities {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (!object.Equals(DefaultPSetting, other.DefaultPSetting)) return false;
+      if (!object.Equals(DefaultInfo, other.DefaultInfo)) return false;
+      if (!object.Equals(DefaultSetting, other.DefaultSetting)) return false;
+      if (!NamePath.Equals(other.NamePath)) return false;
       return true;
     }
 
     public override int GetHashCode() {
       int hash = 1;
-      if (defaultPSetting_ != null) hash ^= DefaultPSetting.GetHashCode();
+      if (defaultInfo_ != null) hash ^= DefaultInfo.GetHashCode();
+      if (defaultSetting_ != null) hash ^= DefaultSetting.GetHashCode();
+      hash ^= NamePath.GetHashCode();
       return hash;
     }
 
@@ -3124,17 +3278,26 @@ namespace Y3D.Entities {
     }
 
     public void WriteTo(pb::CodedOutputStream output) {
-      if (defaultPSetting_ != null) {
+      if (defaultInfo_ != null) {
         output.WriteRawTag(10);
-        output.WriteMessage(DefaultPSetting);
+        output.WriteMessage(DefaultInfo);
       }
+      if (defaultSetting_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(DefaultSetting);
+      }
+      namePath_.WriteTo(output, _map_namePath_codec);
     }
 
     public int CalculateSize() {
       int size = 0;
-      if (defaultPSetting_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(DefaultPSetting);
+      if (defaultInfo_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(DefaultInfo);
       }
+      if (defaultSetting_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(DefaultSetting);
+      }
+      size += namePath_.CalculateSize(_map_namePath_codec);
       return size;
     }
 
@@ -3142,12 +3305,19 @@ namespace Y3D.Entities {
       if (other == null) {
         return;
       }
-      if (other.defaultPSetting_ != null) {
-        if (defaultPSetting_ == null) {
-          defaultPSetting_ = new global::Y3D.Entities.PSetting();
+      if (other.defaultInfo_ != null) {
+        if (defaultInfo_ == null) {
+          defaultInfo_ = new global::Y3D.Entities.ProjectInfo();
         }
-        DefaultPSetting.MergeFrom(other.DefaultPSetting);
+        DefaultInfo.MergeFrom(other.DefaultInfo);
       }
+      if (other.defaultSetting_ != null) {
+        if (defaultSetting_ == null) {
+          defaultSetting_ = new global::Y3D.Entities.PSetting();
+        }
+        DefaultSetting.MergeFrom(other.DefaultSetting);
+      }
+      namePath_.Add(other.namePath_);
     }
 
     public void MergeFrom(pb::CodedInputStream input) {
@@ -3158,10 +3328,21 @@ namespace Y3D.Entities {
             input.SkipLastField();
             break;
           case 10: {
-            if (defaultPSetting_ == null) {
-              defaultPSetting_ = new global::Y3D.Entities.PSetting();
+            if (defaultInfo_ == null) {
+              defaultInfo_ = new global::Y3D.Entities.ProjectInfo();
             }
-            input.ReadMessage(defaultPSetting_);
+            input.ReadMessage(defaultInfo_);
+            break;
+          }
+          case 18: {
+            if (defaultSetting_ == null) {
+              defaultSetting_ = new global::Y3D.Entities.PSetting();
+            }
+            input.ReadMessage(defaultSetting_);
+            break;
+          }
+          case 26: {
+            namePath_.AddEntriesFrom(input, _map_namePath_codec);
             break;
           }
         }

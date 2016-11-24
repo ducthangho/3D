@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Autodesk.Max;
 using System.Runtime.InteropServices;
+using Utils;
+
 namespace YMax.Forms
 {
     public partial class YTestForm : Form
@@ -43,6 +45,22 @@ namespace YMax.Forms
         private void YTestForm_Deactivate(object sender, EventArgs e)
         {
             Loader.Global.EnableAccelerators();
+        }
+
+        private void btnThangTest_Click(object sender, EventArgs e)
+        {
+            //Utilities.YOList.activeArea.
+            //IntPtr unmanagedPointer = Marshal.AllocHGlobal(Utilities.YOList.activeArea.CalculateSize());
+            //Marshal.Copy(Utilities.YOList.activeArea., 0, unmanagedPointer, Utilities.YOList.activeArea.CalculateSize());.
+            //int number = 1024;
+
+            //unsafe
+            //{
+            //    //char* c;
+            //    byte* p = (byte*)&number;
+
+            //}
+            Loader.Global.BroadcastNotification(SystemNotificationCode.Custom7);
         }
     }
 }
