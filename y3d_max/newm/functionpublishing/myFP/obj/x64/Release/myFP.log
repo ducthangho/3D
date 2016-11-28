@@ -1,0 +1,5 @@
+﻿  myFP.cpp
+  c:\program files\autodesk\3ds max 2015 sdk\maxsdk\howto\myfp\myfp.cpp(86): TODO: Do plugin initialization here
+  c:\program files\autodesk\3ds max 2015 sdk\maxsdk\howto\myfp\myfp.cpp(87): TODO: Return if you want remain loaded or not
+  c:\program files\autodesk\3ds max 2015 sdk\maxsdk\howto\myfp\myfp.cpp(95): TODO: Do plugin un-initialization here
+LINK : fatal error LNK1104: cannot open file 'C:\Program Files\Autodesk\3ds Max 2015\plugins\myFP.gup'

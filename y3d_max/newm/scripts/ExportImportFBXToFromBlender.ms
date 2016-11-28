@@ -2,6 +2,7 @@
 global tempPath = pathConfig.GetDir #temp 
 global exportFolder = tempPath 
 global exportFileName = "3dsNodes.fbx";
+global importFileName = "blenderNodes.fbx"
 global exportHightPolyFileName = "3dsNodesHightPoly.fbx"
 global importLowPolyFileName = "blenderNodesLowPoly.fbx"
 global binaryFacesObjects = "3dsFaces.bin"

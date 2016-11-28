@@ -1,0 +1,61 @@
+﻿  main.cpp
+c:\program files\autodesk\3ds max 2015 sdk\maxsdk\howto\simplepackingalogorithm\packingalogorithm.h(60): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+c:\program files\autodesk\3ds max 2015 sdk\maxsdk\howto\simplepackingalogorithm\packingalogorithm.h(61): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+c:\program files\autodesk\3ds max 2015 sdk\maxsdk\howto\simplepackingalogorithm\packingalogorithm.h(162): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+c:\program files\autodesk\3ds max 2015 sdk\maxsdk\howto\simplepackingalogorithm\packingalogorithm.h(165): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+c:\program files\autodesk\3ds max 2015 sdk\maxsdk\howto\simplepackingalogorithm\packingalogorithm.h(170): warning C4244: '=': conversion from 'size_t' to 'float', possible loss of data
+c:\program files\autodesk\3ds max 2015 sdk\maxsdk\howto\simplepackingalogorithm\packingalogorithm.h(171): warning C4244: '=': conversion from 'size_t' to 'float', possible loss of data
+c:\program files\autodesk\3ds max 2015 sdk\maxsdk\howto\simplepackingalogorithm\packingalogorithm.h(172): warning C4244: '=': conversion from 'size_t' to 'float', possible loss of data
+c:\program files\autodesk\3ds max 2015 sdk\maxsdk\howto\simplepackingalogorithm\packingalogorithm.h(173): warning C4244: '=': conversion from 'size_t' to 'float', possible loss of data
+c:\program files\autodesk\3ds max 2015 sdk\maxsdk\howto\simplepackingalogorithm\packingalogorithm.h(261): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\program files\autodesk\3ds max 2015 sdk\maxsdk\howto\simplepackingalogorithm\main.cpp(116): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\program files\autodesk\3ds max 2015 sdk\maxsdk\howto\simplepackingalogorithm\main.cpp(56): warning C4101: 'places': unreferenced local variable
+c:\program files\autodesk\3ds max 2015 sdk\maxsdk\howto\simplepackingalogorithm\main.cpp(153): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\program files (x86)\microsoft visual studio 14.0\vc\include\xmemory0(637): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\xmemory0(755): note: see reference to function template instantiation 'void std::allocator<_Ty>::construct<_Objty,int,int,int,int,bool>(_Objty *,int &&,int &&,int &&,int &&,bool &&)' being compiled
+          with
+          [
+              _Ty=AreaRect,
+              _Objty=AreaRect
+          ]
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\xmemory0(755): note: see reference to function template instantiation 'void std::allocator<_Ty>::construct<_Objty,int,int,int,int,bool>(_Objty *,int &&,int &&,int &&,int &&,bool &&)' being compiled
+          with
+          [
+              _Ty=AreaRect,
+              _Objty=AreaRect
+          ]
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\xmemory0(894): note: see reference to function template instantiation 'void std::allocator_traits<_Alloc>::construct<_Ty,int,int,int,int,bool>(std::allocator<_Ty> &,_Objty *,int &&,int &&,int &&,int &&,bool &&)' being compiled
+          with
+          [
+              _Alloc=std::allocator<AreaRect>,
+              _Ty=AreaRect,
+              _Objty=AreaRect
+          ]
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\xmemory0(893): note: see reference to function template instantiation 'void std::allocator_traits<_Alloc>::construct<_Ty,int,int,int,int,bool>(std::allocator<_Ty> &,_Objty *,int &&,int &&,int &&,int &&,bool &&)' being compiled
+          with
+          [
+              _Alloc=std::allocator<AreaRect>,
+              _Ty=AreaRect,
+              _Objty=AreaRect
+          ]
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\vector(933): note: see reference to function template instantiation 'void std::_Wrap_alloc<std::allocator<_Ty>>::construct<AreaRect,int,int,int,int,bool>(_Ty *,int &&,int &&,int &&,int &&,bool &&)' being compiled
+          with
+          [
+              _Ty=AreaRect
+          ]
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\vector(932): note: see reference to function template instantiation 'void std::_Wrap_alloc<std::allocator<_Ty>>::construct<AreaRect,int,int,int,int,bool>(_Ty *,int &&,int &&,int &&,int &&,bool &&)' being compiled
+          with
+          [
+              _Ty=AreaRect
+          ]
+  c:\program files\autodesk\3ds max 2015 sdk\maxsdk\howto\simplepackingalogorithm\main.cpp(27): note: see reference to function template instantiation 'void std::vector<AreaRect,std::allocator<_Ty>>::emplace_back<int,int,int,int,bool>(int &&,int &&,int &&,int &&,bool &&)' being compiled
+          with
+          [
+              _Ty=AreaRect
+          ]
+  c:\program files\autodesk\3ds max 2015 sdk\maxsdk\howto\simplepackingalogorithm\main.cpp(27): note: see reference to function template instantiation 'void std::vector<AreaRect,std::allocator<_Ty>>::emplace_back<int,int,int,int,bool>(int &&,int &&,int &&,int &&,bool &&)' being compiled
+          with
+          [
+              _Ty=AreaRect
+          ]
+  SimplePackingAlogorithm.vcxproj -> C:\Program Files\Autodesk\3ds Max 2015 SDK\maxsdk\howto\x64\Debug\SimplePackingAlogorithm.exe

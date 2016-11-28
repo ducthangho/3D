@@ -135,7 +135,7 @@ function getIslandInfo listIndexes u =
 	local width =1
 	local height =1
 	local area_uvw = 1
-	local f_area =1
+	local areaGeom = 1
 	local islands = #()
 	for i = 1 to listIndexes.count do
 	(
