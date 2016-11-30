@@ -18,7 +18,7 @@ FBX version: 7400
 		Done (0.000000 sec)
 
 	FBX import: Meshes...
-		Done (0.937500 sec)
+		Done (0.015625 sec)
 
 	FBX import: Materials & Textures...
 		Done (0.000000 sec)
@@ -44,11 +44,11 @@ FBX version: 7400
 	FBX import: Cycles z-offset workaround...
 		Done (0.000000 sec)
 
-	Done (0.968750 sec)
+	Done (0.015625 sec)
 
 Import finished.
-Smart Projection time: 1.32
-Smart Projection time: 2.24
+Smart Projection time: 0.02
+Smart Projection time: 0.02
 
 FBX export starting... 'C:\\Users\\Pham Le Minh\\AppData\\Local\\Autodesk\\3dsMax\\2015 - 64bit\\ENU\\temp\\blenderNodes.fbx'
 FBX export prepare: Wrapping Objects...
@@ -76,7 +76,7 @@ FBX export prepare: Wrapping Textures...
 	Done (0.000000 sec)
 
 FBX export prepare: Wrapping Animations...
-	Done (0.125000 sec)
+	Done (0.015625 sec)
 
 FBX export prepare: Generating templates...
 	Done (0.000000 sec)
@@ -94,17 +94,17 @@ FBX export fetch cameras (0)...
 	Done (0.000000 sec)
 
 FBX export fetch meshes (1)...
-	Done (0.734375 sec)
+	Done (0.000000 sec)
 
 FBX export fetch objects (1)...
-	Done (0.000000 sec)
+	Done (0.015625 sec)
 
 FBX export fetch remaining...
 	Done (0.000000 sec)
 
 FBX export fetch animations...
-	Done (0.015625 sec)
+	Done (0.000000 sec)
 
-export finished in 0.8750 sec.
+export finished in 0.0312 sec.
 
 Blender quit
