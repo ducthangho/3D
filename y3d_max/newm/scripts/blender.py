@@ -2,6 +2,7 @@ import bpy
 import struct
 import bmesh
 import sys
+import time
 
 ExportFolder = "C:/Users/Pham Le Minh/AppData/Local/Autodesk/3dsMax/2015 - 64bit/ENU/temp/"
 
@@ -16,6 +17,7 @@ savedFile = "3dsMax.blend"
 savedFileAfterMakeLowPoly = "saveFileAfterMakeLowPoly.blend"
 argMakeLowPoly = 'makeLowPoly'
 argUnwrap = 'unwrap'
+island_margin  = 0.0
 
 def importFBX(filePath):
 	print(filePath)
@@ -85,9 +87,12 @@ def unwrapFromBlender(ExportFolder = "D:\\"):
 
 	bpy.context.tool_settings.mesh_select_mode = (False, False, True)
 
+	start_time = time.time()
 	for id in selectedFace:
 		bm.faces[id-1].select = True
 	bm.free()
+	print("---Select selected face took: %s seconds ---" % (time.time() - start_time))
+
 	bmesh.update_edit_mesh(obj.data, True)
 
 	bpy.ops.uv.smart_project()
@@ -96,10 +101,13 @@ def unwrapFromBlender(ExportFolder = "D:\\"):
 	bm = bmesh.from_edit_mesh(me)
 	bm.faces.ensure_lookup_table()
 	bpy.ops.mesh.select_all(action='SELECT')
+	start_time = time.time()
 	for id in selectedFace:
 		bm.faces[id-1].select = False
+	print("---Invert selected face took: %s seconds ---" % (time.time() - start_time))
 	bm.free()
-	bpy.ops.uv.smart_project()
+	print ("-- island_margin : "+str(island_margin))
+	bpy.ops.uv.smart_project(island_margin = island_margin)
 
 	exportFBX(ExportFolder+exportFileName)
 	bpy.ops.wm.save_as_mainfile(filepath=(ExportFolder+savedFile))
@@ -132,6 +140,7 @@ def makeLowPoly(ExportFolder = "D:\\", ratio = None):
 
 def yrun():
 	global ExportFolder
+	global island_margin
 	print (ExportFolder)
 	argv = sys.argv
 	argv = argv[argv.index("--") + 1:]  
@@ -145,6 +154,7 @@ def yrun():
 			makeLowPoly(ExportFolder)		
 	elif (argv[0] == argUnwrap):
 		ExportFolder = argv[1] + "\\" 
+		island_margin = float (argv[2])
 		unwrapFromBlender(ExportFolder)	
 
 yrun()

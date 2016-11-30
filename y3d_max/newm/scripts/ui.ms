@@ -1,3 +1,5 @@
+global cmdOutputToFileOn = True
+
 fn makeLowPoly ratio = 
 (	
 	if $selection.count == 0 then return ""
@@ -34,7 +36,6 @@ rollout DraftUIForTest "Untitled" width:190 height:303
 		edtDensity.text = "128"
 		edtTileSize.text = "1024"
 		edtPadding.text = "5"
-		print edtDensity
 	)
 	on btnUnwrap pressed do
 	(
@@ -79,6 +80,7 @@ rollout DraftUIForTest "Untitled" width:190 height:303
 
 fn unwrap density tileSize padding= 
 (	
+	padding = padding/tileSize
 	fn compareHeight rect1 rect2 = 
 	(
 		case of
@@ -100,8 +102,9 @@ fn unwrap density tileSize padding=
 	)
 	fclose binFile
 	exportObjectToFBX  (exportFolder + "\\" + exportFileName)
-	local cmd = blenderPath + " -b -P "+ pythonScript + " -- unwrap " + "\"" + exportFolder + "\""
-	cmd += " > " + DoscommandOutput 
+	local cmd = blenderPath + " -b -P "+ pythonScript + " -- unwrap " + "\"" + exportFolder + "\" "+(padding as string)
+	if cmdOutputToFileOn do
+		cmd += " > " + DoscommandOutput 
 	print cmd
 	val = HiddenDOSCommand(cmd)
 	importObjectFromFBXFile  (tempPath + "\\"+ importFileName)
@@ -123,7 +126,6 @@ fn unwrap density tileSize padding=
 	local f_area =1
 	local totalAreaTile_Pixel = tileSize*tileSize
 	local totalAreaTile_M2 = (totalAreaTile_Pixel as float) / density
-	padding = padding/tileSize
 
 	u.unwrap2.setTVElementMode true
 	local userSelected = sf as bitarray
