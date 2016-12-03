@@ -5,7 +5,7 @@ fn makeLowPoly ratio =
 	if $selection.count == 0 then return ""
 	ResetPivot $
 	local filePath = tempPath + "\\" +exportHightPolyFileName
-	exportFile filePath #noPrompt selectedOnly:true 
+	exportObjectToFBX filePath
 -- 	augument order: 	1 : What to do , 2 : ExportFolder, 3 : other need argument
 	local cmd = blenderPath + " --factory-startup -b -P \"" + pythonScript + "\""
 	cmd += " -- makeLowPoly \""+tempPath + "\""
