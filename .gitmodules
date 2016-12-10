@@ -1,0 +1,6 @@
+[submodule "grpc"]
+	path = grpc
+	url = https://github.com/grpc/grpc.git
+[submodule "y3d/Service/grpc"]
+	path = y3d/Service/grpc
+	url = ../../grpc/grpc.git
