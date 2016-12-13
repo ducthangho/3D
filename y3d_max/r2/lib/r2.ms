@@ -13,6 +13,8 @@ if r2_init != true then
 	global test_xref
 	global new_project_from_file
 	global yxref_selected
+	global pre_optimize
+	global xref_low
 
 	-- global form
 	global yf_main
@@ -358,6 +360,7 @@ if r2_init != true then
 			cmd += " " + ratio as string
 		print cmd
 		val = HiddenDOSCommand(cmd)
+		-- val = DOSCommand(cmd)
 	)
 
 
@@ -388,6 +391,55 @@ if r2_init != true then
 				objXRefMgr.SetProxyItemSrcFile item high_path
 				item.proxyItemName = item.objectName
 			)
+	)
+
+	fn xref_low oFileDir oFileName= 
+	(
+		oNames = #()
+		for ss in selection do 
+			(
+				append oNames ss.name
+			)
+		objXRefMgr.dupObjNameAction  = #deleteOld
+		xref_b = objXRefMgr.AddXRefItemsFromFile (oFileDir +"\\y3d_data\\"+ oFileName + "_low0.max") objNames:oNames
+		items = #()
+		xref_b.GetItems #XRefObjectType &items
+		for item in items do 
+			(
+				objXRefMgr.SetProxyItemSrcFile item (oFileDir +"\\y3d_data\\"+ oFileName + "_high.max")
+				item.proxyItemName = item.objectName
+			)		
+		-- delete not HL
+		-- loadMaxFile strStudioFile useFileUnits:true --load the latest lighting file
+		-- mergeMaxFile strFile #select #noRedraw #mergeDups #useMergedMtlDups #neverReparent --merge in everything from the hold-file
+	)
+
+
+	fn pre_optimize oFileDir oFileName= 
+	(
+		-- fname = substring maxFileName 1 (maxFileName.count-4)
+		-- path = maxFilePath + fname + "_"
+		
+		-- MessageBox curFile;
+		BatchProOptimizer.SourceFileMode = 0;
+		BatchProOptimizer.SourceFileFiles = oFileDir +"\\"+ oFileName + ".max";
+		BatchProOptimizer.OptimizationLevel1 = 90;
+		BatchProOptimizer.OptimizationLevel2 = 0;
+		BatchProOptimizer.OptimizationLevel3 = 0;
+		BatchProOptimizer.OptimizationLevel4 = 0;
+		BatchProOptimizer.OptimizationLevel5 = 0;
+
+		BatchProOptimizer.OptimizationLevelMode = 0;
+		BatchProOptimizer.OptimizeBordersMode = 1; --Protect Borders 
+		-- BatchProOptimizer.AutoRename = true;
+		BatchProOptimizer.DestFileNameMode = 1;
+		BatchProOptimizer.DestFolderMode = 2;
+		BatchProOptimizer.DestFolderName = ".\y3d_data"
+
+		BatchProOptimizer.batch();
+		-- MessageBox (oFileDir + "\\y3d_data\\" + oFileName + "90.max")
+		loadMaxFile (oFileDir + "\\y3d_data\\" + oFileName + "90.max") useFileUnits:true quiet:true
+		-- MessageBox "load xong"
 	)
 
 	if ySetup==true then
