@@ -14,7 +14,7 @@ namespace YMax
         public static void AssemblyMain()
         {
             Global = GlobalInterface.Instance;
-            Core = Global.COREInterface14;
+            Core = Global.COREInterface16;
             GameScene =  Global.IGameInterface;
             // Class_ID = Global.Class_ID.Create(0x8217f123, 0xef980456);
             Class_ID = Global.Class_ID.Create(0x27227747, 0xDD6978);

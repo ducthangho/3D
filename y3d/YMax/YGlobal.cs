@@ -105,7 +105,7 @@ namespace YMax
 
                 Loader.Global.COREInterface.MenuManager.UpdateMenuBar();
 
-                //Loader.Global.RegisterNotification(Utilities.YProject.fileSaveHandler, null, SystemNotificationCode.FilePreSave);
+                Loader.Global.RegisterNotification(Utilities.YProject.fileOpenHandle, null, SystemNotificationCode.FilePostOpen);
                 //Loader.Global.RegisterNotification(Utilities.YProject.zun1, null, SystemNotificationCode.Custom1);
                 Loader.Global.ISceneEventManager.RegisterCallback(Utilities.YProject.ycommand, false, 50, true);
                 Loader.Global.RegisterNotification(Utilities.YProject.thang_test1, null, SystemNotificationCode.Custom7); // gan vao custom7

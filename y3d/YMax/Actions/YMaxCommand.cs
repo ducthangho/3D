@@ -32,16 +32,16 @@ namespace YMax.Actions
         }
         public override void SelectionChanged(ITab<UIntPtr> nodes)
         {
-            base.SelectionChanged(nodes);
-            if (nodes.Count > 0)
-            {
-                var n = Loader.Global.NodeEventNamespace.GetNodeByKey(nodes[(IntPtr)0]);
-                if (n!=null)
-                {
-                    //MessageBox.Show(n.Name);
-                    Loader.Core.PushPrompt("Y3D: da chon : "+n.Name);
-                }
-            }
+            //base.SelectionChanged(nodes);
+            //if (nodes.Count > 0)
+            //{
+            //    var n = Loader.Global.NodeEventNamespace.GetNodeByKey(nodes[(IntPtr)0]);
+            //    if (n!=null)
+            //    {
+            //        //MessageBox.Show(n.Name);
+            //        Loader.Core.PushPrompt("Y3D: da chon : "+n.Name);
+            //    }
+            //}
         }
     }
 

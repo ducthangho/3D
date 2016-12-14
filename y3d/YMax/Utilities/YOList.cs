@@ -10,6 +10,8 @@ using ManagedServices;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Drawing;
+using System.Threading;
+using System.IO;
 
 namespace YMax.Utilities
 {
@@ -23,6 +25,8 @@ namespace YMax.Utilities
 
         public static Dictionary<string, YGroup> mapGroup = new Dictionary<string, YGroup>();
 
+
+
         public static void updateByArea(YArea y)
         {
             OnUpdateByArea(y);
@@ -33,7 +37,7 @@ namespace YMax.Utilities
             OnUpdateByGroup(g);
         }
 
-        public static List<YObject> yoo = new List<YObject>();
+        //public static List<YObject> yoo = new List<YObject>();
         public static List<YArea> GetYAreas()
         {
             if (YOList.AllYArea.Count == 0)
@@ -50,9 +54,18 @@ namespace YMax.Utilities
 
         static void getMesh(IIGameScene gs, INodeTab node_to_xref)
         {
-            Loader.Global.TheListener.EditStream.Printf("MESH:" + "\n", null);
+            var ff = "D:\\3D\\3dmax\\scenes\\1\\box3.max";
+            //Loader.Core.LoadFromFile(ff, true);
+
+            //Loader.Global.TheListener.EditStream.Printf("MESH:" + "\n", null);
             List<string> oname_high = new List<string>();
-           
+            List<string> oname_low = new List<string>();
+
+            var low_nametab = Loader.Global.NameTab.Create();
+            var high_nametab = Loader.Global.NameTab.Create();
+
+            var node_low = Loader.Global.NodeTab.Create();
+
             var meshes = gs.GetIGameNodeByType(Autodesk.Max.IGameObject.ObjectTypes.Mesh);
 
                 for (int ix = 0; ix < meshes.Count; ++ix)
@@ -64,8 +77,9 @@ namespace YMax.Utilities
 #else
                     var indexer = new IntPtr(ix);
 #endif
-                    var meshNode = meshes[indexer];
-                    Loader.Global.TheListener.EditStream.Printf(meshNode.Name + "\n", null);
+                    //var meshNode = meshes[indexer];
+                    var meshNode = meshes[ix];
+                    //Loader.Global.TheListener.EditStream.Printf(meshNode.Name + "\n", null);
                     IIGameMesh node = meshNode.IGameObject.AsGameMesh();
                     //var sb = meshNode.NodeID;
                     //Loader.Global.TheListener.EditStream.Printf(sb.ToString() + "\n", null);
@@ -117,8 +131,13 @@ namespace YMax.Utilities
                             //if ((rid== Utilities.YProject.face_range.fr.Count) || (rid== Utilities.YProject.face_range.fr.Count-1))
                             if (yo.Mesh.NumFaces>1000)
                             {
-                                oname_high.Add(yo.Name);
+                                high_nametab.AddName(yo.Name);
                                 node_to_xref.AppendNode(Loader.Core.GetINodeByName(yo.Name), true,1000);
+                            }else
+                            {
+                                //oname_low.Add(yo.Name);
+                                low_nametab.AddName(yo.Name);
+                                node_low.AppendNode(Loader.Core.GetINodeByName(yo.Name), true, 1000);
                             }
                         }
                         else
@@ -207,9 +226,63 @@ namespace YMax.Utilities
             }
 
         }
+            //Loader.Core.DeleteNodes(node_low, true, false, true);
+            //MessageBox.Show(System.IO.Path.Combine(YProject.oFileDir, YProject.oFileName + ".max"));
+            //string s = "";
+            //for (int i = 0; i < low_nametab.Count; i++)
+            //{
+            //    s += low_nametab[i] + ",";
+            //}
+            ////MessageBox.Show(low_nametab.Count.ToString());
+            //Loader.Global.TheListener.EditStream.Printf("\n zzz:"+s);
 
-        //Loader.Core.ConvertFlagedNodesToXRefs()
-    }
+            //var low_nametab2 = Loader.Global.NameTab.Create();
+            //low_nametab2.AddName("Cone001");
+            //low_nametab2.AddName("Plane001");
+            //low_nametab2.AddName("Box001");
+            //low_nametab2.AddName("Torus001");
+
+            //low_nametab.AddName("Tube001");
+
+            //MessageBox.Show(thread.ManagedThreadId.ToString());
+            //try
+            //{
+            //    Loader.Core.MergeFromFile(ff, true, true, false, 3, low_nametab2, 1, 1);
+            //}
+            //catch (Exception e)
+            //{
+            //    MessageBox.Show(e.Message);
+            //    //throw;
+            //}
+            Loader.Core.FileSaveNodes(node_to_xref, Path.Combine(YProject.oFileDir + Path.DirectorySeparatorChar + "y3d_data", YProject.oFileName + "_low0.max"));
+            //Loader.Core.SelectNodeTab(node_to_xref, true, true);
+            //Loader.Global.IObjXRefManager8.Instance.DupObjNameAction = 3;
+            //Autodesk.Max.MaxSDK.AssetManagement.AssetUser a;
+
+
+            //Loader.Core.asset
+            //Autodesk.Max.MaxSDK.AssetManagement.IIAssetManager abb;
+            //abb.GetAsset_(Path.Combine(YProject.oFileDir + Path.DirectorySeparatorChar + "y3d_data", YProject.oFileName + "_low0.max"), Autodesk.Max.MaxSDK.AssetManagement.AssetType.XRefAsset, true);
+    
+
+
+
+            //Loader.Global.IObjXRefManager8.Instance.DupObjNameAction 
+            //Loader.Global.IObjXRefManager8.Instance.AddXRefItemsFromFile(.
+            //Loader.Global.IObjXRefManager8.Instance.
+            //Loader.Global.ObjXRefManager.
+            //Loader.Core.ConvertFlagedNodesToXRefs
+            Loader.Core.MergeFromFile(Path.Combine(YProject.oFileDir, YProject.oFileName + ".max"), true, true, false, 3, high_nametab, 1, 1);
+            //Loader.Core.SaveSelectedNodesAsVersion(System.IO.Path.Combine(YProject.oFileDir + System.IO.Path.DirectorySeparatorChar + "y3d_data", YProject.oFileName + "_high.max"), 1);
+            Loader.Core.GetSelNodeTab(node_to_xref);
+            Loader.Core.FileSaveNodes(node_to_xref, Path.Combine(YProject.oFileDir + Path.DirectorySeparatorChar + "y3d_data", YProject.oFileName + "_high.max"));
+            ManagedServices.MaxscriptSDK.ExecuteMaxscriptCommand("xref_low \"" + YProject.oFileDir + "\" \"" + YProject.oFileName + "\"");
+            //Loader.Global.IObjXRefManager8.Instance.AddXRefItemsFromFile(Path.Combine(YProject.oFileDir + Path.DirectorySeparatorChar + "y3d_data", YProject.oFileName + "_low0.max"), false, null, 0);
+            //Loader.Core.DeleteNodes(node_to_xref, true, false, false);
+            Loader.Core.MergeFromFile(Path.Combine(YProject.oFileDir, YProject.oFileName + ".max"), true, true, false, 3, low_nametab, 1, 1);
+            var ss = Loader.Core.FileSave;
+            //Loader.Core.ConvertFlagedNodesToXRefs()
+        }
 
         static void getCam(IIGameScene gs)
         {
@@ -247,6 +320,7 @@ namespace YMax.Utilities
                     activeArea.Objs.Add(yo);
             }
         }
+
         static void getLight(IIGameScene gs)
         {
             var lights = gs.GetIGameNodeByType(Autodesk.Max.IGameObject.ObjectTypes.Light);
@@ -276,7 +350,7 @@ namespace YMax.Utilities
             }
         }
 
-        public static void TestGroup()
+        public static void InitGroup()
         {
             var root = Loader.Core.RootNode;
             //Loader.Core.RootNode.SetGroupHeadOpen(true);
@@ -286,7 +360,7 @@ namespace YMax.Utilities
                 for (int i = 0; i < root.NumberOfChildren; i++)
                 {
                     var n = root.GetChildNode(i);
-                    Loader.Global.TheListener.EditStream.Printf(n.Name+ " G  \n", null);
+                    //Loader.Global.TheListener.EditStream.Printf(n.Name+ " G  \n", null);
                     if (n.IsGroupHead)
                     {
                         n.SetGroupHeadOpen(true);
@@ -330,13 +404,19 @@ namespace YMax.Utilities
             var gameScene = Loader.Global.IGameInterface;
             gameScene.InitialiseIGame(false);
             var node_to_xref = Loader.Global.NodeTab.Create();
-            TestGroup();
-            getMesh(gameScene, node_to_xref);
+            InitGroup();
             getCam(gameScene);
             getLight(gameScene);
-            Loader.Core.OpenGroup(node_to_xref, false);
-            Loader.Core.SelectNodeTab(node_to_xref,true,true);
-            ManagedServices.MaxscriptSDK.ExecuteMaxscriptCommand("yxref_selected(); actionMan.executeAction 0 \"40876\"");
+            getMesh(gameScene, node_to_xref);
+            //Loader.Core.OpenGroup(node_to_xref, false);
+            //Loader.Core.SelectNodeTab(node_to_xref, true, true);
+
+            //Loader.Core.DeleteNodes(node_low,false,true);
+            //Loader.Core.Select
+
+            //ManagedServices.MaxscriptSDK.ExecuteMaxscriptCommand("yxref_selected(); actionMan.executeAction 0 \"40876\"");
+
+
             //Loader.Global.ObjXRefManager.
             //Loader.Core.SaveNodesAsVersion("D:\\00.max", node_to_xref,2015);
             //var XrefManager = Loader.Global.IObjXRefManager8.Instance;
@@ -361,9 +441,12 @@ namespace YMax.Utilities
             // save to flatbuffer
         }
 
-        public static void ztest()
+        public static void resetData()
         {
-
+            activeArea.Objs.Clear();
+            activeGroup.Objs.Clear();
+            mapGroup.Clear();
+            AllYArea.Clear();
         }
 
     }
