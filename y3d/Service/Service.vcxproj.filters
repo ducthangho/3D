@@ -803,6 +803,9 @@
     <ClCompile Include="grpc\src\core\ext\census\grpc_filter.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="y3d.pb.cc" />
+    <ClCompile Include="yservice.grpc.pb.cc" />
+    <ClCompile Include="yservice.pb.cc" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Service.def">
@@ -1409,6 +1412,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="grpc\src\core\ext\census\grpc_filter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="y3d.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="yservice.grpc.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="yservice.pb.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

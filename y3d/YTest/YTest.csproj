@@ -63,11 +63,8 @@
       <HintPath>..\YMax\Refs\Google.Protobuf.dll</HintPath>
     </Reference>
     <Reference Include="Grpc.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d754f35622e28bad, processorArchitecture=MSIL">
-      <HintPath>..\packages\Grpc.Core.1.0.1\lib\net45\Grpc.Core.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="ManagedServices">
-      <HintPath>C:\Program Files\Autodesk\3ds Max 2015 SDK\maxsdk\assemblies\x64\Release\ManagedServices.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Autodesk\3ds Max 2017\Grpc.Core.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="ObjectListView, Version=2.9.1.1072, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4, processorArchitecture=MSIL">

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Grpc.Core;
 using Helloworld;
 using System.Windows.Forms;
+using Y3D.YService;
 
 
 namespace YMax.rpc
@@ -36,6 +37,19 @@ namespace YMax.rpc
             var reply = client.MakeBox(a);
 
             MessageBox.Show("Greeting: " + reply.Objs.Count.ToString());
+            channel.ShutdownAsync().Wait();
+        }
+
+        public static void test3()
+        {
+            Channel channel = new Channel("127.0.0.1:50051", ChannelCredentials.Insecure);
+            var client = new Y3D.YService.Tools.ToolsClient(channel);
+            RenameParam a = new RenameParam();
+            a.UseSelect = false;
+            //var reply = client.SayHello(new HelloRequest { Name = "zun" });
+            var reply = client.RenameObject(a);
+
+            MessageBox.Show("Ket qua: " + reply.Message);
             channel.ShutdownAsync().Wait();
         }
     }

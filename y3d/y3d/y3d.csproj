@@ -57,6 +57,10 @@
     <Reference Include="Google.Protobuf">
       <HintPath>..\YMax\Refs\Google.Protobuf.dll</HintPath>
     </Reference>
+    <Reference Include="Grpc.Core">
+      <HintPath>C:\Program Files\Autodesk\3ds Max 2017\Grpc.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
@@ -86,6 +90,8 @@
     </Compile>
     <Compile Include="Models\Y3D.cs" />
     <Compile Include="Models\Yobject.cs" />
+    <Compile Include="Models\Yservice.cs" />
+    <Compile Include="Models\YserviceGrpc.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">

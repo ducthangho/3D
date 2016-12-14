@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Autodesk.Max;
 using System.Runtime.InteropServices;
-using Utils;
 using YMax.Utilities;
 using System.Threading;
 
@@ -89,7 +88,7 @@ namespace YMax.Forms
 
         private void btnGrpcClient_Click(object sender, EventArgs e)
         {
-            rpc.YClient.test2();
+            rpc.YClient.test3();
         }
 
         private void btnTestMerge_Click(object sender, EventArgs e)

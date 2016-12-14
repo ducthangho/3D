@@ -2,6 +2,8 @@
 
 #include <grpc++/grpc++.h>
 #include "ymax.grpc.pb.h"
+#include "yservice.pb.h"
+#include "yservice.grpc.pb.h"
 #include "maxscript/maxscript.h"
 #include "tbb/concurrent_queue.h"
 //#include <mutex>
@@ -19,6 +21,11 @@ using yproto::NumFaceRange;
 using yproto::ObjList;
 using grpc::Status;
 using yproto::YPrepare;
+
+using y3d::Tools;
+using y3d::RenameParam;
+using y3d::ResultReply;
+
 using grpc::Server;
 using grpc::ServerBuilder;
 using grpc::ServerContext;
@@ -123,6 +130,72 @@ void testFunc(UINT_PTR param) {
 	auto ip = GetCOREInterface();
 	//ip->ImportFromFile(L"C:\\Users\\ducthangho\\Documents\\Visual Studio 2015\\Projects\\ExportCap\\ExportCap\\test.cap", 1);
 	mprintf(L"Hello world\n");
+};
+
+inline int GetSceneNodes(INodeTab& i_nodeTab, INode* i_currentNode /*=NULL*/)
+{
+	int i;
+	if (i_currentNode == nullptr)
+	{
+		i_currentNode = GetCOREInterface()->GetRootNode();
+	}
+	else // IGame will crash 3ds Max if it is initialized with the root node.
+	{
+		i_nodeTab.AppendNode(i_currentNode);
+	}
+	for (i = 0; i < i_currentNode->NumberOfChildren(); i++)
+	{
+		GetSceneNodes(i_nodeTab, i_currentNode->GetChildNode(i));
+	}
+	return i_nodeTab.Count();
+}
+
+class YServiceImpl final : public Tools::Service {
+	Status RenameObject(ServerContext* context, const RenameParam* request,
+		ResultReply* reply) override {
+
+		auto ret = InvokeAsync([]() -> void {
+			INodeTab nRef;
+			GetSceneNodes(nRef, nullptr);
+			auto* ip = GetCOREInterface();
+
+			auto* nameMaker = ip->NewNameMaker();
+			GetCOREInterface13()->SetNameSuffixLength(2);
+			std::map<MSTR, int> mnames;
+
+			for (int i = 0; i < nRef.Count(); ++i) {
+				auto* node = nRef[i];
+				MSTR nodeName(node->GetName());
+				MSTR tmp(nodeName);
+				tmp.toLower();
+				if (mnames.find(tmp) == mnames.end()) {
+					mnames[tmp]++;
+				}
+				else if (mnames[tmp]++ > 0) {
+					mprintf(L"Renaming %s ", nodeName);
+					nameMaker->MakeUniqueName(nodeName);
+					node->SetName(nodeName.data());
+					tmp = nodeName;
+					tmp.toLower();
+					mnames[tmp]++;
+					mprintf(L"to %s \n", nodeName);
+				};
+			}
+			mprintf(L"Hello world\n");
+		});
+		reply->set_message("DDDD");
+		//reply->message.set_message("ddd");
+		//waitForReturn(ret);
+		return Status::OK;
+		// ... (pre-existing code)
+	}
+
+	//Status SayHelloAgain(ServerContext* context, const RenameParam* request
+	//	HelloReply* reply) override {
+	//	std::string prefix("Hello again ");
+	//	reply->set_message(prefix + request->name());
+	//	return Status::OK;
+	//}
 };
 
 

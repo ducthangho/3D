@@ -50,7 +50,7 @@
   <ItemDefinitionGroup>
     <ClCompile>
       <WholeProgramOptimization>false</WholeProgramOptimization>
-      <PreprocessorDefinitions>PROTOBUF_USE_DLLS;_CRT_SECURE_NO_WARNINGS;WIN32_LEAN_AND_MEAN;BORINGSSL_SHARED_LIBRARY;_ADESK_3DSMAX_WINDOWS_;WINVER=0x0A00;_WIN32_WINNT=0x0A00;_WIN32_WINDOWS=0x0A00;_WIN32_IE=0x0800;_WINDOWS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_DEPRECATE;_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1;_CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES=1;ISOLATION_AWARE_ENABLED=1;SECURE_SCL=0;WIN64;_UNICODE;UNICODE;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NOMINMAX;PROTOBUF_USE_DLLS;_CRT_SECURE_NO_WARNINGS;WIN32_LEAN_AND_MEAN;BORINGSSL_SHARED_LIBRARY;_ADESK_3DSMAX_WINDOWS_;WINVER=0x0A00;_WIN32_WINNT=0x0A00;_WIN32_WINDOWS=0x0A00;_WIN32_IE=0x0800;_WINDOWS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_DEPRECATE;_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1;_CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES=1;ISOLATION_AWARE_ENABLED=1;SECURE_SCL=0;WIN64;_UNICODE;UNICODE;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(MsBuildProjectDirectory);$(MsBuildProjectDirectory)\..\include;$(MaxSdkInc);.;$(MsBuildProjectDirectory)\grpc\;$(MsBuildProjectDirectory)\grpc\include;$(MsBuildProjectDirectory)\grpc\third_party\nanopb;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <WarningLevel>Level2</WarningLevel>
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">
@@ -366,8 +366,11 @@
     <ClCompile Include="grpc\third_party\nanopb\pb_encode.c" />
     <ClCompile Include="Service.cpp" />
     <ClCompile Include="DllEntry.cpp" />
+    <ClCompile Include="y3d.pb.cc" />
     <ClCompile Include="ymax.grpc.pb.cc" />
     <ClCompile Include="ymax.pb.cc" />
+    <ClCompile Include="yservice.grpc.pb.cc" />
+    <ClCompile Include="yservice.pb.cc" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -572,8 +575,11 @@
     <ClInclude Include="Server.h" />
     <ClInclude Include="Service.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="y3d.pb.h" />
     <ClInclude Include="ymax.grpc.pb.h" />
     <ClInclude Include="ymax.pb.h" />
+    <ClInclude Include="yservice.grpc.pb.h" />
+    <ClInclude Include="yservice.pb.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Service.rc" />

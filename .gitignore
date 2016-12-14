@@ -8,7 +8,7 @@ y3d/y3d/obj/*
 y3d/ytest/obj/*
 y3d/ymax/obj/*
 y3d/ycpp/obj/*
-y3d/Service/grpc/*
+y3d/Service/grpc/**
 **/Debug/
 *.opendb
 *.tlog
