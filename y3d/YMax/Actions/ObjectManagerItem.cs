@@ -5,26 +5,35 @@ namespace YMax.Actions
 {
     public class ObjectManagerItem : ActionItem
     {
-        private Forms.OManagerForm form;
+        //private Forms.OManagerForm form;
         public override bool ExecuteAction()
-        {            
-            if (form == null)
-                form = new Forms.OManagerForm(this);
-            form.Show();
-            form.TopMost = true;
-            form.BringToFront();
-            form.WindowState = FormWindowState.Normal;
+        {
+            Utilities.YProject.readPInfo(this);
+            //Forms.AnalyzeForm anaForm = new Forms.AnalyzeForm();
+            //if (anaForm.ShowDialog() == DialogResult.OK)
+            //{
+            //    if (form == null)
+            //        form = new Forms.OManagerForm(this);
+            //    form.Show();
+            //    form.TopMost = true;
+            //    form.BringToFront();
+            //    form.WindowState = FormWindowState.Normal;
+
+            //    YMax.Utilities.YOList.ObjectFromMax();
+            //    form.updateTree();
+            //}
             return true;
         }
 
         public void Close()
         {
-            if (form == null)
-            {
-                return;
-            }
-            form.Dispose();
-            form = null;
+            Utilities.YProject.closeOForm();
+            //if (form == null)
+            //{
+            //    return;
+            //}
+            //form.Dispose();
+            //form = null;
         }
 
         public override int Id_

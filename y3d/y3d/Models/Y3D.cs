@@ -10,7 +10,6 @@ using scg = global::System.Collections.Generic;
 namespace Y3D.Entities {
 
   /// <summary>Holder for reflection information generated from y3d.proto</summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
   public static partial class Y3DReflection {
 
     #region Descriptor
@@ -57,34 +56,35 @@ namespace Y3D.Entities {
             "CRIbCgZncm91cHMYAiADKAsyCy55M2QuWUdyb3VwEhoKBG9ianMYAyADKAsy",
             "DC55M2QuWU9iamVjdBIkCgVndmVycxgGIAMoCzIVLnkzZC5ZQXJlYS5HdmVy",
             "c0VudHJ5GjwKCkd2ZXJzRW50cnkSCwoDa2V5GAEgASgJEh0KBXZhbHVlGAIg",
-            "ASgLMg4ueTNkLllHcm91cFZlcjoCOAEifwoGWUdyb3VwEgwKBG5hbWUYASAB",
-            "KAkSGgoEb2JqcxgCIAMoCzIMLnkzZC5ZT2JqZWN0Eh0KCGNoaWxkcmVuGAMg",
-            "AygLMgsueTNkLllHcm91cBIeCgdndl90eXBlGAQgASgOMg0ueTNkLkdWZXJU",
-            "eXBlEgwKBHhyZWYYBSADKAkiSAoJWUdyb3VwVmVyEg0KBXZuYW1lGAEgASgJ",
-            "Eh4KCWdyb3VwRGF0YRgCIAEoCzILLnkzZC5ZR3JvdXASDAoEc3RlcBgDIAEo",
-            "BSKBAgoKQ3VzdG9tQXR0chIMCgRuYW1lGAEgASgJEiMKBXZhbHVlGAIgASgL",
-            "MhQuZ29vZ2xlLnByb3RvYnVmLkFueRIjCgR0eXBlGAMgASgOMhUueTNkLkN1",
-            "c3RvbUF0dHIuQVR5cGUimgEKBUFUeXBlEgoKBlNUUklORxAAEgcKA0lOVBAB",
-            "EgkKBUZMT0FUEAISCAoEQk9PTBADEgoKBlBPSU5UMxAEEhAKDEFSUkFZX1NU",
-            "UklORxAFEg0KCUFSUkFZX0lOVBAGEg8KC0FSUkFZX0ZMT0FUEAcSCAoEVEVY",
-            "VBAIEgkKBUNPTE9SEAkSCQoFT05FT0YQChIJCgVPVEhFUhALIjgKB0F0dHJT",
-            "ZXQSDQoFc25hbWUYASABKAkSHgoFYXR0cnMYAiADKAsyDy55M2QuQ3VzdG9t",
-            "QXR0ciJdCgpGaWx0ZXJWaWV3Eh4KBW90eXBlGAEgASgOMg8ueTNkLk9iamVj",
-            "dFR5cGUSEgoKZmFjZV9yYW5nZRgCIAEoBRIOCgZzZWFyY2gYAyABKAkSCwoD",
-            "YWlkGAQgASgFIoABCgtQcm9qZWN0SW5mbxINCgVwbmFtZRgBIAEoCRIMCgRw",
-            "YXRoGAIgASgJEhIKCmZhY2VfcmFuZ2UYAyADKAUSIAoLY291bnRfY29sb3IY",
-            "BCADKAsyCy55M2QuWUNvbG9yEh4KBWZ2aWV3GAUgAygLMg8ueTNkLkZpbHRl",
-            "clZpZXciJgoJWUFyZWFMaXN0EhkKBWFyZWFzGAEgAygLMgoueTNkLllBcmVh",
-            "Ij4KCFBTZXR0aW5nEh4KBWV4dHJhGAIgAygLMg8ueTNkLkN1c3RvbUF0dHIS",
-            "EgoKbWF4X3JlY2VudBgDIAEoBSK5AQoHWVN5c3RlbRImCgxkZWZhdWx0X2lu",
-            "Zm8YASABKAsyEC55M2QuUHJvamVjdEluZm8SJgoPZGVmYXVsdF9zZXR0aW5n",
-            "GAIgASgLMg0ueTNkLlBTZXR0aW5nEi0KCW5hbWVfcGF0aBgDIAMoCzIaLnkz",
-            "ZC5ZU3lzdGVtLk5hbWVQYXRoRW50cnkaLwoNTmFtZVBhdGhFbnRyeRILCgNr",
-            "ZXkYASABKAkSDQoFdmFsdWUYAiABKAk6AjgBKkcKCk9iamVjdFR5cGUSDAoI",
-            "R0VPTUVUUlkQABIJCgVMSUdIVBABEgoKBkNBTUVSQRACEgkKBVNIQVBFEAMS",
-            "CQoFT1RIRVIQBCo/CghHVmVyVHlwZRIKCgZOT19WRVIQABIMCghPUklHSU5B",
-            "TBABEgsKB0lOX0JBS0UQAhIMCghTVEFOREFSRBADQg+qAgxZM0QuRW50aXRp",
-            "ZXNiBnByb3RvMw=="));
+            "ASgLMg4ueTNkLllHcm91cFZlcjoCOAEiMwoGWUxheWVyEgwKBG5hbWUYASAB",
+            "KAkSGwoGZ3JvdXBzGAIgAygLMgsueTNkLllHcm91cCJ/CgZZR3JvdXASDAoE",
+            "bmFtZRgBIAEoCRIaCgRvYmpzGAIgAygLMgwueTNkLllPYmplY3QSHQoIY2hp",
+            "bGRyZW4YAyADKAsyCy55M2QuWUdyb3VwEh4KB2d2X3R5cGUYBCABKA4yDS55",
+            "M2QuR1ZlclR5cGUSDAoEeHJlZhgFIAMoCSJICglZR3JvdXBWZXISDQoFdm5h",
+            "bWUYASABKAkSHgoJZ3JvdXBEYXRhGAIgASgLMgsueTNkLllHcm91cBIMCgRz",
+            "dGVwGAMgASgFIoECCgpDdXN0b21BdHRyEgwKBG5hbWUYASABKAkSIwoFdmFs",
+            "dWUYAiABKAsyFC5nb29nbGUucHJvdG9idWYuQW55EiMKBHR5cGUYAyABKA4y",
+            "FS55M2QuQ3VzdG9tQXR0ci5BVHlwZSKaAQoFQVR5cGUSCgoGU1RSSU5HEAAS",
+            "BwoDSU5UEAESCQoFRkxPQVQQAhIICgRCT09MEAMSCgoGUE9JTlQzEAQSEAoM",
+            "QVJSQVlfU1RSSU5HEAUSDQoJQVJSQVlfSU5UEAYSDwoLQVJSQVlfRkxPQVQQ",
+            "BxIICgRURVhUEAgSCQoFQ09MT1IQCRIJCgVPTkVPRhAKEgkKBU9USEVSEAsi",
+            "OAoHQXR0clNldBINCgVzbmFtZRgBIAEoCRIeCgVhdHRycxgCIAMoCzIPLnkz",
+            "ZC5DdXN0b21BdHRyIl0KCkZpbHRlclZpZXcSHgoFb3R5cGUYASABKA4yDy55",
+            "M2QuT2JqZWN0VHlwZRISCgpmYWNlX3JhbmdlGAIgASgFEg4KBnNlYXJjaBgD",
+            "IAEoCRILCgNhaWQYBCABKAUigAEKC1Byb2plY3RJbmZvEg0KBXBuYW1lGAEg",
+            "ASgJEgwKBHBhdGgYAiABKAkSEgoKZmFjZV9yYW5nZRgDIAMoBRIgCgtjb3Vu",
+            "dF9jb2xvchgEIAMoCzILLnkzZC5ZQ29sb3ISHgoFZnZpZXcYBSADKAsyDy55",
+            "M2QuRmlsdGVyVmlldyImCglZQXJlYUxpc3QSGQoFYXJlYXMYASADKAsyCi55",
+            "M2QuWUFyZWEiPgoIUFNldHRpbmcSHgoFZXh0cmEYAiADKAsyDy55M2QuQ3Vz",
+            "dG9tQXR0chISCgptYXhfcmVjZW50GAMgASgFIrkBCgdZU3lzdGVtEiYKDGRl",
+            "ZmF1bHRfaW5mbxgBIAEoCzIQLnkzZC5Qcm9qZWN0SW5mbxImCg9kZWZhdWx0",
+            "X3NldHRpbmcYAiABKAsyDS55M2QuUFNldHRpbmcSLQoJbmFtZV9wYXRoGAMg",
+            "AygLMhoueTNkLllTeXN0ZW0uTmFtZVBhdGhFbnRyeRovCg1OYW1lUGF0aEVu",
+            "dHJ5EgsKA2tleRgBIAEoCRINCgV2YWx1ZRgCIAEoCToCOAEqRwoKT2JqZWN0",
+            "VHlwZRIMCghHRU9NRVRSWRAAEgkKBUxJR0hUEAESCgoGQ0FNRVJBEAISCQoF",
+            "U0hBUEUQAxIJCgVPVEhFUhAEKj8KCEdWZXJUeXBlEgoKBk5PX1ZFUhAAEgwK",
+            "CE9SSUdJTkFMEAESCwoHSU5fQkFLRRACEgwKCFNUQU5EQVJEEANCD6oCDFkz",
+            "RC5FbnRpdGllc2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.AnyReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Y3D.Entities.ObjectType), typeof(global::Y3D.Entities.GVerType), }, new pbr::GeneratedClrTypeInfo[] {
@@ -97,6 +97,7 @@ namespace Y3D.Entities {
             new pbr::GeneratedClrTypeInfo(typeof(global::Y3D.Entities.YMesh), global::Y3D.Entities.YMesh.Parser, new[]{ "NumFaces", "Bbox", "ResId", "Xref", "Xstatus", "Mtype" }, null, new[]{ typeof(global::Y3D.Entities.YMesh.Types.MeshType), typeof(global::Y3D.Entities.YMesh.Types.XrefStatus) }, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Y3D.Entities.YObject), global::Y3D.Entities.YObject.Parser, new[]{ "Name", "Pos", "Extra", "Otype", "Tags", "CateId", "Light", "Camera", "Mesh" }, new[]{ "Data" }, null, new pbr::GeneratedClrTypeInfo[] { null, }),
             new pbr::GeneratedClrTypeInfo(typeof(global::Y3D.Entities.YArea), global::Y3D.Entities.YArea.Parser, new[]{ "Name", "Groups", "Objs", "Gvers" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Y3D.Entities.YLayer), global::Y3D.Entities.YLayer.Parser, new[]{ "Name", "Groups" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Y3D.Entities.YGroup), global::Y3D.Entities.YGroup.Parser, new[]{ "Name", "Objs", "Children", "GvType", "Xref" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Y3D.Entities.YGroupVer), global::Y3D.Entities.YGroupVer.Parser, new[]{ "Vname", "GroupData", "Step" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Y3D.Entities.CustomAttr), global::Y3D.Entities.CustomAttr.Parser, new[]{ "Name", "Value", "Type" }, null, new[]{ typeof(global::Y3D.Entities.CustomAttr.Types.AType) }, null),
@@ -133,30 +134,35 @@ namespace Y3D.Entities {
   /// <summary>
   ///  [START messages]
   /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
   public sealed partial class YColor : pb::IMessage<YColor> {
     private static readonly pb::MessageParser<YColor> _parser = new pb::MessageParser<YColor>(() => new YColor());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pb::MessageParser<YColor> Parser { get { return _parser; } }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
       get { return global::Y3D.Entities.Y3DReflection.Descriptor.MessageTypes[0]; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public YColor() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public YColor(YColor other) : this() {
       name_ = other.name_;
       argb_ = other.argb_;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public YColor Clone() {
       return new YColor(this);
     }
@@ -164,6 +170,7 @@ namespace Y3D.Entities {
     /// <summary>Field number for the "name" field.</summary>
     public const int NameFieldNumber = 1;
     private string name_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Name {
       get { return name_; }
       set {
@@ -174,6 +181,7 @@ namespace Y3D.Entities {
     /// <summary>Field number for the "argb" field.</summary>
     public const int ArgbFieldNumber = 2;
     private int argb_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int Argb {
       get { return argb_; }
       set {
@@ -181,10 +189,12 @@ namespace Y3D.Entities {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as YColor);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public bool Equals(YColor other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -197,6 +207,7 @@ namespace Y3D.Entities {
       return true;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
       if (Name.Length != 0) hash ^= Name.GetHashCode();
@@ -204,10 +215,12 @@ namespace Y3D.Entities {
       return hash;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
       if (Name.Length != 0) {
         output.WriteRawTag(10);
@@ -219,6 +232,7 @@ namespace Y3D.Entities {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
       if (Name.Length != 0) {
@@ -230,6 +244,7 @@ namespace Y3D.Entities {
       return size;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(YColor other) {
       if (other == null) {
         return;
@@ -242,6 +257,7 @@ namespace Y3D.Entities {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
@@ -263,31 +279,36 @@ namespace Y3D.Entities {
 
   }
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
   public sealed partial class YPoint3 : pb::IMessage<YPoint3> {
     private static readonly pb::MessageParser<YPoint3> _parser = new pb::MessageParser<YPoint3>(() => new YPoint3());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pb::MessageParser<YPoint3> Parser { get { return _parser; } }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
       get { return global::Y3D.Entities.Y3DReflection.Descriptor.MessageTypes[1]; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public YPoint3() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public YPoint3(YPoint3 other) : this() {
       x_ = other.x_;
       y_ = other.y_;
       z_ = other.z_;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public YPoint3 Clone() {
       return new YPoint3(this);
     }
@@ -295,6 +316,7 @@ namespace Y3D.Entities {
     /// <summary>Field number for the "x" field.</summary>
     public const int XFieldNumber = 1;
     private float x_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public float X {
       get { return x_; }
       set {
@@ -305,6 +327,7 @@ namespace Y3D.Entities {
     /// <summary>Field number for the "y" field.</summary>
     public const int YFieldNumber = 2;
     private float y_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public float Y {
       get { return y_; }
       set {
@@ -315,6 +338,7 @@ namespace Y3D.Entities {
     /// <summary>Field number for the "z" field.</summary>
     public const int ZFieldNumber = 3;
     private float z_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public float Z {
       get { return z_; }
       set {
@@ -322,10 +346,12 @@ namespace Y3D.Entities {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as YPoint3);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public bool Equals(YPoint3 other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -339,6 +365,7 @@ namespace Y3D.Entities {
       return true;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
       if (X != 0F) hash ^= X.GetHashCode();
@@ -347,10 +374,12 @@ namespace Y3D.Entities {
       return hash;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
       if (X != 0F) {
         output.WriteRawTag(13);
@@ -366,6 +395,7 @@ namespace Y3D.Entities {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
       if (X != 0F) {
@@ -380,6 +410,7 @@ namespace Y3D.Entities {
       return size;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(YPoint3 other) {
       if (other == null) {
         return;
@@ -395,6 +426,7 @@ namespace Y3D.Entities {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
@@ -420,30 +452,35 @@ namespace Y3D.Entities {
 
   }
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
   public sealed partial class YBox3 : pb::IMessage<YBox3> {
     private static readonly pb::MessageParser<YBox3> _parser = new pb::MessageParser<YBox3>(() => new YBox3());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pb::MessageParser<YBox3> Parser { get { return _parser; } }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
       get { return global::Y3D.Entities.Y3DReflection.Descriptor.MessageTypes[2]; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public YBox3() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public YBox3(YBox3 other) : this() {
       Pmin = other.pmin_ != null ? other.Pmin.Clone() : null;
       Pmax = other.pmax_ != null ? other.Pmax.Clone() : null;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public YBox3 Clone() {
       return new YBox3(this);
     }
@@ -451,6 +488,7 @@ namespace Y3D.Entities {
     /// <summary>Field number for the "pmin" field.</summary>
     public const int PminFieldNumber = 1;
     private global::Y3D.Entities.YPoint3 pmin_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::Y3D.Entities.YPoint3 Pmin {
       get { return pmin_; }
       set {
@@ -461,6 +499,7 @@ namespace Y3D.Entities {
     /// <summary>Field number for the "pmax" field.</summary>
     public const int PmaxFieldNumber = 2;
     private global::Y3D.Entities.YPoint3 pmax_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::Y3D.Entities.YPoint3 Pmax {
       get { return pmax_; }
       set {
@@ -468,10 +507,12 @@ namespace Y3D.Entities {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as YBox3);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public bool Equals(YBox3 other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -484,6 +525,7 @@ namespace Y3D.Entities {
       return true;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
       if (pmin_ != null) hash ^= Pmin.GetHashCode();
@@ -491,10 +533,12 @@ namespace Y3D.Entities {
       return hash;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
       if (pmin_ != null) {
         output.WriteRawTag(10);
@@ -506,6 +550,7 @@ namespace Y3D.Entities {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
       if (pmin_ != null) {
@@ -517,6 +562,7 @@ namespace Y3D.Entities {
       return size;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(YBox3 other) {
       if (other == null) {
         return;
@@ -535,6 +581,7 @@ namespace Y3D.Entities {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
@@ -562,31 +609,36 @@ namespace Y3D.Entities {
 
   }
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
   public sealed partial class YResource : pb::IMessage<YResource> {
     private static readonly pb::MessageParser<YResource> _parser = new pb::MessageParser<YResource>(() => new YResource());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pb::MessageParser<YResource> Parser { get { return _parser; } }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
       get { return global::Y3D.Entities.Y3DReflection.Descriptor.MessageTypes[3]; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public YResource() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public YResource(YResource other) : this() {
       rid_ = other.rid_;
       rtype_ = other.rtype_;
       link_ = other.link_;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public YResource Clone() {
       return new YResource(this);
     }
@@ -594,6 +646,7 @@ namespace Y3D.Entities {
     /// <summary>Field number for the "rid" field.</summary>
     public const int RidFieldNumber = 1;
     private string rid_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Rid {
       get { return rid_; }
       set {
@@ -604,6 +657,7 @@ namespace Y3D.Entities {
     /// <summary>Field number for the "rtype" field.</summary>
     public const int RtypeFieldNumber = 2;
     private global::Y3D.Entities.YResource.Types.ResourceType rtype_ = 0;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::Y3D.Entities.YResource.Types.ResourceType Rtype {
       get { return rtype_; }
       set {
@@ -614,6 +668,7 @@ namespace Y3D.Entities {
     /// <summary>Field number for the "link" field.</summary>
     public const int LinkFieldNumber = 3;
     private string link_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Link {
       get { return link_; }
       set {
@@ -621,10 +676,12 @@ namespace Y3D.Entities {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as YResource);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public bool Equals(YResource other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -638,6 +695,7 @@ namespace Y3D.Entities {
       return true;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
       if (Rid.Length != 0) hash ^= Rid.GetHashCode();
@@ -646,10 +704,12 @@ namespace Y3D.Entities {
       return hash;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
       if (Rid.Length != 0) {
         output.WriteRawTag(10);
@@ -665,6 +725,7 @@ namespace Y3D.Entities {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
       if (Rid.Length != 0) {
@@ -679,6 +740,7 @@ namespace Y3D.Entities {
       return size;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(YResource other) {
       if (other == null) {
         return;
@@ -694,6 +756,7 @@ namespace Y3D.Entities {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
@@ -719,7 +782,7 @@ namespace Y3D.Entities {
 
     #region Nested types
     /// <summary>Container for nested types declared in the YResource message type.</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static partial class Types {
       public enum ResourceType {
         [pbr::OriginalName("BINARY")] Binary = 0,
@@ -734,25 +797,29 @@ namespace Y3D.Entities {
 
   }
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
   public sealed partial class YLight : pb::IMessage<YLight> {
     private static readonly pb::MessageParser<YLight> _parser = new pb::MessageParser<YLight>(() => new YLight());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pb::MessageParser<YLight> Parser { get { return _parser; } }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
       get { return global::Y3D.Entities.Y3DReflection.Descriptor.MessageTypes[4]; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public YLight() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public YLight(YLight other) : this() {
       diffuse_ = other.diffuse_.Clone();
       specular_ = other.specular_.Clone();
@@ -764,6 +831,7 @@ namespace Y3D.Entities {
       includedOnlyMeshesIds_ = other.includedOnlyMeshesIds_.Clone();
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public YLight Clone() {
       return new YLight(this);
     }
@@ -773,6 +841,7 @@ namespace Y3D.Entities {
     private static readonly pb::FieldCodec<float> _repeated_diffuse_codec
         = pb::FieldCodec.ForFloat(26);
     private readonly pbc::RepeatedField<float> diffuse_ = new pbc::RepeatedField<float>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<float> Diffuse {
       get { return diffuse_; }
     }
@@ -782,6 +851,7 @@ namespace Y3D.Entities {
     private static readonly pb::FieldCodec<float> _repeated_specular_codec
         = pb::FieldCodec.ForFloat(34);
     private readonly pbc::RepeatedField<float> specular_ = new pbc::RepeatedField<float>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<float> Specular {
       get { return specular_; }
     }
@@ -789,6 +859,7 @@ namespace Y3D.Entities {
     /// <summary>Field number for the "intensity" field.</summary>
     public const int IntensityFieldNumber = 5;
     private float intensity_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public float Intensity {
       get { return intensity_; }
       set {
@@ -799,6 +870,7 @@ namespace Y3D.Entities {
     /// <summary>Field number for the "range" field.</summary>
     public const int RangeFieldNumber = 6;
     private float range_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public float Range {
       get { return range_; }
       set {
@@ -809,6 +881,7 @@ namespace Y3D.Entities {
     /// <summary>Field number for the "angle" field.</summary>
     public const int AngleFieldNumber = 7;
     private float angle_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public float Angle {
       get { return angle_; }
       set {
@@ -819,6 +892,7 @@ namespace Y3D.Entities {
     /// <summary>Field number for the "exponent" field.</summary>
     public const int ExponentFieldNumber = 8;
     private float exponent_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public float Exponent {
       get { return exponent_; }
       set {
@@ -831,6 +905,7 @@ namespace Y3D.Entities {
     private static readonly pb::FieldCodec<string> _repeated_excludedMeshesIds_codec
         = pb::FieldCodec.ForString(74);
     private readonly pbc::RepeatedField<string> excludedMeshesIds_ = new pbc::RepeatedField<string>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<string> ExcludedMeshesIds {
       get { return excludedMeshesIds_; }
     }
@@ -840,14 +915,17 @@ namespace Y3D.Entities {
     private static readonly pb::FieldCodec<string> _repeated_includedOnlyMeshesIds_codec
         = pb::FieldCodec.ForString(82);
     private readonly pbc::RepeatedField<string> includedOnlyMeshesIds_ = new pbc::RepeatedField<string>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<string> IncludedOnlyMeshesIds {
       get { return includedOnlyMeshesIds_; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as YLight);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public bool Equals(YLight other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -866,6 +944,7 @@ namespace Y3D.Entities {
       return true;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
       hash ^= diffuse_.GetHashCode();
@@ -879,10 +958,12 @@ namespace Y3D.Entities {
       return hash;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
       diffuse_.WriteTo(output, _repeated_diffuse_codec);
       specular_.WriteTo(output, _repeated_specular_codec);
@@ -906,6 +987,7 @@ namespace Y3D.Entities {
       includedOnlyMeshesIds_.WriteTo(output, _repeated_includedOnlyMeshesIds_codec);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
       size += diffuse_.CalculateSize(_repeated_diffuse_codec);
@@ -927,6 +1009,7 @@ namespace Y3D.Entities {
       return size;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(YLight other) {
       if (other == null) {
         return;
@@ -949,6 +1032,7 @@ namespace Y3D.Entities {
       includedOnlyMeshesIds_.Add(other.includedOnlyMeshesIds_);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
@@ -996,31 +1080,36 @@ namespace Y3D.Entities {
 
   }
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
   public sealed partial class YCamera : pb::IMessage<YCamera> {
     private static readonly pb::MessageParser<YCamera> _parser = new pb::MessageParser<YCamera>(() => new YCamera());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pb::MessageParser<YCamera> Parser { get { return _parser; } }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
       get { return global::Y3D.Entities.Y3DReflection.Descriptor.MessageTypes[5]; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public YCamera() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public YCamera(YCamera other) : this() {
       rotation_ = other.rotation_.Clone();
       target_ = other.target_.Clone();
       fov_ = other.fov_;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public YCamera Clone() {
       return new YCamera(this);
     }
@@ -1030,6 +1119,7 @@ namespace Y3D.Entities {
     private static readonly pb::FieldCodec<float> _repeated_rotation_codec
         = pb::FieldCodec.ForFloat(26);
     private readonly pbc::RepeatedField<float> rotation_ = new pbc::RepeatedField<float>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<float> Rotation {
       get { return rotation_; }
     }
@@ -1039,6 +1129,7 @@ namespace Y3D.Entities {
     private static readonly pb::FieldCodec<float> _repeated_target_codec
         = pb::FieldCodec.ForFloat(34);
     private readonly pbc::RepeatedField<float> target_ = new pbc::RepeatedField<float>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<float> Target {
       get { return target_; }
     }
@@ -1046,6 +1137,7 @@ namespace Y3D.Entities {
     /// <summary>Field number for the "fov" field.</summary>
     public const int FovFieldNumber = 5;
     private float fov_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public float Fov {
       get { return fov_; }
       set {
@@ -1053,10 +1145,12 @@ namespace Y3D.Entities {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as YCamera);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public bool Equals(YCamera other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -1070,6 +1164,7 @@ namespace Y3D.Entities {
       return true;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
       hash ^= rotation_.GetHashCode();
@@ -1078,10 +1173,12 @@ namespace Y3D.Entities {
       return hash;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
       rotation_.WriteTo(output, _repeated_rotation_codec);
       target_.WriteTo(output, _repeated_target_codec);
@@ -1091,6 +1188,7 @@ namespace Y3D.Entities {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
       size += rotation_.CalculateSize(_repeated_rotation_codec);
@@ -1101,6 +1199,7 @@ namespace Y3D.Entities {
       return size;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(YCamera other) {
       if (other == null) {
         return;
@@ -1112,6 +1211,7 @@ namespace Y3D.Entities {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
@@ -1139,25 +1239,29 @@ namespace Y3D.Entities {
 
   }
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
   public sealed partial class YMesh : pb::IMessage<YMesh> {
     private static readonly pb::MessageParser<YMesh> _parser = new pb::MessageParser<YMesh>(() => new YMesh());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pb::MessageParser<YMesh> Parser { get { return _parser; } }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
       get { return global::Y3D.Entities.Y3DReflection.Descriptor.MessageTypes[6]; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public YMesh() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public YMesh(YMesh other) : this() {
       numFaces_ = other.numFaces_;
       Bbox = other.bbox_ != null ? other.Bbox.Clone() : null;
@@ -1167,6 +1271,7 @@ namespace Y3D.Entities {
       mtype_ = other.mtype_;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public YMesh Clone() {
       return new YMesh(this);
     }
@@ -1174,6 +1279,7 @@ namespace Y3D.Entities {
     /// <summary>Field number for the "num_faces" field.</summary>
     public const int NumFacesFieldNumber = 1;
     private int numFaces_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int NumFaces {
       get { return numFaces_; }
       set {
@@ -1184,6 +1290,7 @@ namespace Y3D.Entities {
     /// <summary>Field number for the "bbox" field.</summary>
     public const int BboxFieldNumber = 2;
     private global::Y3D.Entities.YBox3 bbox_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::Y3D.Entities.YBox3 Bbox {
       get { return bbox_; }
       set {
@@ -1197,6 +1304,7 @@ namespace Y3D.Entities {
     /// <summary>
     ///  Resource ID (GUID)
     /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string ResId {
       get { return resId_; }
       set {
@@ -1209,6 +1317,7 @@ namespace Y3D.Entities {
     private static readonly pb::FieldCodec<int> _repeated_xref_codec
         = pb::FieldCodec.ForInt32(34);
     private readonly pbc::RepeatedField<int> xref_ = new pbc::RepeatedField<int>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<int> Xref {
       get { return xref_; }
     }
@@ -1216,6 +1325,7 @@ namespace Y3D.Entities {
     /// <summary>Field number for the "xstatus" field.</summary>
     public const int XstatusFieldNumber = 5;
     private global::Y3D.Entities.YMesh.Types.XrefStatus xstatus_ = 0;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::Y3D.Entities.YMesh.Types.XrefStatus Xstatus {
       get { return xstatus_; }
       set {
@@ -1226,6 +1336,7 @@ namespace Y3D.Entities {
     /// <summary>Field number for the "mtype" field.</summary>
     public const int MtypeFieldNumber = 6;
     private global::Y3D.Entities.YMesh.Types.MeshType mtype_ = 0;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::Y3D.Entities.YMesh.Types.MeshType Mtype {
       get { return mtype_; }
       set {
@@ -1233,10 +1344,12 @@ namespace Y3D.Entities {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as YMesh);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public bool Equals(YMesh other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -1253,6 +1366,7 @@ namespace Y3D.Entities {
       return true;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
       if (NumFaces != 0) hash ^= NumFaces.GetHashCode();
@@ -1264,10 +1378,12 @@ namespace Y3D.Entities {
       return hash;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
       if (NumFaces != 0) {
         output.WriteRawTag(8);
@@ -1292,6 +1408,7 @@ namespace Y3D.Entities {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
       if (NumFaces != 0) {
@@ -1313,6 +1430,7 @@ namespace Y3D.Entities {
       return size;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(YMesh other) {
       if (other == null) {
         return;
@@ -1338,6 +1456,7 @@ namespace Y3D.Entities {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
@@ -1379,7 +1498,7 @@ namespace Y3D.Entities {
 
     #region Nested types
     /// <summary>Container for nested types declared in the YMesh message type.</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static partial class Types {
       public enum MeshType {
         [pbr::OriginalName("Unknown")] Unknown = 0,
@@ -1413,25 +1532,29 @@ namespace Y3D.Entities {
 
   }
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
   public sealed partial class YObject : pb::IMessage<YObject> {
     private static readonly pb::MessageParser<YObject> _parser = new pb::MessageParser<YObject>(() => new YObject());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pb::MessageParser<YObject> Parser { get { return _parser; } }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
       get { return global::Y3D.Entities.Y3DReflection.Descriptor.MessageTypes[7]; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public YObject() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public YObject(YObject other) : this() {
       name_ = other.name_;
       Pos = other.pos_ != null ? other.Pos.Clone() : null;
@@ -1453,6 +1576,7 @@ namespace Y3D.Entities {
 
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public YObject Clone() {
       return new YObject(this);
     }
@@ -1460,6 +1584,7 @@ namespace Y3D.Entities {
     /// <summary>Field number for the "name" field.</summary>
     public const int NameFieldNumber = 1;
     private string name_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Name {
       get { return name_; }
       set {
@@ -1470,6 +1595,7 @@ namespace Y3D.Entities {
     /// <summary>Field number for the "pos" field.</summary>
     public const int PosFieldNumber = 3;
     private global::Y3D.Entities.YPoint3 pos_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::Y3D.Entities.YPoint3 Pos {
       get { return pos_; }
       set {
@@ -1482,6 +1608,7 @@ namespace Y3D.Entities {
     private static readonly pbc::MapField<string, global::Google.Protobuf.WellKnownTypes.Any>.Codec _map_extra_codec
         = new pbc::MapField<string, global::Google.Protobuf.WellKnownTypes.Any>.Codec(pb::FieldCodec.ForString(10), pb::FieldCodec.ForMessage(18, global::Google.Protobuf.WellKnownTypes.Any.Parser), 42);
     private readonly pbc::MapField<string, global::Google.Protobuf.WellKnownTypes.Any> extra_ = new pbc::MapField<string, global::Google.Protobuf.WellKnownTypes.Any>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::MapField<string, global::Google.Protobuf.WellKnownTypes.Any> Extra {
       get { return extra_; }
     }
@@ -1489,6 +1616,7 @@ namespace Y3D.Entities {
     /// <summary>Field number for the "otype" field.</summary>
     public const int OtypeFieldNumber = 6;
     private global::Y3D.Entities.ObjectType otype_ = 0;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::Y3D.Entities.ObjectType Otype {
       get { return otype_; }
       set {
@@ -1501,6 +1629,7 @@ namespace Y3D.Entities {
     private static readonly pb::FieldCodec<string> _repeated_tags_codec
         = pb::FieldCodec.ForString(58);
     private readonly pbc::RepeatedField<string> tags_ = new pbc::RepeatedField<string>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<string> Tags {
       get { return tags_; }
     }
@@ -1508,6 +1637,7 @@ namespace Y3D.Entities {
     /// <summary>Field number for the "cate_id" field.</summary>
     public const int CateIdFieldNumber = 8;
     private int cateId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CateId {
       get { return cateId_; }
       set {
@@ -1517,6 +1647,7 @@ namespace Y3D.Entities {
 
     /// <summary>Field number for the "light" field.</summary>
     public const int LightFieldNumber = 10;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::Y3D.Entities.YLight Light {
       get { return dataCase_ == DataOneofCase.Light ? (global::Y3D.Entities.YLight) data_ : null; }
       set {
@@ -1527,6 +1658,7 @@ namespace Y3D.Entities {
 
     /// <summary>Field number for the "camera" field.</summary>
     public const int CameraFieldNumber = 11;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::Y3D.Entities.YCamera Camera {
       get { return dataCase_ == DataOneofCase.Camera ? (global::Y3D.Entities.YCamera) data_ : null; }
       set {
@@ -1537,6 +1669,7 @@ namespace Y3D.Entities {
 
     /// <summary>Field number for the "mesh" field.</summary>
     public const int MeshFieldNumber = 12;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::Y3D.Entities.YMesh Mesh {
       get { return dataCase_ == DataOneofCase.Mesh ? (global::Y3D.Entities.YMesh) data_ : null; }
       set {
@@ -1554,19 +1687,23 @@ namespace Y3D.Entities {
       Mesh = 12,
     }
     private DataOneofCase dataCase_ = DataOneofCase.None;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public DataOneofCase DataCase {
       get { return dataCase_; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void ClearData() {
       dataCase_ = DataOneofCase.None;
       data_ = null;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as YObject);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public bool Equals(YObject other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -1587,6 +1724,7 @@ namespace Y3D.Entities {
       return true;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
       if (Name.Length != 0) hash ^= Name.GetHashCode();
@@ -1602,10 +1740,12 @@ namespace Y3D.Entities {
       return hash;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
       if (Name.Length != 0) {
         output.WriteRawTag(10);
@@ -1639,6 +1779,7 @@ namespace Y3D.Entities {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
       if (Name.Length != 0) {
@@ -1667,6 +1808,7 @@ namespace Y3D.Entities {
       return size;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(YObject other) {
       if (other == null) {
         return;
@@ -1702,6 +1844,7 @@ namespace Y3D.Entities {
 
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
@@ -1769,25 +1912,29 @@ namespace Y3D.Entities {
 
   }
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
   public sealed partial class YArea : pb::IMessage<YArea> {
     private static readonly pb::MessageParser<YArea> _parser = new pb::MessageParser<YArea>(() => new YArea());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pb::MessageParser<YArea> Parser { get { return _parser; } }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
       get { return global::Y3D.Entities.Y3DReflection.Descriptor.MessageTypes[8]; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public YArea() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public YArea(YArea other) : this() {
       name_ = other.name_;
       groups_ = other.groups_.Clone();
@@ -1795,6 +1942,7 @@ namespace Y3D.Entities {
       gvers_ = other.gvers_.Clone();
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public YArea Clone() {
       return new YArea(this);
     }
@@ -1802,6 +1950,7 @@ namespace Y3D.Entities {
     /// <summary>Field number for the "name" field.</summary>
     public const int NameFieldNumber = 1;
     private string name_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Name {
       get { return name_; }
       set {
@@ -1814,6 +1963,7 @@ namespace Y3D.Entities {
     private static readonly pb::FieldCodec<global::Y3D.Entities.YGroup> _repeated_groups_codec
         = pb::FieldCodec.ForMessage(18, global::Y3D.Entities.YGroup.Parser);
     private readonly pbc::RepeatedField<global::Y3D.Entities.YGroup> groups_ = new pbc::RepeatedField<global::Y3D.Entities.YGroup>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<global::Y3D.Entities.YGroup> Groups {
       get { return groups_; }
     }
@@ -1823,6 +1973,7 @@ namespace Y3D.Entities {
     private static readonly pb::FieldCodec<global::Y3D.Entities.YObject> _repeated_objs_codec
         = pb::FieldCodec.ForMessage(26, global::Y3D.Entities.YObject.Parser);
     private readonly pbc::RepeatedField<global::Y3D.Entities.YObject> objs_ = new pbc::RepeatedField<global::Y3D.Entities.YObject>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<global::Y3D.Entities.YObject> Objs {
       get { return objs_; }
     }
@@ -1832,14 +1983,17 @@ namespace Y3D.Entities {
     private static readonly pbc::MapField<string, global::Y3D.Entities.YGroupVer>.Codec _map_gvers_codec
         = new pbc::MapField<string, global::Y3D.Entities.YGroupVer>.Codec(pb::FieldCodec.ForString(10), pb::FieldCodec.ForMessage(18, global::Y3D.Entities.YGroupVer.Parser), 50);
     private readonly pbc::MapField<string, global::Y3D.Entities.YGroupVer> gvers_ = new pbc::MapField<string, global::Y3D.Entities.YGroupVer>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::MapField<string, global::Y3D.Entities.YGroupVer> Gvers {
       get { return gvers_; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as YArea);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public bool Equals(YArea other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -1854,6 +2008,7 @@ namespace Y3D.Entities {
       return true;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
       if (Name.Length != 0) hash ^= Name.GetHashCode();
@@ -1863,10 +2018,12 @@ namespace Y3D.Entities {
       return hash;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
       if (Name.Length != 0) {
         output.WriteRawTag(10);
@@ -1877,6 +2034,7 @@ namespace Y3D.Entities {
       gvers_.WriteTo(output, _map_gvers_codec);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
       if (Name.Length != 0) {
@@ -1888,6 +2046,7 @@ namespace Y3D.Entities {
       return size;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(YArea other) {
       if (other == null) {
         return;
@@ -1900,6 +2059,7 @@ namespace Y3D.Entities {
       gvers_.Add(other.gvers_);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
@@ -1929,25 +2089,166 @@ namespace Y3D.Entities {
 
   }
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-  public sealed partial class YGroup : pb::IMessage<YGroup> {
-    private static readonly pb::MessageParser<YGroup> _parser = new pb::MessageParser<YGroup>(() => new YGroup());
-    public static pb::MessageParser<YGroup> Parser { get { return _parser; } }
+  public sealed partial class YLayer : pb::IMessage<YLayer> {
+    private static readonly pb::MessageParser<YLayer> _parser = new pb::MessageParser<YLayer>(() => new YLayer());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<YLayer> Parser { get { return _parser; } }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
       get { return global::Y3D.Entities.Y3DReflection.Descriptor.MessageTypes[9]; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public YLayer() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public YLayer(YLayer other) : this() {
+      name_ = other.name_;
+      groups_ = other.groups_.Clone();
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public YLayer Clone() {
+      return new YLayer(this);
+    }
+
+    /// <summary>Field number for the "name" field.</summary>
+    public const int NameFieldNumber = 1;
+    private string name_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Name {
+      get { return name_; }
+      set {
+        name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "groups" field.</summary>
+    public const int GroupsFieldNumber = 2;
+    private static readonly pb::FieldCodec<global::Y3D.Entities.YGroup> _repeated_groups_codec
+        = pb::FieldCodec.ForMessage(18, global::Y3D.Entities.YGroup.Parser);
+    private readonly pbc::RepeatedField<global::Y3D.Entities.YGroup> groups_ = new pbc::RepeatedField<global::Y3D.Entities.YGroup>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<global::Y3D.Entities.YGroup> Groups {
+      get { return groups_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as YLayer);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(YLayer other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Name != other.Name) return false;
+      if(!groups_.Equals(other.groups_)) return false;
+      return true;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Name.Length != 0) hash ^= Name.GetHashCode();
+      hash ^= groups_.GetHashCode();
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Name.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Name);
+      }
+      groups_.WriteTo(output, _repeated_groups_codec);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Name.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
+      }
+      size += groups_.CalculateSize(_repeated_groups_codec);
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(YLayer other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Name.Length != 0) {
+        Name = other.Name;
+      }
+      groups_.Add(other.groups_);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 10: {
+            Name = input.ReadString();
+            break;
+          }
+          case 18: {
+            groups_.AddEntriesFrom(input, _repeated_groups_codec);
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class YGroup : pb::IMessage<YGroup> {
+    private static readonly pb::MessageParser<YGroup> _parser = new pb::MessageParser<YGroup>(() => new YGroup());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<YGroup> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Y3D.Entities.Y3DReflection.Descriptor.MessageTypes[10]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public YGroup() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public YGroup(YGroup other) : this() {
       name_ = other.name_;
       objs_ = other.objs_.Clone();
@@ -1956,6 +2257,7 @@ namespace Y3D.Entities {
       xref_ = other.xref_.Clone();
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public YGroup Clone() {
       return new YGroup(this);
     }
@@ -1963,6 +2265,7 @@ namespace Y3D.Entities {
     /// <summary>Field number for the "name" field.</summary>
     public const int NameFieldNumber = 1;
     private string name_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Name {
       get { return name_; }
       set {
@@ -1975,6 +2278,7 @@ namespace Y3D.Entities {
     private static readonly pb::FieldCodec<global::Y3D.Entities.YObject> _repeated_objs_codec
         = pb::FieldCodec.ForMessage(18, global::Y3D.Entities.YObject.Parser);
     private readonly pbc::RepeatedField<global::Y3D.Entities.YObject> objs_ = new pbc::RepeatedField<global::Y3D.Entities.YObject>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<global::Y3D.Entities.YObject> Objs {
       get { return objs_; }
     }
@@ -1984,6 +2288,7 @@ namespace Y3D.Entities {
     private static readonly pb::FieldCodec<global::Y3D.Entities.YGroup> _repeated_children_codec
         = pb::FieldCodec.ForMessage(26, global::Y3D.Entities.YGroup.Parser);
     private readonly pbc::RepeatedField<global::Y3D.Entities.YGroup> children_ = new pbc::RepeatedField<global::Y3D.Entities.YGroup>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<global::Y3D.Entities.YGroup> Children {
       get { return children_; }
     }
@@ -1991,6 +2296,7 @@ namespace Y3D.Entities {
     /// <summary>Field number for the "gv_type" field.</summary>
     public const int GvTypeFieldNumber = 4;
     private global::Y3D.Entities.GVerType gvType_ = 0;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::Y3D.Entities.GVerType GvType {
       get { return gvType_; }
       set {
@@ -2003,14 +2309,17 @@ namespace Y3D.Entities {
     private static readonly pb::FieldCodec<string> _repeated_xref_codec
         = pb::FieldCodec.ForString(42);
     private readonly pbc::RepeatedField<string> xref_ = new pbc::RepeatedField<string>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<string> Xref {
       get { return xref_; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as YGroup);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public bool Equals(YGroup other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -2026,6 +2335,7 @@ namespace Y3D.Entities {
       return true;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
       if (Name.Length != 0) hash ^= Name.GetHashCode();
@@ -2036,10 +2346,12 @@ namespace Y3D.Entities {
       return hash;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
       if (Name.Length != 0) {
         output.WriteRawTag(10);
@@ -2054,6 +2366,7 @@ namespace Y3D.Entities {
       xref_.WriteTo(output, _repeated_xref_codec);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
       if (Name.Length != 0) {
@@ -2068,6 +2381,7 @@ namespace Y3D.Entities {
       return size;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(YGroup other) {
       if (other == null) {
         return;
@@ -2083,6 +2397,7 @@ namespace Y3D.Entities {
       xref_.Add(other.xref_);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
@@ -2116,31 +2431,36 @@ namespace Y3D.Entities {
 
   }
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
   public sealed partial class YGroupVer : pb::IMessage<YGroupVer> {
     private static readonly pb::MessageParser<YGroupVer> _parser = new pb::MessageParser<YGroupVer>(() => new YGroupVer());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pb::MessageParser<YGroupVer> Parser { get { return _parser; } }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Y3D.Entities.Y3DReflection.Descriptor.MessageTypes[10]; }
+      get { return global::Y3D.Entities.Y3DReflection.Descriptor.MessageTypes[11]; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public YGroupVer() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public YGroupVer(YGroupVer other) : this() {
       vname_ = other.vname_;
       GroupData = other.groupData_ != null ? other.GroupData.Clone() : null;
       step_ = other.step_;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public YGroupVer Clone() {
       return new YGroupVer(this);
     }
@@ -2148,6 +2468,7 @@ namespace Y3D.Entities {
     /// <summary>Field number for the "vname" field.</summary>
     public const int VnameFieldNumber = 1;
     private string vname_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Vname {
       get { return vname_; }
       set {
@@ -2158,6 +2479,7 @@ namespace Y3D.Entities {
     /// <summary>Field number for the "groupData" field.</summary>
     public const int GroupDataFieldNumber = 2;
     private global::Y3D.Entities.YGroup groupData_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::Y3D.Entities.YGroup GroupData {
       get { return groupData_; }
       set {
@@ -2168,6 +2490,7 @@ namespace Y3D.Entities {
     /// <summary>Field number for the "step" field.</summary>
     public const int StepFieldNumber = 3;
     private int step_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int Step {
       get { return step_; }
       set {
@@ -2175,10 +2498,12 @@ namespace Y3D.Entities {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as YGroupVer);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public bool Equals(YGroupVer other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -2192,6 +2517,7 @@ namespace Y3D.Entities {
       return true;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
       if (Vname.Length != 0) hash ^= Vname.GetHashCode();
@@ -2200,10 +2526,12 @@ namespace Y3D.Entities {
       return hash;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
       if (Vname.Length != 0) {
         output.WriteRawTag(10);
@@ -2219,6 +2547,7 @@ namespace Y3D.Entities {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
       if (Vname.Length != 0) {
@@ -2233,6 +2562,7 @@ namespace Y3D.Entities {
       return size;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(YGroupVer other) {
       if (other == null) {
         return;
@@ -2251,6 +2581,7 @@ namespace Y3D.Entities {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
@@ -2279,31 +2610,36 @@ namespace Y3D.Entities {
 
   }
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
   public sealed partial class CustomAttr : pb::IMessage<CustomAttr> {
     private static readonly pb::MessageParser<CustomAttr> _parser = new pb::MessageParser<CustomAttr>(() => new CustomAttr());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pb::MessageParser<CustomAttr> Parser { get { return _parser; } }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Y3D.Entities.Y3DReflection.Descriptor.MessageTypes[11]; }
+      get { return global::Y3D.Entities.Y3DReflection.Descriptor.MessageTypes[12]; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public CustomAttr() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public CustomAttr(CustomAttr other) : this() {
       name_ = other.name_;
       Value = other.value_ != null ? other.Value.Clone() : null;
       type_ = other.type_;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public CustomAttr Clone() {
       return new CustomAttr(this);
     }
@@ -2311,6 +2647,7 @@ namespace Y3D.Entities {
     /// <summary>Field number for the "name" field.</summary>
     public const int NameFieldNumber = 1;
     private string name_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Name {
       get { return name_; }
       set {
@@ -2321,6 +2658,7 @@ namespace Y3D.Entities {
     /// <summary>Field number for the "value" field.</summary>
     public const int ValueFieldNumber = 2;
     private global::Google.Protobuf.WellKnownTypes.Any value_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::Google.Protobuf.WellKnownTypes.Any Value {
       get { return value_; }
       set {
@@ -2331,6 +2669,7 @@ namespace Y3D.Entities {
     /// <summary>Field number for the "type" field.</summary>
     public const int TypeFieldNumber = 3;
     private global::Y3D.Entities.CustomAttr.Types.AType type_ = 0;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::Y3D.Entities.CustomAttr.Types.AType Type {
       get { return type_; }
       set {
@@ -2338,10 +2677,12 @@ namespace Y3D.Entities {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as CustomAttr);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public bool Equals(CustomAttr other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -2355,6 +2696,7 @@ namespace Y3D.Entities {
       return true;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
       if (Name.Length != 0) hash ^= Name.GetHashCode();
@@ -2363,10 +2705,12 @@ namespace Y3D.Entities {
       return hash;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
       if (Name.Length != 0) {
         output.WriteRawTag(10);
@@ -2382,6 +2726,7 @@ namespace Y3D.Entities {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
       if (Name.Length != 0) {
@@ -2396,6 +2741,7 @@ namespace Y3D.Entities {
       return size;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(CustomAttr other) {
       if (other == null) {
         return;
@@ -2414,6 +2760,7 @@ namespace Y3D.Entities {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
@@ -2442,7 +2789,7 @@ namespace Y3D.Entities {
 
     #region Nested types
     /// <summary>Container for nested types declared in the CustomAttr message type.</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static partial class Types {
       public enum AType {
         [pbr::OriginalName("STRING")] String = 0,
@@ -2470,30 +2817,35 @@ namespace Y3D.Entities {
 
   }
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
   public sealed partial class AttrSet : pb::IMessage<AttrSet> {
     private static readonly pb::MessageParser<AttrSet> _parser = new pb::MessageParser<AttrSet>(() => new AttrSet());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pb::MessageParser<AttrSet> Parser { get { return _parser; } }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Y3D.Entities.Y3DReflection.Descriptor.MessageTypes[12]; }
+      get { return global::Y3D.Entities.Y3DReflection.Descriptor.MessageTypes[13]; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public AttrSet() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public AttrSet(AttrSet other) : this() {
       sname_ = other.sname_;
       attrs_ = other.attrs_.Clone();
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public AttrSet Clone() {
       return new AttrSet(this);
     }
@@ -2501,6 +2853,7 @@ namespace Y3D.Entities {
     /// <summary>Field number for the "sname" field.</summary>
     public const int SnameFieldNumber = 1;
     private string sname_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Sname {
       get { return sname_; }
       set {
@@ -2513,14 +2866,17 @@ namespace Y3D.Entities {
     private static readonly pb::FieldCodec<global::Y3D.Entities.CustomAttr> _repeated_attrs_codec
         = pb::FieldCodec.ForMessage(18, global::Y3D.Entities.CustomAttr.Parser);
     private readonly pbc::RepeatedField<global::Y3D.Entities.CustomAttr> attrs_ = new pbc::RepeatedField<global::Y3D.Entities.CustomAttr>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<global::Y3D.Entities.CustomAttr> Attrs {
       get { return attrs_; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as AttrSet);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public bool Equals(AttrSet other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -2533,6 +2889,7 @@ namespace Y3D.Entities {
       return true;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
       if (Sname.Length != 0) hash ^= Sname.GetHashCode();
@@ -2540,10 +2897,12 @@ namespace Y3D.Entities {
       return hash;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
       if (Sname.Length != 0) {
         output.WriteRawTag(10);
@@ -2552,6 +2911,7 @@ namespace Y3D.Entities {
       attrs_.WriteTo(output, _repeated_attrs_codec);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
       if (Sname.Length != 0) {
@@ -2561,6 +2921,7 @@ namespace Y3D.Entities {
       return size;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(AttrSet other) {
       if (other == null) {
         return;
@@ -2571,6 +2932,7 @@ namespace Y3D.Entities {
       attrs_.Add(other.attrs_);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
@@ -2592,25 +2954,29 @@ namespace Y3D.Entities {
 
   }
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
   public sealed partial class FilterView : pb::IMessage<FilterView> {
     private static readonly pb::MessageParser<FilterView> _parser = new pb::MessageParser<FilterView>(() => new FilterView());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pb::MessageParser<FilterView> Parser { get { return _parser; } }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Y3D.Entities.Y3DReflection.Descriptor.MessageTypes[13]; }
+      get { return global::Y3D.Entities.Y3DReflection.Descriptor.MessageTypes[14]; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public FilterView() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public FilterView(FilterView other) : this() {
       otype_ = other.otype_;
       faceRange_ = other.faceRange_;
@@ -2618,6 +2984,7 @@ namespace Y3D.Entities {
       aid_ = other.aid_;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public FilterView Clone() {
       return new FilterView(this);
     }
@@ -2625,6 +2992,7 @@ namespace Y3D.Entities {
     /// <summary>Field number for the "otype" field.</summary>
     public const int OtypeFieldNumber = 1;
     private global::Y3D.Entities.ObjectType otype_ = 0;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::Y3D.Entities.ObjectType Otype {
       get { return otype_; }
       set {
@@ -2635,6 +3003,7 @@ namespace Y3D.Entities {
     /// <summary>Field number for the "face_range" field.</summary>
     public const int FaceRangeFieldNumber = 2;
     private int faceRange_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int FaceRange {
       get { return faceRange_; }
       set {
@@ -2645,6 +3014,7 @@ namespace Y3D.Entities {
     /// <summary>Field number for the "search" field.</summary>
     public const int SearchFieldNumber = 3;
     private string search_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Search {
       get { return search_; }
       set {
@@ -2655,6 +3025,7 @@ namespace Y3D.Entities {
     /// <summary>Field number for the "aid" field.</summary>
     public const int AidFieldNumber = 4;
     private int aid_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int Aid {
       get { return aid_; }
       set {
@@ -2662,10 +3033,12 @@ namespace Y3D.Entities {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as FilterView);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public bool Equals(FilterView other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -2680,6 +3053,7 @@ namespace Y3D.Entities {
       return true;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
       if (Otype != 0) hash ^= Otype.GetHashCode();
@@ -2689,10 +3063,12 @@ namespace Y3D.Entities {
       return hash;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
       if (Otype != 0) {
         output.WriteRawTag(8);
@@ -2712,6 +3088,7 @@ namespace Y3D.Entities {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
       if (Otype != 0) {
@@ -2729,6 +3106,7 @@ namespace Y3D.Entities {
       return size;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(FilterView other) {
       if (other == null) {
         return;
@@ -2747,6 +3125,7 @@ namespace Y3D.Entities {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
@@ -2776,25 +3155,29 @@ namespace Y3D.Entities {
 
   }
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
   public sealed partial class ProjectInfo : pb::IMessage<ProjectInfo> {
     private static readonly pb::MessageParser<ProjectInfo> _parser = new pb::MessageParser<ProjectInfo>(() => new ProjectInfo());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pb::MessageParser<ProjectInfo> Parser { get { return _parser; } }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Y3D.Entities.Y3DReflection.Descriptor.MessageTypes[14]; }
+      get { return global::Y3D.Entities.Y3DReflection.Descriptor.MessageTypes[15]; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public ProjectInfo() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public ProjectInfo(ProjectInfo other) : this() {
       pname_ = other.pname_;
       path_ = other.path_;
@@ -2803,6 +3186,7 @@ namespace Y3D.Entities {
       fview_ = other.fview_.Clone();
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public ProjectInfo Clone() {
       return new ProjectInfo(this);
     }
@@ -2810,6 +3194,7 @@ namespace Y3D.Entities {
     /// <summary>Field number for the "pname" field.</summary>
     public const int PnameFieldNumber = 1;
     private string pname_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Pname {
       get { return pname_; }
       set {
@@ -2820,6 +3205,7 @@ namespace Y3D.Entities {
     /// <summary>Field number for the "path" field.</summary>
     public const int PathFieldNumber = 2;
     private string path_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Path {
       get { return path_; }
       set {
@@ -2835,6 +3221,7 @@ namespace Y3D.Entities {
     /// <summary>
     ///  0-100-1000-100000 v.v...
     /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<int> FaceRange {
       get { return faceRange_; }
     }
@@ -2847,6 +3234,7 @@ namespace Y3D.Entities {
     /// <summary>
     ///  green, yellow, red v.v...
     /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<global::Y3D.Entities.YColor> CountColor {
       get { return countColor_; }
     }
@@ -2856,14 +3244,17 @@ namespace Y3D.Entities {
     private static readonly pb::FieldCodec<global::Y3D.Entities.FilterView> _repeated_fview_codec
         = pb::FieldCodec.ForMessage(42, global::Y3D.Entities.FilterView.Parser);
     private readonly pbc::RepeatedField<global::Y3D.Entities.FilterView> fview_ = new pbc::RepeatedField<global::Y3D.Entities.FilterView>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<global::Y3D.Entities.FilterView> Fview {
       get { return fview_; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as ProjectInfo);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public bool Equals(ProjectInfo other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -2879,6 +3270,7 @@ namespace Y3D.Entities {
       return true;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
       if (Pname.Length != 0) hash ^= Pname.GetHashCode();
@@ -2889,10 +3281,12 @@ namespace Y3D.Entities {
       return hash;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
       if (Pname.Length != 0) {
         output.WriteRawTag(10);
@@ -2907,6 +3301,7 @@ namespace Y3D.Entities {
       fview_.WriteTo(output, _repeated_fview_codec);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
       if (Pname.Length != 0) {
@@ -2921,6 +3316,7 @@ namespace Y3D.Entities {
       return size;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(ProjectInfo other) {
       if (other == null) {
         return;
@@ -2936,6 +3332,7 @@ namespace Y3D.Entities {
       fview_.Add(other.fview_);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
@@ -2970,29 +3367,34 @@ namespace Y3D.Entities {
 
   }
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
   public sealed partial class YAreaList : pb::IMessage<YAreaList> {
     private static readonly pb::MessageParser<YAreaList> _parser = new pb::MessageParser<YAreaList>(() => new YAreaList());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pb::MessageParser<YAreaList> Parser { get { return _parser; } }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Y3D.Entities.Y3DReflection.Descriptor.MessageTypes[15]; }
+      get { return global::Y3D.Entities.Y3DReflection.Descriptor.MessageTypes[16]; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public YAreaList() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public YAreaList(YAreaList other) : this() {
       areas_ = other.areas_.Clone();
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public YAreaList Clone() {
       return new YAreaList(this);
     }
@@ -3002,14 +3404,17 @@ namespace Y3D.Entities {
     private static readonly pb::FieldCodec<global::Y3D.Entities.YArea> _repeated_areas_codec
         = pb::FieldCodec.ForMessage(10, global::Y3D.Entities.YArea.Parser);
     private readonly pbc::RepeatedField<global::Y3D.Entities.YArea> areas_ = new pbc::RepeatedField<global::Y3D.Entities.YArea>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<global::Y3D.Entities.YArea> Areas {
       get { return areas_; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as YAreaList);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public bool Equals(YAreaList other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -3021,26 +3426,31 @@ namespace Y3D.Entities {
       return true;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
       hash ^= areas_.GetHashCode();
       return hash;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
       areas_.WriteTo(output, _repeated_areas_codec);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
       size += areas_.CalculateSize(_repeated_areas_codec);
       return size;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(YAreaList other) {
       if (other == null) {
         return;
@@ -3048,6 +3458,7 @@ namespace Y3D.Entities {
       areas_.Add(other.areas_);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
@@ -3065,30 +3476,35 @@ namespace Y3D.Entities {
 
   }
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
   public sealed partial class PSetting : pb::IMessage<PSetting> {
     private static readonly pb::MessageParser<PSetting> _parser = new pb::MessageParser<PSetting>(() => new PSetting());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pb::MessageParser<PSetting> Parser { get { return _parser; } }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Y3D.Entities.Y3DReflection.Descriptor.MessageTypes[16]; }
+      get { return global::Y3D.Entities.Y3DReflection.Descriptor.MessageTypes[17]; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public PSetting() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public PSetting(PSetting other) : this() {
       extra_ = other.extra_.Clone();
       maxRecent_ = other.maxRecent_;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public PSetting Clone() {
       return new PSetting(this);
     }
@@ -3098,6 +3514,7 @@ namespace Y3D.Entities {
     private static readonly pb::FieldCodec<global::Y3D.Entities.CustomAttr> _repeated_extra_codec
         = pb::FieldCodec.ForMessage(18, global::Y3D.Entities.CustomAttr.Parser);
     private readonly pbc::RepeatedField<global::Y3D.Entities.CustomAttr> extra_ = new pbc::RepeatedField<global::Y3D.Entities.CustomAttr>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<global::Y3D.Entities.CustomAttr> Extra {
       get { return extra_; }
     }
@@ -3105,6 +3522,7 @@ namespace Y3D.Entities {
     /// <summary>Field number for the "max_recent" field.</summary>
     public const int MaxRecentFieldNumber = 3;
     private int maxRecent_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int MaxRecent {
       get { return maxRecent_; }
       set {
@@ -3112,10 +3530,12 @@ namespace Y3D.Entities {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as PSetting);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public bool Equals(PSetting other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -3128,6 +3548,7 @@ namespace Y3D.Entities {
       return true;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
       hash ^= extra_.GetHashCode();
@@ -3135,10 +3556,12 @@ namespace Y3D.Entities {
       return hash;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
       extra_.WriteTo(output, _repeated_extra_codec);
       if (MaxRecent != 0) {
@@ -3147,6 +3570,7 @@ namespace Y3D.Entities {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
       size += extra_.CalculateSize(_repeated_extra_codec);
@@ -3156,6 +3580,7 @@ namespace Y3D.Entities {
       return size;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(PSetting other) {
       if (other == null) {
         return;
@@ -3166,6 +3591,7 @@ namespace Y3D.Entities {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
@@ -3187,31 +3613,36 @@ namespace Y3D.Entities {
 
   }
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
   public sealed partial class YSystem : pb::IMessage<YSystem> {
     private static readonly pb::MessageParser<YSystem> _parser = new pb::MessageParser<YSystem>(() => new YSystem());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pb::MessageParser<YSystem> Parser { get { return _parser; } }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Y3D.Entities.Y3DReflection.Descriptor.MessageTypes[17]; }
+      get { return global::Y3D.Entities.Y3DReflection.Descriptor.MessageTypes[18]; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public YSystem() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public YSystem(YSystem other) : this() {
       DefaultInfo = other.defaultInfo_ != null ? other.DefaultInfo.Clone() : null;
       DefaultSetting = other.defaultSetting_ != null ? other.DefaultSetting.Clone() : null;
       namePath_ = other.namePath_.Clone();
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public YSystem Clone() {
       return new YSystem(this);
     }
@@ -3219,6 +3650,7 @@ namespace Y3D.Entities {
     /// <summary>Field number for the "default_info" field.</summary>
     public const int DefaultInfoFieldNumber = 1;
     private global::Y3D.Entities.ProjectInfo defaultInfo_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::Y3D.Entities.ProjectInfo DefaultInfo {
       get { return defaultInfo_; }
       set {
@@ -3229,6 +3661,7 @@ namespace Y3D.Entities {
     /// <summary>Field number for the "default_setting" field.</summary>
     public const int DefaultSettingFieldNumber = 2;
     private global::Y3D.Entities.PSetting defaultSetting_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::Y3D.Entities.PSetting DefaultSetting {
       get { return defaultSetting_; }
       set {
@@ -3244,14 +3677,17 @@ namespace Y3D.Entities {
     /// <summary>
     ///   Name Project : Path to 
     /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::MapField<string, string> NamePath {
       get { return namePath_; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as YSystem);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public bool Equals(YSystem other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -3265,6 +3701,7 @@ namespace Y3D.Entities {
       return true;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
       if (defaultInfo_ != null) hash ^= DefaultInfo.GetHashCode();
@@ -3273,10 +3710,12 @@ namespace Y3D.Entities {
       return hash;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
       if (defaultInfo_ != null) {
         output.WriteRawTag(10);
@@ -3289,6 +3728,7 @@ namespace Y3D.Entities {
       namePath_.WriteTo(output, _map_namePath_codec);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
       if (defaultInfo_ != null) {
@@ -3301,6 +3741,7 @@ namespace Y3D.Entities {
       return size;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(YSystem other) {
       if (other == null) {
         return;
@@ -3320,6 +3761,7 @@ namespace Y3D.Entities {
       namePath_.Add(other.namePath_);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {

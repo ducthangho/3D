@@ -48,6 +48,7 @@ namespace YMax.Forms
 
             Utilities.YOList.OnUpdateByArea += this.loadFromArea;
             Utilities.YOList.OnUpdateByGroup += this.loadFromGroup;
+
         }
 
 

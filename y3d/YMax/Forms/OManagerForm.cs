@@ -30,9 +30,13 @@ namespace YMax.Forms
             //if (tabSidebar.Visible) this.Width += tabSidebar.Width;
         }
 
+        public void updateTree()
+        {
+            this.agSidebar1.updateTree();
+        }
+
         private void OManagerForm_Load(object sender, EventArgs e)
         {
-
         }
 
         private void oFromMaxBtn_Click(object sender, EventArgs e)

@@ -1,27 +1,25 @@
-f:\git\3d\y3d\utils\x64\release\vc140.pdb
-f:\git\3d\y3d\utils\x64\release\.netframework,version=v4.5.2.assemblyattributes.obj
-f:\git\3d\y3d\utils\x64\release\.netframework,version=v4.5.2.assemblyattributes.asm
-f:\git\3d\y3d\utils\x64\release\utils.pch
-f:\git\3d\y3d\utils\x64\release\stdafx.obj
-f:\git\3d\y3d\utils\x64\release\utils.obj
-f:\git\3d\y3d\utils\x64\release\assemblyinfo.obj
-c:\program files\autodesk\3ds max 2015\plugins\utils.dll
-c:\program files\autodesk\3ds max 2015\plugins\utils.pdb
-f:\git\3d\y3d\utils\x64\release\utils.tlog\metagen.write.1.tlog
-f:\git\3d\y3d\utils\x64\release\app.res
-c:\program files\autodesk\3ds max 2015\plugins\autodesk.max.dll
-c:\program files\autodesk\3ds max 2015\plugins\autodesk.max.xml
-f:\git\3d\y3d\utils\x64\release\utils.vcxprojresolveassemblyreference.cache
-f:\git\3d\y3d\utils\x64\release\utils.tlog\cl.command.1.tlog
-f:\git\3d\y3d\utils\x64\release\utils.tlog\cl.read.1.tlog
-f:\git\3d\y3d\utils\x64\release\utils.tlog\cl.write.1.tlog
-f:\git\3d\y3d\utils\x64\release\utils.tlog\link.command.1.tlog
-f:\git\3d\y3d\utils\x64\release\utils.tlog\link.read.1.tlog
-f:\git\3d\y3d\utils\x64\release\utils.tlog\link.write.1.tlog
-f:\git\3d\y3d\utils\x64\release\utils.tlog\metagen.read.1.tlog
-f:\git\3d\y3d\utils\x64\release\utils.tlog\rc.command.1.tlog
-f:\git\3d\y3d\utils\x64\release\utils.tlog\rc.read.1.tlog
-f:\git\3d\y3d\utils\x64\release\utils.tlog\rc.write.1.tlog
-f:\git\3d\y3d\utils\x64\release\utils.tlog\utils.write.1u.tlog
-f:\git\3d\y3d\utils\x64\release\utils.tlog\autodesk.max.dll.metagen
-f:\git\3d\y3d\utils\x64\release\utils.tlog\tzres.dll.bi
+d:\code\github\3d\y3d\utils\x64\release\utils.pch
+d:\code\github\3d\y3d\utils\x64\release\vc140.pdb
+d:\code\github\3d\y3d\utils\x64\release\stdafx.obj
+d:\code\github\3d\y3d\utils\x64\release\utils.obj
+d:\code\github\3d\y3d\utils\x64\release\assemblyinfo.obj
+d:\code\github\3d\y3d\utils\x64\release\.netframework,version=v4.5.2.assemblyattributes.obj
+d:\code\github\3d\y3d\utils\x64\release\.netframework,version=v4.5.2.assemblyattributes.asm
+c:\program files\autodesk\3ds max 2017\bin\assemblies\utils.dll
+c:\program files\autodesk\3ds max 2017\bin\assemblies\utils.pdb
+d:\code\github\3d\y3d\utils\x64\release\app.res
+c:\program files\autodesk\3ds max 2017\bin\assemblies\utils.lib
+c:\program files\autodesk\3ds max 2017\bin\assemblies\utils.exp
+d:\code\github\3d\y3d\utils\x64\release\utils.tlog\cl.command.1.tlog
+d:\code\github\3d\y3d\utils\x64\release\utils.tlog\cl.read.1.tlog
+d:\code\github\3d\y3d\utils\x64\release\utils.tlog\cl.write.1.tlog
+d:\code\github\3d\y3d\utils\x64\release\utils.tlog\link.command.1.tlog
+d:\code\github\3d\y3d\utils\x64\release\utils.tlog\link.read.1.tlog
+d:\code\github\3d\y3d\utils\x64\release\utils.tlog\link.write.1.tlog
+d:\code\github\3d\y3d\utils\x64\release\utils.tlog\metagen.read.1.tlog
+d:\code\github\3d\y3d\utils\x64\release\utils.tlog\metagen.write.1.tlog
+d:\code\github\3d\y3d\utils\x64\release\utils.tlog\rc.command.1.tlog
+d:\code\github\3d\y3d\utils\x64\release\utils.tlog\rc.read.1.tlog
+d:\code\github\3d\y3d\utils\x64\release\utils.tlog\rc.write.1.tlog
+d:\code\github\3d\y3d\utils\x64\release\utils.tlog\utils.write.1u.tlog
+d:\code\github\3d\y3d\utils\x64\release\utils.tlog\tzres.dll.bi
