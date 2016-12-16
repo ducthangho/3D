@@ -15,3 +15,17 @@ y3d/Service/grpc/**
 *.db
 *.pdb
 *.cache
+*.suo
+*.gup
+*.log
+y3d/lib/protobuf z/lite-arena-test.exe
+*.obj
+y3d/y3d/obj/Release/DesignTimeResolveAssemblyReferencesInput.cache
+y3d/Service/obj/x64/Release/vc140.idb
+y3d/Service/obj/x64/Release/Service.res
+y3d/Service/obj/x64/Debug/Service.log
+y3d/Service/obj/x64/Debug/Service.res
+y3d/Service/obj/x64/Release/dll/Service.gup
+y3d/Service/obj/x64/Release/Service.log
+y3d/Service/obj/x64/Release/Service.lib
+y3d/Service/obj/x64/Release/Service.exp

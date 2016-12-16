@@ -76,6 +76,33 @@
       <AdditionalDependencies>libprotoc.lib;libprotobuf.lib;bmm.lib;core.lib;geom.lib;gfx.lib;mesh.lib;maxutil.lib;maxscrpt.lib;gup.lib;paramblk2.lib;ws2_32.lib;grpc_dll.lib;tbb.lib;tbbmalloc.lib;YMax.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ModuleDefinitionFile>Service.def</ModuleDefinitionFile>
     </Link>
+    <PostBuildEvent />
+    <PostBuildEvent />
+    <PostBuildEvent />
+    <CustomBuildStep>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">xcopy "$(SolutionDir)lib\*.dll" "$(MaxSdkAssemblies)" /D /Y &amp;&amp;
+xcopy "$(SolutionDir)lib\tbb\tbb.dll" "$(MaxSdkAssemblies)" /D /Y &amp;&amp;
+xcopy "$(SolutionDir)lib\tbb\tbbmalloc.dll" "$(MaxSdkAssemblies)" /D /Y &amp;&amp;
+xcopy "$(SolutionDir)lib\tbb\tbb_preview.dll" "$(MaxSdkAssemblies)" /D /Y &amp;&amp;
+xcopy "$(SolutionDir)lib\protobuf\*.dll" "$(MaxSdkAssemblies)" /D /Y
+xcopy $(SolutionDir)lib\grpc\grpc_dll.dll $(MaxSdkAssemblies) /D /Y</Command>
+    </CustomBuildStep>
+    <CustomBuildStep>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">xcopy "$(SolutionDir)lib\*.dll" "$(MaxSdkAssemblies)" /D /Y &amp;&amp;
+xcopy "$(SolutionDir)lib\tbb\tbb.dll" "$(MaxSdkAssemblies)" /D /Y &amp;&amp;
+xcopy "$(SolutionDir)lib\tbb\tbbmalloc.dll" "$(MaxSdkAssemblies)" /D /Y &amp;&amp;
+xcopy "$(SolutionDir)lib\tbb\tbb_preview.dll" "$(MaxSdkAssemblies)" /D /Y &amp;&amp;
+xcopy "$(SolutionDir)lib\protobuf\*.dll" "$(MaxSdkAssemblies)" /D /Y
+xcopy $(SolutionDir)lib\grpc\grpc_dll.dll $(MaxSdkAssemblies) /D /Y</Command>
+    </CustomBuildStep>
+    <CustomBuildStep>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">xcopy "$(SolutionDir)lib\*.dll" "$(MaxSdkAssemblies)" /D /Y &amp;&amp;
+xcopy "$(SolutionDir)lib\tbb\tbb.dll" "$(MaxSdkAssemblies)" /D /Y &amp;&amp;
+xcopy "$(SolutionDir)lib\tbb\tbbmalloc.dll" "$(MaxSdkAssemblies)" /D /Y &amp;&amp;
+xcopy "$(SolutionDir)lib\tbb\tbb_preview.dll" "$(MaxSdkAssemblies)" /D /Y &amp;&amp;
+xcopy "$(SolutionDir)lib\protobuf\*.dll" "$(MaxSdkAssemblies)" /D /Y
+xcopy $(SolutionDir)lib\grpc\grpc_dll.dll $(MaxSdkAssemblies) /D /Y</Command>
+    </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="grpc\src\compiler\cpp_generator.cc" />
