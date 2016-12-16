@@ -54,7 +54,6 @@ namespace YMax.Utilities
 
         static void getMesh(IIGameScene gs, INodeTab node_to_xref)
         {
-            var ff = "D:\\3D\\3dmax\\scenes\\1\\box3.max";
             //Loader.Core.LoadFromFile(ff, true);
 
             //Loader.Global.TheListener.EditStream.Printf("MESH:" + "\n", null);
