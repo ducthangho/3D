@@ -1,0 +1,65 @@
+// Generated from mesh.proto
+
+namespace y3d.data;
+
+struct Point3 {
+  x:float;
+  y:float;
+  z:float;
+}
+
+struct Box3 {
+  pmin:y3d.data.Point3;
+  pmax:y3d.data.Point3;
+}
+
+table MNMap {
+  v:[y3d.data.Point3];
+  f:[int];
+  channel:ubyte;
+}
+
+struct TriFace {
+  v0:int;
+  v1:int;
+  v2:int;
+  smGroup:ubyte;
+  material:ubyte;
+}
+
+struct QuadFace {
+  v0:int;
+  v1:int;
+  v2:int;
+  v3:int;
+  smGroup:ubyte;
+  material:ubyte;
+}
+
+table Mesh {
+  v:[y3d.data.Point3];
+  f3:[y3d.data.TriFace];
+  f4:[y3d.data.QuadFace];
+  selLevel:int;
+  dispFlag:int;
+  bdgBox:y3d.data.Box3;
+  m:[y3d.data.MNMap];
+  vSel:[bool];
+  eSel:[bool];
+  fSel:[bool];
+  eVis:[bool];
+  mpNormal:[y3d.data.Point3];
+  mpFace:[int];
+}
+
+table YObject {
+  name:string;
+  type:ubyte;
+  mesh:y3d.data.Mesh;
+}
+
+table YObjectList {
+  objs:[y3d.data.YObject];
+}
+
+root_type YObjectList;

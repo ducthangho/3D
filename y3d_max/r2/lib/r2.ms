@@ -15,6 +15,7 @@ if r2_init != true then
 	global yxref_selected
 	global pre_optimize
 	global xref_low
+	global do_lowpoly
 
 	-- global form
 	global yf_main
@@ -415,6 +416,20 @@ if r2_init != true then
 	)
 
 
+	fn do_lowpoly oName =
+	(
+		oo =  execute ("$'"+oName + "'")
+		select oo
+		cc = classof oo
+		max modify mode
+		if cc == XRefObject then
+			(
+				modPanel.setCurrentObject $.baseObject
+				if cc.useProxy then
+					cc.displayProxy = true
+			)
+	)
+
 	fn pre_optimize oFileDir oFileName= 
 	(
 		-- fname = substring maxFileName 1 (maxFileName.count-4)
@@ -431,7 +446,7 @@ if r2_init != true then
 
 		BatchProOptimizer.OptimizationLevelMode = 0;
 		BatchProOptimizer.OptimizeBordersMode = 1; --Protect Borders 
-		-- BatchProOptimizer.AutoRename = true;
+		BatchProOptimizer.AutoRename = false;
 		BatchProOptimizer.DestFileNameMode = 1;
 		BatchProOptimizer.DestFolderMode = 2;
 		BatchProOptimizer.DestFolderName = ".\y3d_data"

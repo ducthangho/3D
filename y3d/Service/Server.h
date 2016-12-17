@@ -185,7 +185,7 @@ class YServiceImpl final : public Tools::Service {
 		});
 		reply->set_message("DDDD");
 		//reply->message.set_message("ddd");
-		//waitForReturn(ret);
+		waitForReturn(ret);
 		return Status::OK;
 		// ... (pre-existing code)
 	}

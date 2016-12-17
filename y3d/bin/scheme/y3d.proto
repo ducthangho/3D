@@ -1,0 +1,205 @@
+// [START declaration]
+syntax = "proto3";
+// import "google/protobuf/any.proto";
+import "google/protobuf/any.proto";
+package y3d;
+// [END declaration]
+
+// [START csharp_declaration]
+option csharp_namespace = "Y3D.Entities";
+// [END csharp_declaration]
+
+// [START messages]
+message YColor {
+  string name = 1;
+  int32 argb = 2;
+};
+
+message YPoint3 {
+	float x = 1;
+	float y = 2;
+	float z = 3;
+}
+
+message YBox3 {
+	YPoint3 pmin = 1;
+	YPoint3 pmax = 2;
+}
+
+message YResource {
+  string rid=1;
+  enum ResourceType {
+    BINARY=0;
+    IMAGE=1;
+    FLATBUFFER=2;
+    PROTOBUF=3;
+    CAPNP=4;
+  }
+  ResourceType rtype=2;
+  string link=3;
+}
+
+message YLight {
+  repeated float diffuse = 3;
+  repeated float specular = 4;
+
+  float intensity = 5;
+  float range = 6;
+  float angle = 7;
+  float exponent = 8;
+
+  repeated string excludedMeshesIds = 9;
+  repeated string includedOnlyMeshesIds = 10;
+}
+
+
+message YCamera {
+  repeated float rotation=3;
+  repeated float target=4;
+  float fov=5;
+}
+
+message YMesh {
+  int32 num_faces = 1;
+  YBox3 bbox = 2;
+  enum MeshType {
+    Unknown=0;
+    Editable_Mesh=1;
+    Editable_Poly=2;
+    Box=3;
+    Sphere=4;
+    GeoSphere=5;
+    Cylinder=6;
+    Tube=7;
+    Torus=8;
+    Pyramid=9;
+    Teapot=10;
+    Plane=11;
+    Target=12;
+    Cone=13;
+  }
+  string res_id = 3; // Resource ID (GUID)
+  repeated int32 xref = 4;
+  enum XrefStatus {
+    ORIGINAL=0;
+    XREF_HIGHT=1;
+    XREF_LOW=2;
+    XREF_LOW_DISPLAY=3;
+    BOX=4;
+    MERGED=5;
+    FINAL=6;
+  };
+  XrefStatus xstatus=5;
+  MeshType mtype=6;
+}
+
+enum ObjectType {
+  GEOMETRY=0;
+  LIGHT=1;
+  CAMERA=2;
+  SHAPE=3;
+  OTHER=4;
+}
+
+enum GVerType {
+  NO_VER=0;
+  ORIGINAL=1;
+  IN_BAKE=2;
+  STANDARD=3;
+}
+  
+message YObject {
+  string name = 1;
+  YPoint3 pos = 3;
+  map<string,google.protobuf.Any > extra = 5;
+  ObjectType otype=6;
+  repeated string tags=7;
+  int32 cate_id=8;
+  oneof data {
+    YLight light=10;
+    YCamera camera=11;
+    YMesh mesh=12;
+  }
+}
+
+message YArea {
+  string name = 1;
+  repeated YGroup groups = 2;
+  repeated YObject objs = 3;
+  map<string,YGroupVer> gvers=6;
+}
+
+message YLayer {
+  string name=1;
+  repeated YGroup groups = 2;
+}
+
+message YGroup {
+  string name = 1;
+  repeated YObject objs = 2;
+  repeated YGroup children = 3;
+  GVerType gv_type=4;
+  repeated string xref=5;
+}
+
+message YGroupVer {
+  string vname=1;
+  YGroup groupData=2;
+  int32 step=3;
+}
+
+message CustomAttr {
+  string name = 1;
+  google.protobuf.Any value = 2;
+  enum AType {
+    STRING=0;
+    INT=1;
+    FLOAT=2;
+    BOOL=3;
+    POINT3=4;
+    ARRAY_STRING=5;
+    ARRAY_INT=6;
+    ARRAY_FLOAT=7;
+    TEXT=8; // bytes
+    COLOR=9;
+    ONEOF=10; // radio
+    OTHER=11;
+  }
+  AType type = 3;
+}
+
+message AttrSet {
+  string sname=1;
+  repeated CustomAttr attrs=2;
+}
+
+message FilterView {
+  ObjectType otype = 1;
+  int32 face_range = 2;
+  string search=3;
+  int32 aid=4;
+}
+
+message ProjectInfo {
+  string pname = 1;
+  string path = 2;
+  repeated int32 face_range = 3; // 0-100-1000-100000 v.v...
+  repeated YColor count_color = 4; // green, yellow, red v.v...
+  repeated FilterView fview=5;
+}
+
+message YAreaList {
+  repeated YArea areas=1;
+  
+}
+
+message PSetting {
+  repeated CustomAttr extra=2;
+  int32 max_recent = 3;
+}
+
+message YSystem {
+  ProjectInfo default_info = 1;
+  PSetting default_setting = 2;
+  map<string,string> name_path = 3; //  Name Project : Path to 
+}

@@ -13,6 +13,8 @@ namespace YMax.Forms
 {
     public partial class OListControl : UserControl
     {
+        private YObject curObject = null;
+
         public OListControl()
         {
             InitializeComponent();
@@ -156,6 +158,7 @@ namespace YMax.Forms
             {
             
                 var y = (YObject)x;
+                curObject = y;
                 string cmd = "select $" + y.Name + ";";
                 //if (this.checkBoxInGroup.Checked)
                 //    cmd += "max tool zoomextents all;";
@@ -189,6 +192,14 @@ namespace YMax.Forms
         private void btnXref_Click(object sender, EventArgs e)
         {
             ManagedServices.MaxscriptSDK.ExecuteMaxscriptCommand("test_xref \"chao chao\"");
+        }
+
+        private void btnLow_Click(object sender, EventArgs e)
+        {
+            if (curObject!=null)
+            {
+                ManagedServices.MaxscriptSDK.ExecuteMaxscriptCommand("do_lowpoly \""+ curObject.Name + "\"");
+            }
         }
     }
 }

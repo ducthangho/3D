@@ -81,10 +81,11 @@
             this.olvColumnType,
             this.olvColumnStatus});
             this.yoFastListView.Cursor = System.Windows.Forms.Cursors.Default;
-            this.yoFastListView.Location = new System.Drawing.Point(3, 30);
+            this.yoFastListView.Location = new System.Drawing.Point(2, 24);
+            this.yoFastListView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.yoFastListView.Name = "yoFastListView";
             this.yoFastListView.ShowGroups = false;
-            this.yoFastListView.Size = new System.Drawing.Size(444, 400);
+            this.yoFastListView.Size = new System.Drawing.Size(334, 326);
             this.yoFastListView.SmallImageList = this.otypeImageList;
             this.yoFastListView.TabIndex = 1;
             this.yoFastListView.UseCellFormatEvents = true;
@@ -135,9 +136,10 @@
             // listCheck
             // 
             this.listCheck.AutoSize = true;
-            this.listCheck.Location = new System.Drawing.Point(6, 21);
+            this.listCheck.Location = new System.Drawing.Point(4, 17);
+            this.listCheck.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.listCheck.Name = "listCheck";
-            this.listCheck.Size = new System.Drawing.Size(96, 21);
+            this.listCheck.Size = new System.Drawing.Size(78, 17);
             this.listCheck.TabIndex = 5;
             this.listCheck.Text = "Check Box";
             this.listCheck.UseVisualStyleBackColor = true;
@@ -148,9 +150,11 @@
             this.groupBox1.Controls.Add(this.checkBoxInGroup);
             this.groupBox1.Controls.Add(this.checkBoxIsolate);
             this.groupBox1.Controls.Add(this.listCheck);
-            this.groupBox1.Location = new System.Drawing.Point(4, 436);
+            this.groupBox1.Location = new System.Drawing.Point(3, 354);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(442, 51);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Size = new System.Drawing.Size(332, 41);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Setting";
@@ -158,9 +162,10 @@
             // checkBoxInGroup
             // 
             this.checkBoxInGroup.AutoSize = true;
-            this.checkBoxInGroup.Location = new System.Drawing.Point(108, 21);
+            this.checkBoxInGroup.Location = new System.Drawing.Point(81, 17);
+            this.checkBoxInGroup.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.checkBoxInGroup.Name = "checkBoxInGroup";
-            this.checkBoxInGroup.Size = new System.Drawing.Size(125, 21);
+            this.checkBoxInGroup.Size = new System.Drawing.Size(97, 17);
             this.checkBoxInGroup.TabIndex = 7;
             this.checkBoxInGroup.Text = "Select in group";
             this.checkBoxInGroup.UseVisualStyleBackColor = true;
@@ -169,9 +174,10 @@
             // checkBoxIsolate
             // 
             this.checkBoxIsolate.AutoSize = true;
-            this.checkBoxIsolate.Location = new System.Drawing.Point(239, 21);
+            this.checkBoxIsolate.Location = new System.Drawing.Point(179, 17);
+            this.checkBoxIsolate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.checkBoxIsolate.Name = "checkBoxIsolate";
-            this.checkBoxIsolate.Size = new System.Drawing.Size(112, 21);
+            this.checkBoxIsolate.Size = new System.Drawing.Size(88, 17);
             this.checkBoxIsolate.TabIndex = 6;
             this.checkBoxIsolate.Text = "Isolate select";
             this.checkBoxIsolate.UseVisualStyleBackColor = true;
@@ -188,7 +194,7 @@
             this.toolStripDropDownButton2});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(450, 27);
+            this.toolStrip1.Size = new System.Drawing.Size(338, 27);
             this.toolStrip1.TabIndex = 4;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -201,19 +207,19 @@
             this.toolStripSplitButton1.Image = global::YMax.Properties.Resources.open;
             this.toolStripSplitButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripSplitButton1.Name = "toolStripSplitButton1";
-            this.toolStripSplitButton1.Size = new System.Drawing.Size(39, 24);
+            this.toolStripSplitButton1.Size = new System.Drawing.Size(36, 24);
             this.toolStripSplitButton1.Text = "toolStripSplitButton1";
             // 
             // addToGroupToolStripMenuItem
             // 
             this.addToGroupToolStripMenuItem.Name = "addToGroupToolStripMenuItem";
-            this.addToGroupToolStripMenuItem.Size = new System.Drawing.Size(183, 26);
+            this.addToGroupToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.addToGroupToolStripMenuItem.Text = "Move to group";
             // 
             // manageGroupToolStripMenuItem
             // 
             this.manageGroupToolStripMenuItem.Name = "manageGroupToolStripMenuItem";
-            this.manageGroupToolStripMenuItem.Size = new System.Drawing.Size(183, 26);
+            this.manageGroupToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.manageGroupToolStripMenuItem.Text = "Manage Group";
             // 
             // toolStripSplitButton2
@@ -222,7 +228,7 @@
             this.toolStripSplitButton2.Image = global::YMax.Properties.Resources.tag;
             this.toolStripSplitButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripSplitButton2.Name = "toolStripSplitButton2";
-            this.toolStripSplitButton2.Size = new System.Drawing.Size(39, 24);
+            this.toolStripSplitButton2.Size = new System.Drawing.Size(36, 24);
             this.toolStripSplitButton2.Text = "toolStripSplitButton2";
             // 
             // toolStripButton1
@@ -241,7 +247,7 @@
             this.toolStripDropDownButton1.Image = global::YMax.Properties.Resources.view;
             this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
-            this.toolStripDropDownButton1.Size = new System.Drawing.Size(34, 24);
+            this.toolStripDropDownButton1.Size = new System.Drawing.Size(33, 24);
             this.toolStripDropDownButton1.Text = "toolStripDropDownButton1";
             // 
             // toolStripSeparator1
@@ -255,7 +261,7 @@
             this.toolStripDropDownButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton2.Image")));
             this.toolStripDropDownButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton2.Name = "toolStripDropDownButton2";
-            this.toolStripDropDownButton2.Size = new System.Drawing.Size(58, 24);
+            this.toolStripDropDownButton2.Size = new System.Drawing.Size(48, 24);
             this.toolStripDropDownButton2.Text = "More";
             // 
             // groupBoxWithSel
@@ -265,9 +271,11 @@
             this.groupBoxWithSel.Controls.Add(this.button2);
             this.groupBoxWithSel.Controls.Add(this.button1);
             this.groupBoxWithSel.Controls.Add(this.comboBox1);
-            this.groupBoxWithSel.Location = new System.Drawing.Point(223, 493);
+            this.groupBoxWithSel.Location = new System.Drawing.Point(167, 401);
+            this.groupBoxWithSel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBoxWithSel.Name = "groupBoxWithSel";
-            this.groupBoxWithSel.Size = new System.Drawing.Size(224, 118);
+            this.groupBoxWithSel.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBoxWithSel.Size = new System.Drawing.Size(168, 96);
             this.groupBoxWithSel.TabIndex = 5;
             this.groupBoxWithSel.TabStop = false;
             this.groupBoxWithSel.Text = "Group Info";
@@ -275,35 +283,39 @@
             // lbVerType
             // 
             this.lbVerType.AutoSize = true;
-            this.lbVerType.Location = new System.Drawing.Point(7, 53);
+            this.lbVerType.Location = new System.Drawing.Point(5, 43);
+            this.lbVerType.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbVerType.Name = "lbVerType";
-            this.lbVerType.Size = new System.Drawing.Size(110, 17);
+            this.lbVerType.Size = new System.Drawing.Size(80, 13);
             this.lbVerType.TabIndex = 4;
             this.lbVerType.Text = "Version type: ---";
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(188, 21);
+            this.button6.Location = new System.Drawing.Point(141, 17);
+            this.button6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(26, 26);
+            this.button6.Size = new System.Drawing.Size(20, 21);
             this.button6.TabIndex = 3;
             this.button6.Text = "..";
             this.button6.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(159, 21);
+            this.button2.Location = new System.Drawing.Point(119, 17);
+            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(26, 26);
+            this.button2.Size = new System.Drawing.Size(20, 21);
             this.button2.TabIndex = 2;
             this.button2.Text = "+";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(131, 21);
+            this.button1.Location = new System.Drawing.Point(98, 17);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(26, 26);
+            this.button1.Size = new System.Drawing.Size(20, 21);
             this.button1.TabIndex = 1;
             this.button1.Text = ">";
             this.button1.UseVisualStyleBackColor = true;
@@ -311,9 +323,10 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(7, 22);
+            this.comboBox1.Location = new System.Drawing.Point(5, 18);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 24);
+            this.comboBox1.Size = new System.Drawing.Size(92, 21);
             this.comboBox1.TabIndex = 0;
             // 
             // groupBox2
@@ -323,54 +336,62 @@
             this.groupBox2.Controls.Add(this.btnBakeNormal);
             this.groupBox2.Controls.Add(this.btnLow);
             this.groupBox2.Controls.Add(this.btnXref);
-            this.groupBox2.Location = new System.Drawing.Point(4, 493);
+            this.groupBox2.Location = new System.Drawing.Point(3, 401);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(213, 118);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Size = new System.Drawing.Size(160, 96);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Object Detail";
             // 
             // btnThumbnail
             // 
-            this.btnThumbnail.Location = new System.Drawing.Point(108, 53);
+            this.btnThumbnail.Location = new System.Drawing.Point(81, 43);
+            this.btnThumbnail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnThumbnail.Name = "btnThumbnail";
-            this.btnThumbnail.Size = new System.Drawing.Size(97, 24);
+            this.btnThumbnail.Size = new System.Drawing.Size(73, 20);
             this.btnThumbnail.TabIndex = 5;
             this.btnThumbnail.Text = "Thumbnail";
             this.btnThumbnail.UseVisualStyleBackColor = true;
             // 
             // btnVer
             // 
-            this.btnVer.Location = new System.Drawing.Point(149, 21);
+            this.btnVer.Location = new System.Drawing.Point(112, 17);
+            this.btnVer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnVer.Name = "btnVer";
-            this.btnVer.Size = new System.Drawing.Size(56, 23);
+            this.btnVer.Size = new System.Drawing.Size(42, 19);
             this.btnVer.TabIndex = 4;
             this.btnVer.Text = "Ver";
             this.btnVer.UseVisualStyleBackColor = true;
             // 
             // btnBakeNormal
             // 
-            this.btnBakeNormal.Location = new System.Drawing.Point(6, 53);
+            this.btnBakeNormal.Location = new System.Drawing.Point(4, 43);
+            this.btnBakeNormal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnBakeNormal.Name = "btnBakeNormal";
-            this.btnBakeNormal.Size = new System.Drawing.Size(96, 24);
+            this.btnBakeNormal.Size = new System.Drawing.Size(72, 20);
             this.btnBakeNormal.TabIndex = 3;
             this.btnBakeNormal.Text = "Bake normal";
             this.btnBakeNormal.UseVisualStyleBackColor = true;
             // 
             // btnLow
             // 
-            this.btnLow.Location = new System.Drawing.Point(69, 21);
+            this.btnLow.Location = new System.Drawing.Point(52, 17);
+            this.btnLow.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnLow.Name = "btnLow";
-            this.btnLow.Size = new System.Drawing.Size(74, 24);
+            this.btnLow.Size = new System.Drawing.Size(56, 20);
             this.btnLow.TabIndex = 2;
             this.btnLow.Text = "Low poly";
             this.btnLow.UseVisualStyleBackColor = true;
+            this.btnLow.Click += new System.EventHandler(this.btnLow_Click);
             // 
             // btnXref
             // 
-            this.btnXref.Location = new System.Drawing.Point(7, 22);
+            this.btnXref.Location = new System.Drawing.Point(5, 18);
+            this.btnXref.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnXref.Name = "btnXref";
-            this.btnXref.Size = new System.Drawing.Size(56, 24);
+            this.btnXref.Size = new System.Drawing.Size(42, 20);
             this.btnXref.TabIndex = 0;
             this.btnXref.Text = "Xref";
             this.btnXref.UseVisualStyleBackColor = true;
@@ -378,15 +399,16 @@
             // 
             // OListControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBoxWithSel);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.yoFastListView);
             this.Controls.Add(this.groupBox1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "OListControl";
-            this.Size = new System.Drawing.Size(450, 614);
+            this.Size = new System.Drawing.Size(338, 499);
             ((System.ComponentModel.ISupportInitialize)(this.yoFastListView)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

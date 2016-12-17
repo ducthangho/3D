@@ -49,9 +49,6 @@ inline int GetSceneNodes(INodeTab& i_nodeTab, INode* i_currentNode /*=NULL*/)
 class ycpp : public GUP
 {
 
-	
-
-
 	static void TimeUnitsChanged(void *param, NotifyInfo *info)
 	{
 		mprintf(L"Day la time unit change: duoc goi tu ben Dotnet");

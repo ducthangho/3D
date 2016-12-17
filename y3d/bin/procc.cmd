@@ -1,1 +1,1 @@
-protoc --cpp_out=.  %1
+protoc -I=%Y3D_ROOT%\bin\scheme --cpp_out=%Y3D_ROOT%\bin\gen\ %Y3D_ROOT%\bin\scheme\%1
