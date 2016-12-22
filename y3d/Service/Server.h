@@ -10,7 +10,10 @@
 #include <condition_variable>
 #include <future>
 #include <chrono>
-
+#ifdef __cplusplus
+extern "C"
+{
+#endif
 
 #define WM_TRIGGER_CALLBACK WM_USER+4764
 
@@ -91,7 +94,7 @@ inline void PostCallback(void(*funcPtr)(UINT_PTR), UINT_PTR param)
 	PostMessage(GetCOREInterface()->GetMAXHWnd(), WM_TRIGGER_CALLBACK, (UINT_PTR)funcPtr, (UINT_PTR)param);
 }
 
-void executeWrapper() {
+inline void executeWrapper() {
 	FunctionTask ft;
 	bool b = fn_q.try_pop(ft);
 	if (b) {
@@ -126,12 +129,6 @@ inline std::shared_ptr<std::promise<int>> InvokeAsync(FuncType&& fn) {
 }
 
 
-void testFunc(UINT_PTR param) {
-	auto ip = GetCOREInterface();
-	//ip->ImportFromFile(L"C:\\Users\\ducthangho\\Documents\\Visual Studio 2015\\Projects\\ExportCap\\ExportCap\\test.cap", 1);
-	mprintf(L"Hello world\n");
-};
-
 inline int GetSceneNodes(INodeTab& i_nodeTab, INode* i_currentNode /*=NULL*/)
 {
 	int i;
@@ -152,7 +149,8 @@ inline int GetSceneNodes(INodeTab& i_nodeTab, INode* i_currentNode /*=NULL*/)
 
 class YServiceImpl final : public Tools::Service {
 	Status RenameObject(ServerContext* context, const RenameParam* request,
-		ResultReply* reply) override {
+		ResultReply* reply) override
+	{
 
 		auto ret = InvokeAsync([]() -> void {
 			INodeTab nRef;
@@ -254,3 +252,6 @@ class YPrepareServiceImpl final : public YPrepare::Service {
 
 
 };
+#ifdef __cplusplus
+}
+#endif
