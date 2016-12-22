@@ -1,2 +1,2 @@
-protoc -I=%Y3D_ROOT%\bin\scheme --grpc_out=%Y3D_ROOT%\bin\gen --plugin=protoc-gen-grpc=%Y3D_ROOT%\bin\grpc_cpp_plugin.exe %Y3D_ROOT%\bin\scheme\%1
-protoc -I=%Y3D_ROOT%\bin\scheme --cpp_out=%Y3D_ROOT%\bin\gen\ %Y3D_ROOT%\bin\scheme\%1
+protoc -I=%Y3D_ROOT%\bin\scheme --proto_path=%Y3D_ROOT%\Service\grpc\third_party\protobuf\src --grpc_out=%Y3D_ROOT%\bin\gen --plugin=protoc-gen-grpc=%Y3D_ROOT%\bin\grpc_cpp_plugin.exe %Y3D_ROOT%\bin\scheme\%1
+protoc -I=%Y3D_ROOT%\bin\scheme --proto_path=%Y3D_ROOT%\Service\grpc\third_party\protobuf\src --cpp_out=%Y3D_ROOT%\bin\gen\ %Y3D_ROOT%\bin\scheme\%1
