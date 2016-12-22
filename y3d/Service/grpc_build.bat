@@ -20,8 +20,8 @@ mkdir release & cd release
 cmake -G "NMake Makefiles" -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=../../../../bin/zlib/release ../..
 nmake & nmake install
 
-cd ../../../../bin/zlib/release
-set PATH=%PATH%;%cd%\bin
+rem cd ../../../../bin/zlib/release
+rem set PATH=%PATH%;%cd%\bin
 
 popd
 pushd %~dp0
