@@ -80,29 +80,26 @@
     <PostBuildEvent />
     <PostBuildEvent />
     <CustomBuildStep>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">xcopy "$(SolutionDir)lib\*.dll" "$(MaxSdkAssemblies)" /D /Y &amp;&amp;
-xcopy "$(SolutionDir)lib\tbb\tbb.dll" "$(MaxSdkAssemblies)" /D /Y &amp;&amp;
-xcopy "$(SolutionDir)lib\tbb\tbbmalloc.dll" "$(MaxSdkAssemblies)" /D /Y &amp;&amp;
-xcopy "$(SolutionDir)lib\tbb\tbb_preview.dll" "$(MaxSdkAssemblies)" /D /Y &amp;&amp;
-xcopy "$(SolutionDir)lib\protobuf\*.dll" "$(MaxSdkAssemblies)" /D /Y
-xcopy $(SolutionDir)lib\grpc\grpc_dll.dll $(MaxSdkAssemblies) /D /Y</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">
+      </Command>
     </CustomBuildStep>
     <CustomBuildStep>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">xcopy "$(SolutionDir)lib\*.dll" "$(MaxSdkAssemblies)" /D /Y &amp;&amp;
-xcopy "$(SolutionDir)lib\tbb\tbb.dll" "$(MaxSdkAssemblies)" /D /Y &amp;&amp;
-xcopy "$(SolutionDir)lib\tbb\tbbmalloc.dll" "$(MaxSdkAssemblies)" /D /Y &amp;&amp;
-xcopy "$(SolutionDir)lib\tbb\tbb_preview.dll" "$(MaxSdkAssemblies)" /D /Y &amp;&amp;
-xcopy "$(SolutionDir)lib\protobuf\*.dll" "$(MaxSdkAssemblies)" /D /Y
-xcopy $(SolutionDir)lib\grpc\grpc_dll.dll $(MaxSdkAssemblies) /D /Y</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </Command>
     </CustomBuildStep>
     <CustomBuildStep>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">xcopy "$(SolutionDir)lib\*.dll" "$(MaxSdkAssemblies)" /D /Y &amp;&amp;
-xcopy "$(SolutionDir)lib\tbb\tbb.dll" "$(MaxSdkAssemblies)" /D /Y &amp;&amp;
-xcopy "$(SolutionDir)lib\tbb\tbbmalloc.dll" "$(MaxSdkAssemblies)" /D /Y &amp;&amp;
-xcopy "$(SolutionDir)lib\tbb\tbb_preview.dll" "$(MaxSdkAssemblies)" /D /Y &amp;&amp;
-xcopy "$(SolutionDir)lib\protobuf\*.dll" "$(MaxSdkAssemblies)" /D /Y
-xcopy $(SolutionDir)lib\grpc\grpc_dll.dll $(MaxSdkAssemblies) /D /Y</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </Command>
     </CustomBuildStep>
+    <PostBuildEvent>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">xcopy "$(MSBuildProjectDirectory)\..\lib\grpc\*.dll" "$(ADSK_3DSMAX_x64_2017)" /D /Y</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">xcopy "$(MSBuildProjectDirectory)\..\lib\grpc\*.dll" "$(ADSK_3DSMAX_x64_2017)" /D /Y</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">xcopy "$(MSBuildProjectDirectory)\..\lib\grpc\*.dll" "$(ADSK_3DSMAX_x64_2017)" /D /Y</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="grpc\src\compiler\cpp_generator.cc" />
