@@ -18,18 +18,75 @@ fn makeLowPoly ratio =
 	importObjectFromFBXFile  (tempPath + "\\"+ importLowPolyFileName)
 )
 
-rollout DraftUIForTest "Untitled" width:190 height:303
+rollout BakeUI "Steal Normal" width:158 height:102
+(
+	button btnStealNormal "Steal Normal" pos:[27,56] width:101 height:36
+	button btnSetAsHightPolys "Set As High Polys" pos:[28,12] width:102 height:26
+
+	local hightPolyObjs
+
+	on btnSetAsHightPolys pressed do
+	(
+		hightPolyObjs = for obj in $ collect obj
+	)
+
+	on btnStealNormal pressed do
+	(
+		local lowPoly = $
+		local size = 512
+		local bakeFolder = (getDir #image)+"\\myBake"
+
+		addModifier lowpoly (ProjectionMod()) 
+		proMod = FindPMod lowPoly
+		for obj in hightPolyObjs do (proMod.addObjectNode obj)
+		proMod.resetCage()
+		proMod.pushCage 1.1
+		
+		lowPoly.INodeBakeProjProperties.enabled = True
+		lowPoly.INodeBakeProjProperties.BakeObjectLevel = True
+		lowPoly.INodeBakeProjProperties.BakeSubObjLevels = False
+		lowPoly.INodeBakeProjProperties.projectionMod = proMod
+
+		print "------------Inspect--------------"
+		print lowPoly.INodeBakeProjProperties.useCage
+		print lowPoly.INodeBakeProjProperties.projectionMod
+
+		local bakeNormal = NormalsMap()
+		bakeNormal.outputSzX = size
+		bakeNormal.outputSzY = size
+		bakeNormal.fileType = (bakeFolder+"\\"+lowPoly.name+"_normal.png")
+		bakeNormal.fileName = filenameFromPath bakeNormal.fileType
+		bakeNormal.enabled = true
+		bakeNormal.useNormalBump = true
+		bakeNormal.useHeightAsAlpha = true
+
+		lowpoly.iNodeBakeProperties.removeAllBakeElements() 
+		lowpoly.INodeBakeProperties.bakeEnabled = true 
+		lowpoly.INodeBakeProperties.bakeChannel = 1 
+		lowpoly.INodeBakeProperties.nDilations = 4
+		lowpoly.INodeBakeProperties.addBakeElement bakeNormal
+
+		render rendertype:#bakeSelected vfb:off progressBar:true outputSize:[size,size]
+
+	)
+)
+
+
+rollout DraftUIForTest "MainUI" width:194 height:407 
 (
 	button btnUnwrap "Unwrap" pos:[53,189] width:90 height:34
 	button btnAttach "Attach các object" pos:[48,17] width:99 height:35
 	
 	button btnMakeLowPoly "MakeLowPoly" pos:[12,262] width:78 height:32
 	
-	edittext edtRatio "ratio" pos:[102,259] width:76 height:35
+	edittext edtRatio "ratio" pos:[103,261] width:76 height:35
 	edittext edtTileSize "TileSize (square)" pos:[19,115] width:159 height:23
 	edittext edtDensity "Density (pixel/m2)" pos:[16,80] width:162 height:23
 	
 	edittext edtPadding "Padding (pixel)   " pos:[19,151] width:159 height:23
+	GroupBox grpStealDetail "Steal Detail" pos:[9,338] width:180 height:61
+	button btnStealNormal "Steal Normal" pos:[46,359] width:110 height:27
+	
 	on DraftUIForTest open do
 	(
 		edtRatio.text = "0.1"
@@ -37,6 +94,7 @@ rollout DraftUIForTest "Untitled" width:190 height:303
 		edtTileSize.text = "1024"
 		edtPadding.text = "5"
 	)
+	
 	on btnUnwrap pressed do
 	(
 		local density = edtDensity.text as integer
@@ -76,9 +134,16 @@ rollout DraftUIForTest "Untitled" width:190 height:303
 			ratio = -1;
 		makeLowPoly ratio
 	)
+	on btnStealNormal pressed do
+	(
+		DraftUIForTestPos = GetDialogPos DraftUIForTest
+		DraftUIForTestSize = GetDialogSize DraftUIForTest
+		BakeUIPos = [DraftUIForTestPos[1]+DraftUIForTestSize[1],DraftUIForTestPos[2]]
+		createdialog BakeUI pos:BakeUIPos
+	)
 )
 
-fn unwrap density tileSize padding= 
+fn unwrap density tileSize padding = 
 (	
 	padding = padding/tileSize
 	fn compareHeight rect1 rect2 = 
@@ -266,27 +331,6 @@ fn unwrap density tileSize padding=
 	)
 )
 
--- fn makeLowPoly ratio = 
--- (	
--- 	exportObjectToFBX exportFolder + "\\" + exportHightPolyFileName
--- 	local pythonScript = scriptFolder + "blender.py"
--- 	local cmd = blenderPath + " -b -P "+ pythonScript + " -- makeLowPoly "+ ratio as string
--- 	print cmd
--- 	val = HiddenDOSCommand(cmd)
--- )
-
-fn test = 
-(
-	local scriptFolder = ypath  + "\\newm\\scripts\\"
-	local pythonScript = scriptFolder  + "test.py"
-	local DoscommandOutput = scriptFolder + "hiddencmdout.tmp"
-	local cmd = blenderPath + " -b -P "+ pythonScript + " > "+ DoscommandOutput
-	print cmd
-	Doscommand (cmd)
-	--HiddenDoscommand "dir > %temp%\\hiddencmdout.tmp" startpath:"c:\\"
-)
-
-
 fn readBinaryFile binaryFile = 
 (	
 	local binFile = fopen binaryFile  "rb"
@@ -303,4 +347,7 @@ fn readBinaryFile binaryFile =
 	fclose binFile
 )
 
-createdialog DraftUIForTest
+DraftUIForTestPos = [10,10]
+createdialog DraftUIForTest pos:DraftUIForTestPos
+
+--createdialog BakeUI pos:B

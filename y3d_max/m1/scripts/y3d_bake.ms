@@ -70,6 +70,4 @@
 		BakeVrayCompletemap obj sizeX sizeY MapChannel fname
 		moveTileToOriginal obj -u -v
 	)
-
-
 )
