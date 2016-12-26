@@ -21,7 +21,7 @@ namespace Utils {
 			mprintf(L"Hello fuck %d\n", x);
 			auto ip = GetCOREInterface();
 			auto str = ip->GetCurFileName();
-			mprintf(L"File name = %s\n",str);
+			mprintf(L"File name = %s\n", str);
 		}
 	};
 
@@ -32,7 +32,7 @@ namespace Utils {
 		//YourClass* ptr;
 
 	public:
-	
+
 		MyEventHandler()
 		{
 			a = new A(123);
@@ -50,7 +50,7 @@ namespace Utils {
 			a = NULL;
 		}
 
-		
+
 
 		void handle(IntPtr obj, IntPtr info)
 		{
@@ -62,7 +62,7 @@ namespace Utils {
 			//MessageBox::Show("Code received = "+info.ToInt64());
 			//auto ip = Autodesk::Max::GlobalInterface::Instance->COREInterface;
 			//MessageBox::Show("File name is " + ip->CurFileName);
-			
+
 			a->hello();
 			//ptr->SomeMethod();
 		}
