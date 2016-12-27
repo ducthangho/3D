@@ -1,2 +1,2 @@
-protoc -I=%Y3D_ROOT%\bin\scheme --grpc_out=%Y3D_ROOT%\bin\gen --plugin=protoc-gen-grpc=%Y3D_ROOT%\bin\grpc_csharp_plugin.exe %Y3D_ROOT%\bin\scheme\%1
-protoc -I=%Y3D_ROOT%\bin\scheme --csharp_out=%Y3D_ROOT%\bin\gen\ %Y3D_ROOT%\bin\scheme\%1
+%Y3D_ROOT%\bin\protoc -I=. --grpc_out=. --plugin=protoc-gen-grpc=%Y3D_ROOT%\bin\grpc_csharp_plugin.exe %1
+%Y3D_ROOT%\bin\protoc -I=. --csharp_out=. %1
