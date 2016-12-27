@@ -47,6 +47,7 @@ rem msbuild protobuf.sln /t:Clean
 devenv.com protobuf.sln /clean "Release|x64"
 
 cd ..\..\..\vsprojects
+nuget restore grpc.sln
 rem devenv.com grpc_protoc_plugins.sln /build "Release|x64"
 msbuild /m /p:Configuration=Release /p:Platform=x64 /p:WarningLevel=0 /p:TreatWarningsAsErrors=false grpc_protoc_plugins.sln
 if not %ERRORLEVEL% == 0 goto Finish
