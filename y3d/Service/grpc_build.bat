@@ -96,11 +96,13 @@ robocopy /mir .\x64\Release-DLL ..\bin\grpc\release_dll /XF *grpc_cpp_plugin*
 robocopy /mir .\x64\Release-DLL ..\..\..\lib\grpc\release_dll /XF *grpc_cpp_plugin*
 
 cd ..\third_party\protobuf\cmake
-mkdir build & cd build
+del /Q CMakeCache.txt
+mkdir build
+cd build
 del /Q CMakeCache.txt
 cmake -G "Visual Studio 14 2015 Win64" -Dprotobuf_BUILD_SHARED_LIBS=ON -Dprotobuf_BUILD_TESTS=OFF -Dprotobuf_MSVC_STATIC_RUNTIME=OFF -Dprotobuf_WITH_ZLIB=OFF ..
 msbuild /m /p:Configuration=Release protobuf.sln
-xcopy "Release\*.exe" "..\..\..\..\..\..\bin\" /Y
+xcopy "Release\*.*" "..\..\..\..\..\..\bin\" /Y
 xcopy "Release\*.*" "..\..\..\..\..\..\lib\protobuf\" /Y
 msbuild protobuf.sln /t:Clean
 cd ..\..\..\..\..
