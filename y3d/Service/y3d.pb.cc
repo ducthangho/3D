@@ -111,14 +111,13 @@ void protobuf_AssignDesc_y3d_2eproto() {
   YColor_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
       YColor_descriptor_,
-      YColor::default_instance_,
+      YColor::internal_default_instance(),
       YColor_offsets_,
       -1,
       -1,
       -1,
       sizeof(YColor),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YColor, _internal_metadata_),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YColor, _is_default_instance_));
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YColor, _internal_metadata_));
   YPoint3_descriptor_ = file->message_type(1);
   static const int YPoint3_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YPoint3, x_),
@@ -128,14 +127,13 @@ void protobuf_AssignDesc_y3d_2eproto() {
   YPoint3_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
       YPoint3_descriptor_,
-      YPoint3::default_instance_,
+      YPoint3::internal_default_instance(),
       YPoint3_offsets_,
       -1,
       -1,
       -1,
       sizeof(YPoint3),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YPoint3, _internal_metadata_),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YPoint3, _is_default_instance_));
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YPoint3, _internal_metadata_));
   YBox3_descriptor_ = file->message_type(2);
   static const int YBox3_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YBox3, pmin_),
@@ -144,14 +142,13 @@ void protobuf_AssignDesc_y3d_2eproto() {
   YBox3_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
       YBox3_descriptor_,
-      YBox3::default_instance_,
+      YBox3::internal_default_instance(),
       YBox3_offsets_,
       -1,
       -1,
       -1,
       sizeof(YBox3),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YBox3, _internal_metadata_),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YBox3, _is_default_instance_));
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YBox3, _internal_metadata_));
   YResource_descriptor_ = file->message_type(3);
   static const int YResource_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YResource, rid_),
@@ -161,14 +158,13 @@ void protobuf_AssignDesc_y3d_2eproto() {
   YResource_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
       YResource_descriptor_,
-      YResource::default_instance_,
+      YResource::internal_default_instance(),
       YResource_offsets_,
       -1,
       -1,
       -1,
       sizeof(YResource),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YResource, _internal_metadata_),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YResource, _is_default_instance_));
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YResource, _internal_metadata_));
   YResource_ResourceType_descriptor_ = YResource_descriptor_->enum_type(0);
   YLight_descriptor_ = file->message_type(4);
   static const int YLight_offsets_[8] = {
@@ -184,14 +180,13 @@ void protobuf_AssignDesc_y3d_2eproto() {
   YLight_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
       YLight_descriptor_,
-      YLight::default_instance_,
+      YLight::internal_default_instance(),
       YLight_offsets_,
       -1,
       -1,
       -1,
       sizeof(YLight),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YLight, _internal_metadata_),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YLight, _is_default_instance_));
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YLight, _internal_metadata_));
   YCamera_descriptor_ = file->message_type(5);
   static const int YCamera_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YCamera, rotation_),
@@ -201,14 +196,13 @@ void protobuf_AssignDesc_y3d_2eproto() {
   YCamera_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
       YCamera_descriptor_,
-      YCamera::default_instance_,
+      YCamera::internal_default_instance(),
       YCamera_offsets_,
       -1,
       -1,
       -1,
       sizeof(YCamera),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YCamera, _internal_metadata_),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YCamera, _is_default_instance_));
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YCamera, _internal_metadata_));
   YMesh_descriptor_ = file->message_type(6);
   static const int YMesh_offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YMesh, num_faces_),
@@ -221,14 +215,13 @@ void protobuf_AssignDesc_y3d_2eproto() {
   YMesh_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
       YMesh_descriptor_,
-      YMesh::default_instance_,
+      YMesh::internal_default_instance(),
       YMesh_offsets_,
       -1,
       -1,
       -1,
       sizeof(YMesh),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YMesh, _internal_metadata_),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YMesh, _is_default_instance_));
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YMesh, _internal_metadata_));
   YMesh_MeshType_descriptor_ = YMesh_descriptor_->enum_type(0);
   YMesh_XrefStatus_descriptor_ = YMesh_descriptor_->enum_type(1);
   YObject_descriptor_ = file->message_type(7);
@@ -247,7 +240,7 @@ void protobuf_AssignDesc_y3d_2eproto() {
   YObject_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
       YObject_descriptor_,
-      YObject::default_instance_,
+      YObject::internal_default_instance(),
       YObject_offsets_,
       -1,
       -1,
@@ -255,8 +248,7 @@ void protobuf_AssignDesc_y3d_2eproto() {
       YObject_default_oneof_instance_,
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YObject, _oneof_case_[0]),
       sizeof(YObject),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YObject, _internal_metadata_),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YObject, _is_default_instance_));
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YObject, _internal_metadata_));
   YObject_ExtraEntry_descriptor_ = YObject_descriptor_->nested_type(0);
   YArea_descriptor_ = file->message_type(8);
   static const int YArea_offsets_[4] = {
@@ -268,14 +260,13 @@ void protobuf_AssignDesc_y3d_2eproto() {
   YArea_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
       YArea_descriptor_,
-      YArea::default_instance_,
+      YArea::internal_default_instance(),
       YArea_offsets_,
       -1,
       -1,
       -1,
       sizeof(YArea),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YArea, _internal_metadata_),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YArea, _is_default_instance_));
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YArea, _internal_metadata_));
   YArea_GversEntry_descriptor_ = YArea_descriptor_->nested_type(0);
   YLayer_descriptor_ = file->message_type(9);
   static const int YLayer_offsets_[2] = {
@@ -285,14 +276,13 @@ void protobuf_AssignDesc_y3d_2eproto() {
   YLayer_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
       YLayer_descriptor_,
-      YLayer::default_instance_,
+      YLayer::internal_default_instance(),
       YLayer_offsets_,
       -1,
       -1,
       -1,
       sizeof(YLayer),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YLayer, _internal_metadata_),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YLayer, _is_default_instance_));
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YLayer, _internal_metadata_));
   YGroup_descriptor_ = file->message_type(10);
   static const int YGroup_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YGroup, name_),
@@ -304,14 +294,13 @@ void protobuf_AssignDesc_y3d_2eproto() {
   YGroup_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
       YGroup_descriptor_,
-      YGroup::default_instance_,
+      YGroup::internal_default_instance(),
       YGroup_offsets_,
       -1,
       -1,
       -1,
       sizeof(YGroup),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YGroup, _internal_metadata_),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YGroup, _is_default_instance_));
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YGroup, _internal_metadata_));
   YGroupVer_descriptor_ = file->message_type(11);
   static const int YGroupVer_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YGroupVer, vname_),
@@ -321,14 +310,13 @@ void protobuf_AssignDesc_y3d_2eproto() {
   YGroupVer_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
       YGroupVer_descriptor_,
-      YGroupVer::default_instance_,
+      YGroupVer::internal_default_instance(),
       YGroupVer_offsets_,
       -1,
       -1,
       -1,
       sizeof(YGroupVer),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YGroupVer, _internal_metadata_),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YGroupVer, _is_default_instance_));
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YGroupVer, _internal_metadata_));
   CustomAttr_descriptor_ = file->message_type(12);
   static const int CustomAttr_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CustomAttr, name_),
@@ -338,14 +326,13 @@ void protobuf_AssignDesc_y3d_2eproto() {
   CustomAttr_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
       CustomAttr_descriptor_,
-      CustomAttr::default_instance_,
+      CustomAttr::internal_default_instance(),
       CustomAttr_offsets_,
       -1,
       -1,
       -1,
       sizeof(CustomAttr),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CustomAttr, _internal_metadata_),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CustomAttr, _is_default_instance_));
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CustomAttr, _internal_metadata_));
   CustomAttr_AType_descriptor_ = CustomAttr_descriptor_->enum_type(0);
   AttrSet_descriptor_ = file->message_type(13);
   static const int AttrSet_offsets_[2] = {
@@ -355,14 +342,13 @@ void protobuf_AssignDesc_y3d_2eproto() {
   AttrSet_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
       AttrSet_descriptor_,
-      AttrSet::default_instance_,
+      AttrSet::internal_default_instance(),
       AttrSet_offsets_,
       -1,
       -1,
       -1,
       sizeof(AttrSet),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AttrSet, _internal_metadata_),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AttrSet, _is_default_instance_));
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AttrSet, _internal_metadata_));
   FilterView_descriptor_ = file->message_type(14);
   static const int FilterView_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FilterView, otype_),
@@ -373,14 +359,13 @@ void protobuf_AssignDesc_y3d_2eproto() {
   FilterView_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
       FilterView_descriptor_,
-      FilterView::default_instance_,
+      FilterView::internal_default_instance(),
       FilterView_offsets_,
       -1,
       -1,
       -1,
       sizeof(FilterView),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FilterView, _internal_metadata_),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FilterView, _is_default_instance_));
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FilterView, _internal_metadata_));
   ProjectInfo_descriptor_ = file->message_type(15);
   static const int ProjectInfo_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ProjectInfo, pname_),
@@ -392,14 +377,13 @@ void protobuf_AssignDesc_y3d_2eproto() {
   ProjectInfo_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
       ProjectInfo_descriptor_,
-      ProjectInfo::default_instance_,
+      ProjectInfo::internal_default_instance(),
       ProjectInfo_offsets_,
       -1,
       -1,
       -1,
       sizeof(ProjectInfo),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ProjectInfo, _internal_metadata_),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ProjectInfo, _is_default_instance_));
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ProjectInfo, _internal_metadata_));
   YAreaList_descriptor_ = file->message_type(16);
   static const int YAreaList_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YAreaList, areas_),
@@ -407,14 +391,13 @@ void protobuf_AssignDesc_y3d_2eproto() {
   YAreaList_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
       YAreaList_descriptor_,
-      YAreaList::default_instance_,
+      YAreaList::internal_default_instance(),
       YAreaList_offsets_,
       -1,
       -1,
       -1,
       sizeof(YAreaList),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YAreaList, _internal_metadata_),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YAreaList, _is_default_instance_));
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YAreaList, _internal_metadata_));
   PSetting_descriptor_ = file->message_type(17);
   static const int PSetting_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PSetting, extra_),
@@ -423,14 +406,13 @@ void protobuf_AssignDesc_y3d_2eproto() {
   PSetting_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
       PSetting_descriptor_,
-      PSetting::default_instance_,
+      PSetting::internal_default_instance(),
       PSetting_offsets_,
       -1,
       -1,
       -1,
       sizeof(PSetting),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PSetting, _internal_metadata_),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PSetting, _is_default_instance_));
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PSetting, _internal_metadata_));
   YSystem_descriptor_ = file->message_type(18);
   static const int YSystem_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YSystem, default_info_),
@@ -440,14 +422,13 @@ void protobuf_AssignDesc_y3d_2eproto() {
   YSystem_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
       YSystem_descriptor_,
-      YSystem::default_instance_,
+      YSystem::internal_default_instance(),
       YSystem_offsets_,
       -1,
       -1,
       -1,
       sizeof(YSystem),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YSystem, _internal_metadata_),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YSystem, _is_default_instance_));
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YSystem, _internal_metadata_));
   YSystem_NamePathEntry_descriptor_ = YSystem_descriptor_->nested_type(0);
   ObjectType_descriptor_ = file->enum_type(0);
   GVerType_descriptor_ = file->enum_type(1);
@@ -456,7 +437,7 @@ void protobuf_AssignDesc_y3d_2eproto() {
 namespace {
 
 GOOGLE_PROTOBUF_DECLARE_ONCE(protobuf_AssignDescriptors_once_);
-inline void protobuf_AssignDescriptorsOnce() {
+void protobuf_AssignDescriptorsOnce() {
   ::google::protobuf::GoogleOnceInit(&protobuf_AssignDescriptors_once_,
                  &protobuf_AssignDesc_y3d_2eproto);
 }
@@ -465,21 +446,21 @@ void protobuf_RegisterTypes(const ::std::string&) GOOGLE_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      YColor_descriptor_, &YColor::default_instance());
+      YColor_descriptor_, YColor::internal_default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      YPoint3_descriptor_, &YPoint3::default_instance());
+      YPoint3_descriptor_, YPoint3::internal_default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      YBox3_descriptor_, &YBox3::default_instance());
+      YBox3_descriptor_, YBox3::internal_default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      YResource_descriptor_, &YResource::default_instance());
+      YResource_descriptor_, YResource::internal_default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      YLight_descriptor_, &YLight::default_instance());
+      YLight_descriptor_, YLight::internal_default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      YCamera_descriptor_, &YCamera::default_instance());
+      YCamera_descriptor_, YCamera::internal_default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      YMesh_descriptor_, &YMesh::default_instance());
+      YMesh_descriptor_, YMesh::internal_default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      YObject_descriptor_, &YObject::default_instance());
+      YObject_descriptor_, YObject::internal_default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
         YObject_ExtraEntry_descriptor_,
         ::google::protobuf::internal::MapEntry<
@@ -490,7 +471,7 @@ void protobuf_RegisterTypes(const ::std::string&) {
             0>::CreateDefaultInstance(
                 YObject_ExtraEntry_descriptor_));
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      YArea_descriptor_, &YArea::default_instance());
+      YArea_descriptor_, YArea::internal_default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
         YArea_GversEntry_descriptor_,
         ::google::protobuf::internal::MapEntry<
@@ -501,25 +482,25 @@ void protobuf_RegisterTypes(const ::std::string&) {
             0>::CreateDefaultInstance(
                 YArea_GversEntry_descriptor_));
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      YLayer_descriptor_, &YLayer::default_instance());
+      YLayer_descriptor_, YLayer::internal_default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      YGroup_descriptor_, &YGroup::default_instance());
+      YGroup_descriptor_, YGroup::internal_default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      YGroupVer_descriptor_, &YGroupVer::default_instance());
+      YGroupVer_descriptor_, YGroupVer::internal_default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      CustomAttr_descriptor_, &CustomAttr::default_instance());
+      CustomAttr_descriptor_, CustomAttr::internal_default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      AttrSet_descriptor_, &AttrSet::default_instance());
+      AttrSet_descriptor_, AttrSet::internal_default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      FilterView_descriptor_, &FilterView::default_instance());
+      FilterView_descriptor_, FilterView::internal_default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      ProjectInfo_descriptor_, &ProjectInfo::default_instance());
+      ProjectInfo_descriptor_, ProjectInfo::internal_default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      YAreaList_descriptor_, &YAreaList::default_instance());
+      YAreaList_descriptor_, YAreaList::internal_default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      PSetting_descriptor_, &PSetting::default_instance());
+      PSetting_descriptor_, PSetting::internal_default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      YSystem_descriptor_, &YSystem::default_instance());
+      YSystem_descriptor_, YSystem::internal_default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
         YSystem_NamePathEntry_descriptor_,
         ::google::protobuf::internal::MapEntry<
@@ -534,55 +515,115 @@ void protobuf_RegisterTypes(const ::std::string&) {
 }  // namespace
 
 void protobuf_ShutdownFile_y3d_2eproto() {
-  delete YColor::default_instance_;
+  YColor_default_instance_.Shutdown();
   delete YColor_reflection_;
-  delete YPoint3::default_instance_;
+  YPoint3_default_instance_.Shutdown();
   delete YPoint3_reflection_;
-  delete YBox3::default_instance_;
+  YBox3_default_instance_.Shutdown();
   delete YBox3_reflection_;
-  delete YResource::default_instance_;
+  YResource_default_instance_.Shutdown();
   delete YResource_reflection_;
-  delete YLight::default_instance_;
+  YLight_default_instance_.Shutdown();
   delete YLight_reflection_;
-  delete YCamera::default_instance_;
+  YCamera_default_instance_.Shutdown();
   delete YCamera_reflection_;
-  delete YMesh::default_instance_;
+  YMesh_default_instance_.Shutdown();
   delete YMesh_reflection_;
-  delete YObject::default_instance_;
+  YObject_default_instance_.Shutdown();
   delete YObject_default_oneof_instance_;
   delete YObject_reflection_;
-  delete YArea::default_instance_;
+  YArea_default_instance_.Shutdown();
   delete YArea_reflection_;
-  delete YLayer::default_instance_;
+  YLayer_default_instance_.Shutdown();
   delete YLayer_reflection_;
-  delete YGroup::default_instance_;
+  YGroup_default_instance_.Shutdown();
   delete YGroup_reflection_;
-  delete YGroupVer::default_instance_;
+  YGroupVer_default_instance_.Shutdown();
   delete YGroupVer_reflection_;
-  delete CustomAttr::default_instance_;
+  CustomAttr_default_instance_.Shutdown();
   delete CustomAttr_reflection_;
-  delete AttrSet::default_instance_;
+  AttrSet_default_instance_.Shutdown();
   delete AttrSet_reflection_;
-  delete FilterView::default_instance_;
+  FilterView_default_instance_.Shutdown();
   delete FilterView_reflection_;
-  delete ProjectInfo::default_instance_;
+  ProjectInfo_default_instance_.Shutdown();
   delete ProjectInfo_reflection_;
-  delete YAreaList::default_instance_;
+  YAreaList_default_instance_.Shutdown();
   delete YAreaList_reflection_;
-  delete PSetting::default_instance_;
+  PSetting_default_instance_.Shutdown();
   delete PSetting_reflection_;
-  delete YSystem::default_instance_;
+  YSystem_default_instance_.Shutdown();
   delete YSystem_reflection_;
 }
 
-void protobuf_AddDesc_y3d_2eproto() GOOGLE_ATTRIBUTE_COLD;
-void protobuf_AddDesc_y3d_2eproto() {
-  static bool already_here = false;
-  if (already_here) return;
-  already_here = true;
+void protobuf_InitDefaults_y3d_2eproto_impl() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::google::protobuf::protobuf_AddDesc_google_2fprotobuf_2fany_2eproto();
+  ::google::protobuf::protobuf_InitDefaults_google_2fprotobuf_2fany_2eproto();
+  ::google::protobuf::internal::GetEmptyString();
+  YColor_default_instance_.DefaultConstruct();
+  YPoint3_default_instance_.DefaultConstruct();
+  YBox3_default_instance_.DefaultConstruct();
+  ::google::protobuf::internal::GetEmptyString();
+  YResource_default_instance_.DefaultConstruct();
+  ::google::protobuf::internal::GetEmptyString();
+  YLight_default_instance_.DefaultConstruct();
+  YCamera_default_instance_.DefaultConstruct();
+  ::google::protobuf::internal::GetEmptyString();
+  YMesh_default_instance_.DefaultConstruct();
+  ::google::protobuf::internal::GetEmptyString();
+  YObject_default_instance_.DefaultConstruct();
+  YObject_default_oneof_instance_ = new YObjectOneofInstance();
+  ::google::protobuf::internal::GetEmptyString();
+  YArea_default_instance_.DefaultConstruct();
+  ::google::protobuf::internal::GetEmptyString();
+  YLayer_default_instance_.DefaultConstruct();
+  ::google::protobuf::internal::GetEmptyString();
+  YGroup_default_instance_.DefaultConstruct();
+  ::google::protobuf::internal::GetEmptyString();
+  YGroupVer_default_instance_.DefaultConstruct();
+  ::google::protobuf::internal::GetEmptyString();
+  CustomAttr_default_instance_.DefaultConstruct();
+  ::google::protobuf::internal::GetEmptyString();
+  AttrSet_default_instance_.DefaultConstruct();
+  ::google::protobuf::internal::GetEmptyString();
+  FilterView_default_instance_.DefaultConstruct();
+  ::google::protobuf::internal::GetEmptyString();
+  ProjectInfo_default_instance_.DefaultConstruct();
+  YAreaList_default_instance_.DefaultConstruct();
+  PSetting_default_instance_.DefaultConstruct();
+  ::google::protobuf::internal::GetEmptyString();
+  YSystem_default_instance_.DefaultConstruct();
+  YColor_default_instance_.get_mutable()->InitAsDefaultInstance();
+  YPoint3_default_instance_.get_mutable()->InitAsDefaultInstance();
+  YBox3_default_instance_.get_mutable()->InitAsDefaultInstance();
+  YResource_default_instance_.get_mutable()->InitAsDefaultInstance();
+  YLight_default_instance_.get_mutable()->InitAsDefaultInstance();
+  YCamera_default_instance_.get_mutable()->InitAsDefaultInstance();
+  YMesh_default_instance_.get_mutable()->InitAsDefaultInstance();
+  YObject_default_instance_.get_mutable()->InitAsDefaultInstance();
+  YArea_default_instance_.get_mutable()->InitAsDefaultInstance();
+  YLayer_default_instance_.get_mutable()->InitAsDefaultInstance();
+  YGroup_default_instance_.get_mutable()->InitAsDefaultInstance();
+  YGroupVer_default_instance_.get_mutable()->InitAsDefaultInstance();
+  CustomAttr_default_instance_.get_mutable()->InitAsDefaultInstance();
+  AttrSet_default_instance_.get_mutable()->InitAsDefaultInstance();
+  FilterView_default_instance_.get_mutable()->InitAsDefaultInstance();
+  ProjectInfo_default_instance_.get_mutable()->InitAsDefaultInstance();
+  YAreaList_default_instance_.get_mutable()->InitAsDefaultInstance();
+  PSetting_default_instance_.get_mutable()->InitAsDefaultInstance();
+  YSystem_default_instance_.get_mutable()->InitAsDefaultInstance();
+}
+
+GOOGLE_PROTOBUF_DECLARE_ONCE(protobuf_InitDefaults_y3d_2eproto_once_);
+void protobuf_InitDefaults_y3d_2eproto() {
+  ::google::protobuf::GoogleOnceInit(&protobuf_InitDefaults_y3d_2eproto_once_,
+                 &protobuf_InitDefaults_y3d_2eproto_impl);
+}
+void protobuf_AddDesc_y3d_2eproto_impl() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  protobuf_InitDefaults_y3d_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\ty3d.proto\022\003y3d\032\031google/protobuf/any.pr"
     "oto\"$\n\006YColor\022\014\n\004name\030\001 \001(\t\022\014\n\004argb\030\002 \001("
@@ -657,48 +698,15 @@ void protobuf_AddDesc_y3d_2eproto() {
     "b\006proto3", 2808);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "y3d.proto", &protobuf_RegisterTypes);
-  YColor::default_instance_ = new YColor();
-  YPoint3::default_instance_ = new YPoint3();
-  YBox3::default_instance_ = new YBox3();
-  YResource::default_instance_ = new YResource();
-  YLight::default_instance_ = new YLight();
-  YCamera::default_instance_ = new YCamera();
-  YMesh::default_instance_ = new YMesh();
-  YObject::default_instance_ = new YObject();
-  YObject_default_oneof_instance_ = new YObjectOneofInstance();
-  YArea::default_instance_ = new YArea();
-  YLayer::default_instance_ = new YLayer();
-  YGroup::default_instance_ = new YGroup();
-  YGroupVer::default_instance_ = new YGroupVer();
-  CustomAttr::default_instance_ = new CustomAttr();
-  AttrSet::default_instance_ = new AttrSet();
-  FilterView::default_instance_ = new FilterView();
-  ProjectInfo::default_instance_ = new ProjectInfo();
-  YAreaList::default_instance_ = new YAreaList();
-  PSetting::default_instance_ = new PSetting();
-  YSystem::default_instance_ = new YSystem();
-  YColor::default_instance_->InitAsDefaultInstance();
-  YPoint3::default_instance_->InitAsDefaultInstance();
-  YBox3::default_instance_->InitAsDefaultInstance();
-  YResource::default_instance_->InitAsDefaultInstance();
-  YLight::default_instance_->InitAsDefaultInstance();
-  YCamera::default_instance_->InitAsDefaultInstance();
-  YMesh::default_instance_->InitAsDefaultInstance();
-  YObject::default_instance_->InitAsDefaultInstance();
-  YArea::default_instance_->InitAsDefaultInstance();
-  YLayer::default_instance_->InitAsDefaultInstance();
-  YGroup::default_instance_->InitAsDefaultInstance();
-  YGroupVer::default_instance_->InitAsDefaultInstance();
-  CustomAttr::default_instance_->InitAsDefaultInstance();
-  AttrSet::default_instance_->InitAsDefaultInstance();
-  FilterView::default_instance_->InitAsDefaultInstance();
-  ProjectInfo::default_instance_->InitAsDefaultInstance();
-  YAreaList::default_instance_->InitAsDefaultInstance();
-  PSetting::default_instance_->InitAsDefaultInstance();
-  YSystem::default_instance_->InitAsDefaultInstance();
+  ::google::protobuf::protobuf_AddDesc_google_2fprotobuf_2fany_2eproto();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_y3d_2eproto);
 }
 
+GOOGLE_PROTOBUF_DECLARE_ONCE(protobuf_AddDesc_y3d_2eproto_once_);
+void protobuf_AddDesc_y3d_2eproto() {
+  ::google::protobuf::GoogleOnceInit(&protobuf_AddDesc_y3d_2eproto_once_,
+                 &protobuf_AddDesc_y3d_2eproto_impl);
+}
 // Force AddDescriptors() to be called at static initialization time.
 struct StaticDescriptorInitializer_y3d_2eproto {
   StaticDescriptorInitializer_y3d_2eproto() {
@@ -710,7 +718,7 @@ const ::google::protobuf::EnumDescriptor* ObjectType_descriptor() {
   return ObjectType_descriptor_;
 }
 bool ObjectType_IsValid(int value) {
-  switch(value) {
+  switch (value) {
     case 0:
     case 1:
     case 2:
@@ -727,7 +735,7 @@ const ::google::protobuf::EnumDescriptor* GVerType_descriptor() {
   return GVerType_descriptor_;
 }
 bool GVerType_IsValid(int value) {
-  switch(value) {
+  switch (value) {
     case 0:
     case 1:
     case 2:
@@ -739,6 +747,16 @@ bool GVerType_IsValid(int value) {
 }
 
 
+namespace {
+
+static void MergeFromFail(int line) GOOGLE_ATTRIBUTE_COLD GOOGLE_ATTRIBUTE_NORETURN;
+static void MergeFromFail(int line) {
+  ::google::protobuf::internal::MergeFromFail(__FILE__, line);
+}
+
+}  // namespace
+
+
 // ===================================================================
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
@@ -748,28 +766,26 @@ const int YColor::kArgbFieldNumber;
 
 YColor::YColor()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (this != internal_default_instance()) protobuf_InitDefaults_y3d_2eproto();
   SharedCtor();
   // @@protoc_insertion_point(constructor:y3d.YColor)
 }
 
 void YColor::InitAsDefaultInstance() {
-  _is_default_instance_ = true;
 }
 
 YColor::YColor(const YColor& from)
   : ::google::protobuf::Message(),
     _internal_metadata_(NULL) {
   SharedCtor();
-  MergeFrom(from);
+  UnsafeMergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:y3d.YColor)
 }
 
 void YColor::SharedCtor() {
-    _is_default_instance_ = false;
-  ::google::protobuf::internal::GetEmptyString();
-  _cached_size_ = 0;
   name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   argb_ = 0;
+  _cached_size_ = 0;
 }
 
 YColor::~YColor() {
@@ -779,8 +795,6 @@ YColor::~YColor() {
 
 void YColor::SharedDtor() {
   name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (this != default_instance_) {
-  }
 }
 
 void YColor::SetCachedSize(int size) const {
@@ -794,11 +808,11 @@ const ::google::protobuf::Descriptor* YColor::descriptor() {
 }
 
 const YColor& YColor::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_y3d_2eproto();
-  return *default_instance_;
+  protobuf_InitDefaults_y3d_2eproto();
+  return *internal_default_instance();
 }
 
-YColor* YColor::default_instance_ = NULL;
+::google::protobuf::internal::ExplicitlyConstructed<YColor> YColor_default_instance_;
 
 YColor* YColor::New(::google::protobuf::Arena* arena) const {
   YColor* n = new YColor;
@@ -844,10 +858,10 @@ bool YColor::MergePartialFromCodedStream(
       case 2: {
         if (tag == 16) {
          parse_argb:
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &argb_)));
-
         } else {
           goto handle_unusual;
         }
@@ -921,9 +935,9 @@ void YColor::SerializeWithCachedSizes(
   return target;
 }
 
-int YColor::ByteSize() const {
+size_t YColor::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:y3d.YColor)
-  int total_size = 0;
+  size_t total_size = 0;
 
   // optional string name = 1;
   if (this->name().size() > 0) {
@@ -939,18 +953,17 @@ int YColor::ByteSize() const {
         this->argb());
   }
 
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
+  _cached_size_ = cached_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void YColor::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:y3d.YColor)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
-  const YColor* source = 
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const YColor* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const YColor>(
           &from);
   if (source == NULL) {
@@ -958,15 +971,21 @@ void YColor::MergeFrom(const ::google::protobuf::Message& from) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
   // @@protoc_insertion_point(generalized_merge_from_cast_success:y3d.YColor)
-    MergeFrom(*source);
+    UnsafeMergeFrom(*source);
   }
 }
 
 void YColor::MergeFrom(const YColor& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:y3d.YColor)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  if (GOOGLE_PREDICT_TRUE(&from != this)) {
+    UnsafeMergeFrom(from);
+  } else {
+    MergeFromFail(__LINE__);
   }
+}
+
+void YColor::UnsafeMergeFrom(const YColor& from) {
+  GOOGLE_DCHECK(&from != this);
   if (from.name().size() > 0) {
 
     name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
@@ -987,7 +1006,7 @@ void YColor::CopyFrom(const YColor& from) {
 // @@protoc_insertion_point(class_specific_copy_from_start:y3d.YColor)
   if (&from == this) return;
   Clear();
-  MergeFrom(from);
+  UnsafeMergeFrom(from);
 }
 
 bool YColor::IsInitialized() const {
@@ -1021,37 +1040,37 @@ void YColor::InternalSwap(YColor* other) {
 void YColor::clear_name() {
   name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- const ::std::string& YColor::name() const {
+const ::std::string& YColor::name() const {
   // @@protoc_insertion_point(field_get:y3d.YColor.name)
   return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void YColor::set_name(const ::std::string& value) {
+void YColor::set_name(const ::std::string& value) {
   
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:y3d.YColor.name)
 }
- void YColor::set_name(const char* value) {
+void YColor::set_name(const char* value) {
   
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:y3d.YColor.name)
 }
- void YColor::set_name(const char* value, size_t size) {
+void YColor::set_name(const char* value, size_t size) {
   
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:y3d.YColor.name)
 }
- ::std::string* YColor::mutable_name() {
+::std::string* YColor::mutable_name() {
   
   // @@protoc_insertion_point(field_mutable:y3d.YColor.name)
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* YColor::release_name() {
+::std::string* YColor::release_name() {
   // @@protoc_insertion_point(field_release:y3d.YColor.name)
   
   return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void YColor::set_allocated_name(::std::string* name) {
+void YColor::set_allocated_name(::std::string* name) {
   if (name != NULL) {
     
   } else {
@@ -1065,16 +1084,19 @@ void YColor::clear_name() {
 void YColor::clear_argb() {
   argb_ = 0;
 }
- ::google::protobuf::int32 YColor::argb() const {
+::google::protobuf::int32 YColor::argb() const {
   // @@protoc_insertion_point(field_get:y3d.YColor.argb)
   return argb_;
 }
- void YColor::set_argb(::google::protobuf::int32 value) {
+void YColor::set_argb(::google::protobuf::int32 value) {
   
   argb_ = value;
   // @@protoc_insertion_point(field_set:y3d.YColor.argb)
 }
 
+inline const YColor* YColor::internal_default_instance() {
+  return &YColor_default_instance_.get();
+}
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // ===================================================================
@@ -1087,28 +1109,26 @@ const int YPoint3::kZFieldNumber;
 
 YPoint3::YPoint3()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (this != internal_default_instance()) protobuf_InitDefaults_y3d_2eproto();
   SharedCtor();
   // @@protoc_insertion_point(constructor:y3d.YPoint3)
 }
 
 void YPoint3::InitAsDefaultInstance() {
-  _is_default_instance_ = true;
 }
 
 YPoint3::YPoint3(const YPoint3& from)
   : ::google::protobuf::Message(),
     _internal_metadata_(NULL) {
   SharedCtor();
-  MergeFrom(from);
+  UnsafeMergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:y3d.YPoint3)
 }
 
 void YPoint3::SharedCtor() {
-    _is_default_instance_ = false;
+  ::memset(&x_, 0, reinterpret_cast<char*>(&z_) -
+    reinterpret_cast<char*>(&x_) + sizeof(z_));
   _cached_size_ = 0;
-  x_ = 0;
-  y_ = 0;
-  z_ = 0;
 }
 
 YPoint3::~YPoint3() {
@@ -1117,8 +1137,6 @@ YPoint3::~YPoint3() {
 }
 
 void YPoint3::SharedDtor() {
-  if (this != default_instance_) {
-  }
 }
 
 void YPoint3::SetCachedSize(int size) const {
@@ -1132,11 +1150,11 @@ const ::google::protobuf::Descriptor* YPoint3::descriptor() {
 }
 
 const YPoint3& YPoint3::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_y3d_2eproto();
-  return *default_instance_;
+  protobuf_InitDefaults_y3d_2eproto();
+  return *internal_default_instance();
 }
 
-YPoint3* YPoint3::default_instance_ = NULL;
+::google::protobuf::internal::ExplicitlyConstructed<YPoint3> YPoint3_default_instance_;
 
 YPoint3* YPoint3::New(::google::protobuf::Arena* arena) const {
   YPoint3* n = new YPoint3;
@@ -1160,7 +1178,7 @@ void YPoint3::Clear() {
 #endif
 
 #define ZR_(first, last) do {\
-  ::memset(&first, 0,\
+  ::memset(&(first), 0,\
            ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
 } while (0)
 
@@ -1184,10 +1202,10 @@ bool YPoint3::MergePartialFromCodedStream(
       // optional float x = 1;
       case 1: {
         if (tag == 13) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &x_)));
-
         } else {
           goto handle_unusual;
         }
@@ -1199,10 +1217,10 @@ bool YPoint3::MergePartialFromCodedStream(
       case 2: {
         if (tag == 21) {
          parse_y:
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &y_)));
-
         } else {
           goto handle_unusual;
         }
@@ -1214,10 +1232,10 @@ bool YPoint3::MergePartialFromCodedStream(
       case 3: {
         if (tag == 29) {
          parse_z:
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &z_)));
-
         } else {
           goto handle_unusual;
         }
@@ -1290,9 +1308,9 @@ void YPoint3::SerializeWithCachedSizes(
   return target;
 }
 
-int YPoint3::ByteSize() const {
+size_t YPoint3::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:y3d.YPoint3)
-  int total_size = 0;
+  size_t total_size = 0;
 
   // optional float x = 1;
   if (this->x() != 0) {
@@ -1309,18 +1327,17 @@ int YPoint3::ByteSize() const {
     total_size += 1 + 4;
   }
 
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
+  _cached_size_ = cached_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void YPoint3::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:y3d.YPoint3)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
-  const YPoint3* source = 
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const YPoint3* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const YPoint3>(
           &from);
   if (source == NULL) {
@@ -1328,15 +1345,21 @@ void YPoint3::MergeFrom(const ::google::protobuf::Message& from) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
   // @@protoc_insertion_point(generalized_merge_from_cast_success:y3d.YPoint3)
-    MergeFrom(*source);
+    UnsafeMergeFrom(*source);
   }
 }
 
 void YPoint3::MergeFrom(const YPoint3& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:y3d.YPoint3)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  if (GOOGLE_PREDICT_TRUE(&from != this)) {
+    UnsafeMergeFrom(from);
+  } else {
+    MergeFromFail(__LINE__);
   }
+}
+
+void YPoint3::UnsafeMergeFrom(const YPoint3& from) {
+  GOOGLE_DCHECK(&from != this);
   if (from.x() != 0) {
     set_x(from.x());
   }
@@ -1359,7 +1382,7 @@ void YPoint3::CopyFrom(const YPoint3& from) {
 // @@protoc_insertion_point(class_specific_copy_from_start:y3d.YPoint3)
   if (&from == this) return;
   Clear();
-  MergeFrom(from);
+  UnsafeMergeFrom(from);
 }
 
 bool YPoint3::IsInitialized() const {
@@ -1394,11 +1417,11 @@ void YPoint3::InternalSwap(YPoint3* other) {
 void YPoint3::clear_x() {
   x_ = 0;
 }
- float YPoint3::x() const {
+float YPoint3::x() const {
   // @@protoc_insertion_point(field_get:y3d.YPoint3.x)
   return x_;
 }
- void YPoint3::set_x(float value) {
+void YPoint3::set_x(float value) {
   
   x_ = value;
   // @@protoc_insertion_point(field_set:y3d.YPoint3.x)
@@ -1408,11 +1431,11 @@ void YPoint3::clear_x() {
 void YPoint3::clear_y() {
   y_ = 0;
 }
- float YPoint3::y() const {
+float YPoint3::y() const {
   // @@protoc_insertion_point(field_get:y3d.YPoint3.y)
   return y_;
 }
- void YPoint3::set_y(float value) {
+void YPoint3::set_y(float value) {
   
   y_ = value;
   // @@protoc_insertion_point(field_set:y3d.YPoint3.y)
@@ -1422,16 +1445,19 @@ void YPoint3::clear_y() {
 void YPoint3::clear_z() {
   z_ = 0;
 }
- float YPoint3::z() const {
+float YPoint3::z() const {
   // @@protoc_insertion_point(field_get:y3d.YPoint3.z)
   return z_;
 }
- void YPoint3::set_z(float value) {
+void YPoint3::set_z(float value) {
   
   z_ = value;
   // @@protoc_insertion_point(field_set:y3d.YPoint3.z)
 }
 
+inline const YPoint3* YPoint3::internal_default_instance() {
+  return &YPoint3_default_instance_.get();
+}
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // ===================================================================
@@ -1443,29 +1469,30 @@ const int YBox3::kPmaxFieldNumber;
 
 YBox3::YBox3()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (this != internal_default_instance()) protobuf_InitDefaults_y3d_2eproto();
   SharedCtor();
   // @@protoc_insertion_point(constructor:y3d.YBox3)
 }
 
 void YBox3::InitAsDefaultInstance() {
-  _is_default_instance_ = true;
-  pmin_ = const_cast< ::y3d::YPoint3*>(&::y3d::YPoint3::default_instance());
-  pmax_ = const_cast< ::y3d::YPoint3*>(&::y3d::YPoint3::default_instance());
+  pmin_ = const_cast< ::y3d::YPoint3*>(
+      ::y3d::YPoint3::internal_default_instance());
+  pmax_ = const_cast< ::y3d::YPoint3*>(
+      ::y3d::YPoint3::internal_default_instance());
 }
 
 YBox3::YBox3(const YBox3& from)
   : ::google::protobuf::Message(),
     _internal_metadata_(NULL) {
   SharedCtor();
-  MergeFrom(from);
+  UnsafeMergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:y3d.YBox3)
 }
 
 void YBox3::SharedCtor() {
-    _is_default_instance_ = false;
-  _cached_size_ = 0;
   pmin_ = NULL;
   pmax_ = NULL;
+  _cached_size_ = 0;
 }
 
 YBox3::~YBox3() {
@@ -1474,7 +1501,7 @@ YBox3::~YBox3() {
 }
 
 void YBox3::SharedDtor() {
-  if (this != default_instance_) {
+  if (this != &YBox3_default_instance_.get()) {
     delete pmin_;
     delete pmax_;
   }
@@ -1491,11 +1518,11 @@ const ::google::protobuf::Descriptor* YBox3::descriptor() {
 }
 
 const YBox3& YBox3::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_y3d_2eproto();
-  return *default_instance_;
+  protobuf_InitDefaults_y3d_2eproto();
+  return *internal_default_instance();
 }
 
-YBox3* YBox3::default_instance_ = NULL;
+::google::protobuf::internal::ExplicitlyConstructed<YBox3> YBox3_default_instance_;
 
 YBox3* YBox3::New(::google::protobuf::Arena* arena) const {
   YBox3* n = new YBox3;
@@ -1609,9 +1636,9 @@ void YBox3::SerializeWithCachedSizes(
   return target;
 }
 
-int YBox3::ByteSize() const {
+size_t YBox3::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:y3d.YBox3)
-  int total_size = 0;
+  size_t total_size = 0;
 
   // optional .y3d.YPoint3 pmin = 1;
   if (this->has_pmin()) {
@@ -1627,18 +1654,17 @@ int YBox3::ByteSize() const {
         *this->pmax_);
   }
 
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
+  _cached_size_ = cached_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void YBox3::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:y3d.YBox3)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
-  const YBox3* source = 
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const YBox3* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const YBox3>(
           &from);
   if (source == NULL) {
@@ -1646,15 +1672,21 @@ void YBox3::MergeFrom(const ::google::protobuf::Message& from) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
   // @@protoc_insertion_point(generalized_merge_from_cast_success:y3d.YBox3)
-    MergeFrom(*source);
+    UnsafeMergeFrom(*source);
   }
 }
 
 void YBox3::MergeFrom(const YBox3& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:y3d.YBox3)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  if (GOOGLE_PREDICT_TRUE(&from != this)) {
+    UnsafeMergeFrom(from);
+  } else {
+    MergeFromFail(__LINE__);
   }
+}
+
+void YBox3::UnsafeMergeFrom(const YBox3& from) {
+  GOOGLE_DCHECK(&from != this);
   if (from.has_pmin()) {
     mutable_pmin()->::y3d::YPoint3::MergeFrom(from.pmin());
   }
@@ -1674,7 +1706,7 @@ void YBox3::CopyFrom(const YBox3& from) {
 // @@protoc_insertion_point(class_specific_copy_from_start:y3d.YBox3)
   if (&from == this) return;
   Clear();
-  MergeFrom(from);
+  UnsafeMergeFrom(from);
 }
 
 bool YBox3::IsInitialized() const {
@@ -1706,7 +1738,7 @@ void YBox3::InternalSwap(YBox3* other) {
 
 // optional .y3d.YPoint3 pmin = 1;
 bool YBox3::has_pmin() const {
-  return !_is_default_instance_ && pmin_ != NULL;
+  return this != internal_default_instance() && pmin_ != NULL;
 }
 void YBox3::clear_pmin() {
   if (GetArenaNoVirtual() == NULL && pmin_ != NULL) delete pmin_;
@@ -1714,7 +1746,8 @@ void YBox3::clear_pmin() {
 }
 const ::y3d::YPoint3& YBox3::pmin() const {
   // @@protoc_insertion_point(field_get:y3d.YBox3.pmin)
-  return pmin_ != NULL ? *pmin_ : *default_instance_->pmin_;
+  return pmin_ != NULL ? *pmin_
+                         : *::y3d::YPoint3::internal_default_instance();
 }
 ::y3d::YPoint3* YBox3::mutable_pmin() {
   
@@ -1744,7 +1777,7 @@ void YBox3::set_allocated_pmin(::y3d::YPoint3* pmin) {
 
 // optional .y3d.YPoint3 pmax = 2;
 bool YBox3::has_pmax() const {
-  return !_is_default_instance_ && pmax_ != NULL;
+  return this != internal_default_instance() && pmax_ != NULL;
 }
 void YBox3::clear_pmax() {
   if (GetArenaNoVirtual() == NULL && pmax_ != NULL) delete pmax_;
@@ -1752,7 +1785,8 @@ void YBox3::clear_pmax() {
 }
 const ::y3d::YPoint3& YBox3::pmax() const {
   // @@protoc_insertion_point(field_get:y3d.YBox3.pmax)
-  return pmax_ != NULL ? *pmax_ : *default_instance_->pmax_;
+  return pmax_ != NULL ? *pmax_
+                         : *::y3d::YPoint3::internal_default_instance();
 }
 ::y3d::YPoint3* YBox3::mutable_pmax() {
   
@@ -1780,6 +1814,9 @@ void YBox3::set_allocated_pmax(::y3d::YPoint3* pmax) {
   // @@protoc_insertion_point(field_set_allocated:y3d.YBox3.pmax)
 }
 
+inline const YBox3* YBox3::internal_default_instance() {
+  return &YBox3_default_instance_.get();
+}
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // ===================================================================
@@ -1789,7 +1826,7 @@ const ::google::protobuf::EnumDescriptor* YResource_ResourceType_descriptor() {
   return YResource_ResourceType_descriptor_;
 }
 bool YResource_ResourceType_IsValid(int value) {
-  switch(value) {
+  switch (value) {
     case 0:
     case 1:
     case 2:
@@ -1819,29 +1856,27 @@ const int YResource::kLinkFieldNumber;
 
 YResource::YResource()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (this != internal_default_instance()) protobuf_InitDefaults_y3d_2eproto();
   SharedCtor();
   // @@protoc_insertion_point(constructor:y3d.YResource)
 }
 
 void YResource::InitAsDefaultInstance() {
-  _is_default_instance_ = true;
 }
 
 YResource::YResource(const YResource& from)
   : ::google::protobuf::Message(),
     _internal_metadata_(NULL) {
   SharedCtor();
-  MergeFrom(from);
+  UnsafeMergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:y3d.YResource)
 }
 
 void YResource::SharedCtor() {
-    _is_default_instance_ = false;
-  ::google::protobuf::internal::GetEmptyString();
-  _cached_size_ = 0;
   rid_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  rtype_ = 0;
   link_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  rtype_ = 0;
+  _cached_size_ = 0;
 }
 
 YResource::~YResource() {
@@ -1852,8 +1887,6 @@ YResource::~YResource() {
 void YResource::SharedDtor() {
   rid_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   link_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (this != default_instance_) {
-  }
 }
 
 void YResource::SetCachedSize(int size) const {
@@ -1867,11 +1900,11 @@ const ::google::protobuf::Descriptor* YResource::descriptor() {
 }
 
 const YResource& YResource::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_y3d_2eproto();
-  return *default_instance_;
+  protobuf_InitDefaults_y3d_2eproto();
+  return *internal_default_instance();
 }
 
-YResource* YResource::default_instance_ = NULL;
+::google::protobuf::internal::ExplicitlyConstructed<YResource> YResource_default_instance_;
 
 YResource* YResource::New(::google::protobuf::Arena* arena) const {
   YResource* n = new YResource;
@@ -2036,9 +2069,9 @@ void YResource::SerializeWithCachedSizes(
   return target;
 }
 
-int YResource::ByteSize() const {
+size_t YResource::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:y3d.YResource)
-  int total_size = 0;
+  size_t total_size = 0;
 
   // optional string rid = 1;
   if (this->rid().size() > 0) {
@@ -2060,18 +2093,17 @@ int YResource::ByteSize() const {
         this->link());
   }
 
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
+  _cached_size_ = cached_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void YResource::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:y3d.YResource)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
-  const YResource* source = 
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const YResource* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const YResource>(
           &from);
   if (source == NULL) {
@@ -2079,15 +2111,21 @@ void YResource::MergeFrom(const ::google::protobuf::Message& from) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
   // @@protoc_insertion_point(generalized_merge_from_cast_success:y3d.YResource)
-    MergeFrom(*source);
+    UnsafeMergeFrom(*source);
   }
 }
 
 void YResource::MergeFrom(const YResource& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:y3d.YResource)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  if (GOOGLE_PREDICT_TRUE(&from != this)) {
+    UnsafeMergeFrom(from);
+  } else {
+    MergeFromFail(__LINE__);
   }
+}
+
+void YResource::UnsafeMergeFrom(const YResource& from) {
+  GOOGLE_DCHECK(&from != this);
   if (from.rid().size() > 0) {
 
     rid_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.rid_);
@@ -2112,7 +2150,7 @@ void YResource::CopyFrom(const YResource& from) {
 // @@protoc_insertion_point(class_specific_copy_from_start:y3d.YResource)
   if (&from == this) return;
   Clear();
-  MergeFrom(from);
+  UnsafeMergeFrom(from);
 }
 
 bool YResource::IsInitialized() const {
@@ -2147,37 +2185,37 @@ void YResource::InternalSwap(YResource* other) {
 void YResource::clear_rid() {
   rid_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- const ::std::string& YResource::rid() const {
+const ::std::string& YResource::rid() const {
   // @@protoc_insertion_point(field_get:y3d.YResource.rid)
   return rid_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void YResource::set_rid(const ::std::string& value) {
+void YResource::set_rid(const ::std::string& value) {
   
   rid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:y3d.YResource.rid)
 }
- void YResource::set_rid(const char* value) {
+void YResource::set_rid(const char* value) {
   
   rid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:y3d.YResource.rid)
 }
- void YResource::set_rid(const char* value, size_t size) {
+void YResource::set_rid(const char* value, size_t size) {
   
   rid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:y3d.YResource.rid)
 }
- ::std::string* YResource::mutable_rid() {
+::std::string* YResource::mutable_rid() {
   
   // @@protoc_insertion_point(field_mutable:y3d.YResource.rid)
   return rid_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* YResource::release_rid() {
+::std::string* YResource::release_rid() {
   // @@protoc_insertion_point(field_release:y3d.YResource.rid)
   
   return rid_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void YResource::set_allocated_rid(::std::string* rid) {
+void YResource::set_allocated_rid(::std::string* rid) {
   if (rid != NULL) {
     
   } else {
@@ -2191,11 +2229,11 @@ void YResource::clear_rid() {
 void YResource::clear_rtype() {
   rtype_ = 0;
 }
- ::y3d::YResource_ResourceType YResource::rtype() const {
+::y3d::YResource_ResourceType YResource::rtype() const {
   // @@protoc_insertion_point(field_get:y3d.YResource.rtype)
   return static_cast< ::y3d::YResource_ResourceType >(rtype_);
 }
- void YResource::set_rtype(::y3d::YResource_ResourceType value) {
+void YResource::set_rtype(::y3d::YResource_ResourceType value) {
   
   rtype_ = value;
   // @@protoc_insertion_point(field_set:y3d.YResource.rtype)
@@ -2205,37 +2243,37 @@ void YResource::clear_rtype() {
 void YResource::clear_link() {
   link_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- const ::std::string& YResource::link() const {
+const ::std::string& YResource::link() const {
   // @@protoc_insertion_point(field_get:y3d.YResource.link)
   return link_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void YResource::set_link(const ::std::string& value) {
+void YResource::set_link(const ::std::string& value) {
   
   link_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:y3d.YResource.link)
 }
- void YResource::set_link(const char* value) {
+void YResource::set_link(const char* value) {
   
   link_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:y3d.YResource.link)
 }
- void YResource::set_link(const char* value, size_t size) {
+void YResource::set_link(const char* value, size_t size) {
   
   link_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:y3d.YResource.link)
 }
- ::std::string* YResource::mutable_link() {
+::std::string* YResource::mutable_link() {
   
   // @@protoc_insertion_point(field_mutable:y3d.YResource.link)
   return link_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* YResource::release_link() {
+::std::string* YResource::release_link() {
   // @@protoc_insertion_point(field_release:y3d.YResource.link)
   
   return link_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void YResource::set_allocated_link(::std::string* link) {
+void YResource::set_allocated_link(::std::string* link) {
   if (link != NULL) {
     
   } else {
@@ -2245,6 +2283,9 @@ void YResource::clear_link() {
   // @@protoc_insertion_point(field_set_allocated:y3d.YResource.link)
 }
 
+inline const YResource* YResource::internal_default_instance() {
+  return &YResource_default_instance_.get();
+}
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // ===================================================================
@@ -2262,30 +2303,26 @@ const int YLight::kIncludedOnlyMeshesIdsFieldNumber;
 
 YLight::YLight()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (this != internal_default_instance()) protobuf_InitDefaults_y3d_2eproto();
   SharedCtor();
   // @@protoc_insertion_point(constructor:y3d.YLight)
 }
 
 void YLight::InitAsDefaultInstance() {
-  _is_default_instance_ = true;
 }
 
 YLight::YLight(const YLight& from)
   : ::google::protobuf::Message(),
     _internal_metadata_(NULL) {
   SharedCtor();
-  MergeFrom(from);
+  UnsafeMergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:y3d.YLight)
 }
 
 void YLight::SharedCtor() {
-    _is_default_instance_ = false;
-  ::google::protobuf::internal::GetEmptyString();
+  ::memset(&intensity_, 0, reinterpret_cast<char*>(&exponent_) -
+    reinterpret_cast<char*>(&intensity_) + sizeof(exponent_));
   _cached_size_ = 0;
-  intensity_ = 0;
-  range_ = 0;
-  angle_ = 0;
-  exponent_ = 0;
 }
 
 YLight::~YLight() {
@@ -2294,8 +2331,6 @@ YLight::~YLight() {
 }
 
 void YLight::SharedDtor() {
-  if (this != default_instance_) {
-  }
 }
 
 void YLight::SetCachedSize(int size) const {
@@ -2309,11 +2344,11 @@ const ::google::protobuf::Descriptor* YLight::descriptor() {
 }
 
 const YLight& YLight::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_y3d_2eproto();
-  return *default_instance_;
+  protobuf_InitDefaults_y3d_2eproto();
+  return *internal_default_instance();
 }
 
-YLight* YLight::default_instance_ = NULL;
+::google::protobuf::internal::ExplicitlyConstructed<YLight> YLight_default_instance_;
 
 YLight* YLight::New(::google::protobuf::Arena* arena) const {
   YLight* n = new YLight;
@@ -2337,7 +2372,7 @@ void YLight::Clear() {
 #endif
 
 #define ZR_(first, last) do {\
-  ::memset(&first, 0,\
+  ::memset(&(first), 0,\
            ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
 } while (0)
 
@@ -2401,10 +2436,10 @@ bool YLight::MergePartialFromCodedStream(
       case 5: {
         if (tag == 45) {
          parse_intensity:
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &intensity_)));
-
         } else {
           goto handle_unusual;
         }
@@ -2416,10 +2451,10 @@ bool YLight::MergePartialFromCodedStream(
       case 6: {
         if (tag == 53) {
          parse_range:
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &range_)));
-
         } else {
           goto handle_unusual;
         }
@@ -2431,10 +2466,10 @@ bool YLight::MergePartialFromCodedStream(
       case 7: {
         if (tag == 61) {
          parse_angle:
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &angle_)));
-
         } else {
           goto handle_unusual;
         }
@@ -2446,10 +2481,10 @@ bool YLight::MergePartialFromCodedStream(
       case 8: {
         if (tag == 69) {
          parse_exponent:
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &exponent_)));
-
         } else {
           goto handle_unusual;
         }
@@ -2658,9 +2693,9 @@ void YLight::SerializeWithCachedSizes(
   return target;
 }
 
-int YLight::ByteSize() const {
+size_t YLight::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:y3d.YLight)
-  int total_size = 0;
+  size_t total_size = 0;
 
   // optional float intensity = 5;
   if (this->intensity() != 0) {
@@ -2684,58 +2719,63 @@ int YLight::ByteSize() const {
 
   // repeated float diffuse = 3;
   {
-    int data_size = 0;
-    data_size = 4 * this->diffuse_size();
+    size_t data_size = 0;
+    unsigned int count = this->diffuse_size();
+    data_size = 4UL * count;
     if (data_size > 0) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(data_size);
     }
+    int cached_size = ::google::protobuf::internal::ToCachedSize(data_size);
     GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-    _diffuse_cached_byte_size_ = data_size;
+    _diffuse_cached_byte_size_ = cached_size;
     GOOGLE_SAFE_CONCURRENT_WRITES_END();
     total_size += data_size;
   }
 
   // repeated float specular = 4;
   {
-    int data_size = 0;
-    data_size = 4 * this->specular_size();
+    size_t data_size = 0;
+    unsigned int count = this->specular_size();
+    data_size = 4UL * count;
     if (data_size > 0) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(data_size);
     }
+    int cached_size = ::google::protobuf::internal::ToCachedSize(data_size);
     GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-    _specular_cached_byte_size_ = data_size;
+    _specular_cached_byte_size_ = cached_size;
     GOOGLE_SAFE_CONCURRENT_WRITES_END();
     total_size += data_size;
   }
 
   // repeated string excludedMeshesIds = 9;
-  total_size += 1 * this->excludedmeshesids_size();
+  total_size += 1 *
+      ::google::protobuf::internal::FromIntSize(this->excludedmeshesids_size());
   for (int i = 0; i < this->excludedmeshesids_size(); i++) {
     total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
       this->excludedmeshesids(i));
   }
 
   // repeated string includedOnlyMeshesIds = 10;
-  total_size += 1 * this->includedonlymeshesids_size();
+  total_size += 1 *
+      ::google::protobuf::internal::FromIntSize(this->includedonlymeshesids_size());
   for (int i = 0; i < this->includedonlymeshesids_size(); i++) {
     total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
       this->includedonlymeshesids(i));
   }
 
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
+  _cached_size_ = cached_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void YLight::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:y3d.YLight)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
-  const YLight* source = 
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const YLight* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const YLight>(
           &from);
   if (source == NULL) {
@@ -2743,19 +2783,25 @@ void YLight::MergeFrom(const ::google::protobuf::Message& from) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
   // @@protoc_insertion_point(generalized_merge_from_cast_success:y3d.YLight)
-    MergeFrom(*source);
+    UnsafeMergeFrom(*source);
   }
 }
 
 void YLight::MergeFrom(const YLight& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:y3d.YLight)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  if (GOOGLE_PREDICT_TRUE(&from != this)) {
+    UnsafeMergeFrom(from);
+  } else {
+    MergeFromFail(__LINE__);
   }
-  diffuse_.MergeFrom(from.diffuse_);
-  specular_.MergeFrom(from.specular_);
-  excludedmeshesids_.MergeFrom(from.excludedmeshesids_);
-  includedonlymeshesids_.MergeFrom(from.includedonlymeshesids_);
+}
+
+void YLight::UnsafeMergeFrom(const YLight& from) {
+  GOOGLE_DCHECK(&from != this);
+  diffuse_.UnsafeMergeFrom(from.diffuse_);
+  specular_.UnsafeMergeFrom(from.specular_);
+  excludedmeshesids_.UnsafeMergeFrom(from.excludedmeshesids_);
+  includedonlymeshesids_.UnsafeMergeFrom(from.includedonlymeshesids_);
   if (from.intensity() != 0) {
     set_intensity(from.intensity());
   }
@@ -2781,7 +2827,7 @@ void YLight::CopyFrom(const YLight& from) {
 // @@protoc_insertion_point(class_specific_copy_from_start:y3d.YLight)
   if (&from == this) return;
   Clear();
-  MergeFrom(from);
+  UnsafeMergeFrom(from);
 }
 
 bool YLight::IsInitialized() const {
@@ -2824,24 +2870,24 @@ int YLight::diffuse_size() const {
 void YLight::clear_diffuse() {
   diffuse_.Clear();
 }
- float YLight::diffuse(int index) const {
+float YLight::diffuse(int index) const {
   // @@protoc_insertion_point(field_get:y3d.YLight.diffuse)
   return diffuse_.Get(index);
 }
- void YLight::set_diffuse(int index, float value) {
+void YLight::set_diffuse(int index, float value) {
   diffuse_.Set(index, value);
   // @@protoc_insertion_point(field_set:y3d.YLight.diffuse)
 }
- void YLight::add_diffuse(float value) {
+void YLight::add_diffuse(float value) {
   diffuse_.Add(value);
   // @@protoc_insertion_point(field_add:y3d.YLight.diffuse)
 }
- const ::google::protobuf::RepeatedField< float >&
+const ::google::protobuf::RepeatedField< float >&
 YLight::diffuse() const {
   // @@protoc_insertion_point(field_list:y3d.YLight.diffuse)
   return diffuse_;
 }
- ::google::protobuf::RepeatedField< float >*
+::google::protobuf::RepeatedField< float >*
 YLight::mutable_diffuse() {
   // @@protoc_insertion_point(field_mutable_list:y3d.YLight.diffuse)
   return &diffuse_;
@@ -2854,24 +2900,24 @@ int YLight::specular_size() const {
 void YLight::clear_specular() {
   specular_.Clear();
 }
- float YLight::specular(int index) const {
+float YLight::specular(int index) const {
   // @@protoc_insertion_point(field_get:y3d.YLight.specular)
   return specular_.Get(index);
 }
- void YLight::set_specular(int index, float value) {
+void YLight::set_specular(int index, float value) {
   specular_.Set(index, value);
   // @@protoc_insertion_point(field_set:y3d.YLight.specular)
 }
- void YLight::add_specular(float value) {
+void YLight::add_specular(float value) {
   specular_.Add(value);
   // @@protoc_insertion_point(field_add:y3d.YLight.specular)
 }
- const ::google::protobuf::RepeatedField< float >&
+const ::google::protobuf::RepeatedField< float >&
 YLight::specular() const {
   // @@protoc_insertion_point(field_list:y3d.YLight.specular)
   return specular_;
 }
- ::google::protobuf::RepeatedField< float >*
+::google::protobuf::RepeatedField< float >*
 YLight::mutable_specular() {
   // @@protoc_insertion_point(field_mutable_list:y3d.YLight.specular)
   return &specular_;
@@ -2881,11 +2927,11 @@ YLight::mutable_specular() {
 void YLight::clear_intensity() {
   intensity_ = 0;
 }
- float YLight::intensity() const {
+float YLight::intensity() const {
   // @@protoc_insertion_point(field_get:y3d.YLight.intensity)
   return intensity_;
 }
- void YLight::set_intensity(float value) {
+void YLight::set_intensity(float value) {
   
   intensity_ = value;
   // @@protoc_insertion_point(field_set:y3d.YLight.intensity)
@@ -2895,11 +2941,11 @@ void YLight::clear_intensity() {
 void YLight::clear_range() {
   range_ = 0;
 }
- float YLight::range() const {
+float YLight::range() const {
   // @@protoc_insertion_point(field_get:y3d.YLight.range)
   return range_;
 }
- void YLight::set_range(float value) {
+void YLight::set_range(float value) {
   
   range_ = value;
   // @@protoc_insertion_point(field_set:y3d.YLight.range)
@@ -2909,11 +2955,11 @@ void YLight::clear_range() {
 void YLight::clear_angle() {
   angle_ = 0;
 }
- float YLight::angle() const {
+float YLight::angle() const {
   // @@protoc_insertion_point(field_get:y3d.YLight.angle)
   return angle_;
 }
- void YLight::set_angle(float value) {
+void YLight::set_angle(float value) {
   
   angle_ = value;
   // @@protoc_insertion_point(field_set:y3d.YLight.angle)
@@ -2923,11 +2969,11 @@ void YLight::clear_angle() {
 void YLight::clear_exponent() {
   exponent_ = 0;
 }
- float YLight::exponent() const {
+float YLight::exponent() const {
   // @@protoc_insertion_point(field_get:y3d.YLight.exponent)
   return exponent_;
 }
- void YLight::set_exponent(float value) {
+void YLight::set_exponent(float value) {
   
   exponent_ = value;
   // @@protoc_insertion_point(field_set:y3d.YLight.exponent)
@@ -2940,49 +2986,49 @@ int YLight::excludedmeshesids_size() const {
 void YLight::clear_excludedmeshesids() {
   excludedmeshesids_.Clear();
 }
- const ::std::string& YLight::excludedmeshesids(int index) const {
+const ::std::string& YLight::excludedmeshesids(int index) const {
   // @@protoc_insertion_point(field_get:y3d.YLight.excludedMeshesIds)
   return excludedmeshesids_.Get(index);
 }
- ::std::string* YLight::mutable_excludedmeshesids(int index) {
+::std::string* YLight::mutable_excludedmeshesids(int index) {
   // @@protoc_insertion_point(field_mutable:y3d.YLight.excludedMeshesIds)
   return excludedmeshesids_.Mutable(index);
 }
- void YLight::set_excludedmeshesids(int index, const ::std::string& value) {
+void YLight::set_excludedmeshesids(int index, const ::std::string& value) {
   // @@protoc_insertion_point(field_set:y3d.YLight.excludedMeshesIds)
   excludedmeshesids_.Mutable(index)->assign(value);
 }
- void YLight::set_excludedmeshesids(int index, const char* value) {
+void YLight::set_excludedmeshesids(int index, const char* value) {
   excludedmeshesids_.Mutable(index)->assign(value);
   // @@protoc_insertion_point(field_set_char:y3d.YLight.excludedMeshesIds)
 }
- void YLight::set_excludedmeshesids(int index, const char* value, size_t size) {
+void YLight::set_excludedmeshesids(int index, const char* value, size_t size) {
   excludedmeshesids_.Mutable(index)->assign(
     reinterpret_cast<const char*>(value), size);
   // @@protoc_insertion_point(field_set_pointer:y3d.YLight.excludedMeshesIds)
 }
- ::std::string* YLight::add_excludedmeshesids() {
+::std::string* YLight::add_excludedmeshesids() {
   // @@protoc_insertion_point(field_add_mutable:y3d.YLight.excludedMeshesIds)
   return excludedmeshesids_.Add();
 }
- void YLight::add_excludedmeshesids(const ::std::string& value) {
+void YLight::add_excludedmeshesids(const ::std::string& value) {
   excludedmeshesids_.Add()->assign(value);
   // @@protoc_insertion_point(field_add:y3d.YLight.excludedMeshesIds)
 }
- void YLight::add_excludedmeshesids(const char* value) {
+void YLight::add_excludedmeshesids(const char* value) {
   excludedmeshesids_.Add()->assign(value);
   // @@protoc_insertion_point(field_add_char:y3d.YLight.excludedMeshesIds)
 }
- void YLight::add_excludedmeshesids(const char* value, size_t size) {
+void YLight::add_excludedmeshesids(const char* value, size_t size) {
   excludedmeshesids_.Add()->assign(reinterpret_cast<const char*>(value), size);
   // @@protoc_insertion_point(field_add_pointer:y3d.YLight.excludedMeshesIds)
 }
- const ::google::protobuf::RepeatedPtrField< ::std::string>&
+const ::google::protobuf::RepeatedPtrField< ::std::string>&
 YLight::excludedmeshesids() const {
   // @@protoc_insertion_point(field_list:y3d.YLight.excludedMeshesIds)
   return excludedmeshesids_;
 }
- ::google::protobuf::RepeatedPtrField< ::std::string>*
+::google::protobuf::RepeatedPtrField< ::std::string>*
 YLight::mutable_excludedmeshesids() {
   // @@protoc_insertion_point(field_mutable_list:y3d.YLight.excludedMeshesIds)
   return &excludedmeshesids_;
@@ -2995,54 +3041,57 @@ int YLight::includedonlymeshesids_size() const {
 void YLight::clear_includedonlymeshesids() {
   includedonlymeshesids_.Clear();
 }
- const ::std::string& YLight::includedonlymeshesids(int index) const {
+const ::std::string& YLight::includedonlymeshesids(int index) const {
   // @@protoc_insertion_point(field_get:y3d.YLight.includedOnlyMeshesIds)
   return includedonlymeshesids_.Get(index);
 }
- ::std::string* YLight::mutable_includedonlymeshesids(int index) {
+::std::string* YLight::mutable_includedonlymeshesids(int index) {
   // @@protoc_insertion_point(field_mutable:y3d.YLight.includedOnlyMeshesIds)
   return includedonlymeshesids_.Mutable(index);
 }
- void YLight::set_includedonlymeshesids(int index, const ::std::string& value) {
+void YLight::set_includedonlymeshesids(int index, const ::std::string& value) {
   // @@protoc_insertion_point(field_set:y3d.YLight.includedOnlyMeshesIds)
   includedonlymeshesids_.Mutable(index)->assign(value);
 }
- void YLight::set_includedonlymeshesids(int index, const char* value) {
+void YLight::set_includedonlymeshesids(int index, const char* value) {
   includedonlymeshesids_.Mutable(index)->assign(value);
   // @@protoc_insertion_point(field_set_char:y3d.YLight.includedOnlyMeshesIds)
 }
- void YLight::set_includedonlymeshesids(int index, const char* value, size_t size) {
+void YLight::set_includedonlymeshesids(int index, const char* value, size_t size) {
   includedonlymeshesids_.Mutable(index)->assign(
     reinterpret_cast<const char*>(value), size);
   // @@protoc_insertion_point(field_set_pointer:y3d.YLight.includedOnlyMeshesIds)
 }
- ::std::string* YLight::add_includedonlymeshesids() {
+::std::string* YLight::add_includedonlymeshesids() {
   // @@protoc_insertion_point(field_add_mutable:y3d.YLight.includedOnlyMeshesIds)
   return includedonlymeshesids_.Add();
 }
- void YLight::add_includedonlymeshesids(const ::std::string& value) {
+void YLight::add_includedonlymeshesids(const ::std::string& value) {
   includedonlymeshesids_.Add()->assign(value);
   // @@protoc_insertion_point(field_add:y3d.YLight.includedOnlyMeshesIds)
 }
- void YLight::add_includedonlymeshesids(const char* value) {
+void YLight::add_includedonlymeshesids(const char* value) {
   includedonlymeshesids_.Add()->assign(value);
   // @@protoc_insertion_point(field_add_char:y3d.YLight.includedOnlyMeshesIds)
 }
- void YLight::add_includedonlymeshesids(const char* value, size_t size) {
+void YLight::add_includedonlymeshesids(const char* value, size_t size) {
   includedonlymeshesids_.Add()->assign(reinterpret_cast<const char*>(value), size);
   // @@protoc_insertion_point(field_add_pointer:y3d.YLight.includedOnlyMeshesIds)
 }
- const ::google::protobuf::RepeatedPtrField< ::std::string>&
+const ::google::protobuf::RepeatedPtrField< ::std::string>&
 YLight::includedonlymeshesids() const {
   // @@protoc_insertion_point(field_list:y3d.YLight.includedOnlyMeshesIds)
   return includedonlymeshesids_;
 }
- ::google::protobuf::RepeatedPtrField< ::std::string>*
+::google::protobuf::RepeatedPtrField< ::std::string>*
 YLight::mutable_includedonlymeshesids() {
   // @@protoc_insertion_point(field_mutable_list:y3d.YLight.includedOnlyMeshesIds)
   return &includedonlymeshesids_;
 }
 
+inline const YLight* YLight::internal_default_instance() {
+  return &YLight_default_instance_.get();
+}
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // ===================================================================
@@ -3055,26 +3104,25 @@ const int YCamera::kFovFieldNumber;
 
 YCamera::YCamera()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (this != internal_default_instance()) protobuf_InitDefaults_y3d_2eproto();
   SharedCtor();
   // @@protoc_insertion_point(constructor:y3d.YCamera)
 }
 
 void YCamera::InitAsDefaultInstance() {
-  _is_default_instance_ = true;
 }
 
 YCamera::YCamera(const YCamera& from)
   : ::google::protobuf::Message(),
     _internal_metadata_(NULL) {
   SharedCtor();
-  MergeFrom(from);
+  UnsafeMergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:y3d.YCamera)
 }
 
 void YCamera::SharedCtor() {
-    _is_default_instance_ = false;
-  _cached_size_ = 0;
   fov_ = 0;
+  _cached_size_ = 0;
 }
 
 YCamera::~YCamera() {
@@ -3083,8 +3131,6 @@ YCamera::~YCamera() {
 }
 
 void YCamera::SharedDtor() {
-  if (this != default_instance_) {
-  }
 }
 
 void YCamera::SetCachedSize(int size) const {
@@ -3098,11 +3144,11 @@ const ::google::protobuf::Descriptor* YCamera::descriptor() {
 }
 
 const YCamera& YCamera::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_y3d_2eproto();
-  return *default_instance_;
+  protobuf_InitDefaults_y3d_2eproto();
+  return *internal_default_instance();
 }
 
-YCamera* YCamera::default_instance_ = NULL;
+::google::protobuf::internal::ExplicitlyConstructed<YCamera> YCamera_default_instance_;
 
 YCamera* YCamera::New(::google::protobuf::Arena* arena) const {
   YCamera* n = new YCamera;
@@ -3168,10 +3214,10 @@ bool YCamera::MergePartialFromCodedStream(
       case 5: {
         if (tag == 45) {
          parse_fov:
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &fov_)));
-
         } else {
           goto handle_unusual;
         }
@@ -3272,9 +3318,9 @@ void YCamera::SerializeWithCachedSizes(
   return target;
 }
 
-int YCamera::ByteSize() const {
+size_t YCamera::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:y3d.YCamera)
-  int total_size = 0;
+  size_t total_size = 0;
 
   // optional float fov = 5;
   if (this->fov() != 0) {
@@ -3283,44 +3329,47 @@ int YCamera::ByteSize() const {
 
   // repeated float rotation = 3;
   {
-    int data_size = 0;
-    data_size = 4 * this->rotation_size();
+    size_t data_size = 0;
+    unsigned int count = this->rotation_size();
+    data_size = 4UL * count;
     if (data_size > 0) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(data_size);
     }
+    int cached_size = ::google::protobuf::internal::ToCachedSize(data_size);
     GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-    _rotation_cached_byte_size_ = data_size;
+    _rotation_cached_byte_size_ = cached_size;
     GOOGLE_SAFE_CONCURRENT_WRITES_END();
     total_size += data_size;
   }
 
   // repeated float target = 4;
   {
-    int data_size = 0;
-    data_size = 4 * this->target_size();
+    size_t data_size = 0;
+    unsigned int count = this->target_size();
+    data_size = 4UL * count;
     if (data_size > 0) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(data_size);
     }
+    int cached_size = ::google::protobuf::internal::ToCachedSize(data_size);
     GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-    _target_cached_byte_size_ = data_size;
+    _target_cached_byte_size_ = cached_size;
     GOOGLE_SAFE_CONCURRENT_WRITES_END();
     total_size += data_size;
   }
 
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
+  _cached_size_ = cached_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void YCamera::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:y3d.YCamera)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
-  const YCamera* source = 
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const YCamera* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const YCamera>(
           &from);
   if (source == NULL) {
@@ -3328,17 +3377,23 @@ void YCamera::MergeFrom(const ::google::protobuf::Message& from) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
   // @@protoc_insertion_point(generalized_merge_from_cast_success:y3d.YCamera)
-    MergeFrom(*source);
+    UnsafeMergeFrom(*source);
   }
 }
 
 void YCamera::MergeFrom(const YCamera& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:y3d.YCamera)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  if (GOOGLE_PREDICT_TRUE(&from != this)) {
+    UnsafeMergeFrom(from);
+  } else {
+    MergeFromFail(__LINE__);
   }
-  rotation_.MergeFrom(from.rotation_);
-  target_.MergeFrom(from.target_);
+}
+
+void YCamera::UnsafeMergeFrom(const YCamera& from) {
+  GOOGLE_DCHECK(&from != this);
+  rotation_.UnsafeMergeFrom(from.rotation_);
+  target_.UnsafeMergeFrom(from.target_);
   if (from.fov() != 0) {
     set_fov(from.fov());
   }
@@ -3355,7 +3410,7 @@ void YCamera::CopyFrom(const YCamera& from) {
 // @@protoc_insertion_point(class_specific_copy_from_start:y3d.YCamera)
   if (&from == this) return;
   Clear();
-  MergeFrom(from);
+  UnsafeMergeFrom(from);
 }
 
 bool YCamera::IsInitialized() const {
@@ -3393,24 +3448,24 @@ int YCamera::rotation_size() const {
 void YCamera::clear_rotation() {
   rotation_.Clear();
 }
- float YCamera::rotation(int index) const {
+float YCamera::rotation(int index) const {
   // @@protoc_insertion_point(field_get:y3d.YCamera.rotation)
   return rotation_.Get(index);
 }
- void YCamera::set_rotation(int index, float value) {
+void YCamera::set_rotation(int index, float value) {
   rotation_.Set(index, value);
   // @@protoc_insertion_point(field_set:y3d.YCamera.rotation)
 }
- void YCamera::add_rotation(float value) {
+void YCamera::add_rotation(float value) {
   rotation_.Add(value);
   // @@protoc_insertion_point(field_add:y3d.YCamera.rotation)
 }
- const ::google::protobuf::RepeatedField< float >&
+const ::google::protobuf::RepeatedField< float >&
 YCamera::rotation() const {
   // @@protoc_insertion_point(field_list:y3d.YCamera.rotation)
   return rotation_;
 }
- ::google::protobuf::RepeatedField< float >*
+::google::protobuf::RepeatedField< float >*
 YCamera::mutable_rotation() {
   // @@protoc_insertion_point(field_mutable_list:y3d.YCamera.rotation)
   return &rotation_;
@@ -3423,24 +3478,24 @@ int YCamera::target_size() const {
 void YCamera::clear_target() {
   target_.Clear();
 }
- float YCamera::target(int index) const {
+float YCamera::target(int index) const {
   // @@protoc_insertion_point(field_get:y3d.YCamera.target)
   return target_.Get(index);
 }
- void YCamera::set_target(int index, float value) {
+void YCamera::set_target(int index, float value) {
   target_.Set(index, value);
   // @@protoc_insertion_point(field_set:y3d.YCamera.target)
 }
- void YCamera::add_target(float value) {
+void YCamera::add_target(float value) {
   target_.Add(value);
   // @@protoc_insertion_point(field_add:y3d.YCamera.target)
 }
- const ::google::protobuf::RepeatedField< float >&
+const ::google::protobuf::RepeatedField< float >&
 YCamera::target() const {
   // @@protoc_insertion_point(field_list:y3d.YCamera.target)
   return target_;
 }
- ::google::protobuf::RepeatedField< float >*
+::google::protobuf::RepeatedField< float >*
 YCamera::mutable_target() {
   // @@protoc_insertion_point(field_mutable_list:y3d.YCamera.target)
   return &target_;
@@ -3450,16 +3505,19 @@ YCamera::mutable_target() {
 void YCamera::clear_fov() {
   fov_ = 0;
 }
- float YCamera::fov() const {
+float YCamera::fov() const {
   // @@protoc_insertion_point(field_get:y3d.YCamera.fov)
   return fov_;
 }
- void YCamera::set_fov(float value) {
+void YCamera::set_fov(float value) {
   
   fov_ = value;
   // @@protoc_insertion_point(field_set:y3d.YCamera.fov)
 }
 
+inline const YCamera* YCamera::internal_default_instance() {
+  return &YCamera_default_instance_.get();
+}
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // ===================================================================
@@ -3469,7 +3527,7 @@ const ::google::protobuf::EnumDescriptor* YMesh_MeshType_descriptor() {
   return YMesh_MeshType_descriptor_;
 }
 bool YMesh_MeshType_IsValid(int value) {
-  switch(value) {
+  switch (value) {
     case 0:
     case 1:
     case 2:
@@ -3514,7 +3572,7 @@ const ::google::protobuf::EnumDescriptor* YMesh_XrefStatus_descriptor() {
   return YMesh_XrefStatus_descriptor_;
 }
 bool YMesh_XrefStatus_IsValid(int value) {
-  switch(value) {
+  switch (value) {
     case 0:
     case 1:
     case 2:
@@ -3551,32 +3609,30 @@ const int YMesh::kMtypeFieldNumber;
 
 YMesh::YMesh()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (this != internal_default_instance()) protobuf_InitDefaults_y3d_2eproto();
   SharedCtor();
   // @@protoc_insertion_point(constructor:y3d.YMesh)
 }
 
 void YMesh::InitAsDefaultInstance() {
-  _is_default_instance_ = true;
-  bbox_ = const_cast< ::y3d::YBox3*>(&::y3d::YBox3::default_instance());
+  bbox_ = const_cast< ::y3d::YBox3*>(
+      ::y3d::YBox3::internal_default_instance());
 }
 
 YMesh::YMesh(const YMesh& from)
   : ::google::protobuf::Message(),
     _internal_metadata_(NULL) {
   SharedCtor();
-  MergeFrom(from);
+  UnsafeMergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:y3d.YMesh)
 }
 
 void YMesh::SharedCtor() {
-    _is_default_instance_ = false;
-  ::google::protobuf::internal::GetEmptyString();
-  _cached_size_ = 0;
-  num_faces_ = 0;
-  bbox_ = NULL;
   res_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  xstatus_ = 0;
-  mtype_ = 0;
+  bbox_ = NULL;
+  ::memset(&num_faces_, 0, reinterpret_cast<char*>(&mtype_) -
+    reinterpret_cast<char*>(&num_faces_) + sizeof(mtype_));
+  _cached_size_ = 0;
 }
 
 YMesh::~YMesh() {
@@ -3586,7 +3642,7 @@ YMesh::~YMesh() {
 
 void YMesh::SharedDtor() {
   res_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (this != default_instance_) {
+  if (this != &YMesh_default_instance_.get()) {
     delete bbox_;
   }
 }
@@ -3602,11 +3658,11 @@ const ::google::protobuf::Descriptor* YMesh::descriptor() {
 }
 
 const YMesh& YMesh::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_y3d_2eproto();
-  return *default_instance_;
+  protobuf_InitDefaults_y3d_2eproto();
+  return *internal_default_instance();
 }
 
-YMesh* YMesh::default_instance_ = NULL;
+::google::protobuf::internal::ExplicitlyConstructed<YMesh> YMesh_default_instance_;
 
 YMesh* YMesh::New(::google::protobuf::Arena* arena) const {
   YMesh* n = new YMesh;
@@ -3630,15 +3686,14 @@ void YMesh::Clear() {
 #endif
 
 #define ZR_(first, last) do {\
-  ::memset(&first, 0,\
+  ::memset(&(first), 0,\
            ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
 } while (0)
 
-  ZR_(num_faces_, xstatus_);
+  ZR_(num_faces_, mtype_);
   if (GetArenaNoVirtual() == NULL && bbox_ != NULL) delete bbox_;
   bbox_ = NULL;
   res_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  mtype_ = 0;
 
 #undef ZR_HELPER_
 #undef ZR_
@@ -3659,10 +3714,10 @@ bool YMesh::MergePartialFromCodedStream(
       // optional int32 num_faces = 1;
       case 1: {
         if (tag == 8) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &num_faces_)));
-
         } else {
           goto handle_unusual;
         }
@@ -3877,9 +3932,9 @@ void YMesh::SerializeWithCachedSizes(
   return target;
 }
 
-int YMesh::ByteSize() const {
+size_t YMesh::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:y3d.YMesh)
-  int total_size = 0;
+  size_t total_size = 0;
 
   // optional int32 num_faces = 1;
   if (this->num_faces() != 0) {
@@ -3916,8 +3971,9 @@ int YMesh::ByteSize() const {
 
   // repeated int32 xref = 4;
   {
-    int data_size = 0;
-    for (int i = 0; i < this->xref_size(); i++) {
+    size_t data_size = 0;
+    unsigned int count = this->xref_size();
+    for (unsigned int i = 0; i < count; i++) {
       data_size += ::google::protobuf::internal::WireFormatLite::
         Int32Size(this->xref(i));
     }
@@ -3925,24 +3981,24 @@ int YMesh::ByteSize() const {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(data_size);
     }
+    int cached_size = ::google::protobuf::internal::ToCachedSize(data_size);
     GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-    _xref_cached_byte_size_ = data_size;
+    _xref_cached_byte_size_ = cached_size;
     GOOGLE_SAFE_CONCURRENT_WRITES_END();
     total_size += data_size;
   }
 
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
+  _cached_size_ = cached_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void YMesh::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:y3d.YMesh)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
-  const YMesh* source = 
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const YMesh* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const YMesh>(
           &from);
   if (source == NULL) {
@@ -3950,16 +4006,22 @@ void YMesh::MergeFrom(const ::google::protobuf::Message& from) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
   // @@protoc_insertion_point(generalized_merge_from_cast_success:y3d.YMesh)
-    MergeFrom(*source);
+    UnsafeMergeFrom(*source);
   }
 }
 
 void YMesh::MergeFrom(const YMesh& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:y3d.YMesh)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  if (GOOGLE_PREDICT_TRUE(&from != this)) {
+    UnsafeMergeFrom(from);
+  } else {
+    MergeFromFail(__LINE__);
   }
-  xref_.MergeFrom(from.xref_);
+}
+
+void YMesh::UnsafeMergeFrom(const YMesh& from) {
+  GOOGLE_DCHECK(&from != this);
+  xref_.UnsafeMergeFrom(from.xref_);
   if (from.num_faces() != 0) {
     set_num_faces(from.num_faces());
   }
@@ -3989,7 +4051,7 @@ void YMesh::CopyFrom(const YMesh& from) {
 // @@protoc_insertion_point(class_specific_copy_from_start:y3d.YMesh)
   if (&from == this) return;
   Clear();
-  MergeFrom(from);
+  UnsafeMergeFrom(from);
 }
 
 bool YMesh::IsInitialized() const {
@@ -4027,11 +4089,11 @@ void YMesh::InternalSwap(YMesh* other) {
 void YMesh::clear_num_faces() {
   num_faces_ = 0;
 }
- ::google::protobuf::int32 YMesh::num_faces() const {
+::google::protobuf::int32 YMesh::num_faces() const {
   // @@protoc_insertion_point(field_get:y3d.YMesh.num_faces)
   return num_faces_;
 }
- void YMesh::set_num_faces(::google::protobuf::int32 value) {
+void YMesh::set_num_faces(::google::protobuf::int32 value) {
   
   num_faces_ = value;
   // @@protoc_insertion_point(field_set:y3d.YMesh.num_faces)
@@ -4039,7 +4101,7 @@ void YMesh::clear_num_faces() {
 
 // optional .y3d.YBox3 bbox = 2;
 bool YMesh::has_bbox() const {
-  return !_is_default_instance_ && bbox_ != NULL;
+  return this != internal_default_instance() && bbox_ != NULL;
 }
 void YMesh::clear_bbox() {
   if (GetArenaNoVirtual() == NULL && bbox_ != NULL) delete bbox_;
@@ -4047,7 +4109,8 @@ void YMesh::clear_bbox() {
 }
 const ::y3d::YBox3& YMesh::bbox() const {
   // @@protoc_insertion_point(field_get:y3d.YMesh.bbox)
-  return bbox_ != NULL ? *bbox_ : *default_instance_->bbox_;
+  return bbox_ != NULL ? *bbox_
+                         : *::y3d::YBox3::internal_default_instance();
 }
 ::y3d::YBox3* YMesh::mutable_bbox() {
   
@@ -4079,37 +4142,37 @@ void YMesh::set_allocated_bbox(::y3d::YBox3* bbox) {
 void YMesh::clear_res_id() {
   res_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- const ::std::string& YMesh::res_id() const {
+const ::std::string& YMesh::res_id() const {
   // @@protoc_insertion_point(field_get:y3d.YMesh.res_id)
   return res_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void YMesh::set_res_id(const ::std::string& value) {
+void YMesh::set_res_id(const ::std::string& value) {
   
   res_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:y3d.YMesh.res_id)
 }
- void YMesh::set_res_id(const char* value) {
+void YMesh::set_res_id(const char* value) {
   
   res_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:y3d.YMesh.res_id)
 }
- void YMesh::set_res_id(const char* value, size_t size) {
+void YMesh::set_res_id(const char* value, size_t size) {
   
   res_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:y3d.YMesh.res_id)
 }
- ::std::string* YMesh::mutable_res_id() {
+::std::string* YMesh::mutable_res_id() {
   
   // @@protoc_insertion_point(field_mutable:y3d.YMesh.res_id)
   return res_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* YMesh::release_res_id() {
+::std::string* YMesh::release_res_id() {
   // @@protoc_insertion_point(field_release:y3d.YMesh.res_id)
   
   return res_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void YMesh::set_allocated_res_id(::std::string* res_id) {
+void YMesh::set_allocated_res_id(::std::string* res_id) {
   if (res_id != NULL) {
     
   } else {
@@ -4126,24 +4189,24 @@ int YMesh::xref_size() const {
 void YMesh::clear_xref() {
   xref_.Clear();
 }
- ::google::protobuf::int32 YMesh::xref(int index) const {
+::google::protobuf::int32 YMesh::xref(int index) const {
   // @@protoc_insertion_point(field_get:y3d.YMesh.xref)
   return xref_.Get(index);
 }
- void YMesh::set_xref(int index, ::google::protobuf::int32 value) {
+void YMesh::set_xref(int index, ::google::protobuf::int32 value) {
   xref_.Set(index, value);
   // @@protoc_insertion_point(field_set:y3d.YMesh.xref)
 }
- void YMesh::add_xref(::google::protobuf::int32 value) {
+void YMesh::add_xref(::google::protobuf::int32 value) {
   xref_.Add(value);
   // @@protoc_insertion_point(field_add:y3d.YMesh.xref)
 }
- const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
 YMesh::xref() const {
   // @@protoc_insertion_point(field_list:y3d.YMesh.xref)
   return xref_;
 }
- ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
 YMesh::mutable_xref() {
   // @@protoc_insertion_point(field_mutable_list:y3d.YMesh.xref)
   return &xref_;
@@ -4153,11 +4216,11 @@ YMesh::mutable_xref() {
 void YMesh::clear_xstatus() {
   xstatus_ = 0;
 }
- ::y3d::YMesh_XrefStatus YMesh::xstatus() const {
+::y3d::YMesh_XrefStatus YMesh::xstatus() const {
   // @@protoc_insertion_point(field_get:y3d.YMesh.xstatus)
   return static_cast< ::y3d::YMesh_XrefStatus >(xstatus_);
 }
- void YMesh::set_xstatus(::y3d::YMesh_XrefStatus value) {
+void YMesh::set_xstatus(::y3d::YMesh_XrefStatus value) {
   
   xstatus_ = value;
   // @@protoc_insertion_point(field_set:y3d.YMesh.xstatus)
@@ -4167,16 +4230,19 @@ void YMesh::clear_xstatus() {
 void YMesh::clear_mtype() {
   mtype_ = 0;
 }
- ::y3d::YMesh_MeshType YMesh::mtype() const {
+::y3d::YMesh_MeshType YMesh::mtype() const {
   // @@protoc_insertion_point(field_get:y3d.YMesh.mtype)
   return static_cast< ::y3d::YMesh_MeshType >(mtype_);
 }
- void YMesh::set_mtype(::y3d::YMesh_MeshType value) {
+void YMesh::set_mtype(::y3d::YMesh_MeshType value) {
   
   mtype_ = value;
   // @@protoc_insertion_point(field_set:y3d.YMesh.mtype)
 }
 
+inline const YMesh* YMesh::internal_default_instance() {
+  return &YMesh_default_instance_.get();
+}
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // ===================================================================
@@ -4195,39 +4261,41 @@ const int YObject::kMeshFieldNumber;
 
 YObject::YObject()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (this != internal_default_instance()) protobuf_InitDefaults_y3d_2eproto();
   SharedCtor();
   // @@protoc_insertion_point(constructor:y3d.YObject)
 }
 
 void YObject::InitAsDefaultInstance() {
-  _is_default_instance_ = true;
-  pos_ = const_cast< ::y3d::YPoint3*>(&::y3d::YPoint3::default_instance());
-  YObject_default_oneof_instance_->light_ = const_cast< ::y3d::YLight*>(&::y3d::YLight::default_instance());
-  YObject_default_oneof_instance_->camera_ = const_cast< ::y3d::YCamera*>(&::y3d::YCamera::default_instance());
-  YObject_default_oneof_instance_->mesh_ = const_cast< ::y3d::YMesh*>(&::y3d::YMesh::default_instance());
+  pos_ = const_cast< ::y3d::YPoint3*>(
+      ::y3d::YPoint3::internal_default_instance());
+  YObject_default_oneof_instance_->light_ = const_cast< ::y3d::YLight*>(
+      ::y3d::YLight::internal_default_instance());
+  YObject_default_oneof_instance_->camera_ = const_cast< ::y3d::YCamera*>(
+      ::y3d::YCamera::internal_default_instance());
+  YObject_default_oneof_instance_->mesh_ = const_cast< ::y3d::YMesh*>(
+      ::y3d::YMesh::internal_default_instance());
 }
 
 YObject::YObject(const YObject& from)
   : ::google::protobuf::Message(),
     _internal_metadata_(NULL) {
   SharedCtor();
-  MergeFrom(from);
+  UnsafeMergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:y3d.YObject)
 }
 
 void YObject::SharedCtor() {
-    _is_default_instance_ = false;
-  ::google::protobuf::internal::GetEmptyString();
-  _cached_size_ = 0;
-  name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  pos_ = NULL;
   extra_.SetAssignDescriptorCallback(
       protobuf_AssignDescriptorsOnce);
   extra_.SetEntryDescriptor(
       &::y3d::YObject_ExtraEntry_descriptor_);
-  otype_ = 0;
-  cate_id_ = 0;
+  name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  pos_ = NULL;
+  ::memset(&otype_, 0, reinterpret_cast<char*>(&cate_id_) -
+    reinterpret_cast<char*>(&otype_) + sizeof(cate_id_));
   clear_has_data();
+  _cached_size_ = 0;
 }
 
 YObject::~YObject() {
@@ -4240,7 +4308,7 @@ void YObject::SharedDtor() {
   if (has_data()) {
     clear_data();
   }
-  if (this != default_instance_) {
+  if (this != &YObject_default_instance_.get()) {
     delete pos_;
   }
 }
@@ -4256,11 +4324,11 @@ const ::google::protobuf::Descriptor* YObject::descriptor() {
 }
 
 const YObject& YObject::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_y3d_2eproto();
-  return *default_instance_;
+  protobuf_InitDefaults_y3d_2eproto();
+  return *internal_default_instance();
 }
 
-YObject* YObject::default_instance_ = NULL;
+::google::protobuf::internal::ExplicitlyConstructed<YObject> YObject_default_instance_;
 
 YObject* YObject::New(::google::protobuf::Arena* arena) const {
   YObject* n = new YObject;
@@ -4272,7 +4340,7 @@ YObject* YObject::New(::google::protobuf::Arena* arena) const {
 
 void YObject::clear_data() {
 // @@protoc_insertion_point(one_of_clear_start:y3d.YObject)
-  switch(data_case()) {
+  switch (data_case()) {
     case kLight: {
       delete data_.light_;
       break;
@@ -4307,7 +4375,7 @@ void YObject::Clear() {
 #endif
 
 #define ZR_(first, last) do {\
-  ::memset(&first, 0,\
+  ::memset(&(first), 0,\
            ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
 } while (0)
 
@@ -4429,10 +4497,10 @@ bool YObject::MergePartialFromCodedStream(
       case 8: {
         if (tag == 64) {
          parse_cate_id:
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &cate_id_)));
-
         } else {
           goto handle_unusual;
         }
@@ -4449,14 +4517,13 @@ bool YObject::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(90)) goto parse_camera;
+        goto after_mesh;
         break;
       }
 
       // optional .y3d.YCamera camera = 11;
       case 11: {
         if (tag == 90) {
-         parse_camera:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_camera()));
         } else {
@@ -4475,6 +4542,7 @@ bool YObject::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
+       after_mesh:
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -4731,9 +4799,9 @@ void YObject::SerializeWithCachedSizes(
   return target;
 }
 
-int YObject::ByteSize() const {
+size_t YObject::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:y3d.YObject)
-  int total_size = 0;
+  size_t total_size = 0;
 
   // optional string name = 1;
   if (this->name().size() > 0) {
@@ -4763,7 +4831,8 @@ int YObject::ByteSize() const {
   }
 
   // map<string, .google.protobuf.Any> extra = 5;
-  total_size += 1 * this->extra_size();
+  total_size += 1 *
+      ::google::protobuf::internal::FromIntSize(this->extra_size());
   {
     ::google::protobuf::scoped_ptr<YObject_ExtraEntry> entry;
     for (::google::protobuf::Map< ::std::string, ::google::protobuf::Any >::const_iterator
@@ -4776,7 +4845,8 @@ int YObject::ByteSize() const {
   }
 
   // repeated string tags = 7;
-  total_size += 1 * this->tags_size();
+  total_size += 1 *
+      ::google::protobuf::internal::FromIntSize(this->tags_size());
   for (int i = 0; i < this->tags_size(); i++) {
     total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
       this->tags(i));
@@ -4808,18 +4878,17 @@ int YObject::ByteSize() const {
       break;
     }
   }
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
+  _cached_size_ = cached_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void YObject::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:y3d.YObject)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
-  const YObject* source = 
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const YObject* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const YObject>(
           &from);
   if (source == NULL) {
@@ -4827,17 +4896,23 @@ void YObject::MergeFrom(const ::google::protobuf::Message& from) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
   // @@protoc_insertion_point(generalized_merge_from_cast_success:y3d.YObject)
-    MergeFrom(*source);
+    UnsafeMergeFrom(*source);
   }
 }
 
 void YObject::MergeFrom(const YObject& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:y3d.YObject)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  if (GOOGLE_PREDICT_TRUE(&from != this)) {
+    UnsafeMergeFrom(from);
+  } else {
+    MergeFromFail(__LINE__);
   }
+}
+
+void YObject::UnsafeMergeFrom(const YObject& from) {
+  GOOGLE_DCHECK(&from != this);
   extra_.MergeFrom(from.extra_);
-  tags_.MergeFrom(from.tags_);
+  tags_.UnsafeMergeFrom(from.tags_);
   switch (from.data_case()) {
     case kLight: {
       mutable_light()->::y3d::YLight::MergeFrom(from.light());
@@ -4881,7 +4956,7 @@ void YObject::CopyFrom(const YObject& from) {
 // @@protoc_insertion_point(class_specific_copy_from_start:y3d.YObject)
   if (&from == this) return;
   Clear();
-  MergeFrom(from);
+  UnsafeMergeFrom(from);
 }
 
 bool YObject::IsInitialized() const {
@@ -4921,37 +4996,37 @@ void YObject::InternalSwap(YObject* other) {
 void YObject::clear_name() {
   name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- const ::std::string& YObject::name() const {
+const ::std::string& YObject::name() const {
   // @@protoc_insertion_point(field_get:y3d.YObject.name)
   return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void YObject::set_name(const ::std::string& value) {
+void YObject::set_name(const ::std::string& value) {
   
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:y3d.YObject.name)
 }
- void YObject::set_name(const char* value) {
+void YObject::set_name(const char* value) {
   
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:y3d.YObject.name)
 }
- void YObject::set_name(const char* value, size_t size) {
+void YObject::set_name(const char* value, size_t size) {
   
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:y3d.YObject.name)
 }
- ::std::string* YObject::mutable_name() {
+::std::string* YObject::mutable_name() {
   
   // @@protoc_insertion_point(field_mutable:y3d.YObject.name)
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* YObject::release_name() {
+::std::string* YObject::release_name() {
   // @@protoc_insertion_point(field_release:y3d.YObject.name)
   
   return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void YObject::set_allocated_name(::std::string* name) {
+void YObject::set_allocated_name(::std::string* name) {
   if (name != NULL) {
     
   } else {
@@ -4963,7 +5038,7 @@ void YObject::clear_name() {
 
 // optional .y3d.YPoint3 pos = 3;
 bool YObject::has_pos() const {
-  return !_is_default_instance_ && pos_ != NULL;
+  return this != internal_default_instance() && pos_ != NULL;
 }
 void YObject::clear_pos() {
   if (GetArenaNoVirtual() == NULL && pos_ != NULL) delete pos_;
@@ -4971,7 +5046,8 @@ void YObject::clear_pos() {
 }
 const ::y3d::YPoint3& YObject::pos() const {
   // @@protoc_insertion_point(field_get:y3d.YObject.pos)
-  return pos_ != NULL ? *pos_ : *default_instance_->pos_;
+  return pos_ != NULL ? *pos_
+                         : *::y3d::YPoint3::internal_default_instance();
 }
 ::y3d::YPoint3* YObject::mutable_pos() {
   
@@ -5021,11 +5097,11 @@ YObject::mutable_extra() {
 void YObject::clear_otype() {
   otype_ = 0;
 }
- ::y3d::ObjectType YObject::otype() const {
+::y3d::ObjectType YObject::otype() const {
   // @@protoc_insertion_point(field_get:y3d.YObject.otype)
   return static_cast< ::y3d::ObjectType >(otype_);
 }
- void YObject::set_otype(::y3d::ObjectType value) {
+void YObject::set_otype(::y3d::ObjectType value) {
   
   otype_ = value;
   // @@protoc_insertion_point(field_set:y3d.YObject.otype)
@@ -5038,49 +5114,49 @@ int YObject::tags_size() const {
 void YObject::clear_tags() {
   tags_.Clear();
 }
- const ::std::string& YObject::tags(int index) const {
+const ::std::string& YObject::tags(int index) const {
   // @@protoc_insertion_point(field_get:y3d.YObject.tags)
   return tags_.Get(index);
 }
- ::std::string* YObject::mutable_tags(int index) {
+::std::string* YObject::mutable_tags(int index) {
   // @@protoc_insertion_point(field_mutable:y3d.YObject.tags)
   return tags_.Mutable(index);
 }
- void YObject::set_tags(int index, const ::std::string& value) {
+void YObject::set_tags(int index, const ::std::string& value) {
   // @@protoc_insertion_point(field_set:y3d.YObject.tags)
   tags_.Mutable(index)->assign(value);
 }
- void YObject::set_tags(int index, const char* value) {
+void YObject::set_tags(int index, const char* value) {
   tags_.Mutable(index)->assign(value);
   // @@protoc_insertion_point(field_set_char:y3d.YObject.tags)
 }
- void YObject::set_tags(int index, const char* value, size_t size) {
+void YObject::set_tags(int index, const char* value, size_t size) {
   tags_.Mutable(index)->assign(
     reinterpret_cast<const char*>(value), size);
   // @@protoc_insertion_point(field_set_pointer:y3d.YObject.tags)
 }
- ::std::string* YObject::add_tags() {
+::std::string* YObject::add_tags() {
   // @@protoc_insertion_point(field_add_mutable:y3d.YObject.tags)
   return tags_.Add();
 }
- void YObject::add_tags(const ::std::string& value) {
+void YObject::add_tags(const ::std::string& value) {
   tags_.Add()->assign(value);
   // @@protoc_insertion_point(field_add:y3d.YObject.tags)
 }
- void YObject::add_tags(const char* value) {
+void YObject::add_tags(const char* value) {
   tags_.Add()->assign(value);
   // @@protoc_insertion_point(field_add_char:y3d.YObject.tags)
 }
- void YObject::add_tags(const char* value, size_t size) {
+void YObject::add_tags(const char* value, size_t size) {
   tags_.Add()->assign(reinterpret_cast<const char*>(value), size);
   // @@protoc_insertion_point(field_add_pointer:y3d.YObject.tags)
 }
- const ::google::protobuf::RepeatedPtrField< ::std::string>&
+const ::google::protobuf::RepeatedPtrField< ::std::string>&
 YObject::tags() const {
   // @@protoc_insertion_point(field_list:y3d.YObject.tags)
   return tags_;
 }
- ::google::protobuf::RepeatedPtrField< ::std::string>*
+::google::protobuf::RepeatedPtrField< ::std::string>*
 YObject::mutable_tags() {
   // @@protoc_insertion_point(field_mutable_list:y3d.YObject.tags)
   return &tags_;
@@ -5090,11 +5166,11 @@ YObject::mutable_tags() {
 void YObject::clear_cate_id() {
   cate_id_ = 0;
 }
- ::google::protobuf::int32 YObject::cate_id() const {
+::google::protobuf::int32 YObject::cate_id() const {
   // @@protoc_insertion_point(field_get:y3d.YObject.cate_id)
   return cate_id_;
 }
- void YObject::set_cate_id(::google::protobuf::int32 value) {
+void YObject::set_cate_id(::google::protobuf::int32 value) {
   
   cate_id_ = value;
   // @@protoc_insertion_point(field_set:y3d.YObject.cate_id)
@@ -5253,6 +5329,9 @@ void YObject::clear_has_data() {
 YObject::DataCase YObject::data_case() const {
   return YObject::DataCase(_oneof_case_[0]);
 }
+inline const YObject* YObject::internal_default_instance() {
+  return &YObject_default_instance_.get();
+}
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // ===================================================================
@@ -5266,31 +5345,29 @@ const int YArea::kGversFieldNumber;
 
 YArea::YArea()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (this != internal_default_instance()) protobuf_InitDefaults_y3d_2eproto();
   SharedCtor();
   // @@protoc_insertion_point(constructor:y3d.YArea)
 }
 
 void YArea::InitAsDefaultInstance() {
-  _is_default_instance_ = true;
 }
 
 YArea::YArea(const YArea& from)
   : ::google::protobuf::Message(),
     _internal_metadata_(NULL) {
   SharedCtor();
-  MergeFrom(from);
+  UnsafeMergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:y3d.YArea)
 }
 
 void YArea::SharedCtor() {
-    _is_default_instance_ = false;
-  ::google::protobuf::internal::GetEmptyString();
-  _cached_size_ = 0;
-  name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   gvers_.SetAssignDescriptorCallback(
       protobuf_AssignDescriptorsOnce);
   gvers_.SetEntryDescriptor(
       &::y3d::YArea_GversEntry_descriptor_);
+  name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  _cached_size_ = 0;
 }
 
 YArea::~YArea() {
@@ -5300,8 +5377,6 @@ YArea::~YArea() {
 
 void YArea::SharedDtor() {
   name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (this != default_instance_) {
-  }
 }
 
 void YArea::SetCachedSize(int size) const {
@@ -5315,11 +5390,11 @@ const ::google::protobuf::Descriptor* YArea::descriptor() {
 }
 
 const YArea& YArea::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_y3d_2eproto();
-  return *default_instance_;
+  protobuf_InitDefaults_y3d_2eproto();
+  return *internal_default_instance();
 }
 
-YArea* YArea::default_instance_ = NULL;
+::google::protobuf::internal::ExplicitlyConstructed<YArea> YArea_default_instance_;
 
 YArea* YArea::New(::google::protobuf::Arena* arena) const {
   YArea* n = new YArea;
@@ -5606,9 +5681,9 @@ void YArea::SerializeWithCachedSizes(
   return target;
 }
 
-int YArea::ByteSize() const {
+size_t YArea::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:y3d.YArea)
-  int total_size = 0;
+  size_t total_size = 0;
 
   // optional string name = 1;
   if (this->name().size() > 0) {
@@ -5618,23 +5693,30 @@ int YArea::ByteSize() const {
   }
 
   // repeated .y3d.YGroup groups = 2;
-  total_size += 1 * this->groups_size();
-  for (int i = 0; i < this->groups_size(); i++) {
-    total_size +=
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->groups(i));
+  {
+    unsigned int count = this->groups_size();
+    total_size += 1UL * count;
+    for (unsigned int i = 0; i < count; i++) {
+      total_size +=
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->groups(i));
+    }
   }
 
   // repeated .y3d.YObject objs = 3;
-  total_size += 1 * this->objs_size();
-  for (int i = 0; i < this->objs_size(); i++) {
-    total_size +=
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->objs(i));
+  {
+    unsigned int count = this->objs_size();
+    total_size += 1UL * count;
+    for (unsigned int i = 0; i < count; i++) {
+      total_size +=
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->objs(i));
+    }
   }
 
   // map<string, .y3d.YGroupVer> gvers = 6;
-  total_size += 1 * this->gvers_size();
+  total_size += 1 *
+      ::google::protobuf::internal::FromIntSize(this->gvers_size());
   {
     ::google::protobuf::scoped_ptr<YArea_GversEntry> entry;
     for (::google::protobuf::Map< ::std::string, ::y3d::YGroupVer >::const_iterator
@@ -5646,18 +5728,17 @@ int YArea::ByteSize() const {
     }
   }
 
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
+  _cached_size_ = cached_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void YArea::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:y3d.YArea)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
-  const YArea* source = 
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const YArea* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const YArea>(
           &from);
   if (source == NULL) {
@@ -5665,15 +5746,21 @@ void YArea::MergeFrom(const ::google::protobuf::Message& from) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
   // @@protoc_insertion_point(generalized_merge_from_cast_success:y3d.YArea)
-    MergeFrom(*source);
+    UnsafeMergeFrom(*source);
   }
 }
 
 void YArea::MergeFrom(const YArea& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:y3d.YArea)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  if (GOOGLE_PREDICT_TRUE(&from != this)) {
+    UnsafeMergeFrom(from);
+  } else {
+    MergeFromFail(__LINE__);
   }
+}
+
+void YArea::UnsafeMergeFrom(const YArea& from) {
+  GOOGLE_DCHECK(&from != this);
   groups_.MergeFrom(from.groups_);
   objs_.MergeFrom(from.objs_);
   gvers_.MergeFrom(from.gvers_);
@@ -5694,7 +5781,7 @@ void YArea::CopyFrom(const YArea& from) {
 // @@protoc_insertion_point(class_specific_copy_from_start:y3d.YArea)
   if (&from == this) return;
   Clear();
-  MergeFrom(from);
+  UnsafeMergeFrom(from);
 }
 
 bool YArea::IsInitialized() const {
@@ -5730,37 +5817,37 @@ void YArea::InternalSwap(YArea* other) {
 void YArea::clear_name() {
   name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- const ::std::string& YArea::name() const {
+const ::std::string& YArea::name() const {
   // @@protoc_insertion_point(field_get:y3d.YArea.name)
   return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void YArea::set_name(const ::std::string& value) {
+void YArea::set_name(const ::std::string& value) {
   
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:y3d.YArea.name)
 }
- void YArea::set_name(const char* value) {
+void YArea::set_name(const char* value) {
   
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:y3d.YArea.name)
 }
- void YArea::set_name(const char* value, size_t size) {
+void YArea::set_name(const char* value, size_t size) {
   
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:y3d.YArea.name)
 }
- ::std::string* YArea::mutable_name() {
+::std::string* YArea::mutable_name() {
   
   // @@protoc_insertion_point(field_mutable:y3d.YArea.name)
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* YArea::release_name() {
+::std::string* YArea::release_name() {
   // @@protoc_insertion_point(field_release:y3d.YArea.name)
   
   return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void YArea::set_allocated_name(::std::string* name) {
+void YArea::set_allocated_name(::std::string* name) {
   if (name != NULL) {
     
   } else {
@@ -5848,6 +5935,9 @@ YArea::mutable_gvers() {
   return gvers_.MutableMap();
 }
 
+inline const YArea* YArea::internal_default_instance() {
+  return &YArea_default_instance_.get();
+}
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // ===================================================================
@@ -5859,27 +5949,25 @@ const int YLayer::kGroupsFieldNumber;
 
 YLayer::YLayer()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (this != internal_default_instance()) protobuf_InitDefaults_y3d_2eproto();
   SharedCtor();
   // @@protoc_insertion_point(constructor:y3d.YLayer)
 }
 
 void YLayer::InitAsDefaultInstance() {
-  _is_default_instance_ = true;
 }
 
 YLayer::YLayer(const YLayer& from)
   : ::google::protobuf::Message(),
     _internal_metadata_(NULL) {
   SharedCtor();
-  MergeFrom(from);
+  UnsafeMergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:y3d.YLayer)
 }
 
 void YLayer::SharedCtor() {
-    _is_default_instance_ = false;
-  ::google::protobuf::internal::GetEmptyString();
-  _cached_size_ = 0;
   name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  _cached_size_ = 0;
 }
 
 YLayer::~YLayer() {
@@ -5889,8 +5977,6 @@ YLayer::~YLayer() {
 
 void YLayer::SharedDtor() {
   name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (this != default_instance_) {
-  }
 }
 
 void YLayer::SetCachedSize(int size) const {
@@ -5904,11 +5990,11 @@ const ::google::protobuf::Descriptor* YLayer::descriptor() {
 }
 
 const YLayer& YLayer::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_y3d_2eproto();
-  return *default_instance_;
+  protobuf_InitDefaults_y3d_2eproto();
+  return *internal_default_instance();
 }
 
-YLayer* YLayer::default_instance_ = NULL;
+::google::protobuf::internal::ExplicitlyConstructed<YLayer> YLayer_default_instance_;
 
 YLayer* YLayer::New(::google::protobuf::Arena* arena) const {
   YLayer* n = new YLayer;
@@ -6036,9 +6122,9 @@ void YLayer::SerializeWithCachedSizes(
   return target;
 }
 
-int YLayer::ByteSize() const {
+size_t YLayer::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:y3d.YLayer)
-  int total_size = 0;
+  size_t total_size = 0;
 
   // optional string name = 1;
   if (this->name().size() > 0) {
@@ -6048,25 +6134,27 @@ int YLayer::ByteSize() const {
   }
 
   // repeated .y3d.YGroup groups = 2;
-  total_size += 1 * this->groups_size();
-  for (int i = 0; i < this->groups_size(); i++) {
-    total_size +=
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->groups(i));
+  {
+    unsigned int count = this->groups_size();
+    total_size += 1UL * count;
+    for (unsigned int i = 0; i < count; i++) {
+      total_size +=
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->groups(i));
+    }
   }
 
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
+  _cached_size_ = cached_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void YLayer::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:y3d.YLayer)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
-  const YLayer* source = 
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const YLayer* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const YLayer>(
           &from);
   if (source == NULL) {
@@ -6074,15 +6162,21 @@ void YLayer::MergeFrom(const ::google::protobuf::Message& from) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
   // @@protoc_insertion_point(generalized_merge_from_cast_success:y3d.YLayer)
-    MergeFrom(*source);
+    UnsafeMergeFrom(*source);
   }
 }
 
 void YLayer::MergeFrom(const YLayer& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:y3d.YLayer)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  if (GOOGLE_PREDICT_TRUE(&from != this)) {
+    UnsafeMergeFrom(from);
+  } else {
+    MergeFromFail(__LINE__);
   }
+}
+
+void YLayer::UnsafeMergeFrom(const YLayer& from) {
+  GOOGLE_DCHECK(&from != this);
   groups_.MergeFrom(from.groups_);
   if (from.name().size() > 0) {
 
@@ -6101,7 +6195,7 @@ void YLayer::CopyFrom(const YLayer& from) {
 // @@protoc_insertion_point(class_specific_copy_from_start:y3d.YLayer)
   if (&from == this) return;
   Clear();
-  MergeFrom(from);
+  UnsafeMergeFrom(from);
 }
 
 bool YLayer::IsInitialized() const {
@@ -6135,37 +6229,37 @@ void YLayer::InternalSwap(YLayer* other) {
 void YLayer::clear_name() {
   name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- const ::std::string& YLayer::name() const {
+const ::std::string& YLayer::name() const {
   // @@protoc_insertion_point(field_get:y3d.YLayer.name)
   return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void YLayer::set_name(const ::std::string& value) {
+void YLayer::set_name(const ::std::string& value) {
   
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:y3d.YLayer.name)
 }
- void YLayer::set_name(const char* value) {
+void YLayer::set_name(const char* value) {
   
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:y3d.YLayer.name)
 }
- void YLayer::set_name(const char* value, size_t size) {
+void YLayer::set_name(const char* value, size_t size) {
   
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:y3d.YLayer.name)
 }
- ::std::string* YLayer::mutable_name() {
+::std::string* YLayer::mutable_name() {
   
   // @@protoc_insertion_point(field_mutable:y3d.YLayer.name)
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* YLayer::release_name() {
+::std::string* YLayer::release_name() {
   // @@protoc_insertion_point(field_release:y3d.YLayer.name)
   
   return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void YLayer::set_allocated_name(::std::string* name) {
+void YLayer::set_allocated_name(::std::string* name) {
   if (name != NULL) {
     
   } else {
@@ -6205,6 +6299,9 @@ YLayer::groups() const {
   return groups_;
 }
 
+inline const YLayer* YLayer::internal_default_instance() {
+  return &YLayer_default_instance_.get();
+}
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // ===================================================================
@@ -6219,28 +6316,26 @@ const int YGroup::kXrefFieldNumber;
 
 YGroup::YGroup()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (this != internal_default_instance()) protobuf_InitDefaults_y3d_2eproto();
   SharedCtor();
   // @@protoc_insertion_point(constructor:y3d.YGroup)
 }
 
 void YGroup::InitAsDefaultInstance() {
-  _is_default_instance_ = true;
 }
 
 YGroup::YGroup(const YGroup& from)
   : ::google::protobuf::Message(),
     _internal_metadata_(NULL) {
   SharedCtor();
-  MergeFrom(from);
+  UnsafeMergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:y3d.YGroup)
 }
 
 void YGroup::SharedCtor() {
-    _is_default_instance_ = false;
-  ::google::protobuf::internal::GetEmptyString();
-  _cached_size_ = 0;
   name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   gv_type_ = 0;
+  _cached_size_ = 0;
 }
 
 YGroup::~YGroup() {
@@ -6250,8 +6345,6 @@ YGroup::~YGroup() {
 
 void YGroup::SharedDtor() {
   name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (this != default_instance_) {
-  }
 }
 
 void YGroup::SetCachedSize(int size) const {
@@ -6265,11 +6358,11 @@ const ::google::protobuf::Descriptor* YGroup::descriptor() {
 }
 
 const YGroup& YGroup::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_y3d_2eproto();
-  return *default_instance_;
+  protobuf_InitDefaults_y3d_2eproto();
+  return *internal_default_instance();
 }
 
-YGroup* YGroup::default_instance_ = NULL;
+::google::protobuf::internal::ExplicitlyConstructed<YGroup> YGroup_default_instance_;
 
 YGroup* YGroup::New(::google::protobuf::Arena* arena) const {
   YGroup* n = new YGroup;
@@ -6496,9 +6589,9 @@ void YGroup::SerializeWithCachedSizes(
   return target;
 }
 
-int YGroup::ByteSize() const {
+size_t YGroup::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:y3d.YGroup)
-  int total_size = 0;
+  size_t total_size = 0;
 
   // optional string name = 1;
   if (this->name().size() > 0) {
@@ -6514,40 +6607,46 @@ int YGroup::ByteSize() const {
   }
 
   // repeated .y3d.YObject objs = 2;
-  total_size += 1 * this->objs_size();
-  for (int i = 0; i < this->objs_size(); i++) {
-    total_size +=
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->objs(i));
+  {
+    unsigned int count = this->objs_size();
+    total_size += 1UL * count;
+    for (unsigned int i = 0; i < count; i++) {
+      total_size +=
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->objs(i));
+    }
   }
 
   // repeated .y3d.YGroup children = 3;
-  total_size += 1 * this->children_size();
-  for (int i = 0; i < this->children_size(); i++) {
-    total_size +=
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->children(i));
+  {
+    unsigned int count = this->children_size();
+    total_size += 1UL * count;
+    for (unsigned int i = 0; i < count; i++) {
+      total_size +=
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->children(i));
+    }
   }
 
   // repeated string xref = 5;
-  total_size += 1 * this->xref_size();
+  total_size += 1 *
+      ::google::protobuf::internal::FromIntSize(this->xref_size());
   for (int i = 0; i < this->xref_size(); i++) {
     total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
       this->xref(i));
   }
 
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
+  _cached_size_ = cached_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void YGroup::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:y3d.YGroup)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
-  const YGroup* source = 
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const YGroup* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const YGroup>(
           &from);
   if (source == NULL) {
@@ -6555,18 +6654,24 @@ void YGroup::MergeFrom(const ::google::protobuf::Message& from) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
   // @@protoc_insertion_point(generalized_merge_from_cast_success:y3d.YGroup)
-    MergeFrom(*source);
+    UnsafeMergeFrom(*source);
   }
 }
 
 void YGroup::MergeFrom(const YGroup& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:y3d.YGroup)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  if (GOOGLE_PREDICT_TRUE(&from != this)) {
+    UnsafeMergeFrom(from);
+  } else {
+    MergeFromFail(__LINE__);
   }
+}
+
+void YGroup::UnsafeMergeFrom(const YGroup& from) {
+  GOOGLE_DCHECK(&from != this);
   objs_.MergeFrom(from.objs_);
   children_.MergeFrom(from.children_);
-  xref_.MergeFrom(from.xref_);
+  xref_.UnsafeMergeFrom(from.xref_);
   if (from.name().size() > 0) {
 
     name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
@@ -6587,7 +6692,7 @@ void YGroup::CopyFrom(const YGroup& from) {
 // @@protoc_insertion_point(class_specific_copy_from_start:y3d.YGroup)
   if (&from == this) return;
   Clear();
-  MergeFrom(from);
+  UnsafeMergeFrom(from);
 }
 
 bool YGroup::IsInitialized() const {
@@ -6624,37 +6729,37 @@ void YGroup::InternalSwap(YGroup* other) {
 void YGroup::clear_name() {
   name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- const ::std::string& YGroup::name() const {
+const ::std::string& YGroup::name() const {
   // @@protoc_insertion_point(field_get:y3d.YGroup.name)
   return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void YGroup::set_name(const ::std::string& value) {
+void YGroup::set_name(const ::std::string& value) {
   
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:y3d.YGroup.name)
 }
- void YGroup::set_name(const char* value) {
+void YGroup::set_name(const char* value) {
   
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:y3d.YGroup.name)
 }
- void YGroup::set_name(const char* value, size_t size) {
+void YGroup::set_name(const char* value, size_t size) {
   
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:y3d.YGroup.name)
 }
- ::std::string* YGroup::mutable_name() {
+::std::string* YGroup::mutable_name() {
   
   // @@protoc_insertion_point(field_mutable:y3d.YGroup.name)
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* YGroup::release_name() {
+::std::string* YGroup::release_name() {
   // @@protoc_insertion_point(field_release:y3d.YGroup.name)
   
   return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void YGroup::set_allocated_name(::std::string* name) {
+void YGroup::set_allocated_name(::std::string* name) {
   if (name != NULL) {
     
   } else {
@@ -6728,11 +6833,11 @@ YGroup::children() const {
 void YGroup::clear_gv_type() {
   gv_type_ = 0;
 }
- ::y3d::GVerType YGroup::gv_type() const {
+::y3d::GVerType YGroup::gv_type() const {
   // @@protoc_insertion_point(field_get:y3d.YGroup.gv_type)
   return static_cast< ::y3d::GVerType >(gv_type_);
 }
- void YGroup::set_gv_type(::y3d::GVerType value) {
+void YGroup::set_gv_type(::y3d::GVerType value) {
   
   gv_type_ = value;
   // @@protoc_insertion_point(field_set:y3d.YGroup.gv_type)
@@ -6745,54 +6850,57 @@ int YGroup::xref_size() const {
 void YGroup::clear_xref() {
   xref_.Clear();
 }
- const ::std::string& YGroup::xref(int index) const {
+const ::std::string& YGroup::xref(int index) const {
   // @@protoc_insertion_point(field_get:y3d.YGroup.xref)
   return xref_.Get(index);
 }
- ::std::string* YGroup::mutable_xref(int index) {
+::std::string* YGroup::mutable_xref(int index) {
   // @@protoc_insertion_point(field_mutable:y3d.YGroup.xref)
   return xref_.Mutable(index);
 }
- void YGroup::set_xref(int index, const ::std::string& value) {
+void YGroup::set_xref(int index, const ::std::string& value) {
   // @@protoc_insertion_point(field_set:y3d.YGroup.xref)
   xref_.Mutable(index)->assign(value);
 }
- void YGroup::set_xref(int index, const char* value) {
+void YGroup::set_xref(int index, const char* value) {
   xref_.Mutable(index)->assign(value);
   // @@protoc_insertion_point(field_set_char:y3d.YGroup.xref)
 }
- void YGroup::set_xref(int index, const char* value, size_t size) {
+void YGroup::set_xref(int index, const char* value, size_t size) {
   xref_.Mutable(index)->assign(
     reinterpret_cast<const char*>(value), size);
   // @@protoc_insertion_point(field_set_pointer:y3d.YGroup.xref)
 }
- ::std::string* YGroup::add_xref() {
+::std::string* YGroup::add_xref() {
   // @@protoc_insertion_point(field_add_mutable:y3d.YGroup.xref)
   return xref_.Add();
 }
- void YGroup::add_xref(const ::std::string& value) {
+void YGroup::add_xref(const ::std::string& value) {
   xref_.Add()->assign(value);
   // @@protoc_insertion_point(field_add:y3d.YGroup.xref)
 }
- void YGroup::add_xref(const char* value) {
+void YGroup::add_xref(const char* value) {
   xref_.Add()->assign(value);
   // @@protoc_insertion_point(field_add_char:y3d.YGroup.xref)
 }
- void YGroup::add_xref(const char* value, size_t size) {
+void YGroup::add_xref(const char* value, size_t size) {
   xref_.Add()->assign(reinterpret_cast<const char*>(value), size);
   // @@protoc_insertion_point(field_add_pointer:y3d.YGroup.xref)
 }
- const ::google::protobuf::RepeatedPtrField< ::std::string>&
+const ::google::protobuf::RepeatedPtrField< ::std::string>&
 YGroup::xref() const {
   // @@protoc_insertion_point(field_list:y3d.YGroup.xref)
   return xref_;
 }
- ::google::protobuf::RepeatedPtrField< ::std::string>*
+::google::protobuf::RepeatedPtrField< ::std::string>*
 YGroup::mutable_xref() {
   // @@protoc_insertion_point(field_mutable_list:y3d.YGroup.xref)
   return &xref_;
 }
 
+inline const YGroup* YGroup::internal_default_instance() {
+  return &YGroup_default_instance_.get();
+}
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // ===================================================================
@@ -6805,30 +6913,29 @@ const int YGroupVer::kStepFieldNumber;
 
 YGroupVer::YGroupVer()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (this != internal_default_instance()) protobuf_InitDefaults_y3d_2eproto();
   SharedCtor();
   // @@protoc_insertion_point(constructor:y3d.YGroupVer)
 }
 
 void YGroupVer::InitAsDefaultInstance() {
-  _is_default_instance_ = true;
-  groupdata_ = const_cast< ::y3d::YGroup*>(&::y3d::YGroup::default_instance());
+  groupdata_ = const_cast< ::y3d::YGroup*>(
+      ::y3d::YGroup::internal_default_instance());
 }
 
 YGroupVer::YGroupVer(const YGroupVer& from)
   : ::google::protobuf::Message(),
     _internal_metadata_(NULL) {
   SharedCtor();
-  MergeFrom(from);
+  UnsafeMergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:y3d.YGroupVer)
 }
 
 void YGroupVer::SharedCtor() {
-    _is_default_instance_ = false;
-  ::google::protobuf::internal::GetEmptyString();
-  _cached_size_ = 0;
   vname_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   groupdata_ = NULL;
   step_ = 0;
+  _cached_size_ = 0;
 }
 
 YGroupVer::~YGroupVer() {
@@ -6838,7 +6945,7 @@ YGroupVer::~YGroupVer() {
 
 void YGroupVer::SharedDtor() {
   vname_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (this != default_instance_) {
+  if (this != &YGroupVer_default_instance_.get()) {
     delete groupdata_;
   }
 }
@@ -6854,11 +6961,11 @@ const ::google::protobuf::Descriptor* YGroupVer::descriptor() {
 }
 
 const YGroupVer& YGroupVer::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_y3d_2eproto();
-  return *default_instance_;
+  protobuf_InitDefaults_y3d_2eproto();
+  return *internal_default_instance();
 }
 
-YGroupVer* YGroupVer::default_instance_ = NULL;
+::google::protobuf::internal::ExplicitlyConstructed<YGroupVer> YGroupVer_default_instance_;
 
 YGroupVer* YGroupVer::New(::google::protobuf::Arena* arena) const {
   YGroupVer* n = new YGroupVer;
@@ -6919,10 +7026,10 @@ bool YGroupVer::MergePartialFromCodedStream(
       case 3: {
         if (tag == 24) {
          parse_step:
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &step_)));
-
         } else {
           goto handle_unusual;
         }
@@ -7009,9 +7116,9 @@ void YGroupVer::SerializeWithCachedSizes(
   return target;
 }
 
-int YGroupVer::ByteSize() const {
+size_t YGroupVer::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:y3d.YGroupVer)
-  int total_size = 0;
+  size_t total_size = 0;
 
   // optional string vname = 1;
   if (this->vname().size() > 0) {
@@ -7034,18 +7141,17 @@ int YGroupVer::ByteSize() const {
         this->step());
   }
 
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
+  _cached_size_ = cached_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void YGroupVer::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:y3d.YGroupVer)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
-  const YGroupVer* source = 
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const YGroupVer* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const YGroupVer>(
           &from);
   if (source == NULL) {
@@ -7053,15 +7159,21 @@ void YGroupVer::MergeFrom(const ::google::protobuf::Message& from) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
   // @@protoc_insertion_point(generalized_merge_from_cast_success:y3d.YGroupVer)
-    MergeFrom(*source);
+    UnsafeMergeFrom(*source);
   }
 }
 
 void YGroupVer::MergeFrom(const YGroupVer& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:y3d.YGroupVer)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  if (GOOGLE_PREDICT_TRUE(&from != this)) {
+    UnsafeMergeFrom(from);
+  } else {
+    MergeFromFail(__LINE__);
   }
+}
+
+void YGroupVer::UnsafeMergeFrom(const YGroupVer& from) {
+  GOOGLE_DCHECK(&from != this);
   if (from.vname().size() > 0) {
 
     vname_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.vname_);
@@ -7085,7 +7197,7 @@ void YGroupVer::CopyFrom(const YGroupVer& from) {
 // @@protoc_insertion_point(class_specific_copy_from_start:y3d.YGroupVer)
   if (&from == this) return;
   Clear();
-  MergeFrom(from);
+  UnsafeMergeFrom(from);
 }
 
 bool YGroupVer::IsInitialized() const {
@@ -7120,37 +7232,37 @@ void YGroupVer::InternalSwap(YGroupVer* other) {
 void YGroupVer::clear_vname() {
   vname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- const ::std::string& YGroupVer::vname() const {
+const ::std::string& YGroupVer::vname() const {
   // @@protoc_insertion_point(field_get:y3d.YGroupVer.vname)
   return vname_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void YGroupVer::set_vname(const ::std::string& value) {
+void YGroupVer::set_vname(const ::std::string& value) {
   
   vname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:y3d.YGroupVer.vname)
 }
- void YGroupVer::set_vname(const char* value) {
+void YGroupVer::set_vname(const char* value) {
   
   vname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:y3d.YGroupVer.vname)
 }
- void YGroupVer::set_vname(const char* value, size_t size) {
+void YGroupVer::set_vname(const char* value, size_t size) {
   
   vname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:y3d.YGroupVer.vname)
 }
- ::std::string* YGroupVer::mutable_vname() {
+::std::string* YGroupVer::mutable_vname() {
   
   // @@protoc_insertion_point(field_mutable:y3d.YGroupVer.vname)
   return vname_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* YGroupVer::release_vname() {
+::std::string* YGroupVer::release_vname() {
   // @@protoc_insertion_point(field_release:y3d.YGroupVer.vname)
   
   return vname_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void YGroupVer::set_allocated_vname(::std::string* vname) {
+void YGroupVer::set_allocated_vname(::std::string* vname) {
   if (vname != NULL) {
     
   } else {
@@ -7162,7 +7274,7 @@ void YGroupVer::clear_vname() {
 
 // optional .y3d.YGroup groupData = 2;
 bool YGroupVer::has_groupdata() const {
-  return !_is_default_instance_ && groupdata_ != NULL;
+  return this != internal_default_instance() && groupdata_ != NULL;
 }
 void YGroupVer::clear_groupdata() {
   if (GetArenaNoVirtual() == NULL && groupdata_ != NULL) delete groupdata_;
@@ -7170,7 +7282,8 @@ void YGroupVer::clear_groupdata() {
 }
 const ::y3d::YGroup& YGroupVer::groupdata() const {
   // @@protoc_insertion_point(field_get:y3d.YGroupVer.groupData)
-  return groupdata_ != NULL ? *groupdata_ : *default_instance_->groupdata_;
+  return groupdata_ != NULL ? *groupdata_
+                         : *::y3d::YGroup::internal_default_instance();
 }
 ::y3d::YGroup* YGroupVer::mutable_groupdata() {
   
@@ -7202,16 +7315,19 @@ void YGroupVer::set_allocated_groupdata(::y3d::YGroup* groupdata) {
 void YGroupVer::clear_step() {
   step_ = 0;
 }
- ::google::protobuf::int32 YGroupVer::step() const {
+::google::protobuf::int32 YGroupVer::step() const {
   // @@protoc_insertion_point(field_get:y3d.YGroupVer.step)
   return step_;
 }
- void YGroupVer::set_step(::google::protobuf::int32 value) {
+void YGroupVer::set_step(::google::protobuf::int32 value) {
   
   step_ = value;
   // @@protoc_insertion_point(field_set:y3d.YGroupVer.step)
 }
 
+inline const YGroupVer* YGroupVer::internal_default_instance() {
+  return &YGroupVer_default_instance_.get();
+}
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // ===================================================================
@@ -7221,7 +7337,7 @@ const ::google::protobuf::EnumDescriptor* CustomAttr_AType_descriptor() {
   return CustomAttr_AType_descriptor_;
 }
 bool CustomAttr_AType_IsValid(int value) {
-  switch(value) {
+  switch (value) {
     case 0:
     case 1:
     case 2:
@@ -7265,30 +7381,29 @@ const int CustomAttr::kTypeFieldNumber;
 
 CustomAttr::CustomAttr()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (this != internal_default_instance()) protobuf_InitDefaults_y3d_2eproto();
   SharedCtor();
   // @@protoc_insertion_point(constructor:y3d.CustomAttr)
 }
 
 void CustomAttr::InitAsDefaultInstance() {
-  _is_default_instance_ = true;
-  value_ = const_cast< ::google::protobuf::Any*>(&::google::protobuf::Any::default_instance());
+  value_ = const_cast< ::google::protobuf::Any*>(
+      ::google::protobuf::Any::internal_default_instance());
 }
 
 CustomAttr::CustomAttr(const CustomAttr& from)
   : ::google::protobuf::Message(),
     _internal_metadata_(NULL) {
   SharedCtor();
-  MergeFrom(from);
+  UnsafeMergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:y3d.CustomAttr)
 }
 
 void CustomAttr::SharedCtor() {
-    _is_default_instance_ = false;
-  ::google::protobuf::internal::GetEmptyString();
-  _cached_size_ = 0;
   name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   value_ = NULL;
   type_ = 0;
+  _cached_size_ = 0;
 }
 
 CustomAttr::~CustomAttr() {
@@ -7298,7 +7413,7 @@ CustomAttr::~CustomAttr() {
 
 void CustomAttr::SharedDtor() {
   name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (this != default_instance_) {
+  if (this != &CustomAttr_default_instance_.get()) {
     delete value_;
   }
 }
@@ -7314,11 +7429,11 @@ const ::google::protobuf::Descriptor* CustomAttr::descriptor() {
 }
 
 const CustomAttr& CustomAttr::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_y3d_2eproto();
-  return *default_instance_;
+  protobuf_InitDefaults_y3d_2eproto();
+  return *internal_default_instance();
 }
 
-CustomAttr* CustomAttr::default_instance_ = NULL;
+::google::protobuf::internal::ExplicitlyConstructed<CustomAttr> CustomAttr_default_instance_;
 
 CustomAttr* CustomAttr::New(::google::protobuf::Arena* arena) const {
   CustomAttr* n = new CustomAttr;
@@ -7472,9 +7587,9 @@ void CustomAttr::SerializeWithCachedSizes(
   return target;
 }
 
-int CustomAttr::ByteSize() const {
+size_t CustomAttr::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:y3d.CustomAttr)
-  int total_size = 0;
+  size_t total_size = 0;
 
   // optional string name = 1;
   if (this->name().size() > 0) {
@@ -7496,18 +7611,17 @@ int CustomAttr::ByteSize() const {
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->type());
   }
 
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
+  _cached_size_ = cached_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void CustomAttr::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:y3d.CustomAttr)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
-  const CustomAttr* source = 
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const CustomAttr* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const CustomAttr>(
           &from);
   if (source == NULL) {
@@ -7515,15 +7629,21 @@ void CustomAttr::MergeFrom(const ::google::protobuf::Message& from) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
   // @@protoc_insertion_point(generalized_merge_from_cast_success:y3d.CustomAttr)
-    MergeFrom(*source);
+    UnsafeMergeFrom(*source);
   }
 }
 
 void CustomAttr::MergeFrom(const CustomAttr& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:y3d.CustomAttr)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  if (GOOGLE_PREDICT_TRUE(&from != this)) {
+    UnsafeMergeFrom(from);
+  } else {
+    MergeFromFail(__LINE__);
   }
+}
+
+void CustomAttr::UnsafeMergeFrom(const CustomAttr& from) {
+  GOOGLE_DCHECK(&from != this);
   if (from.name().size() > 0) {
 
     name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
@@ -7547,7 +7667,7 @@ void CustomAttr::CopyFrom(const CustomAttr& from) {
 // @@protoc_insertion_point(class_specific_copy_from_start:y3d.CustomAttr)
   if (&from == this) return;
   Clear();
-  MergeFrom(from);
+  UnsafeMergeFrom(from);
 }
 
 bool CustomAttr::IsInitialized() const {
@@ -7582,37 +7702,37 @@ void CustomAttr::InternalSwap(CustomAttr* other) {
 void CustomAttr::clear_name() {
   name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- const ::std::string& CustomAttr::name() const {
+const ::std::string& CustomAttr::name() const {
   // @@protoc_insertion_point(field_get:y3d.CustomAttr.name)
   return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void CustomAttr::set_name(const ::std::string& value) {
+void CustomAttr::set_name(const ::std::string& value) {
   
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:y3d.CustomAttr.name)
 }
- void CustomAttr::set_name(const char* value) {
+void CustomAttr::set_name(const char* value) {
   
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:y3d.CustomAttr.name)
 }
- void CustomAttr::set_name(const char* value, size_t size) {
+void CustomAttr::set_name(const char* value, size_t size) {
   
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:y3d.CustomAttr.name)
 }
- ::std::string* CustomAttr::mutable_name() {
+::std::string* CustomAttr::mutable_name() {
   
   // @@protoc_insertion_point(field_mutable:y3d.CustomAttr.name)
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* CustomAttr::release_name() {
+::std::string* CustomAttr::release_name() {
   // @@protoc_insertion_point(field_release:y3d.CustomAttr.name)
   
   return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void CustomAttr::set_allocated_name(::std::string* name) {
+void CustomAttr::set_allocated_name(::std::string* name) {
   if (name != NULL) {
     
   } else {
@@ -7624,7 +7744,7 @@ void CustomAttr::clear_name() {
 
 // optional .google.protobuf.Any value = 2;
 bool CustomAttr::has_value() const {
-  return !_is_default_instance_ && value_ != NULL;
+  return this != internal_default_instance() && value_ != NULL;
 }
 void CustomAttr::clear_value() {
   if (GetArenaNoVirtual() == NULL && value_ != NULL) delete value_;
@@ -7632,7 +7752,8 @@ void CustomAttr::clear_value() {
 }
 const ::google::protobuf::Any& CustomAttr::value() const {
   // @@protoc_insertion_point(field_get:y3d.CustomAttr.value)
-  return value_ != NULL ? *value_ : *default_instance_->value_;
+  return value_ != NULL ? *value_
+                         : *::google::protobuf::Any::internal_default_instance();
 }
 ::google::protobuf::Any* CustomAttr::mutable_value() {
   
@@ -7664,16 +7785,19 @@ void CustomAttr::set_allocated_value(::google::protobuf::Any* value) {
 void CustomAttr::clear_type() {
   type_ = 0;
 }
- ::y3d::CustomAttr_AType CustomAttr::type() const {
+::y3d::CustomAttr_AType CustomAttr::type() const {
   // @@protoc_insertion_point(field_get:y3d.CustomAttr.type)
   return static_cast< ::y3d::CustomAttr_AType >(type_);
 }
- void CustomAttr::set_type(::y3d::CustomAttr_AType value) {
+void CustomAttr::set_type(::y3d::CustomAttr_AType value) {
   
   type_ = value;
   // @@protoc_insertion_point(field_set:y3d.CustomAttr.type)
 }
 
+inline const CustomAttr* CustomAttr::internal_default_instance() {
+  return &CustomAttr_default_instance_.get();
+}
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // ===================================================================
@@ -7685,27 +7809,25 @@ const int AttrSet::kAttrsFieldNumber;
 
 AttrSet::AttrSet()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (this != internal_default_instance()) protobuf_InitDefaults_y3d_2eproto();
   SharedCtor();
   // @@protoc_insertion_point(constructor:y3d.AttrSet)
 }
 
 void AttrSet::InitAsDefaultInstance() {
-  _is_default_instance_ = true;
 }
 
 AttrSet::AttrSet(const AttrSet& from)
   : ::google::protobuf::Message(),
     _internal_metadata_(NULL) {
   SharedCtor();
-  MergeFrom(from);
+  UnsafeMergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:y3d.AttrSet)
 }
 
 void AttrSet::SharedCtor() {
-    _is_default_instance_ = false;
-  ::google::protobuf::internal::GetEmptyString();
-  _cached_size_ = 0;
   sname_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  _cached_size_ = 0;
 }
 
 AttrSet::~AttrSet() {
@@ -7715,8 +7837,6 @@ AttrSet::~AttrSet() {
 
 void AttrSet::SharedDtor() {
   sname_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (this != default_instance_) {
-  }
 }
 
 void AttrSet::SetCachedSize(int size) const {
@@ -7730,11 +7850,11 @@ const ::google::protobuf::Descriptor* AttrSet::descriptor() {
 }
 
 const AttrSet& AttrSet::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_y3d_2eproto();
-  return *default_instance_;
+  protobuf_InitDefaults_y3d_2eproto();
+  return *internal_default_instance();
 }
 
-AttrSet* AttrSet::default_instance_ = NULL;
+::google::protobuf::internal::ExplicitlyConstructed<AttrSet> AttrSet_default_instance_;
 
 AttrSet* AttrSet::New(::google::protobuf::Arena* arena) const {
   AttrSet* n = new AttrSet;
@@ -7862,9 +7982,9 @@ void AttrSet::SerializeWithCachedSizes(
   return target;
 }
 
-int AttrSet::ByteSize() const {
+size_t AttrSet::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:y3d.AttrSet)
-  int total_size = 0;
+  size_t total_size = 0;
 
   // optional string sname = 1;
   if (this->sname().size() > 0) {
@@ -7874,25 +7994,27 @@ int AttrSet::ByteSize() const {
   }
 
   // repeated .y3d.CustomAttr attrs = 2;
-  total_size += 1 * this->attrs_size();
-  for (int i = 0; i < this->attrs_size(); i++) {
-    total_size +=
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->attrs(i));
+  {
+    unsigned int count = this->attrs_size();
+    total_size += 1UL * count;
+    for (unsigned int i = 0; i < count; i++) {
+      total_size +=
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->attrs(i));
+    }
   }
 
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
+  _cached_size_ = cached_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void AttrSet::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:y3d.AttrSet)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
-  const AttrSet* source = 
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const AttrSet* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const AttrSet>(
           &from);
   if (source == NULL) {
@@ -7900,15 +8022,21 @@ void AttrSet::MergeFrom(const ::google::protobuf::Message& from) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
   // @@protoc_insertion_point(generalized_merge_from_cast_success:y3d.AttrSet)
-    MergeFrom(*source);
+    UnsafeMergeFrom(*source);
   }
 }
 
 void AttrSet::MergeFrom(const AttrSet& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:y3d.AttrSet)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  if (GOOGLE_PREDICT_TRUE(&from != this)) {
+    UnsafeMergeFrom(from);
+  } else {
+    MergeFromFail(__LINE__);
   }
+}
+
+void AttrSet::UnsafeMergeFrom(const AttrSet& from) {
+  GOOGLE_DCHECK(&from != this);
   attrs_.MergeFrom(from.attrs_);
   if (from.sname().size() > 0) {
 
@@ -7927,7 +8055,7 @@ void AttrSet::CopyFrom(const AttrSet& from) {
 // @@protoc_insertion_point(class_specific_copy_from_start:y3d.AttrSet)
   if (&from == this) return;
   Clear();
-  MergeFrom(from);
+  UnsafeMergeFrom(from);
 }
 
 bool AttrSet::IsInitialized() const {
@@ -7961,37 +8089,37 @@ void AttrSet::InternalSwap(AttrSet* other) {
 void AttrSet::clear_sname() {
   sname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- const ::std::string& AttrSet::sname() const {
+const ::std::string& AttrSet::sname() const {
   // @@protoc_insertion_point(field_get:y3d.AttrSet.sname)
   return sname_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void AttrSet::set_sname(const ::std::string& value) {
+void AttrSet::set_sname(const ::std::string& value) {
   
   sname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:y3d.AttrSet.sname)
 }
- void AttrSet::set_sname(const char* value) {
+void AttrSet::set_sname(const char* value) {
   
   sname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:y3d.AttrSet.sname)
 }
- void AttrSet::set_sname(const char* value, size_t size) {
+void AttrSet::set_sname(const char* value, size_t size) {
   
   sname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:y3d.AttrSet.sname)
 }
- ::std::string* AttrSet::mutable_sname() {
+::std::string* AttrSet::mutable_sname() {
   
   // @@protoc_insertion_point(field_mutable:y3d.AttrSet.sname)
   return sname_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* AttrSet::release_sname() {
+::std::string* AttrSet::release_sname() {
   // @@protoc_insertion_point(field_release:y3d.AttrSet.sname)
   
   return sname_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void AttrSet::set_allocated_sname(::std::string* sname) {
+void AttrSet::set_allocated_sname(::std::string* sname) {
   if (sname != NULL) {
     
   } else {
@@ -8031,6 +8159,9 @@ AttrSet::attrs() const {
   return attrs_;
 }
 
+inline const AttrSet* AttrSet::internal_default_instance() {
+  return &AttrSet_default_instance_.get();
+}
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // ===================================================================
@@ -8044,30 +8175,27 @@ const int FilterView::kAidFieldNumber;
 
 FilterView::FilterView()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (this != internal_default_instance()) protobuf_InitDefaults_y3d_2eproto();
   SharedCtor();
   // @@protoc_insertion_point(constructor:y3d.FilterView)
 }
 
 void FilterView::InitAsDefaultInstance() {
-  _is_default_instance_ = true;
 }
 
 FilterView::FilterView(const FilterView& from)
   : ::google::protobuf::Message(),
     _internal_metadata_(NULL) {
   SharedCtor();
-  MergeFrom(from);
+  UnsafeMergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:y3d.FilterView)
 }
 
 void FilterView::SharedCtor() {
-    _is_default_instance_ = false;
-  ::google::protobuf::internal::GetEmptyString();
-  _cached_size_ = 0;
-  otype_ = 0;
-  face_range_ = 0;
   search_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  aid_ = 0;
+  ::memset(&otype_, 0, reinterpret_cast<char*>(&aid_) -
+    reinterpret_cast<char*>(&otype_) + sizeof(aid_));
+  _cached_size_ = 0;
 }
 
 FilterView::~FilterView() {
@@ -8077,8 +8205,6 @@ FilterView::~FilterView() {
 
 void FilterView::SharedDtor() {
   search_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (this != default_instance_) {
-  }
 }
 
 void FilterView::SetCachedSize(int size) const {
@@ -8092,11 +8218,11 @@ const ::google::protobuf::Descriptor* FilterView::descriptor() {
 }
 
 const FilterView& FilterView::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_y3d_2eproto();
-  return *default_instance_;
+  protobuf_InitDefaults_y3d_2eproto();
+  return *internal_default_instance();
 }
 
-FilterView* FilterView::default_instance_ = NULL;
+::google::protobuf::internal::ExplicitlyConstructed<FilterView> FilterView_default_instance_;
 
 FilterView* FilterView::New(::google::protobuf::Arena* arena) const {
   FilterView* n = new FilterView;
@@ -8120,13 +8246,12 @@ void FilterView::Clear() {
 #endif
 
 #define ZR_(first, last) do {\
-  ::memset(&first, 0,\
+  ::memset(&(first), 0,\
            ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
 } while (0)
 
-  ZR_(otype_, face_range_);
+  ZR_(otype_, aid_);
   search_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  aid_ = 0;
 
 #undef ZR_HELPER_
 #undef ZR_
@@ -8162,10 +8287,10 @@ bool FilterView::MergePartialFromCodedStream(
       case 2: {
         if (tag == 16) {
          parse_face_range:
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &face_range_)));
-
         } else {
           goto handle_unusual;
         }
@@ -8194,10 +8319,10 @@ bool FilterView::MergePartialFromCodedStream(
       case 4: {
         if (tag == 32) {
          parse_aid:
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &aid_)));
-
         } else {
           goto handle_unusual;
         }
@@ -8293,9 +8418,9 @@ void FilterView::SerializeWithCachedSizes(
   return target;
 }
 
-int FilterView::ByteSize() const {
+size_t FilterView::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:y3d.FilterView)
-  int total_size = 0;
+  size_t total_size = 0;
 
   // optional .y3d.ObjectType otype = 1;
   if (this->otype() != 0) {
@@ -8324,18 +8449,17 @@ int FilterView::ByteSize() const {
         this->aid());
   }
 
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
+  _cached_size_ = cached_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void FilterView::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:y3d.FilterView)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
-  const FilterView* source = 
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const FilterView* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const FilterView>(
           &from);
   if (source == NULL) {
@@ -8343,15 +8467,21 @@ void FilterView::MergeFrom(const ::google::protobuf::Message& from) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
   // @@protoc_insertion_point(generalized_merge_from_cast_success:y3d.FilterView)
-    MergeFrom(*source);
+    UnsafeMergeFrom(*source);
   }
 }
 
 void FilterView::MergeFrom(const FilterView& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:y3d.FilterView)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  if (GOOGLE_PREDICT_TRUE(&from != this)) {
+    UnsafeMergeFrom(from);
+  } else {
+    MergeFromFail(__LINE__);
   }
+}
+
+void FilterView::UnsafeMergeFrom(const FilterView& from) {
+  GOOGLE_DCHECK(&from != this);
   if (from.otype() != 0) {
     set_otype(from.otype());
   }
@@ -8378,7 +8508,7 @@ void FilterView::CopyFrom(const FilterView& from) {
 // @@protoc_insertion_point(class_specific_copy_from_start:y3d.FilterView)
   if (&from == this) return;
   Clear();
-  MergeFrom(from);
+  UnsafeMergeFrom(from);
 }
 
 bool FilterView::IsInitialized() const {
@@ -8414,11 +8544,11 @@ void FilterView::InternalSwap(FilterView* other) {
 void FilterView::clear_otype() {
   otype_ = 0;
 }
- ::y3d::ObjectType FilterView::otype() const {
+::y3d::ObjectType FilterView::otype() const {
   // @@protoc_insertion_point(field_get:y3d.FilterView.otype)
   return static_cast< ::y3d::ObjectType >(otype_);
 }
- void FilterView::set_otype(::y3d::ObjectType value) {
+void FilterView::set_otype(::y3d::ObjectType value) {
   
   otype_ = value;
   // @@protoc_insertion_point(field_set:y3d.FilterView.otype)
@@ -8428,11 +8558,11 @@ void FilterView::clear_otype() {
 void FilterView::clear_face_range() {
   face_range_ = 0;
 }
- ::google::protobuf::int32 FilterView::face_range() const {
+::google::protobuf::int32 FilterView::face_range() const {
   // @@protoc_insertion_point(field_get:y3d.FilterView.face_range)
   return face_range_;
 }
- void FilterView::set_face_range(::google::protobuf::int32 value) {
+void FilterView::set_face_range(::google::protobuf::int32 value) {
   
   face_range_ = value;
   // @@protoc_insertion_point(field_set:y3d.FilterView.face_range)
@@ -8442,37 +8572,37 @@ void FilterView::clear_face_range() {
 void FilterView::clear_search() {
   search_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- const ::std::string& FilterView::search() const {
+const ::std::string& FilterView::search() const {
   // @@protoc_insertion_point(field_get:y3d.FilterView.search)
   return search_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void FilterView::set_search(const ::std::string& value) {
+void FilterView::set_search(const ::std::string& value) {
   
   search_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:y3d.FilterView.search)
 }
- void FilterView::set_search(const char* value) {
+void FilterView::set_search(const char* value) {
   
   search_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:y3d.FilterView.search)
 }
- void FilterView::set_search(const char* value, size_t size) {
+void FilterView::set_search(const char* value, size_t size) {
   
   search_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:y3d.FilterView.search)
 }
- ::std::string* FilterView::mutable_search() {
+::std::string* FilterView::mutable_search() {
   
   // @@protoc_insertion_point(field_mutable:y3d.FilterView.search)
   return search_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* FilterView::release_search() {
+::std::string* FilterView::release_search() {
   // @@protoc_insertion_point(field_release:y3d.FilterView.search)
   
   return search_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void FilterView::set_allocated_search(::std::string* search) {
+void FilterView::set_allocated_search(::std::string* search) {
   if (search != NULL) {
     
   } else {
@@ -8486,16 +8616,19 @@ void FilterView::clear_search() {
 void FilterView::clear_aid() {
   aid_ = 0;
 }
- ::google::protobuf::int32 FilterView::aid() const {
+::google::protobuf::int32 FilterView::aid() const {
   // @@protoc_insertion_point(field_get:y3d.FilterView.aid)
   return aid_;
 }
- void FilterView::set_aid(::google::protobuf::int32 value) {
+void FilterView::set_aid(::google::protobuf::int32 value) {
   
   aid_ = value;
   // @@protoc_insertion_point(field_set:y3d.FilterView.aid)
 }
 
+inline const FilterView* FilterView::internal_default_instance() {
+  return &FilterView_default_instance_.get();
+}
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // ===================================================================
@@ -8510,28 +8643,26 @@ const int ProjectInfo::kFviewFieldNumber;
 
 ProjectInfo::ProjectInfo()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (this != internal_default_instance()) protobuf_InitDefaults_y3d_2eproto();
   SharedCtor();
   // @@protoc_insertion_point(constructor:y3d.ProjectInfo)
 }
 
 void ProjectInfo::InitAsDefaultInstance() {
-  _is_default_instance_ = true;
 }
 
 ProjectInfo::ProjectInfo(const ProjectInfo& from)
   : ::google::protobuf::Message(),
     _internal_metadata_(NULL) {
   SharedCtor();
-  MergeFrom(from);
+  UnsafeMergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:y3d.ProjectInfo)
 }
 
 void ProjectInfo::SharedCtor() {
-    _is_default_instance_ = false;
-  ::google::protobuf::internal::GetEmptyString();
-  _cached_size_ = 0;
   pname_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   path_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  _cached_size_ = 0;
 }
 
 ProjectInfo::~ProjectInfo() {
@@ -8542,8 +8673,6 @@ ProjectInfo::~ProjectInfo() {
 void ProjectInfo::SharedDtor() {
   pname_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   path_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (this != default_instance_) {
-  }
 }
 
 void ProjectInfo::SetCachedSize(int size) const {
@@ -8557,11 +8686,11 @@ const ::google::protobuf::Descriptor* ProjectInfo::descriptor() {
 }
 
 const ProjectInfo& ProjectInfo::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_y3d_2eproto();
-  return *default_instance_;
+  protobuf_InitDefaults_y3d_2eproto();
+  return *internal_default_instance();
 }
 
-ProjectInfo* ProjectInfo::default_instance_ = NULL;
+::google::protobuf::internal::ExplicitlyConstructed<ProjectInfo> ProjectInfo_default_instance_;
 
 ProjectInfo* ProjectInfo::New(::google::protobuf::Arena* arena) const {
   ProjectInfo* n = new ProjectInfo;
@@ -8801,9 +8930,9 @@ void ProjectInfo::SerializeWithCachedSizes(
   return target;
 }
 
-int ProjectInfo::ByteSize() const {
+size_t ProjectInfo::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:y3d.ProjectInfo)
-  int total_size = 0;
+  size_t total_size = 0;
 
   // optional string pname = 1;
   if (this->pname().size() > 0) {
@@ -8821,8 +8950,9 @@ int ProjectInfo::ByteSize() const {
 
   // repeated int32 face_range = 3;
   {
-    int data_size = 0;
-    for (int i = 0; i < this->face_range_size(); i++) {
+    size_t data_size = 0;
+    unsigned int count = this->face_range_size();
+    for (unsigned int i = 0; i < count; i++) {
       data_size += ::google::protobuf::internal::WireFormatLite::
         Int32Size(this->face_range(i));
     }
@@ -8830,40 +8960,46 @@ int ProjectInfo::ByteSize() const {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(data_size);
     }
+    int cached_size = ::google::protobuf::internal::ToCachedSize(data_size);
     GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-    _face_range_cached_byte_size_ = data_size;
+    _face_range_cached_byte_size_ = cached_size;
     GOOGLE_SAFE_CONCURRENT_WRITES_END();
     total_size += data_size;
   }
 
   // repeated .y3d.YColor count_color = 4;
-  total_size += 1 * this->count_color_size();
-  for (int i = 0; i < this->count_color_size(); i++) {
-    total_size +=
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->count_color(i));
+  {
+    unsigned int count = this->count_color_size();
+    total_size += 1UL * count;
+    for (unsigned int i = 0; i < count; i++) {
+      total_size +=
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->count_color(i));
+    }
   }
 
   // repeated .y3d.FilterView fview = 5;
-  total_size += 1 * this->fview_size();
-  for (int i = 0; i < this->fview_size(); i++) {
-    total_size +=
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->fview(i));
+  {
+    unsigned int count = this->fview_size();
+    total_size += 1UL * count;
+    for (unsigned int i = 0; i < count; i++) {
+      total_size +=
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->fview(i));
+    }
   }
 
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
+  _cached_size_ = cached_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void ProjectInfo::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:y3d.ProjectInfo)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
-  const ProjectInfo* source = 
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const ProjectInfo* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const ProjectInfo>(
           &from);
   if (source == NULL) {
@@ -8871,16 +9007,22 @@ void ProjectInfo::MergeFrom(const ::google::protobuf::Message& from) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
   // @@protoc_insertion_point(generalized_merge_from_cast_success:y3d.ProjectInfo)
-    MergeFrom(*source);
+    UnsafeMergeFrom(*source);
   }
 }
 
 void ProjectInfo::MergeFrom(const ProjectInfo& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:y3d.ProjectInfo)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  if (GOOGLE_PREDICT_TRUE(&from != this)) {
+    UnsafeMergeFrom(from);
+  } else {
+    MergeFromFail(__LINE__);
   }
-  face_range_.MergeFrom(from.face_range_);
+}
+
+void ProjectInfo::UnsafeMergeFrom(const ProjectInfo& from) {
+  GOOGLE_DCHECK(&from != this);
+  face_range_.UnsafeMergeFrom(from.face_range_);
   count_color_.MergeFrom(from.count_color_);
   fview_.MergeFrom(from.fview_);
   if (from.pname().size() > 0) {
@@ -8904,7 +9046,7 @@ void ProjectInfo::CopyFrom(const ProjectInfo& from) {
 // @@protoc_insertion_point(class_specific_copy_from_start:y3d.ProjectInfo)
   if (&from == this) return;
   Clear();
-  MergeFrom(from);
+  UnsafeMergeFrom(from);
 }
 
 bool ProjectInfo::IsInitialized() const {
@@ -8941,37 +9083,37 @@ void ProjectInfo::InternalSwap(ProjectInfo* other) {
 void ProjectInfo::clear_pname() {
   pname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- const ::std::string& ProjectInfo::pname() const {
+const ::std::string& ProjectInfo::pname() const {
   // @@protoc_insertion_point(field_get:y3d.ProjectInfo.pname)
   return pname_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void ProjectInfo::set_pname(const ::std::string& value) {
+void ProjectInfo::set_pname(const ::std::string& value) {
   
   pname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:y3d.ProjectInfo.pname)
 }
- void ProjectInfo::set_pname(const char* value) {
+void ProjectInfo::set_pname(const char* value) {
   
   pname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:y3d.ProjectInfo.pname)
 }
- void ProjectInfo::set_pname(const char* value, size_t size) {
+void ProjectInfo::set_pname(const char* value, size_t size) {
   
   pname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:y3d.ProjectInfo.pname)
 }
- ::std::string* ProjectInfo::mutable_pname() {
+::std::string* ProjectInfo::mutable_pname() {
   
   // @@protoc_insertion_point(field_mutable:y3d.ProjectInfo.pname)
   return pname_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* ProjectInfo::release_pname() {
+::std::string* ProjectInfo::release_pname() {
   // @@protoc_insertion_point(field_release:y3d.ProjectInfo.pname)
   
   return pname_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void ProjectInfo::set_allocated_pname(::std::string* pname) {
+void ProjectInfo::set_allocated_pname(::std::string* pname) {
   if (pname != NULL) {
     
   } else {
@@ -8985,37 +9127,37 @@ void ProjectInfo::clear_pname() {
 void ProjectInfo::clear_path() {
   path_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- const ::std::string& ProjectInfo::path() const {
+const ::std::string& ProjectInfo::path() const {
   // @@protoc_insertion_point(field_get:y3d.ProjectInfo.path)
   return path_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void ProjectInfo::set_path(const ::std::string& value) {
+void ProjectInfo::set_path(const ::std::string& value) {
   
   path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:y3d.ProjectInfo.path)
 }
- void ProjectInfo::set_path(const char* value) {
+void ProjectInfo::set_path(const char* value) {
   
   path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:y3d.ProjectInfo.path)
 }
- void ProjectInfo::set_path(const char* value, size_t size) {
+void ProjectInfo::set_path(const char* value, size_t size) {
   
   path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:y3d.ProjectInfo.path)
 }
- ::std::string* ProjectInfo::mutable_path() {
+::std::string* ProjectInfo::mutable_path() {
   
   // @@protoc_insertion_point(field_mutable:y3d.ProjectInfo.path)
   return path_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* ProjectInfo::release_path() {
+::std::string* ProjectInfo::release_path() {
   // @@protoc_insertion_point(field_release:y3d.ProjectInfo.path)
   
   return path_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void ProjectInfo::set_allocated_path(::std::string* path) {
+void ProjectInfo::set_allocated_path(::std::string* path) {
   if (path != NULL) {
     
   } else {
@@ -9032,24 +9174,24 @@ int ProjectInfo::face_range_size() const {
 void ProjectInfo::clear_face_range() {
   face_range_.Clear();
 }
- ::google::protobuf::int32 ProjectInfo::face_range(int index) const {
+::google::protobuf::int32 ProjectInfo::face_range(int index) const {
   // @@protoc_insertion_point(field_get:y3d.ProjectInfo.face_range)
   return face_range_.Get(index);
 }
- void ProjectInfo::set_face_range(int index, ::google::protobuf::int32 value) {
+void ProjectInfo::set_face_range(int index, ::google::protobuf::int32 value) {
   face_range_.Set(index, value);
   // @@protoc_insertion_point(field_set:y3d.ProjectInfo.face_range)
 }
- void ProjectInfo::add_face_range(::google::protobuf::int32 value) {
+void ProjectInfo::add_face_range(::google::protobuf::int32 value) {
   face_range_.Add(value);
   // @@protoc_insertion_point(field_add:y3d.ProjectInfo.face_range)
 }
- const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
 ProjectInfo::face_range() const {
   // @@protoc_insertion_point(field_list:y3d.ProjectInfo.face_range)
   return face_range_;
 }
- ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
 ProjectInfo::mutable_face_range() {
   // @@protoc_insertion_point(field_mutable_list:y3d.ProjectInfo.face_range)
   return &face_range_;
@@ -9115,6 +9257,9 @@ ProjectInfo::fview() const {
   return fview_;
 }
 
+inline const ProjectInfo* ProjectInfo::internal_default_instance() {
+  return &ProjectInfo_default_instance_.get();
+}
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // ===================================================================
@@ -9125,24 +9270,23 @@ const int YAreaList::kAreasFieldNumber;
 
 YAreaList::YAreaList()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (this != internal_default_instance()) protobuf_InitDefaults_y3d_2eproto();
   SharedCtor();
   // @@protoc_insertion_point(constructor:y3d.YAreaList)
 }
 
 void YAreaList::InitAsDefaultInstance() {
-  _is_default_instance_ = true;
 }
 
 YAreaList::YAreaList(const YAreaList& from)
   : ::google::protobuf::Message(),
     _internal_metadata_(NULL) {
   SharedCtor();
-  MergeFrom(from);
+  UnsafeMergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:y3d.YAreaList)
 }
 
 void YAreaList::SharedCtor() {
-    _is_default_instance_ = false;
   _cached_size_ = 0;
 }
 
@@ -9152,8 +9296,6 @@ YAreaList::~YAreaList() {
 }
 
 void YAreaList::SharedDtor() {
-  if (this != default_instance_) {
-  }
 }
 
 void YAreaList::SetCachedSize(int size) const {
@@ -9167,11 +9309,11 @@ const ::google::protobuf::Descriptor* YAreaList::descriptor() {
 }
 
 const YAreaList& YAreaList::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_y3d_2eproto();
-  return *default_instance_;
+  protobuf_InitDefaults_y3d_2eproto();
+  return *internal_default_instance();
 }
 
-YAreaList* YAreaList::default_instance_ = NULL;
+::google::protobuf::internal::ExplicitlyConstructed<YAreaList> YAreaList_default_instance_;
 
 YAreaList* YAreaList::New(::google::protobuf::Arena* arena) const {
   YAreaList* n = new YAreaList;
@@ -9260,30 +9402,32 @@ void YAreaList::SerializeWithCachedSizes(
   return target;
 }
 
-int YAreaList::ByteSize() const {
+size_t YAreaList::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:y3d.YAreaList)
-  int total_size = 0;
+  size_t total_size = 0;
 
   // repeated .y3d.YArea areas = 1;
-  total_size += 1 * this->areas_size();
-  for (int i = 0; i < this->areas_size(); i++) {
-    total_size +=
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->areas(i));
+  {
+    unsigned int count = this->areas_size();
+    total_size += 1UL * count;
+    for (unsigned int i = 0; i < count; i++) {
+      total_size +=
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->areas(i));
+    }
   }
 
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
+  _cached_size_ = cached_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void YAreaList::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:y3d.YAreaList)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
-  const YAreaList* source = 
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const YAreaList* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const YAreaList>(
           &from);
   if (source == NULL) {
@@ -9291,15 +9435,21 @@ void YAreaList::MergeFrom(const ::google::protobuf::Message& from) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
   // @@protoc_insertion_point(generalized_merge_from_cast_success:y3d.YAreaList)
-    MergeFrom(*source);
+    UnsafeMergeFrom(*source);
   }
 }
 
 void YAreaList::MergeFrom(const YAreaList& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:y3d.YAreaList)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  if (GOOGLE_PREDICT_TRUE(&from != this)) {
+    UnsafeMergeFrom(from);
+  } else {
+    MergeFromFail(__LINE__);
   }
+}
+
+void YAreaList::UnsafeMergeFrom(const YAreaList& from) {
+  GOOGLE_DCHECK(&from != this);
   areas_.MergeFrom(from.areas_);
 }
 
@@ -9314,7 +9464,7 @@ void YAreaList::CopyFrom(const YAreaList& from) {
 // @@protoc_insertion_point(class_specific_copy_from_start:y3d.YAreaList)
   if (&from == this) return;
   Clear();
-  MergeFrom(from);
+  UnsafeMergeFrom(from);
 }
 
 bool YAreaList::IsInitialized() const {
@@ -9373,6 +9523,9 @@ YAreaList::areas() const {
   return areas_;
 }
 
+inline const YAreaList* YAreaList::internal_default_instance() {
+  return &YAreaList_default_instance_.get();
+}
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // ===================================================================
@@ -9384,26 +9537,25 @@ const int PSetting::kMaxRecentFieldNumber;
 
 PSetting::PSetting()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (this != internal_default_instance()) protobuf_InitDefaults_y3d_2eproto();
   SharedCtor();
   // @@protoc_insertion_point(constructor:y3d.PSetting)
 }
 
 void PSetting::InitAsDefaultInstance() {
-  _is_default_instance_ = true;
 }
 
 PSetting::PSetting(const PSetting& from)
   : ::google::protobuf::Message(),
     _internal_metadata_(NULL) {
   SharedCtor();
-  MergeFrom(from);
+  UnsafeMergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:y3d.PSetting)
 }
 
 void PSetting::SharedCtor() {
-    _is_default_instance_ = false;
-  _cached_size_ = 0;
   max_recent_ = 0;
+  _cached_size_ = 0;
 }
 
 PSetting::~PSetting() {
@@ -9412,8 +9564,6 @@ PSetting::~PSetting() {
 }
 
 void PSetting::SharedDtor() {
-  if (this != default_instance_) {
-  }
 }
 
 void PSetting::SetCachedSize(int size) const {
@@ -9427,11 +9577,11 @@ const ::google::protobuf::Descriptor* PSetting::descriptor() {
 }
 
 const PSetting& PSetting::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_y3d_2eproto();
-  return *default_instance_;
+  protobuf_InitDefaults_y3d_2eproto();
+  return *internal_default_instance();
 }
 
-PSetting* PSetting::default_instance_ = NULL;
+::google::protobuf::internal::ExplicitlyConstructed<PSetting> PSetting_default_instance_;
 
 PSetting* PSetting::New(::google::protobuf::Arena* arena) const {
   PSetting* n = new PSetting;
@@ -9477,10 +9627,10 @@ bool PSetting::MergePartialFromCodedStream(
       case 3: {
         if (tag == 24) {
          parse_max_recent:
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &max_recent_)));
-
         } else {
           goto handle_unusual;
         }
@@ -9546,9 +9696,9 @@ void PSetting::SerializeWithCachedSizes(
   return target;
 }
 
-int PSetting::ByteSize() const {
+size_t PSetting::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:y3d.PSetting)
-  int total_size = 0;
+  size_t total_size = 0;
 
   // optional int32 max_recent = 3;
   if (this->max_recent() != 0) {
@@ -9558,25 +9708,27 @@ int PSetting::ByteSize() const {
   }
 
   // repeated .y3d.CustomAttr extra = 2;
-  total_size += 1 * this->extra_size();
-  for (int i = 0; i < this->extra_size(); i++) {
-    total_size +=
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->extra(i));
+  {
+    unsigned int count = this->extra_size();
+    total_size += 1UL * count;
+    for (unsigned int i = 0; i < count; i++) {
+      total_size +=
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->extra(i));
+    }
   }
 
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
+  _cached_size_ = cached_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void PSetting::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:y3d.PSetting)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
-  const PSetting* source = 
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const PSetting* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const PSetting>(
           &from);
   if (source == NULL) {
@@ -9584,15 +9736,21 @@ void PSetting::MergeFrom(const ::google::protobuf::Message& from) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
   // @@protoc_insertion_point(generalized_merge_from_cast_success:y3d.PSetting)
-    MergeFrom(*source);
+    UnsafeMergeFrom(*source);
   }
 }
 
 void PSetting::MergeFrom(const PSetting& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:y3d.PSetting)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  if (GOOGLE_PREDICT_TRUE(&from != this)) {
+    UnsafeMergeFrom(from);
+  } else {
+    MergeFromFail(__LINE__);
   }
+}
+
+void PSetting::UnsafeMergeFrom(const PSetting& from) {
+  GOOGLE_DCHECK(&from != this);
   extra_.MergeFrom(from.extra_);
   if (from.max_recent() != 0) {
     set_max_recent(from.max_recent());
@@ -9610,7 +9768,7 @@ void PSetting::CopyFrom(const PSetting& from) {
 // @@protoc_insertion_point(class_specific_copy_from_start:y3d.PSetting)
   if (&from == this) return;
   Clear();
-  MergeFrom(from);
+  UnsafeMergeFrom(from);
 }
 
 bool PSetting::IsInitialized() const {
@@ -9674,16 +9832,19 @@ PSetting::extra() const {
 void PSetting::clear_max_recent() {
   max_recent_ = 0;
 }
- ::google::protobuf::int32 PSetting::max_recent() const {
+::google::protobuf::int32 PSetting::max_recent() const {
   // @@protoc_insertion_point(field_get:y3d.PSetting.max_recent)
   return max_recent_;
 }
- void PSetting::set_max_recent(::google::protobuf::int32 value) {
+void PSetting::set_max_recent(::google::protobuf::int32 value) {
   
   max_recent_ = value;
   // @@protoc_insertion_point(field_set:y3d.PSetting.max_recent)
 }
 
+inline const PSetting* PSetting::internal_default_instance() {
+  return &PSetting_default_instance_.get();
+}
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // ===================================================================
@@ -9696,34 +9857,34 @@ const int YSystem::kNamePathFieldNumber;
 
 YSystem::YSystem()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (this != internal_default_instance()) protobuf_InitDefaults_y3d_2eproto();
   SharedCtor();
   // @@protoc_insertion_point(constructor:y3d.YSystem)
 }
 
 void YSystem::InitAsDefaultInstance() {
-  _is_default_instance_ = true;
-  default_info_ = const_cast< ::y3d::ProjectInfo*>(&::y3d::ProjectInfo::default_instance());
-  default_setting_ = const_cast< ::y3d::PSetting*>(&::y3d::PSetting::default_instance());
+  default_info_ = const_cast< ::y3d::ProjectInfo*>(
+      ::y3d::ProjectInfo::internal_default_instance());
+  default_setting_ = const_cast< ::y3d::PSetting*>(
+      ::y3d::PSetting::internal_default_instance());
 }
 
 YSystem::YSystem(const YSystem& from)
   : ::google::protobuf::Message(),
     _internal_metadata_(NULL) {
   SharedCtor();
-  MergeFrom(from);
+  UnsafeMergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:y3d.YSystem)
 }
 
 void YSystem::SharedCtor() {
-    _is_default_instance_ = false;
-  ::google::protobuf::internal::GetEmptyString();
-  _cached_size_ = 0;
-  default_info_ = NULL;
-  default_setting_ = NULL;
   name_path_.SetAssignDescriptorCallback(
       protobuf_AssignDescriptorsOnce);
   name_path_.SetEntryDescriptor(
       &::y3d::YSystem_NamePathEntry_descriptor_);
+  default_info_ = NULL;
+  default_setting_ = NULL;
+  _cached_size_ = 0;
 }
 
 YSystem::~YSystem() {
@@ -9732,7 +9893,7 @@ YSystem::~YSystem() {
 }
 
 void YSystem::SharedDtor() {
-  if (this != default_instance_) {
+  if (this != &YSystem_default_instance_.get()) {
     delete default_info_;
     delete default_setting_;
   }
@@ -9749,11 +9910,11 @@ const ::google::protobuf::Descriptor* YSystem::descriptor() {
 }
 
 const YSystem& YSystem::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_y3d_2eproto();
-  return *default_instance_;
+  protobuf_InitDefaults_y3d_2eproto();
+  return *internal_default_instance();
 }
 
-YSystem* YSystem::default_instance_ = NULL;
+::google::protobuf::internal::ExplicitlyConstructed<YSystem> YSystem_default_instance_;
 
 YSystem* YSystem::New(::google::protobuf::Arena* arena) const {
   YSystem* n = new YSystem;
@@ -10009,9 +10170,9 @@ void YSystem::SerializeWithCachedSizes(
   return target;
 }
 
-int YSystem::ByteSize() const {
+size_t YSystem::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:y3d.YSystem)
-  int total_size = 0;
+  size_t total_size = 0;
 
   // optional .y3d.ProjectInfo default_info = 1;
   if (this->has_default_info()) {
@@ -10028,7 +10189,8 @@ int YSystem::ByteSize() const {
   }
 
   // map<string, string> name_path = 3;
-  total_size += 1 * this->name_path_size();
+  total_size += 1 *
+      ::google::protobuf::internal::FromIntSize(this->name_path_size());
   {
     ::google::protobuf::scoped_ptr<YSystem_NamePathEntry> entry;
     for (::google::protobuf::Map< ::std::string, ::std::string >::const_iterator
@@ -10040,18 +10202,17 @@ int YSystem::ByteSize() const {
     }
   }
 
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
+  _cached_size_ = cached_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void YSystem::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:y3d.YSystem)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
-  const YSystem* source = 
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const YSystem* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const YSystem>(
           &from);
   if (source == NULL) {
@@ -10059,15 +10220,21 @@ void YSystem::MergeFrom(const ::google::protobuf::Message& from) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
   // @@protoc_insertion_point(generalized_merge_from_cast_success:y3d.YSystem)
-    MergeFrom(*source);
+    UnsafeMergeFrom(*source);
   }
 }
 
 void YSystem::MergeFrom(const YSystem& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:y3d.YSystem)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  if (GOOGLE_PREDICT_TRUE(&from != this)) {
+    UnsafeMergeFrom(from);
+  } else {
+    MergeFromFail(__LINE__);
   }
+}
+
+void YSystem::UnsafeMergeFrom(const YSystem& from) {
+  GOOGLE_DCHECK(&from != this);
   name_path_.MergeFrom(from.name_path_);
   if (from.has_default_info()) {
     mutable_default_info()->::y3d::ProjectInfo::MergeFrom(from.default_info());
@@ -10088,7 +10255,7 @@ void YSystem::CopyFrom(const YSystem& from) {
 // @@protoc_insertion_point(class_specific_copy_from_start:y3d.YSystem)
   if (&from == this) return;
   Clear();
-  MergeFrom(from);
+  UnsafeMergeFrom(from);
 }
 
 bool YSystem::IsInitialized() const {
@@ -10121,7 +10288,7 @@ void YSystem::InternalSwap(YSystem* other) {
 
 // optional .y3d.ProjectInfo default_info = 1;
 bool YSystem::has_default_info() const {
-  return !_is_default_instance_ && default_info_ != NULL;
+  return this != internal_default_instance() && default_info_ != NULL;
 }
 void YSystem::clear_default_info() {
   if (GetArenaNoVirtual() == NULL && default_info_ != NULL) delete default_info_;
@@ -10129,7 +10296,8 @@ void YSystem::clear_default_info() {
 }
 const ::y3d::ProjectInfo& YSystem::default_info() const {
   // @@protoc_insertion_point(field_get:y3d.YSystem.default_info)
-  return default_info_ != NULL ? *default_info_ : *default_instance_->default_info_;
+  return default_info_ != NULL ? *default_info_
+                         : *::y3d::ProjectInfo::internal_default_instance();
 }
 ::y3d::ProjectInfo* YSystem::mutable_default_info() {
   
@@ -10159,7 +10327,7 @@ void YSystem::set_allocated_default_info(::y3d::ProjectInfo* default_info) {
 
 // optional .y3d.PSetting default_setting = 2;
 bool YSystem::has_default_setting() const {
-  return !_is_default_instance_ && default_setting_ != NULL;
+  return this != internal_default_instance() && default_setting_ != NULL;
 }
 void YSystem::clear_default_setting() {
   if (GetArenaNoVirtual() == NULL && default_setting_ != NULL) delete default_setting_;
@@ -10167,7 +10335,8 @@ void YSystem::clear_default_setting() {
 }
 const ::y3d::PSetting& YSystem::default_setting() const {
   // @@protoc_insertion_point(field_get:y3d.YSystem.default_setting)
-  return default_setting_ != NULL ? *default_setting_ : *default_instance_->default_setting_;
+  return default_setting_ != NULL ? *default_setting_
+                         : *::y3d::PSetting::internal_default_instance();
 }
 ::y3d::PSetting* YSystem::mutable_default_setting() {
   
@@ -10213,6 +10382,9 @@ YSystem::mutable_name_path() {
   return name_path_.MutableMap();
 }
 
+inline const YSystem* YSystem::internal_default_instance() {
+  return &YSystem_default_instance_.get();
+}
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)

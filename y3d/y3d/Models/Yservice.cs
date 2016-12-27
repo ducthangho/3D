@@ -22,14 +22,13 @@ namespace Y3D.YService {
     static YserviceReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "Cg55c2VydmljZS5wcm90bxIDeTNkGhlnb29nbGUvcHJvdG9idWYvYW55LnBy",
-            "b3RvGgl5M2QucHJvdG8iLQoLUmVzdWx0UmVwbHkSDQoFZXJyb3IYASABKAgS",
-            "DwoHbWVzc2FnZRgCIAEoCSIgCgtSZW5hbWVQYXJhbRIRCgl1c2VTZWxlY3QY",
-            "ASABKAgyPQoFVG9vbHMSNAoMUmVuYW1lT2JqZWN0EhAueTNkLlJlbmFtZVBh",
-            "cmFtGhAueTNkLlJlc3VsdFJlcGx5IgBCD6oCDFkzRC5ZU2VydmljZWIGcHJv",
-            "dG8z"));
+            "Cg55c2VydmljZS5wcm90bxIDeTNkGgl5M2QucHJvdG8iLQoLUmVzdWx0UmVw",
+            "bHkSDQoFZXJyb3IYASABKAgSDwoHbWVzc2FnZRgCIAEoCSIgCgtSZW5hbWVQ",
+            "YXJhbRIRCgl1c2VTZWxlY3QYASABKAgyPQoFVG9vbHMSNAoMUmVuYW1lT2Jq",
+            "ZWN0EhAueTNkLlJlbmFtZVBhcmFtGhAueTNkLlJlc3VsdFJlcGx5IgBCD6oC",
+            "DFkzRC5ZU2VydmljZWIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.AnyReflection.Descriptor, global::Y3D.Entities.Y3DReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::Y3D.Entities.Y3DReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Y3D.YService.ResultReply), global::Y3D.YService.ResultReply.Parser, new[]{ "Error", "Message" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Y3D.YService.RenameParam), global::Y3D.YService.RenameParam.Parser, new[]{ "UseSelect" }, null, null, null)
