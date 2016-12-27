@@ -12,3 +12,17 @@ D:\y3d\code\y3d\y3d\obj\Release\y3d.Properties.Resources.resources
 D:\y3d\code\y3d\y3d\obj\Release\y3d.csproj.GenerateResource.Cache
 D:\y3d\code\y3d\y3d\obj\Release\y3d.dll
 D:\y3d\code\y3d\y3d\obj\Release\y3d.pdb
+D:\Code\Github\3D\y3d\y3d\bin\Release\y3d.dll.config
+D:\Code\Github\3D\y3d\y3d\bin\Release\y3d.dll
+D:\Code\Github\3D\y3d\y3d\bin\Release\y3d.pdb
+D:\Code\Github\3D\y3d\y3d\bin\Release\Google.Protobuf.dll
+D:\Code\Github\3D\y3d\y3d\bin\Release\Newtonsoft.Json.dll
+D:\Code\Github\3D\y3d\y3d\bin\Release\ObjectListView.dll
+D:\Code\Github\3D\y3d\y3d\bin\Release\Newtonsoft.Json.xml
+D:\Code\Github\3D\y3d\y3d\bin\Release\ObjectListView.xml
+D:\Code\Github\3D\y3d\y3d\obj\Release\y3d.csprojResolveAssemblyReference.cache
+D:\Code\Github\3D\y3d\y3d\obj\Release\y3d.Form1.resources
+D:\Code\Github\3D\y3d\y3d\obj\Release\y3d.Properties.Resources.resources
+D:\Code\Github\3D\y3d\y3d\obj\Release\y3d.csproj.GenerateResource.Cache
+D:\Code\Github\3D\y3d\y3d\obj\Release\y3d.dll
+D:\Code\Github\3D\y3d\y3d\obj\Release\y3d.pdb
