@@ -1,2 +1,2 @@
-%Y3D_ROOT%\bin\protoc -I=. --grpc_out=. --plugin=protoc-gen-grpc=%Y3D_ROOT%\bin\grpc_csharp_plugin.exe %1
-%Y3D_ROOT%\bin\protoc -I=. --csharp_out=. %1
+%Y3D_ROOT%\bin\protoc -I=. --grpc_out=. --proto_path=%Y3D_ROOT%\Service\grpc\third_party\protobuf\src --plugin=protoc-gen-grpc=%Y3D_ROOT%\bin\grpc_csharp_plugin.exe %1
+%Y3D_ROOT%\bin\protoc -I=. --proto_path=%Y3D_ROOT%\Service\grpc\third_party\protobuf\src --csharp_out=. %1
