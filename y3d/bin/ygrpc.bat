@@ -9,3 +9,5 @@ cd %Y3D_ROOT%\bin\scheme
 move /y *.cs %Y3D_ROOT%\y3d\Models\
 move /y *.h %Y3D_ROOT%\Service\
 move /y *.cc %Y3D_ROOT%\Service\
+
+cd %Y3D_ROOT%\bin\
