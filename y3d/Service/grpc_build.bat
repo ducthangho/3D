@@ -107,9 +107,7 @@ xcopy "Release\*.*" "..\..\..\..\..\..\bin\" /Y
 xcopy "Release\*.*" "..\..\..\..\..\..\lib\protobuf\" /Y
 msbuild protobuf.sln /t:Clean
 cd ..\..\..\..\..
-..\bin\grpcc.cmd ymax.proto
-..\bin\grpcc.cmd yservice.proto
-..\bin\grpcc.cmd y3d.proto
+call ..\bin\ygen.cmd
 
 echo #### grpc build done!
 
