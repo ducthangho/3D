@@ -104,3 +104,20 @@ artifacts/
 # IDE specific folder for JetBrains IDEs
 .idea/
 /obj/
+/Yservice.cs
+/YserviceGrpc.cs
+/yservice.grpc.pb.cc
+/yservice.grpc.pb.h
+/yservice.pb.cc
+/yservice.pb.h
+/Y3D.cs
+/y3d.grpc.pb.cc
+/y3d.grpc.pb.h
+/y3d.pb.cc
+/y3d.pb.h
+/Ymax.cs
+/YmaxGrpc.cs
+/ymax.grpc.pb.cc
+/ymax.grpc.pb.h
+/ymax.pb.cc
+/ymax.pb.h
