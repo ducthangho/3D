@@ -34,8 +34,11 @@ namespace Y3D.YService {
     public abstract partial class ToolsBase
     {
       /// <summary>
-      ///  Sends a greeting
+      /// Sends a greeting
       /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>The response to send back to the client (wrapped by a task).</returns>
       public virtual global::System.Threading.Tasks.Task<global::Y3D.YService.ResultReply> RenameObject(global::Y3D.YService.RenameParam request, ServerCallContext context)
       {
         throw new RpcException(new Status(StatusCode.Unimplemented, ""));
@@ -67,29 +70,45 @@ namespace Y3D.YService {
       }
 
       /// <summary>
-      ///  Sends a greeting
+      /// Sends a greeting
       /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The response received from the server.</returns>
       public virtual global::Y3D.YService.ResultReply RenameObject(global::Y3D.YService.RenameParam request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
         return RenameObject(request, new CallOptions(headers, deadline, cancellationToken));
       }
       /// <summary>
-      ///  Sends a greeting
+      /// Sends a greeting
       /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The response received from the server.</returns>
       public virtual global::Y3D.YService.ResultReply RenameObject(global::Y3D.YService.RenameParam request, CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_RenameObject, null, options, request);
       }
       /// <summary>
-      ///  Sends a greeting
+      /// Sends a greeting
       /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
       public virtual AsyncUnaryCall<global::Y3D.YService.ResultReply> RenameObjectAsync(global::Y3D.YService.RenameParam request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
         return RenameObjectAsync(request, new CallOptions(headers, deadline, cancellationToken));
       }
       /// <summary>
-      ///  Sends a greeting
+      /// Sends a greeting
       /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
       public virtual AsyncUnaryCall<global::Y3D.YService.ResultReply> RenameObjectAsync(global::Y3D.YService.RenameParam request, CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_RenameObject, null, options, request);
@@ -102,6 +121,7 @@ namespace Y3D.YService {
     }
 
     /// <summary>Creates service definition that can be registered with a server</summary>
+    /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
     public static ServerServiceDefinition BindService(ToolsBase serviceImpl)
     {
       return ServerServiceDefinition.CreateBuilder()

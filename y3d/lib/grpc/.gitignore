@@ -1,0 +1,15 @@
+/gpr.lib
+/grpc++.lib
+/grpc++_unsecure.lib
+/grpc.lib
+/grpc_csharp_ext.dll
+/grpc_csharp_ext.exp
+/grpc_csharp_ext.iobj
+/grpc_csharp_ext.ipdb
+/grpc_csharp_ext.lib
+/grpc_dll.dll
+/grpc_dll.exp
+/grpc_dll.iobj
+/grpc_dll.ipdb
+/grpc_dll.lib
+/grpc_unsecure.lib

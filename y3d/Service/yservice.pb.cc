@@ -46,13 +46,14 @@ void protobuf_AssignDesc_yservice_2eproto() {
   ResultReply_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
       ResultReply_descriptor_,
-      ResultReply::internal_default_instance(),
+      ResultReply::default_instance_,
       ResultReply_offsets_,
       -1,
       -1,
       -1,
       sizeof(ResultReply),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ResultReply, _internal_metadata_));
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ResultReply, _internal_metadata_),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ResultReply, _is_default_instance_));
   RenameParam_descriptor_ = file->message_type(1);
   static const int RenameParam_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RenameParam, useselect_),
@@ -60,19 +61,20 @@ void protobuf_AssignDesc_yservice_2eproto() {
   RenameParam_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
       RenameParam_descriptor_,
-      RenameParam::internal_default_instance(),
+      RenameParam::default_instance_,
       RenameParam_offsets_,
       -1,
       -1,
       -1,
       sizeof(RenameParam),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RenameParam, _internal_metadata_));
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RenameParam, _internal_metadata_),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RenameParam, _is_default_instance_));
 }
 
 namespace {
 
 GOOGLE_PROTOBUF_DECLARE_ONCE(protobuf_AssignDescriptors_once_);
-void protobuf_AssignDescriptorsOnce() {
+inline void protobuf_AssignDescriptorsOnce() {
   ::google::protobuf::GoogleOnceInit(&protobuf_AssignDescriptors_once_,
                  &protobuf_AssignDesc_yservice_2eproto);
 }
@@ -81,40 +83,28 @@ void protobuf_RegisterTypes(const ::std::string&) GOOGLE_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      ResultReply_descriptor_, ResultReply::internal_default_instance());
+      ResultReply_descriptor_, &ResultReply::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      RenameParam_descriptor_, RenameParam::internal_default_instance());
+      RenameParam_descriptor_, &RenameParam::default_instance());
 }
 
 }  // namespace
 
 void protobuf_ShutdownFile_yservice_2eproto() {
-  ResultReply_default_instance_.Shutdown();
+  delete ResultReply::default_instance_;
   delete ResultReply_reflection_;
-  RenameParam_default_instance_.Shutdown();
+  delete RenameParam::default_instance_;
   delete RenameParam_reflection_;
 }
 
-void protobuf_InitDefaults_yservice_2eproto_impl() {
+void protobuf_AddDesc_yservice_2eproto() GOOGLE_ATTRIBUTE_COLD;
+void protobuf_AddDesc_yservice_2eproto() {
+  static bool already_here = false;
+  if (already_here) return;
+  already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::y3d::protobuf_InitDefaults_y3d_2eproto();
-  ::google::protobuf::internal::GetEmptyString();
-  ResultReply_default_instance_.DefaultConstruct();
-  RenameParam_default_instance_.DefaultConstruct();
-  ResultReply_default_instance_.get_mutable()->InitAsDefaultInstance();
-  RenameParam_default_instance_.get_mutable()->InitAsDefaultInstance();
-}
-
-GOOGLE_PROTOBUF_DECLARE_ONCE(protobuf_InitDefaults_yservice_2eproto_once_);
-void protobuf_InitDefaults_yservice_2eproto() {
-  ::google::protobuf::GoogleOnceInit(&protobuf_InitDefaults_yservice_2eproto_once_,
-                 &protobuf_InitDefaults_yservice_2eproto_impl);
-}
-void protobuf_AddDesc_yservice_2eproto_impl() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  protobuf_InitDefaults_yservice_2eproto();
+  ::y3d::protobuf_AddDesc_y3d_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\016yservice.proto\022\003y3d\032\ty3d.proto\"-\n\013Resu"
     "ltReply\022\r\n\005error\030\001 \001(\010\022\017\n\007message\030\002 \001(\t\""
@@ -124,31 +114,19 @@ void protobuf_AddDesc_yservice_2eproto_impl() {
     "3", 201);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "yservice.proto", &protobuf_RegisterTypes);
-  ::y3d::protobuf_AddDesc_y3d_2eproto();
+  ResultReply::default_instance_ = new ResultReply();
+  RenameParam::default_instance_ = new RenameParam();
+  ResultReply::default_instance_->InitAsDefaultInstance();
+  RenameParam::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_yservice_2eproto);
 }
 
-GOOGLE_PROTOBUF_DECLARE_ONCE(protobuf_AddDesc_yservice_2eproto_once_);
-void protobuf_AddDesc_yservice_2eproto() {
-  ::google::protobuf::GoogleOnceInit(&protobuf_AddDesc_yservice_2eproto_once_,
-                 &protobuf_AddDesc_yservice_2eproto_impl);
-}
 // Force AddDescriptors() to be called at static initialization time.
 struct StaticDescriptorInitializer_yservice_2eproto {
   StaticDescriptorInitializer_yservice_2eproto() {
     protobuf_AddDesc_yservice_2eproto();
   }
 } static_descriptor_initializer_yservice_2eproto_;
-
-namespace {
-
-static void MergeFromFail(int line) GOOGLE_ATTRIBUTE_COLD GOOGLE_ATTRIBUTE_NORETURN;
-static void MergeFromFail(int line) {
-  ::google::protobuf::internal::MergeFromFail(__FILE__, line);
-}
-
-}  // namespace
-
 
 // ===================================================================
 
@@ -159,26 +137,28 @@ const int ResultReply::kMessageFieldNumber;
 
 ResultReply::ResultReply()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  if (this != internal_default_instance()) protobuf_InitDefaults_yservice_2eproto();
   SharedCtor();
   // @@protoc_insertion_point(constructor:y3d.ResultReply)
 }
 
 void ResultReply::InitAsDefaultInstance() {
+  _is_default_instance_ = true;
 }
 
 ResultReply::ResultReply(const ResultReply& from)
   : ::google::protobuf::Message(),
     _internal_metadata_(NULL) {
   SharedCtor();
-  UnsafeMergeFrom(from);
+  MergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:y3d.ResultReply)
 }
 
 void ResultReply::SharedCtor() {
-  message_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  error_ = false;
+    _is_default_instance_ = false;
+  ::google::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
+  error_ = false;
+  message_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 ResultReply::~ResultReply() {
@@ -188,6 +168,8 @@ ResultReply::~ResultReply() {
 
 void ResultReply::SharedDtor() {
   message_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (this != default_instance_) {
+  }
 }
 
 void ResultReply::SetCachedSize(int size) const {
@@ -201,11 +183,11 @@ const ::google::protobuf::Descriptor* ResultReply::descriptor() {
 }
 
 const ResultReply& ResultReply::default_instance() {
-  protobuf_InitDefaults_yservice_2eproto();
-  return *internal_default_instance();
+  if (default_instance_ == NULL) protobuf_AddDesc_yservice_2eproto();
+  return *default_instance_;
 }
 
-::google::protobuf::internal::ExplicitlyConstructed<ResultReply> ResultReply_default_instance_;
+ResultReply* ResultReply::default_instance_ = NULL;
 
 ResultReply* ResultReply::New(::google::protobuf::Arena* arena) const {
   ResultReply* n = new ResultReply;
@@ -234,10 +216,10 @@ bool ResultReply::MergePartialFromCodedStream(
       // optional bool error = 1;
       case 1: {
         if (tag == 8) {
-
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &error_)));
+
         } else {
           goto handle_unusual;
         }
@@ -328,9 +310,9 @@ void ResultReply::SerializeWithCachedSizes(
   return target;
 }
 
-size_t ResultReply::ByteSizeLong() const {
+int ResultReply::ByteSize() const {
 // @@protoc_insertion_point(message_byte_size_start:y3d.ResultReply)
-  size_t total_size = 0;
+  int total_size = 0;
 
   // optional bool error = 1;
   if (this->error() != 0) {
@@ -344,17 +326,18 @@ size_t ResultReply::ByteSizeLong() const {
         this->message());
   }
 
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = cached_size;
+  _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void ResultReply::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:y3d.ResultReply)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  const ResultReply* source =
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  const ResultReply* source = 
       ::google::protobuf::internal::DynamicCastToGenerated<const ResultReply>(
           &from);
   if (source == NULL) {
@@ -362,21 +345,15 @@ void ResultReply::MergeFrom(const ::google::protobuf::Message& from) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
   // @@protoc_insertion_point(generalized_merge_from_cast_success:y3d.ResultReply)
-    UnsafeMergeFrom(*source);
+    MergeFrom(*source);
   }
 }
 
 void ResultReply::MergeFrom(const ResultReply& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:y3d.ResultReply)
-  if (GOOGLE_PREDICT_TRUE(&from != this)) {
-    UnsafeMergeFrom(from);
-  } else {
-    MergeFromFail(__LINE__);
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
   }
-}
-
-void ResultReply::UnsafeMergeFrom(const ResultReply& from) {
-  GOOGLE_DCHECK(&from != this);
   if (from.error() != 0) {
     set_error(from.error());
   }
@@ -397,7 +374,7 @@ void ResultReply::CopyFrom(const ResultReply& from) {
 // @@protoc_insertion_point(class_specific_copy_from_start:y3d.ResultReply)
   if (&from == this) return;
   Clear();
-  UnsafeMergeFrom(from);
+  MergeFrom(from);
 }
 
 bool ResultReply::IsInitialized() const {
@@ -431,11 +408,11 @@ void ResultReply::InternalSwap(ResultReply* other) {
 void ResultReply::clear_error() {
   error_ = false;
 }
-bool ResultReply::error() const {
+ bool ResultReply::error() const {
   // @@protoc_insertion_point(field_get:y3d.ResultReply.error)
   return error_;
 }
-void ResultReply::set_error(bool value) {
+ void ResultReply::set_error(bool value) {
   
   error_ = value;
   // @@protoc_insertion_point(field_set:y3d.ResultReply.error)
@@ -445,37 +422,37 @@ void ResultReply::set_error(bool value) {
 void ResultReply::clear_message() {
   message_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-const ::std::string& ResultReply::message() const {
+ const ::std::string& ResultReply::message() const {
   // @@protoc_insertion_point(field_get:y3d.ResultReply.message)
   return message_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-void ResultReply::set_message(const ::std::string& value) {
+ void ResultReply::set_message(const ::std::string& value) {
   
   message_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:y3d.ResultReply.message)
 }
-void ResultReply::set_message(const char* value) {
+ void ResultReply::set_message(const char* value) {
   
   message_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:y3d.ResultReply.message)
 }
-void ResultReply::set_message(const char* value, size_t size) {
+ void ResultReply::set_message(const char* value, size_t size) {
   
   message_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:y3d.ResultReply.message)
 }
-::std::string* ResultReply::mutable_message() {
+ ::std::string* ResultReply::mutable_message() {
   
   // @@protoc_insertion_point(field_mutable:y3d.ResultReply.message)
   return message_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-::std::string* ResultReply::release_message() {
+ ::std::string* ResultReply::release_message() {
   // @@protoc_insertion_point(field_release:y3d.ResultReply.message)
   
   return message_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-void ResultReply::set_allocated_message(::std::string* message) {
+ void ResultReply::set_allocated_message(::std::string* message) {
   if (message != NULL) {
     
   } else {
@@ -485,9 +462,6 @@ void ResultReply::set_allocated_message(::std::string* message) {
   // @@protoc_insertion_point(field_set_allocated:y3d.ResultReply.message)
 }
 
-inline const ResultReply* ResultReply::internal_default_instance() {
-  return &ResultReply_default_instance_.get();
-}
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // ===================================================================
@@ -498,25 +472,26 @@ const int RenameParam::kUseSelectFieldNumber;
 
 RenameParam::RenameParam()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  if (this != internal_default_instance()) protobuf_InitDefaults_yservice_2eproto();
   SharedCtor();
   // @@protoc_insertion_point(constructor:y3d.RenameParam)
 }
 
 void RenameParam::InitAsDefaultInstance() {
+  _is_default_instance_ = true;
 }
 
 RenameParam::RenameParam(const RenameParam& from)
   : ::google::protobuf::Message(),
     _internal_metadata_(NULL) {
   SharedCtor();
-  UnsafeMergeFrom(from);
+  MergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:y3d.RenameParam)
 }
 
 void RenameParam::SharedCtor() {
-  useselect_ = false;
+    _is_default_instance_ = false;
   _cached_size_ = 0;
+  useselect_ = false;
 }
 
 RenameParam::~RenameParam() {
@@ -525,6 +500,8 @@ RenameParam::~RenameParam() {
 }
 
 void RenameParam::SharedDtor() {
+  if (this != default_instance_) {
+  }
 }
 
 void RenameParam::SetCachedSize(int size) const {
@@ -538,11 +515,11 @@ const ::google::protobuf::Descriptor* RenameParam::descriptor() {
 }
 
 const RenameParam& RenameParam::default_instance() {
-  protobuf_InitDefaults_yservice_2eproto();
-  return *internal_default_instance();
+  if (default_instance_ == NULL) protobuf_AddDesc_yservice_2eproto();
+  return *default_instance_;
 }
 
-::google::protobuf::internal::ExplicitlyConstructed<RenameParam> RenameParam_default_instance_;
+RenameParam* RenameParam::default_instance_ = NULL;
 
 RenameParam* RenameParam::New(::google::protobuf::Arena* arena) const {
   RenameParam* n = new RenameParam;
@@ -570,10 +547,10 @@ bool RenameParam::MergePartialFromCodedStream(
       // optional bool useSelect = 1;
       case 1: {
         if (tag == 8) {
-
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &useselect_)));
+
         } else {
           goto handle_unusual;
         }
@@ -626,26 +603,27 @@ void RenameParam::SerializeWithCachedSizes(
   return target;
 }
 
-size_t RenameParam::ByteSizeLong() const {
+int RenameParam::ByteSize() const {
 // @@protoc_insertion_point(message_byte_size_start:y3d.RenameParam)
-  size_t total_size = 0;
+  int total_size = 0;
 
   // optional bool useSelect = 1;
   if (this->useselect() != 0) {
     total_size += 1 + 1;
   }
 
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = cached_size;
+  _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void RenameParam::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:y3d.RenameParam)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  const RenameParam* source =
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  const RenameParam* source = 
       ::google::protobuf::internal::DynamicCastToGenerated<const RenameParam>(
           &from);
   if (source == NULL) {
@@ -653,21 +631,15 @@ void RenameParam::MergeFrom(const ::google::protobuf::Message& from) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
   // @@protoc_insertion_point(generalized_merge_from_cast_success:y3d.RenameParam)
-    UnsafeMergeFrom(*source);
+    MergeFrom(*source);
   }
 }
 
 void RenameParam::MergeFrom(const RenameParam& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:y3d.RenameParam)
-  if (GOOGLE_PREDICT_TRUE(&from != this)) {
-    UnsafeMergeFrom(from);
-  } else {
-    MergeFromFail(__LINE__);
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
   }
-}
-
-void RenameParam::UnsafeMergeFrom(const RenameParam& from) {
-  GOOGLE_DCHECK(&from != this);
   if (from.useselect() != 0) {
     set_useselect(from.useselect());
   }
@@ -684,7 +656,7 @@ void RenameParam::CopyFrom(const RenameParam& from) {
 // @@protoc_insertion_point(class_specific_copy_from_start:y3d.RenameParam)
   if (&from == this) return;
   Clear();
-  UnsafeMergeFrom(from);
+  MergeFrom(from);
 }
 
 bool RenameParam::IsInitialized() const {
@@ -717,19 +689,16 @@ void RenameParam::InternalSwap(RenameParam* other) {
 void RenameParam::clear_useselect() {
   useselect_ = false;
 }
-bool RenameParam::useselect() const {
+ bool RenameParam::useselect() const {
   // @@protoc_insertion_point(field_get:y3d.RenameParam.useSelect)
   return useselect_;
 }
-void RenameParam::set_useselect(bool value) {
+ void RenameParam::set_useselect(bool value) {
   
   useselect_ = value;
   // @@protoc_insertion_point(field_set:y3d.RenameParam.useSelect)
 }
 
-inline const RenameParam* RenameParam::internal_default_instance() {
-  return &RenameParam_default_instance_.get();
-}
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
