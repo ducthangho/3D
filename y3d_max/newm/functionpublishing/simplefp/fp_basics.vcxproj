@@ -30,7 +30,7 @@
     <ProjectName>FunctionPublishing</ProjectName>
     <ProjectGuid>{749F7777-A940-4B9E-9FD3-EA0C407950C7}</ProjectGuid>
     <RootNamespace>fp_basics</RootNamespace>
-    <MaxSDK>../../../../maxsdk</MaxSDK>
+    <MaxSDK>C:\Program Files\Autodesk\3ds Max 2017 SDK\maxsdk</MaxSDK>
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -60,7 +60,7 @@
   </ImportGroup>
   <PropertyGroup>
     <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
-    <OutDir>C:\Program Files\Autodesk\3ds Max 2015\plugins</OutDir>
+    <OutDir>C:\Program Files\Autodesk\3ds Max 2017\plugins</OutDir>
     <TargetName>fp_basics</TargetName>
     <TargetExt>.gup</TargetExt>
   </PropertyGroup>
