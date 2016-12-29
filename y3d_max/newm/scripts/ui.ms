@@ -385,7 +385,8 @@ fn stealNormal hightPolyObjs lowPoly size:512 bakeFolder:bakeFolder=
  		vnormalMap.normal_map = bitmap
  		local mat = VrayMtl()
  		mat.texmap_bump = vnormalMap
-
+ 		mat.bakedMaterial.texmap_bump_multiplier = 90
+ 		
 		local shellMat = Shell_Material originalMaterial:lowPoly.material\
 		bakedMaterial:mat viewportMtlIndex:1 renderMtlIndex:1
 		
