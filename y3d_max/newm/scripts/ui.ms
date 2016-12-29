@@ -1,4 +1,5 @@
 global cmdOutputToFileOn = True
+global bakeFolder = (getDir #image)+"\\myBake"
 
 fn makeLowPoly ratio = 
 (	
@@ -33,41 +34,12 @@ rollout BakeUI "Steal Normal" width:158 height:102
 	on btnStealNormal pressed do
 	(
 		local lowPoly = $
-		local size = 512
-		local bakeFolder = (getDir #image)+"\\myBake"
+		local size = 2048
+		print  bakeFolder
 
-		addModifier lowpoly (ProjectionMod()) 
-		proMod = FindPMod lowPoly
-		for obj in hightPolyObjs do (proMod.addObjectNode obj)
-		proMod.resetCage()
-		proMod.pushCage 1.1
-		
-		lowPoly.INodeBakeProjProperties.enabled = True
-		lowPoly.INodeBakeProjProperties.BakeObjectLevel = True
-		lowPoly.INodeBakeProjProperties.BakeSubObjLevels = False
-		lowPoly.INodeBakeProjProperties.projectionMod = proMod
+		makeDir bakeFolder all:true
 
-		print "------------Inspect--------------"
-		print lowPoly.INodeBakeProjProperties.useCage
-		print lowPoly.INodeBakeProjProperties.projectionMod
-
-		local bakeNormal = NormalsMap()
-		bakeNormal.outputSzX = size
-		bakeNormal.outputSzY = size
-		bakeNormal.fileType = (bakeFolder+"\\"+lowPoly.name+"_normal.png")
-		bakeNormal.fileName = filenameFromPath bakeNormal.fileType
-		bakeNormal.enabled = true
-		bakeNormal.useNormalBump = true
-		bakeNormal.useHeightAsAlpha = true
-
-		lowpoly.iNodeBakeProperties.removeAllBakeElements() 
-		lowpoly.INodeBakeProperties.bakeEnabled = true 
-		lowpoly.INodeBakeProperties.bakeChannel = 1 
-		lowpoly.INodeBakeProperties.nDilations = 4
-		lowpoly.INodeBakeProperties.addBakeElement bakeNormal
-
-		render rendertype:#bakeSelected vfb:off progressBar:true outputSize:[size,size]
-
+		stealNormal hightPolyObjs lowPoly 
 	)
 )
 
@@ -75,7 +47,7 @@ rollout BakeUI "Steal Normal" width:158 height:102
 rollout DraftUIForTest "MainUI" width:194 height:407 
 (
 	button btnUnwrap "Unwrap" pos:[53,189] width:90 height:34
-	button btnAttach "Attach c·c object" pos:[48,17] width:99 height:35
+	button btnAttach "Attach c√°c object" pos:[48,17] width:99 height:35
 	
 	button btnMakeLowPoly "MakeLowPoly" pos:[12,262] width:78 height:32
 	
@@ -100,6 +72,7 @@ rollout DraftUIForTest "MainUI" width:194 height:407
 		local density = edtDensity.text as integer
 		local tileSize = edtTileSize.text as integer
 		local padding = edtPadding.text as float
+		
 		unwrap density tileSize padding
 	)
 	on btnAttach pressed do
@@ -346,6 +319,60 @@ fn readBinaryFile binaryFile =
 	)
 	fclose binFile
 )
+
+fn stealNormal hightPolyObjs lowPoly size:512 bakeFolder:bakeFolder= 
+(	
+	local currentRenderer = renderers.current as string
+	local bakeNormal 
+
+	if (matchPattern currentRenderer pattern:"*mental_ray*") then
+	(
+		bakeNormal = NormalsMap()
+	)else if (matchPattern currentRenderer pattern:"*V_Ray_Adv*") then
+	(
+		bakeNormal = VrayNormalsMap()
+	)else if (matchPattern currentRenderer pattern:"*Scanline*") then
+	(
+
+	)else if (matchPattern currentRenderer pattern:"*Krakatoa*") then
+	(
+
+	)
+
+
+	addModifier lowpoly (ProjectionMod()) 
+	proMod = FindPMod lowPoly
+	for obj in hightPolyObjs do (proMod.addObjectNode obj)
+	proMod.resetCage()
+	proMod.pushCage 1.1
+	
+	lowPoly.INodeBakeProjProperties.enabled = True
+	lowPoly.INodeBakeProjProperties.BakeObjectLevel = True
+	lowPoly.INodeBakeProjProperties.BakeSubObjLevels = False
+	lowPoly.INodeBakeProjProperties.projectionMod = proMod
+
+	print "------------Inspect--------------"
+	print lowPoly.INodeBakeProjProperties.useCage
+	print lowPoly.INodeBakeProjProperties.projectionMod
+
+	
+	bakeNormal.outputSzX = size
+	bakeNormal.outputSzY = size
+	bakeNormal.fileType = (bakeFolder+"\\"+lowPoly.name+"_normal.png")
+	bakeNormal.fileName = filenameFromPath bakeNormal.fileType
+	bakeNormal.enabled = true
+	--bakeNormal.useNormalBump = true
+	--bakeNormal.useHeightAsAlpha = true
+
+	lowpoly.iNodeBakeProperties.removeAllBakeElements() 
+	lowpoly.INodeBakeProperties.bakeEnabled = true 
+	lowpoly.INodeBakeProperties.bakeChannel = 1 
+	lowpoly.INodeBakeProperties.nDilations = 4
+	lowpoly.INodeBakeProperties.addBakeElement bakeNormal
+
+	render rendertype:#bakeSelected vfb:off progressBar:true outputSize:[size,size]
+)
+
 
 DraftUIForTestPos = [10,10]
 createdialog DraftUIForTest pos:DraftUIForTestPos
