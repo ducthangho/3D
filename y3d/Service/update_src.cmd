@@ -2,10 +2,11 @@ if exist grpc (
 REM xcopy .gitmodules grpc /D /Y
 xcopy .gitignore grpc /D /Y
 cd grpc
-git pull origin master
+git fetch
+git checkout v1.0.1
 git submodule update --recursive --remote
 ) else (
-git clone --depth 1 https://github.com/grpc/grpc.git
+git clone --depth 1 -b 'v1.0.1' --single-branch https://github.com/grpc/grpc.git
 REM xcopy .gitmodules grpc/ /D /Y
 xcopy .gitignore grpc /Y
 cd grpc
