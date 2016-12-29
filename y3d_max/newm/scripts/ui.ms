@@ -328,9 +328,13 @@ fn stealNormal hightPolyObjs lowPoly size:512 bakeFolder:bakeFolder=
 	if (matchPattern currentRenderer pattern:"*mental_ray*") then
 	(
 		bakeNormal = NormalsMap()
+		bakeNormal.useNormalBump = true
+		bakeNormal.useHeightAsAlpha = true
+		bakeNormal.fileType = (bakeFolder+"\\"+lowPoly.name+"_normal_mentalray.png")
 	)else if (matchPattern currentRenderer pattern:"*V_Ray_Adv*") then
 	(
 		bakeNormal = VrayNormalsMap()
+		bakeNormal.fileType = (bakeFolder+"\\"+lowPoly.name+"_normal_vray.png")
 	)else if (matchPattern currentRenderer pattern:"*Scanline*") then
 	(
 
@@ -338,7 +342,6 @@ fn stealNormal hightPolyObjs lowPoly size:512 bakeFolder:bakeFolder=
 	(
 
 	)
-
 
 	addModifier lowpoly (ProjectionMod()) 
 	proMod = FindPMod lowPoly
@@ -358,11 +361,9 @@ fn stealNormal hightPolyObjs lowPoly size:512 bakeFolder:bakeFolder=
 	
 	bakeNormal.outputSzX = size
 	bakeNormal.outputSzY = size
-	bakeNormal.fileType = (bakeFolder+"\\"+lowPoly.name+"_normal.png")
 	bakeNormal.fileName = filenameFromPath bakeNormal.fileType
 	bakeNormal.enabled = true
-	--bakeNormal.useNormalBump = true
-	--bakeNormal.useHeightAsAlpha = true
+	
 
 	lowpoly.iNodeBakeProperties.removeAllBakeElements() 
 	lowpoly.INodeBakeProperties.bakeEnabled = true 
@@ -371,6 +372,35 @@ fn stealNormal hightPolyObjs lowPoly size:512 bakeFolder:bakeFolder=
 	lowpoly.INodeBakeProperties.addBakeElement bakeNormal
 
 	render rendertype:#bakeSelected vfb:off progressBar:true outputSize:[size,size]
+
+
+	if (matchPattern currentRenderer pattern:"*mental_ray*") then
+	(
+	
+	)else if (matchPattern currentRenderer pattern:"*V_Ray_Adv*") then
+	(	
+		print "here"
+ 		local bitmap =bitmaptexture filename:bakeNormal.fileType
+ 		local vnormalMap = VRayNormalMap()
+ 		vnormalMap.normal_map = bitmap
+ 		local mat = VrayMtl()
+ 		mat.texmap_bump = vnormalMap
+
+		local shellMat = Shell_Material originalMaterial:lowPoly.material\
+		bakedMaterial:mat viewportMtlIndex:1 renderMtlIndex:1
+		
+		lowPoly.material = shellMat
+
+		showTextureMap lowPoly.material lowPoly.material.bakedMaterial true
+
+	)else if (matchPattern currentRenderer pattern:"*Scanline*") then
+	(
+
+	)else if (matchPattern currentRenderer pattern:"*Krakatoa*") then
+	(
+
+	)
+
 )
 
 
