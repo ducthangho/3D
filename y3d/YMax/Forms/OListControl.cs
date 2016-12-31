@@ -77,6 +77,19 @@ namespace YMax.Forms
             lbVerType.Text = "Version Type: " + yg.GvType.ToString();
         }
 
+
+        public void selectByOName(string oname)
+        {
+            foreach (YObject o in yoFastListView.Objects)
+            {
+                if (o.Name == oname)
+                {
+                    this.yoFastListView.SelectedObject = o;
+                    yoFastListView.EnsureModelVisible(o);
+                    break;
+                }
+            }
+        }
         //public void loadFromArea(List<YObject> objs)
         //{
         //    this.yoFastListView.ClearObjects();
@@ -153,30 +166,7 @@ namespace YMax.Forms
 
         private void yoFastListView_DoubleClick(object sender, EventArgs e)
         {
-            Object x = this.yoFastListView.SelectedObject;
-            if (x is YObject)
-            {
-            
-                var y = (YObject)x;
-                curObject = y;
-                string cmd = "select $" + y.Name + ";";
-                //if (this.checkBoxInGroup.Checked)
-                //    cmd += "max tool zoomextents all;";
 
-                if (this.checkBoxIsolate.Checked)
-                    cmd += "actionMan.executeAction 0 \"197\";";
-                ManagedServices.MaxscriptSDK.ExecuteMaxscriptCommand(cmd);
-
-                if (this.checkBoxInGroup.Checked)
-                {
-                    ManagedServices.MaxscriptSDK.ExecuteMaxscriptCommand("max group open");
-                }
-                else
-                {
-                    ManagedServices.MaxscriptSDK.ExecuteMaxscriptCommand("max group close");
-                }
-                //MessageBox.Show(y.Name);
-            }
         }
 
         private void checkBoxInGroup_CheckedChanged(object sender, EventArgs e)
@@ -199,6 +189,48 @@ namespace YMax.Forms
             if (curObject!=null)
             {
                 ManagedServices.MaxscriptSDK.ExecuteMaxscriptCommand("do_lowpoly \""+ curObject.Name + "\"");
+            }
+        }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            Object x = this.yoFastListView.SelectedObject;
+            Utilities.YOList.testExport(x);
+        }
+
+        private void checkBoxIsolate_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!((CheckBox)sender).Checked)
+            {
+                ManagedServices.MaxscriptSDK.ExecuteMaxscriptCommand("IsolateSelection.ExitIsolateSelectionMode()");
+            }
+        }
+
+        private void yoFastListView_Click(object sender, EventArgs e)
+        {
+            Object x = this.yoFastListView.SelectedObject;
+            if (x is YObject)
+            {
+
+                var y = (YObject)x;
+                curObject = y;
+                string cmd = "select $" + y.Name + ";";
+                //if (this.checkBoxInGroup.Checked)
+                //    cmd += "max tool zoomextents all;";
+
+                if (this.checkBoxIsolate.Checked)
+                    cmd += "actionMan.executeAction 0 \"197\";";
+                ManagedServices.MaxscriptSDK.ExecuteMaxscriptCommand(cmd);
+
+                if (this.checkBoxInGroup.Checked)
+                {
+                    ManagedServices.MaxscriptSDK.ExecuteMaxscriptCommand("max group open");
+                }
+                else
+                {
+                    ManagedServices.MaxscriptSDK.ExecuteMaxscriptCommand("max group close");
+                }
+                //MessageBox.Show(y.Name);
             }
         }
     }

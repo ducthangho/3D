@@ -34,6 +34,8 @@ if r2_init != true then
 
 	global projectName
 
+	global test_export
+
 	struct pSettingClass
 		(
 			mapChannel=4,
@@ -428,6 +430,28 @@ if r2_init != true then
 				if cc.useProxy then
 					cc.displayProxy = true
 			)
+	)
+
+	fn test_export oFileDir oName = 
+	(
+		max group open
+		oo =  execute ("$'"+oName + "'")
+		select oo
+		max modify mode
+		eDir = oFileDir +"\\y3d_data\\";
+		-- eDir = oFileDir +"\\y3d_data\\"+ oName + "\\";
+		if (classof oo == XRefObject) then
+			(
+				oo.displayProxy = true;
+				exportFile (eDir + oName + "_high.obj") #noPrompt selectedOnly:true 
+				oo.displayProxy = false;
+				exportFile (eDir + oName + "_low.obj") #noPrompt selectedOnly:true 
+			)
+		else 
+			(
+				exportFile (eDir + oName + ".obj") #noPrompt selectedOnly:true 
+			)
+		
 	)
 
 	fn pre_optimize oFileDir oFileName= 

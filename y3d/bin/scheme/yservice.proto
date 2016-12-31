@@ -20,3 +20,9 @@ service Tools {
   // Sends a greeting
   rpc RenameObject (RenameParam) returns (ResultReply) {}
 }
+
+service YAction {
+  rpc DoAction(stream Event) returns (ResponseEvent);
+  rpc DoUnwrap(EUnwrap) returns (ResponseEvent);
+}
+

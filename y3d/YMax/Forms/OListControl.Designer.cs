@@ -56,6 +56,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnExport = new System.Windows.Forms.Button();
             this.btnThumbnail = new System.Windows.Forms.Button();
             this.btnVer = new System.Windows.Forms.Button();
             this.btnBakeNormal = new System.Windows.Forms.Button();
@@ -81,8 +82,10 @@
             this.olvColumnType,
             this.olvColumnStatus});
             this.yoFastListView.Cursor = System.Windows.Forms.Cursors.Default;
+            this.yoFastListView.FullRowSelect = true;
+            this.yoFastListView.HideSelection = false;
             this.yoFastListView.Location = new System.Drawing.Point(2, 24);
-            this.yoFastListView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.yoFastListView.Margin = new System.Windows.Forms.Padding(2);
             this.yoFastListView.Name = "yoFastListView";
             this.yoFastListView.ShowGroups = false;
             this.yoFastListView.Size = new System.Drawing.Size(334, 326);
@@ -95,6 +98,7 @@
             this.yoFastListView.VirtualMode = true;
             this.yoFastListView.FormatCell += new System.EventHandler<BrightIdeasSoftware.FormatCellEventArgs>(this.yoFastListView_FormatCell);
             this.yoFastListView.FormatRow += new System.EventHandler<BrightIdeasSoftware.FormatRowEventArgs>(this.yoFastListView_FormatRow);
+            this.yoFastListView.Click += new System.EventHandler(this.yoFastListView_Click);
             this.yoFastListView.DoubleClick += new System.EventHandler(this.yoFastListView_DoubleClick);
             // 
             // olvColumnName
@@ -102,14 +106,14 @@
             this.olvColumnName.AspectName = "Name";
             this.olvColumnName.FillsFreeSpace = true;
             this.olvColumnName.Text = "Name";
-            this.olvColumnName.Width = 150;
+            this.olvColumnName.Width = 100;
             // 
             // olvColumnFaces
             // 
             this.olvColumnFaces.AspectName = "";
             this.olvColumnFaces.IsEditable = false;
             this.olvColumnFaces.Text = "Faces";
-            this.olvColumnFaces.Width = 100;
+            this.olvColumnFaces.Width = 90;
             // 
             // olvColumnType
             // 
@@ -121,7 +125,7 @@
             // olvColumnStatus
             // 
             this.olvColumnStatus.Text = "Ver Type";
-            this.olvColumnStatus.Width = 80;
+            this.olvColumnStatus.Width = 50;
             // 
             // otypeImageList
             // 
@@ -137,7 +141,7 @@
             // 
             this.listCheck.AutoSize = true;
             this.listCheck.Location = new System.Drawing.Point(4, 17);
-            this.listCheck.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listCheck.Margin = new System.Windows.Forms.Padding(2);
             this.listCheck.Name = "listCheck";
             this.listCheck.Size = new System.Drawing.Size(78, 17);
             this.listCheck.TabIndex = 5;
@@ -151,9 +155,9 @@
             this.groupBox1.Controls.Add(this.checkBoxIsolate);
             this.groupBox1.Controls.Add(this.listCheck);
             this.groupBox1.Location = new System.Drawing.Point(3, 354);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(332, 41);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
@@ -163,7 +167,7 @@
             // 
             this.checkBoxInGroup.AutoSize = true;
             this.checkBoxInGroup.Location = new System.Drawing.Point(81, 17);
-            this.checkBoxInGroup.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBoxInGroup.Margin = new System.Windows.Forms.Padding(2);
             this.checkBoxInGroup.Name = "checkBoxInGroup";
             this.checkBoxInGroup.Size = new System.Drawing.Size(97, 17);
             this.checkBoxInGroup.TabIndex = 7;
@@ -175,12 +179,13 @@
             // 
             this.checkBoxIsolate.AutoSize = true;
             this.checkBoxIsolate.Location = new System.Drawing.Point(179, 17);
-            this.checkBoxIsolate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBoxIsolate.Margin = new System.Windows.Forms.Padding(2);
             this.checkBoxIsolate.Name = "checkBoxIsolate";
             this.checkBoxIsolate.Size = new System.Drawing.Size(88, 17);
             this.checkBoxIsolate.TabIndex = 6;
             this.checkBoxIsolate.Text = "Isolate select";
             this.checkBoxIsolate.UseVisualStyleBackColor = true;
+            this.checkBoxIsolate.CheckedChanged += new System.EventHandler(this.checkBoxIsolate_CheckedChanged);
             // 
             // toolStrip1
             // 
@@ -272,9 +277,9 @@
             this.groupBoxWithSel.Controls.Add(this.button1);
             this.groupBoxWithSel.Controls.Add(this.comboBox1);
             this.groupBoxWithSel.Location = new System.Drawing.Point(167, 401);
-            this.groupBoxWithSel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBoxWithSel.Margin = new System.Windows.Forms.Padding(2);
             this.groupBoxWithSel.Name = "groupBoxWithSel";
-            this.groupBoxWithSel.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBoxWithSel.Padding = new System.Windows.Forms.Padding(2);
             this.groupBoxWithSel.Size = new System.Drawing.Size(168, 96);
             this.groupBoxWithSel.TabIndex = 5;
             this.groupBoxWithSel.TabStop = false;
@@ -293,7 +298,7 @@
             // button6
             // 
             this.button6.Location = new System.Drawing.Point(141, 17);
-            this.button6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button6.Margin = new System.Windows.Forms.Padding(2);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(20, 21);
             this.button6.TabIndex = 3;
@@ -303,7 +308,7 @@
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(119, 17);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(20, 21);
             this.button2.TabIndex = 2;
@@ -313,7 +318,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(98, 17);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(20, 21);
             this.button1.TabIndex = 1;
@@ -324,31 +329,42 @@
             // 
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(5, 18);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(92, 21);
             this.comboBox1.TabIndex = 0;
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnExport);
             this.groupBox2.Controls.Add(this.btnThumbnail);
             this.groupBox2.Controls.Add(this.btnVer);
             this.groupBox2.Controls.Add(this.btnBakeNormal);
             this.groupBox2.Controls.Add(this.btnLow);
             this.groupBox2.Controls.Add(this.btnXref);
             this.groupBox2.Location = new System.Drawing.Point(3, 401);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox2.Size = new System.Drawing.Size(160, 96);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Object Detail";
             // 
+            // btnExport
+            // 
+            this.btnExport.Location = new System.Drawing.Point(5, 68);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(149, 23);
+            this.btnExport.TabIndex = 6;
+            this.btnExport.Text = "Export OBJ";
+            this.btnExport.UseVisualStyleBackColor = true;
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
+            // 
             // btnThumbnail
             // 
             this.btnThumbnail.Location = new System.Drawing.Point(81, 43);
-            this.btnThumbnail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnThumbnail.Margin = new System.Windows.Forms.Padding(2);
             this.btnThumbnail.Name = "btnThumbnail";
             this.btnThumbnail.Size = new System.Drawing.Size(73, 20);
             this.btnThumbnail.TabIndex = 5;
@@ -358,7 +374,7 @@
             // btnVer
             // 
             this.btnVer.Location = new System.Drawing.Point(112, 17);
-            this.btnVer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnVer.Margin = new System.Windows.Forms.Padding(2);
             this.btnVer.Name = "btnVer";
             this.btnVer.Size = new System.Drawing.Size(42, 19);
             this.btnVer.TabIndex = 4;
@@ -368,7 +384,7 @@
             // btnBakeNormal
             // 
             this.btnBakeNormal.Location = new System.Drawing.Point(4, 43);
-            this.btnBakeNormal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnBakeNormal.Margin = new System.Windows.Forms.Padding(2);
             this.btnBakeNormal.Name = "btnBakeNormal";
             this.btnBakeNormal.Size = new System.Drawing.Size(72, 20);
             this.btnBakeNormal.TabIndex = 3;
@@ -378,7 +394,7 @@
             // btnLow
             // 
             this.btnLow.Location = new System.Drawing.Point(52, 17);
-            this.btnLow.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLow.Margin = new System.Windows.Forms.Padding(2);
             this.btnLow.Name = "btnLow";
             this.btnLow.Size = new System.Drawing.Size(56, 20);
             this.btnLow.TabIndex = 2;
@@ -389,7 +405,7 @@
             // btnXref
             // 
             this.btnXref.Location = new System.Drawing.Point(5, 18);
-            this.btnXref.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnXref.Margin = new System.Windows.Forms.Padding(2);
             this.btnXref.Name = "btnXref";
             this.btnXref.Size = new System.Drawing.Size(42, 20);
             this.btnXref.TabIndex = 0;
@@ -406,7 +422,7 @@
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.yoFastListView);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "OListControl";
             this.Size = new System.Drawing.Size(338, 499);
             ((System.ComponentModel.ISupportInitialize)(this.yoFastListView)).EndInit();
@@ -454,5 +470,6 @@
         private System.Windows.Forms.Label lbVerType;
         private System.Windows.Forms.Button btnThumbnail;
         private System.Windows.Forms.Button btnLow;
+        private System.Windows.Forms.Button btnExport;
     }
 }

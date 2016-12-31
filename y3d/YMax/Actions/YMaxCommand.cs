@@ -33,15 +33,24 @@ namespace YMax.Actions
         public override void SelectionChanged(ITab<UIntPtr> nodes)
         {
             //base.SelectionChanged(nodes);
-            //if (nodes.Count > 0)
-            //{
-            //    var n = Loader.Global.NodeEventNamespace.GetNodeByKey(nodes[(IntPtr)0]);
-            //    if (n!=null)
-            //    {
-            //        //MessageBox.Show(n.Name);
-            //        Loader.Core.PushPrompt("Y3D: da chon : "+n.Name);
-            //    }
-            //}
+            if (nodes.Count > 0)
+            {
+                Loader.Core.PushPrompt("Y3D: da chon : ");
+                for (int i = 0; i < nodes.Count; i++)
+                {
+                    var n = Loader.Global.NodeEventNamespace.GetNodeByKey(nodes[i]);
+                    if (n == null) continue;
+                    if (n.Selected)
+                    {
+                        //MessageBox.Show(n.Name);
+                        if (Utilities.YProject.form != null)
+                            Utilities.YProject.form.selectByNode(n);
+                        break;
+                        //Loader.Core.PushPrompt("," + n.Name);
+                    }
+                }
+
+            }
         }
     }
 
@@ -49,7 +58,7 @@ namespace YMax.Actions
     {
         public override bool Exit(IntPtr hWnd)
         {
-            MessageBox.Show("Thoat nhe");
+            Utilities.YProject.closeAllForm();
             return true;
         }
     }

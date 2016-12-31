@@ -52,6 +52,22 @@ namespace YMax.Utilities
         }
         static private List<YArea> AllYArea = new List<YArea>();
 
+        public static YArea findAreaByOName(string oName)
+        {
+            foreach (var ya in AllYArea)
+            {
+                foreach (var o in ya.Objs)
+                {
+                    Loader.Global.TheListener.EditStream.Printf(o.Name + "\n", null);
+                    if (o.Name == oName)
+                    {
+                        return ya;
+                    }
+                }
+            }
+            return null;
+
+        }
         static void getMesh(IIGameScene gs, INodeTab node_to_xref)
         {
             //Loader.Core.LoadFromFile(ff, true);
@@ -446,6 +462,22 @@ namespace YMax.Utilities
             activeGroup.Objs.Clear();
             mapGroup.Clear();
             AllYArea.Clear();
+        }
+
+        public static void testExport(Object x)
+        {
+            if (x is YObject)
+            {
+                var y = (YObject)x;
+                //string cmd = "select $" + y.Name + ";";
+                ManagedServices.MaxscriptSDK.ExecuteMaxscriptCommand("test_export \"" + YProject.oFileDir + "\" \"" + y.Name + "\"");
+                //Loader.Core.ex
+            }
+        }
+
+        public static void selectByNode(IINode n)
+        {
+
         }
 
     }

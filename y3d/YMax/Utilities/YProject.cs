@@ -14,7 +14,7 @@ namespace YMax.Utilities
     class YProject
     {
         public static FaceRange face_range = new FaceRange();
-        private static Forms.OManagerForm form;
+        public static Forms.OManagerForm form;
         public static YSystem ysystem = null;
         public static string setting_path = Loader.Core.GetDir(9);
         public static string oFileName = "";
@@ -75,6 +75,17 @@ namespace YMax.Utilities
             }
             //form.Close();
             form.Dispose();
+            form = null;
+        }
+
+        public static void closeAllForm()
+        {
+            if (form == null)
+            {
+                return;
+            }
+            form.Close();
+            //form.Dispose();
             form = null;
         }
 

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Y3D.Entities;
+using Autodesk.Max;
 
 namespace YMax.Forms
 {
@@ -155,6 +156,23 @@ namespace YMax.Forms
                 applyView(this.gtreeListView.SelectedObject);
                 ManagedServices.MaxscriptSDK.ExecuteMaxscriptCommand("macros.run \"y3d\" \"y3d_r2\"");
             }
+        }
+
+        public void selectByGName(string groupName) 
+        {
+            if  (Utilities.YOList.mapGroup.ContainsKey(groupName))
+            {
+                gtreeListView.SelectedObject = Utilities.YOList.mapGroup[groupName];
+                gtreeListView.EnsureModelVisible(Utilities.YOList.mapGroup[groupName]);
+                Utilities.YOList.updateByGroup(Utilities.YOList.mapGroup[groupName]);
+            }
+        }
+
+        public void selectYArea(YArea ya)
+        {
+            gtreeListView.SelectedObject = ya;
+            gtreeListView.EnsureModelVisible(ya);
+            Utilities.YOList.updateByArea(ya);
         }
     }
 }

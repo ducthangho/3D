@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Autodesk.Max;
 
 namespace YMax.Forms
 {
@@ -33,6 +34,35 @@ namespace YMax.Forms
         public void updateTree()
         {
             this.agSidebar1.updateTree();
+        }
+
+        public void selectByNode(IINode n)
+        {
+            if (n == null) return;
+            if (n.IsGroupHead)
+            {
+                agSidebar1.selectByGName(n.Name);
+            } else
+            {
+                if (n.ParentNode!=null)
+                {
+                    if (n.ParentNode.IsGroupHead)
+                    {
+                        agSidebar1.selectByGName(n.ParentNode.Name);
+                        oListControl1.selectByOName(n.Name);
+                    }
+                    else if (n.ParentNode.IsRootNode)
+                    {
+                        var ya = Utilities.YOList.findAreaByOName(n.Name);
+                        if (ya != null)
+                        {
+                            agSidebar1.selectYArea(ya);
+                        }
+                        oListControl1.selectByOName(n.Name);
+                    }
+                }
+
+            }
         }
 
         private void OManagerForm_Load(object sender, EventArgs e)
