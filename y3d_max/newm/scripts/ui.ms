@@ -320,7 +320,7 @@ fn readBinaryFile binaryFile =
 	fclose binFile
 )
 
-fn stealNormal hightPolyObjs lowPoly size:512 bakeFolder:bakeFolder= 
+fn stealNormal hightPolyObjs lowPoly size:512 bakeFolder:bakeFolder = 
 (	
 	local currentRenderer = renderers.current as string
 	local bakeNormal 
@@ -385,13 +385,14 @@ fn stealNormal hightPolyObjs lowPoly size:512 bakeFolder:bakeFolder=
  		vnormalMap.normal_map = bitmap
  		local mat = VrayMtl()
  		mat.texmap_bump = vnormalMap
- 		mat.bakedMaterial.texmap_bump_multiplier = 90
  		
 		local shellMat = Shell_Material originalMaterial:lowPoly.material\
 		bakedMaterial:mat viewportMtlIndex:1 renderMtlIndex:1
+
+		shellMat.bakedMaterial.texmap_bump_multiplier = 90
 		
 		lowPoly.material = shellMat
-
+		
 		showTextureMap lowPoly.material lowPoly.material.bakedMaterial true
 
 	)else if (matchPattern currentRenderer pattern:"*Scanline*") then

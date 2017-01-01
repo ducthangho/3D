@@ -181,14 +181,14 @@ namespace YMax.Forms
 
         private void btnXref_Click(object sender, EventArgs e)
         {
-            ManagedServices.MaxscriptSDK.ExecuteMaxscriptCommand("test_xref \"chao chao\"");
+            ManagedServices.MaxscriptSDK.ExecuteMaxscriptCommand("yms.test_xref \"chao chao\"");
         }
 
         private void btnLow_Click(object sender, EventArgs e)
         {
             if (curObject!=null)
             {
-                ManagedServices.MaxscriptSDK.ExecuteMaxscriptCommand("do_lowpoly \""+ curObject.Name + "\"");
+                ManagedServices.MaxscriptSDK.ExecuteMaxscriptCommand("yms.do_lowpoly \""+ curObject.Name + "\"");
             }
         }
 
@@ -231,6 +231,19 @@ namespace YMax.Forms
                     ManagedServices.MaxscriptSDK.ExecuteMaxscriptCommand("max group close");
                 }
                 //MessageBox.Show(y.Name);
+            }
+        }
+
+        private void btnUnwrap_Click(object sender, EventArgs e)
+        {
+            Object x = this.yoFastListView.SelectedObject;
+            if (x is YObject)
+            {
+                var y = (YObject)x;
+                string cmd = "select $" + y.Name + ";";
+                ManagedServices.MaxscriptSDK.ExecuteMaxscriptCommand(cmd);
+                //ManagedServices.MaxscriptSDK.ExecuteMaxscriptCommand("yms.unwrap 128 1024 5");
+                ManagedServices.MaxscriptSDK.ExecuteMaxscriptCommand("yms.unwrap3dmax 66 0.001");
             }
         }
     }

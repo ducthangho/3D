@@ -50,9 +50,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 31);
+            this.label1.Location = new System.Drawing.Point(4, 25);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(131, 17);
+            this.label1.Size = new System.Drawing.Size(100, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Min faces to be xref";
             // 
@@ -63,47 +64,52 @@
             0,
             0,
             0});
-            this.nMinXref.Location = new System.Drawing.Point(218, 31);
+            this.nMinXref.Location = new System.Drawing.Point(164, 25);
+            this.nMinXref.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.nMinXref.Maximum = new decimal(new int[] {
             10000000,
             0,
             0,
             0});
             this.nMinXref.Name = "nMinXref";
-            this.nMinXref.Size = new System.Drawing.Size(82, 22);
+            this.nMinXref.Size = new System.Drawing.Size(62, 20);
             this.nMinXref.TabIndex = 1;
             // 
             // chkAutoGroup
             // 
             this.chkAutoGroup.AutoSize = true;
-            this.chkAutoGroup.Location = new System.Drawing.Point(9, 84);
+            this.chkAutoGroup.Location = new System.Drawing.Point(7, 68);
+            this.chkAutoGroup.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.chkAutoGroup.Name = "chkAutoGroup";
-            this.chkAutoGroup.Size = new System.Drawing.Size(209, 21);
+            this.chkAutoGroup.Size = new System.Drawing.Size(159, 17);
             this.chkAutoGroup.TabIndex = 2;
             this.chkAutoGroup.Text = "Auto group camera and light";
             this.chkAutoGroup.UseVisualStyleBackColor = true;
             // 
             // numMinFaceProxy
             // 
-            this.numMinFaceProxy.Location = new System.Drawing.Point(218, 56);
+            this.numMinFaceProxy.Location = new System.Drawing.Point(164, 46);
+            this.numMinFaceProxy.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.numMinFaceProxy.Name = "numMinFaceProxy";
-            this.numMinFaceProxy.Size = new System.Drawing.Size(82, 22);
+            this.numMinFaceProxy.Size = new System.Drawing.Size(62, 20);
             this.numMinFaceProxy.TabIndex = 4;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 56);
+            this.label2.Location = new System.Drawing.Point(4, 46);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(203, 17);
+            this.label2.Size = new System.Drawing.Size(154, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "Min faces to use low poly proxy";
             // 
             // btnCustomColor
             // 
-            this.btnCustomColor.Location = new System.Drawing.Point(6, 111);
+            this.btnCustomColor.Location = new System.Drawing.Point(4, 90);
+            this.btnCustomColor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCustomColor.Name = "btnCustomColor";
-            this.btnCustomColor.Size = new System.Drawing.Size(168, 30);
+            this.btnCustomColor.Size = new System.Drawing.Size(154, 24);
             this.btnCustomColor.TabIndex = 5;
             this.btnCustomColor.Text = "Customize color by face";
             this.btnCustomColor.UseVisualStyleBackColor = true;
@@ -117,9 +123,11 @@
             this.groupBox1.Controls.Add(this.numMinFaceProxy);
             this.groupBox1.Controls.Add(this.chkAutoGroup);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(9, 10);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(447, 158);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Size = new System.Drawing.Size(335, 128);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Basic setting";
@@ -129,27 +137,31 @@
             this.groupBox2.Controls.Add(this.btnPresetSaveAs);
             this.groupBox2.Controls.Add(this.btnPressetManager);
             this.groupBox2.Controls.Add(this.cbPreset);
-            this.groupBox2.Location = new System.Drawing.Point(12, 176);
+            this.groupBox2.Location = new System.Drawing.Point(9, 143);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(447, 60);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Size = new System.Drawing.Size(335, 49);
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Preset";
             // 
             // btnPresetSaveAs
             // 
-            this.btnPresetSaveAs.Location = new System.Drawing.Point(366, 21);
+            this.btnPresetSaveAs.Location = new System.Drawing.Point(274, 17);
+            this.btnPresetSaveAs.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnPresetSaveAs.Name = "btnPresetSaveAs";
-            this.btnPresetSaveAs.Size = new System.Drawing.Size(75, 24);
+            this.btnPresetSaveAs.Size = new System.Drawing.Size(56, 20);
             this.btnPresetSaveAs.TabIndex = 3;
             this.btnPresetSaveAs.Text = "Save As";
             this.btnPresetSaveAs.UseVisualStyleBackColor = true;
             // 
             // btnPressetManager
             // 
-            this.btnPressetManager.Location = new System.Drawing.Point(136, 22);
+            this.btnPressetManager.Location = new System.Drawing.Point(102, 18);
+            this.btnPressetManager.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnPressetManager.Name = "btnPressetManager";
-            this.btnPressetManager.Size = new System.Drawing.Size(75, 24);
+            this.btnPressetManager.Size = new System.Drawing.Size(56, 20);
             this.btnPressetManager.TabIndex = 2;
             this.btnPressetManager.Text = "Manager";
             this.btnPressetManager.UseVisualStyleBackColor = true;
@@ -157,16 +169,18 @@
             // cbPreset
             // 
             this.cbPreset.FormattingEnabled = true;
-            this.cbPreset.Location = new System.Drawing.Point(9, 22);
+            this.cbPreset.Location = new System.Drawing.Point(7, 18);
+            this.cbPreset.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbPreset.Name = "cbPreset";
-            this.cbPreset.Size = new System.Drawing.Size(121, 24);
+            this.cbPreset.Size = new System.Drawing.Size(92, 21);
             this.cbPreset.TabIndex = 0;
             // 
             // btnAnalyze
             // 
-            this.btnAnalyze.Location = new System.Drawing.Point(248, 249);
+            this.btnAnalyze.Location = new System.Drawing.Point(186, 202);
+            this.btnAnalyze.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAnalyze.Name = "btnAnalyze";
-            this.btnAnalyze.Size = new System.Drawing.Size(130, 30);
+            this.btnAnalyze.Size = new System.Drawing.Size(98, 24);
             this.btnAnalyze.TabIndex = 8;
             this.btnAnalyze.Text = "Analyze";
             this.btnAnalyze.UseVisualStyleBackColor = true;
@@ -174,9 +188,10 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(384, 249);
+            this.btnCancel.Location = new System.Drawing.Point(288, 202);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 30);
+            this.btnCancel.Size = new System.Drawing.Size(56, 24);
             this.btnCancel.TabIndex = 9;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -184,13 +199,14 @@
             // 
             // AnalyzeForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(471, 291);
+            this.ClientSize = new System.Drawing.Size(353, 236);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnAnalyze);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "AnalyzeForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Analyze settings";

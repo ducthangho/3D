@@ -291,7 +291,7 @@ namespace YMax.Utilities
             //Loader.Core.SaveSelectedNodesAsVersion(System.IO.Path.Combine(YProject.oFileDir + System.IO.Path.DirectorySeparatorChar + "y3d_data", YProject.oFileName + "_high.max"), 1);
             Loader.Core.GetSelNodeTab(node_to_xref);
             Loader.Core.FileSaveNodes(node_to_xref, Path.Combine(YProject.oFileDir + Path.DirectorySeparatorChar + "y3d_data", YProject.oFileName + "_high.max"));
-            ManagedServices.MaxscriptSDK.ExecuteMaxscriptCommand("xref_low \"" + YProject.oFileDir + "\" \"" + YProject.oFileName + "\"");
+            ManagedServices.MaxscriptSDK.ExecuteMaxscriptCommand("yms.xref_low \"" + YProject.oFileDir + "\" \"" + YProject.oFileName + "\"");
             //Loader.Global.IObjXRefManager8.Instance.AddXRefItemsFromFile(Path.Combine(YProject.oFileDir + Path.DirectorySeparatorChar + "y3d_data", YProject.oFileName + "_low0.max"), false, null, 0);
             //Loader.Core.DeleteNodes(node_to_xref, true, false, false);
             Loader.Core.MergeFromFile(Path.Combine(YProject.oFileDir, YProject.oFileName + ".max"), true, true, false, 3, low_nametab, 1, 1);
@@ -470,7 +470,7 @@ namespace YMax.Utilities
             {
                 var y = (YObject)x;
                 //string cmd = "select $" + y.Name + ";";
-                ManagedServices.MaxscriptSDK.ExecuteMaxscriptCommand("test_export \"" + YProject.oFileDir + "\" \"" + y.Name + "\"");
+                ManagedServices.MaxscriptSDK.ExecuteMaxscriptCommand("yms.test_export \"" + YProject.oFileDir + "\" \"" + y.Name + "\"");
                 //Loader.Core.ex
             }
         }

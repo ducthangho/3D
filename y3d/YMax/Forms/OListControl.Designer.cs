@@ -62,6 +62,7 @@
             this.btnBakeNormal = new System.Windows.Forms.Button();
             this.btnLow = new System.Windows.Forms.Button();
             this.btnXref = new System.Windows.Forms.Button();
+            this.btnUnwrap = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.yoFastListView)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -336,6 +337,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnUnwrap);
             this.groupBox2.Controls.Add(this.btnExport);
             this.groupBox2.Controls.Add(this.btnThumbnail);
             this.groupBox2.Controls.Add(this.btnVer);
@@ -353,9 +355,9 @@
             // 
             // btnExport
             // 
-            this.btnExport.Location = new System.Drawing.Point(5, 68);
+            this.btnExport.Location = new System.Drawing.Point(81, 68);
             this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(149, 23);
+            this.btnExport.Size = new System.Drawing.Size(73, 23);
             this.btnExport.TabIndex = 6;
             this.btnExport.Text = "Export OBJ";
             this.btnExport.UseVisualStyleBackColor = true;
@@ -412,6 +414,16 @@
             this.btnXref.Text = "Xref";
             this.btnXref.UseVisualStyleBackColor = true;
             this.btnXref.Click += new System.EventHandler(this.btnXref_Click);
+            // 
+            // btnUnwrap
+            // 
+            this.btnUnwrap.Location = new System.Drawing.Point(5, 68);
+            this.btnUnwrap.Name = "btnUnwrap";
+            this.btnUnwrap.Size = new System.Drawing.Size(70, 23);
+            this.btnUnwrap.TabIndex = 7;
+            this.btnUnwrap.Text = "Unwrap";
+            this.btnUnwrap.UseVisualStyleBackColor = true;
+            this.btnUnwrap.Click += new System.EventHandler(this.btnUnwrap_Click);
             // 
             // OListControl
             // 
@@ -471,5 +483,6 @@
         private System.Windows.Forms.Button btnThumbnail;
         private System.Windows.Forms.Button btnLow;
         private System.Windows.Forms.Button btnExport;
+        private System.Windows.Forms.Button btnUnwrap;
     }
 }

@@ -47,7 +47,7 @@ namespace YMax.Forms
             {
                 string file = openFileProject.FileName;
                 //MessageBox.Show(file);
-                ManagedServices.MaxscriptSDK.ExecuteMaxscriptCommand("new_project_from_file \""+file+"\"");
+                ManagedServices.MaxscriptSDK.ExecuteMaxscriptCommand("yms.new_project_from_file \""+file+"\"");
             }
         }
     }

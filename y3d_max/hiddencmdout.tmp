@@ -2,8 +2,8 @@ Read new prefs: C:\Users\Pham Le Minh\AppData\Roaming\Blender Foundation\Blender
 found bundled python: C:\Program Files\Blender Foundation\Blender\2.78\python
 Info: Total files 0 | Changed 0 | Failed 0
 C:/Users/Pham Le Minh/AppData/Local/Autodesk/3dsMax/2015 - 64bit/ENU/temp/
-C:\Users\Pham Le Minh\AppData\Local\Autodesk\3dsMax\2015 - 64bit\ENU\temp\3dsNodes.fbx
-FBX Import: start importing C:\Users\Pham Le Minh\AppData\Local\Autodesk\3dsMax\2015 - 64bit\ENU\temp\3dsNodes.fbx
+C:\Users\Pham Le Minh\AppData\Local\Autodesk\3dsMax\2017 - 64bit\ENU\temp\3dsNodes.fbx
+FBX Import: start importing C:\Users\Pham Le Minh\AppData\Local\Autodesk\3dsMax\2017 - 64bit\ENU\temp\3dsNodes.fbx
 FBX version: 7400
 	FBX import: Prepare...
 		Done (0.000000 sec)
@@ -18,7 +18,7 @@ FBX version: 7400
 		Done (0.000000 sec)
 
 	FBX import: Meshes...
-		Done (0.015625 sec)
+		Done (0.000000 sec)
 
 	FBX import: Materials & Textures...
 		Done (0.000000 sec)
@@ -44,16 +44,16 @@ FBX version: 7400
 	FBX import: Cycles z-offset workaround...
 		Done (0.000000 sec)
 
-	Done (0.015625 sec)
+	Done (0.000000 sec)
 
 Import finished.
 ---Select selected face took: 0.0 seconds ---
 Smart Projection time: 0.00
 ---Invert selected face took: 0.0 seconds ---
 -- island_margin : 0.00488281
-Smart Projection time: 0.06
+Smart Projection time: 0.00
 
-FBX export starting... 'C:\\Users\\Pham Le Minh\\AppData\\Local\\Autodesk\\3dsMax\\2015 - 64bit\\ENU\\temp\\blenderNodes.fbx'
+FBX export starting... 'C:\\Users\\Pham Le Minh\\AppData\\Local\\Autodesk\\3dsMax\\2017 - 64bit\\ENU\\temp\\blenderNodes.fbx'
 FBX export prepare: Wrapping Objects...
 	Done (0.000000 sec)
 
@@ -82,7 +82,7 @@ FBX export prepare: Wrapping Animations...
 	Done (0.000000 sec)
 
 FBX export prepare: Generating templates...
-	Done (0.000000 sec)
+	Done (0.015625 sec)
 
 FBX export prepare: Generating Connections...
 	Done (0.000000 sec)
@@ -97,7 +97,7 @@ FBX export fetch cameras (0)...
 	Done (0.000000 sec)
 
 FBX export fetch meshes (1)...
-	Done (0.046875 sec)
+	Done (0.000000 sec)
 
 FBX export fetch objects (1)...
 	Done (0.000000 sec)
@@ -108,6 +108,6 @@ FBX export fetch remaining...
 FBX export fetch animations...
 	Done (0.000000 sec)
 
-export finished in 0.0469 sec.
+export finished in 0.0156 sec.
 
 Blender quit
