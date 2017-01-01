@@ -43,8 +43,9 @@ if yms_init != true then
 			)
 			u1 = s1.modifiers["y3d_unwrap"]
 			modPanel.setCurrentObject s1.modifiers[#y3d_unwrap]
-			-- subobjectLevel = 3
-			u1.flattenMap angle #([1,0,0], [-1,0,0], [0,1,0], [0,-1,0], [0,0,1], [0,0,-1]) spacing true 0 false true	
+			subobjectLevel = 3
+			max select all
+			u1.flattenMap angle #() spacing true 0 true true	
 			subobjectLevel = 0
 		),
 
