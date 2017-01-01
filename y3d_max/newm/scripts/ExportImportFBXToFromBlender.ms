@@ -16,7 +16,7 @@ global DoscommandOutput = ypath + "\\hiddencmdout.tmp"
 
 fn exportObjectToFBX path = 
 (
-	FBXExporterGetParam  "FileVersion" "FBX201400" 
+	FBXExporterSetParam  "FileVersion" "FBX201400" 
 	exportFile path #noPrompt selectedOnly:true 
 )	
 
