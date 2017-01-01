@@ -59,7 +59,7 @@ namespace YMax.Utilities
                     oFileDir =  System.IO.Path.GetDirectoryName(openFileProject.FileName);
                     //MessageBox.Show(file);
                     //ManagedServices.MaxscriptSDK.ExecuteMaxscriptCommand("new_project_from_file \"" + file + "\"");
-                    ManagedServices.MaxscriptSDK.ExecuteMaxscriptCommand("pre_optimize \"" + oFileDir + "\" \"" + oFileName + "\"");
+                    ManagedServices.MaxscriptSDK.ExecuteMaxscriptCommand("yms.pre_optimize \"" + oFileDir + "\" \"" + oFileName + "\"");
                     openAnaForm(yAction);
                 }
             }

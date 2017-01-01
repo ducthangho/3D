@@ -74,7 +74,7 @@ if r2_init != true then
 						"bakeMapType",
 						"defaultTileSize"
 					)
-					saveIniArray "\\r1.ini" keys
+					saveIniArray "\\r2.ini" keys
 				),
 
 			fn loadSetting =

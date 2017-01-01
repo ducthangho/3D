@@ -1,7 +1,8 @@
 global yInit
 if yInit != true then
 (
-	global sVer = #("v1","m1","r1","r2","newm")
+	-- global sVer = #("v1","m1","r1","r2","newm")
+	global sVer = #("newm")
 
 	for i=1 to sVer.count do
 		(
@@ -145,4 +146,10 @@ if yInit != true then
 	print "ylib has been loaded"
 	loadIni()
 	yInit = true
+
+	yms_init = false
+	yInclude "yms\lib\\yms.ms"
+
+	-- r2_init = false
+	-- yInclude "r2\lib\\r2.ms"
 )
