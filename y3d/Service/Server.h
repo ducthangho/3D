@@ -10,6 +10,7 @@
 #include <condition_variable>
 #include <future>
 #include <chrono>
+#include "xNormalSettings.h"
 #ifdef __cplusplus
 extern "C"
 {
