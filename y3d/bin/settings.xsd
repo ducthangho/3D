@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="settings" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="3.19.2.0">
+    <xs:complexType name="tHighPolyModel">
+        <xs:sequence>
+            <xs:element name="Mesh" type="tHighPolyMesh" minOccurs="0" maxOccurs="unbounded" />
+            <xs:element name="BaseTex" type="xs:string" minOccurs="0" maxOccurs="1" />
+        </xs:sequence>
+        <xs:attribute name="DefaultMeshScale" type="xs:float" use="optional" default="1" />
+    </xs:complexType>
+    <xs:complexType name="tHighPolyMesh">
+        <xs:sequence>
+            <xs:element name="File" type="xs:string" minOccurs="1" maxOccurs="1" />
+        </xs:sequence>
+        <xs:attribute name="Visible" type="xs:boolean" use="optional" default="true" />
+        <xs:attribute name="Scale" type="xs:float" use="optional" default="1.0" />
+        <xs:attribute name="IgnorePerVertexColor" type="xs:boolean" use="optional" default="true" />
+        <xs:attribute name="AverageNormals" type="eSmoothNormals" use="optional" default="UseExportedNormals" />
+        <xs:attribute name="BaseTexIsTSNM" type="xs:boolean" use="optional" default="false" />
+        <xs:attribute name="PositionOffset" type="xs:string" use="optional" default="0;0;0" />
+    </xs:complexType>
+    <xs:complexType name="tLowPolyModel">
+        <xs:sequence>
+            <xs:element name="Mesh" type="tLowPolyMesh" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+        <xs:attribute name="DefaultMeshScale" type="xs:float" use="optional" default="1" />
+    </xs:complexType>
+    <xs:complexType name="tLowPolyMesh">
+        <xs:attribute name="File" type="xs:string" use="optional" default="" />
+        <xs:attribute name="BaseTex" type="xs:string" use="optional" default="" />
+        <xs:attribute name="NormTex" type="xs:string" use="optional" default=""/>
+        <xs:attribute name="HeightTex" type="xs:string" use="optional" default="" />
+        <xs:attribute name="LMAOTex" type="xs:string" use="optional" default="" />
+        <xs:attribute name="EmissiveTex" type="xs:string" use="optional" default="" />
+        <xs:attribute name="SpecTex" type="xs:string" use="optional" default="" />
+        <xs:attribute name="ReflectTex" type="xs:string" use="optional" default="" />
+        <xs:attribute name="GlossTex" type="xs:string" use="optional" default="" />
+        <xs:attribute name="DiffuseGITex" type="xs:string" use="optional" default="" />
+        <xs:attribute name="VectorDisplacementTex" type="xs:string" use="optional" default="" />
+        <xs:attribute name="VectorDisplacementTS" type="xs:boolean" use="optional" default="false" />
+        <xs:attribute name="VVDMSwizzleX" type="eSwizzleComponent" use="optional" default="X+" />
+        <xs:attribute name="VVDMSwizzleY" type="eSwizzleComponent" use="optional" default="Y+" />
+        <xs:attribute name="VVDMSwizzleZ" type="eSwizzleComponent" use="optional" default="Z+" />
+        <xs:attribute name="CageFile" type="xs:string" use="optional" default="" />
+        <xs:attribute name="HighpolyNormalOverride" use="optional" default="" />
+
+        <xs:attribute name="AverageNormals" type="xs:boolean" use="optional" default="false" />
+        <xs:attribute name="MaxRayDistanceFront" type="xs:float" use="optional" default="0.5" />
+        <xs:attribute name="MaxRayDistanceBack" type="xs:float" use="optional" default="0.5" />
+        <xs:attribute name="UseCage" type="xs:boolean" use="optional" default="true" />
+        <xs:attribute name="NormapMapType" type="eNormalMapType" use="optional" default="Tangent-space" />
+        <xs:attribute name="UseFresnel" type="xs:boolean" default="false" use="optional" />
+        <xs:attribute name="FresnelRefractiveIndex" type="xs:float" use="optional" default="1.33" />
+        <xs:attribute name="ReflectHDRMult" type="xs:float" use="optional" default="1" />
+        <xs:attribute name="Subdivisions" type="xs:unsignedInt" />
+        <xs:attribute name="BatchProtect" type="xs:boolean" use="optional" default="false" />
+        <xs:attribute name="CastShadows" type="xs:boolean" default="true" use="optional" />
+        <xs:attribute name="ReceiveShadows" type="xs:boolean" use="optional" default="true" />
+        <xs:attribute name="BackfaceCull" type="xs:boolean" use="optional" default="true" />
+        <xs:attribute name="Visible" type="xs:boolean" use="optional" default="true" />
+        <xs:attribute name="NMSwizzleX" type="eSwizzleComponent" use="optional" default="X+" />
+        <xs:attribute name="NMSwizzleY" type="eSwizzleComponent" use="optional" default="Y+" />
+        <xs:attribute name="NMSwizzleZ" type="eSwizzleComponent" use="optional" default="Z+" />
+        <xs:attribute name="TransparencyMode" type="eTransparencyMode" use="optional" default="None" />
+        <xs:attribute name="AlphaTestValue" type="xs:byte" use="optional" default="127" />
+        <xs:attribute name="Matte" type="xs:boolean" use="optional" default="false" />
+        <xs:attribute name="Scale" type="xs:float" use="optional" default="1.0" />
+        <xs:attribute name="UsePerVertexColors" type="xs:boolean" use="optional" default="false" />
+        <xs:attribute name="HighpolyNormalsOverrideTangentSpace" type="xs:boolean" use="optional" default="false" />
+
+        <xs:attribute name="MatchUVs" type="xs:boolean" use="optional" default="false" />
+
+        <xs:attribute name="BlockersFile" type="xs:string" use="optional" default="" />
+
+        <xs:attribute name="UOffset" type="xs:float" use="optional" default="0" />
+        <xs:attribute name="VOffset" type="xs:float" use="optional" default="0" />
+
+        <xs:attribute name="PositionOffset" type="xs:string" use="optional" default="0;0;0" />
+
+    </xs:complexType>
+    <xs:complexType name="tGenerateMaps">
+        <xs:sequence>
+          <xs:element name="NMBackgroundColor" type="tRGB8" />
+          <xs:element name="HMBackgroundColor" type="tRGB8" />
+
+          <xs:element name="BakeHighpolyBaseTextureNoTexCol" type="tRGB8" />
+          <xs:element name="BakeHighpolyBaseTextureBackgroundColor" type="tRGB8" />
+          
+          <xs:element name="RenderWireframeBackgroundColor" type="tRGB8" />
+          <xs:element name="RenderWireframeCol" type="tRGB8" />
+          <xs:element name="RenderCWCol" type="tRGB8" />
+          <xs:element name="RenderSeamCol" type="tRGB8" />
+          <xs:element name="RenderRayFailsCol" type="tRGB8" />
+          
+          <xs:element name="AOOccludedColor" type="tRGB8" />
+          <xs:element name="AOUnoccludedColor" type="tRGB8" />
+          <xs:element name="AOBackgroundColor" type="tRGB8" />
+
+          <xs:element name="BentBackgroundColor" type="tRGB8" />
+
+          <xs:element name="PRTBackgroundColor" type="tRGB8" />
+          
+          <xs:element name="ConvexityBackgroundColor" type="tRGB8" />
+          
+          <xs:element name="ThicknessBackgroundColor" type="tRGB8" />
+
+          <xs:element name="ProximityBackgroundColor" type="tRGB8" />
+
+          <xs:element name="CavityBackgroundColor" type="tRGB8" />
+
+          <xs:element name="VDMBackgroundColor" type="tRGB8" />
+
+          <xs:element name="RadNMBackgroundColor" type="tRGB8" />
+
+          <xs:element name="CurvBackgroundColor" type="tRGB8" />
+
+          <xs:element name="DerivNMBackgroundColor" type="tRGB8" />
+
+          <xs:element name="TransluBackgroundColor" type="tRGB8" />
+
+          <xs:element name="BakeHighpolyVColsBackgroundCol" type="tRGB8" />
+        </xs:sequence>
+
+        <xs:attribute name="File" type="xs:string" use="optional" default="" />
+        <xs:attribute name="Width" type="tSize" use="optional" default="512" />
+        <xs:attribute name="Height" type="tSize" use="optional" default="512" />
+        
+        <xs:attribute name="ClosestIfFails" type="xs:boolean" use="optional" default="true" />
+        <xs:attribute name="DiscardRayBackFacesHits" type="xs:boolean" use="optional" default="true" />
+
+        <xs:attribute name="GenNormals" type="xs:boolean" use="optional" default="true" />
+        <xs:attribute name="TangentSpace" type="xs:boolean" use="optional" default="false" />
+        <xs:attribute name="SwizzleX" type="eSwizzleComponent" use="optional" default="X+" />
+        <xs:attribute name="SwizzleY" type="eSwizzleComponent" use="optional" default="Y+" />
+        <xs:attribute name="SwizzleZ" type="eSwizzleComponent" use="optional" default="Z+" />
+
+        <xs:attribute name="GenHeights" type="xs:boolean" use="optional" default="false" />
+        <xs:attribute name="HeightTonemap" type="eHMNormalization" use="optional" default="Interactive" />
+        <xs:attribute name="HeightTonemapMin" type="xs:float" use="optional" default="-100" />
+        <xs:attribute name="HeightTonemapMax" type="xs:float" use="optional" default="100" />
+
+        <xs:attribute name="BakeHighpolyBaseTexture" type="xs:boolean" use="optional" default="false" />
+        <xs:attribute name="BakeHighpolyBaseTextureDrawObjectIDIfNoTexture" type="xs:boolean" use="optional" default="false" />
+
+        <xs:attribute name="GenAO" type="xs:boolean" use="optional" default="false" />
+        <xs:attribute name="AORaysPerSample" type="tAORays" use="optional" default="128" />
+        <xs:attribute name="AODistribution" type="eAODistribution" use="optional" default="Uniform" />
+        <xs:attribute name="AOConeAngle" type="xs:float" use="optional" default="162" />
+        <xs:attribute name="AOBias" type="xs:float" use="optional" default="0.08" />
+        <xs:attribute name="AOAllowPureOccluded" type="xs:boolean" use="optional" default="true" />
+        <xs:attribute name="AOLimitRayDistance" type="xs:boolean" use="optional" default="true" />
+        <xs:attribute name="AOAttenConstant" type="xs:float" use="optional" default="1" />
+        <xs:attribute name="AOAttenLinear" type="xs:float" use="optional" default="0.1" />
+        <xs:attribute name="AOAttenCuadratic" type="xs:float" use="optional" default="0" />
+        <xs:attribute name="AOJitter" type="xs:boolean" use="optional" default="false" />
+        <xs:attribute name="AOIgnoreBackfaceHits" type="xs:boolean" use="optional" default="false" />
+
+        <xs:attribute name="GenBent" type="xs:boolean" use="optional" default="false" />
+        <xs:attribute name="BentRaysPerSample" type="tAORays" use="optional" default="128" />
+        <xs:attribute name="BentConeAngle" type="xs:float" use="optional" default="162" />
+        <xs:attribute name="BentBias" type="xs:float" use="optional" default="0.08" />
+        <xs:attribute name="BentSwizzleX" type="eSwizzleComponent" use="optional" default="X+" />
+        <xs:attribute name="BentSwizzleY" type="eSwizzleComponent" use="optional" default="Y+" />
+        <xs:attribute name="BentSwizzleZ" type="eSwizzleComponent" use="optional" default="Z+" />
+        <xs:attribute name="BentTangentSpace" type="xs:boolean" use="optional" default="false" />
+        <xs:attribute name="BentLimitRayDistance" type="xs:boolean" use="optional" default="false" />
+        <xs:attribute name="BentJitter" type="xs:boolean" use="optional" default="false" />
+        <xs:attribute name="BentDistribution" type="eAODistribution" use="optional" default="Uniform" />
+
+        <xs:attribute name="GenPRT" type="xs:boolean" use="optional" default="false" />
+        <xs:attribute name="PRTRaysPerSample" type="tAORays" use="optional" default="128" />
+        <xs:attribute name="PRTConeAngle" type="xs:float" use="optional" default="179.5" />
+        <xs:attribute name="PRTBias" type="xs:float" use="optional" default="0.08" />
+        <xs:attribute name="PRTLimitRayDistance" type="xs:boolean" use="optional" default="false" />
+        <xs:attribute name="PRTJitter" type="xs:boolean" use="optional" default="false" />
+        <xs:attribute name="PRTNormalize" type="xs:boolean" use="optional" default="true" />
+        <xs:attribute name="PRTThreshold" type="xs:float" use="optional" default="0.005" />
+
+        <xs:attribute name="GenConvexity" type="xs:boolean" use="optional" default="false" />
+
+        <xs:attribute name="GenProximity" type="xs:boolean" use="optional" default="false" />
+        <xs:attribute name="ProximityRaysPerSample" type="tAORays" use="optional" default="128" />
+        <xs:attribute name="ProximityConeAngle" type="xs:float" use="optional" default="80" />
+        <xs:attribute name="ProximityLimitRayDistance" type="xs:boolean" use="optional" default="true" />
+
+        <xs:attribute name="ConvexityScale" type="xs:float" use="optional" default="1.0" />
+        <xs:attribute name="Concavity" type="xs:boolean" use="optional" default="false" />
+        <xs:attribute name="AA" type="eAntialiasing" use="optional" default="1" />
+        <xs:attribute name="EdgePadding" type="xs:unsignedByte" use="optional" default="1" />
+        <xs:attribute name="BucketSize" type="xs:unsignedInt" use="optional" default="32" />
+
+        <xs:attribute name="GenWireRays" type="xs:boolean" use="optional" default="false" />
+        <xs:attribute name="RenderWireframe" type="xs:boolean" use="optional" default="true" />
+        <xs:attribute name="RenderRayFails" type="xs:boolean" use="optional" default="true" />
+
+        <xs:attribute name="GenCavity" type="xs:boolean" use="optional" default="false" />
+        <xs:attribute name="CavityRaysPerSample" type="tAORays" use="optional" default="128" />
+        <xs:attribute name="CavityJitter" type="xs:boolean" use="optional" default="false" />
+        <xs:attribute name="CavitySearchRadius" type="xs:float" use="optional" default="0.5" />
+        <xs:attribute name="CavityContrast" type="xs:float" use="optional" default="1.25" />
+        <xs:attribute name="CavitySteps" type="xs:unsignedInt" use="optional" default="4" />
+
+        <xs:attribute name="GenDirections" type="xs:boolean" use="optional" default="false" />
+        <xs:attribute name="DirectionsSwizzleX" type="eSwizzleComponent" use="optional" default="X+" />
+        <xs:attribute name="DirectionsSwizzleY" type="eSwizzleComponent" use="optional" default="Y+" />
+        <xs:attribute name="DirectionsSwizzleZ" type="eSwizzleComponent" use="optional" default="Z+" />
+        <xs:attribute name="DirectionsTS" type="xs:boolean" use="optional" default="false" />
+        <xs:attribute name="DirectionsTonemap" type="eHMNormalization" use="optional" default="Interactive" />
+        <xs:attribute name="DirectionsTonemapMin" type="xs:float" use="optional" default="-100" />
+        <xs:attribute name="DirectionsTonemapMax" type="xs:float" use="optional" default="100" />
+
+        <xs:attribute name="GenRadiosityNormals" type="xs:boolean" use="optional" default="false" />
+        <xs:attribute name="RadiosityNormalsRaysPerSample" type="tAORays" use="optional" default="128" />
+        <xs:attribute name="RadiosityNormalsDistribution" type="eAODistribution" use="optional" default="Uniform" />
+        <xs:attribute name="RadiosityNormalsConeAngle" type="xs:float" use="optional" default="162" />
+        <xs:attribute name="RadiosityNormalsBias" type="xs:float" use="optional" default="0.08" />
+        <xs:attribute name="RadiosityNormalsLimitRayDistance" type="xs:boolean" use="optional" default="false" />
+        <xs:attribute name="RadiosityNormalsAttenConstant" type="xs:float" use="optional" default="1" />
+        <xs:attribute name="RadiosityNormalsAttenLinear" type="xs:float" use="optional" default="0.1" />
+        <xs:attribute name="RadiosityNormalsAttenCuadratic" type="xs:float" use="optional" default="0" />
+        <xs:attribute name="RadiosityNormalsJitter" type="xs:boolean" use="optional" default="false" />
+        <xs:attribute name="RadiosityNormalsCoordSys" type="eRNMCoordSys" use="optional" default="AliB" />
+        <xs:attribute name="RadiosityNormalsContrast" type="xs:float" use="optional" default="1" />
+        <xs:attribute name="RadiosityNormalsEncodeAO" type="xs:boolean" use="optional" default="true" />
+        <xs:attribute name="RadiosityNormalsAllowPureOcclusion" type="xs:boolean" use="optional" default="false" />
+
+   		<xs:attribute name="BakeHighpolyVCols" type="xs:boolean" use="optional" default="false" />
+
+        <xs:attribute name="GenCurv" type="xs:boolean" use="optional" default="false" />
+        <xs:attribute name="CurvRaysPerSample" type="tAORays" use="optional" default="128" />
+        <xs:attribute name="CurvConeAngle" type="xs:float" use="optional" default="162" />
+        <xs:attribute name="CurvBias" type="xs:float" use="optional" default="0.0001" />
+        <xs:attribute name="CurvSearchDistance" type="xs:float" use="optional" default="0.5" />
+        <xs:attribute name="CurvJitter" type="xs:boolean" use="optional" default="false" />
+        <xs:attribute name="CurvMonocrome" type="xs:boolean" use="optional" default="false" />
+        <xs:attribute name="CurvDistribution" type="eAODistribution" use="optional" default="Uniform" />
+        <xs:attribute name="CurvAlgorithm" type="eCurvAlgorithm" use="optional" default="Average"/>
+
+        <xs:attribute name="GenDerivNM" type="xs:boolean" use="optional" default="false" />
+
+        <xs:attribute name="GenTranslu" type="xs:boolean" use="optional" default="false" />
+        <xs:attribute name="TransluRaysPerSample" type="tAORays" use="optional" default="128" />
+        <xs:attribute name="TransluDistribution" type="eAODistribution" use="optional" default="Uniform" />
+        <xs:attribute name="TransluConeAngle" type="xs:float" use="optional" default="162" />
+        <xs:attribute name="TransluBias" type="xs:float" use="optional" default="0.005" />
+        <xs:attribute name="TransluDist" type="xs:float" use="optional" default="1.0" />
+        <xs:attribute name="TransluJitter" type="xs:boolean" use="optional" default="false" />
+
+    </xs:complexType>
+  
+    <xs:simpleType name="eHMNormalization">
+      <xs:restriction base="xs:string">
+          <xs:enumeration value="Interactive" />
+          <xs:enumeration value="Manual" />
+          <xs:enumeration value="Raw" />
+      </xs:restriction>
+    </xs:simpleType>
+
+  <xs:simpleType name="eNormalMapType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Object-space" />
+      <xs:enumeration value="Tangent-space" />
+      <xs:enumeration value="Derivative" />
+    </xs:restriction>
+  </xs:simpleType>  
+
+  <xs:simpleType name="eSwizzleComponent">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="X+" />
+            <xs:enumeration value="X-" />
+            <xs:enumeration value="Y+" />
+            <xs:enumeration value="Y-" />
+            <xs:enumeration value="Z+" />
+            <xs:enumeration value="Z-" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="eTransparencyMode">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="None" />
+            <xs:enumeration value="1Bit" />
+            <xs:enumeration value="AdditiveGlow" />
+            <xs:enumeration value="ScreenGlass" />
+            <xs:enumeration value="Blend" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="eAODistribution">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Uniform" />
+            <xs:enumeration value="Cosine" />
+            <xs:enumeration value="CosineSq" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="eCurvAlgorithm">
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="Average" />
+        <xs:enumeration value="Gaussian" />
+      </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="eAntialiasing">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="1" />
+            <xs:enumeration value="2" />
+            <xs:enumeration value="4" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="tDetail">
+        <xs:attribute name="File" type="xs:string" use="optional" default="" />
+        <xs:attribute name="Scale" type="xs:float" use="optional" default="0.5" />
+        <xs:attribute name="Method" type="eHM2NMMethod" use="optional" default="4Samples" />
+    </xs:complexType>
+    <xs:complexType name="tViewer3D">
+        <xs:sequence>
+            <xs:element name="LightAmbientColor" type="tRGB8" minOccurs="0" maxOccurs="1" />
+            <xs:element name="LightDiffuseColor" type="tRGB8" minOccurs="0" maxOccurs="1" />
+            <xs:element name="LightSpecularColor" type="tRGB8" minOccurs="0" maxOccurs="1" />
+            <xs:element name="LightSecondaryColor" type="tRGB8" minOccurs="0" maxOccurs="1" />
+            <xs:element name="LightTertiaryColor" type="tRGB8" minOccurs="0" maxOccurs="1" />
+            <xs:element name="BackgroundColor" type="tRGB8" maxOccurs="1" minOccurs="0" />
+            <xs:element name="GridColor" type="tRGB8" minOccurs="0" maxOccurs="1" />
+            <xs:element name="CageColor" type="tRGB8" minOccurs="0" maxOccurs="1" />
+            <xs:element name="CameraRotation" type="tMatrix" maxOccurs="1" minOccurs="1" />
+            <xs:element name="CameraPosition" type="tVector3" maxOccurs="1" minOccurs="1" />
+            <xs:element name="LightPosition" type="tVector3" maxOccurs="1" minOccurs="1" />
+        </xs:sequence>
+        <xs:attribute name="ShowGrid" type="xs:boolean" use="optional" default="true" />
+        <xs:attribute name="ShowWireframe" type="xs:boolean" use="optional" default="false" />
+        <xs:attribute name="ShowTangents" type="xs:boolean" use="optional" default="false" />
+        <xs:attribute name="ShowNormals" type="xs:boolean" use="optional" default="false" />
+        <xs:attribute name="ShowBlockers" type="xs:boolean" use="optional" default="false" />
+        <xs:attribute name="MaxTessellationLevel" type="xs:integer" use="optional" default="0" />
+        <xs:attribute name="Exposure" type="tFloatZeroToOne" use="optional" default="0.18" />
+        <xs:attribute name="HDRThreshold" type="tFloatZeroToTwo" use="optional" default="0.9" />
+        <xs:attribute name="LightIntensity" type="tFloatZeroToTwo" use="optional" default="1.0" />
+        <xs:attribute name="LightIndiretIntensity" type="tFloatZeroToTwo" use="optional" default="0.0" />
+        <xs:attribute name="UseGlow" type="xs:boolean" use="optional" default="true" />
+        <xs:attribute name="GlowIntensity" type="tFloatZeroToEight" use="optional" default="1.0" />
+        <xs:attribute name="ParallaxStrength" type="tFloatZeroToOne" use="optional" default="0.0" />
+        <xs:attribute name="ShowHighpolys" type="xs:boolean" default="true" use="optional" />
+        <xs:attribute name="ShowAO" type="xs:boolean" default="false" use="optional" />
+        <xs:attribute name="CageOpacity" type="tFloatZeroToOne" use="optional" default="0.7" />
+        <xs:attribute name="DiffuseGIIntensity" type="tFloatZeroToOne" use="optional" default="0.0" />
+        <xs:attribute name="CastShadows" type="xs:boolean" default="false" use="optional" />
+        <xs:attribute name="ShadowBias" type="tFloatZeroToOne" use="optional" default="0.6" />
+        <xs:attribute name="XemakosExample" type="xs:boolean" use="optional" default="false" />
+        <xs:attribute name="AxisScl" type="xs:float" use="optional" default="0.04" />
+        <xs:attribute name="CameraOrbitDistance" type="xs:float" use="optional" default="0.25" />
+        <xs:attribute name="CameraOrbitAutoCenter" type="xs:boolean" use="optional" default="true" />
+        <xs:attribute name="ShadowArea" type="tFloatZeroToOne" use="optional" default="0.5" />
+        <xs:attribute name="ShowStarfield" type="xs:boolean" use="optional" default="false" />
+
+        <xs:attribute name="SSAOEnabled" type="xs:boolean" use="optional" default="false" />
+        <xs:attribute name="SSAOBright" type="xs:float" use="optional" default="1.1" />
+        <xs:attribute name="SSAOContrast" type="xs:float" use="optional" default="1" />
+        <xs:attribute name="SSAOAtten" type="xs:float" use="optional" default="1.0" />
+        <xs:attribute name="SSAORadius" type="tFloatZeroToOne" use="optional" default="0.25" />
+        <xs:attribute name="SSAOBlurRadius" type="xs:float" use="optional" default="2" />
+
+    </xs:complexType>
+    <xs:complexType name="tRGB8">
+        <xs:sequence />
+        <xs:attribute name="R" type="xs:unsignedByte" use="optional" default="0" />
+        <xs:attribute name="G" type="xs:unsignedByte" use="optional" default="0" />
+        <xs:attribute name="B" type="xs:unsignedByte" use="optional" default="0" />
+    </xs:complexType>
+    <xs:element name="Settings">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="HighPolyModel" type="tHighPolyModel" minOccurs="1" maxOccurs="1" />
+                <xs:element name="LowPolyModel" type="tLowPolyModel" minOccurs="1" maxOccurs="1" />
+                <xs:element name="GenerateMaps" type="tGenerateMaps" minOccurs="1" maxOccurs="1" />
+                <xs:element name="Detail" type="tDetail" minOccurs="1" maxOccurs="1" />
+                <xs:element name="Viewer3D" type="tViewer3D" minOccurs="1" maxOccurs="1" />
+            </xs:sequence>
+            <xs:attribute name="Version" type="xs:string" use="required" />
+        </xs:complexType>
+    </xs:element>
+    <xs:simpleType name="tAORays">
+        <xs:restriction base="xs:unsignedShort">
+            <xs:maxInclusive value="8192" />
+            <xs:minInclusive value="16" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="tFloatZeroToOne">
+        <xs:restriction base="xs:float">
+            <xs:maxInclusive value="1.0" />
+            <xs:minInclusive value="0.0" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="tFloatZeroToTwo">
+        <xs:restriction base="xs:float">
+            <xs:maxInclusive value="2.0" />
+            <xs:minInclusive value="0.0" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="tFloatZeroToEight">
+        <xs:restriction base="xs:float">
+            <xs:maxInclusive value="8.0" />
+            <xs:minInclusive value="0.0" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="tSize">
+        <xs:restriction base="xs:unsignedShort">
+            <xs:maxInclusive value="16768" />
+            <xs:minInclusive value="256" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="tPadding">
+        <xs:restriction base="xs:unsignedByte">
+            <xs:maxInclusive value="5" />
+            <xs:minInclusive value="0" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="tMatrix">
+        <xs:sequence />
+        <xs:attribute name="e11" type="xs:float" use="required" />
+        <xs:attribute name="e12" type="xs:float" use="required" />
+        <xs:attribute name="e13" type="xs:float" use="required" />
+        <xs:attribute name="e21" type="xs:float" use="required" />
+        <xs:attribute name="e22" type="xs:float" use="required" />
+        <xs:attribute name="e23" type="xs:float" use="required" />
+        <xs:attribute name="e31" type="xs:float" use="required" />
+        <xs:attribute name="e32" type="xs:float" use="required" />
+        <xs:attribute name="e33" type="xs:float" use="required" />
+    </xs:complexType>
+    <xs:complexType name="tVector3">
+        <xs:sequence />
+        <xs:attribute name="x" type="xs:float" use="required" />
+        <xs:attribute name="y" type="xs:float" use="required" />
+        <xs:attribute name="z" type="xs:float" use="required" />
+    </xs:complexType>
+    <xs:simpleType name="eGenerationType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Normals" />
+            <xs:enumeration value="Heights" />
+            <xs:enumeration value="BaseTex" />
+            <xs:enumeration value="AO" />
+            <xs:enumeration value="BentNormals" />
+            <xs:enumeration value="PRTp" />
+            <xs:enumeration value="PRTn" />
+            <xs:enumeration value="Convexity" />
+            <xs:enumeration value="Thickness" />
+            <xs:enumeration value="Proximity" />
+            <xs:enumeration value="Cavity" />
+            <xs:enumeration value="WireframeAndRayFails" />
+            <xs:enumeration value="Directions" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="eHM2NMMethod">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="4Samples" />
+            <xs:enumeration value="3x3" />
+            <xs:enumeration value="5x5" />
+            <xs:enumeration value="SO3x3" />
+            <xs:enumeration value="SO5x5" />
+            <xs:enumeration value="PRE3x3" />
+            <xs:enumeration value="PRE5x5" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="eRNMCoordSys">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="OpenGL" />
+            <xs:enumeration value="Direct3D" />
+            <xs:enumeration value="AliB" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="eSmoothNormals">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="UseExportedNormals" />
+            <xs:enumeration value="AverageNormals" />
+            <xs:enumeration value="HardenNormals" />
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

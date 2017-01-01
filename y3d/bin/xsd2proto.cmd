@@ -1,0 +1,1 @@
+java -jar xsd2thrift.jar --protobuf --filename=xnormal.proto  settings.xsd

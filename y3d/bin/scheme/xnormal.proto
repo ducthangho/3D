@@ -1,0 +1,381 @@
+syntax = "proto3";
+message UnspecifiedType
+{
+	string baseObjectType = 1;
+	bytes object = 2;
+}
+
+message tMatrix
+{
+	float e13 = 1;
+	float e12 = 2;
+	float e23 = 3;
+	float e31 = 4;
+	float e11 = 5;
+	float e22 = 6;
+	float e33 = 7;
+	float e21 = 8;
+	float e32 = 9;
+}
+
+message tDetail
+{
+	enum eHM2NMMethod
+	{
+		eHM2NMMethod_3x3 = 0;
+		eHM2NMMethod_4Samples = 1;
+		eHM2NMMethod_5x5 = 2;
+		eHM2NMMethod_PRE3x3 = 3;
+		eHM2NMMethod_PRE5x5 = 4;
+		eHM2NMMethod_SO3x3 = 5;
+		eHM2NMMethod_SO5x5 = 6;
+	}
+	eHM2NMMethod Method = 1;
+	float Scale = 2;
+	string File = 3;
+}
+
+message tRGB8
+{
+	uint32 G = 1;
+	uint32 R = 2;
+	uint32 B = 3;
+}
+
+message tHighPolyMesh
+{
+	string File = 1;
+	string PositionOffset = 2;
+	bool IgnorePerVertexColor = 3;
+	enum eSmoothNormals
+	{
+		eSmoothNormals_AverageNormals = 0;
+		eSmoothNormals_HardenNormals = 1;
+		eSmoothNormals_UseExportedNormals = 2;
+	}
+	eSmoothNormals AverageNormals = 4;
+	bool Visible = 5;
+	bool BaseTexIsTSNM = 6;
+	float Scale = 7;
+}
+
+message tLowPolyMesh
+{
+	string BaseTex = 1;
+	string BlockersFile = 2;
+	enum eSwizzleComponent
+	{
+		eSwizzleComponent_X = 0;
+		eSwizzleComponent_X_ = 1;
+		eSwizzleComponent_Y = 2;
+		eSwizzleComponent_Y_ = 3;
+		eSwizzleComponent_Z = 4;
+		eSwizzleComponent_Z_ = 5;
+	}
+	eSwizzleComponent VVDMSwizzleZ = 3;
+	float FresnelRefractiveIndex = 4;
+	float UOffset = 5;
+	float ReflectHDRMult = 6;
+	enum eTransparencyMode
+	{
+		eTransparencyMode_1Bit = 0;
+		eTransparencyMode_AdditiveGlow = 1;
+		eTransparencyMode_Blend = 2;
+		eTransparencyMode_None = 3;
+		eTransparencyMode_ScreenGlass = 4;
+	}
+	eTransparencyMode TransparencyMode = 7;
+	float VOffset = 8;
+	string ReflectTex = 9;
+	float MaxRayDistanceFront = 10;
+	string DiffuseGITex = 11;
+	enum eNormalMapType
+	{
+		eNormalMapType_Derivative = 0;
+		eNormalMapType_Object_space = 1;
+		eNormalMapType_Tangent_space = 2;
+	}
+	eNormalMapType NormapMapType = 12;
+	string File = 13;
+	eSwizzleComponent VVDMSwizzleY = 14;
+	string CageFile = 15;
+	string HeightTex = 16;
+	eSwizzleComponent NMSwizzleY = 17;
+	bool BatchProtect = 18;
+	bytes AlphaTestValue = 19;
+	uint32 Subdivisions = 20;
+	bool Matte = 21;
+	bool AverageNormals = 22;
+	bool VectorDisplacementTS = 23;
+	bool UseCage = 24;
+	bool Visible = 25;
+	eSwizzleComponent NMSwizzleX = 26;
+	string GlossTex = 27;
+	float Scale = 28;
+	eSwizzleComponent NMSwizzleZ = 29;
+	string VectorDisplacementTex = 30;
+	eSwizzleComponent VVDMSwizzleX = 31;
+	bool UsePerVertexColors = 32;
+	bool HighpolyNormalsOverrideTangentSpace = 33;
+	string LMAOTex = 34;
+	string SpecTex = 35;
+	string NormTex = 36;
+	UnspecifiedType HighpolyNormalOverride = 37;
+	string PositionOffset = 38;
+	float MaxRayDistanceBack = 39;
+	bool UseFresnel = 40;
+	bool ReceiveShadows = 41;
+	string EmissiveTex = 42;
+	bool BackfaceCull = 43;
+	bool CastShadows = 44;
+	bool MatchUVs = 45;
+}
+
+message tVector3
+{
+	float y = 1;
+	float x = 2;
+	float z = 3;
+}
+
+message tGenerateMaps
+{
+	tRGB8 NMBackgroundColor = 1;
+	tRGB8 HMBackgroundColor = 2;
+	tRGB8 BakeHighpolyBaseTextureNoTexCol = 3;
+	tRGB8 BakeHighpolyBaseTextureBackgroundColor = 4;
+	tRGB8 RenderWireframeBackgroundColor = 5;
+	tRGB8 RenderWireframeCol = 6;
+	tRGB8 RenderCWCol = 7;
+	tRGB8 RenderSeamCol = 8;
+	tRGB8 RenderRayFailsCol = 9;
+	tRGB8 AOOccludedColor = 10;
+	tRGB8 AOUnoccludedColor = 11;
+	tRGB8 AOBackgroundColor = 12;
+	tRGB8 BentBackgroundColor = 13;
+	tRGB8 PRTBackgroundColor = 14;
+	tRGB8 ConvexityBackgroundColor = 15;
+	tRGB8 ThicknessBackgroundColor = 16;
+	tRGB8 ProximityBackgroundColor = 17;
+	tRGB8 CavityBackgroundColor = 18;
+	tRGB8 VDMBackgroundColor = 19;
+	tRGB8 RadNMBackgroundColor = 20;
+	tRGB8 CurvBackgroundColor = 21;
+	tRGB8 DerivNMBackgroundColor = 22;
+	tRGB8 TransluBackgroundColor = 23;
+	tRGB8 BakeHighpolyVColsBackgroundCol = 24;
+	bool ClosestIfFails = 25;
+	float DirectionsTonemapMax = 26;
+	bool CurvMonocrome = 27;
+	float AOBias = 28;
+	bool BentTangentSpace = 29;
+	bool GenTranslu = 30;
+	enum eAODistribution
+	{
+		eAODistribution_Cosine = 0;
+		eAODistribution_CosineSq = 1;
+		eAODistribution_Uniform = 2;
+	}
+	eAODistribution AODistribution = 31;
+	float PRTThreshold = 32;
+	float DirectionsTonemapMin = 33;
+	eAODistribution CurvDistribution = 34;
+	bool BentJitter = 35;
+	eAODistribution BentDistribution = 36;
+	bool BakeHighpolyBaseTexture = 37;
+	bool GenConvexity = 38;
+	float RadiosityNormalsAttenLinear = 39;
+	uint32 TransluRaysPerSample = 40;
+	float CurvSearchDistance = 41;
+	enum eSwizzleComponent
+	{
+		eSwizzleComponent_X = 0;
+		eSwizzleComponent_X_ = 1;
+		eSwizzleComponent_Y = 2;
+		eSwizzleComponent_Y_ = 3;
+		eSwizzleComponent_Z = 4;
+		eSwizzleComponent_Z_ = 5;
+	}
+	eSwizzleComponent SwizzleZ = 42;
+	float TransluBias = 43;
+	bool PRTLimitRayDistance = 44;
+	bool GenBent = 45;
+	bool AOLimitRayDistance = 46;
+	uint32 CurvRaysPerSample = 47;
+	eAODistribution RadiosityNormalsDistribution = 48;
+	uint32 RadiosityNormalsRaysPerSample = 49;
+	bool CurvJitter = 50;
+	bool TangentSpace = 51;
+	bool RadiosityNormalsAllowPureOcclusion = 52;
+	eSwizzleComponent BentSwizzleX = 53;
+	eSwizzleComponent SwizzleY = 54;
+	bool GenCurv = 55;
+	bool PRTJitter = 56;
+	float AOAttenCuadratic = 57;
+	float BentConeAngle = 58;
+	eSwizzleComponent SwizzleX = 59;
+	bool RenderRayFails = 60;
+	float CavitySearchRadius = 61;
+	bool RadiosityNormalsEncodeAO = 62;
+	float TransluConeAngle = 63;
+	uint32 BentRaysPerSample = 64;
+	float ConvexityScale = 65;
+	float RadiosityNormalsConeAngle = 66;
+	string File = 67;
+	bool GenDerivNM = 68;
+	bool BentLimitRayDistance = 69;
+	float PRTBias = 70;
+	bool RenderWireframe = 71;
+	bool PRTNormalize = 72;
+	bool GenAO = 73;
+	float PRTConeAngle = 74;
+	uint32 Height = 75;
+	float RadiosityNormalsAttenCuadratic = 76;
+	enum eHMNormalization
+	{
+		eHMNormalization_Interactive = 0;
+		eHMNormalization_Manual = 1;
+		eHMNormalization_Raw = 2;
+	}
+	eHMNormalization DirectionsTonemap = 77;
+	bool DirectionsTS = 78;
+	uint32 PRTRaysPerSample = 79;
+	uint32 EdgePadding = 80;
+	eSwizzleComponent DirectionsSwizzleZ = 81;
+	bool AOAllowPureOccluded = 82;
+	bool AOIgnoreBackfaceHits = 83;
+	uint32 CavityRaysPerSample = 84;
+	float AOAttenConstant = 85;
+	bool CavityJitter = 86;
+	float HeightTonemapMax = 87;
+	bool GenDirections = 88;
+	bool RadiosityNormalsLimitRayDistance = 89;
+	float HeightTonemapMin = 90;
+	bool RadiosityNormalsJitter = 91;
+	eSwizzleComponent DirectionsSwizzleY = 92;
+	uint32 Width = 93;
+	bool BakeHighpolyBaseTextureDrawObjectIDIfNoTexture = 94;
+	bool Concavity = 95;
+	eSwizzleComponent DirectionsSwizzleX = 96;
+	bool GenNormals = 97;
+	uint32 ProximityRaysPerSample = 98;
+	bool GenHeights = 99;
+	float RadiosityNormalsAttenConstant = 100;
+	bool GenProximity = 101;
+	bool GenPRT = 102;
+	float CavityContrast = 103;
+	enum eRNMCoordSys
+	{
+		eRNMCoordSys_AliB = 0;
+		eRNMCoordSys_Direct3D = 1;
+		eRNMCoordSys_OpenGL = 2;
+	}
+	eRNMCoordSys RadiosityNormalsCoordSys = 104;
+	bool TransluJitter = 105;
+	uint32 AORaysPerSample = 106;
+	float BentBias = 107;
+	bool DiscardRayBackFacesHits = 108;
+	float AOConeAngle = 109;
+	eSwizzleComponent BentSwizzleY = 110;
+	float RadiosityNormalsBias = 111;
+	float RadiosityNormalsContrast = 112;
+	uint32 CavitySteps = 113;
+	enum eAntialiasing
+	{
+		eAntialiasing_1 = 0;
+		eAntialiasing_2 = 1;
+		eAntialiasing_4 = 2;
+	}
+	eAntialiasing AA = 114;
+	eSwizzleComponent BentSwizzleZ = 115;
+	uint32 BucketSize = 116;
+	float CurvConeAngle = 117;
+	float TransluDist = 118;
+	bool AOJitter = 119;
+	float CurvBias = 120;
+	bool GenWireRays = 121;
+	enum eCurvAlgorithm
+	{
+		eCurvAlgorithm_Average = 0;
+		eCurvAlgorithm_Gaussian = 1;
+	}
+	eCurvAlgorithm CurvAlgorithm = 122;
+	eAODistribution TransluDistribution = 123;
+	float AOAttenLinear = 124;
+	bool ProximityLimitRayDistance = 125;
+	bool GenRadiosityNormals = 126;
+	float ProximityConeAngle = 127;
+	eHMNormalization HeightTonemap = 128;
+	bool GenCavity = 129;
+	bool BakeHighpolyVCols = 130;
+}
+
+message tHighPolyModel
+{
+	repeated tHighPolyMesh Mesh = 1;
+	string BaseTex = 2;
+	float DefaultMeshScale = 3;
+}
+
+message tLowPolyModel
+{
+	repeated tLowPolyMesh Mesh = 1;
+	float DefaultMeshScale = 2;
+}
+
+message tViewer3D
+{
+	tRGB8 LightAmbientColor = 1;
+	tRGB8 LightDiffuseColor = 2;
+	tRGB8 LightSpecularColor = 3;
+	tRGB8 LightSecondaryColor = 4;
+	tRGB8 LightTertiaryColor = 5;
+	tRGB8 BackgroundColor = 6;
+	tRGB8 GridColor = 7;
+	tRGB8 CageColor = 8;
+	tMatrix CameraRotation = 9;
+	tVector3 CameraPosition = 10;
+	tVector3 LightPosition = 11;
+	float AxisScl = 12;
+	bool XemakosExample = 13;
+	bool ShowWireframe = 14;
+	float CageOpacity = 15;
+	float DiffuseGIIntensity = 16;
+	bool ShowAO = 17;
+	float SSAOContrast = 18;
+	float ShadowArea = 19;
+	float LightIndiretIntensity = 20;
+	bool ShowHighpolys = 21;
+	bool ShowStarfield = 22;
+	bool ShowBlockers = 23;
+	float HDRThreshold = 24;
+	float SSAOBright = 25;
+	float SSAOBlurRadius = 26;
+	bool ShowGrid = 27;
+	float ParallaxStrength = 28;
+	float SSAOAtten = 29;
+	float CameraOrbitDistance = 30;
+	bool UseGlow = 31;
+	bool SSAOEnabled = 32;
+	float ShadowBias = 33;
+	float SSAORadius = 34;
+	float LightIntensity = 35;
+	float Exposure = 36;
+	bool CameraOrbitAutoCenter = 37;
+	bool CastShadows = 38;
+	bool ShowNormals = 39;
+	int64 MaxTessellationLevel = 40;
+	bool ShowTangents = 41;
+	float GlowIntensity = 42;
+}
+
+message SettingsType
+{
+	tHighPolyModel HighPolyModel = 1;
+	tLowPolyModel LowPolyModel = 2;
+	tGenerateMaps GenerateMaps = 3;
+	tDetail Detail = 4;
+	tViewer3D Viewer3D = 5;
+	string Version = 6;
+}
+
