@@ -278,25 +278,12 @@ void FP_Basic::pack(Tab<float>& listRect, Tab<float>& enclosingRect)
 		lr.emplace_back(listRect[i + 2], listRect[i + 3]);
 	}
 
-	for (auto rect : lr)
-	{
-		mprintf(L" x = %f, y = %f, width = %f, height = %f\n", rect.x, rect.y, rect.w, rect.h);
-	}
-
-	mprintf(L"EnclosingRect: w = %f, h = %f\n", enclosingRect[0], enclosingRect[1]);
-
 	Node er(0, 0, enclosingRect[0], enclosingRect[1]);
 	er.packWithNoPreSort(lr, er);
-
-	for (auto rect : lr)
-	{
-		mprintf(L" x = %f, y = %f, width = %f, height = %f\n", rect.x, rect.y, rect.w, rect.h);
-	}
 
 	for (int i = 0, j = 0; i < listRect.Count(); i += 4, ++j)
 	{
 		listRect[i] = lr[j].x;
 		listRect[i + 1] = lr[j].y;
-		mprintf(L"Rectangle %d: x = %f, y = %f, width = %f, height = %f\n", j, listRect[i], listRect[i + 1], listRect[i + 2], listRect[i + 3]);
 	}
 }

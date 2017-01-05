@@ -130,6 +130,13 @@ fn unwrap density tileSize padding =
 	)
 
 	struct SRect (x,y,width,height,index,x_old,y_old)
+
+	if (ClassOf $) != Editable_mesh do 
+	(
+		convertToPoly $
+		convertToMesh $
+	)
+
 	local sf = for i in $.selectedFaces collect i.index
 
 	local start = timeStamp()
