@@ -342,6 +342,7 @@ if yms_init != true then
 				)
 			else 
 				(
+					unwrap3dmax 66 0.001
 					exportFile (eDir + oName + ".obj") #noPrompt selectedOnly:true 
 				)
 			
