@@ -332,7 +332,8 @@ fn stealNormal hightPolyObjs lowPoly size:512 bakeFolder:bakeFolder =
 	local currentRenderer = renderers.current as string
 	local bakeNormal 
 
-	if (matchPattern currentRenderer pattern:"*mental_ray*") then
+	if ((matchPattern currentRenderer pattern:"*mental_ray*") or\
+	 (matchPattern currentRenderer pattern:"*Scanline*")) then
 	(
 		bakeNormal = NormalsMap()
 		bakeNormal.useNormalBump = true
@@ -342,9 +343,6 @@ fn stealNormal hightPolyObjs lowPoly size:512 bakeFolder:bakeFolder =
 	(
 		bakeNormal = VrayNormalsMap()
 		bakeNormal.fileType = (bakeFolder+"\\"+lowPoly.name+"_normal_vray.png")
-	)else if (matchPattern currentRenderer pattern:"*Scanline*") then
-	(
-
 	)else if (matchPattern currentRenderer pattern:"*Krakatoa*") then
 	(
 
@@ -370,7 +368,6 @@ fn stealNormal hightPolyObjs lowPoly size:512 bakeFolder:bakeFolder =
 	bakeNormal.outputSzY = size
 	bakeNormal.fileName = filenameFromPath bakeNormal.fileType
 	bakeNormal.enabled = true
-	
 
 	lowpoly.iNodeBakeProperties.removeAllBakeElements() 
 	lowpoly.INodeBakeProperties.bakeEnabled = true 
@@ -380,36 +377,33 @@ fn stealNormal hightPolyObjs lowPoly size:512 bakeFolder:bakeFolder =
 
 	render rendertype:#bakeSelected vfb:off progressBar:true outputSize:[size,size]
 
+	local bitmap =bitmaptexture filename:bakeNormal.fileType
 
-	if (matchPattern currentRenderer pattern:"*mental_ray*") then
+	if ((matchPattern currentRenderer pattern:"*mental_ray*") or\
+		 (matchPattern currentRenderer pattern:"*Scanline*")) then
 	(
-	
+		local normalbumpMap = Normal_Bump()
+		normalbumpMap.normal_map = bitmap
+		local mat = standard()
+		mat.bumpMap = normalbumpMap
+		mat.bumpMapAmount = 90
+
 	)else if (matchPattern currentRenderer pattern:"*V_Ray_Adv*") then
 	(	
-		print "here"
- 		local bitmap =bitmaptexture filename:bakeNormal.fileType
  		local vnormalMap = VRayNormalMap()
  		vnormalMap.normal_map = bitmap
  		local mat = VrayMtl()
  		mat.texmap_bump = vnormalMap
- 		
-		local shellMat = Shell_Material originalMaterial:lowPoly.material\
-		bakedMaterial:mat viewportMtlIndex:1 renderMtlIndex:1
-
-		shellMat.bakedMaterial.texmap_bump_multiplier = 90
-		
-		lowPoly.material = shellMat
-		
-		showTextureMap lowPoly.material lowPoly.material.bakedMaterial true
-
-	)else if (matchPattern currentRenderer pattern:"*Scanline*") then
-	(
-
+ 		mat.texmap_bump_multiplier = 90
 	)else if (matchPattern currentRenderer pattern:"*Krakatoa*") then
 	(
 
 	)
 
+	local shellMat = Shell_Material originalMaterial:lowPoly.material\
+		bakedMaterial:mat viewportMtlIndex:1 renderMtlIndex:1
+	lowPoly.material = shellMat	
+	showTextureMap lowPoly.material lowPoly.material.bakedMaterial true
 )
 
 
