@@ -39,7 +39,7 @@ rollout BakeUI "Steal Normal" width:158 height:102
 
 		makeDir bakeFolder all:true
 
-		stealNormal hightPolyObjs lowPoly 
+		stealNormal hightPolyObjs lowPoly size:size
 	)
 )
 

@@ -23,5 +23,6 @@ fn exportObjectToFBX path =
 fn importObjectFromFBXFile filePath = 
 (
 	FBXImporterSetParam "Mode" #create
+	FBXImporterSetParam "ConvertUnit" "in"
 	importFile filePath #noPrompt
 )
