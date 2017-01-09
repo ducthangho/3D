@@ -63,9 +63,9 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* tViewer3D_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   tViewer3D_reflection_ = NULL;
-const ::google::protobuf::Descriptor* SettingsType_descriptor_ = NULL;
+const ::google::protobuf::Descriptor* Settings_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  SettingsType_reflection_ = NULL;
+  Settings_reflection_ = NULL;
 
 }  // namespace
 
@@ -136,8 +136,8 @@ void protobuf_AssignDesc_xnormal_2eproto() {
   tDetail_eHM2NMMethod_descriptor_ = tDetail_descriptor_->enum_type(0);
   tRGB8_descriptor_ = file->message_type(3);
   static const int tRGB8_offsets_[3] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tRGB8, g_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tRGB8, r_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tRGB8, g_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tRGB8, b_),
   };
   tRGB8_reflection_ =
@@ -237,8 +237,8 @@ void protobuf_AssignDesc_xnormal_2eproto() {
   tLowPolyMesh_eNormalMapType_descriptor_ = tLowPolyMesh_descriptor_->enum_type(2);
   tVector3_descriptor_ = file->message_type(6);
   static const int tVector3_offsets_[3] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tVector3, y_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tVector3, x_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tVector3, y_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tVector3, z_),
   };
   tVector3_reflection_ =
@@ -491,26 +491,26 @@ void protobuf_AssignDesc_xnormal_2eproto() {
       sizeof(tViewer3D),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, _internal_metadata_),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, _is_default_instance_));
-  SettingsType_descriptor_ = file->message_type(11);
-  static const int SettingsType_offsets_[6] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SettingsType, highpolymodel_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SettingsType, lowpolymodel_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SettingsType, generatemaps_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SettingsType, detail_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SettingsType, viewer3d_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SettingsType, version_),
+  Settings_descriptor_ = file->message_type(11);
+  static const int Settings_offsets_[6] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Settings, highpolymodel_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Settings, lowpolymodel_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Settings, generatemaps_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Settings, detail_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Settings, viewer3d_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Settings, version_),
   };
-  SettingsType_reflection_ =
+  Settings_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      SettingsType_descriptor_,
-      SettingsType::default_instance_,
-      SettingsType_offsets_,
+      Settings_descriptor_,
+      Settings::default_instance_,
+      Settings_offsets_,
       -1,
       -1,
       -1,
-      sizeof(SettingsType),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SettingsType, _internal_metadata_),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SettingsType, _is_default_instance_));
+      sizeof(Settings),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Settings, _internal_metadata_),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Settings, _is_default_instance_));
 }
 
 namespace {
@@ -547,7 +547,7 @@ void protobuf_RegisterTypes(const ::std::string&) {
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       tViewer3D_descriptor_, &tViewer3D::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      SettingsType_descriptor_, &SettingsType::default_instance());
+      Settings_descriptor_, &Settings::default_instance());
 }
 
 }  // namespace
@@ -575,8 +575,8 @@ void protobuf_ShutdownFile_xnormal_2eproto() {
   delete tLowPolyModel_reflection_;
   delete tViewer3D::default_instance_;
   delete tViewer3D_reflection_;
-  delete SettingsType::default_instance_;
-  delete SettingsType_reflection_;
+  delete Settings::default_instance_;
+  delete Settings_reflection_;
 }
 
 void protobuf_AddDesc_xnormal_2eproto() GOOGLE_ATTRIBUTE_COLD;
@@ -586,232 +586,267 @@ void protobuf_AddDesc_xnormal_2eproto() {
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
+  ::google::protobuf::protobuf_AddDesc_google_2fprotobuf_2fdescriptor_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\rxnormal.proto\"9\n\017UnspecifiedType\022\026\n\016ba"
-    "seObjectType\030\001 \001(\t\022\016\n\006object\030\002 \001(\014\"~\n\007tM"
-    "atrix\022\013\n\003e13\030\001 \001(\002\022\013\n\003e12\030\002 \001(\002\022\013\n\003e23\030\003"
-    " \001(\002\022\013\n\003e31\030\004 \001(\002\022\013\n\003e11\030\005 \001(\002\022\013\n\003e22\030\006 "
-    "\001(\002\022\013\n\003e33\030\007 \001(\002\022\013\n\003e21\030\010 \001(\002\022\013\n\003e32\030\t \001"
-    "(\002\"\207\002\n\007tDetail\022%\n\006Method\030\001 \001(\0162\025.tDetail"
-    ".eHM2NMMethod\022\r\n\005Scale\030\002 \001(\002\022\014\n\004File\030\003 \001"
-    "(\t\"\267\001\n\014eHM2NMMethod\022\024\n\020eHM2NMMethod_3x3\020"
-    "\000\022\031\n\025eHM2NMMethod_4Samples\020\001\022\024\n\020eHM2NMMe"
-    "thod_5x5\020\002\022\027\n\023eHM2NMMethod_PRE3x3\020\003\022\027\n\023e"
-    "HM2NMMethod_PRE5x5\020\004\022\026\n\022eHM2NMMethod_SO3"
-    "x3\020\005\022\026\n\022eHM2NMMethod_SO5x5\020\006\"(\n\005tRGB8\022\t\n"
-    "\001G\030\001 \001(\r\022\t\n\001R\030\002 \001(\r\022\t\n\001B\030\003 \001(\r\"\277\002\n\rtHigh"
-    "PolyMesh\022\014\n\004File\030\001 \001(\t\022\026\n\016PositionOffset"
-    "\030\002 \001(\t\022\034\n\024IgnorePerVertexColor\030\003 \001(\010\0225\n\016"
-    "AverageNormals\030\004 \001(\0162\035.tHighPolyMesh.eSm"
-    "oothNormals\022\017\n\007Visible\030\005 \001(\010\022\025\n\rBaseTexI"
-    "sTSNM\030\006 \001(\010\022\r\n\005Scale\030\007 \001(\002\"|\n\016eSmoothNor"
-    "mals\022!\n\035eSmoothNormals_AverageNormals\020\000\022"
-    " \n\034eSmoothNormals_HardenNormals\020\001\022%\n!eSm"
-    "oothNormals_UseExportedNormals\020\002\"\335\r\n\014tLo"
-    "wPolyMesh\022\017\n\007BaseTex\030\001 \001(\t\022\024\n\014BlockersFi"
-    "le\030\002 \001(\t\0225\n\014VVDMSwizzleZ\030\003 \001(\0162\037.tLowPol"
-    "yMesh.eSwizzleComponent\022\036\n\026FresnelRefrac"
-    "tiveIndex\030\004 \001(\002\022\017\n\007UOffset\030\005 \001(\002\022\026\n\016Refl"
-    "ectHDRMult\030\006 \001(\002\0229\n\020TransparencyMode\030\007 \001"
-    "(\0162\037.tLowPolyMesh.eTransparencyMode\022\017\n\007V"
-    "Offset\030\010 \001(\002\022\022\n\nReflectTex\030\t \001(\t\022\033\n\023MaxR"
-    "ayDistanceFront\030\n \001(\002\022\024\n\014DiffuseGITex\030\013 "
-    "\001(\t\0223\n\rNormapMapType\030\014 \001(\0162\034.tLowPolyMes"
-    "h.eNormalMapType\022\014\n\004File\030\r \001(\t\0225\n\014VVDMSw"
-    "izzleY\030\016 \001(\0162\037.tLowPolyMesh.eSwizzleComp"
-    "onent\022\020\n\010CageFile\030\017 \001(\t\022\021\n\tHeightTex\030\020 \001"
-    "(\t\0223\n\nNMSwizzleY\030\021 \001(\0162\037.tLowPolyMesh.eS"
-    "wizzleComponent\022\024\n\014BatchProtect\030\022 \001(\010\022\026\n"
-    "\016AlphaTestValue\030\023 \001(\014\022\024\n\014Subdivisions\030\024 "
-    "\001(\r\022\r\n\005Matte\030\025 \001(\010\022\026\n\016AverageNormals\030\026 \001"
-    "(\010\022\034\n\024VectorDisplacementTS\030\027 \001(\010\022\017\n\007UseC"
-    "age\030\030 \001(\010\022\017\n\007Visible\030\031 \001(\010\0223\n\nNMSwizzleX"
-    "\030\032 \001(\0162\037.tLowPolyMesh.eSwizzleComponent\022"
-    "\020\n\010GlossTex\030\033 \001(\t\022\r\n\005Scale\030\034 \001(\002\0223\n\nNMSw"
-    "izzleZ\030\035 \001(\0162\037.tLowPolyMesh.eSwizzleComp"
-    "onent\022\035\n\025VectorDisplacementTex\030\036 \001(\t\0225\n\014"
-    "VVDMSwizzleX\030\037 \001(\0162\037.tLowPolyMesh.eSwizz"
-    "leComponent\022\032\n\022UsePerVertexColors\030  \001(\010\022"
-    "+\n#HighpolyNormalsOverrideTangentSpace\030!"
-    " \001(\010\022\017\n\007LMAOTex\030\" \001(\t\022\017\n\007SpecTex\030# \001(\t\022\017"
-    "\n\007NormTex\030$ \001(\t\0220\n\026HighpolyNormalOverrid"
-    "e\030% \001(\0132\020.UnspecifiedType\022\026\n\016PositionOff"
-    "set\030& \001(\t\022\032\n\022MaxRayDistanceBack\030\' \001(\002\022\022\n"
-    "\nUseFresnel\030( \001(\010\022\026\n\016ReceiveShadows\030) \001("
-    "\010\022\023\n\013EmissiveTex\030* \001(\t\022\024\n\014BackfaceCull\030+"
-    " \001(\010\022\023\n\013CastShadows\030, \001(\010\022\020\n\010MatchUVs\030- "
-    "\001(\010\"\254\001\n\021eSwizzleComponent\022\027\n\023eSwizzleCom"
-    "ponent_X\020\000\022\030\n\024eSwizzleComponent_X_\020\001\022\027\n\023"
-    "eSwizzleComponent_Y\020\002\022\030\n\024eSwizzleCompone"
-    "nt_Y_\020\003\022\027\n\023eSwizzleComponent_Z\020\004\022\030\n\024eSwi"
-    "zzleComponent_Z_\020\005\"\257\001\n\021eTransparencyMode"
-    "\022\032\n\026eTransparencyMode_1Bit\020\000\022\"\n\036eTranspa"
-    "rencyMode_AdditiveGlow\020\001\022\033\n\027eTransparenc"
-    "yMode_Blend\020\002\022\032\n\026eTransparencyMode_None\020"
-    "\003\022!\n\035eTransparencyMode_ScreenGlass\020\004\"r\n\016"
-    "eNormalMapType\022\035\n\031eNormalMapType_Derivat"
-    "ive\020\000\022\037\n\033eNormalMapType_Object_space\020\001\022 "
-    "\n\034eNormalMapType_Tangent_space\020\002\"+\n\010tVec"
-    "tor3\022\t\n\001y\030\001 \001(\002\022\t\n\001x\030\002 \001(\002\022\t\n\001z\030\003 \001(\002\"\233&"
-    "\n\rtGenerateMaps\022!\n\021NMBackgroundColor\030\001 \001"
-    "(\0132\006.tRGB8\022!\n\021HMBackgroundColor\030\002 \001(\0132\006."
-    "tRGB8\022/\n\037BakeHighpolyBaseTextureNoTexCol"
-    "\030\003 \001(\0132\006.tRGB8\0226\n&BakeHighpolyBaseTextur"
-    "eBackgroundColor\030\004 \001(\0132\006.tRGB8\022.\n\036Render"
-    "WireframeBackgroundColor\030\005 \001(\0132\006.tRGB8\022\""
-    "\n\022RenderWireframeCol\030\006 \001(\0132\006.tRGB8\022\033\n\013Re"
-    "nderCWCol\030\007 \001(\0132\006.tRGB8\022\035\n\rRenderSeamCol"
-    "\030\010 \001(\0132\006.tRGB8\022!\n\021RenderRayFailsCol\030\t \001("
-    "\0132\006.tRGB8\022\037\n\017AOOccludedColor\030\n \001(\0132\006.tRG"
-    "B8\022!\n\021AOUnoccludedColor\030\013 \001(\0132\006.tRGB8\022!\n"
-    "\021AOBackgroundColor\030\014 \001(\0132\006.tRGB8\022#\n\023Bent"
-    "BackgroundColor\030\r \001(\0132\006.tRGB8\022\"\n\022PRTBack"
-    "groundColor\030\016 \001(\0132\006.tRGB8\022(\n\030ConvexityBa"
-    "ckgroundColor\030\017 \001(\0132\006.tRGB8\022(\n\030Thickness"
-    "BackgroundColor\030\020 \001(\0132\006.tRGB8\022(\n\030Proximi"
-    "tyBackgroundColor\030\021 \001(\0132\006.tRGB8\022%\n\025Cavit"
-    "yBackgroundColor\030\022 \001(\0132\006.tRGB8\022\"\n\022VDMBac"
-    "kgroundColor\030\023 \001(\0132\006.tRGB8\022$\n\024RadNMBackg"
-    "roundColor\030\024 \001(\0132\006.tRGB8\022#\n\023CurvBackgrou"
-    "ndColor\030\025 \001(\0132\006.tRGB8\022&\n\026DerivNMBackgrou"
-    "ndColor\030\026 \001(\0132\006.tRGB8\022&\n\026TransluBackgrou"
-    "ndColor\030\027 \001(\0132\006.tRGB8\022.\n\036BakeHighpolyVCo"
-    "lsBackgroundCol\030\030 \001(\0132\006.tRGB8\022\026\n\016Closest"
-    "IfFails\030\031 \001(\010\022\034\n\024DirectionsTonemapMax\030\032 "
-    "\001(\002\022\025\n\rCurvMonocrome\030\033 \001(\010\022\016\n\006AOBias\030\034 \001"
-    "(\002\022\030\n\020BentTangentSpace\030\035 \001(\010\022\022\n\nGenTrans"
-    "lu\030\036 \001(\010\0226\n\016AODistribution\030\037 \001(\0162\036.tGene"
-    "rateMaps.eAODistribution\022\024\n\014PRTThreshold"
-    "\030  \001(\002\022\034\n\024DirectionsTonemapMin\030! \001(\002\0228\n\020"
-    "CurvDistribution\030\" \001(\0162\036.tGenerateMaps.e"
-    "AODistribution\022\022\n\nBentJitter\030# \001(\010\0228\n\020Be"
-    "ntDistribution\030$ \001(\0162\036.tGenerateMaps.eAO"
-    "Distribution\022\037\n\027BakeHighpolyBaseTexture\030"
-    "% \001(\010\022\024\n\014GenConvexity\030& \001(\010\022#\n\033Radiosity"
-    "NormalsAttenLinear\030\' \001(\002\022\034\n\024TransluRaysP"
-    "erSample\030( \001(\r\022\032\n\022CurvSearchDistance\030) \001"
-    "(\002\0222\n\010SwizzleZ\030* \001(\0162 .tGenerateMaps.eSw"
-    "izzleComponent\022\023\n\013TransluBias\030+ \001(\002\022\033\n\023P"
-    "RTLimitRayDistance\030, \001(\010\022\017\n\007GenBent\030- \001("
-    "\010\022\032\n\022AOLimitRayDistance\030. \001(\010\022\031\n\021CurvRay"
-    "sPerSample\030/ \001(\r\022D\n\034RadiosityNormalsDist"
-    "ribution\0300 \001(\0162\036.tGenerateMaps.eAODistri"
-    "bution\022%\n\035RadiosityNormalsRaysPerSample\030"
-    "1 \001(\r\022\022\n\nCurvJitter\0302 \001(\010\022\024\n\014TangentSpac"
-    "e\0303 \001(\010\022*\n\"RadiosityNormalsAllowPureOccl"
-    "usion\0304 \001(\010\0226\n\014BentSwizzleX\0305 \001(\0162 .tGen"
-    "erateMaps.eSwizzleComponent\0222\n\010SwizzleY\030"
-    "6 \001(\0162 .tGenerateMaps.eSwizzleComponent\022"
-    "\017\n\007GenCurv\0307 \001(\010\022\021\n\tPRTJitter\0308 \001(\010\022\030\n\020A"
-    "OAttenCuadratic\0309 \001(\002\022\025\n\rBentConeAngle\030:"
-    " \001(\002\0222\n\010SwizzleX\030; \001(\0162 .tGenerateMaps.e"
-    "SwizzleComponent\022\026\n\016RenderRayFails\030< \001(\010"
-    "\022\032\n\022CavitySearchRadius\030= \001(\002\022 \n\030Radiosit"
-    "yNormalsEncodeAO\030> \001(\010\022\030\n\020TransluConeAng"
-    "le\030\? \001(\002\022\031\n\021BentRaysPerSample\030@ \001(\r\022\026\n\016C"
-    "onvexityScale\030A \001(\002\022!\n\031RadiosityNormalsC"
-    "oneAngle\030B \001(\002\022\014\n\004File\030C \001(\t\022\022\n\nGenDeriv"
-    "NM\030D \001(\010\022\034\n\024BentLimitRayDistance\030E \001(\010\022\017"
-    "\n\007PRTBias\030F \001(\002\022\027\n\017RenderWireframe\030G \001(\010"
-    "\022\024\n\014PRTNormalize\030H \001(\010\022\r\n\005GenAO\030I \001(\010\022\024\n"
-    "\014PRTConeAngle\030J \001(\002\022\016\n\006Height\030K \001(\r\022&\n\036R"
-    "adiosityNormalsAttenCuadratic\030L \001(\002\022:\n\021D"
-    "irectionsTonemap\030M \001(\0162\037.tGenerateMaps.e"
-    "HMNormalization\022\024\n\014DirectionsTS\030N \001(\010\022\030\n"
-    "\020PRTRaysPerSample\030O \001(\r\022\023\n\013EdgePadding\030P"
-    " \001(\r\022<\n\022DirectionsSwizzleZ\030Q \001(\0162 .tGene"
-    "rateMaps.eSwizzleComponent\022\033\n\023AOAllowPur"
-    "eOccluded\030R \001(\010\022\034\n\024AOIgnoreBackfaceHits\030"
-    "S \001(\010\022\033\n\023CavityRaysPerSample\030T \001(\r\022\027\n\017AO"
-    "AttenConstant\030U \001(\002\022\024\n\014CavityJitter\030V \001("
-    "\010\022\030\n\020HeightTonemapMax\030W \001(\002\022\025\n\rGenDirect"
-    "ions\030X \001(\010\022(\n RadiosityNormalsLimitRayDi"
-    "stance\030Y \001(\010\022\030\n\020HeightTonemapMin\030Z \001(\002\022\036"
-    "\n\026RadiosityNormalsJitter\030[ \001(\010\022<\n\022Direct"
-    "ionsSwizzleY\030\\ \001(\0162 .tGenerateMaps.eSwiz"
-    "zleComponent\022\r\n\005Width\030] \001(\r\0226\n.BakeHighp"
-    "olyBaseTextureDrawObjectIDIfNoTexture\030^ "
-    "\001(\010\022\021\n\tConcavity\030_ \001(\010\022<\n\022DirectionsSwiz"
-    "zleX\030` \001(\0162 .tGenerateMaps.eSwizzleCompo"
-    "nent\022\022\n\nGenNormals\030a \001(\010\022\036\n\026ProximityRay"
-    "sPerSample\030b \001(\r\022\022\n\nGenHeights\030c \001(\010\022%\n\035"
-    "RadiosityNormalsAttenConstant\030d \001(\002\022\024\n\014G"
-    "enProximity\030e \001(\010\022\016\n\006GenPRT\030f \001(\010\022\026\n\016Cav"
-    "ityContrast\030g \001(\002\022=\n\030RadiosityNormalsCoo"
-    "rdSys\030h \001(\0162\033.tGenerateMaps.eRNMCoordSys"
-    "\022\025\n\rTransluJitter\030i \001(\010\022\027\n\017AORaysPerSamp"
-    "le\030j \001(\r\022\020\n\010BentBias\030k \001(\002\022\037\n\027DiscardRay"
-    "BackFacesHits\030l \001(\010\022\023\n\013AOConeAngle\030m \001(\002"
-    "\0226\n\014BentSwizzleY\030n \001(\0162 .tGenerateMaps.e"
-    "SwizzleComponent\022\034\n\024RadiosityNormalsBias"
-    "\030o \001(\002\022 \n\030RadiosityNormalsContrast\030p \001(\002"
-    "\022\023\n\013CavitySteps\030q \001(\r\022(\n\002AA\030r \001(\0162\034.tGen"
-    "erateMaps.eAntialiasing\0226\n\014BentSwizzleZ\030"
-    "s \001(\0162 .tGenerateMaps.eSwizzleComponent\022"
-    "\022\n\nBucketSize\030t \001(\r\022\025\n\rCurvConeAngle\030u \001"
-    "(\002\022\023\n\013TransluDist\030v \001(\002\022\020\n\010AOJitter\030w \001("
-    "\010\022\020\n\010CurvBias\030x \001(\002\022\023\n\013GenWireRays\030y \001(\010"
-    "\0224\n\rCurvAlgorithm\030z \001(\0162\035.tGenerateMaps."
-    "eCurvAlgorithm\022;\n\023TransluDistribution\030{ "
-    "\001(\0162\036.tGenerateMaps.eAODistribution\022\025\n\rA"
-    "OAttenLinear\030| \001(\002\022!\n\031ProximityLimitRayD"
-    "istance\030} \001(\010\022\033\n\023GenRadiosityNormals\030~ \001"
-    "(\010\022\032\n\022ProximityConeAngle\030\177 \001(\002\0227\n\rHeight"
-    "Tonemap\030\200\001 \001(\0162\037.tGenerateMaps.eHMNormal"
-    "ization\022\022\n\tGenCavity\030\201\001 \001(\010\022\032\n\021BakeHighp"
-    "olyVCols\030\202\001 \001(\010\"h\n\017eAODistribution\022\032\n\026eA"
-    "ODistribution_Cosine\020\000\022\034\n\030eAODistributio"
-    "n_CosineSq\020\001\022\033\n\027eAODistribution_Uniform\020"
-    "\002\"\254\001\n\021eSwizzleComponent\022\027\n\023eSwizzleCompo"
-    "nent_X\020\000\022\030\n\024eSwizzleComponent_X_\020\001\022\027\n\023eS"
-    "wizzleComponent_Y\020\002\022\030\n\024eSwizzleComponent"
-    "_Y_\020\003\022\027\n\023eSwizzleComponent_Z\020\004\022\030\n\024eSwizz"
-    "leComponent_Z_\020\005\"k\n\020eHMNormalization\022 \n\034"
-    "eHMNormalization_Interactive\020\000\022\033\n\027eHMNor"
-    "malization_Manual\020\001\022\030\n\024eHMNormalization_"
-    "Raw\020\002\"Y\n\014eRNMCoordSys\022\025\n\021eRNMCoordSys_Al"
-    "iB\020\000\022\031\n\025eRNMCoordSys_Direct3D\020\001\022\027\n\023eRNMC"
-    "oordSys_OpenGL\020\002\"N\n\reAntialiasing\022\023\n\017eAn"
-    "tialiasing_1\020\000\022\023\n\017eAntialiasing_2\020\001\022\023\n\017e"
-    "Antialiasing_4\020\002\"I\n\016eCurvAlgorithm\022\032\n\026eC"
-    "urvAlgorithm_Average\020\000\022\033\n\027eCurvAlgorithm"
-    "_Gaussian\020\001\"Y\n\016tHighPolyModel\022\034\n\004Mesh\030\001 "
-    "\003(\0132\016.tHighPolyMesh\022\017\n\007BaseTex\030\002 \001(\t\022\030\n\020"
-    "DefaultMeshScale\030\003 \001(\002\"F\n\rtLowPolyModel\022"
-    "\033\n\004Mesh\030\001 \003(\0132\r.tLowPolyMesh\022\030\n\020DefaultM"
-    "eshScale\030\002 \001(\002\"\264\010\n\ttViewer3D\022!\n\021LightAmb"
-    "ientColor\030\001 \001(\0132\006.tRGB8\022!\n\021LightDiffuseC"
-    "olor\030\002 \001(\0132\006.tRGB8\022\"\n\022LightSpecularColor"
-    "\030\003 \001(\0132\006.tRGB8\022#\n\023LightSecondaryColor\030\004 "
-    "\001(\0132\006.tRGB8\022\"\n\022LightTertiaryColor\030\005 \001(\0132"
-    "\006.tRGB8\022\037\n\017BackgroundColor\030\006 \001(\0132\006.tRGB8"
-    "\022\031\n\tGridColor\030\007 \001(\0132\006.tRGB8\022\031\n\tCageColor"
-    "\030\010 \001(\0132\006.tRGB8\022 \n\016CameraRotation\030\t \001(\0132\010"
-    ".tMatrix\022!\n\016CameraPosition\030\n \001(\0132\t.tVect"
-    "or3\022 \n\rLightPosition\030\013 \001(\0132\t.tVector3\022\017\n"
-    "\007AxisScl\030\014 \001(\002\022\026\n\016XemakosExample\030\r \001(\010\022\025"
-    "\n\rShowWireframe\030\016 \001(\010\022\023\n\013CageOpacity\030\017 \001"
-    "(\002\022\032\n\022DiffuseGIIntensity\030\020 \001(\002\022\016\n\006ShowAO"
-    "\030\021 \001(\010\022\024\n\014SSAOContrast\030\022 \001(\002\022\022\n\nShadowAr"
-    "ea\030\023 \001(\002\022\035\n\025LightIndiretIntensity\030\024 \001(\002\022"
-    "\025\n\rShowHighpolys\030\025 \001(\010\022\025\n\rShowStarfield\030"
-    "\026 \001(\010\022\024\n\014ShowBlockers\030\027 \001(\010\022\024\n\014HDRThresh"
-    "old\030\030 \001(\002\022\022\n\nSSAOBright\030\031 \001(\002\022\026\n\016SSAOBlu"
-    "rRadius\030\032 \001(\002\022\020\n\010ShowGrid\030\033 \001(\010\022\030\n\020Paral"
-    "laxStrength\030\034 \001(\002\022\021\n\tSSAOAtten\030\035 \001(\002\022\033\n\023"
-    "CameraOrbitDistance\030\036 \001(\002\022\017\n\007UseGlow\030\037 \001"
-    "(\010\022\023\n\013SSAOEnabled\030  \001(\010\022\022\n\nShadowBias\030! "
-    "\001(\002\022\022\n\nSSAORadius\030\" \001(\002\022\026\n\016LightIntensit"
-    "y\030# \001(\002\022\020\n\010Exposure\030$ \001(\002\022\035\n\025CameraOrbit"
-    "AutoCenter\030% \001(\010\022\023\n\013CastShadows\030& \001(\010\022\023\n"
-    "\013ShowNormals\030\' \001(\010\022\034\n\024MaxTessellationLev"
-    "el\030( \001(\003\022\024\n\014ShowTangents\030) \001(\010\022\025\n\rGlowIn"
-    "tensity\030* \001(\002\"\313\001\n\014SettingsType\022&\n\rHighPo"
-    "lyModel\030\001 \001(\0132\017.tHighPolyModel\022$\n\014LowPol"
-    "yModel\030\002 \001(\0132\016.tLowPolyModel\022$\n\014Generate"
-    "Maps\030\003 \001(\0132\016.tGenerateMaps\022\030\n\006Detail\030\004 \001"
-    "(\0132\010.tDetail\022\034\n\010Viewer3D\030\005 \001(\0132\n.tViewer"
-    "3D\022\017\n\007Version\030\006 \001(\tb\006proto3", 8987);
+    "\n\rxnormal.proto\032 google/protobuf/descrip"
+    "tor.proto\"9\n\017UnspecifiedType\022\026\n\016baseObje"
+    "ctType\030\001 \001(\t\022\016\n\006object\030\002 \001(\014\"~\n\007tMatrix\022"
+    "\013\n\003e13\030\001 \001(\002\022\013\n\003e12\030\002 \001(\002\022\013\n\003e23\030\003 \001(\002\022\013"
+    "\n\003e31\030\004 \001(\002\022\013\n\003e11\030\005 \001(\002\022\013\n\003e22\030\006 \001(\002\022\013\n"
+    "\003e33\030\007 \001(\002\022\013\n\003e21\030\010 \001(\002\022\013\n\003e32\030\t \001(\002\"\325\002\n"
+    "\007tDetail\022%\n\006Method\030\001 \001(\0162\025.tDetail.eHM2N"
+    "MMethod\022\r\n\005Scale\030\002 \001(\002\022\014\n\004File\030\003 \001(\t\"\205\002\n"
+    "\014eHM2NMMethod\022\035\n\020eHM2NMMethod_3x3\020\000\032\007\202\265\030"
+    "\0033x3\022\'\n\025eHM2NMMethod_4Samples\020\001\032\014\202\265\030\0104Sa"
+    "mples\022\035\n\020eHM2NMMethod_5x5\020\002\032\007\202\265\030\0035x5\022#\n\023"
+    "eHM2NMMethod_PRE3x3\020\003\032\n\202\265\030\006PRE3x3\022#\n\023eHM"
+    "2NMMethod_PRE5x5\020\004\032\n\202\265\030\006PRE5x5\022!\n\022eHM2NM"
+    "Method_SO3x3\020\005\032\t\202\265\030\005SO3x3\022!\n\022eHM2NMMetho"
+    "d_SO5x5\020\006\032\t\202\265\030\005SO5x5\"(\n\005tRGB8\022\t\n\001R\030\001 \001(\r"
+    "\022\t\n\001G\030\002 \001(\r\022\t\n\001B\030\003 \001(\r\"\377\002\n\rtHighPolyMesh"
+    "\022\014\n\004File\030\001 \001(\t\022\026\n\016PositionOffset\030\002 \001(\t\022\034"
+    "\n\024IgnorePerVertexColor\030\003 \001(\010\0225\n\016AverageN"
+    "ormals\030\004 \001(\0162\035.tHighPolyMesh.eSmoothNorm"
+    "als\022\017\n\007Visible\030\005 \001(\010\022\025\n\rBaseTexIsTSNM\030\006 "
+    "\001(\010\022\r\n\005Scale\030\007 \001(\002\"\273\001\n\016eSmoothNormals\0225\n"
+    "\035eSmoothNormals_AverageNormals\020\000\032\022\212\265\030\016Av"
+    "erageNormals\0223\n\034eSmoothNormals_HardenNor"
+    "mals\020\001\032\021\212\265\030\rHardenNormals\022=\n!eSmoothNorm"
+    "als_UseExportedNormals\020\002\032\026\212\265\030\022UseExporte"
+    "dNormals\"\210\017\n\014tLowPolyMesh\022\017\n\007BaseTex\030\001 \001"
+    "(\t\022\024\n\014BlockersFile\030\002 \001(\t\0225\n\014VVDMSwizzleZ"
+    "\030\003 \001(\0162\037.tLowPolyMesh.eSwizzleComponent\022"
+    "\036\n\026FresnelRefractiveIndex\030\004 \001(\002\022\017\n\007UOffs"
+    "et\030\005 \001(\002\022\026\n\016ReflectHDRMult\030\006 \001(\002\0229\n\020Tran"
+    "sparencyMode\030\007 \001(\0162\037.tLowPolyMesh.eTrans"
+    "parencyMode\022\017\n\007VOffset\030\010 \001(\002\022\022\n\nReflectT"
+    "ex\030\t \001(\t\022\033\n\023MaxRayDistanceFront\030\n \001(\002\022\024\n"
+    "\014DiffuseGITex\030\013 \001(\t\0223\n\rNormapMapType\030\014 \001"
+    "(\0162\034.tLowPolyMesh.eNormalMapType\022\014\n\004File"
+    "\030\r \001(\t\0225\n\014VVDMSwizzleY\030\016 \001(\0162\037.tLowPolyM"
+    "esh.eSwizzleComponent\022\020\n\010CageFile\030\017 \001(\t\022"
+    "\021\n\tHeightTex\030\020 \001(\t\0223\n\nNMSwizzleY\030\021 \001(\0162\037"
+    ".tLowPolyMesh.eSwizzleComponent\022\024\n\014Batch"
+    "Protect\030\022 \001(\010\022\026\n\016AlphaTestValue\030\023 \001(\014\022\024\n"
+    "\014Subdivisions\030\024 \001(\r\022\r\n\005Matte\030\025 \001(\010\022\026\n\016Av"
+    "erageNormals\030\026 \001(\010\022\034\n\024VectorDisplacement"
+    "TS\030\027 \001(\010\022\017\n\007UseCage\030\030 \001(\010\022\017\n\007Visible\030\031 \001"
+    "(\010\0223\n\nNMSwizzleX\030\032 \001(\0162\037.tLowPolyMesh.eS"
+    "wizzleComponent\022\020\n\010GlossTex\030\033 \001(\t\022\r\n\005Sca"
+    "le\030\034 \001(\002\0223\n\nNMSwizzleZ\030\035 \001(\0162\037.tLowPolyM"
+    "esh.eSwizzleComponent\022\035\n\025VectorDisplacem"
+    "entTex\030\036 \001(\t\0225\n\014VVDMSwizzleX\030\037 \001(\0162\037.tLo"
+    "wPolyMesh.eSwizzleComponent\022\032\n\022UsePerVer"
+    "texColors\030  \001(\010\022+\n#HighpolyNormalsOverri"
+    "deTangentSpace\030! \001(\010\022\017\n\007LMAOTex\030\" \001(\t\022\017\n"
+    "\007SpecTex\030# \001(\t\022\017\n\007NormTex\030$ \001(\t\0220\n\026Highp"
+    "olyNormalOverride\030% \001(\0132\020.UnspecifiedTyp"
+    "e\022\026\n\016PositionOffset\030& \001(\t\022\032\n\022MaxRayDista"
+    "nceBack\030\' \001(\002\022\022\n\nUseFresnel\030( \001(\010\022\026\n\016Rec"
+    "eiveShadows\030) \001(\010\022\023\n\013EmissiveTex\030* \001(\t\022\024"
+    "\n\014BackfaceCull\030+ \001(\010\022\023\n\013CastShadows\030, \001("
+    "\010\022\020\n\010MatchUVs\030- \001(\010\"\337\001\n\021eSwizzleComponen"
+    "t\022 \n\024eSwizzleComponent_X0\020\000\032\006\222\265\030\002X+\022 \n\024e"
+    "SwizzleComponent_X1\020\001\032\006\222\265\030\002X-\022 \n\024eSwizzl"
+    "eComponent_Y0\020\002\032\006\222\265\030\002Y+\022 \n\024eSwizzleCompo"
+    "nent_Y1\020\003\032\006\222\265\030\002Y-\022 \n\024eSwizzleComponent_Z"
+    "0\020\004\032\006\222\265\030\002Z+\022 \n\024eSwizzleComponent_Z1\020\005\032\006\222"
+    "\265\030\002Z-\"\361\001\n\021eTransparencyMode\022$\n\026eTranspar"
+    "encyMode_1Bit\020\000\032\010\242\265\030\0041Bit\0224\n\036eTransparen"
+    "cyMode_AdditiveGlow\020\001\032\020\242\265\030\014AdditiveGlow\022"
+    "&\n\027eTransparencyMode_Blend\020\002\032\t\242\265\030\005Blend\022"
+    "$\n\026eTransparencyMode_None\020\003\032\010\242\265\030\004None\0222\n"
+    "\035eTransparencyMode_ScreenGlass\020\004\032\017\242\265\030\013Sc"
+    "reenGlass\"\247\001\n\016eNormalMapType\022-\n\031eNormalM"
+    "apType_Derivative\020\000\032\016\232\265\030\nDerivative\0221\n\033e"
+    "NormalMapType_Object_space\020\001\032\020\232\265\030\014Object"
+    "-space\0223\n\034eNormalMapType_Tangent_space\020\002"
+    "\032\021\232\265\030\rTangent-space\"+\n\010tVector3\022\t\n\001x\030\001 \001"
+    "(\002\022\t\n\001y\030\002 \001(\002\022\t\n\001z\030\003 \001(\002\"\361\'\n\rtGenerateMa"
+    "ps\022!\n\021NMBackgroundColor\030\001 \001(\0132\006.tRGB8\022!\n"
+    "\021HMBackgroundColor\030\002 \001(\0132\006.tRGB8\022/\n\037Bake"
+    "HighpolyBaseTextureNoTexCol\030\003 \001(\0132\006.tRGB"
+    "8\0226\n&BakeHighpolyBaseTextureBackgroundCo"
+    "lor\030\004 \001(\0132\006.tRGB8\022.\n\036RenderWireframeBack"
+    "groundColor\030\005 \001(\0132\006.tRGB8\022\"\n\022RenderWiref"
+    "rameCol\030\006 \001(\0132\006.tRGB8\022\033\n\013RenderCWCol\030\007 \001"
+    "(\0132\006.tRGB8\022\035\n\rRenderSeamCol\030\010 \001(\0132\006.tRGB"
+    "8\022!\n\021RenderRayFailsCol\030\t \001(\0132\006.tRGB8\022\037\n\017"
+    "AOOccludedColor\030\n \001(\0132\006.tRGB8\022!\n\021AOUnocc"
+    "ludedColor\030\013 \001(\0132\006.tRGB8\022!\n\021AOBackground"
+    "Color\030\014 \001(\0132\006.tRGB8\022#\n\023BentBackgroundCol"
+    "or\030\r \001(\0132\006.tRGB8\022\"\n\022PRTBackgroundColor\030\016"
+    " \001(\0132\006.tRGB8\022(\n\030ConvexityBackgroundColor"
+    "\030\017 \001(\0132\006.tRGB8\022(\n\030ThicknessBackgroundCol"
+    "or\030\020 \001(\0132\006.tRGB8\022(\n\030ProximityBackgroundC"
+    "olor\030\021 \001(\0132\006.tRGB8\022%\n\025CavityBackgroundCo"
+    "lor\030\022 \001(\0132\006.tRGB8\022\"\n\022VDMBackgroundColor\030"
+    "\023 \001(\0132\006.tRGB8\022$\n\024RadNMBackgroundColor\030\024 "
+    "\001(\0132\006.tRGB8\022#\n\023CurvBackgroundColor\030\025 \001(\013"
+    "2\006.tRGB8\022&\n\026DerivNMBackgroundColor\030\026 \001(\013"
+    "2\006.tRGB8\022&\n\026TransluBackgroundColor\030\027 \001(\013"
+    "2\006.tRGB8\022.\n\036BakeHighpolyVColsBackgroundC"
+    "ol\030\030 \001(\0132\006.tRGB8\022\026\n\016ClosestIfFails\030\031 \001(\010"
+    "\022\034\n\024DirectionsTonemapMax\030\032 \001(\002\022\025\n\rCurvMo"
+    "nocrome\030\033 \001(\010\022\016\n\006AOBias\030\034 \001(\002\022\030\n\020BentTan"
+    "gentSpace\030\035 \001(\010\022\022\n\nGenTranslu\030\036 \001(\010\0226\n\016A"
+    "ODistribution\030\037 \001(\0162\036.tGenerateMaps.eAOD"
+    "istribution\022\024\n\014PRTThreshold\030  \001(\002\022\034\n\024Dir"
+    "ectionsTonemapMin\030! \001(\002\0228\n\020CurvDistribut"
+    "ion\030\" \001(\0162\036.tGenerateMaps.eAODistributio"
+    "n\022\022\n\nBentJitter\030# \001(\010\0228\n\020BentDistributio"
+    "n\030$ \001(\0162\036.tGenerateMaps.eAODistribution\022"
+    "\037\n\027BakeHighpolyBaseTexture\030% \001(\010\022\024\n\014GenC"
+    "onvexity\030& \001(\010\022#\n\033RadiosityNormalsAttenL"
+    "inear\030\' \001(\002\022\034\n\024TransluRaysPerSample\030( \001("
+    "\r\022\032\n\022CurvSearchDistance\030) \001(\002\0222\n\010Swizzle"
+    "Z\030* \001(\0162 .tGenerateMaps.eSwizzleComponen"
+    "t\022\023\n\013TransluBias\030+ \001(\002\022\033\n\023PRTLimitRayDis"
+    "tance\030, \001(\010\022\017\n\007GenBent\030- \001(\010\022\032\n\022AOLimitR"
+    "ayDistance\030. \001(\010\022\031\n\021CurvRaysPerSample\030/ "
+    "\001(\r\022D\n\034RadiosityNormalsDistribution\0300 \001("
+    "\0162\036.tGenerateMaps.eAODistribution\022%\n\035Rad"
+    "iosityNormalsRaysPerSample\0301 \001(\r\022\022\n\nCurv"
+    "Jitter\0302 \001(\010\022\024\n\014TangentSpace\0303 \001(\010\022*\n\"Ra"
+    "diosityNormalsAllowPureOcclusion\0304 \001(\010\0226"
+    "\n\014BentSwizzleX\0305 \001(\0162 .tGenerateMaps.eSw"
+    "izzleComponent\0222\n\010SwizzleY\0306 \001(\0162 .tGene"
+    "rateMaps.eSwizzleComponent\022\017\n\007GenCurv\0307 "
+    "\001(\010\022\021\n\tPRTJitter\0308 \001(\010\022\030\n\020AOAttenCuadrat"
+    "ic\0309 \001(\002\022\025\n\rBentConeAngle\030: \001(\002\0222\n\010Swizz"
+    "leX\030; \001(\0162 .tGenerateMaps.eSwizzleCompon"
+    "ent\022\026\n\016RenderRayFails\030< \001(\010\022\032\n\022CavitySea"
+    "rchRadius\030= \001(\002\022 \n\030RadiosityNormalsEncod"
+    "eAO\030> \001(\010\022\030\n\020TransluConeAngle\030\? \001(\002\022\031\n\021B"
+    "entRaysPerSample\030@ \001(\r\022\026\n\016ConvexityScale"
+    "\030A \001(\002\022!\n\031RadiosityNormalsConeAngle\030B \001("
+    "\002\022\014\n\004File\030C \001(\t\022\022\n\nGenDerivNM\030D \001(\010\022\034\n\024B"
+    "entLimitRayDistance\030E \001(\010\022\017\n\007PRTBias\030F \001"
+    "(\002\022\027\n\017RenderWireframe\030G \001(\010\022\024\n\014PRTNormal"
+    "ize\030H \001(\010\022\r\n\005GenAO\030I \001(\010\022\024\n\014PRTConeAngle"
+    "\030J \001(\002\022\016\n\006Height\030K \001(\r\022&\n\036RadiosityNorma"
+    "lsAttenCuadratic\030L \001(\002\022:\n\021DirectionsTone"
+    "map\030M \001(\0162\037.tGenerateMaps.eHMNormalizati"
+    "on\022\024\n\014DirectionsTS\030N \001(\010\022\030\n\020PRTRaysPerSa"
+    "mple\030O \001(\r\022\023\n\013EdgePadding\030P \001(\r\022<\n\022Direc"
+    "tionsSwizzleZ\030Q \001(\0162 .tGenerateMaps.eSwi"
+    "zzleComponent\022\033\n\023AOAllowPureOccluded\030R \001"
+    "(\010\022\034\n\024AOIgnoreBackfaceHits\030S \001(\010\022\033\n\023Cavi"
+    "tyRaysPerSample\030T \001(\r\022\027\n\017AOAttenConstant"
+    "\030U \001(\002\022\024\n\014CavityJitter\030V \001(\010\022\030\n\020HeightTo"
+    "nemapMax\030W \001(\002\022\025\n\rGenDirections\030X \001(\010\022(\n"
+    " RadiosityNormalsLimitRayDistance\030Y \001(\010\022"
+    "\030\n\020HeightTonemapMin\030Z \001(\002\022\036\n\026RadiosityNo"
+    "rmalsJitter\030[ \001(\010\022<\n\022DirectionsSwizzleY\030"
+    "\\ \001(\0162 .tGenerateMaps.eSwizzleComponent\022"
+    "\r\n\005Width\030] \001(\r\0226\n.BakeHighpolyBaseTextur"
+    "eDrawObjectIDIfNoTexture\030^ \001(\010\022\021\n\tConcav"
+    "ity\030_ \001(\010\022<\n\022DirectionsSwizzleX\030` \001(\0162 ."
+    "tGenerateMaps.eSwizzleComponent\022\022\n\nGenNo"
+    "rmals\030a \001(\010\022\036\n\026ProximityRaysPerSample\030b "
+    "\001(\r\022\022\n\nGenHeights\030c \001(\010\022%\n\035RadiosityNorm"
+    "alsAttenConstant\030d \001(\002\022\024\n\014GenProximity\030e"
+    " \001(\010\022\016\n\006GenPRT\030f \001(\010\022\026\n\016CavityContrast\030g"
+    " \001(\002\022=\n\030RadiosityNormalsCoordSys\030h \001(\0162\033"
+    ".tGenerateMaps.eRNMCoordSys\022\025\n\rTransluJi"
+    "tter\030i \001(\010\022\027\n\017AORaysPerSample\030j \001(\r\022\020\n\010B"
+    "entBias\030k \001(\002\022\037\n\027DiscardRayBackFacesHits"
+    "\030l \001(\010\022\023\n\013AOConeAngle\030m \001(\002\0226\n\014BentSwizz"
+    "leY\030n \001(\0162 .tGenerateMaps.eSwizzleCompon"
+    "ent\022\034\n\024RadiosityNormalsBias\030o \001(\002\022 \n\030Rad"
+    "iosityNormalsContrast\030p \001(\002\022\023\n\013CavitySte"
+    "ps\030q \001(\r\022(\n\002AA\030r \001(\0162\034.tGenerateMaps.eAn"
+    "tialiasing\0226\n\014BentSwizzleZ\030s \001(\0162 .tGene"
+    "rateMaps.eSwizzleComponent\022\022\n\nBucketSize"
+    "\030t \001(\r\022\025\n\rCurvConeAngle\030u \001(\002\022\023\n\013Translu"
+    "Dist\030v \001(\002\022\020\n\010AOJitter\030w \001(\010\022\020\n\010CurvBias"
+    "\030x \001(\002\022\023\n\013GenWireRays\030y \001(\010\0224\n\rCurvAlgor"
+    "ithm\030z \001(\0162\035.tGenerateMaps.eCurvAlgorith"
+    "m\022;\n\023TransluDistribution\030{ \001(\0162\036.tGenera"
+    "teMaps.eAODistribution\022\025\n\rAOAttenLinear\030"
+    "| \001(\002\022!\n\031ProximityLimitRayDistance\030} \001(\010"
+    "\022\033\n\023GenRadiosityNormals\030~ \001(\010\022\032\n\022Proximi"
+    "tyConeAngle\030\177 \001(\002\0227\n\rHeightTonemap\030\200\001 \001("
+    "\0162\037.tGenerateMaps.eHMNormalization\022\022\n\tGe"
+    "nCavity\030\201\001 \001(\010\022\032\n\021BakeHighpolyVCols\030\202\001 \001"
+    "(\010\"\217\001\n\017eAODistribution\022&\n\026eAODistributio"
+    "n_Cosine\020\000\032\n\252\265\030\006Cosine\022*\n\030eAODistributio"
+    "n_CosineSq\020\001\032\014\252\265\030\010CosineSq\022(\n\027eAODistrib"
+    "ution_Uniform\020\002\032\013\252\265\030\007Uniform\"\337\001\n\021eSwizzl"
+    "eComponent\022 \n\024eSwizzleComponent_X0\020\000\032\006\262\265"
+    "\030\002X+\022 \n\024eSwizzleComponent_X1\020\001\032\006\262\265\030\002X-\022 "
+    "\n\024eSwizzleComponent_Y0\020\002\032\006\262\265\030\002Y+\022 \n\024eSwi"
+    "zzleComponent_Y1\020\003\032\006\262\265\030\002Y-\022 \n\024eSwizzleCo"
+    "mponent_Z0\020\004\032\006\262\265\030\002Z+\022 \n\024eSwizzleComponen"
+    "t_Z1\020\005\032\006\262\265\030\002Z-\"\221\001\n\020eHMNormalization\0221\n\034e"
+    "HMNormalization_Interactive\020\000\032\017\272\265\030\013Inter"
+    "active\022\'\n\027eHMNormalization_Manual\020\001\032\n\272\265\030"
+    "\006Manual\022!\n\024eHMNormalization_Raw\020\002\032\007\272\265\030\003R"
+    "aw\"}\n\014eRNMCoordSys\022\037\n\021eRNMCoordSys_AliB\020"
+    "\000\032\010\302\265\030\004AliB\022\'\n\025eRNMCoordSys_Direct3D\020\001\032\014"
+    "\302\265\030\010Direct3D\022#\n\023eRNMCoordSys_OpenGL\020\002\032\n\302"
+    "\265\030\006OpenGL\"c\n\reAntialiasing\022\032\n\017eAntialias"
+    "ing_1\020\000\032\005\312\265\030\0011\022\032\n\017eAntialiasing_2\020\001\032\005\312\265\030"
+    "\0012\022\032\n\017eAntialiasing_4\020\002\032\005\312\265\030\0014\"d\n\016eCurvA"
+    "lgorithm\022\'\n\026eCurvAlgorithm_Average\020\000\032\013\322\265"
+    "\030\007Average\022)\n\027eCurvAlgorithm_Gaussian\020\001\032\014"
+    "\322\265\030\010Gaussian\"Y\n\016tHighPolyModel\022\034\n\004Mesh\030\001"
+    " \003(\0132\016.tHighPolyMesh\022\017\n\007BaseTex\030\002 \001(\t\022\030\n"
+    "\020DefaultMeshScale\030\003 \001(\002\"F\n\rtLowPolyModel"
+    "\022\033\n\004Mesh\030\001 \003(\0132\r.tLowPolyMesh\022\030\n\020Default"
+    "MeshScale\030\002 \001(\002\"\264\010\n\ttViewer3D\022!\n\021LightAm"
+    "bientColor\030\001 \001(\0132\006.tRGB8\022!\n\021LightDiffuse"
+    "Color\030\002 \001(\0132\006.tRGB8\022\"\n\022LightSpecularColo"
+    "r\030\003 \001(\0132\006.tRGB8\022#\n\023LightSecondaryColor\030\004"
+    " \001(\0132\006.tRGB8\022\"\n\022LightTertiaryColor\030\005 \001(\013"
+    "2\006.tRGB8\022\037\n\017BackgroundColor\030\006 \001(\0132\006.tRGB"
+    "8\022\031\n\tGridColor\030\007 \001(\0132\006.tRGB8\022\031\n\tCageColo"
+    "r\030\010 \001(\0132\006.tRGB8\022 \n\016CameraRotation\030\t \001(\0132"
+    "\010.tMatrix\022!\n\016CameraPosition\030\n \001(\0132\t.tVec"
+    "tor3\022 \n\rLightPosition\030\013 \001(\0132\t.tVector3\022\017"
+    "\n\007AxisScl\030\014 \001(\002\022\026\n\016XemakosExample\030\r \001(\010\022"
+    "\025\n\rShowWireframe\030\016 \001(\010\022\023\n\013CageOpacity\030\017 "
+    "\001(\002\022\032\n\022DiffuseGIIntensity\030\020 \001(\002\022\016\n\006ShowA"
+    "O\030\021 \001(\010\022\024\n\014SSAOContrast\030\022 \001(\002\022\022\n\nShadowA"
+    "rea\030\023 \001(\002\022\035\n\025LightIndiretIntensity\030\024 \001(\002"
+    "\022\025\n\rShowHighpolys\030\025 \001(\010\022\025\n\rShowStarfield"
+    "\030\026 \001(\010\022\024\n\014ShowBlockers\030\027 \001(\010\022\024\n\014HDRThres"
+    "hold\030\030 \001(\002\022\022\n\nSSAOBright\030\031 \001(\002\022\026\n\016SSAOBl"
+    "urRadius\030\032 \001(\002\022\020\n\010ShowGrid\030\033 \001(\010\022\030\n\020Para"
+    "llaxStrength\030\034 \001(\002\022\021\n\tSSAOAtten\030\035 \001(\002\022\033\n"
+    "\023CameraOrbitDistance\030\036 \001(\002\022\017\n\007UseGlow\030\037 "
+    "\001(\010\022\023\n\013SSAOEnabled\030  \001(\010\022\022\n\nShadowBias\030!"
+    " \001(\002\022\022\n\nSSAORadius\030\" \001(\002\022\026\n\016LightIntensi"
+    "ty\030# \001(\002\022\020\n\010Exposure\030$ \001(\002\022\035\n\025CameraOrbi"
+    "tAutoCenter\030% \001(\010\022\023\n\013CastShadows\030& \001(\010\022\023"
+    "\n\013ShowNormals\030\' \001(\010\022\034\n\024MaxTessellationLe"
+    "vel\030( \001(\003\022\024\n\014ShowTangents\030) \001(\010\022\025\n\rGlowI"
+    "ntensity\030* \001(\002\"\307\001\n\010Settings\022&\n\rHighPolyM"
+    "odel\030\001 \001(\0132\017.tHighPolyModel\022$\n\014LowPolyMo"
+    "del\030\002 \001(\0132\016.tLowPolyModel\022$\n\014GenerateMap"
+    "s\030\003 \001(\0132\016.tGenerateMaps\022\030\n\006Detail\030\004 \001(\0132"
+    "\010.tDetail\022\034\n\010Viewer3D\030\005 \001(\0132\n.tViewer3D\022"
+    "\017\n\007Version\030\006 \001(\t:C\n\026my_eHM2NMMethod_opti"
+    "on\022!.google.protobuf.EnumValueOptions\030\320\206"
+    "\003 \001(\t:E\n\030my_eSmoothNormals_option\022!.goog"
+    "le.protobuf.EnumValueOptions\030\321\206\003 \001(\t:H\n\033"
+    "my_eSwizzleComponent_option\022!.google.pro"
+    "tobuf.EnumValueOptions\030\322\206\003 \001(\t:E\n\030my_eNo"
+    "rmalMapType_option\022!.google.protobuf.Enu"
+    "mValueOptions\030\323\206\003 \001(\t:H\n\033my_eTransparenc"
+    "yMode_option\022!.google.protobuf.EnumValue"
+    "Options\030\324\206\003 \001(\t:F\n\031my_eAODistribution_op"
+    "tion\022!.google.protobuf.EnumValueOptions\030"
+    "\325\206\003 \001(\t:I\n\034my_eSwizzleComponent2_option\022"
+    "!.google.protobuf.EnumValueOptions\030\326\206\003 \001"
+    "(\t:G\n\032my_eHMNormalization_option\022!.googl"
+    "e.protobuf.EnumValueOptions\030\327\206\003 \001(\t:C\n\026m"
+    "y_eRNMCoordSys_option\022!.google.protobuf."
+    "EnumValueOptions\030\330\206\003 \001(\t:D\n\027my_eAntialia"
+    "sing_option\022!.google.protobuf.EnumValueO"
+    "ptions\030\331\206\003 \001(\t:E\n\030my_eCurvAlgorithm_opti"
+    "on\022!.google.protobuf.EnumValueOptions\030\332\206"
+    "\003 \001(\tb\006proto3", 10333);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "xnormal.proto", &protobuf_RegisterTypes);
   UnspecifiedType::default_instance_ = new UnspecifiedType();
@@ -825,7 +860,40 @@ void protobuf_AddDesc_xnormal_2eproto() {
   tHighPolyModel::default_instance_ = new tHighPolyModel();
   tLowPolyModel::default_instance_ = new tLowPolyModel();
   tViewer3D::default_instance_ = new tViewer3D();
-  SettingsType::default_instance_ = new SettingsType();
+  Settings::default_instance_ = new Settings();
+  ::google::protobuf::internal::ExtensionSet::RegisterExtension(
+    &::google::protobuf::EnumValueOptions::default_instance(),
+    50000, 9, false, false);
+  ::google::protobuf::internal::ExtensionSet::RegisterExtension(
+    &::google::protobuf::EnumValueOptions::default_instance(),
+    50001, 9, false, false);
+  ::google::protobuf::internal::ExtensionSet::RegisterExtension(
+    &::google::protobuf::EnumValueOptions::default_instance(),
+    50002, 9, false, false);
+  ::google::protobuf::internal::ExtensionSet::RegisterExtension(
+    &::google::protobuf::EnumValueOptions::default_instance(),
+    50003, 9, false, false);
+  ::google::protobuf::internal::ExtensionSet::RegisterExtension(
+    &::google::protobuf::EnumValueOptions::default_instance(),
+    50004, 9, false, false);
+  ::google::protobuf::internal::ExtensionSet::RegisterExtension(
+    &::google::protobuf::EnumValueOptions::default_instance(),
+    50005, 9, false, false);
+  ::google::protobuf::internal::ExtensionSet::RegisterExtension(
+    &::google::protobuf::EnumValueOptions::default_instance(),
+    50006, 9, false, false);
+  ::google::protobuf::internal::ExtensionSet::RegisterExtension(
+    &::google::protobuf::EnumValueOptions::default_instance(),
+    50007, 9, false, false);
+  ::google::protobuf::internal::ExtensionSet::RegisterExtension(
+    &::google::protobuf::EnumValueOptions::default_instance(),
+    50008, 9, false, false);
+  ::google::protobuf::internal::ExtensionSet::RegisterExtension(
+    &::google::protobuf::EnumValueOptions::default_instance(),
+    50009, 9, false, false);
+  ::google::protobuf::internal::ExtensionSet::RegisterExtension(
+    &::google::protobuf::EnumValueOptions::default_instance(),
+    50010, 9, false, false);
   UnspecifiedType::default_instance_->InitAsDefaultInstance();
   tMatrix::default_instance_->InitAsDefaultInstance();
   tDetail::default_instance_->InitAsDefaultInstance();
@@ -837,7 +905,7 @@ void protobuf_AddDesc_xnormal_2eproto() {
   tHighPolyModel::default_instance_->InitAsDefaultInstance();
   tLowPolyModel::default_instance_->InitAsDefaultInstance();
   tViewer3D::default_instance_->InitAsDefaultInstance();
-  SettingsType::default_instance_->InitAsDefaultInstance();
+  Settings::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_xnormal_2eproto);
 }
 
@@ -2321,8 +2389,8 @@ void tDetail::clear_file() {
 // ===================================================================
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int tRGB8::kGFieldNumber;
 const int tRGB8::kRFieldNumber;
+const int tRGB8::kGFieldNumber;
 const int tRGB8::kBFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
@@ -2347,8 +2415,8 @@ tRGB8::tRGB8(const tRGB8& from)
 void tRGB8::SharedCtor() {
     _is_default_instance_ = false;
   _cached_size_ = 0;
-  g_ = 0u;
   r_ = 0u;
+  g_ = 0u;
   b_ = 0u;
 }
 
@@ -2405,7 +2473,7 @@ void tRGB8::Clear() {
            ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
 } while (0)
 
-  ZR_(g_, b_);
+  ZR_(r_, b_);
 
 #undef ZR_HELPER_
 #undef ZR_
@@ -2422,27 +2490,27 @@ bool tRGB8::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional uint32 G = 1;
+      // optional uint32 R = 1;
       case 1: {
         if (tag == 8) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &g_)));
+                 input, &r_)));
 
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(16)) goto parse_R;
+        if (input->ExpectTag(16)) goto parse_G;
         break;
       }
 
-      // optional uint32 R = 2;
+      // optional uint32 G = 2;
       case 2: {
         if (tag == 16) {
-         parse_R:
+         parse_G:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &r_)));
+                 input, &g_)));
 
         } else {
           goto handle_unusual;
@@ -2490,14 +2558,14 @@ failure:
 void tRGB8::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:tRGB8)
-  // optional uint32 G = 1;
-  if (this->g() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->g(), output);
+  // optional uint32 R = 1;
+  if (this->r() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->r(), output);
   }
 
-  // optional uint32 R = 2;
-  if (this->r() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->r(), output);
+  // optional uint32 G = 2;
+  if (this->g() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->g(), output);
   }
 
   // optional uint32 B = 3;
@@ -2512,14 +2580,14 @@ void tRGB8::SerializeWithCachedSizes(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:tRGB8)
-  // optional uint32 G = 1;
-  if (this->g() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->g(), target);
+  // optional uint32 R = 1;
+  if (this->r() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->r(), target);
   }
 
-  // optional uint32 R = 2;
-  if (this->r() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->r(), target);
+  // optional uint32 G = 2;
+  if (this->g() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->g(), target);
   }
 
   // optional uint32 B = 3;
@@ -2535,18 +2603,18 @@ int tRGB8::ByteSize() const {
 // @@protoc_insertion_point(message_byte_size_start:tRGB8)
   int total_size = 0;
 
-  // optional uint32 G = 1;
-  if (this->g() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->g());
-  }
-
-  // optional uint32 R = 2;
+  // optional uint32 R = 1;
   if (this->r() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt32Size(
         this->r());
+  }
+
+  // optional uint32 G = 2;
+  if (this->g() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->g());
   }
 
   // optional uint32 B = 3;
@@ -2584,11 +2652,11 @@ void tRGB8::MergeFrom(const tRGB8& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) {
     ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
   }
-  if (from.g() != 0) {
-    set_g(from.g());
-  }
   if (from.r() != 0) {
     set_r(from.r());
+  }
+  if (from.g() != 0) {
+    set_g(from.g());
   }
   if (from.b() != 0) {
     set_b(from.b());
@@ -2619,8 +2687,8 @@ void tRGB8::Swap(tRGB8* other) {
   InternalSwap(other);
 }
 void tRGB8::InternalSwap(tRGB8* other) {
-  std::swap(g_, other->g_);
   std::swap(r_, other->r_);
+  std::swap(g_, other->g_);
   std::swap(b_, other->b_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -2637,21 +2705,7 @@ void tRGB8::InternalSwap(tRGB8* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // tRGB8
 
-// optional uint32 G = 1;
-void tRGB8::clear_g() {
-  g_ = 0u;
-}
- ::google::protobuf::uint32 tRGB8::g() const {
-  // @@protoc_insertion_point(field_get:tRGB8.G)
-  return g_;
-}
- void tRGB8::set_g(::google::protobuf::uint32 value) {
-  
-  g_ = value;
-  // @@protoc_insertion_point(field_set:tRGB8.G)
-}
-
-// optional uint32 R = 2;
+// optional uint32 R = 1;
 void tRGB8::clear_r() {
   r_ = 0u;
 }
@@ -2663,6 +2717,20 @@ void tRGB8::clear_r() {
   
   r_ = value;
   // @@protoc_insertion_point(field_set:tRGB8.R)
+}
+
+// optional uint32 G = 2;
+void tRGB8::clear_g() {
+  g_ = 0u;
+}
+ ::google::protobuf::uint32 tRGB8::g() const {
+  // @@protoc_insertion_point(field_get:tRGB8.G)
+  return g_;
+}
+ void tRGB8::set_g(::google::protobuf::uint32 value) {
+  
+  g_ = value;
+  // @@protoc_insertion_point(field_set:tRGB8.G)
 }
 
 // optional uint32 B = 3;
@@ -3383,12 +3451,12 @@ bool tLowPolyMesh_eSwizzleComponent_IsValid(int value) {
 }
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const tLowPolyMesh_eSwizzleComponent tLowPolyMesh::eSwizzleComponent_X;
-const tLowPolyMesh_eSwizzleComponent tLowPolyMesh::eSwizzleComponent_X_;
-const tLowPolyMesh_eSwizzleComponent tLowPolyMesh::eSwizzleComponent_Y;
-const tLowPolyMesh_eSwizzleComponent tLowPolyMesh::eSwizzleComponent_Y_;
-const tLowPolyMesh_eSwizzleComponent tLowPolyMesh::eSwizzleComponent_Z;
-const tLowPolyMesh_eSwizzleComponent tLowPolyMesh::eSwizzleComponent_Z_;
+const tLowPolyMesh_eSwizzleComponent tLowPolyMesh::eSwizzleComponent_X0;
+const tLowPolyMesh_eSwizzleComponent tLowPolyMesh::eSwizzleComponent_X1;
+const tLowPolyMesh_eSwizzleComponent tLowPolyMesh::eSwizzleComponent_Y0;
+const tLowPolyMesh_eSwizzleComponent tLowPolyMesh::eSwizzleComponent_Y1;
+const tLowPolyMesh_eSwizzleComponent tLowPolyMesh::eSwizzleComponent_Z0;
+const tLowPolyMesh_eSwizzleComponent tLowPolyMesh::eSwizzleComponent_Z1;
 const tLowPolyMesh_eSwizzleComponent tLowPolyMesh::eSwizzleComponent_MIN;
 const tLowPolyMesh_eSwizzleComponent tLowPolyMesh::eSwizzleComponent_MAX;
 const int tLowPolyMesh::eSwizzleComponent_ARRAYSIZE;
@@ -6688,8 +6756,8 @@ void tLowPolyMesh::clear_matchuvs() {
 // ===================================================================
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int tVector3::kYFieldNumber;
 const int tVector3::kXFieldNumber;
+const int tVector3::kYFieldNumber;
 const int tVector3::kZFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
@@ -6714,8 +6782,8 @@ tVector3::tVector3(const tVector3& from)
 void tVector3::SharedCtor() {
     _is_default_instance_ = false;
   _cached_size_ = 0;
-  y_ = 0;
   x_ = 0;
+  y_ = 0;
   z_ = 0;
 }
 
@@ -6772,7 +6840,7 @@ void tVector3::Clear() {
            ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
 } while (0)
 
-  ZR_(y_, z_);
+  ZR_(x_, z_);
 
 #undef ZR_HELPER_
 #undef ZR_
@@ -6789,27 +6857,27 @@ bool tVector3::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional float y = 1;
+      // optional float x = 1;
       case 1: {
         if (tag == 13) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
-                 input, &y_)));
+                 input, &x_)));
 
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(21)) goto parse_x;
+        if (input->ExpectTag(21)) goto parse_y;
         break;
       }
 
-      // optional float x = 2;
+      // optional float y = 2;
       case 2: {
         if (tag == 21) {
-         parse_x:
+         parse_y:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
-                 input, &x_)));
+                 input, &y_)));
 
         } else {
           goto handle_unusual;
@@ -6857,14 +6925,14 @@ failure:
 void tVector3::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:tVector3)
-  // optional float y = 1;
-  if (this->y() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteFloat(1, this->y(), output);
+  // optional float x = 1;
+  if (this->x() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(1, this->x(), output);
   }
 
-  // optional float x = 2;
-  if (this->x() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteFloat(2, this->x(), output);
+  // optional float y = 2;
+  if (this->y() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(2, this->y(), output);
   }
 
   // optional float z = 3;
@@ -6879,14 +6947,14 @@ void tVector3::SerializeWithCachedSizes(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:tVector3)
-  // optional float y = 1;
-  if (this->y() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(1, this->y(), target);
+  // optional float x = 1;
+  if (this->x() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(1, this->x(), target);
   }
 
-  // optional float x = 2;
-  if (this->x() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(2, this->x(), target);
+  // optional float y = 2;
+  if (this->y() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(2, this->y(), target);
   }
 
   // optional float z = 3;
@@ -6902,13 +6970,13 @@ int tVector3::ByteSize() const {
 // @@protoc_insertion_point(message_byte_size_start:tVector3)
   int total_size = 0;
 
-  // optional float y = 1;
-  if (this->y() != 0) {
+  // optional float x = 1;
+  if (this->x() != 0) {
     total_size += 1 + 4;
   }
 
-  // optional float x = 2;
-  if (this->x() != 0) {
+  // optional float y = 2;
+  if (this->y() != 0) {
     total_size += 1 + 4;
   }
 
@@ -6945,11 +7013,11 @@ void tVector3::MergeFrom(const tVector3& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) {
     ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
   }
-  if (from.y() != 0) {
-    set_y(from.y());
-  }
   if (from.x() != 0) {
     set_x(from.x());
+  }
+  if (from.y() != 0) {
+    set_y(from.y());
   }
   if (from.z() != 0) {
     set_z(from.z());
@@ -6980,8 +7048,8 @@ void tVector3::Swap(tVector3* other) {
   InternalSwap(other);
 }
 void tVector3::InternalSwap(tVector3* other) {
-  std::swap(y_, other->y_);
   std::swap(x_, other->x_);
+  std::swap(y_, other->y_);
   std::swap(z_, other->z_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -6998,21 +7066,7 @@ void tVector3::InternalSwap(tVector3* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // tVector3
 
-// optional float y = 1;
-void tVector3::clear_y() {
-  y_ = 0;
-}
- float tVector3::y() const {
-  // @@protoc_insertion_point(field_get:tVector3.y)
-  return y_;
-}
- void tVector3::set_y(float value) {
-  
-  y_ = value;
-  // @@protoc_insertion_point(field_set:tVector3.y)
-}
-
-// optional float x = 2;
+// optional float x = 1;
 void tVector3::clear_x() {
   x_ = 0;
 }
@@ -7024,6 +7078,20 @@ void tVector3::clear_x() {
   
   x_ = value;
   // @@protoc_insertion_point(field_set:tVector3.x)
+}
+
+// optional float y = 2;
+void tVector3::clear_y() {
+  y_ = 0;
+}
+ float tVector3::y() const {
+  // @@protoc_insertion_point(field_get:tVector3.y)
+  return y_;
+}
+ void tVector3::set_y(float value) {
+  
+  y_ = value;
+  // @@protoc_insertion_point(field_set:tVector3.y)
 }
 
 // optional float z = 3;
@@ -7086,12 +7154,12 @@ bool tGenerateMaps_eSwizzleComponent_IsValid(int value) {
 }
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const tGenerateMaps_eSwizzleComponent tGenerateMaps::eSwizzleComponent_X;
-const tGenerateMaps_eSwizzleComponent tGenerateMaps::eSwizzleComponent_X_;
-const tGenerateMaps_eSwizzleComponent tGenerateMaps::eSwizzleComponent_Y;
-const tGenerateMaps_eSwizzleComponent tGenerateMaps::eSwizzleComponent_Y_;
-const tGenerateMaps_eSwizzleComponent tGenerateMaps::eSwizzleComponent_Z;
-const tGenerateMaps_eSwizzleComponent tGenerateMaps::eSwizzleComponent_Z_;
+const tGenerateMaps_eSwizzleComponent tGenerateMaps::eSwizzleComponent_X0;
+const tGenerateMaps_eSwizzleComponent tGenerateMaps::eSwizzleComponent_X1;
+const tGenerateMaps_eSwizzleComponent tGenerateMaps::eSwizzleComponent_Y0;
+const tGenerateMaps_eSwizzleComponent tGenerateMaps::eSwizzleComponent_Y1;
+const tGenerateMaps_eSwizzleComponent tGenerateMaps::eSwizzleComponent_Z0;
+const tGenerateMaps_eSwizzleComponent tGenerateMaps::eSwizzleComponent_Z1;
 const tGenerateMaps_eSwizzleComponent tGenerateMaps::eSwizzleComponent_MIN;
 const tGenerateMaps_eSwizzleComponent tGenerateMaps::eSwizzleComponent_MAX;
 const int tGenerateMaps::eSwizzleComponent_ARRAYSIZE;
@@ -18198,21 +18266,21 @@ void tViewer3D::clear_glowintensity() {
 // ===================================================================
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int SettingsType::kHighPolyModelFieldNumber;
-const int SettingsType::kLowPolyModelFieldNumber;
-const int SettingsType::kGenerateMapsFieldNumber;
-const int SettingsType::kDetailFieldNumber;
-const int SettingsType::kViewer3DFieldNumber;
-const int SettingsType::kVersionFieldNumber;
+const int Settings::kHighPolyModelFieldNumber;
+const int Settings::kLowPolyModelFieldNumber;
+const int Settings::kGenerateMapsFieldNumber;
+const int Settings::kDetailFieldNumber;
+const int Settings::kViewer3DFieldNumber;
+const int Settings::kVersionFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
-SettingsType::SettingsType()
+Settings::Settings()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:SettingsType)
+  // @@protoc_insertion_point(constructor:Settings)
 }
 
-void SettingsType::InitAsDefaultInstance() {
+void Settings::InitAsDefaultInstance() {
   _is_default_instance_ = true;
   highpolymodel_ = const_cast< ::tHighPolyModel*>(&::tHighPolyModel::default_instance());
   lowpolymodel_ = const_cast< ::tLowPolyModel*>(&::tLowPolyModel::default_instance());
@@ -18221,15 +18289,15 @@ void SettingsType::InitAsDefaultInstance() {
   viewer3d_ = const_cast< ::tViewer3D*>(&::tViewer3D::default_instance());
 }
 
-SettingsType::SettingsType(const SettingsType& from)
+Settings::Settings(const Settings& from)
   : ::google::protobuf::Message(),
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:SettingsType)
+  // @@protoc_insertion_point(copy_constructor:Settings)
 }
 
-void SettingsType::SharedCtor() {
+void Settings::SharedCtor() {
     _is_default_instance_ = false;
   ::google::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
@@ -18241,12 +18309,12 @@ void SettingsType::SharedCtor() {
   version_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
-SettingsType::~SettingsType() {
-  // @@protoc_insertion_point(destructor:SettingsType)
+Settings::~Settings() {
+  // @@protoc_insertion_point(destructor:Settings)
   SharedDtor();
 }
 
-void SettingsType::SharedDtor() {
+void Settings::SharedDtor() {
   version_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != default_instance_) {
     delete highpolymodel_;
@@ -18257,33 +18325,33 @@ void SettingsType::SharedDtor() {
   }
 }
 
-void SettingsType::SetCachedSize(int size) const {
+void Settings::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* SettingsType::descriptor() {
+const ::google::protobuf::Descriptor* Settings::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return SettingsType_descriptor_;
+  return Settings_descriptor_;
 }
 
-const SettingsType& SettingsType::default_instance() {
+const Settings& Settings::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_xnormal_2eproto();
   return *default_instance_;
 }
 
-SettingsType* SettingsType::default_instance_ = NULL;
+Settings* Settings::default_instance_ = NULL;
 
-SettingsType* SettingsType::New(::google::protobuf::Arena* arena) const {
-  SettingsType* n = new SettingsType;
+Settings* Settings::New(::google::protobuf::Arena* arena) const {
+  Settings* n = new Settings;
   if (arena != NULL) {
     arena->Own(n);
   }
   return n;
 }
 
-void SettingsType::Clear() {
-// @@protoc_insertion_point(message_clear_start:SettingsType)
+void Settings::Clear() {
+// @@protoc_insertion_point(message_clear_start:Settings)
   if (GetArenaNoVirtual() == NULL && highpolymodel_ != NULL) delete highpolymodel_;
   highpolymodel_ = NULL;
   if (GetArenaNoVirtual() == NULL && lowpolymodel_ != NULL) delete lowpolymodel_;
@@ -18297,11 +18365,11 @@ void SettingsType::Clear() {
   version_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
-bool SettingsType::MergePartialFromCodedStream(
+bool Settings::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:SettingsType)
+  // @@protoc_insertion_point(parse_start:Settings)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -18380,7 +18448,7 @@ bool SettingsType::MergePartialFromCodedStream(
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
             this->version().data(), this->version().length(),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "SettingsType.Version"));
+            "Settings.Version"));
         } else {
           goto handle_unusual;
         }
@@ -18401,17 +18469,17 @@ bool SettingsType::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:SettingsType)
+  // @@protoc_insertion_point(parse_success:Settings)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:SettingsType)
+  // @@protoc_insertion_point(parse_failure:Settings)
   return false;
 #undef DO_
 }
 
-void SettingsType::SerializeWithCachedSizes(
+void Settings::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:SettingsType)
+  // @@protoc_insertion_point(serialize_start:Settings)
   // optional .tHighPolyModel HighPolyModel = 1;
   if (this->has_highpolymodel()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
@@ -18447,18 +18515,18 @@ void SettingsType::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->version().data(), this->version().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "SettingsType.Version");
+      "Settings.Version");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       6, this->version(), output);
   }
 
-  // @@protoc_insertion_point(serialize_end:SettingsType)
+  // @@protoc_insertion_point(serialize_end:Settings)
 }
 
-::google::protobuf::uint8* SettingsType::InternalSerializeWithCachedSizesToArray(
+::google::protobuf::uint8* Settings::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:SettingsType)
+  // @@protoc_insertion_point(serialize_to_array_start:Settings)
   // optional .tHighPolyModel HighPolyModel = 1;
   if (this->has_highpolymodel()) {
     target = ::google::protobuf::internal::WireFormatLite::
@@ -18499,18 +18567,18 @@ void SettingsType::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->version().data(), this->version().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "SettingsType.Version");
+      "Settings.Version");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         6, this->version(), target);
   }
 
-  // @@protoc_insertion_point(serialize_to_array_end:SettingsType)
+  // @@protoc_insertion_point(serialize_to_array_end:Settings)
   return target;
 }
 
-int SettingsType::ByteSize() const {
-// @@protoc_insertion_point(message_byte_size_start:SettingsType)
+int Settings::ByteSize() const {
+// @@protoc_insertion_point(message_byte_size_start:Settings)
   int total_size = 0;
 
   // optional .tHighPolyModel HighPolyModel = 1;
@@ -18561,25 +18629,25 @@ int SettingsType::ByteSize() const {
   return total_size;
 }
 
-void SettingsType::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:SettingsType)
+void Settings::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:Settings)
   if (GOOGLE_PREDICT_FALSE(&from == this)) {
     ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
   }
-  const SettingsType* source = 
-      ::google::protobuf::internal::DynamicCastToGenerated<const SettingsType>(
+  const Settings* source = 
+      ::google::protobuf::internal::DynamicCastToGenerated<const Settings>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:SettingsType)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:Settings)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:SettingsType)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:Settings)
     MergeFrom(*source);
   }
 }
 
-void SettingsType::MergeFrom(const SettingsType& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:SettingsType)
+void Settings::MergeFrom(const Settings& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:Settings)
   if (GOOGLE_PREDICT_FALSE(&from == this)) {
     ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
   }
@@ -18604,30 +18672,30 @@ void SettingsType::MergeFrom(const SettingsType& from) {
   }
 }
 
-void SettingsType::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:SettingsType)
+void Settings::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:Settings)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void SettingsType::CopyFrom(const SettingsType& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:SettingsType)
+void Settings::CopyFrom(const Settings& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:Settings)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool SettingsType::IsInitialized() const {
+bool Settings::IsInitialized() const {
 
   return true;
 }
 
-void SettingsType::Swap(SettingsType* other) {
+void Settings::Swap(Settings* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void SettingsType::InternalSwap(SettingsType* other) {
+void Settings::InternalSwap(Settings* other) {
   std::swap(highpolymodel_, other->highpolymodel_);
   std::swap(lowpolymodel_, other->lowpolymodel_);
   std::swap(generatemaps_, other->generatemaps_);
@@ -18638,45 +18706,45 @@ void SettingsType::InternalSwap(SettingsType* other) {
   std::swap(_cached_size_, other->_cached_size_);
 }
 
-::google::protobuf::Metadata SettingsType::GetMetadata() const {
+::google::protobuf::Metadata Settings::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = SettingsType_descriptor_;
-  metadata.reflection = SettingsType_reflection_;
+  metadata.descriptor = Settings_descriptor_;
+  metadata.reflection = Settings_reflection_;
   return metadata;
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
-// SettingsType
+// Settings
 
 // optional .tHighPolyModel HighPolyModel = 1;
-bool SettingsType::has_highpolymodel() const {
+bool Settings::has_highpolymodel() const {
   return !_is_default_instance_ && highpolymodel_ != NULL;
 }
-void SettingsType::clear_highpolymodel() {
+void Settings::clear_highpolymodel() {
   if (GetArenaNoVirtual() == NULL && highpolymodel_ != NULL) delete highpolymodel_;
   highpolymodel_ = NULL;
 }
-const ::tHighPolyModel& SettingsType::highpolymodel() const {
-  // @@protoc_insertion_point(field_get:SettingsType.HighPolyModel)
+const ::tHighPolyModel& Settings::highpolymodel() const {
+  // @@protoc_insertion_point(field_get:Settings.HighPolyModel)
   return highpolymodel_ != NULL ? *highpolymodel_ : *default_instance_->highpolymodel_;
 }
-::tHighPolyModel* SettingsType::mutable_highpolymodel() {
+::tHighPolyModel* Settings::mutable_highpolymodel() {
   
   if (highpolymodel_ == NULL) {
     highpolymodel_ = new ::tHighPolyModel;
   }
-  // @@protoc_insertion_point(field_mutable:SettingsType.HighPolyModel)
+  // @@protoc_insertion_point(field_mutable:Settings.HighPolyModel)
   return highpolymodel_;
 }
-::tHighPolyModel* SettingsType::release_highpolymodel() {
-  // @@protoc_insertion_point(field_release:SettingsType.HighPolyModel)
+::tHighPolyModel* Settings::release_highpolymodel() {
+  // @@protoc_insertion_point(field_release:Settings.HighPolyModel)
   
   ::tHighPolyModel* temp = highpolymodel_;
   highpolymodel_ = NULL;
   return temp;
 }
-void SettingsType::set_allocated_highpolymodel(::tHighPolyModel* highpolymodel) {
+void Settings::set_allocated_highpolymodel(::tHighPolyModel* highpolymodel) {
   delete highpolymodel_;
   highpolymodel_ = highpolymodel;
   if (highpolymodel) {
@@ -18684,37 +18752,37 @@ void SettingsType::set_allocated_highpolymodel(::tHighPolyModel* highpolymodel) 
   } else {
     
   }
-  // @@protoc_insertion_point(field_set_allocated:SettingsType.HighPolyModel)
+  // @@protoc_insertion_point(field_set_allocated:Settings.HighPolyModel)
 }
 
 // optional .tLowPolyModel LowPolyModel = 2;
-bool SettingsType::has_lowpolymodel() const {
+bool Settings::has_lowpolymodel() const {
   return !_is_default_instance_ && lowpolymodel_ != NULL;
 }
-void SettingsType::clear_lowpolymodel() {
+void Settings::clear_lowpolymodel() {
   if (GetArenaNoVirtual() == NULL && lowpolymodel_ != NULL) delete lowpolymodel_;
   lowpolymodel_ = NULL;
 }
-const ::tLowPolyModel& SettingsType::lowpolymodel() const {
-  // @@protoc_insertion_point(field_get:SettingsType.LowPolyModel)
+const ::tLowPolyModel& Settings::lowpolymodel() const {
+  // @@protoc_insertion_point(field_get:Settings.LowPolyModel)
   return lowpolymodel_ != NULL ? *lowpolymodel_ : *default_instance_->lowpolymodel_;
 }
-::tLowPolyModel* SettingsType::mutable_lowpolymodel() {
+::tLowPolyModel* Settings::mutable_lowpolymodel() {
   
   if (lowpolymodel_ == NULL) {
     lowpolymodel_ = new ::tLowPolyModel;
   }
-  // @@protoc_insertion_point(field_mutable:SettingsType.LowPolyModel)
+  // @@protoc_insertion_point(field_mutable:Settings.LowPolyModel)
   return lowpolymodel_;
 }
-::tLowPolyModel* SettingsType::release_lowpolymodel() {
-  // @@protoc_insertion_point(field_release:SettingsType.LowPolyModel)
+::tLowPolyModel* Settings::release_lowpolymodel() {
+  // @@protoc_insertion_point(field_release:Settings.LowPolyModel)
   
   ::tLowPolyModel* temp = lowpolymodel_;
   lowpolymodel_ = NULL;
   return temp;
 }
-void SettingsType::set_allocated_lowpolymodel(::tLowPolyModel* lowpolymodel) {
+void Settings::set_allocated_lowpolymodel(::tLowPolyModel* lowpolymodel) {
   delete lowpolymodel_;
   lowpolymodel_ = lowpolymodel;
   if (lowpolymodel) {
@@ -18722,37 +18790,37 @@ void SettingsType::set_allocated_lowpolymodel(::tLowPolyModel* lowpolymodel) {
   } else {
     
   }
-  // @@protoc_insertion_point(field_set_allocated:SettingsType.LowPolyModel)
+  // @@protoc_insertion_point(field_set_allocated:Settings.LowPolyModel)
 }
 
 // optional .tGenerateMaps GenerateMaps = 3;
-bool SettingsType::has_generatemaps() const {
+bool Settings::has_generatemaps() const {
   return !_is_default_instance_ && generatemaps_ != NULL;
 }
-void SettingsType::clear_generatemaps() {
+void Settings::clear_generatemaps() {
   if (GetArenaNoVirtual() == NULL && generatemaps_ != NULL) delete generatemaps_;
   generatemaps_ = NULL;
 }
-const ::tGenerateMaps& SettingsType::generatemaps() const {
-  // @@protoc_insertion_point(field_get:SettingsType.GenerateMaps)
+const ::tGenerateMaps& Settings::generatemaps() const {
+  // @@protoc_insertion_point(field_get:Settings.GenerateMaps)
   return generatemaps_ != NULL ? *generatemaps_ : *default_instance_->generatemaps_;
 }
-::tGenerateMaps* SettingsType::mutable_generatemaps() {
+::tGenerateMaps* Settings::mutable_generatemaps() {
   
   if (generatemaps_ == NULL) {
     generatemaps_ = new ::tGenerateMaps;
   }
-  // @@protoc_insertion_point(field_mutable:SettingsType.GenerateMaps)
+  // @@protoc_insertion_point(field_mutable:Settings.GenerateMaps)
   return generatemaps_;
 }
-::tGenerateMaps* SettingsType::release_generatemaps() {
-  // @@protoc_insertion_point(field_release:SettingsType.GenerateMaps)
+::tGenerateMaps* Settings::release_generatemaps() {
+  // @@protoc_insertion_point(field_release:Settings.GenerateMaps)
   
   ::tGenerateMaps* temp = generatemaps_;
   generatemaps_ = NULL;
   return temp;
 }
-void SettingsType::set_allocated_generatemaps(::tGenerateMaps* generatemaps) {
+void Settings::set_allocated_generatemaps(::tGenerateMaps* generatemaps) {
   delete generatemaps_;
   generatemaps_ = generatemaps;
   if (generatemaps) {
@@ -18760,37 +18828,37 @@ void SettingsType::set_allocated_generatemaps(::tGenerateMaps* generatemaps) {
   } else {
     
   }
-  // @@protoc_insertion_point(field_set_allocated:SettingsType.GenerateMaps)
+  // @@protoc_insertion_point(field_set_allocated:Settings.GenerateMaps)
 }
 
 // optional .tDetail Detail = 4;
-bool SettingsType::has_detail() const {
+bool Settings::has_detail() const {
   return !_is_default_instance_ && detail_ != NULL;
 }
-void SettingsType::clear_detail() {
+void Settings::clear_detail() {
   if (GetArenaNoVirtual() == NULL && detail_ != NULL) delete detail_;
   detail_ = NULL;
 }
-const ::tDetail& SettingsType::detail() const {
-  // @@protoc_insertion_point(field_get:SettingsType.Detail)
+const ::tDetail& Settings::detail() const {
+  // @@protoc_insertion_point(field_get:Settings.Detail)
   return detail_ != NULL ? *detail_ : *default_instance_->detail_;
 }
-::tDetail* SettingsType::mutable_detail() {
+::tDetail* Settings::mutable_detail() {
   
   if (detail_ == NULL) {
     detail_ = new ::tDetail;
   }
-  // @@protoc_insertion_point(field_mutable:SettingsType.Detail)
+  // @@protoc_insertion_point(field_mutable:Settings.Detail)
   return detail_;
 }
-::tDetail* SettingsType::release_detail() {
-  // @@protoc_insertion_point(field_release:SettingsType.Detail)
+::tDetail* Settings::release_detail() {
+  // @@protoc_insertion_point(field_release:Settings.Detail)
   
   ::tDetail* temp = detail_;
   detail_ = NULL;
   return temp;
 }
-void SettingsType::set_allocated_detail(::tDetail* detail) {
+void Settings::set_allocated_detail(::tDetail* detail) {
   delete detail_;
   detail_ = detail;
   if (detail) {
@@ -18798,37 +18866,37 @@ void SettingsType::set_allocated_detail(::tDetail* detail) {
   } else {
     
   }
-  // @@protoc_insertion_point(field_set_allocated:SettingsType.Detail)
+  // @@protoc_insertion_point(field_set_allocated:Settings.Detail)
 }
 
 // optional .tViewer3D Viewer3D = 5;
-bool SettingsType::has_viewer3d() const {
+bool Settings::has_viewer3d() const {
   return !_is_default_instance_ && viewer3d_ != NULL;
 }
-void SettingsType::clear_viewer3d() {
+void Settings::clear_viewer3d() {
   if (GetArenaNoVirtual() == NULL && viewer3d_ != NULL) delete viewer3d_;
   viewer3d_ = NULL;
 }
-const ::tViewer3D& SettingsType::viewer3d() const {
-  // @@protoc_insertion_point(field_get:SettingsType.Viewer3D)
+const ::tViewer3D& Settings::viewer3d() const {
+  // @@protoc_insertion_point(field_get:Settings.Viewer3D)
   return viewer3d_ != NULL ? *viewer3d_ : *default_instance_->viewer3d_;
 }
-::tViewer3D* SettingsType::mutable_viewer3d() {
+::tViewer3D* Settings::mutable_viewer3d() {
   
   if (viewer3d_ == NULL) {
     viewer3d_ = new ::tViewer3D;
   }
-  // @@protoc_insertion_point(field_mutable:SettingsType.Viewer3D)
+  // @@protoc_insertion_point(field_mutable:Settings.Viewer3D)
   return viewer3d_;
 }
-::tViewer3D* SettingsType::release_viewer3d() {
-  // @@protoc_insertion_point(field_release:SettingsType.Viewer3D)
+::tViewer3D* Settings::release_viewer3d() {
+  // @@protoc_insertion_point(field_release:Settings.Viewer3D)
   
   ::tViewer3D* temp = viewer3d_;
   viewer3d_ = NULL;
   return temp;
 }
-void SettingsType::set_allocated_viewer3d(::tViewer3D* viewer3d) {
+void Settings::set_allocated_viewer3d(::tViewer3D* viewer3d) {
   delete viewer3d_;
   viewer3d_ = viewer3d;
   if (viewer3d) {
@@ -18836,54 +18904,98 @@ void SettingsType::set_allocated_viewer3d(::tViewer3D* viewer3d) {
   } else {
     
   }
-  // @@protoc_insertion_point(field_set_allocated:SettingsType.Viewer3D)
+  // @@protoc_insertion_point(field_set_allocated:Settings.Viewer3D)
 }
 
 // optional string Version = 6;
-void SettingsType::clear_version() {
+void Settings::clear_version() {
   version_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- const ::std::string& SettingsType::version() const {
-  // @@protoc_insertion_point(field_get:SettingsType.Version)
+ const ::std::string& Settings::version() const {
+  // @@protoc_insertion_point(field_get:Settings.Version)
   return version_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void SettingsType::set_version(const ::std::string& value) {
+ void Settings::set_version(const ::std::string& value) {
   
   version_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:SettingsType.Version)
+  // @@protoc_insertion_point(field_set:Settings.Version)
 }
- void SettingsType::set_version(const char* value) {
+ void Settings::set_version(const char* value) {
   
   version_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:SettingsType.Version)
+  // @@protoc_insertion_point(field_set_char:Settings.Version)
 }
- void SettingsType::set_version(const char* value, size_t size) {
+ void Settings::set_version(const char* value, size_t size) {
   
   version_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:SettingsType.Version)
+  // @@protoc_insertion_point(field_set_pointer:Settings.Version)
 }
- ::std::string* SettingsType::mutable_version() {
+ ::std::string* Settings::mutable_version() {
   
-  // @@protoc_insertion_point(field_mutable:SettingsType.Version)
+  // @@protoc_insertion_point(field_mutable:Settings.Version)
   return version_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* SettingsType::release_version() {
-  // @@protoc_insertion_point(field_release:SettingsType.Version)
+ ::std::string* Settings::release_version() {
+  // @@protoc_insertion_point(field_release:Settings.Version)
   
   return version_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void SettingsType::set_allocated_version(::std::string* version) {
+ void Settings::set_allocated_version(::std::string* version) {
   if (version != NULL) {
     
   } else {
     
   }
   version_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), version);
-  // @@protoc_insertion_point(field_set_allocated:SettingsType.Version)
+  // @@protoc_insertion_point(field_set_allocated:Settings.Version)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+const ::std::string my_eHM2NMMethod_option_default("");
+::google::protobuf::internal::ExtensionIdentifier< ::google::protobuf::EnumValueOptions,
+    ::google::protobuf::internal::StringTypeTraits, 9, false >
+  my_eHM2NMMethod_option(kMyEHM2NMMethodOptionFieldNumber, my_eHM2NMMethod_option_default);
+const ::std::string my_eSmoothNormals_option_default("");
+::google::protobuf::internal::ExtensionIdentifier< ::google::protobuf::EnumValueOptions,
+    ::google::protobuf::internal::StringTypeTraits, 9, false >
+  my_eSmoothNormals_option(kMyESmoothNormalsOptionFieldNumber, my_eSmoothNormals_option_default);
+const ::std::string my_eSwizzleComponent_option_default("");
+::google::protobuf::internal::ExtensionIdentifier< ::google::protobuf::EnumValueOptions,
+    ::google::protobuf::internal::StringTypeTraits, 9, false >
+  my_eSwizzleComponent_option(kMyESwizzleComponentOptionFieldNumber, my_eSwizzleComponent_option_default);
+const ::std::string my_eNormalMapType_option_default("");
+::google::protobuf::internal::ExtensionIdentifier< ::google::protobuf::EnumValueOptions,
+    ::google::protobuf::internal::StringTypeTraits, 9, false >
+  my_eNormalMapType_option(kMyENormalMapTypeOptionFieldNumber, my_eNormalMapType_option_default);
+const ::std::string my_eTransparencyMode_option_default("");
+::google::protobuf::internal::ExtensionIdentifier< ::google::protobuf::EnumValueOptions,
+    ::google::protobuf::internal::StringTypeTraits, 9, false >
+  my_eTransparencyMode_option(kMyETransparencyModeOptionFieldNumber, my_eTransparencyMode_option_default);
+const ::std::string my_eAODistribution_option_default("");
+::google::protobuf::internal::ExtensionIdentifier< ::google::protobuf::EnumValueOptions,
+    ::google::protobuf::internal::StringTypeTraits, 9, false >
+  my_eAODistribution_option(kMyEAODistributionOptionFieldNumber, my_eAODistribution_option_default);
+const ::std::string my_eSwizzleComponent2_option_default("");
+::google::protobuf::internal::ExtensionIdentifier< ::google::protobuf::EnumValueOptions,
+    ::google::protobuf::internal::StringTypeTraits, 9, false >
+  my_eSwizzleComponent2_option(kMyESwizzleComponent2OptionFieldNumber, my_eSwizzleComponent2_option_default);
+const ::std::string my_eHMNormalization_option_default("");
+::google::protobuf::internal::ExtensionIdentifier< ::google::protobuf::EnumValueOptions,
+    ::google::protobuf::internal::StringTypeTraits, 9, false >
+  my_eHMNormalization_option(kMyEHMNormalizationOptionFieldNumber, my_eHMNormalization_option_default);
+const ::std::string my_eRNMCoordSys_option_default("");
+::google::protobuf::internal::ExtensionIdentifier< ::google::protobuf::EnumValueOptions,
+    ::google::protobuf::internal::StringTypeTraits, 9, false >
+  my_eRNMCoordSys_option(kMyERNMCoordSysOptionFieldNumber, my_eRNMCoordSys_option_default);
+const ::std::string my_eAntialiasing_option_default("");
+::google::protobuf::internal::ExtensionIdentifier< ::google::protobuf::EnumValueOptions,
+    ::google::protobuf::internal::StringTypeTraits, 9, false >
+  my_eAntialiasing_option(kMyEAntialiasingOptionFieldNumber, my_eAntialiasing_option_default);
+const ::std::string my_eCurvAlgorithm_option_default("");
+::google::protobuf::internal::ExtensionIdentifier< ::google::protobuf::EnumValueOptions,
+    ::google::protobuf::internal::StringTypeTraits, 9, false >
+  my_eCurvAlgorithm_option(kMyECurvAlgorithmOptionFieldNumber, my_eCurvAlgorithm_option_default);
 
 // @@protoc_insertion_point(namespace_scope)
 

@@ -11,12 +11,19 @@
 #include <future>
 #include <chrono>
 #include "xNormalSettings.h"
+#include "xnormal.pb.h"
+#include "xml_format.h"
+#include <fstream>
+#include <google/protobuf/text_format.h>
+
+//#include<TCHAR.H> // Implicit or explicit include
 #ifdef __cplusplus
 extern "C"
 {
 #endif
 
-#define WM_TRIGGER_CALLBACK WM_USER+4764
+#define WM_ToStrRIGGER_CALLBACK WM_USER+4764
+
 
 using yproto::ObjItem;
 //using yproto::Point3;
@@ -45,6 +52,7 @@ typedef struct {
 } FunctionTask;
 static tbb::concurrent_queue< FunctionTask > fn_q;
 
+
 //std::mutex m;
 //std::condition_variable cv;
 //bool ready = false;
@@ -52,7 +60,7 @@ static tbb::concurrent_queue< FunctionTask > fn_q;
 
 
 /*template<typename... Args, typename Lambda>
-std::pair< void(*)(void*, Args...), std::decay_t<Lambda> > voidify(Lambda&& l) {
+std::pair< void(*)(void*, Args...), std::decay_ToStr<Lambda> > voidify(Lambda&& l) {
 typedef typename std::decay<Lambda>::type Func;
 return{
 [](void* v, Args... args)->void {
@@ -85,14 +93,14 @@ wrapper->function(wrapper->data);
 };
 
 void register_callback(void(*function)(void*), void * p) {
-PostMessage(GetCOREInterface()->GetMAXHWnd(), WM_TRIGGER_CALLBACK, (UINT_PTR)function, (UINT_PTR)p);
+PostMessage(GetCOREInterface()->GetMAXHWnd(), WM_ToStrRIGGER_CALLBACK, (UINT_PTR)function, (UINT_PTR)p);
 }
 //*/
 
 
 inline void PostCallback(void(*funcPtr)(UINT_PTR), UINT_PTR param)
 {
-	PostMessage(GetCOREInterface()->GetMAXHWnd(), WM_TRIGGER_CALLBACK, (UINT_PTR)funcPtr, (UINT_PTR)param);
+	PostMessage(GetCOREInterface()->GetMAXHWnd(), WM_ToStrRIGGER_CALLBACK, (UINT_PTR)funcPtr, (UINT_PTR)param);
 }
 
 inline void executeWrapper() {
@@ -116,7 +124,7 @@ inline void Invoke(FuncType&& fn) {
 	//std::shared_ptr< std::promise<int> > ptr(new std::promise<int>());
 	FunctionTask ft = { fn, std::make_shared<std::promise<int>>() };
 	fn_q.push(ft);
-	PostMessage(GetCOREInterface()->GetMAXHWnd(), WM_TRIGGER_CALLBACK, (UINT_PTR)(executeWrapper), (UINT_PTR)0);
+	PostMessage(GetCOREInterface()->GetMAXHWnd(), WM_ToStrRIGGER_CALLBACK, (UINT_PTR)(executeWrapper), (UINT_PTR)0);
 	waitForReturn(ft.ret);
 }
 
@@ -125,7 +133,7 @@ inline std::shared_ptr<std::promise<int>> InvokeAsync(FuncType&& fn) {
 	//std::shared_ptr< std::promise<int> > ptr(new std::promise<int>());
 	FunctionTask ft = { fn, std::make_shared<std::promise<int>>() };
 	fn_q.push(ft);
-	PostMessage(GetCOREInterface()->GetMAXHWnd(), WM_TRIGGER_CALLBACK, (UINT_PTR)(executeWrapper), (UINT_PTR)0);
+	PostMessage(GetCOREInterface()->GetMAXHWnd(), WM_ToStrRIGGER_CALLBACK, (UINT_PTR)(executeWrapper), (UINT_PTR)0);
 	return ft.ret;
 }
 
@@ -181,6 +189,16 @@ class YServiceImpl final : public Tools::Service {
 				};
 			}
 			mprintf(L"Hello world\n");
+
+			Settings s;
+			std::string hiPoly = "F:\\teapot_hi.FBX";
+			std::string loPoly = "F:\\teapot_lo.obj";
+			createDefaultSettings(&s, hiPoly, loPoly, "F:\\teapot.png");
+			setSize(s, 1024, 1024);
+
+			bakeNormal(s);
+
+
 		});
 		reply->set_message("DDDD");
 		//reply->message.set_message("ddd");

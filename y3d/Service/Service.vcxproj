@@ -30,6 +30,8 @@
     <Import Project="..\packages\grpc.dependencies.zlib.redist.1.2.8.10\build\native\grpc.dependencies.zlib.redist.targets" Condition="Exists('..\packages\grpc.dependencies.zlib.redist.1.2.8.10\build\native\grpc.dependencies.zlib.redist.targets')" />
     <Import Project="..\packages\grpc.dependencies.zlib.1.2.8.10\build\native\grpc.dependencies.zlib.targets" Condition="Exists('..\packages\grpc.dependencies.zlib.1.2.8.10\build\native\grpc.dependencies.zlib.targets')" />
     <Import Project="..\packages\grpc.dependencies.openssl.1.0.204.1\build\native\grpc.dependencies.openssl.targets" Condition="Exists('..\packages\grpc.dependencies.openssl.1.0.204.1\build\native\grpc.dependencies.openssl.targets')" />
+    <Import Project="..\packages\rapidxml.1.13\build\native\rapidxml.targets" Condition="Exists('..\packages\rapidxml.1.13\build\native\rapidxml.targets')" />
+    <Import Project="..\packages\pugixml.1.8.0\build\native\pugixml.targets" Condition="Exists('..\packages\pugixml.1.8.0\build\native\pugixml.targets')" />
   </ImportGroup>
   <PropertyGroup>
     <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
@@ -391,6 +393,8 @@
     <ClCompile Include="grpc\third_party\nanopb\pb_encode.c" />
     <ClCompile Include="Service.cpp" />
     <ClCompile Include="DllEntry.cpp" />
+    <ClCompile Include="xml_format.cc" />
+    <ClCompile Include="xnormal.pb.cc" />
     <ClCompile Include="y3d.pb.cc" />
     <ClCompile Include="ymax.grpc.pb.cc" />
     <ClCompile Include="ymax.pb.cc" />
@@ -600,6 +604,7 @@
     <ClInclude Include="Server.h" />
     <ClInclude Include="Service.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="xml_format.h" />
     <ClInclude Include="y3d.pb.h" />
     <ClInclude Include="ymax.grpc.pb.h" />
     <ClInclude Include="ymax.pb.h" />
@@ -619,5 +624,7 @@
     <Error Condition="!Exists('..\packages\grpc.dependencies.zlib.1.2.8.10\build\native\grpc.dependencies.zlib.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\grpc.dependencies.zlib.1.2.8.10\build\native\grpc.dependencies.zlib.targets'))" />
     <Error Condition="!Exists('..\packages\grpc.dependencies.openssl.1.0.204.1\build\native\grpc.dependencies.openssl.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\grpc.dependencies.openssl.1.0.204.1\build\native\grpc.dependencies.openssl.props'))" />
     <Error Condition="!Exists('..\packages\grpc.dependencies.openssl.1.0.204.1\build\native\grpc.dependencies.openssl.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\grpc.dependencies.openssl.1.0.204.1\build\native\grpc.dependencies.openssl.targets'))" />
+    <Error Condition="!Exists('..\packages\rapidxml.1.13\build\native\rapidxml.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\rapidxml.1.13\build\native\rapidxml.targets'))" />
+    <Error Condition="!Exists('..\packages\pugixml.1.8.0\build\native\pugixml.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\pugixml.1.8.0\build\native\pugixml.targets'))" />
   </Target>
 </Project>

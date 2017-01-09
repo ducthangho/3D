@@ -28,6 +28,7 @@
 #include <google/protobuf/extension_set.h>
 #include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
+#include <google/protobuf/descriptor.pb.h>
 // @@protoc_insertion_point(includes)
 
 // Internal implementation detail -- do not call these.
@@ -35,7 +36,7 @@ void protobuf_AddDesc_xnormal_2eproto();
 void protobuf_AssignDesc_xnormal_2eproto();
 void protobuf_ShutdownFile_xnormal_2eproto();
 
-class SettingsType;
+class Settings;
 class UnspecifiedType;
 class tDetail;
 class tGenerateMaps;
@@ -97,18 +98,18 @@ inline bool tHighPolyMesh_eSmoothNormals_Parse(
     tHighPolyMesh_eSmoothNormals_descriptor(), name, value);
 }
 enum tLowPolyMesh_eSwizzleComponent {
-  tLowPolyMesh_eSwizzleComponent_eSwizzleComponent_X = 0,
-  tLowPolyMesh_eSwizzleComponent_eSwizzleComponent_X_ = 1,
-  tLowPolyMesh_eSwizzleComponent_eSwizzleComponent_Y = 2,
-  tLowPolyMesh_eSwizzleComponent_eSwizzleComponent_Y_ = 3,
-  tLowPolyMesh_eSwizzleComponent_eSwizzleComponent_Z = 4,
-  tLowPolyMesh_eSwizzleComponent_eSwizzleComponent_Z_ = 5,
+  tLowPolyMesh_eSwizzleComponent_eSwizzleComponent_X0 = 0,
+  tLowPolyMesh_eSwizzleComponent_eSwizzleComponent_X1 = 1,
+  tLowPolyMesh_eSwizzleComponent_eSwizzleComponent_Y0 = 2,
+  tLowPolyMesh_eSwizzleComponent_eSwizzleComponent_Y1 = 3,
+  tLowPolyMesh_eSwizzleComponent_eSwizzleComponent_Z0 = 4,
+  tLowPolyMesh_eSwizzleComponent_eSwizzleComponent_Z1 = 5,
   tLowPolyMesh_eSwizzleComponent_tLowPolyMesh_eSwizzleComponent_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
   tLowPolyMesh_eSwizzleComponent_tLowPolyMesh_eSwizzleComponent_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
 };
 bool tLowPolyMesh_eSwizzleComponent_IsValid(int value);
-const tLowPolyMesh_eSwizzleComponent tLowPolyMesh_eSwizzleComponent_eSwizzleComponent_MIN = tLowPolyMesh_eSwizzleComponent_eSwizzleComponent_X;
-const tLowPolyMesh_eSwizzleComponent tLowPolyMesh_eSwizzleComponent_eSwizzleComponent_MAX = tLowPolyMesh_eSwizzleComponent_eSwizzleComponent_Z_;
+const tLowPolyMesh_eSwizzleComponent tLowPolyMesh_eSwizzleComponent_eSwizzleComponent_MIN = tLowPolyMesh_eSwizzleComponent_eSwizzleComponent_X0;
+const tLowPolyMesh_eSwizzleComponent tLowPolyMesh_eSwizzleComponent_eSwizzleComponent_MAX = tLowPolyMesh_eSwizzleComponent_eSwizzleComponent_Z1;
 const int tLowPolyMesh_eSwizzleComponent_eSwizzleComponent_ARRAYSIZE = tLowPolyMesh_eSwizzleComponent_eSwizzleComponent_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* tLowPolyMesh_eSwizzleComponent_descriptor();
@@ -190,18 +191,18 @@ inline bool tGenerateMaps_eAODistribution_Parse(
     tGenerateMaps_eAODistribution_descriptor(), name, value);
 }
 enum tGenerateMaps_eSwizzleComponent {
-  tGenerateMaps_eSwizzleComponent_eSwizzleComponent_X = 0,
-  tGenerateMaps_eSwizzleComponent_eSwizzleComponent_X_ = 1,
-  tGenerateMaps_eSwizzleComponent_eSwizzleComponent_Y = 2,
-  tGenerateMaps_eSwizzleComponent_eSwizzleComponent_Y_ = 3,
-  tGenerateMaps_eSwizzleComponent_eSwizzleComponent_Z = 4,
-  tGenerateMaps_eSwizzleComponent_eSwizzleComponent_Z_ = 5,
+  tGenerateMaps_eSwizzleComponent_eSwizzleComponent_X0 = 0,
+  tGenerateMaps_eSwizzleComponent_eSwizzleComponent_X1 = 1,
+  tGenerateMaps_eSwizzleComponent_eSwizzleComponent_Y0 = 2,
+  tGenerateMaps_eSwizzleComponent_eSwizzleComponent_Y1 = 3,
+  tGenerateMaps_eSwizzleComponent_eSwizzleComponent_Z0 = 4,
+  tGenerateMaps_eSwizzleComponent_eSwizzleComponent_Z1 = 5,
   tGenerateMaps_eSwizzleComponent_tGenerateMaps_eSwizzleComponent_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
   tGenerateMaps_eSwizzleComponent_tGenerateMaps_eSwizzleComponent_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
 };
 bool tGenerateMaps_eSwizzleComponent_IsValid(int value);
-const tGenerateMaps_eSwizzleComponent tGenerateMaps_eSwizzleComponent_eSwizzleComponent_MIN = tGenerateMaps_eSwizzleComponent_eSwizzleComponent_X;
-const tGenerateMaps_eSwizzleComponent tGenerateMaps_eSwizzleComponent_eSwizzleComponent_MAX = tGenerateMaps_eSwizzleComponent_eSwizzleComponent_Z_;
+const tGenerateMaps_eSwizzleComponent tGenerateMaps_eSwizzleComponent_eSwizzleComponent_MIN = tGenerateMaps_eSwizzleComponent_eSwizzleComponent_X0;
+const tGenerateMaps_eSwizzleComponent tGenerateMaps_eSwizzleComponent_eSwizzleComponent_MAX = tGenerateMaps_eSwizzleComponent_eSwizzleComponent_Z1;
 const int tGenerateMaps_eSwizzleComponent_eSwizzleComponent_ARRAYSIZE = tGenerateMaps_eSwizzleComponent_eSwizzleComponent_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* tGenerateMaps_eSwizzleComponent_descriptor();
@@ -737,17 +738,17 @@ class tRGB8 : public ::google::protobuf::Message /* @@protoc_insertion_point(cla
 
   // accessors -------------------------------------------------------
 
-  // optional uint32 G = 1;
-  void clear_g();
-  static const int kGFieldNumber = 1;
-  ::google::protobuf::uint32 g() const;
-  void set_g(::google::protobuf::uint32 value);
-
-  // optional uint32 R = 2;
+  // optional uint32 R = 1;
   void clear_r();
-  static const int kRFieldNumber = 2;
+  static const int kRFieldNumber = 1;
   ::google::protobuf::uint32 r() const;
   void set_r(::google::protobuf::uint32 value);
+
+  // optional uint32 G = 2;
+  void clear_g();
+  static const int kGFieldNumber = 2;
+  ::google::protobuf::uint32 g() const;
+  void set_g(::google::protobuf::uint32 value);
 
   // optional uint32 B = 3;
   void clear_b();
@@ -760,8 +761,8 @@ class tRGB8 : public ::google::protobuf::Message /* @@protoc_insertion_point(cla
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   bool _is_default_instance_;
-  ::google::protobuf::uint32 g_;
   ::google::protobuf::uint32 r_;
+  ::google::protobuf::uint32 g_;
   ::google::protobuf::uint32 b_;
   mutable int _cached_size_;
   friend void  protobuf_AddDesc_xnormal_2eproto();
@@ -994,18 +995,18 @@ class tLowPolyMesh : public ::google::protobuf::Message /* @@protoc_insertion_po
   // nested types ----------------------------------------------------
 
   typedef tLowPolyMesh_eSwizzleComponent eSwizzleComponent;
-  static const eSwizzleComponent eSwizzleComponent_X =
-    tLowPolyMesh_eSwizzleComponent_eSwizzleComponent_X;
-  static const eSwizzleComponent eSwizzleComponent_X_ =
-    tLowPolyMesh_eSwizzleComponent_eSwizzleComponent_X_;
-  static const eSwizzleComponent eSwizzleComponent_Y =
-    tLowPolyMesh_eSwizzleComponent_eSwizzleComponent_Y;
-  static const eSwizzleComponent eSwizzleComponent_Y_ =
-    tLowPolyMesh_eSwizzleComponent_eSwizzleComponent_Y_;
-  static const eSwizzleComponent eSwizzleComponent_Z =
-    tLowPolyMesh_eSwizzleComponent_eSwizzleComponent_Z;
-  static const eSwizzleComponent eSwizzleComponent_Z_ =
-    tLowPolyMesh_eSwizzleComponent_eSwizzleComponent_Z_;
+  static const eSwizzleComponent eSwizzleComponent_X0 =
+    tLowPolyMesh_eSwizzleComponent_eSwizzleComponent_X0;
+  static const eSwizzleComponent eSwizzleComponent_X1 =
+    tLowPolyMesh_eSwizzleComponent_eSwizzleComponent_X1;
+  static const eSwizzleComponent eSwizzleComponent_Y0 =
+    tLowPolyMesh_eSwizzleComponent_eSwizzleComponent_Y0;
+  static const eSwizzleComponent eSwizzleComponent_Y1 =
+    tLowPolyMesh_eSwizzleComponent_eSwizzleComponent_Y1;
+  static const eSwizzleComponent eSwizzleComponent_Z0 =
+    tLowPolyMesh_eSwizzleComponent_eSwizzleComponent_Z0;
+  static const eSwizzleComponent eSwizzleComponent_Z1 =
+    tLowPolyMesh_eSwizzleComponent_eSwizzleComponent_Z1;
   static inline bool eSwizzleComponent_IsValid(int value) {
     return tLowPolyMesh_eSwizzleComponent_IsValid(value);
   }
@@ -1557,17 +1558,17 @@ class tVector3 : public ::google::protobuf::Message /* @@protoc_insertion_point(
 
   // accessors -------------------------------------------------------
 
-  // optional float y = 1;
-  void clear_y();
-  static const int kYFieldNumber = 1;
-  float y() const;
-  void set_y(float value);
-
-  // optional float x = 2;
+  // optional float x = 1;
   void clear_x();
-  static const int kXFieldNumber = 2;
+  static const int kXFieldNumber = 1;
   float x() const;
   void set_x(float value);
+
+  // optional float y = 2;
+  void clear_y();
+  static const int kYFieldNumber = 2;
+  float y() const;
+  void set_y(float value);
 
   // optional float z = 3;
   void clear_z();
@@ -1580,8 +1581,8 @@ class tVector3 : public ::google::protobuf::Message /* @@protoc_insertion_point(
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   bool _is_default_instance_;
-  float y_;
   float x_;
+  float y_;
   float z_;
   mutable int _cached_size_;
   friend void  protobuf_AddDesc_xnormal_2eproto();
@@ -1680,18 +1681,18 @@ class tGenerateMaps : public ::google::protobuf::Message /* @@protoc_insertion_p
   }
 
   typedef tGenerateMaps_eSwizzleComponent eSwizzleComponent;
-  static const eSwizzleComponent eSwizzleComponent_X =
-    tGenerateMaps_eSwizzleComponent_eSwizzleComponent_X;
-  static const eSwizzleComponent eSwizzleComponent_X_ =
-    tGenerateMaps_eSwizzleComponent_eSwizzleComponent_X_;
-  static const eSwizzleComponent eSwizzleComponent_Y =
-    tGenerateMaps_eSwizzleComponent_eSwizzleComponent_Y;
-  static const eSwizzleComponent eSwizzleComponent_Y_ =
-    tGenerateMaps_eSwizzleComponent_eSwizzleComponent_Y_;
-  static const eSwizzleComponent eSwizzleComponent_Z =
-    tGenerateMaps_eSwizzleComponent_eSwizzleComponent_Z;
-  static const eSwizzleComponent eSwizzleComponent_Z_ =
-    tGenerateMaps_eSwizzleComponent_eSwizzleComponent_Z_;
+  static const eSwizzleComponent eSwizzleComponent_X0 =
+    tGenerateMaps_eSwizzleComponent_eSwizzleComponent_X0;
+  static const eSwizzleComponent eSwizzleComponent_X1 =
+    tGenerateMaps_eSwizzleComponent_eSwizzleComponent_X1;
+  static const eSwizzleComponent eSwizzleComponent_Y0 =
+    tGenerateMaps_eSwizzleComponent_eSwizzleComponent_Y0;
+  static const eSwizzleComponent eSwizzleComponent_Y1 =
+    tGenerateMaps_eSwizzleComponent_eSwizzleComponent_Y1;
+  static const eSwizzleComponent eSwizzleComponent_Z0 =
+    tGenerateMaps_eSwizzleComponent_eSwizzleComponent_Z0;
+  static const eSwizzleComponent eSwizzleComponent_Z1 =
+    tGenerateMaps_eSwizzleComponent_eSwizzleComponent_Z1;
   static inline bool eSwizzleComponent_IsValid(int value) {
     return tGenerateMaps_eSwizzleComponent_IsValid(value);
   }
@@ -3431,32 +3432,32 @@ class tViewer3D : public ::google::protobuf::Message /* @@protoc_insertion_point
 };
 // -------------------------------------------------------------------
 
-class SettingsType : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:SettingsType) */ {
+class Settings : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:Settings) */ {
  public:
-  SettingsType();
-  virtual ~SettingsType();
+  Settings();
+  virtual ~Settings();
 
-  SettingsType(const SettingsType& from);
+  Settings(const Settings& from);
 
-  inline SettingsType& operator=(const SettingsType& from) {
+  inline Settings& operator=(const Settings& from) {
     CopyFrom(from);
     return *this;
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const SettingsType& default_instance();
+  static const Settings& default_instance();
 
-  void Swap(SettingsType* other);
+  void Swap(Settings* other);
 
   // implements Message ----------------------------------------------
 
-  inline SettingsType* New() const { return New(NULL); }
+  inline Settings* New() const { return New(NULL); }
 
-  SettingsType* New(::google::protobuf::Arena* arena) const;
+  Settings* New(::google::protobuf::Arena* arena) const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const SettingsType& from);
-  void MergeFrom(const SettingsType& from);
+  void CopyFrom(const Settings& from);
+  void MergeFrom(const Settings& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -3475,7 +3476,7 @@ class SettingsType : public ::google::protobuf::Message /* @@protoc_insertion_po
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const;
-  void InternalSwap(SettingsType* other);
+  void InternalSwap(Settings* other);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return _internal_metadata_.arena();
@@ -3547,7 +3548,7 @@ class SettingsType : public ::google::protobuf::Message /* @@protoc_insertion_po
   ::std::string* release_version();
   void set_allocated_version(::std::string* version);
 
-  // @@protoc_insertion_point(class_scope:SettingsType)
+  // @@protoc_insertion_point(class_scope:Settings)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
@@ -3564,10 +3565,54 @@ class SettingsType : public ::google::protobuf::Message /* @@protoc_insertion_po
   friend void protobuf_ShutdownFile_xnormal_2eproto();
 
   void InitAsDefaultInstance();
-  static SettingsType* default_instance_;
+  static Settings* default_instance_;
 };
 // ===================================================================
 
+static const int kMyEHM2NMMethodOptionFieldNumber = 50000;
+extern ::google::protobuf::internal::ExtensionIdentifier< ::google::protobuf::EnumValueOptions,
+    ::google::protobuf::internal::StringTypeTraits, 9, false >
+  my_eHM2NMMethod_option;
+static const int kMyESmoothNormalsOptionFieldNumber = 50001;
+extern ::google::protobuf::internal::ExtensionIdentifier< ::google::protobuf::EnumValueOptions,
+    ::google::protobuf::internal::StringTypeTraits, 9, false >
+  my_eSmoothNormals_option;
+static const int kMyESwizzleComponentOptionFieldNumber = 50002;
+extern ::google::protobuf::internal::ExtensionIdentifier< ::google::protobuf::EnumValueOptions,
+    ::google::protobuf::internal::StringTypeTraits, 9, false >
+  my_eSwizzleComponent_option;
+static const int kMyENormalMapTypeOptionFieldNumber = 50003;
+extern ::google::protobuf::internal::ExtensionIdentifier< ::google::protobuf::EnumValueOptions,
+    ::google::protobuf::internal::StringTypeTraits, 9, false >
+  my_eNormalMapType_option;
+static const int kMyETransparencyModeOptionFieldNumber = 50004;
+extern ::google::protobuf::internal::ExtensionIdentifier< ::google::protobuf::EnumValueOptions,
+    ::google::protobuf::internal::StringTypeTraits, 9, false >
+  my_eTransparencyMode_option;
+static const int kMyEAODistributionOptionFieldNumber = 50005;
+extern ::google::protobuf::internal::ExtensionIdentifier< ::google::protobuf::EnumValueOptions,
+    ::google::protobuf::internal::StringTypeTraits, 9, false >
+  my_eAODistribution_option;
+static const int kMyESwizzleComponent2OptionFieldNumber = 50006;
+extern ::google::protobuf::internal::ExtensionIdentifier< ::google::protobuf::EnumValueOptions,
+    ::google::protobuf::internal::StringTypeTraits, 9, false >
+  my_eSwizzleComponent2_option;
+static const int kMyEHMNormalizationOptionFieldNumber = 50007;
+extern ::google::protobuf::internal::ExtensionIdentifier< ::google::protobuf::EnumValueOptions,
+    ::google::protobuf::internal::StringTypeTraits, 9, false >
+  my_eHMNormalization_option;
+static const int kMyERNMCoordSysOptionFieldNumber = 50008;
+extern ::google::protobuf::internal::ExtensionIdentifier< ::google::protobuf::EnumValueOptions,
+    ::google::protobuf::internal::StringTypeTraits, 9, false >
+  my_eRNMCoordSys_option;
+static const int kMyEAntialiasingOptionFieldNumber = 50009;
+extern ::google::protobuf::internal::ExtensionIdentifier< ::google::protobuf::EnumValueOptions,
+    ::google::protobuf::internal::StringTypeTraits, 9, false >
+  my_eAntialiasing_option;
+static const int kMyECurvAlgorithmOptionFieldNumber = 50010;
+extern ::google::protobuf::internal::ExtensionIdentifier< ::google::protobuf::EnumValueOptions,
+    ::google::protobuf::internal::StringTypeTraits, 9, false >
+  my_eCurvAlgorithm_option;
 
 // ===================================================================
 
@@ -3872,21 +3917,7 @@ inline void tDetail::set_allocated_file(::std::string* file) {
 
 // tRGB8
 
-// optional uint32 G = 1;
-inline void tRGB8::clear_g() {
-  g_ = 0u;
-}
-inline ::google::protobuf::uint32 tRGB8::g() const {
-  // @@protoc_insertion_point(field_get:tRGB8.G)
-  return g_;
-}
-inline void tRGB8::set_g(::google::protobuf::uint32 value) {
-  
-  g_ = value;
-  // @@protoc_insertion_point(field_set:tRGB8.G)
-}
-
-// optional uint32 R = 2;
+// optional uint32 R = 1;
 inline void tRGB8::clear_r() {
   r_ = 0u;
 }
@@ -3898,6 +3929,20 @@ inline void tRGB8::set_r(::google::protobuf::uint32 value) {
   
   r_ = value;
   // @@protoc_insertion_point(field_set:tRGB8.R)
+}
+
+// optional uint32 G = 2;
+inline void tRGB8::clear_g() {
+  g_ = 0u;
+}
+inline ::google::protobuf::uint32 tRGB8::g() const {
+  // @@protoc_insertion_point(field_get:tRGB8.G)
+  return g_;
+}
+inline void tRGB8::set_g(::google::protobuf::uint32 value) {
+  
+  g_ = value;
+  // @@protoc_insertion_point(field_set:tRGB8.G)
 }
 
 // optional uint32 B = 3;
@@ -5188,21 +5233,7 @@ inline void tLowPolyMesh::set_matchuvs(bool value) {
 
 // tVector3
 
-// optional float y = 1;
-inline void tVector3::clear_y() {
-  y_ = 0;
-}
-inline float tVector3::y() const {
-  // @@protoc_insertion_point(field_get:tVector3.y)
-  return y_;
-}
-inline void tVector3::set_y(float value) {
-  
-  y_ = value;
-  // @@protoc_insertion_point(field_set:tVector3.y)
-}
-
-// optional float x = 2;
+// optional float x = 1;
 inline void tVector3::clear_x() {
   x_ = 0;
 }
@@ -5214,6 +5245,20 @@ inline void tVector3::set_x(float value) {
   
   x_ = value;
   // @@protoc_insertion_point(field_set:tVector3.x)
+}
+
+// optional float y = 2;
+inline void tVector3::clear_y() {
+  y_ = 0;
+}
+inline float tVector3::y() const {
+  // @@protoc_insertion_point(field_get:tVector3.y)
+  return y_;
+}
+inline void tVector3::set_y(float value) {
+  
+  y_ = value;
+  // @@protoc_insertion_point(field_set:tVector3.y)
 }
 
 // optional float z = 3;
@@ -8658,36 +8703,36 @@ inline void tViewer3D::set_glowintensity(float value) {
 
 // -------------------------------------------------------------------
 
-// SettingsType
+// Settings
 
 // optional .tHighPolyModel HighPolyModel = 1;
-inline bool SettingsType::has_highpolymodel() const {
+inline bool Settings::has_highpolymodel() const {
   return !_is_default_instance_ && highpolymodel_ != NULL;
 }
-inline void SettingsType::clear_highpolymodel() {
+inline void Settings::clear_highpolymodel() {
   if (GetArenaNoVirtual() == NULL && highpolymodel_ != NULL) delete highpolymodel_;
   highpolymodel_ = NULL;
 }
-inline const ::tHighPolyModel& SettingsType::highpolymodel() const {
-  // @@protoc_insertion_point(field_get:SettingsType.HighPolyModel)
+inline const ::tHighPolyModel& Settings::highpolymodel() const {
+  // @@protoc_insertion_point(field_get:Settings.HighPolyModel)
   return highpolymodel_ != NULL ? *highpolymodel_ : *default_instance_->highpolymodel_;
 }
-inline ::tHighPolyModel* SettingsType::mutable_highpolymodel() {
+inline ::tHighPolyModel* Settings::mutable_highpolymodel() {
   
   if (highpolymodel_ == NULL) {
     highpolymodel_ = new ::tHighPolyModel;
   }
-  // @@protoc_insertion_point(field_mutable:SettingsType.HighPolyModel)
+  // @@protoc_insertion_point(field_mutable:Settings.HighPolyModel)
   return highpolymodel_;
 }
-inline ::tHighPolyModel* SettingsType::release_highpolymodel() {
-  // @@protoc_insertion_point(field_release:SettingsType.HighPolyModel)
+inline ::tHighPolyModel* Settings::release_highpolymodel() {
+  // @@protoc_insertion_point(field_release:Settings.HighPolyModel)
   
   ::tHighPolyModel* temp = highpolymodel_;
   highpolymodel_ = NULL;
   return temp;
 }
-inline void SettingsType::set_allocated_highpolymodel(::tHighPolyModel* highpolymodel) {
+inline void Settings::set_allocated_highpolymodel(::tHighPolyModel* highpolymodel) {
   delete highpolymodel_;
   highpolymodel_ = highpolymodel;
   if (highpolymodel) {
@@ -8695,37 +8740,37 @@ inline void SettingsType::set_allocated_highpolymodel(::tHighPolyModel* highpoly
   } else {
     
   }
-  // @@protoc_insertion_point(field_set_allocated:SettingsType.HighPolyModel)
+  // @@protoc_insertion_point(field_set_allocated:Settings.HighPolyModel)
 }
 
 // optional .tLowPolyModel LowPolyModel = 2;
-inline bool SettingsType::has_lowpolymodel() const {
+inline bool Settings::has_lowpolymodel() const {
   return !_is_default_instance_ && lowpolymodel_ != NULL;
 }
-inline void SettingsType::clear_lowpolymodel() {
+inline void Settings::clear_lowpolymodel() {
   if (GetArenaNoVirtual() == NULL && lowpolymodel_ != NULL) delete lowpolymodel_;
   lowpolymodel_ = NULL;
 }
-inline const ::tLowPolyModel& SettingsType::lowpolymodel() const {
-  // @@protoc_insertion_point(field_get:SettingsType.LowPolyModel)
+inline const ::tLowPolyModel& Settings::lowpolymodel() const {
+  // @@protoc_insertion_point(field_get:Settings.LowPolyModel)
   return lowpolymodel_ != NULL ? *lowpolymodel_ : *default_instance_->lowpolymodel_;
 }
-inline ::tLowPolyModel* SettingsType::mutable_lowpolymodel() {
+inline ::tLowPolyModel* Settings::mutable_lowpolymodel() {
   
   if (lowpolymodel_ == NULL) {
     lowpolymodel_ = new ::tLowPolyModel;
   }
-  // @@protoc_insertion_point(field_mutable:SettingsType.LowPolyModel)
+  // @@protoc_insertion_point(field_mutable:Settings.LowPolyModel)
   return lowpolymodel_;
 }
-inline ::tLowPolyModel* SettingsType::release_lowpolymodel() {
-  // @@protoc_insertion_point(field_release:SettingsType.LowPolyModel)
+inline ::tLowPolyModel* Settings::release_lowpolymodel() {
+  // @@protoc_insertion_point(field_release:Settings.LowPolyModel)
   
   ::tLowPolyModel* temp = lowpolymodel_;
   lowpolymodel_ = NULL;
   return temp;
 }
-inline void SettingsType::set_allocated_lowpolymodel(::tLowPolyModel* lowpolymodel) {
+inline void Settings::set_allocated_lowpolymodel(::tLowPolyModel* lowpolymodel) {
   delete lowpolymodel_;
   lowpolymodel_ = lowpolymodel;
   if (lowpolymodel) {
@@ -8733,37 +8778,37 @@ inline void SettingsType::set_allocated_lowpolymodel(::tLowPolyModel* lowpolymod
   } else {
     
   }
-  // @@protoc_insertion_point(field_set_allocated:SettingsType.LowPolyModel)
+  // @@protoc_insertion_point(field_set_allocated:Settings.LowPolyModel)
 }
 
 // optional .tGenerateMaps GenerateMaps = 3;
-inline bool SettingsType::has_generatemaps() const {
+inline bool Settings::has_generatemaps() const {
   return !_is_default_instance_ && generatemaps_ != NULL;
 }
-inline void SettingsType::clear_generatemaps() {
+inline void Settings::clear_generatemaps() {
   if (GetArenaNoVirtual() == NULL && generatemaps_ != NULL) delete generatemaps_;
   generatemaps_ = NULL;
 }
-inline const ::tGenerateMaps& SettingsType::generatemaps() const {
-  // @@protoc_insertion_point(field_get:SettingsType.GenerateMaps)
+inline const ::tGenerateMaps& Settings::generatemaps() const {
+  // @@protoc_insertion_point(field_get:Settings.GenerateMaps)
   return generatemaps_ != NULL ? *generatemaps_ : *default_instance_->generatemaps_;
 }
-inline ::tGenerateMaps* SettingsType::mutable_generatemaps() {
+inline ::tGenerateMaps* Settings::mutable_generatemaps() {
   
   if (generatemaps_ == NULL) {
     generatemaps_ = new ::tGenerateMaps;
   }
-  // @@protoc_insertion_point(field_mutable:SettingsType.GenerateMaps)
+  // @@protoc_insertion_point(field_mutable:Settings.GenerateMaps)
   return generatemaps_;
 }
-inline ::tGenerateMaps* SettingsType::release_generatemaps() {
-  // @@protoc_insertion_point(field_release:SettingsType.GenerateMaps)
+inline ::tGenerateMaps* Settings::release_generatemaps() {
+  // @@protoc_insertion_point(field_release:Settings.GenerateMaps)
   
   ::tGenerateMaps* temp = generatemaps_;
   generatemaps_ = NULL;
   return temp;
 }
-inline void SettingsType::set_allocated_generatemaps(::tGenerateMaps* generatemaps) {
+inline void Settings::set_allocated_generatemaps(::tGenerateMaps* generatemaps) {
   delete generatemaps_;
   generatemaps_ = generatemaps;
   if (generatemaps) {
@@ -8771,37 +8816,37 @@ inline void SettingsType::set_allocated_generatemaps(::tGenerateMaps* generatema
   } else {
     
   }
-  // @@protoc_insertion_point(field_set_allocated:SettingsType.GenerateMaps)
+  // @@protoc_insertion_point(field_set_allocated:Settings.GenerateMaps)
 }
 
 // optional .tDetail Detail = 4;
-inline bool SettingsType::has_detail() const {
+inline bool Settings::has_detail() const {
   return !_is_default_instance_ && detail_ != NULL;
 }
-inline void SettingsType::clear_detail() {
+inline void Settings::clear_detail() {
   if (GetArenaNoVirtual() == NULL && detail_ != NULL) delete detail_;
   detail_ = NULL;
 }
-inline const ::tDetail& SettingsType::detail() const {
-  // @@protoc_insertion_point(field_get:SettingsType.Detail)
+inline const ::tDetail& Settings::detail() const {
+  // @@protoc_insertion_point(field_get:Settings.Detail)
   return detail_ != NULL ? *detail_ : *default_instance_->detail_;
 }
-inline ::tDetail* SettingsType::mutable_detail() {
+inline ::tDetail* Settings::mutable_detail() {
   
   if (detail_ == NULL) {
     detail_ = new ::tDetail;
   }
-  // @@protoc_insertion_point(field_mutable:SettingsType.Detail)
+  // @@protoc_insertion_point(field_mutable:Settings.Detail)
   return detail_;
 }
-inline ::tDetail* SettingsType::release_detail() {
-  // @@protoc_insertion_point(field_release:SettingsType.Detail)
+inline ::tDetail* Settings::release_detail() {
+  // @@protoc_insertion_point(field_release:Settings.Detail)
   
   ::tDetail* temp = detail_;
   detail_ = NULL;
   return temp;
 }
-inline void SettingsType::set_allocated_detail(::tDetail* detail) {
+inline void Settings::set_allocated_detail(::tDetail* detail) {
   delete detail_;
   detail_ = detail;
   if (detail) {
@@ -8809,37 +8854,37 @@ inline void SettingsType::set_allocated_detail(::tDetail* detail) {
   } else {
     
   }
-  // @@protoc_insertion_point(field_set_allocated:SettingsType.Detail)
+  // @@protoc_insertion_point(field_set_allocated:Settings.Detail)
 }
 
 // optional .tViewer3D Viewer3D = 5;
-inline bool SettingsType::has_viewer3d() const {
+inline bool Settings::has_viewer3d() const {
   return !_is_default_instance_ && viewer3d_ != NULL;
 }
-inline void SettingsType::clear_viewer3d() {
+inline void Settings::clear_viewer3d() {
   if (GetArenaNoVirtual() == NULL && viewer3d_ != NULL) delete viewer3d_;
   viewer3d_ = NULL;
 }
-inline const ::tViewer3D& SettingsType::viewer3d() const {
-  // @@protoc_insertion_point(field_get:SettingsType.Viewer3D)
+inline const ::tViewer3D& Settings::viewer3d() const {
+  // @@protoc_insertion_point(field_get:Settings.Viewer3D)
   return viewer3d_ != NULL ? *viewer3d_ : *default_instance_->viewer3d_;
 }
-inline ::tViewer3D* SettingsType::mutable_viewer3d() {
+inline ::tViewer3D* Settings::mutable_viewer3d() {
   
   if (viewer3d_ == NULL) {
     viewer3d_ = new ::tViewer3D;
   }
-  // @@protoc_insertion_point(field_mutable:SettingsType.Viewer3D)
+  // @@protoc_insertion_point(field_mutable:Settings.Viewer3D)
   return viewer3d_;
 }
-inline ::tViewer3D* SettingsType::release_viewer3d() {
-  // @@protoc_insertion_point(field_release:SettingsType.Viewer3D)
+inline ::tViewer3D* Settings::release_viewer3d() {
+  // @@protoc_insertion_point(field_release:Settings.Viewer3D)
   
   ::tViewer3D* temp = viewer3d_;
   viewer3d_ = NULL;
   return temp;
 }
-inline void SettingsType::set_allocated_viewer3d(::tViewer3D* viewer3d) {
+inline void Settings::set_allocated_viewer3d(::tViewer3D* viewer3d) {
   delete viewer3d_;
   viewer3d_ = viewer3d;
   if (viewer3d) {
@@ -8847,51 +8892,51 @@ inline void SettingsType::set_allocated_viewer3d(::tViewer3D* viewer3d) {
   } else {
     
   }
-  // @@protoc_insertion_point(field_set_allocated:SettingsType.Viewer3D)
+  // @@protoc_insertion_point(field_set_allocated:Settings.Viewer3D)
 }
 
 // optional string Version = 6;
-inline void SettingsType::clear_version() {
+inline void Settings::clear_version() {
   version_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline const ::std::string& SettingsType::version() const {
-  // @@protoc_insertion_point(field_get:SettingsType.Version)
+inline const ::std::string& Settings::version() const {
+  // @@protoc_insertion_point(field_get:Settings.Version)
   return version_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void SettingsType::set_version(const ::std::string& value) {
+inline void Settings::set_version(const ::std::string& value) {
   
   version_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:SettingsType.Version)
+  // @@protoc_insertion_point(field_set:Settings.Version)
 }
-inline void SettingsType::set_version(const char* value) {
+inline void Settings::set_version(const char* value) {
   
   version_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:SettingsType.Version)
+  // @@protoc_insertion_point(field_set_char:Settings.Version)
 }
-inline void SettingsType::set_version(const char* value, size_t size) {
+inline void Settings::set_version(const char* value, size_t size) {
   
   version_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:SettingsType.Version)
+  // @@protoc_insertion_point(field_set_pointer:Settings.Version)
 }
-inline ::std::string* SettingsType::mutable_version() {
+inline ::std::string* Settings::mutable_version() {
   
-  // @@protoc_insertion_point(field_mutable:SettingsType.Version)
+  // @@protoc_insertion_point(field_mutable:Settings.Version)
   return version_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* SettingsType::release_version() {
-  // @@protoc_insertion_point(field_release:SettingsType.Version)
+inline ::std::string* Settings::release_version() {
+  // @@protoc_insertion_point(field_release:Settings.Version)
   
   return version_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void SettingsType::set_allocated_version(::std::string* version) {
+inline void Settings::set_allocated_version(::std::string* version) {
   if (version != NULL) {
     
   } else {
     
   }
   version_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), version);
-  // @@protoc_insertion_point(field_set_allocated:SettingsType.Version)
+  // @@protoc_insertion_point(field_set_allocated:Settings.Version)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
