@@ -1,4 +1,50 @@
 syntax = "proto3";
+import "google/protobuf/descriptor.proto";
+
+extend google.protobuf.EnumValueOptions  {
+	string my_eHM2NMMethod_option = 50000;
+}
+
+extend google.protobuf.EnumValueOptions  {
+	string my_eSmoothNormals_option = 50001;
+}
+
+extend google.protobuf.EnumValueOptions  {
+	string my_eSwizzleComponent_option = 50002;
+}
+
+extend google.protobuf.EnumValueOptions  {
+	string my_eNormalMapType_option = 50003;
+}
+
+extend google.protobuf.EnumValueOptions  {
+	string my_eTransparencyMode_option = 50004;
+}
+
+extend google.protobuf.EnumValueOptions  {
+	string my_eAODistribution_option = 50005;
+}
+
+extend google.protobuf.EnumValueOptions  {
+	string my_eSwizzleComponent2_option = 50006;
+}
+
+extend google.protobuf.EnumValueOptions  {
+	string my_eHMNormalization_option = 50007;
+}
+
+extend google.protobuf.EnumValueOptions  {
+	string my_eRNMCoordSys_option = 50008;
+}
+
+extend google.protobuf.EnumValueOptions  {
+	string my_eAntialiasing_option = 50009;
+}
+
+extend google.protobuf.EnumValueOptions  {
+	string my_eCurvAlgorithm_option = 50010;
+}
+
 message UnspecifiedType
 {
 	string baseObjectType = 1;
@@ -22,13 +68,13 @@ message tDetail
 {
 	enum eHM2NMMethod
 	{
-		eHM2NMMethod_3x3 = 0;
-		eHM2NMMethod_4Samples = 1;
-		eHM2NMMethod_5x5 = 2;
-		eHM2NMMethod_PRE3x3 = 3;
-		eHM2NMMethod_PRE5x5 = 4;
-		eHM2NMMethod_SO3x3 = 5;
-		eHM2NMMethod_SO5x5 = 6;
+		eHM2NMMethod_3x3 = 0 [(my_eHM2NMMethod_option) = "3x3"];
+		eHM2NMMethod_4Samples = 1 [(my_eHM2NMMethod_option) = "4Samples"];
+		eHM2NMMethod_5x5 = 2 [(my_eHM2NMMethod_option) = "5x5"];
+		eHM2NMMethod_PRE3x3 = 3 [(my_eHM2NMMethod_option) = "PRE3x3"];
+		eHM2NMMethod_PRE5x5 = 4 [(my_eHM2NMMethod_option) = "PRE5x5"];
+		eHM2NMMethod_SO3x3 = 5 [(my_eHM2NMMethod_option) = "SO3x3"];
+		eHM2NMMethod_SO5x5 = 6 [(my_eHM2NMMethod_option) = "SO5x5"];
 	}
 	eHM2NMMethod Method = 1;
 	float Scale = 2;
@@ -37,8 +83,8 @@ message tDetail
 
 message tRGB8
 {
-	uint32 G = 1;
-	uint32 R = 2;
+	uint32 R = 1;
+	uint32 G = 2;
 	uint32 B = 3;
 }
 
@@ -49,9 +95,9 @@ message tHighPolyMesh
 	bool IgnorePerVertexColor = 3;
 	enum eSmoothNormals
 	{
-		eSmoothNormals_AverageNormals = 0;
-		eSmoothNormals_HardenNormals = 1;
-		eSmoothNormals_UseExportedNormals = 2;
+		eSmoothNormals_AverageNormals = 0 [(my_eSmoothNormals_option) = "AverageNormals"];
+		eSmoothNormals_HardenNormals = 1 [(my_eSmoothNormals_option) = "HardenNormals"];
+		eSmoothNormals_UseExportedNormals = 2 [(my_eSmoothNormals_option) = "UseExportedNormals"];
 	}
 	eSmoothNormals AverageNormals = 4;
 	bool Visible = 5;
@@ -65,12 +111,12 @@ message tLowPolyMesh
 	string BlockersFile = 2;
 	enum eSwizzleComponent
 	{
-		eSwizzleComponent_X = 0;
-		eSwizzleComponent_X_ = 1;
-		eSwizzleComponent_Y = 2;
-		eSwizzleComponent_Y_ = 3;
-		eSwizzleComponent_Z = 4;
-		eSwizzleComponent_Z_ = 5;
+		eSwizzleComponent_X0 = 0 [(my_eSwizzleComponent_option) = "X+"];
+		eSwizzleComponent_X1 = 1 [(my_eSwizzleComponent_option) = "X-"];
+		eSwizzleComponent_Y0 = 2 [(my_eSwizzleComponent_option) = "Y+"];
+		eSwizzleComponent_Y1 = 3 [(my_eSwizzleComponent_option) = "Y-"];
+		eSwizzleComponent_Z0 = 4 [(my_eSwizzleComponent_option) = "Z+"];
+		eSwizzleComponent_Z1 = 5 [(my_eSwizzleComponent_option) = "Z-"];
 	}
 	eSwizzleComponent VVDMSwizzleZ = 3;
 	float FresnelRefractiveIndex = 4;
@@ -78,11 +124,11 @@ message tLowPolyMesh
 	float ReflectHDRMult = 6;
 	enum eTransparencyMode
 	{
-		eTransparencyMode_1Bit = 0;
-		eTransparencyMode_AdditiveGlow = 1;
-		eTransparencyMode_Blend = 2;
-		eTransparencyMode_None = 3;
-		eTransparencyMode_ScreenGlass = 4;
+		eTransparencyMode_1Bit = 0 [(my_eTransparencyMode_option) = "1Bit"];
+		eTransparencyMode_AdditiveGlow = 1 [(my_eTransparencyMode_option) = "AdditiveGlow"];
+		eTransparencyMode_Blend = 2 [(my_eTransparencyMode_option) = "Blend"];
+		eTransparencyMode_None = 3 [(my_eTransparencyMode_option) = "None"];
+		eTransparencyMode_ScreenGlass = 4 [(my_eTransparencyMode_option) = "ScreenGlass"];
 	}
 	eTransparencyMode TransparencyMode = 7;
 	float VOffset = 8;
@@ -91,9 +137,9 @@ message tLowPolyMesh
 	string DiffuseGITex = 11;
 	enum eNormalMapType
 	{
-		eNormalMapType_Derivative = 0;
-		eNormalMapType_Object_space = 1;
-		eNormalMapType_Tangent_space = 2;
+		eNormalMapType_Derivative = 0 [(my_eNormalMapType_option) = "Derivative"];
+		eNormalMapType_Object_space = 1 [(my_eNormalMapType_option) = "Object-space"];
+		eNormalMapType_Tangent_space = 2 [(my_eNormalMapType_option) = "Tangent-space"];
 	}
 	eNormalMapType NormapMapType = 12;
 	string File = 13;
@@ -133,8 +179,8 @@ message tLowPolyMesh
 
 message tVector3
 {
-	float y = 1;
-	float x = 2;
+	float x = 1;
+	float y = 2;
 	float z = 3;
 }
 
@@ -172,9 +218,9 @@ message tGenerateMaps
 	bool GenTranslu = 30;
 	enum eAODistribution
 	{
-		eAODistribution_Cosine = 0;
-		eAODistribution_CosineSq = 1;
-		eAODistribution_Uniform = 2;
+		eAODistribution_Cosine = 0 [(my_eAODistribution_option) = "Cosine"];
+		eAODistribution_CosineSq = 1 [(my_eAODistribution_option) = "CosineSq"];
+		eAODistribution_Uniform = 2 [(my_eAODistribution_option) = "Uniform"];
 	}
 	eAODistribution AODistribution = 31;
 	float PRTThreshold = 32;
@@ -189,12 +235,12 @@ message tGenerateMaps
 	float CurvSearchDistance = 41;
 	enum eSwizzleComponent
 	{
-		eSwizzleComponent_X = 0;
-		eSwizzleComponent_X_ = 1;
-		eSwizzleComponent_Y = 2;
-		eSwizzleComponent_Y_ = 3;
-		eSwizzleComponent_Z = 4;
-		eSwizzleComponent_Z_ = 5;
+		eSwizzleComponent_X0 = 0 [(my_eSwizzleComponent2_option) = "X+"];
+		eSwizzleComponent_X1 = 1 [(my_eSwizzleComponent2_option) = "X-"];
+		eSwizzleComponent_Y0 = 2 [(my_eSwizzleComponent2_option) = "Y+"];
+		eSwizzleComponent_Y1 = 3 [(my_eSwizzleComponent2_option) = "Y-"];
+		eSwizzleComponent_Z0 = 4 [(my_eSwizzleComponent2_option) = "Z+"];
+		eSwizzleComponent_Z1 = 5 [(my_eSwizzleComponent2_option) = "Z-"];
 	}
 	eSwizzleComponent SwizzleZ = 42;
 	float TransluBias = 43;
@@ -233,9 +279,9 @@ message tGenerateMaps
 	float RadiosityNormalsAttenCuadratic = 76;
 	enum eHMNormalization
 	{
-		eHMNormalization_Interactive = 0;
-		eHMNormalization_Manual = 1;
-		eHMNormalization_Raw = 2;
+		eHMNormalization_Interactive = 0 [(my_eHMNormalization_option) = "Interactive"];
+		eHMNormalization_Manual = 1 [(my_eHMNormalization_option) = "Manual"];
+		eHMNormalization_Raw = 2 [(my_eHMNormalization_option) = "Raw"];
 	}
 	eHMNormalization DirectionsTonemap = 77;
 	bool DirectionsTS = 78;
@@ -266,9 +312,9 @@ message tGenerateMaps
 	float CavityContrast = 103;
 	enum eRNMCoordSys
 	{
-		eRNMCoordSys_AliB = 0;
-		eRNMCoordSys_Direct3D = 1;
-		eRNMCoordSys_OpenGL = 2;
+		eRNMCoordSys_AliB = 0 [(my_eRNMCoordSys_option) = "AliB"];
+		eRNMCoordSys_Direct3D = 1 [(my_eRNMCoordSys_option) = "Direct3D"];
+		eRNMCoordSys_OpenGL = 2 [(my_eRNMCoordSys_option) = "OpenGL"];
 	}
 	eRNMCoordSys RadiosityNormalsCoordSys = 104;
 	bool TransluJitter = 105;
@@ -282,9 +328,9 @@ message tGenerateMaps
 	uint32 CavitySteps = 113;
 	enum eAntialiasing
 	{
-		eAntialiasing_1 = 0;
-		eAntialiasing_2 = 1;
-		eAntialiasing_4 = 2;
+		eAntialiasing_1 = 0 [(my_eAntialiasing_option) = "1"];
+		eAntialiasing_2 = 1 [(my_eAntialiasing_option) = "2"];
+		eAntialiasing_4 = 2 [(my_eAntialiasing_option) = "4"];
 	}
 	eAntialiasing AA = 114;
 	eSwizzleComponent BentSwizzleZ = 115;
@@ -296,8 +342,8 @@ message tGenerateMaps
 	bool GenWireRays = 121;
 	enum eCurvAlgorithm
 	{
-		eCurvAlgorithm_Average = 0;
-		eCurvAlgorithm_Gaussian = 1;
+		eCurvAlgorithm_Average = 0 [(my_eCurvAlgorithm_option) = "Average"];
+		eCurvAlgorithm_Gaussian = 1 [(my_eCurvAlgorithm_option) = "Gaussian"];
 	}
 	eCurvAlgorithm CurvAlgorithm = 122;
 	eAODistribution TransluDistribution = 123;
@@ -369,7 +415,7 @@ message tViewer3D
 	float GlowIntensity = 42;
 }
 
-message SettingsType
+message Settings
 {
 	tHighPolyModel HighPolyModel = 1;
 	tLowPolyModel LowPolyModel = 2;
