@@ -410,6 +410,51 @@ if yms_init != true then
 			print cmd
 			val = HiddenDOSCommand(cmd)
 			-- val = DOSCommand(cmd)
+		),
+
+		fn object_test_mode oname intest=
+		(
+			if (intest) then
+			(
+				lowpoly =  execute ("$'"+oName + "'")
+			)else(
+
+			)
+		),
+
+		fn apply_normal tex_path oname  =
+		(
+			local currentRenderer = renderers.current as string
+			lowpoly =  execute ("$'"+oName + "'")
+			select lowpoly			
+			
+			local bitmap =bitmaptexture filename:tex_path
+
+			if ((matchPattern currentRenderer pattern:"*mental_ray*") or\
+				(matchPattern currentRenderer pattern:"*Scanline*")) then
+			(
+				local normalbumpMap = Normal_Bump()
+				normalbumpMap.normal_map = bitmap
+				local mat = standard()
+				mat.bumpMap = normalbumpMap
+				mat.bumpMapAmount = 90
+
+			)else if (matchPattern currentRenderer pattern:"*V_Ray_Adv*") then
+			(	
+				local vnormalMap = VRayNormalMap()
+				vnormalMap.normal_map = bitmap
+				local mat = VrayMtl()
+				mat.texmap_bump = vnormalMap
+				mat.texmap_bump_multiplier = 90
+			)else if (matchPattern currentRenderer pattern:"*Krakatoa*") then
+			(
+
+			)
+
+			local shellMat = Shell_Material originalMaterial:lowPoly.material\
+				bakedMaterial:mat viewportMtlIndex:1 renderMtlIndex:1
+			lowPoly.material = shellMat	
+			showTextureMap lowPoly.material lowPoly.material.bakedMaterial true		
 		)
 
 	)

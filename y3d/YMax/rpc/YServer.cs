@@ -5,8 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Grpc.Core;
 using Helloworld;
-using Y3D.Entities;
-using Y3D.YService;
+using y3d.e;
+using y3d.s;
 using System.Windows.Forms;
 
 namespace YMax.rpc
@@ -38,6 +38,20 @@ namespace YMax.rpc
             //return base.DoAction(requestStream, context);
         }
     }
+
+    class YToolImpl: y3d.s.Tools.ToolsBase
+    {
+        public override Task<ProjectInfo> NewProject(StringParam request, ServerCallContext context)
+        {
+            return base.NewProject(request, context);
+        }
+
+        public override Task<ProjectInfo> LoadProject(StringParam request, ServerCallContext context)
+        {
+
+            return base.LoadProject(request, context);
+        }
+    }
     
     class YServer
     {
@@ -47,7 +61,8 @@ namespace YMax.rpc
         {
             server = new Server
             {
-                Services = { Greeter.BindService(new GreeterImpl()), YAction.BindService(new YActionImpl()) },
+                //Services = { Greeter.BindService(new GreeterImpl()), YAction.BindService(new YActionImpl()) },
+                Services = { YAction.BindService(new YActionImpl()), y3d.s.Tools.BindService(new YToolImpl()) },
                 Ports = { new ServerPort("localhost", Port, ServerCredentials.Insecure) }
             };
             server.Start();

@@ -33,6 +33,11 @@
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.btnNewProject = new System.Windows.Forms.Button();
             this.openFileProject = new System.Windows.Forms.OpenFileDialog();
+            this.btnLoadProject = new System.Windows.Forms.Button();
+            this.olvProjects = new BrightIdeasSoftware.ObjectListView();
+            this.olvPName = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.olvPPath = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            ((System.ComponentModel.ISupportInitialize)(this.olvProjects)).BeginInit();
             this.SuspendLayout();
             // 
             // imageList1
@@ -46,9 +51,10 @@
             // 
             // btnNewProject
             // 
-            this.btnNewProject.Location = new System.Drawing.Point(12, 12);
+            this.btnNewProject.Location = new System.Drawing.Point(330, 12);
+            this.btnNewProject.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnNewProject.Name = "btnNewProject";
-            this.btnNewProject.Size = new System.Drawing.Size(117, 30);
+            this.btnNewProject.Size = new System.Drawing.Size(88, 24);
             this.btnNewProject.TabIndex = 0;
             this.btnNewProject.Text = "New Project";
             this.btnNewProject.UseVisualStyleBackColor = true;
@@ -58,18 +64,58 @@
             // 
             this.openFileProject.FileName = "openNewProject";
             // 
+            // btnLoadProject
+            // 
+            this.btnLoadProject.Location = new System.Drawing.Point(330, 40);
+            this.btnLoadProject.Margin = new System.Windows.Forms.Padding(2);
+            this.btnLoadProject.Name = "btnLoadProject";
+            this.btnLoadProject.Size = new System.Drawing.Size(88, 24);
+            this.btnLoadProject.TabIndex = 2;
+            this.btnLoadProject.Text = "Load Project";
+            this.btnLoadProject.UseVisualStyleBackColor = true;
+            // 
+            // olvProjects
+            // 
+            this.olvProjects.AllColumns.Add(this.olvPName);
+            this.olvProjects.AllColumns.Add(this.olvPPath);
+            this.olvProjects.CellEditUseWholeCell = false;
+            this.olvProjects.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.olvPName,
+            this.olvPPath});
+            this.olvProjects.Cursor = System.Windows.Forms.Cursors.Default;
+            this.olvProjects.Location = new System.Drawing.Point(12, 12);
+            this.olvProjects.Name = "olvProjects";
+            this.olvProjects.Size = new System.Drawing.Size(313, 151);
+            this.olvProjects.TabIndex = 3;
+            this.olvProjects.UseCompatibleStateImageBehavior = false;
+            this.olvProjects.View = System.Windows.Forms.View.Details;
+            // 
+            // olvPName
+            // 
+            this.olvPName.Text = "Project Name";
+            this.olvPName.Width = 122;
+            // 
+            // olvPPath
+            // 
+            this.olvPPath.FillsFreeSpace = true;
+            this.olvPPath.Text = "Path";
+            // 
             // YMainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(866, 630);
+            this.ClientSize = new System.Drawing.Size(428, 186);
+            this.Controls.Add(this.olvProjects);
+            this.Controls.Add(this.btnLoadProject);
             this.Controls.Add(this.btnNewProject);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "YMainForm";
             this.Text = "YMainForm";
             this.Activated += new System.EventHandler(this.YMainForm_Activated);
             this.Deactivate += new System.EventHandler(this.YMainForm_Deactivate);
             this.Load += new System.EventHandler(this.YMainForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.olvProjects)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -78,5 +124,9 @@
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.Button btnNewProject;
         private System.Windows.Forms.OpenFileDialog openFileProject;
+        private System.Windows.Forms.Button btnLoadProject;
+        private BrightIdeasSoftware.ObjectListView olvProjects;
+        private BrightIdeasSoftware.OLVColumn olvPName;
+        private BrightIdeasSoftware.OLVColumn olvPPath;
     }
 }

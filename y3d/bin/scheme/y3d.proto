@@ -2,11 +2,13 @@
 syntax = "proto3";
 // import "google/protobuf/any.proto";
 import "google/protobuf/any.proto";
-package y3d;
+import "google/protobuf/timestamp.proto";
+import "xnormal.proto";
+package y3d; // 
 // [END declaration]
 
 // [START csharp_declaration]
-option csharp_namespace = "Y3D.Entities";
+option csharp_namespace = "y3d.e";
 // [END csharp_declaration]
 
 // [START messages]
@@ -149,31 +151,6 @@ message YGroupVer {
   int32 step=3;
 }
 
-message CustomAttr {
-  string name = 1;
-  google.protobuf.Any value = 2;
-  enum AType {
-    STRING=0;
-    INT=1;
-    FLOAT=2;
-    BOOL=3;
-    POINT3=4;
-    ARRAY_STRING=5;
-    ARRAY_INT=6;
-    ARRAY_FLOAT=7;
-    TEXT=8; // bytes
-    COLOR=9;
-    ONEOF=10; // radio
-    OTHER=11;
-  }
-  AType type = 3;
-}
-
-message AttrSet {
-  string sname=1;
-  repeated CustomAttr attrs=2;
-}
-
 message FilterView {
   ObjectType otype = 1;
   int32 face_range = 2;
@@ -183,28 +160,37 @@ message FilterView {
 
 message ProjectInfo {
   string pname = 1;
-  string path = 2;
-  repeated int32 face_range = 3; // 0-100-1000-100000 v.v...
-  repeated YColor count_color = 4; // green, yellow, red v.v...
-  repeated FilterView fview=5;
+  string path=2;
+  google.protobuf.Timestamp ts=3;
+  // string path = 2;
+  repeated int32 face_range = 4; // 0-100-1000-100000 v.v...
+  repeated YColor fr_color = 5; // green, yellow, red v.v...
+  repeated FilterView fview=6;
+  
+  float optimize_ratio = 7;
+  // YAreaList alist=6;
+}
+
+message SettingData {
+  string aset_name=1;
+  map<string,google.protobuf.Any> data=2;
+}
+
+message PSetting {
+  SettingData extra=1;
+  int32 max_recent = 2;
+}
+
+message YSystem {
+  string working_folder=1;
+  ProjectInfo default_info = 2;
+  PSetting default_setting = 3;
+  repeated ProjectInfo projects=4;
 }
 
 message YAreaList {
   repeated YArea areas=1;
-  
 }
-
-message PSetting {
-  repeated CustomAttr extra=2;
-  int32 max_recent = 3;
-}
-
-message YSystem {
-  ProjectInfo default_info = 1;
-  PSetting default_setting = 2;
-  map<string,string> name_path = 3; //  Name Project : Path to 
-}
-
 
 message Event {
   oneof event {
@@ -214,11 +200,6 @@ message Event {
     ERotate rotate = 4;
     EDelete del = 5;
   }
-}
-
-message ResponseEvent {
-  bool error = 1;
-  string msg = 2;
 }
 
 message ENone {}
@@ -245,17 +226,120 @@ message EIsolate {
   bool endIsolate=2;
 }
 
-message EUnwrap {
-  string name =1;
-  oneof setting {
-    MaxUnwrap max = 2;
-    BlenderUnwrap blender = 3;
-  }
+message ResultReply {
+  bool error=1;
+  string message = 2;
 }
 
+message EmptyParam {}
+
+message RenameParam {
+  bool use_select=1;
+}
+
+message Make4TestParam {
+  string oname=1;
+  repeated ELowpoly lowpoly=2;
+}
+message OptimizeParam {
+    float ratio =1;
+}
+message StringParam {
+    string str=1;
+}
+
+message TestParam {
+  google.protobuf.Any anything=1;
+}
+
+// Unwrap
+message EUnwrap {
+  string oname =1;
+  int32 channel=2;
+  oneof setting {
+    MaxUnwrap max3d = 3;
+    BlenderUnwrap blender = 4;
+  }
+}
 message BlenderUnwrap {}
 message MaxUnwrap {
   float angle = 1;
+  float spacing=2;
 }
 
+// Packing
+message EPacking {
+  string oname = 1;
+  string uvname = 2;
+  int32 tile_Size=3;
+  oneof pack {
+    Pack3DMax packmax=4;
+    PackRect packrect = 5;
+  }
 
+}
+message PackRect {
+  int32 density=1;
+  float padding=2;
+}
+message Pack3DMax {
+  int32 numTile=1;
+  bool normalize=2;
+  bool rotate_clusters=3;
+  bool fill_holes=4;
+  bool padding=5;  
+}
+// Low Poly
+message ELowpoly {
+  string oname = 1;
+  oneof lowtype {
+    LPoly3DMax lp_3dmax=2;
+    LPolyBlender lp_blender=3;
+    LPolyMeshlab lp_meshlab=4;
+  }
+}
+message LPoly3DMax {
+  float vertex_percent=1;
+  int32 vertex_count=2;
+  enum OpMode {
+    CRUNCH_BORDERS=0;
+    PROTECT_BORDERS=1;
+    EXCLUDE_BORDERS=2;
+  }
+  OpMode optimization_mode=3;
+  enum NormalMode {
+    CRUNCH_NORMALS=0;
+    PROTECT_NORMALS=1;
+    EXCLUDE_NORMALS=2;
+  }
+  NormalMode normals=4;
+  bool favor_compact_faces=5;
+  bool prevent_flipped_normals=6;
+  bool lock_vertex_position=7;
+}
+message LPolyBlender {
+  float ratio=1;
+}
+message LPolyMeshlab {
+}
+
+// Normal
+message ENormal {
+  string oname = 1;
+  string lowpoly=2;
+  string highpoly=3;
+  uint32 tex_size=4;
+  string out_tex=5;
+  oneof ntype {
+    Normal3DMax normal_3dmax=6;
+    xnormal.Settings normal_xnormal=7;
+  }
+}
+
+message Normal3DMax {
+}
+
+message ResponseEvent {
+  bool error = 1;
+  string msg = 2;
+}

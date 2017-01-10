@@ -5,25 +5,32 @@ using System.Text;
 using System.Threading.Tasks;
 using Grpc.Core;
 using System.Windows.Forms;
-using Y3D.YService;
+using y3d.s;
+using y3d.e;
 using System.Threading;
 
 namespace YTest.rpc
 {
     class YClient
     {
+        public static Channel channel = new Channel("127.0.0.1:50051", ChannelCredentials.Insecure);
+        public static Tools.ToolsClient YTools = new Tools.ToolsClient(channel);
+
         public static void test3()
         {
-                MessageBox.Show("aa");
-                Channel channel = new Channel("127.0.0.1:50051", ChannelCredentials.Insecure);
-                var client = new Y3D.YService.Tools.ToolsClient(channel);
                 RenameParam a = new RenameParam();
                 a.UseSelect = false;
-                //var reply = client.SayHello(new HelloRequest { Name = "zun" });
-                var reply = client.RenameObject(a);
-
+                var reply = YTools.RenameObject(a);
                 MessageBox.Show("Ket qua: " + reply.Message);
-                channel.ShutdownAsync().Wait();
+                //channel.ShutdownAsync().Wait();
+        }
+
+        public static void testNewP()
+        {
+            StringParam s = new StringParam();
+            s.Str = "My Project 1";
+            var reply = YTools.NewProject(s);
+            MessageBox.Show(reply.Path);
         }
     }
 }

@@ -1,5 +1,7 @@
 syntax = "proto3";
 import "google/protobuf/descriptor.proto";
+package xnormal;
+option csharp_namespace = "y3d.setting.xnormal";
 
 extend google.protobuf.EnumValueOptions  {
 	string my_eHM2NMMethod_option = 50000;
@@ -414,7 +416,6 @@ message tViewer3D
 	bool ShowTangents = 41;
 	float GlowIntensity = 42;
 }
-
 message Settings
 {
 	tHighPolyModel HighPolyModel = 1;

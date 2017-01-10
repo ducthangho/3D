@@ -42,13 +42,14 @@ namespace YMax.Forms
 
         private void btnNewProject_Click(object sender, EventArgs e)
         {
-            DialogResult result = openFileProject.ShowDialog();
-            if (result == DialogResult.OK)
-            {
-                string file = openFileProject.FileName;
-                //MessageBox.Show(file);
-                ManagedServices.MaxscriptSDK.ExecuteMaxscriptCommand("yms.new_project_from_file \""+file+"\"");
-            }
+            //Utilities.YProject.readPInfo(this.yAction);
+            //DialogResult result = openFileProject.ShowDialog();
+            //if (result == DialogResult.OK)
+            //{
+            //    string file = openFileProject.FileName;
+            //    //MessageBox.Show(file);
+            //    ManagedServices.MaxscriptSDK.ExecuteMaxscriptCommand("yms.new_project_from_file \""+file+"\"");
+            //}
         }
     }
 }

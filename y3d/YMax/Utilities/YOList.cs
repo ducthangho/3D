@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Y3D.Entities;
+using y3d.e;//entities
+using y3d.s;//service
 using Google.Protobuf;
 using Autodesk.Max;
 using ManagedServices;
@@ -13,20 +14,17 @@ using System.Drawing;
 using System.Threading;
 using System.IO;
 
+
+
 namespace YMax.Utilities
 {
     public class YOList
     {
         public static YGroup activeGroup = null;
         public static YArea activeArea = null;
-
         public static event Action<YGroup> OnUpdateByGroup;
         public static event Action<YArea> OnUpdateByArea;
-
         public static Dictionary<string, YGroup> mapGroup = new Dictionary<string, YGroup>();
-
-
-
         public static void updateByArea(YArea y)
         {
             OnUpdateByArea(y);
@@ -469,8 +467,19 @@ namespace YMax.Utilities
             if (x is YObject)
             {
                 var y = (YObject)x;
+                var ofolder = YProject.oFileDir + "\\y3d_data\\" + y.Name + "\\" + y.Name;
                 //string cmd = "select $" + y.Name + ";";
                 ManagedServices.MaxscriptSDK.ExecuteMaxscriptCommand("yms.test_export \"" + YProject.oFileDir + "\" \"" + y.Name + "\"");
+                ENormal enm = new ENormal();
+                y3d.setting.xnormal.Settings s = new y3d.setting.xnormal.Settings();
+                enm.Highpoly = ofolder + "_high.obj";
+                enm.Lowpoly = ofolder + "_low.obj";
+                enm.TexSize = 1024;
+                enm.Oname = y.Name;
+                enm.OutTex = ofolder + ".png";
+                enm.NormalXnormal = s;
+                rpc.YClient.CClient.BakeNormal(enm);
+                ManagedServices.MaxscriptSDK.ExecuteMaxscriptCommand("yms.apply_normal \"" + ofolder + "_normals.png\" \"" + y.Name + "\"");
                 //Loader.Core.ex
             }
         }

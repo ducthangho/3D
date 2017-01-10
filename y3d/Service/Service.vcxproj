@@ -605,6 +605,8 @@
     <ClInclude Include="Service.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="xml_format.h" />
+    <ClInclude Include="xnormal.pb.h" />
+    <ClInclude Include="xNormalSettings.h" />
     <ClInclude Include="y3d.pb.h" />
     <ClInclude Include="ymax.grpc.pb.h" />
     <ClInclude Include="ymax.pb.h" />

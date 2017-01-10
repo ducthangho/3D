@@ -59,6 +59,7 @@ namespace YMax.Actions
         public override bool Exit(IntPtr hWnd)
         {
             Utilities.YProject.closeAllForm();
+            rpc.YClient.StopCServer();
             return true;
         }
     }

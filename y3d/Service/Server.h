@@ -25,21 +25,20 @@ extern "C"
 #define WM_ToStrRIGGER_CALLBACK WM_USER+4764
 
 
-using yproto::ObjItem;
-//using yproto::Point3;
-//using yproto::Box3;
-using yproto::NumFaceRange;
-using yproto::ObjList;
+//using yproto::ObjItem;
+//using yproto::NumFaceRange;
+//using yproto::ObjList;
+
+//using yproto::YPrepare;
+//
 using grpc::Status;
-using yproto::YPrepare;
-
-using y3d::Tools;
-using y3d::RenameParam;
-using y3d::ResultReply;
-
 using grpc::Server;
 using grpc::ServerBuilder;
 using grpc::ServerContext;
+//using namespace grpc;
+using namespace y3d;
+//using namespace y3d::yservices::
+using namespace xnormal;
 
 //extern "C" {
 //	void testMeo(int a, int b);
@@ -189,16 +188,13 @@ class YServiceImpl final : public Tools::Service {
 				};
 			}
 			mprintf(L"Hello world\n");
+			//y3d::setting::xnormal::Settings s;
+			//std::string hiPoly = "D:\\teapot_hi.FBX";
+			//std::string loPoly = "D:\\teapot_lo.obj";
+			//createDefaultSettings(&s, hiPoly, loPoly, "D:\\teapot.png");
+			//setSize(s, 1024, 1024);
 
-			Settings s;
-			std::string hiPoly = "F:\\teapot_hi.FBX";
-			std::string loPoly = "F:\\teapot_lo.obj";
-			createDefaultSettings(&s, hiPoly, loPoly, "F:\\teapot.png");
-			setSize(s, 1024, 1024);
-
-			bakeNormal(s);
-
-
+			//bakeNormal(s,"D:\\example.xml");
 		});
 		reply->set_message("DDDD");
 		//reply->message.set_message("ddd");
@@ -207,70 +203,21 @@ class YServiceImpl final : public Tools::Service {
 		// ... (pre-existing code)
 	}
 
-	//Status SayHelloAgain(ServerContext* context, const RenameParam* request
-	//	HelloReply* reply) override {
-	//	std::string prefix("Hello again ");
-	//	reply->set_message(prefix + request->name());
-	//	return Status::OK;
-	//}
-};
-
-
-class YPrepareServiceImpl final : public YPrepare::Service {
-
-
-	Status MakeBox(ServerContext* context, const NumFaceRange* request,
-		ObjList* reply) override {
-		ObjItem *oItem = reply->add_objs();
-		yproto::Point3 pos;
-		yproto::Point3 pmin;
-		yproto::Point3 pmax;
-		pos.set_x(1);
-		pos.set_y(2);
-		pos.set_z(3);
-		pmin.set_x(4);
-		pmin.set_y(5);
-		pmin.set_z(6);
-		pmax.set_x(7);
-		pmax.set_y(8);
-		pmax.set_z(9);
-
-		//yproto::Box3 bbox;
-		//bbox.set_allocated_pmax(&pmax);
-		//bbox.set_allocated_pmin(&pmin);
-		//oItem->set_allocated_bbox(&bbox);
-		//oItem->set_allocated_pos(&pos);
-		//reply->add_objs();
-		//mprintf(L"Finally I found you\n");
-		int x = 1024;
-		//auto closure = [x,pmin,pmax]() -> void {
-		//	auto ip = GetCOREInterface();
-		//	ip->ImportFromFile(L"C:\\Users\\ducthangho\\Documents\\Visual Studio 2015\\Projects\\ExportCap\\ExportCap\\test.cap", 1);
-		//	mprintf(L"Hello world %d\n", x);
-		//	//auto &pmin = bbox.pmin();
-		//	//auto &pmax = bbox.pmax();
-		//	mprintf(L"PMIN = (%f, %f, %f)\n", pmin.x(),pmin.y(),pmin.z());
-		//	mprintf(L"PMAX = (%f, %f, %f)\n", pmax.x(), pmax.y(), pmax.z());
-		//};	
-		//Invoke( std::forward<FuncType>(closure) );		
-		auto ret = InvokeAsync([x, pmin, pmax]() -> void {
-			auto ip = GetCOREInterface();
-			//ip->ImportFromFile(L"C:\\Users\\ducthangho\\Documents\\Visual Studio 2015\\Projects\\ExportCap\\ExportCap\\test.cap", 1);
-			mprintf(L"Hello world %d\n", x);
-			//auto &pmin = bbox.pmin();
-			//auto &pmax = bbox.pmax();
-			mprintf(L"PMIN = (%f, %f, %f)\n", pmin.x(), pmin.y(), pmin.z());
-			mprintf(L"PMAX = (%f, %f, %f)\n", pmax.x(), pmax.y(), pmax.z());
-			//testMeo(10, 6);
-		});
-
-		//waitForReturn();
+	Status BakeNormal(ServerContext* context, const ENormal* enm,
+		ResultReply* reply) override
+	{
+		//ENormal e = *enm;
+		if (enm->has_normal_xnormal()) {
+			Settings& s = (Settings&)enm->normal_xnormal();
+			createDefaultSettings(&s, enm->highpoly(), enm->lowpoly(), enm->out_tex());
+			setSize(s, enm->tex_size(), enm->tex_size());
+			bakeNormal(s);
+		}
+		//a.has_normal_xnormal
 		return Status::OK;
 	}
-
-
-
 };
+
 #ifdef __cplusplus
 }
 #endif

@@ -6,13 +6,28 @@ using System.Threading.Tasks;
 using Grpc.Core;
 using Helloworld;
 using System.Windows.Forms;
-using Y3D.YService;
+using y3d.s;
+using y3d.e;
 using System.Threading;
 
 namespace YMax.rpc
 {
     class YClient
     {
+        public static Channel CChannel = new Channel("127.0.0.1:50051", ChannelCredentials.Insecure);
+        public static y3d.s.Tools.ToolsClient CClient = new y3d.s.Tools.ToolsClient(CChannel);
+
+        public static void StartCSever()
+        {
+            CChannel = new Channel("127.0.0.1:50051", ChannelCredentials.Insecure);
+            CClient = new y3d.s.Tools.ToolsClient(CChannel);
+        }
+
+        public static void StopCServer()
+        {
+            CChannel.ShutdownAsync().Wait();
+        }
+
         public static void test()
         {
             Channel channel = new Channel("127.0.0.1:50051", ChannelCredentials.Insecure);
@@ -44,7 +59,7 @@ namespace YMax.rpc
         {
             (new Thread(() => {
                 Channel channel = new Channel("127.0.0.1:50051", ChannelCredentials.Insecure);
-                var client = new Y3D.YService.Tools.ToolsClient(channel);
+                var client = new y3d.s.Tools.ToolsClient(channel);
                 RenameParam a = new RenameParam();
                 a.UseSelect = false;
                 //var reply = client.SayHello(new HelloRequest { Name = "zun" });

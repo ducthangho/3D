@@ -17,6 +17,9 @@ y3d/bin/*.exp
 y3d/bin/*.exe
 y3d/bin/*.dll
 y3d/lib/**
+MaxNet/Y3D/packages/**
+MaxNet/Y3D/**/obj/**
+MaxNet/Y3D/**/bin/**
 **/Debug/
 *.opendb
 *.tlog
@@ -26,3 +29,4 @@ y3d/lib/**
 *.gup
 *.log
 *.obj
+y3d/y3d/Models/**

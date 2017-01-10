@@ -128,5 +128,10 @@ namespace YMax.Forms
             //MessageBox.Show(low_nametab.Count.ToString());
             //MessageBox.Show(low_nametab[1]);
         }
+
+        private void btnTestMisc_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(Loader.Core.CurFilePath);
+        }
     }
 }

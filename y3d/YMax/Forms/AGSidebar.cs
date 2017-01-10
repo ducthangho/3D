@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Y3D.Entities;
+using y3d.e;
 using Autodesk.Max;
 
 namespace YMax.Forms

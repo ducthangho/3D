@@ -5,9 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Autodesk.Max;
 using System.Runtime.InteropServices;
-using Y3D.Entities;
 using Utils;
 using System.Windows.Forms;
+using System.IO;
+using Google.Protobuf;
+using y3d.e;
 
 namespace YMax.Utilities
 {
@@ -15,14 +17,93 @@ namespace YMax.Utilities
     {
         public static FaceRange face_range = new FaceRange();
         public static Forms.OManagerForm form;
-        public static YSystem ysystem = null;
+        //public static YSystem ysystem = null;
         public static string setting_path = Loader.Core.GetDir(9);
         public static string oFileName = "";
         public static string oFileDir = "";
 
-        public static void clearOldProject()
+        //public static Y3D.Entities.ProjectInfo pInfo = new ProjectInfo();
+        public static YSystem sysSetting = null;
+
+        public static void resetSystem()
         {
-            YOList.resetData();
+            var path = System.IO.Path.Combine(setting_path, "y3d");
+            if (sysSetting is YSystem)
+            {
+                sysSetting.Projects.Clear();
+                using (Stream output = File.OpenWrite(path))
+                {
+                    sysSetting.WriteTo(output);
+                }
+            }
+        }
+
+        public static void initSystem()
+        {
+            var path = System.IO.Path.Combine(setting_path, "y3d");
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+            path = Path.Combine(path, "ysettings.y3d");
+            if (!File.Exists(path))
+            {
+                sysSetting = new YSystem();
+                sysSetting.DefaultInfo = new ProjectInfo();
+                //sysSetting.DefaultInfo.Alist.Areas.Add(Utilities.YOList.GetYAreas());
+                sysSetting.DefaultSetting = new PSetting();
+                sysSetting.DefaultSetting.MaxRecent = 5;
+                using (Stream output = File.OpenWrite(path))
+                {
+                    sysSetting.WriteTo(output);
+                }
+                sysSetting.Projects.Clear();
+            }
+            else
+            {
+                using (Stream file = File.OpenRead(path))
+                {
+                    var a = Google.Protobuf.CodedInputStream.CreateWithLimits(file, 1024 << 20, 10);
+                    sysSetting = YSystem.Parser.ParseFrom(a);
+                }
+            }
+        }
+
+        public static void newProject()
+        {
+
+        }
+
+        public static void saveProject(string pname)
+        {
+            var path = Loader.Core.CurFilePath;
+            Google.Protobuf.WellKnownTypes.Timestamp t = new Google.Protobuf.WellKnownTypes.Timestamp();
+            var ticks = DateTime.Now.Ticks;
+            //pp.Ts.Seconds = (long)((ticks / 10000000) - 11644473600LL);
+            t.Seconds = DateTime.Now.Second;
+            t.Nanos = (int)((ticks % 10000000) * 100);
+
+            foreach (var pp in sysSetting.Projects)
+            {
+                if (pp.Path == path)
+                {
+                    // override
+                    pp.Ts.Seconds = t.Seconds;
+                    pp.Ts.Nanos = t.Nanos;
+                    return;
+                }
+            }
+            ProjectInfo p = new ProjectInfo();
+            p.Pname = pname;
+            p.Path = path;
+            p.Ts = t;
+            sysSetting.Projects.Add(p);
+            using (Stream output = File.OpenWrite(System.IO.Path.Combine(setting_path, "y3d")))
+            {
+                sysSetting.WriteTo(output);
+            }
+
+
         }
 
         public static void openAnaForm(Actions.ObjectManagerItem yAction)
@@ -63,8 +144,6 @@ namespace YMax.Utilities
                     openAnaForm(yAction);
                 }
             }
-
-
         }
 
         public static void closeOForm()
@@ -109,7 +188,6 @@ namespace YMax.Utilities
             ////Loader.Core.SaveToFile("D:\\111.max",true,true);
             ////System.Windows.Forms.MessageBox.Show(ManagedServices.PathSDK.GetDirectoryPath(ManagedServices.AppSDK.);
         }
-
         public static void testHandle(IntPtr obj, INotifyInfo info)
         {
             // and use Interface.SelNodeCount + Interface.GetSelNode(i) here
@@ -123,10 +201,7 @@ namespace YMax.Utilities
             MyEventHandler handler = new MyEventHandler();
             handler.handle(obj, info.NativePointer);
         }
-        public static void loadPSetting()
-        {
 
-        }
         /*public static void zz1(IntPtr obj, IntPtr info)
         {
             var contructor = typeof(YArea).GetConstructors()[0];

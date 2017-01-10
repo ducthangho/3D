@@ -1,0 +1,82 @@
+// [START declaration]
+syntax = "proto3";
+// import "google/protobuf/any.proto";
+import "google/protobuf/any.proto";
+import "y3d.proto";
+package y3d;
+// [END declaration]
+
+// [START csharp_declaration]
+option csharp_namespace = "y3d.setting";
+// [END csharp_declaration]
+
+enum ComType {
+  TEXT=0;
+  RADIO=1;
+  COMBOBOX=2;
+  MUTILSELECT=3;
+  CHECKBOX=4;
+  ON_OFF=5;
+  FILE=6;
+  COLOR=7;
+  TAG=8;
+  REF=9;
+  IMAGE=10;
+  LINK=11;
+}
+
+message CustomAttr {
+  string name = 1;
+  oneof dataType {
+    TString str=3;
+    TOptionString optionString=4;
+    TOptionInt optionInt=5;
+    TOptionFloat optionFloat=6;
+    TColor color=7;
+  }
+}
+
+message TString {
+  ComType com = 1;
+  string RegEx=2;
+  string Mask=3;
+}
+
+message TInt {
+  ComType com = 1;
+  int32 minValue=2;
+  int32 maxValue=3;  
+}
+
+message TOptionString {
+  ComType com = 1;
+  repeated string options=2;
+}
+
+message TOptionInt {
+  ComType com = 1;
+  repeated int32 options=2;
+}
+
+message TOptionFloat {
+  ComType com = 1;
+  repeated float options=2;
+}
+
+message TColor {
+  ComType com=1;
+  enum ColorType {
+    RGB=0;
+    RGBA=1;
+    HEX=2;
+    CMYK=3;
+    INT=4;
+  }
+  ColorType ctype=2;
+}
+
+message AttrSet {
+  string sname=1;
+  repeated CustomAttr attrs=2;
+}
+

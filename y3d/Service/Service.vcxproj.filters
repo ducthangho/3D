@@ -809,6 +809,8 @@
     <ClCompile Include="grpc\src\core\plugin_registry\grpc_plugin_registry.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="xml_format.cc" />
+    <ClCompile Include="xnormal.pb.cc" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Service.def">
@@ -1424,6 +1426,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="grpc\src\core\ext\census\grpc_filter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="xml_format.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="xnormal.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="xNormalSettings.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

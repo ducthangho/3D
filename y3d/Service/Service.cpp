@@ -50,7 +50,7 @@ class ServiceClassDesc : public ClassDesc2
 {
 public:
 	virtual int IsPublic() 							{ return TRUE; }
-	virtual void* Create(BOOL /*loading = FALSE*/) 		{ return new Service(); }
+	virtual void* Create(BOOL /*loading = FALSE*/);
 	virtual const TCHAR *	ClassName() 			{ return GetString(IDS_CLASS_NAME); }
 	virtual SClass_ID SuperClassID() 				{ return GUP_CLASS_ID; }
 	virtual Class_ID ClassID() 						{ return Service_CLASS_ID; }
@@ -144,3 +144,4 @@ IOResult Service::Load(ILoad* /*iload*/)
 	return IO_OK;
 }
 
+inline void * ServiceClassDesc::Create(BOOL) { return new Service(); }

@@ -3,7 +3,8 @@
 #include "xnormal.pb.h"
 #include <google/protobuf/descriptor.h>
 #include <stdlib.h>     /* system, NULL, EXIT_FAILURE */
-
+using namespace y3d;
+using namespace xnormal;
 #ifdef PUGIXML_WCHAR_MODE 
 #define _ToStr(c) std::wstring(L##c)
 #else 
@@ -35,7 +36,7 @@ static ReplacementMap rmap = { { _ToStr("eHM2NMMethod_3x3"),_ToStr("3x3") } ,
 							{ _ToStr("eTransparencyMode_ScreenGlass"), _ToStr("ScreenGlass") },
 							{ _ToStr("eNormalMapType_Derivative"), _ToStr("Derivative") },
 							{ _ToStr("eNormalMapType_Object_space"), "Object-space" },
-							{ _ToStr("eNormalMapType_ToStrangent_space"), "Tangent-space" },
+							{ _ToStr("eNormalMapType_Tangent_space"), "Tangent-space" },
 							{ _ToStr("eAODistribution_Cosine"), _ToStr("Cosine") },
 							{ _ToStr("eAODistribution_CosineSq"), _ToStr("CosineSq") },
 							{ _ToStr("eAODistribution_Uniform"), _ToStr("Uniform") },
@@ -105,9 +106,9 @@ inline void setDefaultGenerateMap(Map* output) {
 	output->set_gennormals(true);
 	output->set_width(512);
 	output->set_height(512);
-	output->set_edgepadding(16);
+	output->set_edgepadding(4);
 	output->set_bucketsize(32);
-	output->set_tangentspace(true);
+	output->set_tangentspace(false);
 	output->set_closestiffails(true);
 	output->set_discardraybackfaceshits(true);
 	output->set_swizzlex(tGenerateMaps_eSwizzleComponent_eSwizzleComponent_X0);
@@ -243,7 +244,7 @@ inline void set_color(T* c,int r, int g, int b) {
 	c->set_b(b);
 }
 
-inline void setSize(Settings& s, int width = 512, int height = 512) {
+inline void setSize(Settings& s, google::protobuf::uint32 width = 512, google::protobuf::uint32 height = 512) {
 	auto* output = s.mutable_generatemaps();
 	output->set_width(width);
 	output->set_height(height);
@@ -342,7 +343,7 @@ inline void createDefaultSettings(Settings* s,std::string hiPoly,std::string low
 }
 
 
-inline void bakeNormal(Settings& s,std::string tmpLocation = "F:/example.xml") {
+inline void bakeNormal(Settings& s,std::string tmpLocation = "D:/example.xml") {
 	pugi::xml_document doc;
 	google::protobuf::XmlFormat::MessageToDOM(s, &doc, &rmap);
 	bool saveSucceeded = doc.save_file(tmpLocation.c_str());
