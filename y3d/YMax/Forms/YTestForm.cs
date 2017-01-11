@@ -131,7 +131,23 @@ namespace YMax.Forms
 
         private void btnTestMisc_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(Loader.Core.CurFilePath);
+            //MessageBox.Show(Loader.Core.CurFilePath);
+
+            //var gameScene = Loader.Global.IGameInterface;
+            //gameScene.InitialiseIGame(true);
+            //var meshes = gameScene.GetIGameNodeByType(Autodesk.Max.IGameObject.ObjectTypes.Mesh);
+            //var meshNode = meshes[0];
+
+            //var n = Loader.Core.GetSelNode(0);
+            //var nt2 = Loader.Global.NodeTab.Create();
+            //var nt1 = Loader.Global.NodeTab.Create();
+            //Loader.Core.GetSelNodeTab(nt1);
+            //Loader.Core.CloneNodes(nt1, n.ObjOffsetPos, true, CloneType.Copy, nt2, null);
+            //MessageBox.Show(n.Name);
+
+            //Loader.Global.CloneRefHierarchy(n.GetReference(0));
+            var n = Loader.Core.GetSelNode(0);
+            Utilities.YOList.make4test(n.Name);
         }
     }
 }

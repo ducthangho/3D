@@ -462,13 +462,56 @@ namespace YMax.Utilities
             AllYArea.Clear();
         }
 
+        public static void make4test(string oname)
+        {
+            var n = Loader.Core.GetINodeByName(oname);
+            
+            var nt1 = Loader.Global.NodeTab.Create();
+            var nt2 = Loader.Global.NodeTab.Create();
+            var nt3 = Loader.Global.NodeTab.Create();
+            var nt4 = Loader.Global.NodeTab.Create();
+
+            Loader.Core.GetSelNodeTab(nt1);
+            Loader.Core.CloneNodes(nt1, n.ObjOffsetPos, true, CloneType.Copy, nt2, nt2);
+            Loader.Core.CloneNodes(nt1, n.ObjOffsetPos, true, CloneType.Copy, nt3, nt3);
+            Loader.Core.CloneNodes(nt1, n.ObjOffsetPos, true, CloneType.Copy, nt4, nt4);
+
+            nt2[0].ResetTransform(1, false);
+            nt2[0].ResetPivot(1);
+
+            nt2[0].Name = n.Name + "_low";
+            nt3[0].Name = n.Name + "_high";
+            nt4[0].Name = n.Name + "_cage";
+            var o = n.ObjectRef;
+            //Loader.Core.CreateObjectNode(o, "botay");
+            MessageBox.Show(n.XRefFileCount.ToString());
+            var nn2 = Loader.Global.IGameInterface.GetIGameNode(nt2[0]);
+            if (nn2.IGameObject.IsObjectXRef)
+            {
+                MessageBox.Show("co xref");
+            } else
+            {
+                MessageBox.Show("thuong");
+            }
+            //Loader.Core.Ma
+            //if (n.ob)
+            //{
+            //    MessageBox.Show("co xref");
+            //    //Loader.Global.IObjXRefManager18.Instance_.MergeXRefItemsIntoScene(nt2[0].ref)
+            //} else
+            //{
+            //    MessageBox.Show("thuong");
+            //}
+        }
+
         public static void testExport(Object x)
         {
             if (x is YObject)
             {
                 var y = (YObject)x;
                 var ofolder = YProject.oFileDir + "\\y3d_data\\" + y.Name + "\\" + y.Name;
-                //string cmd = "select $" + y.Name + ";";
+                //make4test(y.Name);
+
                 ManagedServices.MaxscriptSDK.ExecuteMaxscriptCommand("yms.test_export \"" + YProject.oFileDir + "\" \"" + y.Name + "\"");
                 ENormal enm = new ENormal();
                 y3d.setting.xnormal.Settings s = new y3d.setting.xnormal.Settings();

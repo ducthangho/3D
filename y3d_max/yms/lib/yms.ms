@@ -324,7 +324,7 @@ if yms_init != true then
 			setIniSetting theINI"Optimize" "optTextureCoords" "0"
 			setIniSetting theINI"Output" "Precision" "4"
 			setIniSetting theINI"Geometry" "SmoothingGroups" "0"
-			setIniSetting theINI"Geometry" "FaceType" "2"
+			setIniSetting theINI"Geometry" "FaceType" "0"
 			setIniSetting theINI"Geometry" "FlipZyAxis" "1"
 			setIniSetting theINI"Geometry" "Normals" "0"
 			setIniSetting theINI"Geometry" "Shapes" "0"
