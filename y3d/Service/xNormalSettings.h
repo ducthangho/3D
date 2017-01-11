@@ -56,8 +56,8 @@ template <class Mesh>
 inline void setDefaultLowPolyMesh(Mesh* m) {
 	m->set_visible(true);
 	m->set_averagenormals(true);
-	m->set_maxraydistancefront(0.500000);
-	m->set_maxraydistanceback(0.500000);
+	m->set_maxraydistancefront(50);
+	m->set_maxraydistanceback(50);
 	m->set_usecage(false);
 	m->set_normapmaptype(tLowPolyMesh_eNormalMapType_eNormalMapType_Tangent_space);
 	m->set_usepervertexcolors(true);
@@ -66,21 +66,21 @@ inline void setDefaultLowPolyMesh(Mesh* m) {
 	m->set_reflecthdrmult(1.000000);
 	m->set_vectordisplacementts(false);
 	m->set_vvdmswizzlex(tLowPolyMesh_eSwizzleComponent_eSwizzleComponent_X0);
-	m->set_vvdmswizzley(tLowPolyMesh_eSwizzleComponent_eSwizzleComponent_Y0);
+	m->set_vvdmswizzley(tLowPolyMesh_eSwizzleComponent_eSwizzleComponent_Y1);
 	m->set_vvdmswizzlez(tLowPolyMesh_eSwizzleComponent_eSwizzleComponent_Z0);
 	m->set_batchprotect(false);
 	m->set_castshadows(true);
 	m->set_receiveshadows(true);
 	m->set_backfacecull(true);
 	m->set_nmswizzlex(tLowPolyMesh_eSwizzleComponent_eSwizzleComponent_X0);
-	m->set_nmswizzley(tLowPolyMesh_eSwizzleComponent_eSwizzleComponent_Y0);
+	m->set_nmswizzley(tLowPolyMesh_eSwizzleComponent_eSwizzleComponent_Y1);
 	m->set_nmswizzlez(tLowPolyMesh_eSwizzleComponent_eSwizzleComponent_Z0);
 	m->set_highpolynormalsoverridetangentspace(true);
 	m->set_transparencymode(tLowPolyMesh_eTransparencyMode_eTransparencyMode_None);
 	char t[1] = { 127 };
 	m->set_alphatestvalue(t, 1);
 	m->set_matte(false);
-	m->set_scale(1.000000);
+	m->set_scale(16.000000);
 	m->set_matchuvs(false);
 	m->set_uoffset(0.000000);
 	m->set_voffset(0.000000);
@@ -92,7 +92,7 @@ inline void setDefaultLowPolyMesh(Mesh* m) {
 template <class Mesh>
 inline void setDefaultHipolyMesh(Mesh* mesh) {
 	mesh->set_visible(true);
-	mesh->set_scale(1.000000);
+	mesh->set_scale(16.000000);
 	mesh->set_ignorepervertexcolor(true);
 	mesh->set_averagenormals(tHighPolyMesh_eSmoothNormals_eSmoothNormals_UseExportedNormals);
 	mesh->set_basetexistsnm(false);
@@ -106,13 +106,13 @@ inline void setDefaultGenerateMap(Map* output) {
 	output->set_gennormals(true);
 	output->set_width(512);
 	output->set_height(512);
-	output->set_edgepadding(4);
-	output->set_bucketsize(32);
+	output->set_edgepadding(8);
+	output->set_bucketsize(512);
 	output->set_tangentspace(false);
 	output->set_closestiffails(true);
 	output->set_discardraybackfaceshits(true);
 	output->set_swizzlex(tGenerateMaps_eSwizzleComponent_eSwizzleComponent_X0);
-	output->set_swizzley(tGenerateMaps_eSwizzleComponent_eSwizzleComponent_Y0);
+	output->set_swizzley(tGenerateMaps_eSwizzleComponent_eSwizzleComponent_Y1);
 	output->set_swizzlez(tGenerateMaps_eSwizzleComponent_eSwizzleComponent_Z0);
 	output->set_aa(tGenerateMaps_eAntialiasing_eAntialiasing_1);
 	output->set_bakehighpolybasetexture(false);
@@ -142,7 +142,7 @@ inline void setDefaultGenerateMap(Map* output) {
 	output->set_bentjitter(false);
 	output->set_bentdistribution(tGenerateMaps_eAODistribution_eAODistribution_Uniform);
 	output->set_bentswizzlex(tGenerateMaps_eSwizzleComponent_eSwizzleComponent_X0);
-	output->set_bentswizzley(tGenerateMaps_eSwizzleComponent_eSwizzleComponent_Y0);
+	output->set_bentswizzley(tGenerateMaps_eSwizzleComponent_eSwizzleComponent_Y1);
 	output->set_bentswizzlez(tGenerateMaps_eSwizzleComponent_eSwizzleComponent_Z0);
 	output->set_genprt(false);
 	output->set_prtrayspersample(128);
@@ -173,7 +173,7 @@ inline void setDefaultGenerateMap(Map* output) {
 	output->set_gendirections(false);
 	output->set_directionsts(false);
 	output->set_directionsswizzlex(tGenerateMaps_eSwizzleComponent_eSwizzleComponent_X0);
-	output->set_directionsswizzley(tGenerateMaps_eSwizzleComponent_eSwizzleComponent_Y0);
+	output->set_directionsswizzley(tGenerateMaps_eSwizzleComponent_eSwizzleComponent_Y1);
 	output->set_directionsswizzlez(tGenerateMaps_eSwizzleComponent_eSwizzleComponent_Z0);
 	output->set_directionstonemap(tGenerateMaps_eHMNormalization_eHMNormalization_Interactive);
 	output->set_directionstonemapmin(false);
