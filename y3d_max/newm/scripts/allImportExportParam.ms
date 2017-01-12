@@ -18,7 +18,8 @@ fn printAllImporterParamValue =
 	printImporterParamValue "AxisConversion"
 	printImporterParamValue "BakeAnimationLayers"
 	printImporterParamValue "Cameras"
-	printImporterParamValue "ConvertUnit"
+	local val = (FBXImporterGetParam "ConvertUnit")
+	print ("\"ConvertUnit\""+ " \"" + val as string +"\"")
 	printImporterParamValue "FillTimeline"
 	printImporterParamValue "FilterKeyReducer"
 	printImporterParamValue "FilterKeySync"
@@ -62,7 +63,8 @@ fn printAllExporterParamValue =
 	printExporterParamValue "ColladaSingleMatrix"
 	printExporterParamValue "ColladaFrameRate"
 	printExporterParamValue "Convert2Tiff"
-	printExporterParamValue "ConvertUnit"
+	(FBXExporterGetParam "ConvertUnit")
+	print ("\"ConvertUnit\""+ " \"" + val as string +"\"")
 	printExporterParamValue "EmbedTextures"
 	printExporterParamValue "FileVersion"
 	printExporterParamValue "FilterKeyReducer"

@@ -1,5 +1,11 @@
 global cmdOutputToFileOn = True
 global bakeFolder = (getDir #image)+"\\myBake"
+-- function
+global attachObject
+global detachObject
+global makeLowPoly
+global stealNormal
+global unwrap
 
 fn makeLowPoly ratio = 
 (	
@@ -44,21 +50,22 @@ rollout BakeUI "Steal Normal" width:158 height:102
 )
 
 
-rollout DraftUIForTest "MainUI" width:194 height:407 
+rollout DraftUIForTest "MainUI" width:194 height:407
 (
-	button btnUnwrap "Unwrap" pos:[53,189] width:90 height:34
-	button btnAttach "Attach các object" pos:[48,17] width:99 height:35
+	button 'btnUnwrap' "Unwrap" pos:[53,189] width:90 height:34 align:#left
+	button 'btnAttach' "Attach các object" pos:[5,29] width:91 height:30 align:#left
 	
-	button btnMakeLowPoly "MakeLowPoly" pos:[12,262] width:78 height:32
+	button 'btnMakeLowPoly' "MakeLowPoly" pos:[12,262] width:78 height:32 align:#left
 	
-	edittext edtRatio "ratio" pos:[103,261] width:76 height:35
-	edittext edtTileSize "TileSize (square)" pos:[19,115] width:159 height:23
-	edittext edtDensity "Density (pixel/m2)" pos:[16,80] width:162 height:23
+	edittext 'edtRatio' "ratio" pos:[103,261] width:76 height:35 align:#left
+	edittext 'edtTileSize' "TileSize (square)" pos:[19,115] width:159 height:23 align:#left
+	edittext 'edtDensity' "Density (pixel/m2)" pos:[16,80] width:162 height:23 align:#left
 	
-	edittext edtPadding "Padding (pixel)   " pos:[19,151] width:159 height:23
-	GroupBox grpStealDetail "Steal Detail" pos:[9,338] width:180 height:61
-	button btnStealNormal "Steal Normal" pos:[46,359] width:110 height:27
-	
+	edittext 'edtPadding' "Padding (pixel)   " pos:[19,151] width:159 height:23 align:#left
+	GroupBox 'grpStealDetail' "Steal Detail" pos:[9,338] width:180 height:61 align:#left
+	button 'btnStealNormal' "Steal Normal" pos:[46,359] width:110 height:27 align:#left
+
+	button 'btnDetach' "Detach Object" pos:[99,30] width:91 height:30 align:#left
 	on DraftUIForTest open do
 	(
 		edtRatio.text = "0.1"
@@ -66,7 +73,6 @@ rollout DraftUIForTest "MainUI" width:194 height:407
 		edtTileSize.text = "1024"
 		edtPadding.text = "5"
 	)
-	
 	on btnUnwrap pressed do
 	(
 		local density = edtDensity.text as integer
@@ -77,28 +83,7 @@ rollout DraftUIForTest "MainUI" width:194 height:407
 	)
 	on btnAttach pressed do
 	(
-		convertToPoly $
-		convertToMesh $
-		local binFile = fopen (exportFolder +"\\"+ binaryFacesObjects)  "wb"
-		if (selection.count > 1) do 
-		(
-			local finalObj = $[1]
-			WriteString binFile (finalObj.name as string)
-			WriteLong binFile (finalObj.numFaces as integer)
-			local so = selection as array
-			for i = 2 to so.count do
-			(
-				obj = so[i]
-				local name = obj.name
-				WriteString binFile (name as string)
-				local numFaces = obj.numFaces 
-				WriteLong binFile (numFaces as integer)
-				attach finalObj obj
-			)
-		)
-		fclose binFile
-		max modify mode
-		subobjectLevel = 4
+		attachObject selection 
 	)
 	on btnMakeLowPoly pressed do
 	(	
@@ -113,6 +98,11 @@ rollout DraftUIForTest "MainUI" width:194 height:407
 		DraftUIForTestSize = GetDialogSize DraftUIForTest
 		BakeUIPos = [DraftUIForTestPos[1]+DraftUIForTestSize[1],DraftUIForTestPos[2]]
 		createdialog BakeUI pos:BakeUIPos
+	)
+	on btnDetach pressed do
+	(
+		local binaryFacesObjectsFile = exportFolder +"\\"+ binaryFacesObjects
+		detachObject $ binaryFacesObjectsFile
 	)
 )
 
@@ -327,7 +317,7 @@ fn readBinaryFile binaryFile =
 	fclose binFile
 )
 
-fn stealNormal hightPolyObjs lowPoly size:512 bakeFolder:bakeFolder = 
+fn stealNormal hightPolyObjs lowPoly size:512 bakeFolder:ResultbakeFolder = 
 (	
 	local currentRenderer = renderers.current as string
 	local bakeNormal 
@@ -338,11 +328,11 @@ fn stealNormal hightPolyObjs lowPoly size:512 bakeFolder:bakeFolder =
 		bakeNormal = NormalsMap()
 		bakeNormal.useNormalBump = true
 		bakeNormal.useHeightAsAlpha = true
-		bakeNormal.fileType = (bakeFolder+"\\"+lowPoly.name+"_normal_mentalray.png")
+		bakeNormal.fileType = (ResultbakeFolder+"\\"+lowPoly.name+"_normal_mentalray.png")
 	)else if (matchPattern currentRenderer pattern:"*V_Ray_Adv*") then
 	(
 		bakeNormal = VrayNormalsMap()
-		bakeNormal.fileType = (bakeFolder+"\\"+lowPoly.name+"_normal_vray.png")
+		bakeNormal.fileType = (ResultbakeFolder+"\\"+lowPoly.name+"_normal_vray.png")
 	)else if (matchPattern currentRenderer pattern:"*Krakatoa*") then
 	(
 
@@ -406,8 +396,72 @@ fn stealNormal hightPolyObjs lowPoly size:512 bakeFolder:bakeFolder =
 	showTextureMap lowPoly.material lowPoly.material.bakedMaterial true
 )
 
+fn attachObject objectArray = 
+(
+	convertToPoly objectArray
+	convertToMesh objectArray
+	local binFile = fopen (exportFolder +"\\"+ binaryFacesObjects)  "wb"
+	if (objectArray.count > 1) do 
+	(
+		local finalObj = $[1]
+		WriteString binFile (finalObj.name as string)
+		WriteLong binFile (finalObj.numFaces as integer)
+		WriteFloat binFile finalObj.pivot[1]
+		WriteFloat binFile finalObj.pivot[2]
+		WriteFloat binFile finalObj.pivot[3]
+		local so = objectArray as array
+		for i = 2 to so.count do
+		(
+			obj = so[i]
+			local name = obj.name
+			WriteString binFile (name as string)
+			local numFaces = obj.numFaces 
+			WriteLong binFile (numFaces as integer)
+			WriteFloat binFile obj.pivot[1]
+			WriteFloat binFile obj.pivot[2]
+			WriteFloat binFile obj.pivot[3]
+			attach finalObj obj
+		)
+	)
+	finalObj.name = finalObj.name + "_attached"
+	fclose binFile
+	max modify mode
+	subobjectLevel = 4
+)
+
+fn detachObject obj binaryFacesObjectsFile = 
+(
+	local binFile = fopen binaryFacesObjectsFile  "rb"
+	fseek binFile 0 #seek_end
+	local end = ftell binFile
+	if end == 0 do return 0
+	print ("End: "+end as string)
+	fseek binFile 0 #seek_set	
+	ResetPivot obj --w
+	local pos = obj.pos
+
+	while ((ftell binFile) < end) do
+	(
+		local objName = ReadString binFile
+		print ("objName: "+objName)
+		local objNumFaces = ReadLong binFile
+		print ("objNumFaces: "+objNumFaces as string)
+		local pivot1 = ReadFloat binFile
+		local pivot2 = ReadFloat binFile
+		local pivot3 = ReadFloat binFile
+		local pivot = [pivot1,pivot2,pivot3]
+		local faces = #{1..objNumFaces}
+		local newMesh = meshop.detachFaces obj faces delete:true asMesh:true
+		update obj
+		emesh = Editable_mesh pos:pos name:objName pivot:pivot
+		emesh.mesh = newMesh --assign the detached faces to the new mesh
+		update emesh
+	)
+	fclose binFile
+	delete obj
+)
 
 DraftUIForTestPos = [10,10]
 createdialog DraftUIForTest pos:DraftUIForTestPos
 
---createdialog BakeUI pos:B
+--createdialog BakeUI pos:
