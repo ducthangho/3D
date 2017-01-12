@@ -510,11 +510,11 @@ namespace YMax.Utilities
             {
                 var y = (YObject)x;
                 var ofolder = YProject.oFileDir + "\\y3d_data\\" + y.Name + "\\" + y.Name;
-                //make4test(y.Name);
+                make4test(y.Name);
 
                 ManagedServices.MaxscriptSDK.ExecuteMaxscriptCommand("yms.test_export \"" + YProject.oFileDir + "\" \"" + y.Name + "\"");
                 ENormal enm = new ENormal();
-                y3d.setting.xnormal.Settings s = new y3d.setting.xnormal.Settings();
+                xnormal.Settings s = new xnormal.Settings();
                 enm.Highpoly = ofolder + "_high.obj";
                 enm.Lowpoly = ofolder + "_low.obj";
                 enm.TexSize = 1024;

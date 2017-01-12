@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Y3D", "Y3D\Y3D.csproj", "{F9270B31-6DFE-483E-967E-275CE349A89C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YMaxServer", "YMaxServer\YMaxServer.csproj", "{992E8399-C855-41FB-AC77-0D6E01106FE5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Y3D.Entities", "Y3D.Entities\Y3D.Entities.csproj", "{B7A4050C-DC6C-416A-9989-03744498E8C2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F9270B31-6DFE-483E-967E-275CE349A89C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9270B31-6DFE-483E-967E-275CE349A89C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9270B31-6DFE-483E-967E-275CE349A89C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9270B31-6DFE-483E-967E-275CE349A89C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{992E8399-C855-41FB-AC77-0D6E01106FE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{992E8399-C855-41FB-AC77-0D6E01106FE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{992E8399-C855-41FB-AC77-0D6E01106FE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{992E8399-C855-41FB-AC77-0D6E01106FE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7A4050C-DC6C-416A-9989-03744498E8C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7A4050C-DC6C-416A-9989-03744498E8C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7A4050C-DC6C-416A-9989-03744498E8C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7A4050C-DC6C-416A-9989-03744498E8C2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

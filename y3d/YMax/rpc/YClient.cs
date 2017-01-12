@@ -69,5 +69,15 @@ namespace YMax.rpc
                 channel.ShutdownAsync().Wait();
             })).Start();
         }
+
+        public static void test4()
+        {
+            Channel channel = new Channel("127.0.0.1:1983", ChannelCredentials.Insecure);
+            var client = new y3d.s.Tools.ToolsClient(channel);
+            BatchOptimizeParam op = new BatchOptimizeParam();
+            op.Ratio = 90;
+            var reply = client.BatchOptimizeAsync(op);
+            channel.ShutdownAsync().Wait();
+        }
     }
 }

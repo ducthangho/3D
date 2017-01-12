@@ -146,8 +146,9 @@ namespace YMax.Forms
             //MessageBox.Show(n.Name);
 
             //Loader.Global.CloneRefHierarchy(n.GetReference(0));
-            var n = Loader.Core.GetSelNode(0);
-            Utilities.YOList.make4test(n.Name);
+            //var n = Loader.Core.GetSelNode(0);
+            //Utilities.YOList.make4test(n.Name);
+            rpc.YClient.test4();
         }
     }
 }
