@@ -20,8 +20,10 @@ namespace Y3D.rpc
 
         public static void StartCSever()
         {
-            CChannel = new Channel("127.0.0.1:50051", ChannelCredentials.Insecure);
-            CClient = new y3d.s.Tools.ToolsClient(CChannel);
+            //CChannel = new Channel("127.0.0.1:50051", ChannelCredentials.Insecure);
+            CSChannel = new Channel("127.0.0.1:1983", ChannelCredentials.Insecure);
+            //CClient = new y3d.s.Tools.ToolsClient(CChannel);
+            CSClient = new y3d.s.Tools.ToolsClient(CSChannel);
         }
 
         public static void StopCServer()
@@ -69,12 +71,12 @@ namespace Y3D.rpc
 
         public static void test2()
         {
-            //TestParam tp = new TestParam();
-            //tp.TestName = "t2";
-            //var ret = CSClient.TestTest(tp);
-            Make4TestParam m4 = new Make4TestParam();
-            m4.Oname = "Box001";
-            var reply = CClient.MakeNode4Edit(m4);
+            TestParam tp = new TestParam();
+            tp.TestName = "t2";
+            var ret = CSClient.TestTestAsync(tp);
+            //Make4TestParam m4 = new Make4TestParam();
+            //m4.Oname = "Box001";
+            //var reply = CClient.MakeNode4Edit(m4);
         }
     }
 }

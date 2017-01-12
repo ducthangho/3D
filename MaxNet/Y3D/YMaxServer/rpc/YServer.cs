@@ -8,6 +8,8 @@ using y3d.e;
 using y3d.s;
 using System.Windows.Forms;
 using System.Threading;
+using System.Windows.Threading;
+using System.Diagnostics;
 
 namespace YMaxServer.rpc
 {
@@ -20,8 +22,36 @@ namespace YMaxServer.rpc
     }
 
 
+    public class ResultFunc<R>
+    {
+        public R result;        
+        public void Exec(Func<R> func)
+        {
+            result = func();
+        }
+    };
+
+    public class DialogState
+
+    {
+
+        public DialogResult result;
+
+        public FileDialog dialog;
+
+        public void ThreadProcShowDialog()
+
+        {
+
+            result = dialog.ShowDialog();
+
+        }
+
+    }
+
     class YToolImpl : y3d.s.Tools.ToolsBase
     {
+        static Dispatcher dispatcher;
         //public static void openfile()
         //{
         ////    var openFileProject = new System.Windows.Forms.OpenFileDialog();
@@ -34,6 +64,26 @@ namespace YMaxServer.rpc
         ////    }
         ////}
 
+        public void Invoke(Action a)
+        {
+            dispatcher = Dispatcher.CurrentDispatcher;
+            if (dispatcher != null) dispatcher.Invoke(a);
+        }
+
+        //This function is used to execute thread which require STA
+        //e.g. System.Windows.Forms.OpenFileDialog();
+        //See TestTest() for more example
+        public R STAFunc<R>(Func<R> func)
+        {
+            ResultFunc<R> state = new ResultFunc<R>();
+            System.Threading.Thread t = new System.Threading.Thread(() => state.Exec(func));
+            t.SetApartmentState(System.Threading.ApartmentState.STA);
+            t.Start();
+            t.Join();
+            return state.result;
+        }
+
+
         public override Task<ProjectInfo> NewProject(StringParam request, ServerCallContext context)
         {
             MessageBox.Show(request.Str);
@@ -44,9 +94,22 @@ namespace YMaxServer.rpc
 
         public override Task<ResultReply> MakeNode4Edit(Make4TestParam request, ServerCallContext context)
         {
-            Utils.YOList.make4test(request.Oname);
+           
+            Invoke(() =>
+            {
+                try
+                {
+                    Utils.YOList.make4test(request.Oname);
+                }
+                catch (Exception e)
+                {
+                    Debug.WriteLine(e.Message);
+                }
+            });
+            
             ResultReply ret = new ResultReply();
             return Task.FromResult(ret);
+
         }
 
         public override Task<ResultReply> BatchOptimize(BatchOptimizeParam request, ServerCallContext context)
@@ -57,11 +120,52 @@ namespace YMaxServer.rpc
             return Task.FromResult(ret);
         }
 
+        //public DialogResult STAShowDialog(FileDialog dialog)
+        //{
+        //    DialogState state = new DialogState();
+        //    state.dialog = dialog;
+        //    System.Threading.Thread t = new System.Threading.Thread(state.ThreadProcShowDialog);
+        //    t.SetApartmentState(System.Threading.ApartmentState.STA);
+        //    t.Start();
+        //    t.Join();
+        //    return state.result;
+        //}
+
+        //[STAThread]
         public override Task<ResultReply> TestTest(TestParam request, ServerCallContext context)
         {
             ResultReply ret = new ResultReply();
-            MessageBox.Show(request.TestName);
-            ManagedServices.MaxscriptSDK.ExecuteMaxscriptCommand("yms.exportObjectToFBX \"11.fbx\" \"D:\\\"");
+            dispatcher = Dispatcher.CurrentDispatcher;
+
+            Invoke(() =>
+            {
+                try
+                {
+                    //MessageBox.Show(request.TestName);
+                    ManagedServices.MaxscriptSDK.ExecuteMaxscriptCommand("print \"I love maxscript\"");
+
+                    //System.Threading.Thread.CurrentThread.SetApartmentState(ApartmentState.STA);
+
+                    DialogResult result = STAFunc<DialogResult>( () => //These code will be executed in a STAthread before returning the result
+                    {
+                        var diag = new System.Windows.Forms.OpenFileDialog(); 
+                        return diag.ShowDialog();
+                    });
+
+                   
+
+                    if (result == DialogResult.OK)
+                    {
+                        ManagedServices.MaxscriptSDK.ExecuteMaxscriptCommand("print \"OK\"");
+                    }
+                }
+                catch (Exception e)
+                {
+                    ManagedServices.MaxscriptSDK.ExecuteMaxscriptCommand("print \"" + e.Message + "\"");
+                    Debug.WriteLine(e.Message);
+                }
+            });            
+            
             return Task.FromResult(ret);
         }
 
