@@ -23,6 +23,7 @@ service Tools {
   rpc MakeNode4Edit(Make4TestParam) returns (ResultReply) {}
   rpc BatchOptimize(BatchOptimizeParam) returns (ResultReply) {}
   rpc TestTest(TestParam) returns (ResultReply) {}
+  rpc GetObjectFromMax(EmptyParam) returns (YAreaList) {}
 }
 
 service YAction {

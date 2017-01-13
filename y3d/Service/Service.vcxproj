@@ -72,10 +72,12 @@
       <MinimalRebuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</MinimalRebuild>
       <MinimalRebuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</MinimalRebuild>
       <RuntimeLibrary Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">MultiThreadedDLL</RuntimeLibrary>
+      <DebugInformationFormat Condition="'$(Configuration)|$(Platform)'=='Release|x64'">ProgramDatabase</DebugInformationFormat>
+      <OmitDefaultLibName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</OmitDefaultLibName>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(MaxSdkLib);$(MsBuildProjectDirectory)\..\lib\tbb;$(MsBuildProjectDirectory)\..\lib;$(MsBuildProjectDirectory)\..\lib\grpc;$(MsBuildProjectDirectory)\..\lib\protobuf;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>libprotoc.lib;libprotobuf.lib;bmm.lib;core.lib;geom.lib;gfx.lib;mesh.lib;maxutil.lib;maxscrpt.lib;gup.lib;paramblk2.lib;ws2_32.lib;grpc_dll.lib;tbb.lib;tbbmalloc.lib;YMax.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>libprotoc.lib;libprotobuf.lib;bmm.lib;core.lib;geom.lib;gfx.lib;mesh.lib;maxutil.lib;maxscrpt.lib;gup.lib;paramblk2.lib;ws2_32.lib;grpc_dll.lib;tbb.lib;tbbmalloc.lib;YMax.lib;msvcrt.lib;msvcmrt.lib;igame.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ModuleDefinitionFile>Service.def</ModuleDefinitionFile>
     </Link>
     <PostBuildEvent />

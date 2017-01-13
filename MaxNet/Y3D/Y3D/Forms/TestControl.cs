@@ -26,5 +26,10 @@ namespace Y3D.Forms
         {
             rpc.YClient.test2();
         }
+
+        private void btnTest3_Click(object sender, EventArgs e)
+        {
+            rpc.YClient.test3();
+        }
     }
 }

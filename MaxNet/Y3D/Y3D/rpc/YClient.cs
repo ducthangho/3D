@@ -78,5 +78,14 @@ namespace Y3D.rpc
             //m4.Oname = "Box001";
             //var reply = CClient.MakeNode4Edit(m4);
         }
+
+        public static void test3()
+        {
+            EmptyParam ep = new EmptyParam();
+            var ret = CClient.GetObjectFromMax(ep);
+            //Make4TestParam m4 = new Make4TestParam();
+            //m4.Oname = "Box001";
+            //var reply = CClient.MakeNode4Edit(m4);
+        }
     }
 }

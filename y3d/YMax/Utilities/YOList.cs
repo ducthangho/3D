@@ -482,26 +482,6 @@ namespace YMax.Utilities
             nt2[0].Name = n.Name + "_low";
             nt3[0].Name = n.Name + "_high";
             nt4[0].Name = n.Name + "_cage";
-            var o = n.ObjectRef;
-            //Loader.Core.CreateObjectNode(o, "botay");
-            MessageBox.Show(n.XRefFileCount.ToString());
-            var nn2 = Loader.Global.IGameInterface.GetIGameNode(nt2[0]);
-            if (nn2.IGameObject.IsObjectXRef)
-            {
-                MessageBox.Show("co xref");
-            } else
-            {
-                MessageBox.Show("thuong");
-            }
-            //Loader.Core.Ma
-            //if (n.ob)
-            //{
-            //    MessageBox.Show("co xref");
-            //    //Loader.Global.IObjXRefManager18.Instance_.MergeXRefItemsIntoScene(nt2[0].ref)
-            //} else
-            //{
-            //    MessageBox.Show("thuong");
-            //}
         }
 
         public static void testExport(Object x)
@@ -510,7 +490,7 @@ namespace YMax.Utilities
             {
                 var y = (YObject)x;
                 var ofolder = YProject.oFileDir + "\\y3d_data\\" + y.Name + "\\" + y.Name;
-                make4test(y.Name);
+                //make4test(y.Name);
 
                 ManagedServices.MaxscriptSDK.ExecuteMaxscriptCommand("yms.test_export \"" + YProject.oFileDir + "\" \"" + y.Name + "\"");
                 ENormal enm = new ENormal();
