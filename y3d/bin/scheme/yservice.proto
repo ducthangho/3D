@@ -21,6 +21,7 @@ service Tools {
   rpc SaveSystem(YSystem) returns (ResultReply) {}
   rpc BakeNormal(ENormal) returns (ResultReply) {}
   rpc MakeNode4Edit(Make4TestParam) returns (ResultReply) {}
+  rpc BatchOptimize(BatchOptimizeParam) returns (ResultReply) {}
   rpc TestTest(TestParam) returns (ResultReply) {}
 }
 

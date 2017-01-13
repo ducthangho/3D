@@ -52,6 +52,14 @@ typedef struct {
 static tbb::concurrent_queue< FunctionTask > fn_q;
 
 
+inline std::wstring s2ws(const std::string& str)
+{
+	int size_needed = MultiByteToWideChar(CP_UTF8, 0, &str[0], (int)str.size(), NULL, 0);
+	std::wstring wstrTo(size_needed, 0);
+	MultiByteToWideChar(CP_UTF8, 0, &str[0], (int)str.size(), &wstrTo[0], size_needed);
+	return wstrTo;
+}
+
 //std::mutex m;
 //std::condition_variable cv;
 //bool ready = false;
@@ -155,9 +163,53 @@ inline int GetSceneNodes(INodeTab& i_nodeTab, INode* i_currentNode /*=NULL*/)
 	return i_nodeTab.Count();
 }
 
+inline void getSelNodeTab(INodeTab& i_nodeTab) {
+	auto* ip = GetCOREInterface();
+	for (int i = 0; i < ip->GetSelNodeCount(); i++)
+	{
+		auto* node = ip->GetSelNode(i);
+		i_nodeTab.AppendNode(node);
+	}
+}
+
 class YServiceImpl final : public Tools::Service {
-	Status RenameObject(ServerContext* context, const RenameParam* request,
+
+	Status MakeNode4Edit(ServerContext* context, const Make4TestParam* request,
 		ResultReply* reply) override
+	{
+		Invoke([request]() -> void {
+			INodeTab nRef;
+			GetSceneNodes(nRef, nullptr);
+			auto* ip = GetCOREInterface();
+
+			auto oname = s2ws(request->oname());
+			auto n = ip->GetINodeByName(oname.c_str());
+			
+			INodeTab nt1;
+			INodeTab nt2;
+			INodeTab nt3;
+			INodeTab nt4;
+			getSelNodeTab(nt1);
+			ip->CloneNodes(nt1, n->GetObjOffsetPos(), true, NODE_COPY, &nt2, &nt2);
+			ip->CloneNodes(nt1, n->GetObjOffsetPos(), true, NODE_COPY, &nt3, &nt3);
+			ip->CloneNodes(nt1, n->GetObjOffsetPos(), true, NODE_COPY, &nt4, &nt4);
+			std::wstring tmp = n->GetName();
+			auto lowStr = tmp+L"_low";
+			auto hiStr = tmp + L"_high";
+			auto cageStr = tmp + L"_cage";
+			nt2[0]->SetName(lowStr.c_str());
+			nt3[0]->SetName(hiStr.c_str());
+			nt4[0]->SetName(cageStr.c_str());
+			//auto* nameMaker = ip->NewNameMaker();
+			//GetCOREInterface13()->SetNameSuffixLength(2);
+			//std::map<MSTR, int> mnames;
+			//ExecuteMAXScriptScript(L"yms.pre_optimize 'a' 'b'");
+		});
+		//waitForReturn(ret);
+		return Status::OK;
+	}
+
+	Status RenameObject(ServerContext* context, const RenameParam* request,	ResultReply* reply) override
 	{
 
 		auto ret = InvokeAsync([]() -> void {
@@ -188,6 +240,8 @@ class YServiceImpl final : public Tools::Service {
 				};
 			}
 			mprintf(L"Hello world\n");
+			ExecuteMAXScriptScript(L"yms.pre_optimize 'a' 'b'");
+			//ip->max
 			//y3d::setting::xnormal::Settings s;
 			//std::string hiPoly = "D:\\teapot_hi.FBX";
 			//std::string loPoly = "D:\\teapot_lo.obj";
@@ -203,8 +257,7 @@ class YServiceImpl final : public Tools::Service {
 		// ... (pre-existing code)
 	}
 
-	Status BakeNormal(ServerContext* context, const ENormal* enm,
-		ResultReply* reply) override
+	Status BakeNormal(ServerContext* context, const ENormal* enm, ResultReply* reply) override
 	{
 		//ENormal e = *enm;
 		if (enm->has_normal_xnormal()) {
@@ -214,6 +267,21 @@ class YServiceImpl final : public Tools::Service {
 			bakeNormal(s);
 		}
 		//a.has_normal_xnormal
+		return Status::OK;
+	}
+
+	Status BatchOptimize(ServerContext* context, const BatchOptimizeParam* bp,	ResultReply* reply) override
+	{
+		Invoke([bp]() -> void {
+			std::string tmp = "yms.pre_optimize";
+			char buf[1000];
+			sprintf(buf, "%s \"%s\" \"%s\"", tmp.c_str(), bp->folder().c_str(), bp->filename().c_str());
+			auto cmd = s2ws(buf);
+			//bp->folder.a
+			//ExecuteMAXScriptScript(L"yms.pre_optimize 'a' 'b'");
+			//mprintf(L"Command is %s\n",cmd.c_str());
+			ExecuteMAXScriptScript(cmd.c_str());
+		});
 		return Status::OK;
 	}
 };

@@ -354,6 +354,8 @@ if yms_init != true then
 			-- path = maxFilePath + fname + "_"
 			
 			-- MessageBox curFile;
+			--oFileDir = "D:\\3D\\3dmax\\1";
+			--oFileName = "phongkhach 1";
 			BatchProOptimizer.SourceFileMode = 0;
 			BatchProOptimizer.SourceFileFiles = oFileDir +"\\"+ oFileName + ".max";
 			BatchProOptimizer.OptimizationLevel1 = 90;

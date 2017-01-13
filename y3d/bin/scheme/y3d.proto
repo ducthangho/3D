@@ -244,12 +244,19 @@ message Make4TestParam {
 message OptimizeParam {
     float ratio =1;
 }
+
+message BatchOptimizeParam {
+    float ratio =1;
+    string folder=2;
+    string filename=3;
+}
 message StringParam {
     string str=1;
 }
 
 message TestParam {
-  google.protobuf.Any anything=1;
+  string test_name=1;
+  google.protobuf.Any anything=2;
 }
 
 // Unwrap
