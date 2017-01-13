@@ -1,11 +1,13 @@
 global cmdOutputToFileOn = True
-global bakeFolder = (getDir #image)+"\\myBake"
+global ResultbakeFolder = (getDir #image)+"\\myBake"
 -- function
 global attachObject
 global detachObject
 global makeLowPoly
-global stealNormal
+global initProjectionMod
+global testStealNormal
 global unwrap
+global stealNormal
 
 fn makeLowPoly ratio = 
 (	
@@ -25,30 +27,96 @@ fn makeLowPoly ratio =
 	importObjectFromFBXFile  (tempPath + "\\"+ importLowPolyFileName)
 )
 
-rollout BakeUI "Steal Normal" width:158 height:102
+rollout BakeUI "Steal Normal" width:235 height:168
 (
-	button btnStealNormal "Steal Normal" pos:[27,56] width:101 height:36
-	button btnSetAsHightPolys "Set As High Polys" pos:[28,12] width:102 height:26
+	button 'btnInitProjection' "Init projection" pos:[3,50] width:73 height:29 align:#left
+	button 'btnSetAsHightPolys' "Set As High Polys" pos:[46,12] width:102 height:26 align:#left
 
 	local hightPolyObjs
+	local lowPoly
 
+	button 'btnTestStealNormal' "Test Steal Normal" pos:[48,89] width:93 height:29 align:#left
+	button 'btnPushCage' "+" pos:[77,51] width:30 height:29 align:#left
+	button 'btnFastPushCage' "++" pos:[108,51] width:30 height:29 align:#left
+	button 'btnShrinkCage' "-" pos:[140,51] width:30 height:29 align:#left
+	button 'btnFastShrinkCage' "--" pos:[170,51] width:30 height:29 align:#left
+	button 'btnBakeNormal' "Bake" pos:[24,129] width:73 height:29 align:#left
+	button 'btnResetCage' "reset cage" pos:[202,51] width:30 height:29 align:#left
+	button 'btnBakeAndSeeResult' "Bake And See Result" pos:[107,130] width:115 height:29 align:#left
+	on btnInitProjection pressed do
+	(
+		lowPoly = selection[1]
+		local size = 2048
+		print  ResultbakeFolder
+	
+		makeDir ResultbakeFolder all:true
+	
+		print "ssss"
+	
+		initProjectionMod hightPolyObjs lowPoly 
+	)
 	on btnSetAsHightPolys pressed do
 	(
 		hightPolyObjs = for obj in $ collect obj
 	)
-
-	on btnStealNormal pressed do
+	on btnTestStealNormal pressed do
 	(
-		local lowPoly = $
-		local size = 2048
-		print  bakeFolder
-
-		makeDir bakeFolder all:true
-
-		stealNormal hightPolyObjs lowPoly size:size
+		hightPolyObjs = selection[1]
+		testStealNormal hightPolyObjs
+		lowPoly = selection[1]
 	)
-)
+	on btnPushCage pressed do
+	(
+		local proMod = FindPMod lowPoly
+		proMod.pushCage  0.5
+	)
+	on btnFastPushCage pressed do
+	(
+		local proMod = FindPMod lowPoly
+		proMod.pushCage  1.1
+	)
+	on btnShrinkCage pressed do
+	(
+		local proMod = FindPMod lowPoly
+		proMod.pushCage  -0.5
+	)
+	on btnFastShrinkCage pressed do
+	(
+		local proMod = FindPMod lowPoly
+		proMod.pushCage  -1.1
+	)
+	on btnBakeNormal pressed do
+	(
+		stealNormal lowPoly
+	)
+	on btnResetCage pressed do
+	(
+		local proMod = FindPMod lowPoly
+		proMod.resetCage()
+	)
+	on btnBakeAndSeeResult pressed do
+	(
+		stealNormal lowPoly
+		local lowPolyName = lowPoly.name
+		local lowpolynamenormal = lowPolyName+"_normal"
+		local lowPolyNormal = getNodeByName lowpolynamenormal exact:true all:false ignoreCase:false
 
+		local gap = 3
+		local maxBBx = lowPoly.max.x
+		local minBBx = lowPoly.min.x
+		local perimeter = (maxBBx - minBBx)
+
+		hightPolyObjs.pos.x += (perimeter + gap)
+		lowPolyNormal.pos.x -= (perimeter + gap)
+
+
+		hightPolyObjs.wirecolor = color 156 156 156
+		lowPolyNormal.wirecolor = color 156 156 156
+
+		actionMan.executeAction -844228238 "12"
+		max create mode
+	)	
+)
 
 rollout DraftUIForTest "MainUI" width:194 height:407
 (
@@ -79,7 +147,7 @@ rollout DraftUIForTest "MainUI" width:194 height:407
 		local tileSize = edtTileSize.text as integer
 		local padding = edtPadding.text as float
 		
-		unwrap density tileSize padding
+		unwrap selection[1] density:density tileSize:tileSize padding:padding
 	)
 	on btnAttach pressed do
 	(
@@ -106,7 +174,7 @@ rollout DraftUIForTest "MainUI" width:194 height:407
 	)
 )
 
-fn unwrap density tileSize padding = 
+fn unwrap obj density:128 tileSize:1024 padding:5 = 
 (	
 	padding = padding/tileSize
 	fn compareHeight rect1 rect2 = 
@@ -121,13 +189,13 @@ fn unwrap density tileSize padding =
 
 	struct SRect (x,y,width,height,index,x_old,y_old)
 
-	if (ClassOf $) != Editable_mesh do 
+	if (ClassOf obj) != Editable_mesh do 
 	(
-		convertToPoly $
-		convertToMesh $
+		convertToPoly obj
+		convertToMesh obj
 	)
 
-	local sf = for i in $.selectedFaces collect i.index
+	local sf = for i in obj.selectedFaces collect i.index
 
 	local start = timeStamp()
 	local binFile = fopen (exportFolder +"\\"+ binarySelectedFace)  "wb"
@@ -136,6 +204,7 @@ fn unwrap density tileSize padding =
 		WriteLong binFile sf[i]
 	)
 	fclose binFile
+	select obj
 	exportObjectToFBX  (exportFolder + "\\" + exportFileName)
 	local cmd = blenderPath + " -b -P "+ pythonScript + " -- unwrap " + "\"" + exportFolder + "\" "+(padding as string)
 	if cmdOutputToFileOn do
@@ -145,13 +214,16 @@ fn unwrap density tileSize padding =
 	importObjectFromFBXFile  (tempPath + "\\"+ importFileName)
 	local end = timeStamp()
 	format "Import Export FBX took % seconds\n" ((end - start) / 1000.0)
-	convertToPoly $	
+	obj = selection[1]
+	convertToPoly obj	
 
-	$.EditablePoly.SetSelection #Face (sf as bitarray)
-	modPanel.addModToSelection (Unwrap_UVW ())
+	obj.EditablePoly.SetSelection #Face (sf as bitarray)
+	addmodifier obj (Unwrap_UVW ())
 	subobjectLevel = 3
 
-	local u = $.modifiers[1]
+	print obj.name
+
+	local u = obj.modifiers["Unwrap UVW"]
 	local x = 1
 	local y = 1
 	local width =1
@@ -257,7 +329,7 @@ fn unwrap density tileSize padding =
 	local unFitRect = #(1)
 	local listSRect = #()
 
-	if sf.count == (getNumFaces $) then local tileNumber = 0 else local tileNumber = 1
+	if sf.count == (getNumFaces obj) then local tileNumber = 0 else local tileNumber = 1
 	while unFitRect.count != 0 do 
 	(
 		listSRect = #()
@@ -317,8 +389,35 @@ fn readBinaryFile binaryFile =
 	fclose binFile
 )
 
-fn stealNormal hightPolyObjs lowPoly size:512 bakeFolder:ResultbakeFolder = 
+fn initProjectionMod hightPolyObjs lowPoly = 
 (	
+	max modify mode
+	addModifier lowpoly (ProjectionMod()) 
+	proMod = FindPMod lowPoly
+	for obj in hightPolyObjs do 
+	(
+		obj.wirecolor = color 156 6 6
+		proMod.addObjectNode obj
+	)
+	proMod.resetCage()
+	proMod.displayCage = true
+	proMod.displayCageShaded = true
+	proMod.displayCageOffset = true
+	proMod.pushCage 1.1
+)
+
+fn stealNormal lowPoly size:512 ResultbakeFolder:ResultbakeFolder = 
+(
+	local proMod = FindPMod lowPoly
+	lowPoly.INodeBakeProjProperties.enabled = True
+	lowPoly.INodeBakeProjProperties.BakeObjectLevel = True
+	lowPoly.INodeBakeProjProperties.BakeSubObjLevels = False
+	lowPoly.INodeBakeProjProperties.projectionMod = proMod
+
+	print "------------Inspect--------------"
+	print lowPoly.INodeBakeProjProperties.useCage
+	print lowPoly.INodeBakeProjProperties.projectionMod
+
 	local currentRenderer = renderers.current as string
 	local bakeNormal 
 
@@ -337,22 +436,6 @@ fn stealNormal hightPolyObjs lowPoly size:512 bakeFolder:ResultbakeFolder =
 	(
 
 	)
-
-	addModifier lowpoly (ProjectionMod()) 
-	proMod = FindPMod lowPoly
-	for obj in hightPolyObjs do (proMod.addObjectNode obj)
-	proMod.resetCage()
-	proMod.pushCage 1.1
-	
-	lowPoly.INodeBakeProjProperties.enabled = True
-	lowPoly.INodeBakeProjProperties.BakeObjectLevel = True
-	lowPoly.INodeBakeProjProperties.BakeSubObjLevels = False
-	lowPoly.INodeBakeProjProperties.projectionMod = proMod
-
-	print "------------Inspect--------------"
-	print lowPoly.INodeBakeProjProperties.useCage
-	print lowPoly.INodeBakeProjProperties.projectionMod
-
 	
 	bakeNormal.outputSzX = size
 	bakeNormal.outputSzY = size
@@ -394,6 +477,52 @@ fn stealNormal hightPolyObjs lowPoly size:512 bakeFolder:ResultbakeFolder =
 		bakedMaterial:mat viewportMtlIndex:1 renderMtlIndex:1
 	lowPoly.material = shellMat	
 	showTextureMap lowPoly.material lowPoly.material.bakedMaterial true
+)
+
+struct paramStealNormal (hightPolyObjs,lowPoly=undefined, size=512, bakeFolder=ResultbakeFolder)
+
+fn testStealNormal hightPolyObjs lowPoly:undefined size:512 bakeFolder:ResultbakeFolder = 
+(	
+	local name = hightPolyObjs.name
+	if lowPoly == undefined then
+	(	
+		select hightPolyObjs
+		IsolateSelection.EnterIsolateSelectionMode() -- IsolateSelection.ExitIsolateSelectionMode()
+		local lowpolyname = name+"_lowPoly"
+		local lowpolynamenormal = name+"_lowPoly_normal"
+		-- make lowpoly
+		copy hightPolyObjs name:lowpolyname
+		local lowPoly = getNodeByName lowpolyname exact:true all:false ignoreCase:false
+		select lowPoly
+		max modify  mode
+		addModifier lowPoly (Edit_Normals())
+		addModifier lowpoly (ProOptimizer()) 
+		optMod = lowpoly.modifiers["ProOptimizer"]
+		optMod.VertexPercent = 20
+		optMod.OptimizationMode = 2
+		optMod.KeepNormals = true
+		optMod.NormalMode = 2
+		optMod.NormalThreshold = 10
+		optMod.MergePoints = true
+		optMod.MergePointsThreshold  = 0
+		optMod.MergeFaces = true
+		optMod.MergeFacesAngle = 0
+		optMod.CompactFaces = true
+		optMod.PreventFlip = true
+		optMod.Calculate = true
+
+		unwrap lowPoly
+		delete lowPoly
+		lowPoly = selection[1]
+		lowPoly.name = lowpolyname
+
+		copy lowPoly name:lowpolynamenormal	
+		local lowPolyNormal = getNodeByName lowpolynamenormal exact:true all:false ignoreCase:false
+		initProjectionMod hightPolyObjs lowpoly
+	)else 
+	(
+		
+	)
 )
 
 fn attachObject objectArray = 
@@ -464,4 +593,7 @@ fn detachObject obj binaryFacesObjectsFile =
 DraftUIForTestPos = [10,10]
 createdialog DraftUIForTest pos:DraftUIForTestPos
 
---createdialog BakeUI pos:
+DraftUIForTestPos = GetDialogPos DraftUIForTest
+DraftUIForTestSize = GetDialogSize DraftUIForTest
+BakeUIPos = [DraftUIForTestPos[1]+DraftUIForTestSize[1],DraftUIForTestPos[2]]
+createdialog BakeUI pos:BakeUIPos
