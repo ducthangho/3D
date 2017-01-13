@@ -33,4 +33,4 @@ MaxNet/Y3D/**/bin/**
 y3d/y3d/Models/**
 y3d/Service/*.pb.*
 y3d/Service/*.grpc.pb.*
-MaxNet\Y3D\Y3D.Entities\*.cs
+MaxNet/Y3D/Y3D.Entities/*.cs
