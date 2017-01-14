@@ -31,5 +31,10 @@ namespace Y3D.Forms
         {
             rpc.YClient.test3();
         }
+
+        private void btnTestBake3D_Click(object sender, EventArgs e)
+        {
+            rpc.YClient.test_bake();
+        }
     }
 }

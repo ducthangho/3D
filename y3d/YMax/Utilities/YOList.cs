@@ -493,16 +493,31 @@ namespace YMax.Utilities
                 //make4test(y.Name);
 
                 ManagedServices.MaxscriptSDK.ExecuteMaxscriptCommand("yms.test_export \"" + YProject.oFileDir + "\" \"" + y.Name + "\"");
-                ENormal enm = new ENormal();
+          
+
+                //(new Thread(() =>
+                //{
+                    ENormal enm = new ENormal();
+
+                    enm.Highpoly = ofolder + "_high.obj";
+                    enm.Lowpoly = ofolder + "_low.obj";
+                    enm.TexSize = 1024;
+                    enm.Oname = y.Name;
+                    enm.OutTex = ofolder + ".png";
+
+                //Normal3DMax m3d = new Normal3DMax();
+                //enm.Normal3Dmax = m3d;
+
                 xnormal.Settings s = new xnormal.Settings();
-                enm.Highpoly = ofolder + "_high.obj";
-                enm.Lowpoly = ofolder + "_low.obj";
-                enm.TexSize = 1024;
-                enm.Oname = y.Name;
-                enm.OutTex = ofolder + ".png";
                 enm.NormalXnormal = s;
-                rpc.YClient.CClient.BakeNormal(enm);
+
+                var result = rpc.YClient.CClient.BakeNormalAsync(enm);
+                //result.ResponseAsync()
                 ManagedServices.MaxscriptSDK.ExecuteMaxscriptCommand("yms.apply_normal \"" + ofolder + "_normals.png\" \"" + y.Name + "\"");
+                    //ManagedServices.MaxscriptSDK.ExecuteMaxscriptCommand("minh.test1 \"azz\"");
+                //})).Start();
+
+                //ManagedServices.MaxscriptSDK.ExecuteMaxscriptCommand("yms.apply_normal \"" + ofolder + "_normals.png\" \"" + y.Name + "\"");
                 //Loader.Core.ex
             }
         }

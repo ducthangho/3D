@@ -1,8 +1,8 @@
 
 -- global variables and functions
-if yms_init != true then
+if minh_init != true then
 (
-	struct ymsClass
+	struct minhClass
 	(
 		tempPath = pathConfig.GetDir #temp,
 		exportFolder = tempPath, 
@@ -13,8 +13,8 @@ if yms_init != true then
 		binaryFacesObjects = "3dsFaces.bin",
 		binarySelectedFace = "3dsSelectedFace.bin",
 		blenderPath = "\"C:\\Program Files\\Blender Foundation\\Blender\\blender.exe\"",
-		scriptFolder  = ypath  + "\\yms\\scripts",
-		pythonScript =  ypath + "\\yms\\python\\blender.py",
+		scriptFolder  = ypath  + "\\newm\\scripts",
+		pythonScript =  ypath + "\\newm\\scripts\\blender.py",
 		blenderFile = exportFolder+"\\3dsMax.blend",
 		DoscommandOutput = ypath + "\\hiddencmdout.tmp",
 
@@ -28,25 +28,6 @@ if yms_init != true then
 		(
 			FBXImporterSetParam "Mode" #create
 			importFile filePath #noPrompt
-		),
-
-		fn unwrap3dmax angle spacing = 
-		(
-			max modify mode
-			s1 = selection[1]
-			-- if (classof s1.baseobject) != Editable_Poly then convertto s1 editable_poly
-			subobjectLevel = 0	
-			if (s1.modifiers["y3d_unwrap"]==undefined) then (
-				u1 = unwrap_UVW()
-				u1.name = "y3d_unwrap"
-				addModifier s1 u1
-			)
-			u1 = s1.modifiers["y3d_unwrap"]
-			modPanel.setCurrentObject s1.modifiers[#y3d_unwrap]
-			subobjectLevel = 3
-			max select all
-			u1.flattenMap angle #() spacing true 0 true true	
-			subobjectLevel = 0
 		),
 
 		fn unwrap density tileSize padding = 
@@ -237,167 +218,6 @@ if yms_init != true then
 			)
 		),
 
-
-		fn test_xref oname = 
-		(
-			MessageBox oname
-		),
-
-		fn yxref_selected = 
-		(
-			fname = substring maxFileName 1 (maxFileName.count-4)
-			path = maxFilePath + fname + "_test_"
-			high_path = path + "high.max"
-			low_path = path + "low.max"
-			ResetPivot selection
-			-- ResetTransform selection
-			-- for nn in selection do 
-			-- 	(
-			-- 		ResetPivot nn
-			-- 		ResetTransform nn
-			-- 	)
-			saveNodes selection high_path
-			makeLowPoly -1
-			max delete
-			importFile (pathConfig.GetDir #temp + "\\blenderNodesLowPoly.fbx") #noPrompt
-			saveNodes selection low_path
-			max delete
-			xref_b = objXRefMgr.AddXRefItemsFromFile low_path
-			items = #()
-			xref_b.GetItems #XRefObjectType &items
-			for item in items do 
-				(
-					objXRefMgr.SetProxyItemSrcFile item high_path
-					item.proxyItemName = item.objectName
-				)
-		),
-
-		fn xref_low oFileDir oFileName= 
-		(
-			oNames = #()
-			for ss in selection do 
-				(
-					append oNames ss.name
-				)
-			objXRefMgr.dupObjNameAction  = #deleteOld
-			xref_b = objXRefMgr.AddXRefItemsFromFile (oFileDir +"\\y3d_data\\"+ oFileName + "_low0.max") objNames:oNames
-			items = #()
-			xref_b.GetItems #XRefObjectType &items
-			for item in items do 
-				(
-					objXRefMgr.SetProxyItemSrcFile item (oFileDir +"\\y3d_data\\"+ oFileName + "_high.max")
-					item.proxyItemName = item.objectName
-				)		
-			-- delete not HL
-			-- loadMaxFile strStudioFile useFileUnits:true --load the latest lighting file
-			-- mergeMaxFile strFile #select #noRedraw #mergeDups #useMergedMtlDups #neverReparent --merge in everything from the hold-file
-		),
-
-
-		fn do_lowpoly oName =
-		(
-			oo =  execute ("$'"+oName + "'")
-			select oo
-			cc = classof oo
-			max modify mode
-			if cc == XRefObject then
-				(
-					modPanel.setCurrentObject $.baseObject
-					if cc.useProxy then
-						cc.displayProxy = true
-				)
-		),
-
-		fn test_export oFileDir oName = 
-		(
-			max group open
-			oo =  execute ("$'"+oName + "'")
-			select oo
-			max modify mode
-			-- eDir = oFileDir +"\\y3d_data\\";
-			eDir = oFileDir +"\\y3d_data\\"+ oName + "\\";
-			makeDir eDir all:false
-
-			theINI =objexp.getIniName()
-			setIniSetting theINI"Optimize" "optVertex" "0"
-			setIniSetting theINI"Optimize" "optNormals" "0"
-			setIniSetting theINI"Optimize" "optTextureCoords" "0"
-			setIniSetting theINI"Output" "Precision" "4"
-			setIniSetting theINI"Geometry" "SmoothingGroups" "0"
-			setIniSetting theINI"Geometry" "FaceType" "0"
-			setIniSetting theINI"Geometry" "FlipZyAxis" "1"
-			setIniSetting theINI"Geometry" "Normals" "0"
-			setIniSetting theINI"Geometry" "Shapes" "0"
-			setIniSetting theINI"Geometry" "TextureCoords" "1"
-			setIniSetting theINI"Material" "CreateMatLibrary" "0"
-			setIniSetting theINI"Material" "UseMaterial" "0"
-
-			if (classof oo == XRefObject) then
-				(
-					oo.displayProxy = true;
-					exportFile (eDir + oName + "_high.obj") #noPrompt selectedOnly:true 
-					oo.displayProxy = false;
-					unwrap3dmax 66 0.001
-					exportFile (eDir + oName + "_low.obj") #noPrompt selectedOnly:true 
-				)
-			else 
-				(
-					unwrap3dmax 66 0.001
-					exportFile (eDir + oName + ".obj") #noPrompt selectedOnly:true 
-				)
-			
-		),
-
-		fn pre_optimize oFileDir oFileName= 
-		(
-			-- fname = substring maxFileName 1 (maxFileName.count-4)
-			-- path = maxFilePath + fname + "_"
-			
-			-- MessageBox curFile;
-			--oFileDir = "D:\\3D\\3dmax\\1";
-			--oFileName = "phongkhach 1";
-			BatchProOptimizer.SourceFileMode = 0;
-			BatchProOptimizer.SourceFileFiles = oFileDir +"\\"+ oFileName + ".max";
-			BatchProOptimizer.OptimizationLevel1 = 90;
-			BatchProOptimizer.OptimizationLevel2 = 0;
-			BatchProOptimizer.OptimizationLevel3 = 0;
-			BatchProOptimizer.OptimizationLevel4 = 0;
-			BatchProOptimizer.OptimizationLevel5 = 0;
-
-			BatchProOptimizer.OptimizationLevelMode = 0;
-			BatchProOptimizer.OptimizeBordersMode = 1; --Protect Borders 
-			BatchProOptimizer.AutoRename = false;
-			BatchProOptimizer.DestFileNameMode = 1;
-			BatchProOptimizer.DestFolderMode = 2;
-			BatchProOptimizer.DestFolderName = ".\y3d_data"
-
-			BatchProOptimizer.batch();
-			-- MessageBox (oFileDir + "\\y3d_data\\" + oFileName + "90.max")
-			loadMaxFile (oFileDir + "\\y3d_data\\" + oFileName + "90.max") useFileUnits:true quiet:true
-			-- MessageBox "load xong"
-		),
-
-		fn new_project_from_file fname = 
-		(
-			MessageBox fname
-			resetMaxFile #noPrompt
-			mergeMaxFile fname #select #noRedraw #mergeDups #useMergedMtlDups #neverReparent quiet:true
-			local arrObjects = selection as array --
-			MessageBox (arrObjects.count as string)
-			for obj in arrObjects where obj.parent == undefined do
-				(
-					print obj.name
-				)
-		),
-
-		fn exportObjectToFBX filename exportFolder = 
-		(
-			if (exportFolder =="") then
-				exportFolder = maxFilePath
-			local filePath = exportFolder + filename
-			exportFile filePath #noPrompt selectedOnly:true 
-		),
-
 		fn makeLowPoly ratio = 
 		(	
 			tempPath = pathConfig.GetDir #temp
@@ -414,19 +234,8 @@ if yms_init != true then
 			-- val = DOSCommand(cmd)
 		),
 
-		fn object_test_mode oname intest=
-		(
-			if (intest) then
-			(
-				lowpoly =  execute ("$'"+oName + "'")
-			)else(
-
-			)
-		),
-
 		fn apply_normal tex_path oname  =
 		(
-			MessageBox tex_path
 			local currentRenderer = renderers.current as string
 			lowpoly =  execute ("$'"+oName + "'")
 			select lowpoly			
@@ -458,12 +267,22 @@ if yms_init != true then
 				bakedMaterial:mat viewportMtlIndex:1 renderMtlIndex:1
 			lowPoly.material = shellMat	
 			showTextureMap lowPoly.material lowPoly.material.bakedMaterial true		
+		),
+
+		fn test1 oname = 
+		(
+			MessageBox oname
+		),
+
+		fn bake_3dmax high_obj low_obj bitmap_out tile_size =
+		(
+			MessageBox high_obj
 		)
 
 	)
 
-	global yms = ymsClass()
+	global minh = minhClass()
 
-	print "yms has been loaded"
-	yms_init = true
+	print "minh has been loaded"
+	minh_init = true
 )

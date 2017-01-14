@@ -5,6 +5,11 @@
 #include "yservice.pb.h"
 #include "yservice.grpc.pb.h"
 #include "maxscript/maxscript.h"
+#include "IGame/IGame.h"
+#include "3dsmaxsdk_preinclude.h"
+//#include <mesh.h>
+
+
 #include "tbb/concurrent_queue.h"
 //#include <mutex>
 #include <condition_variable>
@@ -15,6 +20,8 @@
 #include "xml_format.h"
 #include <fstream>
 #include <google/protobuf/text_format.h>
+
+#include <vector>
 
 //#include<TCHAR.H> // Implicit or explicit include
 #ifdef __cplusplus
@@ -172,14 +179,18 @@ inline void getSelNodeTab(INodeTab& i_nodeTab) {
 	}
 }
 
+inline void ztest() {
+	IGameScene * gs = GetIGameInterface();
+}
+
 class YServiceImpl final : public Tools::Service {
 
 	Status MakeNode4Edit(ServerContext* context, const Make4TestParam* request,
 		ResultReply* reply) override
 	{
 		Invoke([request]() -> void {
-			INodeTab nRef;
-			GetSceneNodes(nRef, nullptr);
+			//INodeTab nRef;
+			//GetSceneNodes(nRef, nullptr);
 			auto* ip = GetCOREInterface();
 
 			auto oname = s2ws(request->oname());
@@ -260,12 +271,26 @@ class YServiceImpl final : public Tools::Service {
 	Status BakeNormal(ServerContext* context, const ENormal* enm, ResultReply* reply) override
 	{
 		//ENormal e = *enm;
-		if (enm->has_normal_xnormal()) {
-			Settings& s = (Settings&)enm->normal_xnormal();
-			createDefaultSettings(&s, enm->highpoly(), enm->lowpoly(), enm->out_tex());
-			setSize(s, enm->tex_size(), enm->tex_size());
-			bakeNormal(s);
-		}
+		//Invoke([enm]() -> void {
+		
+		Invoke([enm]() -> void {
+			if (enm->has_normal_xnormal()) {
+				Settings& s = (Settings&)enm->normal_xnormal();
+				createDefaultSettings(&s, enm->highpoly(), enm->lowpoly(), enm->out_tex());
+				setSize(s, enm->tex_size(), enm->tex_size());
+				bakeNormal(s);
+			}
+			else if (enm->has_normal_3dmax()) {
+				auto s = enm->normal_3dmax();
+				char buf[1000];
+				sprintf(buf, "minh.bake_3dmax \"%s\" \"%s\" \"%s\" %d", enm->highpoly().c_str(), enm->lowpoly().c_str(), enm->out_tex().c_str(), enm->tex_size());
+				auto cmd = s2ws(buf);
+				//mprintf(L"zzz is me");
+				//ExecuteMAXScriptScript(L"minh.test1 \"aaa \"");
+				ExecuteMAXScriptScript(cmd.c_str());
+				////ExecuteMAXScriptScript(cmd.c_str());
+			}
+		});
 		//a.has_normal_xnormal
 		return Status::OK;
 	}
@@ -282,6 +307,80 @@ class YServiceImpl final : public Tools::Service {
 			//mprintf(L"Command is %s\n",cmd.c_str());
 			ExecuteMAXScriptScript(cmd.c_str());
 		});
+		return Status::OK;
+	}
+
+	Status GetObjectFromMax(ServerContext* context, const EmptyParam* ep, YAreaList* yal) override
+	{
+		IGameScene * gs = GetIGameInterface();
+
+		Invoke([ep,yal]() -> void {
+			auto ya = yal->add_areas();
+			ya->set_name("Area 1");
+			INodeTab nRef;
+			GetSceneNodes(nRef, nullptr);
+			auto* ip = GetCOREInterface();
+			for (int i = 0; i < nRef.Count(); ++i) {
+				auto* node = nRef[i];
+				MSTR nodeName(node->GetName());
+				auto yo = ya->add_objs();
+				yo->set_name(nodeName.ToCStr());
+
+				//MSTR tmp(nodeName);
+				//tmp.toLower();
+				//if (mnames.find(tmp) == mnames.end()) {
+				//	mnames[tmp]++;
+				//}
+				//else if (mnames[tmp]++ > 0) {
+				//	mprintf(L"Renaming %s ", nodeName);
+				//	nameMaker->MakeUniqueName(nodeName);
+				//	node->SetName(nodeName.data());
+				//	tmp = nodeName;
+				//	tmp.toLower();
+				//	mnames[tmp]++;
+				//	mprintf(L"to %s \n", nodeName);
+				//};
+			}
+		});
+	//	Invoke([ep, yal]() -> void {
+	//		IGameScene * gs = GetIGameInterface();
+	//		//IGameScene* gs = GetIGameInterface();
+	//		gs->InitialiseIGame(false);
+	//		auto allMesh = gs->GetIGameNodeByType(IGameObject::ObjectTypes::IGAME_MESH);
+	//		auto ya = yal->add_areas();
+	//		//YArea *ya;
+	//		ya->set_name("Area 1");
+	//		//int cc = allMesh.Count();
+	///*		auto yob = new YObject[cc];
+	//		auto yob = ya->objs()*/
+
+	//		for (int i = 0; i < allMesh.Count(); i++)
+	//		{
+	//			auto m = allMesh[i]->GetIGameObject();
+	//			//GlobalInterface.Instance.IGameMesh.Marshal(obj.NativePointer);
+	//			IGameMesh *mm = static_cast<IGameMesh*>(m);
+
+
+	//			//IGameObject *Object = Node->GetIGameObject();
+
+	//			//IGameMesh *Mesh = (IGameMesh*)Object;
+
+
+	//		/*	YObject *yo;
+	//			yo->set_otype(y3d::ObjectType::GEOMETRY);*/
+	//			auto yo = ya->add_objs();
+	//			yo->set_otype(y3d::ObjectType::GEOMETRY);
+	//			char* oname = (char*)allMesh[i]->GetName();
+	//			yo->set_name(oname);
+	//			YMesh ym;
+	//			ym.set_num_faces(mm->GetNumberOfFaces());
+	//			yo->set_allocated_mesh(&ym);
+	//			//yo->set_name(oname);
+	//	/*		YMesh *ym;
+	//			ym->set_num_faces(mm->GetNumberOfFaces());
+	//			yo->set_allocated_mesh(ym);*/
+	//		}
+	//	});
 		return Status::OK;
 	}
 };

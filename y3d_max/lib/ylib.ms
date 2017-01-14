@@ -148,7 +148,9 @@ if yInit != true then
 	yInit = true
 
 	yms_init = false
+	minh_init = false
 	yInclude "yms\lib\\yms.ms"
+	yInclude "newm\lib\\minh.ms"
 
 	-- r2_init = false
 	-- yInclude "r2\lib\\r2.ms"

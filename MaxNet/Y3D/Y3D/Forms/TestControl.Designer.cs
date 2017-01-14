@@ -31,6 +31,7 @@
             this.btnTest1 = new System.Windows.Forms.Button();
             this.btnTest2 = new System.Windows.Forms.Button();
             this.btnTest3 = new System.Windows.Forms.Button();
+            this.btnTestBake3D = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnTest1
@@ -63,10 +64,21 @@
             this.btnTest3.UseVisualStyleBackColor = true;
             this.btnTest3.Click += new System.EventHandler(this.btnTest3_Click);
             // 
+            // btnTestBake3D
+            // 
+            this.btnTestBake3D.Location = new System.Drawing.Point(58, 4);
+            this.btnTestBake3D.Name = "btnTestBake3D";
+            this.btnTestBake3D.Size = new System.Drawing.Size(104, 23);
+            this.btnTestBake3D.TabIndex = 3;
+            this.btnTestBake3D.Text = "Test Bake 3D";
+            this.btnTestBake3D.UseVisualStyleBackColor = true;
+            this.btnTestBake3D.Click += new System.EventHandler(this.btnTestBake3D_Click);
+            // 
             // TestControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnTestBake3D);
             this.Controls.Add(this.btnTest3);
             this.Controls.Add(this.btnTest2);
             this.Controls.Add(this.btnTest1);
@@ -81,5 +93,6 @@
         private System.Windows.Forms.Button btnTest1;
         private System.Windows.Forms.Button btnTest2;
         private System.Windows.Forms.Button btnTest3;
+        private System.Windows.Forms.Button btnTestBake3D;
     }
 }

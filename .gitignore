@@ -34,3 +34,4 @@ y3d/y3d/Models/**
 y3d/Service/*.pb.*
 y3d/Service/*.grpc.pb.*
 MaxNet/Y3D/Y3D.Entities/*.cs
+y3d_max/hiddencmdout.tmp

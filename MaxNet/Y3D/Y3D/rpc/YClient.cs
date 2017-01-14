@@ -87,5 +87,13 @@ namespace Y3D.rpc
             //m4.Oname = "Box001";
             //var reply = CClient.MakeNode4Edit(m4);
         }
+
+        public static void test_bake()
+        {
+            ENormal en = new ENormal();
+            Normal3DMax n3d = new Normal3DMax();
+            en.Normal3Dmax = n3d;
+            var reply = CClient.BakeNormal(en);
+        }
     }
 }
