@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Grpc.Core;
 using y3d.e;
 using y3d.s;
 using System.Windows.Forms;
-using System.Threading;
 using System.Windows.Threading;
 using System.Diagnostics;
 
@@ -64,10 +60,22 @@ namespace YMaxServer.rpc
         ////    }
         ////}
 
-        public void Invoke(Action a)
+        public static void Invoke(Action a)
         {
             dispatcher = Dispatcher.CurrentDispatcher;
             if (dispatcher != null) dispatcher.Invoke(a);
+        }
+
+        public static DispatcherOperation InvokeAsync(Action a)
+        {
+            dispatcher = Dispatcher.CurrentDispatcher;
+            return dispatcher.InvokeAsync(a);
+        }
+
+        public static DispatcherOperation<TResult> InvokeAsync<TResult>(Func<TResult> a)
+        {
+            dispatcher = Dispatcher.CurrentDispatcher;
+            return dispatcher.InvokeAsync<TResult>(a);
         }
 
         //This function is used to execute thread which require STA
