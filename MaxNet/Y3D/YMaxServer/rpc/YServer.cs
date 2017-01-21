@@ -13,15 +13,6 @@ using System.Diagnostics;
 
 namespace YMaxServer.rpc
 {
-    class YActionImpl : YAction.YActionBase
-    {
-        public override Task<ResponseEvent> DoUnwrap(EUnwrap request, ServerCallContext context)
-        {
-            return base.DoUnwrap(request, context);
-        }
-    }
-
-
     public class ResultFunc<R>
     {
         public R result;        
@@ -219,7 +210,7 @@ namespace YMaxServer.rpc
         {
             server = new Server
             {
-                Services = { YAction.BindService(new YActionImpl()), y3d.s.Tools.BindService(new YToolImpl()) },
+                Services = { y3d.s.Tools.BindService(new YToolImpl()) },
                 Ports = { new ServerPort("localhost", Port, ServerCredentials.Insecure) }
             };
             server.Start();

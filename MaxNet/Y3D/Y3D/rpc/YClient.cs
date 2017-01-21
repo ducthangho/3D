@@ -13,6 +13,8 @@ namespace Y3D.rpc
 {
     class YClient
     {
+
+
         public static Channel CChannel = new Channel("127.0.0.1:50051", ChannelCredentials.Insecure);
         public static Channel CSChannel = new Channel("127.0.0.1:1983", ChannelCredentials.Insecure);
         public static y3d.s.Tools.ToolsClient CClient = new y3d.s.Tools.ToolsClient(CChannel);
@@ -22,6 +24,7 @@ namespace Y3D.rpc
         {
             //CChannel = new Channel("127.0.0.1:50051", ChannelCredentials.Insecure);
             CSChannel = new Channel("127.0.0.1:1983", ChannelCredentials.Insecure);
+            //if (CChannel.WaitForStateChangedAsync(ChannelState.))
             //CClient = new y3d.s.Tools.ToolsClient(CChannel);
             CSClient = new y3d.s.Tools.ToolsClient(CSChannel);
         }
@@ -71,9 +74,13 @@ namespace Y3D.rpc
 
         public static void test2()
         {
-            TestParam tp = new TestParam();
-            tp.TestName = "t2";
-            var ret = CSClient.TestTestAsync(tp);
+            //TestParam tp = new TestParam();
+            //tp.TestName = "t2";
+            //var ret = CSClient.TestTestAsync(tp);
+
+            RenameParam r = new RenameParam();
+            var ret = CSClient.RenameObject(r);
+
             //Make4TestParam m4 = new Make4TestParam();
             //m4.Oname = "Box001";
             //var reply = CClient.MakeNode4Edit(m4);
@@ -83,8 +90,9 @@ namespace Y3D.rpc
         {
             EmptyParam ep = new EmptyParam();
             var ret = CClient.GetObjectFromMax(ep);
+            MessageBox.Show(ret.Areas[0].Name);
             //Make4TestParam m4 = new Make4TestParam();
-            //m4.Oname = "Box001";
+             //m4.Oname = "Box001";
             //var reply = CClient.MakeNode4Edit(m4);
         }
 
@@ -95,5 +103,62 @@ namespace Y3D.rpc
             en.Normal3Dmax = n3d;
             var reply = CClient.BakeNormal(en);
         }
+
+        //public static async Task DoYEvent(YEvent ye)
+        //{
+        //    try
+        //    {
+        //        using (var call = CClient.DoAction())
+        //        {
+        //            var responseReaderTask = Task.Run(async () =>
+        //            {
+        //                while (await call.ResponseStream.MoveNext())
+        //                {
+        //                    var cye = call.ResponseStream.Current;
+        //                    MessageBox.Show(cye.Select.Name);
+        //                }
+        //            });
+
+        //            await call.RequestStream.WriteAsync(ye);
+        //        }
+        //    }
+        //    catch (RpcException e)
+        //    {
+        //        throw;
+        //    }
+        //}
+
+
+        public static async Task DoClientYEvent(YEvent ye)
+        {
+            try
+            {
+                using (var call = CClient.DoStreamClient())
+                {
+                    await call.RequestStream.WriteAsync(ye);
+                    //await call.RequestStream.CompleteAsync();
+                }
+            }
+            catch (RpcException e)
+            {
+                throw;
+            }
+        }
+
+        public static ResponseNProject NewProject()
+        {
+            var openFileProject = new System.Windows.Forms.OpenFileDialog();
+            DialogResult result = openFileProject.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                BatchOptimizeParam bp = new BatchOptimizeParam();
+                NewProjectParam np = new NewProjectParam();
+                np.Folder = System.IO.Path.GetDirectoryName(openFileProject.FileName);
+                np.Fname = System.IO.Path.GetFileNameWithoutExtension(openFileProject.FileName);
+                return CClient.NewProject(np);
+            }
+            return null;
+        }
+
     }
 }

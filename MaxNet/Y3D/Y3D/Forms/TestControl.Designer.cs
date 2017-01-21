@@ -83,7 +83,7 @@
             this.Controls.Add(this.btnTest2);
             this.Controls.Add(this.btnTest1);
             this.Name = "TestControl";
-            this.Size = new System.Drawing.Size(569, 413);
+            this.Size = new System.Drawing.Size(560, 550);
             this.ResumeLayout(false);
 
         }

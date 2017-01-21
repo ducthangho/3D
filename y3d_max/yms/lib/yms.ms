@@ -280,12 +280,12 @@ if yms_init != true then
 					append oNames ss.name
 				)
 			objXRefMgr.dupObjNameAction  = #deleteOld
-			xref_b = objXRefMgr.AddXRefItemsFromFile (oFileDir +"\\y3d_data\\"+ oFileName + "_low0.max") objNames:oNames
+			xref_b = objXRefMgr.AddXRefItemsFromFile (oFileDir +"\\"+oFileName+"_y3d\\"+ oFileName + "_low0.max") objNames:oNames
 			items = #()
 			xref_b.GetItems #XRefObjectType &items
 			for item in items do 
 				(
-					objXRefMgr.SetProxyItemSrcFile item (oFileDir +"\\y3d_data\\"+ oFileName + "_high.max")
+					objXRefMgr.SetProxyItemSrcFile item (oFileDir +"\\"+oFileName+"_y3d\\"+ oFileName + "_high.max")
 					item.proxyItemName = item.objectName
 				)		
 			-- delete not HL
@@ -369,11 +369,9 @@ if yms_init != true then
 			BatchProOptimizer.AutoRename = false;
 			BatchProOptimizer.DestFileNameMode = 1;
 			BatchProOptimizer.DestFolderMode = 2;
-			BatchProOptimizer.DestFolderName = ".\y3d_data"
-
+			BatchProOptimizer.DestFolderName = ".\\"+oFileName+"_y3d";
 			BatchProOptimizer.batch();
-			-- MessageBox (oFileDir + "\\y3d_data\\" + oFileName + "90.max")
-			loadMaxFile (oFileDir + "\\y3d_data\\" + oFileName + "90.max") useFileUnits:true quiet:true
+			loadMaxFile (oFileDir + "\\"+oFileName+"_y3d\\" + oFileName + "90.max") useFileUnits:true quiet:true
 			-- MessageBox "load xong"
 		),
 
