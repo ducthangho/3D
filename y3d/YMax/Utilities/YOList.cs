@@ -484,7 +484,7 @@ namespace YMax.Utilities
             nt4[0].Name = n.Name + "_cage";
         }
 
-        public static void testExport(Object x)
+        public static async void testExport(Object x)
         {
             if (x is YObject)
             {
@@ -513,6 +513,7 @@ namespace YMax.Utilities
 
                 var result = rpc.YClient.CClient.BakeNormalAsync(enm);
                 //result.ResponseAsync()
+                await result;
                 ManagedServices.MaxscriptSDK.ExecuteMaxscriptCommand("yms.apply_normal \"" + ofolder + "_normals.png\" \"" + y.Name + "\"");
                     //ManagedServices.MaxscriptSDK.ExecuteMaxscriptCommand("minh.test1 \"azz\"");
                 //})).Start();
