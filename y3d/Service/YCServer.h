@@ -106,7 +106,7 @@ class YServiceImpl final : public Tools::Service {
 			else if (enm->has_normal_3dmax()) {
 				auto s = enm->normal_3dmax();
 				char buf[1000];
-				sprintf(buf, "minh.bake_3dmax \"%s\" \"%s\" \"%s\" %d", enm->highpoly().c_str(), enm->lowpoly().c_str(), enm->out_tex().c_str(), enm->tex_size());
+				std::sprintf(buf, "minh.bake_3dmax \"%s\" \"%s\" \"%s\" %d", enm->highpoly().c_str(), enm->lowpoly().c_str(), enm->out_tex().c_str(), enm->tex_size());
 				auto cmd = s2ws(buf);
 				//mprintf(L"zzz is me");
 				//ExecuteMAXScriptScript(L"minh.test1 \"aaa \"");
@@ -123,8 +123,8 @@ class YServiceImpl final : public Tools::Service {
 		Invoke([bp]() -> void {
 			std::string tmp = "yms.pre_optimize";
 			char buf[1000];
-			sprintf(buf, "%s \"%s\" \"%s\"", tmp.c_str(), bp->folder().c_str(), bp->filename().c_str());
-			auto cmd = s2ws(buf);
+			std::sprintf(buf, "%s \"%s\" \"%s\"", tmp.c_str(), bp->folder().c_str(), bp->filename().c_str());
+			auto cmd = s2ws(buf);			
 			//bp->folder.a
 			//ExecuteMAXScriptScript(L"yms.pre_optimize 'a' 'b'");
 			//mprintf(L"Command is %s\n",cmd.c_str());

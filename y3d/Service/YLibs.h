@@ -43,6 +43,10 @@
 
 #include "ISceneEventManager.h"
 
+
+//#define FMT_HEADER_ONLY
+#include "fmt/format.h"
+
 using grpc::Status;
 using grpc::Server;
 using grpc::ServerBuilder;
@@ -52,7 +56,9 @@ using namespace y3d;
 //using namespace y3d::yservices::
 using namespace xnormal;
 using namespace std;
+using namespace fmt;
 
+#define YCDEBUG 1
 
 //#include <stdio.h>
 //#using <System.dll>
@@ -112,6 +118,7 @@ inline void time(Time& t, int type) {
 
 YSystem YSys;
 
+
 std::vector<YEvent> received_e;
 //YEvent current_e;
 
@@ -141,6 +148,77 @@ inline std::string ws2s(const std::wstring& wstr)
 	return strTo;
 }
 
+inline void log(std::string& str) {
+#ifdef YCDEBUG 
+	std::wstring wstr = s2ws(str);
+	mprintf(wstr.c_str());
+#else
+#endif
+}
+
+inline void log(std::wstring& str) {
+#ifdef YCDEBUG 	
+	mprintf(str.c_str());
+#else
+#endif
+}
+
+
+template <typename... Args>
+inline void log(std::string& format_str, const Args & ... args) {
+#ifdef YCDEBUG 	
+	fmt::MemoryWriter w;
+	w.write(format_str, args);
+	std::wstring wstr = s2ws(w.c_str()); // returns a C string (const char*)
+	mprintf(wstr.c_str());
+#else
+#endif
+}
+
+template <typename... Args>
+inline void log(char* format_str, const Args & ... args) {
+#ifdef YCDEBUG 	
+	fmt::MemoryWriter w;
+	w.write(format_str, args);
+	std::wstring wstr = s2ws(w.c_str()); // returns a C string (const char*)
+	mprintf(wstr.c_str());
+#else
+#endif
+}
+
+template <typename... Args>
+inline void log(std::wstring& format_str, const Args & ... args) {
+#ifdef YCDEBUG 	
+	fmt::MemoryWriter w;
+	w.write(format_str, args);
+	mprintf(w.c_str());
+#else
+#endif
+}
+
+template <typename... Args>
+inline void log(wchar_t* format_str, const Args & ... args) {
+#ifdef YCDEBUG 	
+	fmt::MemoryWriter w;
+	w.write(format_str, args);
+	mprintf(w.c_str());
+#else
+#endif
+}
+
+
+template <typename... Args>
+inline std::wstring formatWS(StringRef format_str, const Args & ... args) {
+	std::string s = fmt::format(format, args);
+	return s2ws(s);
+}
+
+template <typename... Args>
+inline std::wstring sprintfws(StringRef format_str, const Args & ... args) {
+	std::wstring s;
+	fmt::format(s, 1, 2, 3);
+	return s2ws(s);
+}
 
 
 bool is_file_exist(const char *fileName)
@@ -529,7 +607,7 @@ inline void ObjectFromMax(YAreaList* yal) {
 inline void NewYProject(const NewProjectParam* pp, ResponseNProject* rnp) {
 	std::string tmp = "yms.pre_optimize";
 	char buf[1000];
-	sprintf(buf, "%s \"%s\" \"%s\"", tmp.c_str(), pp->folder().c_str(), pp->fname().c_str());
+	std::sprintf(buf, "%s \"%s\" \"%s\"", tmp.c_str(), pp->folder().c_str(), pp->fname().c_str());
 	auto cmd = s2ws(buf);
 	ExecuteMAXScriptScript(cmd.c_str());
 		
