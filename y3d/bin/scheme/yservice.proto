@@ -25,12 +25,7 @@ service Tools {
   rpc BatchOptimize(BatchOptimizeParam) returns (ResultReply) {}
   rpc TestTest(TestParam) returns (ResultReply) {}
   rpc GetObjectFromMax(EmptyParam) returns (YAreaList) {}
-<<<<<<< HEAD
   rpc CloneObject(EmptyParam) returns (ResultReply) {}
-}
-=======
->>>>>>> d2aef5328ac6a06234965e2b8891c214a70e456c
-
   rpc DoStreamClient(stream YEvent) returns (ResponseEvent);
   rpc DoStreamServer(EmptyParam) returns (stream YEvent);
   rpc DoAction(stream YEvent) returns (stream YEvent);
