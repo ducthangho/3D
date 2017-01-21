@@ -51,5 +51,10 @@ namespace YMax.Forms
             //    ManagedServices.MaxscriptSDK.ExecuteMaxscriptCommand("yms.new_project_from_file \""+file+"\"");
             //}
         }
+
+        private void olvProjects_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

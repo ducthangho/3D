@@ -56,13 +56,13 @@
             this.button1 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnUnwrap = new System.Windows.Forms.Button();
             this.btnExport = new System.Windows.Forms.Button();
             this.btnThumbnail = new System.Windows.Forms.Button();
             this.btnVer = new System.Windows.Forms.Button();
             this.btnBakeNormal = new System.Windows.Forms.Button();
             this.btnLow = new System.Windows.Forms.Button();
             this.btnXref = new System.Windows.Forms.Button();
-            this.btnUnwrap = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.yoFastListView)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -89,7 +89,7 @@
             this.yoFastListView.Margin = new System.Windows.Forms.Padding(2);
             this.yoFastListView.Name = "yoFastListView";
             this.yoFastListView.ShowGroups = false;
-            this.yoFastListView.Size = new System.Drawing.Size(334, 326);
+            this.yoFastListView.Size = new System.Drawing.Size(480, 326);
             this.yoFastListView.SmallImageList = this.otypeImageList;
             this.yoFastListView.TabIndex = 1;
             this.yoFastListView.UseCellFormatEvents = true;
@@ -159,7 +159,7 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(332, 41);
+            this.groupBox1.Size = new System.Drawing.Size(479, 41);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Setting";
@@ -200,7 +200,7 @@
             this.toolStripDropDownButton2});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(338, 27);
+            this.toolStrip1.Size = new System.Drawing.Size(494, 27);
             this.toolStrip1.TabIndex = 4;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -277,7 +277,7 @@
             this.groupBoxWithSel.Controls.Add(this.button2);
             this.groupBoxWithSel.Controls.Add(this.button1);
             this.groupBoxWithSel.Controls.Add(this.comboBox1);
-            this.groupBoxWithSel.Location = new System.Drawing.Point(167, 401);
+            this.groupBoxWithSel.Location = new System.Drawing.Point(314, 399);
             this.groupBoxWithSel.Margin = new System.Windows.Forms.Padding(2);
             this.groupBoxWithSel.Name = "groupBoxWithSel";
             this.groupBoxWithSel.Padding = new System.Windows.Forms.Padding(2);
@@ -348,18 +348,29 @@
             this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox2.Size = new System.Drawing.Size(160, 96);
+            this.groupBox2.Size = new System.Drawing.Size(307, 96);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Object Detail";
             // 
+            // btnUnwrap
+            // 
+            this.btnUnwrap.Location = new System.Drawing.Point(5, 68);
+            this.btnUnwrap.Name = "btnUnwrap";
+            this.btnUnwrap.Size = new System.Drawing.Size(70, 23);
+            this.btnUnwrap.TabIndex = 7;
+            this.btnUnwrap.Text = "Unwrap";
+            this.btnUnwrap.UseVisualStyleBackColor = true;
+            this.btnUnwrap.Click += new System.EventHandler(this.btnUnwrap_Click);
+            // 
             // btnExport
             // 
+            this.btnExport.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExport.Location = new System.Drawing.Point(81, 68);
             this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(73, 23);
-            this.btnExport.TabIndex = 6;
-            this.btnExport.Text = "Export OBJ";
+            this.btnExport.Size = new System.Drawing.Size(110, 23);
+            this.btnExport.TabIndex = 8;
+            this.btnExport.Text = "Test XNormal\r\n";
             this.btnExport.UseVisualStyleBackColor = true;
             this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
@@ -368,7 +379,7 @@
             this.btnThumbnail.Location = new System.Drawing.Point(81, 43);
             this.btnThumbnail.Margin = new System.Windows.Forms.Padding(2);
             this.btnThumbnail.Name = "btnThumbnail";
-            this.btnThumbnail.Size = new System.Drawing.Size(73, 20);
+            this.btnThumbnail.Size = new System.Drawing.Size(110, 20);
             this.btnThumbnail.TabIndex = 5;
             this.btnThumbnail.Text = "Thumbnail";
             this.btnThumbnail.UseVisualStyleBackColor = true;
@@ -415,16 +426,6 @@
             this.btnXref.UseVisualStyleBackColor = true;
             this.btnXref.Click += new System.EventHandler(this.btnXref_Click);
             // 
-            // btnUnwrap
-            // 
-            this.btnUnwrap.Location = new System.Drawing.Point(5, 68);
-            this.btnUnwrap.Name = "btnUnwrap";
-            this.btnUnwrap.Size = new System.Drawing.Size(70, 23);
-            this.btnUnwrap.TabIndex = 7;
-            this.btnUnwrap.Text = "Unwrap";
-            this.btnUnwrap.UseVisualStyleBackColor = true;
-            this.btnUnwrap.Click += new System.EventHandler(this.btnUnwrap_Click);
-            // 
             // OListControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -436,7 +437,7 @@
             this.Controls.Add(this.groupBox1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "OListControl";
-            this.Size = new System.Drawing.Size(338, 499);
+            this.Size = new System.Drawing.Size(494, 499);
             ((System.ComponentModel.ISupportInitialize)(this.yoFastListView)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

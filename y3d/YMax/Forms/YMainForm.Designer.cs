@@ -52,7 +52,7 @@
             // btnNewProject
             // 
             this.btnNewProject.Location = new System.Drawing.Point(330, 12);
-            this.btnNewProject.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnNewProject.Margin = new System.Windows.Forms.Padding(2);
             this.btnNewProject.Name = "btnNewProject";
             this.btnNewProject.Size = new System.Drawing.Size(88, 24);
             this.btnNewProject.TabIndex = 0;
@@ -89,6 +89,7 @@
             this.olvProjects.TabIndex = 3;
             this.olvProjects.UseCompatibleStateImageBehavior = false;
             this.olvProjects.View = System.Windows.Forms.View.Details;
+            this.olvProjects.SelectedIndexChanged += new System.EventHandler(this.olvProjects_SelectedIndexChanged);
             // 
             // olvPName
             // 
@@ -109,7 +110,7 @@
             this.Controls.Add(this.btnLoadProject);
             this.Controls.Add(this.btnNewProject);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "YMainForm";
             this.Text = "YMainForm";
             this.Activated += new System.EventHandler(this.YMainForm_Activated);

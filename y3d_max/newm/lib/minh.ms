@@ -239,6 +239,11 @@ if minh_init != true then
 			local currentRenderer = renderers.current as string
 			lowpoly =  execute ("$'"+oName + "'")
 			select lowpoly			
+
+			IsolateSelection.EnterIsolateSelectionMode()
+
+			print ("goi ham nay pls")
+
 			
 			local bitmap =bitmaptexture filename:tex_path
 

@@ -6,4 +6,5 @@ Icon:#("cws",1)
 	Include "$userScripts\y3d\lib\ylib.ms"
 	yInclude "newm\scripts\ExportImportFBXToFromBlender.ms"
 	yInclude "newm\scripts\ui.ms"
+	yInclude "newm\lib\minh.ms"
 )

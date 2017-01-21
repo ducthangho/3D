@@ -25,6 +25,7 @@ service Tools {
   rpc BatchOptimize(BatchOptimizeParam) returns (ResultReply) {}
   rpc TestTest(TestParam) returns (ResultReply) {}
   rpc GetObjectFromMax(EmptyParam) returns (YAreaList) {}
+  rpc CloneObject(EmptyParam) returns (ResultReply) {}
 }
 
 service YAction {

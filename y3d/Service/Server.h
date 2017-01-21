@@ -58,7 +58,6 @@ typedef struct {
 } FunctionTask;
 static tbb::concurrent_queue< FunctionTask > fn_q;
 
-
 inline std::wstring s2ws(const std::string& str)
 {
 	int size_needed = MultiByteToWideChar(CP_UTF8, 0, &str[0], (int)str.size(), NULL, 0);
@@ -381,6 +380,16 @@ class YServiceImpl final : public Tools::Service {
 	//			yo->set_allocated_mesh(ym);*/
 	//		}
 	//	});
+		return Status::OK;
+	}
+
+	Status CloneObject(::grpc::ServerContext* context, const ::y3d::EmptyParam* request, ::y3d::ResultReply* response) override
+	{
+		int x = 234;
+		Invoke([x]() {
+			mprintf(L"Hello world %d\n",x);
+		});
+		response->set_message("ABCD");
 		return Status::OK;
 	}
 };

@@ -429,7 +429,9 @@ if yms_init != true then
 			MessageBox tex_path
 			local currentRenderer = renderers.current as string
 			lowpoly =  execute ("$'"+oName + "'")
-			select lowpoly			
+			select lowpoly		
+
+			IsolateSelection.EnterIsolateSelectionMode()
 			
 			local bitmap =bitmaptexture filename:tex_path
 
@@ -456,6 +458,21 @@ if yms_init != true then
 
 			local shellMat = Shell_Material originalMaterial:lowPoly.material\
 				bakedMaterial:mat viewportMtlIndex:1 renderMtlIndex:1
+
+			local lowPolyOriginalName = "lowPoly_original"
+			copy lowPoly name:lowPolyOriginalName
+			local lowPolyOriginal = getNodeByName lowPolyOriginalName exact:true all:false ignoreCase:false
+
+			local maxBBx = lowPoly.max.x
+			local minBBx = lowPoly.min.x
+			local gap = 3
+			local perimeter = maxBBx - minBBx
+
+			print ("name" + lowPolyOriginal.name)
+			print (perimeter as string)
+			lowPolyOriginal.pos.x += 40
+
+
 			lowPoly.material = shellMat	
 			showTextureMap lowPoly.material lowPoly.material.bakedMaterial true		
 		)

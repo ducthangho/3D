@@ -19,6 +19,8 @@ Icon:#("cws",3)
 
 			on btnRunScript pressed  do
 				(
+
+					print "verIndex"
 					reset_script verIndex
 				)	
 		)

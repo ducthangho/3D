@@ -60,10 +60,10 @@ namespace YMax.rpc
             (new Thread(() => {
                 Channel channel = new Channel("127.0.0.1:50051", ChannelCredentials.Insecure);
                 var client = new y3d.s.Tools.ToolsClient(channel);
-                RenameParam a = new RenameParam();
-                a.UseSelect = false;
+                //RenameParam a = new RenameParam();
+                //a.UseSelect = false;
                 //var reply = client.SayHello(new HelloRequest { Name = "zun" });
-                var reply = client.RenameObject(a);
+                var reply = client.CloneObject(new EmptyParam());
 
                 MessageBox.Show("Ket qua: " + reply.Message);
                 channel.ShutdownAsync().Wait();
