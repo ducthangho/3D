@@ -20,6 +20,8 @@ namespace YTest.rpc
         {
                 RenameParam a = new RenameParam();
                 a.UseSelect = false;
+
+                
                 var reply = YTools.RenameObject(a);
                 MessageBox.Show("Ket qua: " + reply.Message);
                 //channel.ShutdownAsync().Wait();
@@ -29,8 +31,8 @@ namespace YTest.rpc
         {
             StringParam s = new StringParam();
             s.Str = "My Project 1";
-            var reply = YTools.NewProject(s);
-            MessageBox.Show(reply.Path);
+            var reply = YTools.NewProject(new NewProjectParam());
+            MessageBox.Show(reply.PInfo.Path);
         }
     }
 }
