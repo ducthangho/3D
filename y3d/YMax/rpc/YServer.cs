@@ -19,32 +19,12 @@ namespace YMax.rpc
         }
     }
 
-    class YActionImpl : YAction.YActionBase
-    {
-        public override async Task<ResponseEvent> DoAction(IAsyncStreamReader<Event> requestStream, ServerCallContext context)
-        {
-            while (await requestStream.MoveNext())
-            {
-                var ev =  requestStream.Current;
-                if (ev.Select!=null)
-                {
-                    MessageBox.Show(ev.Select.Name);
-                } else if (ev.Move!=null)
-                {
-                    MessageBox.Show("sac");
-                }
-            }
-            return new ResponseEvent();
-            //return base.DoAction(requestStream, context);
-        }
-    }
-
     class YToolImpl: y3d.s.Tools.ToolsBase
     {
-        public override Task<ProjectInfo> NewProject(StringParam request, ServerCallContext context)
-        {
-            return base.NewProject(request, context);
-        }
+        //public override Task<ProjectInfo> NewProject(NewProjectParam request, ServerCallContext context)
+        //{
+        //    return base.NewProject(request, context);
+        //}
 
         public override Task<ProjectInfo> LoadProject(StringParam request, ServerCallContext context)
         {
@@ -62,7 +42,7 @@ namespace YMax.rpc
             server = new Server
             {
                 //Services = { Greeter.BindService(new GreeterImpl()), YAction.BindService(new YActionImpl()) },
-                Services = { YAction.BindService(new YActionImpl()), y3d.s.Tools.BindService(new YToolImpl()) },
+                Services = { y3d.s.Tools.BindService(new YToolImpl()) },
                 Ports = { new ServerPort("localhost", Port, ServerCredentials.Insecure) }
             };
             server.Start();

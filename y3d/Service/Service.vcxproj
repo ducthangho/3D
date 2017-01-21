@@ -20,8 +20,12 @@
     <ProjectGuid>{F0CB059E-CC44-49C0-9E93-FCBEF4E099D0}</ProjectGuid>
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <MaxSDK>C:\Program Files\Autodesk\3ds Max 2017 SDK\maxsdk</MaxSDK>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <CLRSupport>false</CLRSupport>
+  </PropertyGroup>
   <Import Project="$(MaxSDK)\ProjectSettings\PropertySheets\3dsmax.general.project.settings.props" />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="PropertySheets">
@@ -603,13 +607,14 @@
     <ClInclude Include="grpc\third_party\nanopb\pb_common.h" />
     <ClInclude Include="grpc\third_party\nanopb\pb_decode.h" />
     <ClInclude Include="grpc\third_party\nanopb\pb_encode.h" />
-    <ClInclude Include="Server.h" />
+    <ClInclude Include="YCServer.h" />
     <ClInclude Include="Service.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="xml_format.h" />
     <ClInclude Include="xnormal.pb.h" />
     <ClInclude Include="xNormalSettings.h" />
     <ClInclude Include="y3d.pb.h" />
+    <ClInclude Include="YLibs.h" />
     <ClInclude Include="ymax.grpc.pb.h" />
     <ClInclude Include="ymax.pb.h" />
     <ClInclude Include="yservice.grpc.pb.h" />

@@ -828,9 +828,6 @@
     <ClInclude Include="resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Server.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="grpc\src\core\ext\client_channel\client_channel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -1435,6 +1432,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="xNormalSettings.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="YCServer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="YLibs.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

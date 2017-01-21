@@ -192,13 +192,14 @@ message YAreaList {
   repeated YArea areas=1;
 }
 
-message Event {
+message YEvent {
   oneof event {
     ENone noevent = 1;
     ESelect select = 2;
     EMove move = 3;
     ERotate rotate = 4;
     EDelete del = 5;
+    ESelectMany select_many=6;
   }
 }
 
@@ -206,6 +207,11 @@ message ENone {}
 
 message ESelect {
   string name = 1;
+  bool isolate = 2;
+}
+
+message ESelectMany {
+  repeated string name = 1;
   bool isolate = 2;
 }
 
@@ -259,6 +265,15 @@ message TestParam {
   google.protobuf.Any anything=2;
 }
 
+message NewProjectParam {
+  string fname=1;
+  string folder=2;
+}
+
+message ResponseNProject {
+  ProjectInfo pInfo=1;
+  YAreaList yal=2;
+}
 // Unwrap
 message EUnwrap {
   string oname =1;

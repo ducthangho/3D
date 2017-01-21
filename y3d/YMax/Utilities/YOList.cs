@@ -56,7 +56,7 @@ namespace YMax.Utilities
             {
                 foreach (var o in ya.Objs)
                 {
-                    Loader.Global.TheListener.EditStream.Printf(o.Name + "\n", null);
+                    //Loader.Global.TheListener.EditStream.Printf(o.Name + "\n", null);
                     if (o.Name == oName)
                     {
                         return ya;
@@ -267,7 +267,7 @@ namespace YMax.Utilities
             //    MessageBox.Show(e.Message);
             //    //throw;
             //}
-            Loader.Core.FileSaveNodes(node_to_xref, Path.Combine(YProject.oFileDir + Path.DirectorySeparatorChar + "y3d_data", YProject.oFileName + "_low0.max"));
+            Loader.Core.FileSaveNodes(node_to_xref, Path.Combine(YProject.oFileDir + Path.DirectorySeparatorChar + YProject.oFileName + "_y3d", YProject.oFileName + "_low0.max"));
             //Loader.Core.SelectNodeTab(node_to_xref, true, true);
             //Loader.Global.IObjXRefManager8.Instance.DupObjNameAction = 3;
             //Autodesk.Max.MaxSDK.AssetManagement.AssetUser a;
@@ -288,7 +288,7 @@ namespace YMax.Utilities
             Loader.Core.MergeFromFile(Path.Combine(YProject.oFileDir, YProject.oFileName + ".max"), true, true, false, 3, high_nametab, 1, 1);
             //Loader.Core.SaveSelectedNodesAsVersion(System.IO.Path.Combine(YProject.oFileDir + System.IO.Path.DirectorySeparatorChar + "y3d_data", YProject.oFileName + "_high.max"), 1);
             Loader.Core.GetSelNodeTab(node_to_xref);
-            Loader.Core.FileSaveNodes(node_to_xref, Path.Combine(YProject.oFileDir + Path.DirectorySeparatorChar + "y3d_data", YProject.oFileName + "_high.max"));
+            Loader.Core.FileSaveNodes(node_to_xref, Path.Combine(YProject.oFileDir + Path.DirectorySeparatorChar + YProject.oFileName + "_y3d", YProject.oFileName + "_high.max"));
             ManagedServices.MaxscriptSDK.ExecuteMaxscriptCommand("yms.xref_low \"" + YProject.oFileDir + "\" \"" + YProject.oFileName + "\"");
             //Loader.Global.IObjXRefManager8.Instance.AddXRefItemsFromFile(Path.Combine(YProject.oFileDir + Path.DirectorySeparatorChar + "y3d_data", YProject.oFileName + "_low0.max"), false, null, 0);
             //Loader.Core.DeleteNodes(node_to_xref, true, false, false);
