@@ -213,6 +213,15 @@ class YServiceImpl final : public Tools::Service {
 		return Status::OK;
 	}
 
+	Status CloneObject(::grpc::ServerContext* context, const ::y3d::EmptyParam* request, ::y3d::ResultReply* response) override
+	{
+		int x = 234;
+		Invoke([x]() {
+			mprintf(L"Hello world %d\n", x);
+		});
+		response->set_message("ABCD");
+		return Status::OK;
+	}
 };
 
 
