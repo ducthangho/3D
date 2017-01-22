@@ -318,7 +318,7 @@ inline void displayNode(INode* node) {
 	ow.Init(0, os);
 	mprintf(L"Num vertices = %d\n", ow.NumVerts());
 	auto* pts = ow.Verts();
-	auto num = min(10, ow.NumVerts());
+	auto num = std::min(10, ow.NumVerts());
 	for (int i = 0; i < num; ++i) {
 		auto p = pts[i];
 		mprintf(L"(%f, %f, %f)\t", p.x, p.y, p.z);
