@@ -633,15 +633,15 @@ inline void NewYProject(const NewProjectParam* pp, ResponseNProject* rnp) {
 	rnp->mutable_yal()->CopyFrom(yal);
 }
 
-inline void LoadNProject(const NewProjectParam* pp, ResponseNProject* rnp) {
+inline void LoadNProject(ResponseNProject* rnp) {
 	auto* ip = GetCOREInterface();
 	std::string pfolder;
-	pfolder.append(pp->folder().c_str());
-	pfolder += "\\"+pp->fname()+"_y3d\\";
+	pfolder.append(rnp->pinfo().path().c_str());
+	pfolder += "\\"+ rnp->pinfo().pname()+"_y3d\\";
 	//pfolder.append("\\");
 	std::string wpath;
 	wpath.append(pfolder);
-	wpath.append(pp->fname().c_str());
+	wpath.append(rnp->pinfo().pname().c_str());
 	wpath.append("90.max");
 	std::string yal_path;
 	yal_path.append(pfolder);

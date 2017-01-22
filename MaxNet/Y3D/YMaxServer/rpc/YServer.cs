@@ -83,13 +83,13 @@ namespace YMaxServer.rpc
         }
 
 
-        public override Task<ProjectInfo> NewProject(StringParam request, ServerCallContext context)
-        {
-            MessageBox.Show(request.Str);
-            ProjectInfo a = new ProjectInfo();
-            return Task.FromResult(a);
-            //return base.NewProject(request, context);
-        }
+        //public override Task<ProjectInfo> NewProject(StringParam request, ServerCallContext context)
+        //{
+        //    MessageBox.Show(request.Str);
+        //    ProjectInfo a = new ProjectInfo();
+        //    return Task.FromResult(a);
+        //    //return base.NewProject(request, context);
+        //}
 
         public override Task<ResultReply> MakeNode4Edit(Make4TestParam request, ServerCallContext context)
         {
@@ -203,11 +203,6 @@ namespace YMaxServer.rpc
         //    return Task.FromResult(ret);
         //    //return base.BatchOptimize(request, context);
         //}
-
-        public override Task<ProjectInfo> LoadProject(StringParam request, ServerCallContext context)
-        {
-            return base.LoadProject(request, context);
-        }
     }
 
     class YServer
@@ -226,7 +221,7 @@ namespace YMaxServer.rpc
 
         public static void Stop()
         {
-            MessageBox.Show("bye");
+            //MessageBox.Show("bye");
             server.ShutdownAsync().Wait();
         }
     }

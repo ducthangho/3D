@@ -100,6 +100,10 @@ namespace Y3D.Forms
         public void updateYAL(YAreaList yal)
         {
             this.gtreeListView.SetObjects(yal.Areas);
+            if (yal.Areas.Count>0)
+            {
+                gtreeListView.SelectedObject = yal.Areas[0];
+            }
         }
 
         private void gtreeListView_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)

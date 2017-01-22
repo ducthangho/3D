@@ -150,7 +150,7 @@ class YServiceImpl final : public Tools::Service {
 				auto pi = YSys.projects(i);
 				if ((pi.pname() == np->fname()) && (pi.path() == np->folder())) {
 					rnp->mutable_pinfo()->CopyFrom(pi);
-					LoadNProject(np, rnp);
+					LoadNProject(rnp);
 					//MessageBoxW(NULL, L"Load project cu....(chua lam)", L"Oh", MB_OK);
 					noProject = false;
 					break;
@@ -165,6 +165,20 @@ class YServiceImpl final : public Tools::Service {
 		});
 		return Status::OK;
 	}
+
+	Status LoadProject(ServerContext* context, const ProjectInfo* pi, ResponseNProject* rnp) override
+	{
+
+		Invoke([pi, rnp]() -> void {
+			//rnp->mutable_pinfo = pi;
+			rnp->mutable_pinfo()->CopyFrom(*pi);
+			//rnp->mutable_pinfo()->set_path(np->folder());
+			//rnp->mutable_pinfo()->set_pname(np->fname());
+			LoadNProject(rnp);
+		});
+		return Status::OK;
+	}
+
 
 	Status DoAction(ServerContext* context, grpc::ServerReaderWriter<YEvent, YEvent>* stream) override {
 		

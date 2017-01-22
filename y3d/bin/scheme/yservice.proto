@@ -13,7 +13,7 @@ service Tools {
   rpc RenameObject (RenameParam) returns (ResultReply) {}
   rpc SaveProject(ProjectInfo) returns (ResponseEvent) {}
   rpc NewProject(NewProjectParam) returns (ResponseNProject) {}
-  rpc LoadProject(StringParam) returns (ProjectInfo) {}
+  rpc LoadProject(ProjectInfo) returns (ResponseNProject) {}
   rpc Unwrap(EUnwrap) returns (ResultReply) {}
   rpc Packing(EPacking) returns (ResultReply) {}
   rpc LowPoly(ELowpoly) returns (ResultReply) {}

@@ -26,7 +26,7 @@ namespace Y3D.Forms
 
         private void YMainForm_Load(object sender, EventArgs e)
         {
-            Utils.Tools.initSystem();
+            Utils.Tools.InitSystem();
             objectsControl1.Show();
         }
 
@@ -34,13 +34,17 @@ namespace Y3D.Forms
         {
             //this.objectsControl1.initGroup();
             ProjectForm pf = new ProjectForm();
-            pf.ShowDialog();
+            DialogResult result = pf.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                this.objectsControl1.updateYAL(Utils.Tools.CurrentYAL);
+            } 
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-           var np = rpc.YClient.NewProject();
-            if (np.Yal!=null) this.objectsControl1.updateYAL(np.Yal);
+            var np = rpc.YClient.NewProject();
+            if (np!=null) this.objectsControl1.updateYAL(np.Yal);
             //var ret = rpc.YClient.CClient.NewProject(new y3d.e.NewProjectParam());
             //MessageBox.Show(ret.Path);
         }

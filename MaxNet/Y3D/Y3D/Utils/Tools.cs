@@ -13,6 +13,8 @@ namespace Y3D.Utils
     public class Tools
     {
         public static YSystem YSys = new YSystem();
+        public static ProjectInfo CurrentProject = new ProjectInfo();
+        public static YAreaList CurrentYAL = null;
 
         public static bool IsProcessOpen(string name)
         {
@@ -26,7 +28,7 @@ namespace Y3D.Utils
             return false;
         }
 
-        public static void initSystem()
+        public static void InitSystem()
         {
             if (!IsProcessOpen("3dsmax"))
             {
@@ -44,6 +46,20 @@ namespace Y3D.Utils
             }
             YSys = rpc.YClient.CClient.LoadSystem(new EmptyParam());
             //MessageBox.Show(YSys.DefaultSetting.MaxRecent.ToString());
+        }
+
+        public static bool LoadProject(ProjectInfo pi)
+        {
+            var rnp = rpc.YClient.CClient.LoadProject(pi);
+            if (rnp.Yal != null)
+            {
+                CurrentYAL = rnp.Yal;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
