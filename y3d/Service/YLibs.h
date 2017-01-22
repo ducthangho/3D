@@ -33,8 +33,11 @@
 #include "triobj.h"
 #include "patchobj.h"
 #include <gfx.h>
-
+#include "ICustAttribCollapseManager.h"
+#include "ICustAttribContainer.h"
+#include "modstack.h"
 //#include <mutex>
+#include "3dsmaxUtils.h"
 
 #include "xNormalSettings.h"
 #include "xnormal.pb.h"
@@ -185,6 +188,7 @@ inline void log(char* format_str, const Args & ... args) {
 #else
 #endif
 }
+
 
 template <typename... Args>
 inline void log(std::wstring& format_str, const Args & ... args) {
@@ -703,3 +707,90 @@ inline void registerCB() {
 	GetISceneEventManager()->RegisterCallback(mcb, 0, 0, 0);
 }
 
+
+
+inline void Collapse(INode *node)
+{
+	ICustAttribCollapseManager * iCM = ICustAttribCollapseManager::GetICustAttribCollapseManager();
+
+	Interface7 *ip = GetCOREInterface7();
+
+	Object *oldObj = node->GetObjectRef();
+	SClass_ID sc = oldObj->SuperClassID();
+
+	theHold.Begin();
+	if (theHold.Holding())
+	{
+		theHold.Put(new ObjManipulatorRestore);
+		theHold.Put(new CollapseRestore());
+		//theHold.Put(new UpdateUIRestore());
+	}
+	//LAM : added following to handle extension objects 8/2/00
+	// NH 14 April 04: Added support for the maintaining CAs on stack collapse
+	// LAM - 7/22/05 - Collapse does not affect WSMs, So we shouldn't enumerate them....
+	bool ignoreBaseObjectCAs = false;
+	if (iCM && iCM->GetCustAttribSurviveCollapseState())
+	{
+		NotifyCollapseMaintainCustAttribEnumProc2 PreNCEP(true, node);
+		EnumGeomPipeline(&PreNCEP, oldObj);
+	}
+	else
+	{
+		NotifyCollapseEnumProc PreNCEP(true, node);
+		EnumGeomPipeline(&PreNCEP, oldObj);
+	}
+
+	ip->StopCreating();
+	ip->ClearPickMode();
+
+	if (sc == GEN_DERIVOB_CLASS_ID)
+	{
+		// stack not empty, collapse stack 
+		ObjectState os = oldObj->Eval(ip->GetTime());
+
+		HoldSuspend hs;
+		//LAM : modified following to handle polymesh 7/21/00
+		Object *obj = os.obj->CollapseObject();
+		// Now get rid of superfulous objects 		
+		if (os.obj == obj)
+		{
+			// if we are cloning the base object, the clone will take care of the CAs
+			Object *theBaseObject = oldObj->FindBaseObject();
+			if (obj == theBaseObject)
+				ignoreBaseObjectCAs = true;
+
+			obj = (Object*)CloneRefHierarchy(obj);
+		}
+		hs.Resume();
+
+		obj->SetSubSelState(0); // Reset the selection level to object level (in case it happens to have an edit mesh modifier
+		oldObj->SetAFlag(A_LOCK_TARGET);
+		node->SetObjectRef(obj);
+		//ip->InvalidateObCache(node);
+		node->NotifyDependents(FOREVER, 0, REFMSG_SUBANIM_STRUCTURE_CHANGED);
+
+		//LAM : added following to handle extension objects 8/2/00
+		// Notify all mods and objs in the pipleine, that they have been collapsed
+		// NH 14 April 04: Added support for the maintaining CAs on stack collapse
+		if (iCM && iCM->GetCustAttribSurviveCollapseState())
+		{
+			NotifyCollapseMaintainCustAttribEnumProc2 PostNCEP(false, node, ignoreBaseObjectCAs, obj);
+			EnumGeomPipeline(&PostNCEP, oldObj);
+		}
+		else
+		{
+			NotifyCollapseEnumProc PostNCEP(false, node, obj);
+			EnumGeomPipeline(&PostNCEP, oldObj);
+		}
+
+		oldObj->ClearAFlag(A_LOCK_TARGET);
+		oldObj->MaybeAutoDelete();
+
+		if (theHold.Holding())
+		{
+			theHold.Put(new CollapseRestore(TRUE));
+			theHold.Put(new ObjManipulatorRestore(TRUE));
+		}
+		theHold.Accept(GetString(IDS_COLLAPSE));
+	}
+}

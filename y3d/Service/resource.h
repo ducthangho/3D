@@ -9,7 +9,7 @@
 #define IDS_CLASS_NAME                  3
 #define IDS_PARAMS                      4
 #define IDS_SPIN                        5
-
+#define IDS_COLLAPSE                    6
 
 
 
