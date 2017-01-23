@@ -26,11 +26,11 @@ namespace YMax.rpc
         //    return base.NewProject(request, context);
         //}
 
-        public override Task<ProjectInfo> LoadProject(StringParam request, ServerCallContext context)
-        {
+        //public override Task<ProjectInfo> LoadProject(StringParam request, ServerCallContext context)
+        //{
 
-            return base.LoadProject(request, context);
-        }
+        //    return base.LoadProject(request, context);
+        //}
     }
     
     class YServer
