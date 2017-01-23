@@ -33,7 +33,7 @@ rollout BakeUI "Steal Normal" width:235 height:168
 	button 'btnSetAsHightPolys' "Set As High Polys" pos:[46,12] width:102 height:26 align:#left
 
 	local hightPolyObjs
-	local lowPoly
+	local lowPolyNormal
 
 	button 'btnTestStealNormal' "Test Steal Normal" pos:[48,89] width:93 height:29 align:#left
 	button 'btnPushCage' "+" pos:[77,51] width:30 height:29 align:#left
@@ -45,7 +45,7 @@ rollout BakeUI "Steal Normal" width:235 height:168
 	button 'btnBakeAndSeeResult' "Bake And See Result" pos:[107,130] width:115 height:29 align:#left
 	on btnInitProjection pressed do
 	(
-		lowPoly = selection[1]
+		lowPolyNormal = selection[1]
 		local size = 2048
 		print  ResultbakeFolder
 	
@@ -53,7 +53,7 @@ rollout BakeUI "Steal Normal" width:235 height:168
 	
 		print "ssss"
 	
-		initProjectionMod hightPolyObjs lowPoly 
+		initProjectionMod hightPolyObjs lowPolyNormal 
 	)
 	on btnSetAsHightPolys pressed do
 	(
@@ -63,55 +63,53 @@ rollout BakeUI "Steal Normal" width:235 height:168
 	(
 		hightPolyObjs = selection[1]
 		testStealNormal hightPolyObjs
-		lowPoly = selection[1]
+		lowPolyNormal = selection[1]
 	)
 	on btnPushCage pressed do
 	(
-		local proMod = FindPMod lowPoly
+		local proMod = FindPMod lowPolyNormal
 		proMod.pushCage  0.5
 	)
 	on btnFastPushCage pressed do
 	(
-		local proMod = FindPMod lowPoly
+		local proMod = FindPMod lowPolyNormal
 		proMod.pushCage  1.1
 	)
 	on btnShrinkCage pressed do
 	(
-		local proMod = FindPMod lowPoly
+		local proMod = FindPMod lowPolyNormal
 		proMod.pushCage  -0.5
 	)
 	on btnFastShrinkCage pressed do
 	(
-		local proMod = FindPMod lowPoly
+		local proMod = FindPMod lowPolyNormal
 		proMod.pushCage  -1.1
 	)
 	on btnBakeNormal pressed do
 	(
-		stealNormal lowPoly
+		stealNormal lowPolyNormal
 	)
 	on btnResetCage pressed do
 	(
-		local proMod = FindPMod lowPoly
+		local proMod = FindPMod lowPolyNormal
 		proMod.resetCage()
 	)
 	on btnBakeAndSeeResult pressed do
 	(
-		stealNormal lowPoly
-		local lowPolyName = lowPoly.name
-		local lowpolynamenormal = lowPolyName+"_normal"
-		local lowPolyNormal = getNodeByName lowpolynamenormal exact:true all:false ignoreCase:false
+		stealNormal lowPolyNormal
+		local lowpolyname = hightPolyObjs.name + "_lowPoly"
+		local lowPoly = getNodeByName lowpolyname exact:true all:false ignoreCase:false
 
 		local gap = 3
 		local maxBBx = lowPoly.max.x
 		local minBBx = lowPoly.min.x
 		local perimeter = (maxBBx - minBBx)
 
-		hightPolyObjs.pos.x += (perimeter + gap)
-		lowPolyNormal.pos.x -= (perimeter + gap)
+		lowPolyNormal.pos.x += (perimeter + gap)
+		lowPoly.pos.x += 2*(perimeter + gap)
 
-
-		hightPolyObjs.wirecolor = color 156 156 156
-		lowPolyNormal.wirecolor = color 156 156 156
+		-- hightPolyObjs.wirecolor = color 156 156 156
+		-- lowPoly.wirecolor = color 156 156 156
 
 		actionMan.executeAction -844228238 "12"
 		max create mode
@@ -455,6 +453,7 @@ fn stealNormal lowPoly size:512 ResultbakeFolder:ResultbakeFolder =
 	if ((matchPattern currentRenderer pattern:"*mental_ray*") or\
 		 (matchPattern currentRenderer pattern:"*Scanline*")) then
 	(
+		print "mental ray renderer detected"
 		local normalbumpMap = Normal_Bump()
 		normalbumpMap.normal_map = bitmap
 		local mat = standard()
@@ -463,6 +462,7 @@ fn stealNormal lowPoly size:512 ResultbakeFolder:ResultbakeFolder =
 
 	)else if (matchPattern currentRenderer pattern:"*V_Ray_Adv*") then
 	(	
+		print "Vray Renderer detected"
  		local vnormalMap = VRayNormalMap()
  		vnormalMap.normal_map = bitmap
  		local mat = VrayMtl()
@@ -490,14 +490,13 @@ fn testStealNormal hightPolyObjs lowPoly:undefined size:512 bakeFolder:Resultbak
 		IsolateSelection.EnterIsolateSelectionMode() -- IsolateSelection.ExitIsolateSelectionMode()
 		local lowpolyname = name+"_lowPoly"
 		local lowpolynamenormal = name+"_lowPoly_normal"
-		-- make lowpoly
-		copy hightPolyObjs name:lowpolyname
-		local lowPoly = getNodeByName lowpolyname exact:true all:false ignoreCase:false
-		select lowPoly
+		copy hightPolyObjs name:lowpolynamenormal
+		local lowPolyNormal = getNodeByName lowpolynamenormal exact:true all:false ignoreCase:false
+		select lowPolyNormal
 		max modify  mode
-		addModifier lowPoly (Edit_Normals())
-		addModifier lowpoly (ProOptimizer()) 
-		optMod = lowpoly.modifiers["ProOptimizer"]
+		addModifier lowPolyNormal (Edit_Normals())
+		addModifier lowPolyNormal (ProOptimizer()) 
+		optMod = lowPolyNormal.modifiers["ProOptimizer"]
 		optMod.VertexPercent = 20
 		optMod.OptimizationMode = 2
 		optMod.KeepNormals = true
@@ -510,15 +509,14 @@ fn testStealNormal hightPolyObjs lowPoly:undefined size:512 bakeFolder:Resultbak
 		optMod.CompactFaces = true
 		optMod.PreventFlip = true
 		optMod.Calculate = true
+		unwrap lowPolyNormal
+		delete lowPolyNormal
+		lowPolyNormal = selection[1]
+		lowPolyNormal.name = lowpolynamenormal
 
-		unwrap lowPoly
-		delete lowPoly
-		lowPoly = selection[1]
-		lowPoly.name = lowpolyname
-
-		copy lowPoly name:lowpolynamenormal	
-		local lowPolyNormal = getNodeByName lowpolynamenormal exact:true all:false ignoreCase:false
-		initProjectionMod hightPolyObjs lowpoly
+		copy lowPolyNormal name:lowpolyname
+		local lowpoly = getNodeByName lowpolyname exact:true all:false ignoreCase:false
+		initProjectionMod hightPolyObjs lowPolyNormal
 	)else 
 	(
 		
