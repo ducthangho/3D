@@ -166,7 +166,7 @@ class YServiceImpl final : public Tools::Service {
 		return Status::OK;
 	}
 
-	Status LoadProject(ServerContext* context, const ProjectInfo* pi, ResponseNProject* rnp) override
+	Status LoadProject(ServerContext* context, const ProjectInfo* pi, ResponseNProject* rnp) 
 	{
 
 		Invoke([pi, rnp]() -> void {
@@ -229,11 +229,24 @@ class YServiceImpl final : public Tools::Service {
 
 	Status CloneObject(::grpc::ServerContext* context, const ::y3d::EmptyParam* request, ::y3d::ResultReply* response) override
 	{
-		int x = 234;
-		Invoke([x]() {
-			mprintf(L"Hello world %d\n", x);
+		
+		Invoke([]() {
+			auto* ip = GetCOREInterface();
+			INodeTab inodes;
+			getSelNodeTab(inodes);
+			if (inodes.Count() > 0) {
+				INodeTab src, dst;
+				Point3 p(10, 0, 0);
+				bool ok = ip->CloneNodes(inodes, p, true, NODE_COPY,&src,&dst);
+				if (ok) {
+					for (int i = 0; i < dst.Count(); ++i) {						
+						log(L"New node {0} : {1}\n",i, dst[i]->GetName());
+					}
+				}
+			}
+			
 		});
-		response->set_message("ABCD");
+		//response->set_message("ABCD");
 		return Status::OK;
 	}
 };

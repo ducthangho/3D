@@ -1,6 +1,6 @@
 #pragma once
 
-
+#include <utility>
 #include <fstream>
 #include <iostream>
 #include <string>
@@ -46,9 +46,13 @@
 
 #include "ISceneEventManager.h"
 
-
 //#define FMT_HEADER_ONLY
 #include "fmt/format.h"
+#include <plugapi.h>
+
+#if MAX_RELEASE == MAX_RELEASE_R19
+#define BATCH_PROOPTIMIZER_CLASS_ID Class_ID(0x5cdb0866, 0x34ed5c0e)
+#endif
 
 using grpc::Status;
 using grpc::Server;
@@ -159,6 +163,15 @@ inline void log(std::string& str) {
 #endif
 }
 
+inline void log(char* str) {
+#ifdef YCDEBUG 
+	std::wstring wstr = s2ws(str);
+	mprintf(wstr.c_str());
+#else
+#endif
+}
+
+
 inline void log(std::wstring& str) {
 #ifdef YCDEBUG 	
 	mprintf(str.c_str());
@@ -166,9 +179,16 @@ inline void log(std::wstring& str) {
 #endif
 }
 
+inline void log(wchar_t* str) {
+#ifdef YCDEBUG 	
+	mprintf(str);
+#else
+#endif
+}
+
 
 template <typename... Args>
-inline void log(std::string& format_str, const Args & ... args) {
+inline void log(std::string& format_str, const Args ... args) {
 #ifdef YCDEBUG 	
 	fmt::MemoryWriter w;
 	w.write(format_str, args);
@@ -179,10 +199,10 @@ inline void log(std::string& format_str, const Args & ... args) {
 }
 
 template <typename... Args>
-inline void log(char* format_str, const Args & ... args) {
+inline void log(char* format_str, const Args& ... args) {
 #ifdef YCDEBUG 	
 	fmt::MemoryWriter w;
-	w.write(format_str, args);
+	w.write(format_str, args...);
 	std::wstring wstr = s2ws(w.c_str()); // returns a C string (const char*)
 	mprintf(wstr.c_str());
 #else
@@ -191,10 +211,10 @@ inline void log(char* format_str, const Args & ... args) {
 
 
 template <typename... Args>
-inline void log(std::wstring& format_str, const Args & ... args) {
+inline void log(std::wstring& format_str, const Args&  ... args) {
 #ifdef YCDEBUG 	
 	fmt::MemoryWriter w;
-	w.write(format_str, args);
+	w.write(format_str, args...);
 	mprintf(w.c_str());
 #else
 #endif
@@ -203,9 +223,8 @@ inline void log(std::wstring& format_str, const Args & ... args) {
 template <typename... Args>
 inline void log(wchar_t* format_str, const Args & ... args) {
 #ifdef YCDEBUG 	
-	fmt::MemoryWriter w;
-	w.write(format_str, args);
-	mprintf(w.c_str());
+	std::wstring s = fmt::format(format_str, args...);
+	mprintf(s.c_str());
 #else
 #endif
 }
@@ -213,14 +232,14 @@ inline void log(wchar_t* format_str, const Args & ... args) {
 
 template <typename... Args>
 inline std::wstring formatWS(StringRef format_str, const Args & ... args) {
-	std::string s = fmt::format(format, args);
+	std::string s = fmt::format(format, args...);
 	return s2ws(s);
 }
 
 template <typename... Args>
 inline std::wstring sprintfws(StringRef format_str, const Args & ... args) {
 	std::wstring s;
-	fmt::format(s, 1, 2, 3);
+	fmt::format(s, args...);
 	return s2ws(s);
 }
 
@@ -450,24 +469,6 @@ inline int8_t getSuperType(Object* oo) {
 	}
 	return -1;
 }
-//inline int GetSceneNodes(INodeTab& i_nodeTab, INode* i_currentNode /*=NULL*/)
-//{
-//	int i;
-//	if (i_currentNode == nullptr)
-//	{
-//		i_currentNode = GetCOREInterface()->GetRootNode();
-//	}
-//	else // IGame will crash 3ds Max if it is initialized with the root node.
-//	{
-//		i_nodeTab.AppendNode(i_currentNode);
-//	}
-//	for (i = 0; i < i_currentNode->NumberOfChildren(); i++)
-//	{
-//		GetSceneNodes(i_nodeTab, i_currentNode->GetChildNode(i));
-//	}
-//	return i_nodeTab.Count();
-//}
-//
 
 inline int GetSceneNodes(INodeTab& i_nodeTab, INode* i_currentNode /*=NULL*/)
 {
@@ -793,4 +794,27 @@ inline void Collapse(INode *node)
 		}
 		theHold.Accept(GetString(IDS_COLLAPSE));
 	}
+}
+
+#define createLight(x) CreateInstance(LIGHT_CLASS_ID,x)
+#define createMaterial(x) CreateInstance(MATERIAL_CLASS_ID,x)
+#define createTexMap(x) CreateInstance(TEXMAP_CLASS_ID,x)
+#define createObjectSpaceModifier(x) CreateInstance(OSM_CLASS_ID,x)
+#define createWorldSpaceModifier(x) CreateInstance(WSM_CLASS_ID,x)
+#define createWSMObject(x) CreateInstance(WSM_OBJECT_CLASS_ID,x)
+#define createCamera(x) CreateInstance(CAMERA_CLASS_ID,x)
+#define createHelper(x) CreateInstance(HELPER_CLASS_ID,x)
+#define createSystem(x) CreateInstance(SYSTEM_CLASS_ID,x)
+#define createRefMaker(x) CreateInstance(REF_MAKER_CLASS_ID,x)
+#define createRefTarget(x) CreateInstance(REF_TARGET_CLASS_ID,x)
+#define createSceneImport(x) CreateInstance(SCENE_IMPORT_CLASS_ID,x)
+#define createSceneExport(x) CreateInstance(SCENE_EXPORT_CLASS_ID,x)
+#define createUtility(x) CreateInstance(UTILITY_CLASS_ID,x)
+#define createUVGen(x) CreateInstance(UVGEN_CLASS_ID,x)
+#define createGUP(x) CreateInstance(GUP_CLASS_ID,x)
+#define createCusAttr(x) CreateInstance(CUST_ATTRIB_CLASS_ID,x)
+#define createRadiosity(x) CreateInstance(RADIOSITY_CLASS_ID,x)
+
+inline void* createBatchProOptimizer() {
+	return CreateInstance(UTILITY_CLASS_ID, BATCH_PROOPTIMIZER_CLASS_ID);
 }
