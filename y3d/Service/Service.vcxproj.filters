@@ -1440,6 +1440,12 @@
     <ClInclude Include="YLibs.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="3dsmaxUtils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="YProjectUtils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Service.rc">

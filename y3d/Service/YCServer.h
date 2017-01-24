@@ -179,6 +179,16 @@ class YServiceImpl final : public Tools::Service {
 		return Status::OK;
 	}
 
+	Status DeleteProject(ServerContext* context, const ProjectInfo* pi, ResponseNProject* rnp) override
+	{
+
+		Invoke([pi, rnp]() -> void {
+			rnp->mutable_pinfo()->CopyFrom(*pi);
+			DeleteYProject(rnp);
+		});
+		return Status::OK;
+	}
+
 
 	Status DoAction(ServerContext* context, grpc::ServerReaderWriter<YEvent, YEvent>* stream) override {
 		

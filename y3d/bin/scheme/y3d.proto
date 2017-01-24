@@ -132,6 +132,10 @@ message YArea {
   map<string,YGroupVer> gvers=6;
 }
 
+message YAreaList {
+  repeated YArea areas=1;
+}
+
 message YLayer {
   string name=1;
   repeated YGroup groups = 2;
@@ -163,10 +167,8 @@ message ProjectInfo {
   string path=2;
   google.protobuf.Timestamp ts=3;
   // string path = 2;
-  repeated int32 face_range = 4; // 0-100-1000-100000 v.v...
-  repeated YColor fr_color = 5; // green, yellow, red v.v...
+  OptimizeOptions optimize_ops=5;
   repeated FilterView fview=6;
-  
   float optimize_ratio = 7;
   // YAreaList alist=6;
 }
@@ -188,49 +190,25 @@ message YSystem {
   repeated ProjectInfo projects=4;
 }
 
-message YAreaList {
-  repeated YArea areas=1;
+// ------------------------------ Optimize highpoly by faces count
+message FRangeItem {
+  int32 f_start=1;
+  int32 f_end=2;
+  YColor fr_color=3;
+  float ratio=4; // lowpoly ratio
+  bool has_xref=5;
 }
+// message FRangeList {
+//   repeated FRangeItem fr=1;
+// }
 
-message YEvent {
-  oneof event {
-    ENone noevent = 1;
-    ESelect select = 2;
-    EMove move = 3;
-    ERotate rotate = 4;
-    EDelete del = 5;
-    ESelectMany select_many=6;
-  }
+message OptimizeOptions {
+  bool use_range=1;
+  repeated FRangeItem fr=2;
+  int32 min_hpoly=3;
+  int32 out_range_count=4;
 }
-
-message ENone {}
-
-message ESelect {
-  string name = 1;
-  bool isolate = 2;
-}
-
-message ESelectMany {
-  repeated string name = 1;
-  bool isolate = 2;
-}
-
-message EMove {
-  repeated float point=1;
-}
-
-message ERotate {
-  repeated float rotate=1;
-}
-
-message EDelete {
-  string name = 1;
-}
-
-message EIsolate {
-  string name = 1;
-  bool endIsolate=2;
-}
+// ------------------------------ Common Params
 
 message ResultReply {
   bool error=1;
@@ -273,8 +251,52 @@ message NewProjectParam {
 message ResponseNProject {
   ProjectInfo pInfo=1;
   YAreaList yal=2;
+  YSystem sys=3;
+  string err=4;
 }
-// Unwrap
+
+// ------------------------------ Event
+message YEvent {
+  oneof event {
+    ENone noevent = 1;
+    ESelect select = 2;
+    EMove move = 3;
+    ERotate rotate = 4;
+    EDelete del = 5;
+    ESelectMany select_many=6;
+  }
+}
+
+message ENone {}
+
+message ESelect {
+  string name = 1;
+  bool isolate = 2;
+}
+
+message ESelectMany {
+  repeated string name = 1;
+  bool isolate = 2;
+}
+
+message EMove {
+  repeated float point=1;
+}
+
+message ERotate {
+  repeated float rotate=1;
+}
+
+message EDelete {
+  string name = 1;
+}
+
+message EIsolate {
+  string name = 1;
+  bool endIsolate=2;
+}
+
+// ------------------------------  Unwrap
 message EUnwrap {
   string oname =1;
   int32 channel=2;
@@ -289,7 +311,7 @@ message MaxUnwrap {
   float spacing=2;
 }
 
-// Packing
+// ------------------------------ Packing
 message EPacking {
   string oname = 1;
   string uvname = 2;
@@ -311,7 +333,7 @@ message Pack3DMax {
   bool fill_holes=4;
   bool padding=5;  
 }
-// Low Poly
+// ------------------------------ Low Poly
 message ELowpoly {
   string oname = 1;
   oneof lowtype {
@@ -345,7 +367,7 @@ message LPolyBlender {
 message LPolyMeshlab {
 }
 
-// Normal
+// ------------------------------ Normal
 message ENormal {
   string oname = 1;
   string lowpoly=2;

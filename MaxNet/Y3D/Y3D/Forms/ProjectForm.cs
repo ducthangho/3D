@@ -57,5 +57,22 @@ namespace Y3D.Forms
         {
             LoadP();
         }
+
+        private void btnDelP_Click(object sender, EventArgs e)
+        {
+
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete?", "Oh", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                ProjectInfo pi = (ProjectInfo)this.dlvListProject.SelectedObject;
+                var ret = rpc.YClient.CClient.DeleteProject(pi);
+                if (ret.Err.Length==0)
+                {
+                    Utils.Tools.YSys = ret.Sys;
+                    dlvListProject.SetObjects(Utils.Tools.YSys.Projects);
+                }
+            }
+
+        }
     }
 }

@@ -619,6 +619,7 @@
     <ClInclude Include="YLibs.h" />
     <ClInclude Include="ymax.grpc.pb.h" />
     <ClInclude Include="ymax.pb.h" />
+    <ClInclude Include="YProjectUtils.h" />
     <ClInclude Include="yservice.grpc.pb.h" />
     <ClInclude Include="yservice.pb.h" />
   </ItemGroup>

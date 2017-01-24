@@ -40,7 +40,7 @@ namespace Y3D.Utils
             {
                 while (!rpc.YClient.CChannel.ConnectAsync().IsCompleted)
                 {
-                    System.Threading.Thread.Sleep(10);
+                    System.Threading.Thread.Sleep(5000);
                 }
                 //rpc.YClient.CChannel.WaitForStateChangedAsync(Grpc.Core.ChannelState.Ready);
             }
@@ -54,6 +54,7 @@ namespace Y3D.Utils
             if (rnp.Yal != null)
             {
                 CurrentYAL = rnp.Yal;
+                YSys = rnp.Sys;
                 return true;
             }
             else

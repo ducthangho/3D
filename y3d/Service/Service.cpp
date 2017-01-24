@@ -21,6 +21,7 @@
 #include "ymax.grpc.pb.h"
 #include "yservice.grpc.pb.h"
 
+#include "YProjectUtils.h"
 #include "YCServer.h"
 
 #define Service_CLASS_ID	Class_ID(0x768455e0, 0x74aca221)

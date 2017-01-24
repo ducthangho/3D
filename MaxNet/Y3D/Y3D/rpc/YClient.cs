@@ -148,7 +148,9 @@ namespace Y3D.rpc
         public static ResponseNProject NewProject()
         {
             var openFileProject = new System.Windows.Forms.OpenFileDialog();
+            openFileProject.Filter = "max files (*.max)|*.max|All files (*.*)|*.*";
             DialogResult result = openFileProject.ShowDialog();
+           
             if (result == DialogResult.OK)
             {
                 BatchOptimizeParam bp = new BatchOptimizeParam();
