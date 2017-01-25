@@ -454,25 +454,66 @@ if yms_init != true then
 
 			)
 
-			local shellMat = Shell_Material originalMaterial:lowPoly.material\
-				bakedMaterial:mat viewportMtlIndex:1 renderMtlIndex:1
+			local lowPolyOriginalName = lowPoly.name+"_lowPoly_NoNormal"	
+			local lowPolyNoMatName = lowPoly.name+"_lowPoly_noMat"
+			local hightPolyNoMatName = lowPoly.name+"_hightPoly_noMat"
+			local hightPolyName = lowPoly.name+"_hightPoly"
 
-			local lowPolyOriginalName = "lowPoly_original"
 			copy lowPoly name:lowPolyOriginalName
 			local lowPolyOriginal = getNodeByName lowPolyOriginalName exact:true all:false ignoreCase:false
+			if (classof lowPolyOriginal == XRefObject) do lowPolyOriginal.displayProxy = false
+			
+			if (lowPolyOriginal.actualBaseObject as string)== "Editable Poly" then
+				convertToPoly lowPolyOriginal
+			else if (lowPolyOriginal.actualBaseObject as string) == "Editable Mesh" do
+				convertToMesh lowPolyOriginal
+
+			copy lowPoly name:hightPolyName
+			local hightPoly = getNodeByName hightPolyName exact:true all:false ignoreCase:false
+			if (classof hightPoly == XRefObject) do hightPoly.displayProxy = true
+
+			print (hightPoly.actualBaseObject as string)
+
+			if (hightPoly.actualBaseObject as string)== "Editable Poly" then
+				convertToPoly hightPoly
+			else if (hightPoly.actualBaseObject as string) == "Editable Mesh" do
+				convertToMesh hightPoly
 
 			local maxBBx = lowPoly.max.x
 			local minBBx = lowPoly.min.x
-			local gap = 3
-			local perimeter = maxBBx - minBBx
+			local maxBBy = lowPoly.max.y
+			local minBBy = lowPoly.min.y
+			local gap = 10
+			local perimeterX = maxBBx - minBBx
+			local perimeterY = maxBBy - minBBy
+			local distanceMoveY = gap + perimeterY
+			local distanceMoveX = gap + perimeterX
 
-			print ("name" + lowPolyOriginal.name)
-			print (perimeter as string)
-			lowPolyOriginal.pos.x += 40
+			move lowPolyOriginal [distanceMovex,-distanceMoveY,0]
+			move hightPoly [-distanceMovex,-distanceMoveY,0]
 
+			copy lowPolyOriginal name: lowPolyNoMatName
+			local lowPolyNoMat = getNodeByName lowPolyNoMatName exact:true all:false ignoreCase:false
+			lowPolyNoMat.material = undefined
 
+			copy hightPoly name: hightPolyNoMatName
+			local hightPolyNoMat = getNodeByName hightPolyNoMatName exact:true all:false ignoreCase:false
+			hightPolyNoMat.material = undefined
+
+			move lowPolyNoMat [distanceMovex,0,0]
+			move hightPolyNoMat [-distanceMovex,0,0]
+
+			local shellMat = Shell_Material originalMaterial:lowPoly.material\
+				bakedMaterial:mat viewportMtlIndex:1 renderMtlIndex:1
 			lowPoly.material = shellMat	
-			showTextureMap lowPoly.material lowPoly.material.bakedMaterial true		
+			showTextureMap lowPoly.material lowPoly.material.bakedMaterial true	
+
+			local color = lowPoly.material.bakedMaterial.diffuse
+			print (color as string)
+
+			lowPolyNoMat.wirecolor = color
+			hightPolyNoMat.wirecolor = color	
+			-- lowPoly.material = undefined
 		)
 
 	)

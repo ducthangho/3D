@@ -394,7 +394,7 @@ fn initProjectionMod hightPolyObjs lowPoly =
 	proMod = FindPMod lowPoly
 	for obj in hightPolyObjs do 
 	(
-		obj.wirecolor = color 156 6 6
+		-- obj.wirecolor = color 156 6 6
 		proMod.addObjectNode obj
 	)
 	proMod.resetCage()
