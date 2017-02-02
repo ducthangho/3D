@@ -4,6 +4,7 @@ syntax = "proto3";
 import "google/protobuf/any.proto";
 import "google/protobuf/timestamp.proto";
 import "xnormal.proto";
+import "ymat.proto";
 package y3d; // 
 // [END declaration]
 
@@ -12,10 +13,7 @@ option csharp_namespace = "y3d.e";
 // [END csharp_declaration]
 
 // [START messages]
-message YColor {
-  string name = 1;
-  int32 argb = 2;
-};
+
 
 message YPoint3 {
 	float x = 1;
@@ -80,8 +78,7 @@ message YMesh {
     Target=12;
     Cone=13;
   }
-  string res_id = 3; // Resource ID (GUID)
-  
+  YResource res = 3;
   enum XrefStatus {
     ORIGINAL=0;
     XREF_HIGHT=1;
@@ -96,6 +93,8 @@ message YMesh {
   string vername=7;
 }
 
+
+// ------------------------------ 
 enum ObjectType {
   GEOMETRY=0;
   LIGHT=1;
@@ -123,6 +122,7 @@ message YObject {
     YCamera camera=11;
     YMesh mesh=12;
   }
+  TestObject ver_obj=13;
 }
 
 message YArea {
@@ -264,6 +264,7 @@ message YEvent {
     ERotate rotate = 4;
     EDelete del = 5;
     ESelectMany select_many=6;
+    EIsolate isolate=7;
   }
 }
 
@@ -296,7 +297,13 @@ message EIsolate {
   bool endIsolate=2;
 }
 
+message ResponseEvent {
+  bool error = 1;
+  string msg = 2;
+}
+
 // ------------------------------  Unwrap
+
 message EUnwrap {
   string oname =1;
   int32 channel=2;
@@ -383,50 +390,52 @@ message ENormal {
 message Normal3DMax {
 }
 
-message ResponseEvent {
-  bool error = 1;
-  string msg = 2;
+
+
+// ------------------------------ Task,Worker,Job...
+message YTask {
+  oneof task {
+    EUnwrap unwrap = 1;
+    EPacking pack = 2;
+    ELowpoly lowpoly = 3;
+    ENormal bake_normal = 4;
+  }  
+}
+message YItemMesh {
+  YMat bake_mat=1;
+  YBaseMap map=2;
+  YMesh mesh=3;
+  repeated YMesh meshes=4;
 }
 
-
-
-
-
-
-package tutorial;
-// [END declaration]
-
-// [START java_declaration]
-option java_package = "com.example.tutorial";
-option java_outer_classname = "AddressBookProtos";
-// [END java_declaration]
-
-// [START csharp_declaration]
-option csharp_namespace = "Google.Protobuf.Examples.AddressBook";
-// [END csharp_declaration]
-
-// [START messages]
-message Person {
-  string name = 1;
-  int32 id = 2;  // Unique ID number for this person.
-  string email = 3;
-
-  enum PhoneType {
-    MOBILE = 0;
-    HOME = 1;
-    WORK = 2;
-  }
-
-  message PhoneNumber {
-    string number = 1;
-    PhoneType type = 2;
-  }
-
-  repeated PhoneNumber phones = 4;
+message TestObject {
+  bool active=1;
+  YMat original_mat=2;
+  string name_low=3;
+  string name_high=4;  
+  string name_cage=5;  
+  string obj_low= 6;  
+  string obj_high=7;  
+  string obj_cage=8;  
+  string save_path=9;
+  YItemMesh out=10;
 }
 
-// Our address book file is just one of these.
-message AddressBook {
-  repeated Person people = 1;
+message YJob {
+  string jname = 1;
+  repeated YTask task=2;
+  YObject obj = 3;
+  repeated YObject objs = 4;
+  YItemMesh out=5;
+  repeated TestObject tests=7;
 }
-// [END messages]
+
+message YWorker {
+  int32 wid=1;
+  string wname=2;
+  string ip_address =3;
+}
+
+message YWorkerList {
+  repeated YWorker workers=1;
+}

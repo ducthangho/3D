@@ -1,18 +1,35 @@
 #pragma once
 #include "YLibs.h"
 
+const string FM_ORGINAL_FILE = "{}\\{}.max"; 
+const string FM_YDATA_DIR = "{}\\{}_y3d\\";
+const string FM = "{}\\{}.max";
+const string FM_YSYS_FOLDER = "{}\\y3d\\";
+const string FM_YSETTING_FILE = "{}\\ysetting.y3d";
+const string FM_YAREA_FILE = FM_YDATA_DIR + "yal.y3d";
+const string FM_WORKING_FILE_PREFIX = FM_YDATA_DIR + "{}";
+
+
 YSystem YSys;
 std::vector<YEvent> received_e;
 //YEvent current_e;
 
+inline void resetSystem() {
+}
 
 inline void initSystem() {
+
 	auto* ip = GetCOREInterface();
 	auto setting_path = ip->GetDir(9);
+
+	//std::wstring yfolder = formatWS(FM_YSYS_FOLDER, setting_path);
+
 	std::wstring yfolder;
 	yfolder = setting_path;
 	yfolder += L"\\y3d\\";
 	YSys.set_working_folder(ws2s(yfolder));
+
+
 	if (dirExists(YSys.working_folder().c_str()) == 0) {
 		CreateDirectory(yfolder.c_str(), NULL);
 	}
@@ -43,19 +60,23 @@ inline void initSystem() {
 		}
 
 	}
+
 }
 
 inline void saveSystem() {
-	std::string kk;
-	kk.append(YSys.working_folder().c_str());
-	kk.append("ysetting.y3d");
-	//MessageBoxW(NULL, s2ws(kk).c_str(), L"sAVE", MB_OK);
-	//mprintf(L"aa:%s \n", s2ws(kk).c_str());
-	fstream output(kk, ios::out | ios::trunc | ios::binary);
+	std::string path = fmt::format(FM_YSETTING_FILE, YSys.working_folder().c_str());
+	log(path);
+	log("projects size: {}", YSys.projects_size());
+	fstream output(path, ios::out | ios::trunc | ios::binary);
 	if (!YSys.SerializePartialToOstream(&output)) {
 		MessageBoxW(NULL, L"Can not override setting file!", L"Error", MB_OK);
 	}
 }
+
+NameTab low_nametab;
+NameTab high_nametab;
+INodeTab low_nodes;
+INodeTab high_nodes;
 
 inline void getObjInfo(INode* node, YObject* yo) {
 	auto* oo = getObject(node);
@@ -97,6 +118,18 @@ inline void getObjInfo(INode* node, YObject* yo) {
 		//auto cname = node->clas
 		ym.set_mtype(mtype);
 		yo->mutable_mesh()->CopyFrom(ym);
+
+		if (mtype != y3d::YMesh::MeshType::YMesh_MeshType_Unknown) {
+			if (ym.num_faces() > 1000) {
+				high_nametab.AddName(node->GetName());
+				high_nodes.AppendNode(node,true);
+		}	
+			else {
+				low_nametab.AddName(node->GetName());
+				low_nodes.AppendNode(node, true);
+			}
+		}
+		
 	}
 	else if (t == CAMERA_T) {
 		yo->set_otype(y3d::ObjectType::CAMERA);
@@ -162,6 +195,12 @@ inline void ObjectFromMax(YAreaList* yal) {
 	auto ya = yal->add_areas();
 	ya->set_name("Area 1");
 	auto root = GetCOREInterface()->GetRootNode();
+
+	//low_nametab->Delete(0, low_nametab->Count());
+	//high_nametab->Delete(0, high_nametab->Count());
+	//low_nodes->Delete(0, low_nodes->Count());
+	//high_nodes->Delete(0, high_nodes->Count());
+
 	buildGroup(root, ya);
 	// switch to camera 1, Maximize Viewport Toggle, Views: Perspective User View, Viewport Visual Style Wireframe
 	ExecuteMAXScriptScript(L"actionMan.executeAction 0 \"160\"");
@@ -169,19 +208,42 @@ inline void ObjectFromMax(YAreaList* yal) {
 	ip->SetViewportMax(true);
 }
 
+inline void DoXrefHigh(ProjectInfo* pi) {
+	auto* ip = GetCOREInterface();
+
+	std::wstring low_file = formatWS(FM_WORKING_FILE_PREFIX + "_low0.max", pi->path(), pi->pname(), pi->pname());
+	ip->FileSaveNodes(&high_nodes, low_file.c_str());
+	std::wstring original_file = formatWS(FM_ORGINAL_FILE, pi->path(), pi->pname());
+	//log(original_file);
+	//ip->SelectNodeTab(high_nodes, true, false);
+	for (int i = 0; i < high_nodes.Count(); i++)
+	{
+		auto na = high_nodes[i]->NodeName();
+		ip->DeleteNode(high_nodes[i], true);
+	}
+
+	ip->MergeFromFile(original_file.c_str(), true, true, false, 3, &high_nametab, 1, 1);
+	std::wstring high_file = formatWS(FM_WORKING_FILE_PREFIX + "_high.max", pi->path(), pi->pname(), pi->pname());
+
+	INodeTab xreftab;
+	getSelNodeTab(xreftab);
+	
+	ip->FileSaveNodes(&xreftab, high_file.c_str());
+	std::wstring cmd = formatWS("yms.xref_low \"{}\" \"{}\"", pi->path(), pi->pname());
+
+	ExecuteMAXScriptScript(cmd.c_str());
+	ip->MergeFromFile(original_file.c_str(), true, true, false, 3, &low_nametab, 1, 1);
+	ip->FileSave();
+}
+
 inline void NewYProject(const NewProjectParam* pp, ResponseNProject* rnp) {
-	std::string tmp = "yms.pre_optimize";
-	char buf[1000];
-	std::sprintf(buf, "%s \"%s\" \"%s\"", tmp.c_str(), pp->folder().c_str(), pp->fname().c_str());
-	auto cmd = s2ws(buf);
+	std::wstring cmd = formatWS("yms.pre_optimize \"{}\" \"{}\"", pp->folder(), pp->fname());
 	ExecuteMAXScriptScript(cmd.c_str());
 
 	YAreaList yal;
 	ObjectFromMax(&yal);
 
-	std::string path;
-	path = pp->folder();
-	path += "\\" + pp->fname() + "_y3d\\yal.y3d";
+	std::string path = fmt::format(FM_YAREA_FILE, pp->folder(), pp->fname());
 
 	auto pi = YSys.add_projects();
 	pi->CopyFrom(rnp->pinfo());
@@ -193,24 +255,18 @@ inline void NewYProject(const NewProjectParam* pp, ResponseNProject* rnp) {
 	if (!yal.SerializePartialToOstream(&output)) {
 		MessageBoxW(NULL, L"Can not create List Area Object file!", L"Error", MB_OK);
 	}
+	DoXrefHigh(pi);
 	rnp->mutable_yal()->CopyFrom(yal);
 	rnp->mutable_sys()->CopyFrom(YSys);
 }
 
 inline void LoadNProject(ResponseNProject* rnp) {
 	auto* ip = GetCOREInterface();
-	std::string pfolder;
-	pfolder.append(rnp->pinfo().path().c_str());
-	pfolder += "\\" + rnp->pinfo().pname() + "_y3d\\";
-	//pfolder.append("\\");
-	std::string wpath;
-	wpath.append(pfolder);
-	wpath.append(rnp->pinfo().pname().c_str());
-	wpath.append("90.max");
-	std::string yal_path;
-	yal_path.append(pfolder);
-	yal_path.append("yal.y3d");
-	if (ip->LoadFromFile(s2ws(wpath).c_str()) == 0) {
+	std::wstring work_90 = formatWS(FM_WORKING_FILE_PREFIX + "90.max", rnp->pinfo().path(), rnp->pinfo().pname(), rnp->pinfo().pname());
+	std::string yal_path = fmt::format(FM_YAREA_FILE, rnp->pinfo().path(), rnp->pinfo().pname());
+
+	//if (ip->LoadFromFile(s2ws(wpath).c_str()) == 0) {
+	if (ip->LoadFromFile(work_90.c_str()) == 0) {
 		MessageBoxW(NULL, L"Can not load working file!", L"Error", MB_OK);
 	}
 	else {
@@ -248,19 +304,34 @@ inline void DeleteYProject(ResponseNProject* rnp) {
 
 inline void initXref() {
 	auto* ip = GetCOREInterface();
-	NameTab low_nametab;
-	INodeTab low_nodes;
+
 	//low_nametab.AddName("")
 	//ip->saveNo
 }
 
 inline void DoYEvent(YEvent ye) {
+	auto* ip = GetCOREInterface();
 	if (ye.has_select()) {
 		auto name_select = ye.select().name();
-		std::string cmd = "select $" + name_select + ";";
-		//MessageBoxW(NULL, s2ws(cmd).c_str(), L"TEST", MB_OK);
-		ExecuteMAXScriptScript(s2ws(cmd).c_str());
+		auto n = ip->GetINodeByName(s2ws(name_select).c_str());
+		ip->SelectNode(n);
+		//std::string cmd = "select $" + name_select + ";";
+		//ExecuteMAXScriptScript(s2ws(cmd).c_str());
 	}
+	else if (ye.has_isolate()) {
+		if (ye.isolate().endisolate()) {
+			auto cmd = L"IsolateSelection.ExitIsolateSelectionMode()";
+			ExecuteMAXScriptScript(cmd);
+		}
+		else {
+			auto name_select = ye.isolate().name();
+			auto n = ip->GetINodeByName(s2ws(name_select).c_str());
+			ip->SelectNode(n);
+			auto cmd = L"actionMan.executeAction 0 \"197\";";
+			ExecuteMAXScriptScript(cmd);
+		}
+	}
+
 }
 
 inline void defaultFrange() {

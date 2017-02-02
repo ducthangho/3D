@@ -231,6 +231,19 @@ inline std::wstring formatWS(StringRef format_str, const Args & ... args) {
 }
 
 template <typename... Args>
+inline std::wstring formatWS(string format_str, const Args & ... args) {
+	//StringRef fm = (StringRef)format_str.c_str();
+	std::string s = fmt::format(format_str.c_str(), args...);
+	return s2ws(s);
+}
+
+template <typename... Args>
+inline std::wstring formatWS(char* format_str, const Args & ... args) {
+	std::string s = fmt::format(format_str, args...);
+	return s2ws(s);
+}
+
+template <typename... Args>
 inline std::wstring sprintfws(StringRef format_str, const Args & ... args) {
 	std::wstring s;
 	fmt::format(s, args...);

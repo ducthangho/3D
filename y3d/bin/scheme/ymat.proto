@@ -1,0 +1,105 @@
+syntax = "proto3";
+package y3d;
+option csharp_namespace = "y3d.e";
+
+// ------------------------------ Material
+
+message YRGBColor {
+  uint32 R = 1;
+	uint32 G = 2;
+	uint32 B = 3;
+}
+message YColor {
+  string name = 1;
+  int32 argb = 2; //optional
+  YRGBColor rgb=3; //optional
+  string hex_color=4; //optional
+};
+
+message YImage {
+  string file=1;
+  float scale=2;
+}
+
+enum BRDF_Type {
+    PHONG=0;
+    BLINN=1;
+    WARD=2;
+}
+
+message YDiffuse {
+    string set_name=1;
+    YColor color=2;
+    YImage image=3;
+    
+}
+
+message YSpecular {
+    string set_name=1;
+    YColor color=2;
+    YImage image=3;
+}
+
+message YAmbient {
+    string set_name=1;
+    YColor color=2;
+    YImage image=3;
+}
+
+message YEmissive {
+    string set_name=1;
+    YColor color=2;
+    YImage image=3;
+}
+
+message YMatPBR {
+
+}
+
+message YMatMap {
+    YImage image=1;
+    float scale=2;
+    string name=3;
+}
+
+message YBaseMap {
+    YMatMap albedo=1;
+    YMatMap bump=2;
+    YMatMap normal=3;
+    YMatMap ao=4;
+    YMatMap specular=5;
+    YMatMap displacement=6;
+    YMatMap transclucency=79;
+    YMatMap roughness=8;
+    YMatMap opactity=9;
+}
+
+message YMatStandard {
+    uint32 id=1;
+    string name=2;
+    YDiffuse diffuse = 3;
+    YSpecular specular = 4;
+    YAmbient ambient=5;
+    YEmissive emissive=6;
+    YBaseMap map=7;
+}
+
+message YMatVray {
+    BRDF_Type brdf=1;
+    YDiffuse diffuse = 2;
+    YBaseMap map=3;
+}
+
+message YMat {
+    uint32 id=1;
+    string name=2;
+    YMatStandard m_standard =3;
+    YMatVray m_vray=4;
+    YMatPBR m_pbr=5;
+    YMultiMat m_multi=6;
+}
+
+message YMultiMat {
+    YDiffuse default_diffuse=1;
+    repeated YMat materials = 2;
+}

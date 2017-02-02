@@ -40,6 +40,7 @@
             this.testForm1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.objectsControl1 = new Y3D.Forms.ObjectsControl();
             this.testControl1 = new Y3D.Forms.TestControl();
+            this.objectManagerMItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -107,6 +108,8 @@
             // 
             // objectsToolStripMenuItem
             // 
+            this.objectsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.objectManagerMItem});
             this.objectsToolStripMenuItem.Name = "objectsToolStripMenuItem";
             this.objectsToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
             this.objectsToolStripMenuItem.Text = "Object";
@@ -128,7 +131,7 @@
             // testForm1ToolStripMenuItem
             // 
             this.testForm1ToolStripMenuItem.Name = "testForm1ToolStripMenuItem";
-            this.testForm1ToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.testForm1ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.testForm1ToolStripMenuItem.Text = "Test Form 1";
             this.testForm1ToolStripMenuItem.Click += new System.EventHandler(this.testForm1ToolStripMenuItem_Click);
             // 
@@ -148,6 +151,13 @@
             this.testControl1.Size = new System.Drawing.Size(561, 550);
             this.testControl1.TabIndex = 2;
             this.testControl1.Visible = false;
+            // 
+            // objectManagerMItem
+            // 
+            this.objectManagerMItem.Name = "objectManagerMItem";
+            this.objectManagerMItem.Size = new System.Drawing.Size(159, 22);
+            this.objectManagerMItem.Text = "Object Manager";
+            this.objectManagerMItem.Click += new System.EventHandler(this.objectManagerMItem_Click);
             // 
             // YMainForm
             // 
@@ -188,6 +198,7 @@
         private System.Windows.Forms.ToolStripMenuItem testForm1ToolStripMenuItem;
         private TestControl testControl1;
         private ObjectsControl objectsControl1;
+        private System.Windows.Forms.ToolStripMenuItem objectManagerMItem;
     }
 }
 

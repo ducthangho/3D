@@ -69,7 +69,7 @@
       <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">false</TreatWarningAsError>
       <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</TreatWarningAsError>
       <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</TreatWarningAsError>
-      <Optimization Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">MaxSpeed</Optimization>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">Disabled</Optimization>
       <InlineFunctionExpansion Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">AnySuitable</InlineFunctionExpansion>
       <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">MaxSpeed</Optimization>
       <InlineFunctionExpansion Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">AnySuitable</InlineFunctionExpansion>
@@ -403,6 +403,7 @@
     <ClCompile Include="xml_format.cc" />
     <ClCompile Include="xnormal.pb.cc" />
     <ClCompile Include="y3d.pb.cc" />
+    <ClCompile Include="ymat.pb.cc" />
     <ClCompile Include="ymax.grpc.pb.cc" />
     <ClCompile Include="ymax.pb.cc" />
     <ClCompile Include="yservice.grpc.pb.cc" />
@@ -617,6 +618,7 @@
     <ClInclude Include="xNormalSettings.h" />
     <ClInclude Include="y3d.pb.h" />
     <ClInclude Include="YLibs.h" />
+    <ClInclude Include="ymat.pb.h" />
     <ClInclude Include="ymax.grpc.pb.h" />
     <ClInclude Include="ymax.pb.h" />
     <ClInclude Include="YProjectUtils.h" />

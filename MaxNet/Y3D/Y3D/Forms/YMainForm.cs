@@ -44,9 +44,19 @@ namespace Y3D.Forms
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             var np = rpc.YClient.NewProject();
-            if (np!=null) this.objectsControl1.updateYAL(np.Yal);
+            if (np != null)
+            {
+                this.objectsControl1.updateYAL(np.Yal);
+                Utils.Tools.YSys = np.Sys;
+            }
             //var ret = rpc.YClient.CClient.NewProject(new y3d.e.NewProjectParam());
             //MessageBox.Show(ret.Path);
+        }
+
+        private void objectManagerMItem_Click(object sender, EventArgs e)
+        {
+            objectsControl1.Show();
+            testControl1.Hide();
         }
     }
 }

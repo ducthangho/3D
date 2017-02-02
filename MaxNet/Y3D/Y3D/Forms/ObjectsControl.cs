@@ -131,18 +131,48 @@ namespace Y3D.Forms
             {
 
                 var y = (YObject)x;
-                YEvent ye = new YEvent();
-                ye.Select = new ESelect();
-                ye.Select.Name = y.Name;
-                //rpc.YClient.DoClientYEvent(ye);
-                rpc.YClient.CClient.DoEvent(ye);
+                if (checkBoxIsolate.Checked)
+                {
+                    YEvent ye = new YEvent();
+                    ye.Isolate = new EIsolate();
+                    ye.Isolate.EndIsolate = false;
+                    ye.Isolate.Name = y.Name;
+                    rpc.YClient.CClient.DoEvent(ye);
+                } else
+                {
+                    YEvent ye = new YEvent();
+                    ye.Select = new ESelect();
+                    ye.Select.Name = y.Name;
+                    rpc.YClient.CClient.DoEvent(ye);
+                }
 
+                
                 //if (this.checkBoxInGroup.Checked)
                 //    cmd += "max tool zoomextents all;";
 
 
                 //MessageBox.Show(y.Name);
             }
+        }
+
+        private void checkBoxIsolate_CheckedChanged(object sender, EventArgs e)
+        {
+            Object x = objectListCtrl.SelectedObject;
+            if (x is YObject)
+            {
+                var y = (YObject)x;
+                YEvent ye = new YEvent();
+                ye.Isolate = new EIsolate();
+                ye.Isolate.EndIsolate = !((CheckBox)sender).Checked;
+                ye.Isolate.Name = y.Name;
+                rpc.YClient.CClient.DoEvent(ye);
+            }
+        }
+
+        private void listCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            objectListCtrl.CheckBoxes = ((CheckBox)sender).Checked;
+            this.olvColNameO.HeaderCheckBox = ((CheckBox)sender).Checked;
         }
     }
 }

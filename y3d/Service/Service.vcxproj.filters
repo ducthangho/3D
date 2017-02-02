@@ -811,6 +811,7 @@
     </ClCompile>
     <ClCompile Include="xml_format.cc" />
     <ClCompile Include="xnormal.pb.cc" />
+    <ClCompile Include="ymat.pb.cc" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Service.def">
@@ -1444,6 +1445,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="YProjectUtils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ymat.pb.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

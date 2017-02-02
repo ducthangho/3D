@@ -33,3 +33,9 @@ service Tools {
   rpc DoEvent(YEvent) returns (ResponseEvent);
   rpc DoUnwrap(EUnwrap) returns (ResponseEvent);
 }
+
+service YWorkers {
+  rpc AllWorkers(EmptyParam) returns (YWorkerList) {}
+  rpc AddWorker(EmptyParam) returns (YWorkerList) {}
+  rpc StopWorker(EmptyParam) returns (YWorkerList) {}
+}
