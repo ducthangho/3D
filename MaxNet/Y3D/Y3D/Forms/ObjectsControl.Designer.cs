@@ -49,8 +49,8 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnAddTest = new System.Windows.Forms.Button();
+            this.btnAddJob = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.button4 = new System.Windows.Forms.Button();
@@ -270,8 +270,8 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.button3);
-            this.groupBox2.Controls.Add(this.button2);
-            this.groupBox2.Controls.Add(this.button1);
+            this.groupBox2.Controls.Add(this.btnAddJob);
+            this.groupBox2.Controls.Add(this.btnAddTest);
             this.groupBox2.Location = new System.Drawing.Point(3, 379);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(348, 55);
@@ -279,23 +279,24 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Actions";
             // 
-            // button1
+            // btnAddTest
             // 
-            this.button1.Location = new System.Drawing.Point(7, 20);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(47, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "+ Test";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnAddTest.Location = new System.Drawing.Point(7, 20);
+            this.btnAddTest.Name = "btnAddTest";
+            this.btnAddTest.Size = new System.Drawing.Size(47, 23);
+            this.btnAddTest.TabIndex = 0;
+            this.btnAddTest.Text = "+ Test";
+            this.btnAddTest.UseVisualStyleBackColor = true;
+            this.btnAddTest.Click += new System.EventHandler(this.btnAddTest_Click);
             // 
-            // button2
+            // btnAddJob
             // 
-            this.button2.Location = new System.Drawing.Point(60, 20);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(44, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "+ Job";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnAddJob.Location = new System.Drawing.Point(60, 20);
+            this.btnAddJob.Name = "btnAddJob";
+            this.btnAddJob.Size = new System.Drawing.Size(44, 23);
+            this.btnAddJob.TabIndex = 1;
+            this.btnAddJob.Text = "+ Job";
+            this.btnAddJob.UseVisualStyleBackColor = true;
             // 
             // button3
             // 
@@ -313,7 +314,7 @@
             this.groupBox3.Size = new System.Drawing.Size(348, 100);
             this.groupBox3.TabIndex = 5;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Object Info";
+            this.groupBox3.Text = "Object";
             // 
             // button4
             // 
@@ -380,8 +381,8 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAddJob;
+        private System.Windows.Forms.Button btnAddTest;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
     }

@@ -610,6 +610,7 @@
     <ClInclude Include="grpc\third_party\nanopb\pb_common.h" />
     <ClInclude Include="grpc\third_party\nanopb\pb_decode.h" />
     <ClInclude Include="grpc\third_party\nanopb\pb_encode.h" />
+    <ClInclude Include="YCClient.h" />
     <ClInclude Include="YCServer.h" />
     <ClInclude Include="Service.h" />
     <ClInclude Include="resource.h" />

@@ -28,64 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.projectsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.objectsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.objectManagerMItem = new System.Windows.Forms.ToolStripMenuItem();
             this.systemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.testForm1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.workersManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnTabTest = new System.Windows.Forms.Button();
+            this.btnTabObject = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.objectsControl1 = new Y3D.Forms.ObjectsControl();
             this.testControl1 = new Y3D.Forms.TestControl();
-            this.objectManagerMItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
-            this.toolStripButton2,
-            this.toolStripButton3});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 24);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(562, 25);
-            this.toolStrip1.TabIndex = 0;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = global::Y3D.Properties.Resources.new2;
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton1.Text = "toolStripButton1";
-            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
-            // 
-            // toolStripButton2
-            // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton2.Image = global::Y3D.Properties.Resources.open;
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton2.Text = "toolStripButton2";
-            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
-            // 
-            // toolStripButton3
-            // 
-            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton3.Image = global::Y3D.Properties.Resources.save;
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton3.Text = "toolStripButton3";
             // 
             // menuStrip1
             // 
@@ -96,12 +58,16 @@
             this.testToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(562, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(606, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // projectsToolStripMenuItem
             // 
+            this.projectsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newToolStripMenuItem,
+            this.openToolStripMenuItem,
+            this.saveProjectToolStripMenuItem});
             this.projectsToolStripMenuItem.Name = "projectsToolStripMenuItem";
             this.projectsToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
             this.projectsToolStripMenuItem.Text = "Project";
@@ -114,8 +80,17 @@
             this.objectsToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
             this.objectsToolStripMenuItem.Text = "Object";
             // 
+            // objectManagerMItem
+            // 
+            this.objectManagerMItem.Name = "objectManagerMItem";
+            this.objectManagerMItem.Size = new System.Drawing.Size(159, 22);
+            this.objectManagerMItem.Text = "Object Manager";
+            this.objectManagerMItem.Click += new System.EventHandler(this.objectManagerMItem_Click);
+            // 
             // systemToolStripMenuItem
             // 
+            this.systemToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.workersManagerToolStripMenuItem});
             this.systemToolStripMenuItem.Name = "systemToolStripMenuItem";
             this.systemToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
             this.systemToolStripMenuItem.Text = "System";
@@ -131,13 +106,92 @@
             // testForm1ToolStripMenuItem
             // 
             this.testForm1ToolStripMenuItem.Name = "testForm1ToolStripMenuItem";
-            this.testForm1ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.testForm1ToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.testForm1ToolStripMenuItem.Text = "Test Form 1";
             this.testForm1ToolStripMenuItem.Click += new System.EventHandler(this.testForm1ToolStripMenuItem_Click);
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.panel1.Controls.Add(this.btnTabTest);
+            this.panel1.Controls.Add(this.btnTabObject);
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Location = new System.Drawing.Point(0, 27);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(40, 550);
+            this.panel1.TabIndex = 4;
+            // 
+            // newToolStripMenuItem
+            // 
+            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.newToolStripMenuItem.Text = "New";
+            this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
+            // 
+            // openToolStripMenuItem
+            // 
+            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.openToolStripMenuItem.Text = "Open";
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
+            // 
+            // saveProjectToolStripMenuItem
+            // 
+            this.saveProjectToolStripMenuItem.Name = "saveProjectToolStripMenuItem";
+            this.saveProjectToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.saveProjectToolStripMenuItem.Text = "Save Project";
+            // 
+            // workersManagerToolStripMenuItem
+            // 
+            this.workersManagerToolStripMenuItem.Name = "workersManagerToolStripMenuItem";
+            this.workersManagerToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.workersManagerToolStripMenuItem.Text = "Workers manager";
+            this.workersManagerToolStripMenuItem.Click += new System.EventHandler(this.workersManagerToolStripMenuItem_Click);
+            // 
+            // btnTabTest
+            // 
+            this.btnTabTest.BackColor = System.Drawing.Color.Transparent;
+            this.btnTabTest.BackgroundImage = global::Y3D.Properties.Resources.test1;
+            this.btnTabTest.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnTabTest.FlatAppearance.BorderSize = 0;
+            this.btnTabTest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTabTest.Location = new System.Drawing.Point(4, 84);
+            this.btnTabTest.Name = "btnTabTest";
+            this.btnTabTest.Size = new System.Drawing.Size(32, 32);
+            this.btnTabTest.TabIndex = 2;
+            this.btnTabTest.UseVisualStyleBackColor = false;
+            this.btnTabTest.Click += new System.EventHandler(this.btnTabTest_Click);
+            // 
+            // btnTabObject
+            // 
+            this.btnTabObject.BackColor = System.Drawing.Color.Transparent;
+            this.btnTabObject.BackgroundImage = global::Y3D.Properties.Resources.shape21;
+            this.btnTabObject.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnTabObject.FlatAppearance.BorderSize = 0;
+            this.btnTabObject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTabObject.Location = new System.Drawing.Point(4, 46);
+            this.btnTabObject.Name = "btnTabObject";
+            this.btnTabObject.Size = new System.Drawing.Size(32, 32);
+            this.btnTabObject.TabIndex = 1;
+            this.btnTabObject.UseVisualStyleBackColor = false;
+            this.btnTabObject.Click += new System.EventHandler(this.btnTabObject_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.BackgroundImage = global::Y3D.Properties.Resources.wave1;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(4, 8);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(32, 32);
+            this.button1.TabIndex = 0;
+            this.button1.UseVisualStyleBackColor = false;
+            // 
             // objectsControl1
             // 
-            this.objectsControl1.Location = new System.Drawing.Point(1, 52);
+            this.objectsControl1.Location = new System.Drawing.Point(46, 27);
             this.objectsControl1.Name = "objectsControl1";
             this.objectsControl1.Size = new System.Drawing.Size(560, 550);
             this.objectsControl1.TabIndex = 3;
@@ -146,28 +200,21 @@
             // testControl1
             // 
             this.testControl1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.testControl1.Location = new System.Drawing.Point(0, 52);
+            this.testControl1.Location = new System.Drawing.Point(46, 27);
             this.testControl1.Name = "testControl1";
             this.testControl1.Size = new System.Drawing.Size(561, 550);
             this.testControl1.TabIndex = 2;
             this.testControl1.Visible = false;
-            // 
-            // objectManagerMItem
-            // 
-            this.objectManagerMItem.Name = "objectManagerMItem";
-            this.objectManagerMItem.Size = new System.Drawing.Size(159, 22);
-            this.objectManagerMItem.Text = "Object Manager";
-            this.objectManagerMItem.Click += new System.EventHandler(this.objectManagerMItem_Click);
             // 
             // YMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(562, 604);
+            this.ClientSize = new System.Drawing.Size(606, 576);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.objectsControl1);
             this.Controls.Add(this.testControl1);
-            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
@@ -175,30 +222,32 @@
             this.Text = "Y3D";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.YMainForm_Load);
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem projectsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem objectsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem systemToolStripMenuItem;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
-        private System.Windows.Forms.ToolStripButton toolStripButton3;
         private System.Windows.Forms.ToolStripMenuItem testToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem testForm1ToolStripMenuItem;
         private TestControl testControl1;
         private ObjectsControl objectsControl1;
         private System.Windows.Forms.ToolStripMenuItem objectManagerMItem;
+        private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveProjectToolStripMenuItem;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ToolStripMenuItem workersManagerToolStripMenuItem;
+        private System.Windows.Forms.Button btnTabObject;
+        private System.Windows.Forms.Button btnTabTest;
     }
 }
 

@@ -174,5 +174,10 @@ namespace Y3D.Forms
             objectListCtrl.CheckBoxes = ((CheckBox)sender).Checked;
             this.olvColNameO.HeaderCheckBox = ((CheckBox)sender).Checked;
         }
+
+        private void btnAddTest_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

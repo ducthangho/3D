@@ -165,7 +165,6 @@ inline void log(char* str) {
 #endif
 }
 
-
 inline void log(std::wstring& str) {
 #ifdef YCDEBUG 	
 	mprintf(str.c_str());

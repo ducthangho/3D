@@ -90,40 +90,10 @@ DWORD Service::Start()
 {
 	#pragma message(TODO("Do plugin initialization here"))
 	#pragma message(TODO("Return if you want remain loaded or not"))
-	mprintf(L"Starting YService for 3ds Max ...");	
-	mprintf(L"Server listening on 0.0.0.0:50051");
+	//mprintf(L"Starting YService for 3ds Max ...");	
+	//mprintf(L"Server listening on 0.0.0.0:50051");
 	std::thread t([]() {
-
-		initSystem();
-		registerCB();
-		//MessageBox(NULL, _T("Open the message box "), _T("message"), MB_OK | MB_SYSTEMMODAL);
-
-		std::string server_address("0.0.0.0:50051");
-		YServiceImpl service;
-		grpc::ServerBuilder builder;
-		builder.AddListeningPort(server_address, grpc::InsecureServerCredentials());
-		// register "service" as the instance through which we'll communicate with
-		// clients. in this case it corresponds to an *synchronous* service.
-		builder.RegisterService(&service);
-		// finally assemble the server.
-		std::unique_ptr<Server> server(builder.BuildAndStart());
-		//std::cout << "server listening on " << server_address << std::endl;
-
-
-
-
-
-		// wait for the server to shutdown. note that some other thread must be
-		// responsible for shutting down the server for this call to ever return.
-		//do {
-		try {
-			server->Wait();
-		}
-		catch (std::exception& e) {
-			mprintf(L"Exception %s\n", e.what());
-		};
-		//} while (1);
-
+		initServer();
 	});
 	t.detach();
 	return GUPRESULT_KEEP;

@@ -1450,6 +1450,9 @@
     <ClInclude Include="ymat.pb.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="YCClient.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Service.rc">

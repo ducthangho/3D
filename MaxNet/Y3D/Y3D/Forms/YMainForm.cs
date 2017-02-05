@@ -58,5 +58,48 @@ namespace Y3D.Forms
             objectsControl1.Show();
             testControl1.Hide();
         }
+
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var np = rpc.YClient.NewProject();
+            if (np != null)
+            {
+                this.objectsControl1.updateYAL(np.Yal);
+                Utils.Tools.YSys = np.Sys;
+            }
+        }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ProjectForm pf = new ProjectForm();
+            DialogResult result = pf.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                this.objectsControl1.updateYAL(Utils.Tools.CurrentYAL);
+            }
+        }
+
+        private void workersManagerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ProjectForm pf = new ProjectForm();
+            WorkerForm wf = new WorkerForm();
+            DialogResult result = wf.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                
+            }
+        }
+
+        private void btnTabTest_Click(object sender, EventArgs e)
+        {
+            testControl1.Show();
+            objectsControl1.Hide();
+        }
+
+        private void btnTabObject_Click(object sender, EventArgs e)
+        {
+            objectsControl1.Show();
+            testControl1.Hide();
+        }
     }
 }

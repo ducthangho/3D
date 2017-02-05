@@ -13,6 +13,7 @@ namespace Y3D.Utils
     public class Tools
     {
         public static YSystem YSys = new YSystem();
+        public static YWorkerList YWList = new YWorkerList();
         public static ProjectInfo CurrentProject = new ProjectInfo();
         public static YAreaList CurrentYAL = null;
 

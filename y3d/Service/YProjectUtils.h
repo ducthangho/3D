@@ -8,9 +8,10 @@ const string FM_YSYS_FOLDER = "{}\\y3d\\";
 const string FM_YSETTING_FILE = "{}\\ysetting.y3d";
 const string FM_YAREA_FILE = FM_YDATA_DIR + "yal.y3d";
 const string FM_WORKING_FILE_PREFIX = FM_YDATA_DIR + "{}";
-
-
+const int PORT_MASTER = 8000;
+const string FM_SERVER_ADDR = "0.0.0.0:{}";
 YSystem YSys;
+YWorkerList YWList;
 std::vector<YEvent> received_e;
 //YEvent current_e;
 
@@ -189,7 +190,6 @@ inline void buildGroup(INode* node, YArea* ya) {
 	}
 }
 
-
 inline void ObjectFromMax(YAreaList* yal) {
 	auto* ip = GetCOREInterface();
 	auto ya = yal->add_areas();
@@ -210,7 +210,6 @@ inline void ObjectFromMax(YAreaList* yal) {
 
 inline void DoXrefHigh(ProjectInfo* pi) {
 	auto* ip = GetCOREInterface();
-
 	std::wstring low_file = formatWS(FM_WORKING_FILE_PREFIX + "_low0.max", pi->path(), pi->pname(), pi->pname());
 	ip->FileSaveNodes(&high_nodes, low_file.c_str());
 	std::wstring original_file = formatWS(FM_ORGINAL_FILE, pi->path(), pi->pname());

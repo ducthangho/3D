@@ -188,6 +188,7 @@ message YSystem {
   ProjectInfo default_info = 2;
   PSetting default_setting = 3;
   repeated ProjectInfo projects=4;
+  map<string,WorkerApp> apps=5;
 }
 
 // ------------------------------ Optimize highpoly by faces count
@@ -225,6 +226,13 @@ message Make4TestParam {
   string oname=1;
   repeated ELowpoly lowpoly=2;
 }
+
+message TestOParam {
+  int32 id = 1;
+  string oname=2;
+  float low_ratio=3;
+}
+
 message OptimizeParam {
     float ratio =1;
 }
@@ -411,12 +419,14 @@ message YItemMesh {
 message TestObject {
   bool active=1;
   YMat original_mat=2;
-  string name_low=3;
-  string name_high=4;  
-  string name_cage=5;  
-  string obj_low= 6;  
-  string obj_high=7;  
-  string obj_cage=8;  
+  string tname=3;
+  string oname=4;
+  // string name_low=3;
+  // string name_high=4;  
+  // string name_cage=5;  
+  // string obj_low= 6;  
+  // string obj_high=7;  
+  // string obj_cage=8;  
   string save_path=9;
   YItemMesh out=10;
 }
@@ -434,8 +444,33 @@ message YWorker {
   int32 wid=1;
   string wname=2;
   string ip_address =3;
+  enum ServingStatus {
+    UNKNOWN = 0;
+    SERVING = 1;
+    NOT_SERVING = 2;
+  }
+  ServingStatus status = 4;
 }
 
 message YWorkerList {
-  repeated YWorker workers=1;
+  YWorker master = 1;
+  repeated YWorker workers=2;
+}
+
+message YWorkerRequest {
+  bool call_in_app=1;
+  bool slient=2;
+  WorkerApp app=3;
+}
+
+message WorkerApp {
+  string wname=1;
+  string path_run=2;
+  string extra=3;
+}
+
+message YWorkerResponse {
+  YWorkerList wlist = 1;
+  YWorker new_worker=2;
+  string error=3;
 }

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "YLibs.h"
+#include "YCClient.h"
 #ifdef __cplusplus
 extern "C"
 {
@@ -237,7 +238,7 @@ class YServiceImpl final : public Tools::Service {
 		return Status::OK;
 	}
 
-	Status CloneObject(::grpc::ServerContext* context, const ::y3d::EmptyParam* request, ::y3d::ResultReply* response) override
+	Status CloneObject(ServerContext* context, const ::y3d::EmptyParam* request, ::y3d::ResultReply* response) override
 	{
 		
 		Invoke([]() {
@@ -259,8 +260,110 @@ class YServiceImpl final : public Tools::Service {
 		//response->set_message("ABCD");
 		return Status::OK;
 	}
+
+	
 };
 
+class YSWorkerImpl final : public YSWorkers::Service {
+	Status AddWorker(ServerContext* context, const ::y3d::YWorkerRequest* req, ::y3d::YWorkerResponse* yw_res) override {
+		Invoke([req, yw_res]() -> void {
+			auto new_worker = YWList.add_workers();
+			new_worker->set_wid(YWList.workers_size());
+			string new_addr = fmt::format(FM_SERVER_ADDR, new_worker->wid() + PORT_MASTER);
+			string wname = fmt::format("Worker {}", new_worker->wid());
+			new_worker->set_wname(wname.c_str());
+			new_worker->set_ip_address(new_addr.c_str());
+			new_worker->set_status(YWorker_ServingStatus::YWorker_ServingStatus_UNKNOWN);
+			if (req->call_in_app()) { //call from running worker app
+				new_worker->set_status(YWorker_ServingStatus::YWorker_ServingStatus_SERVING);
+				//MessageBoxW(NULL, s2ws(new_addr).c_str(), L"Oh", MB_OK);
+			}
+			else {
+				if (!req->slient()) {
+					auto r = system(req->app().path_run().c_str());
+					//run app here
+				}
+				else {
+					new_worker->set_status(YWorker_ServingStatus::YWorker_ServingStatus_NOT_SERVING);
+				}
+			}
+			yw_res->mutable_wlist()->CopyFrom(YWList);
+			yw_res->mutable_new_worker()->CopyFrom(*new_worker);
+		});
+		return Status::OK;
+		//new_worker->id
+	}
+
+	Status AllWorkers(ServerContext* context, const ::y3d::EmptyParam* req, ::y3d::YWorkerList* yw_res) override {
+		Invoke([req, yw_res]() -> void {
+			if (!YWList.has_master()) {
+				auto* m = YWList.mutable_master();
+				m->set_wname("Master");
+				m->set_ip_address(fmt::format(FM_SERVER_ADDR, PORT_MASTER));
+				m->set_status(YWorker_ServingStatus::YWorker_ServingStatus_SERVING);
+			}
+			yw_res->CopyFrom(YWList);
+		});
+		return Status::OK;
+		//new_worker->id
+	}
+};
+
+
+//inline void addWorkerClient() {
+//	string master_addr = fmt::format("localhost:{}", PORT_MASTER);
+//	YSWorkersClient workerClient(grpc::CreateChannel(
+//		master_addr , grpc::InsecureChannelCredentials()));
+//}
+
+inline void initServer() {
+	string master_addr = fmt::format(FM_SERVER_ADDR, PORT_MASTER);
+	YServiceImpl service_tools;
+	YSWorkerImpl service_worker;
+	grpc::ServerBuilder builder;
+	builder.AddListeningPort(master_addr, grpc::InsecureServerCredentials());
+	builder.RegisterService(&service_tools);
+	builder.RegisterService(&service_worker);
+	std::unique_ptr<Server> server(builder.BuildAndStart());
+
+	if (server != NULL) { // master server
+		try {
+			initSystem();
+			registerCB();
+			//log("YServer MASTER listening on 0.0.0.0:{}", PORT_MASTER);
+			server->Wait();
+		}
+		catch (std::exception& e) {
+			mprintf(L"Exception %s\n", e.what());
+		};
+	}
+	else {
+		string master_addr = fmt::format("localhost:{}", PORT_MASTER);
+		YSWorkersClient workerClient(grpc::CreateChannel(master_addr, grpc::InsecureChannelCredentials()));
+		auto ww = workerClient.startNewWorker();
+		builder.AddListeningPort(ww.new_worker().ip_address(), grpc::InsecureServerCredentials());
+		builder.RegisterService(&service_tools);
+		builder.RegisterService(&service_worker);
+		std::unique_ptr<Server> server2(builder.BuildAndStart());
+		if (server2 != NULL) { // worker server
+			try {
+				//YWList.mutable_workers()->Mutable(YWList.workers_size())->set_status(YWorker_ServingStatus::YWorker_ServingStatus_SERVING);
+				server2->Wait();
+				//log("YServer worker listening on {}",ww.new_worker().ip_address().c_str());
+			}
+			catch (std::exception& e) {
+				//YWList.mutable_workers()->Mutable(YWList.workers_size())->set_status(YWorker_ServingStatus::YWorker_ServingStatus_NOT_SERVING);
+				mprintf(L"Exception %s\n", e.what());
+			};
+		}
+		else {
+			//YWList.mutable_workers()->Mutable(YWList.workers_size())->set_status(YWorker_ServingStatus::YWorker_ServingStatus_NOT_SERVING);
+			//log("Can not start server on {}", ww.new_worker().ip_address().c_str());
+		}
+		// get port from master server
+
+	}
+}
 
 #ifdef __cplusplus
 }

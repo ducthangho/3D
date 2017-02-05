@@ -15,9 +15,10 @@ namespace Y3D.rpc
     {
 
 
-        public static Channel CChannel = new Channel("127.0.0.1:50051", ChannelCredentials.Insecure);
+        public static Channel CChannel = new Channel("127.0.0.1:8000", ChannelCredentials.Insecure);
         public static Channel CSChannel = new Channel("127.0.0.1:1983", ChannelCredentials.Insecure);
         public static y3d.s.Tools.ToolsClient CClient = new y3d.s.Tools.ToolsClient(CChannel);
+        public static y3d.s.YSWorkers.YSWorkersClient CWClient = new YSWorkers.YSWorkersClient(CChannel);
         public static y3d.s.Tools.ToolsClient CSClient = new y3d.s.Tools.ToolsClient(CSChannel);
 
         public static void StartCSever()
