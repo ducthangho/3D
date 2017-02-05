@@ -341,17 +341,20 @@ inline void initServer() {
 		string master_addr = fmt::format("localhost:{}", PORT_MASTER);
 		YSWorkersClient workerClient(grpc::CreateChannel(master_addr, grpc::InsecureChannelCredentials()));
 		auto ww = workerClient.startNewWorker();
-		builder.AddListeningPort(ww.new_worker().ip_address(), grpc::InsecureServerCredentials());
-		builder.RegisterService(&service_tools);
-		builder.RegisterService(&service_worker);
-		std::unique_ptr<Server> server2(builder.BuildAndStart());
+		grpc::ServerBuilder builder2;
+		builder2.AddListeningPort(ww.new_worker().ip_address(), grpc::InsecureServerCredentials());
+		builder2.RegisterService(&service_tools);
+		builder2.RegisterService(&service_worker);
+		std::unique_ptr<Server> server2(builder2.BuildAndStart());
 		if (server2 != NULL) { // worker server
 			try {
+				//MessageBoxW(NULL, s2ws(ww.new_worker().ip_address()).c_str(), L"zzz", MB_OK);
 				//YWList.mutable_workers()->Mutable(YWList.workers_size())->set_status(YWorker_ServingStatus::YWorker_ServingStatus_SERVING);
 				server2->Wait();
 				//log("YServer worker listening on {}",ww.new_worker().ip_address().c_str());
 			}
 			catch (std::exception& e) {
+				//MessageBoxW(NULL, L"err", L"zzz", MB_OK);
 				//YWList.mutable_workers()->Mutable(YWList.workers_size())->set_status(YWorker_ServingStatus::YWorker_ServingStatus_NOT_SERVING);
 				mprintf(L"Exception %s\n", e.what());
 			};
