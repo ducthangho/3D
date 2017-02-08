@@ -43,7 +43,7 @@
     <OutDir Condition="'$(Platform)'=='x64'">C:\Program Files\Autodesk\3ds Max 2017\Plugins\</OutDir>
     <IntDir>$(ProjectDir)\obj\$(MaxPlatform)\$(MaxConfiguration)\</IntDir>
     <TargetName>Service</TargetName>
-    <TargetExt>.gup</TargetExt>
+    <TargetExt>.dll</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">
     <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
@@ -57,8 +57,8 @@
   <ItemDefinitionGroup>
     <ClCompile>
       <WholeProgramOptimization>false</WholeProgramOptimization>
-      <PreprocessorDefinitions>NOMINMAX;PROTOBUF_USE_DLLS;_CRT_SECURE_NO_WARNINGS;WIN32_LEAN_AND_MEAN;_ADESK_3DSMAX_WINDOWS_;WINVER=0x0A00;_WIN32_WINNT=0x0A00;_WIN32_WINDOWS=0x0A00;_WIN32_IE=0x0800;_WINDOWS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_DEPRECATE;_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1;_CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES=1;ISOLATION_AWARE_ENABLED=1;SECURE_SCL=0;WIN64;_UNICODE;UNICODE;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(MsBuildProjectDirectory);$(MsBuildProjectDirectory)\..\include;$(MaxSdkInc);.;$(MsBuildProjectDirectory)\grpc\;$(MsBuildProjectDirectory)\grpc\include;$(MsBuildProjectDirectory)\grpc\third_party\protobuf\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_USE_DYNAMIC_LOADED_DLL;Y3DSERVICE_EXPORT;NOMINMAX;PROTOBUF_USE_DLLS;_CRT_SECURE_NO_WARNINGS;WIN32_LEAN_AND_MEAN;_ADESK_3DSMAX_WINDOWS_;WINVER=0x0A00;_WIN32_WINNT=0x0A00;_WIN32_WINDOWS=0x0A00;_WIN32_IE=0x0800;_WINDOWS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_DEPRECATE;_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1;_CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES=1;ISOLATION_AWARE_ENABLED=1;SECURE_SCL=0;WIN64;_UNICODE;UNICODE;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(MsBuildProjectDirectory)\..\include;$(MaxSdkInc);$(MsBuildProjectDirectory)\grpc\;$(MsBuildProjectDirectory)\grpc\include;$(MsBuildProjectDirectory)\grpc\third_party\protobuf\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <WarningLevel>Level2</WarningLevel>
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">
       </AdditionalOptions>
@@ -79,11 +79,16 @@
       <RuntimeLibrary Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">MultiThreadedDLL</RuntimeLibrary>
       <DebugInformationFormat Condition="'$(Configuration)|$(Platform)'=='Release|x64'">ProgramDatabase</DebugInformationFormat>
       <OmitDefaultLibName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</OmitDefaultLibName>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(MSBuildProjectDirectory)\..\include\import_dll.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">$(MSBuildProjectDirectory)\..\include\import_dll.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(MaxSdkLib);$(MsBuildProjectDirectory)\..\lib\tbb;$(MsBuildProjectDirectory)\..\lib;$(MsBuildProjectDirectory)\..\lib\grpc;$(MsBuildProjectDirectory)\..\lib\protobuf;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>libprotoc.lib;libprotobuf.lib;bmm.lib;core.lib;geom.lib;gfx.lib;mesh.lib;maxutil.lib;maxscrpt.lib;gup.lib;paramblk2.lib;ws2_32.lib;grpc_dll.lib;tbb.lib;tbbmalloc.lib;YMax.lib;msvcrt.lib;msvcmrt.lib;igame.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(MaxSdkLib);$(MsBuildProjectDirectory)\..\lib\tbb;$(MsBuildProjectDirectory)\..\lib;$(MsBuildProjectDirectory)\..\lib\grpc;$(MsBuildProjectDirectory)\..\lib\protobuf;$(MsBuildProjectDirectory)\..\ServiceImpl\obj\x64\$(Configuration);$(MsBuildProjectDirectory)\..\Loader\obj\x64\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Loader.lib;grpc_dll.lib;libprotoc.lib;libprotobuf.lib;bmm.lib;core.lib;geom.lib;gfx.lib;mesh.lib;maxutil.lib;maxscrpt.lib;gup.lib;paramblk2.lib;ws2_32.lib;tbb.lib;tbbmalloc.lib;YMax.lib;msvcrt.lib;msvcmrt.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ModuleDefinitionFile>Service.def</ModuleDefinitionFile>
+      <LinkTimeCodeGeneration Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+      <LinkTimeCodeGeneration Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+      <LinkTimeCodeGeneration Condition="'$(Configuration)|$(Platform)'=='Release|x64'">UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
     </Link>
     <PostBuildEvent />
     <PostBuildEvent />
@@ -101,7 +106,7 @@
       </Command>
     </CustomBuildStep>
     <PostBuildEvent>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">xcopy "$(MSBuildProjectDirectory)\..\lib\grpc\*.dll" "$(ADSK_3DSMAX_x64_2017)" /D /Y</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">call "$(ProjectDir)..\bin\post_build.cmd" "$(ProjectDir)" "$(ADSK_3DSMAX_x64_2017)"</Command>
     </PostBuildEvent>
     <PostBuildEvent>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">xcopy "$(MSBuildProjectDirectory)\..\lib\grpc\*.dll" "$(ADSK_3DSMAX_x64_2017)" /D /Y</Command>
@@ -109,6 +114,14 @@
     <PostBuildEvent>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">xcopy "$(MSBuildProjectDirectory)\..\lib\grpc\*.dll" "$(ADSK_3DSMAX_x64_2017)" /D /Y</Command>
     </PostBuildEvent>
+    <PreBuildEvent>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">
+      </Command>
+    </PreBuildEvent>
+    <PreLinkEvent>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">
+      </Command>
+    </PreLinkEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="grpc\src\compiler\cpp_generator.cc" />
@@ -180,6 +193,8 @@
     <ClCompile Include="grpc\src\core\lib\channel\connected_channel.c" />
     <ClCompile Include="grpc\src\core\lib\channel\deadline_filter.c" />
     <ClCompile Include="grpc\src\core\lib\channel\handshaker.c" />
+    <ClCompile Include="grpc\src\core\lib\channel\handshaker_factory.c" />
+    <ClCompile Include="grpc\src\core\lib\channel\handshaker_registry.c" />
     <ClCompile Include="grpc\src\core\lib\channel\http_client_filter.c" />
     <ClCompile Include="grpc\src\core\lib\channel\http_server_filter.c" />
     <ClCompile Include="grpc\src\core\lib\channel\message_size_filter.c" />
@@ -398,24 +413,34 @@
     <ClCompile Include="grpc\third_party\nanopb\pb_common.c" />
     <ClCompile Include="grpc\third_party\nanopb\pb_decode.c" />
     <ClCompile Include="grpc\third_party\nanopb\pb_encode.c" />
-    <ClCompile Include="Service.cpp" />
+    <ClCompile Include="Y3dService.cpp" />
     <ClCompile Include="DllEntry.cpp" />
-    <ClCompile Include="xml_format.cc" />
-    <ClCompile Include="xnormal.pb.cc" />
-    <ClCompile Include="y3d.pb.cc" />
-    <ClCompile Include="ymat.pb.cc" />
-    <ClCompile Include="ymax.grpc.pb.cc" />
-    <ClCompile Include="ymax.pb.cc" />
-    <ClCompile Include="yservice.grpc.pb.cc" />
-    <ClCompile Include="yservice.pb.cc" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="Service.def" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\include\ServiceImpl.h" />
+    <ClInclude Include="..\include\xml_format.h" />
+    <ClInclude Include="..\include\xnormal.pb.h" />
+    <ClInclude Include="..\include\xNormalSettings.h" />
+    <ClInclude Include="..\include\y3d.pb.h" />
+    <ClInclude Include="..\include\YCServer.h" />
+    <ClInclude Include="..\include\YLibs.h" />
+    <ClInclude Include="..\include\yloader.grpc.pb.h" />
+    <ClInclude Include="..\include\yloader.pb.h" />
+    <ClInclude Include="..\include\ymax.grpc.pb.h" />
+    <ClInclude Include="..\include\ymax.pb.h" />
+    <ClInclude Include="..\include\YProjectUtils.h" />
+    <ClInclude Include="..\include\yservice.grpc.pb.h" />
+    <ClInclude Include="..\include\yservice.pb.h" />
+    <ClInclude Include="..\include\ysetting.pb.h" />
     <ClInclude Include="3dsmaxsdk_preinclude.h" />
     <ClInclude Include="3dsmaxUtils.h" />
+    <ClInclude Include="grpc\include\grpc++\impl\codegen\core_codegen_interface.h" />
+    <ClInclude Include="grpc\include\grpc++\impl\codegen\server_interface.h" />
+    <ClInclude Include="grpc\include\grpc++\impl\grpc_library.h" />
     <ClInclude Include="grpc\src\compiler\config.h" />
     <ClInclude Include="grpc\src\compiler\cpp_generator.h" />
     <ClInclude Include="grpc\src\compiler\cpp_generator_helpers.h" />
@@ -472,6 +497,8 @@
     <ClInclude Include="grpc\src\core\lib\channel\context.h" />
     <ClInclude Include="grpc\src\core\lib\channel\deadline_filter.h" />
     <ClInclude Include="grpc\src\core\lib\channel\handshaker.h" />
+    <ClInclude Include="grpc\src\core\lib\channel\handshaker_factory.h" />
+    <ClInclude Include="grpc\src\core\lib\channel\handshaker_registry.h" />
     <ClInclude Include="grpc\src\core\lib\channel\http_client_filter.h" />
     <ClInclude Include="grpc\src\core\lib\channel\http_server_filter.h" />
     <ClInclude Include="grpc\src\core\lib\channel\message_size_filter.h" />
@@ -610,21 +637,8 @@
     <ClInclude Include="grpc\third_party\nanopb\pb_common.h" />
     <ClInclude Include="grpc\third_party\nanopb\pb_decode.h" />
     <ClInclude Include="grpc\third_party\nanopb\pb_encode.h" />
-    <ClInclude Include="YCClient.h" />
-    <ClInclude Include="YCServer.h" />
-    <ClInclude Include="Service.h" />
+    <ClInclude Include="Y3dService.h" />
     <ClInclude Include="resource.h" />
-    <ClInclude Include="xml_format.h" />
-    <ClInclude Include="xnormal.pb.h" />
-    <ClInclude Include="xNormalSettings.h" />
-    <ClInclude Include="y3d.pb.h" />
-    <ClInclude Include="YLibs.h" />
-    <ClInclude Include="ymat.pb.h" />
-    <ClInclude Include="ymax.grpc.pb.h" />
-    <ClInclude Include="ymax.pb.h" />
-    <ClInclude Include="YProjectUtils.h" />
-    <ClInclude Include="yservice.grpc.pb.h" />
-    <ClInclude Include="yservice.pb.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Service.rc" />
