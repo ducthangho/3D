@@ -17,10 +17,15 @@ namespace YMax.rpc
         public static Channel CChannel = new Channel("127.0.0.1:50051", ChannelCredentials.Insecure);
         public static y3d.s.Tools.ToolsClient CClient = new y3d.s.Tools.ToolsClient(CChannel);
 
+        public static Channel LoaderChannel = new Channel("127.0.0.0:50050", ChannelCredentials.Insecure);
+        public static Y3D.Loader.LoaderClient LoaderClient = new Y3D.Loader.LoaderClient(LoaderChannel);
+
         public static void StartCSever()
         {
             CChannel = new Channel("127.0.0.1:50051", ChannelCredentials.Insecure);
             CClient = new y3d.s.Tools.ToolsClient(CChannel);
+            LoaderChannel = new Channel("127.0.0.0:50050", ChannelCredentials.Insecure);
+            LoaderClient = new Y3D.Loader.LoaderClient(LoaderChannel);
         }
 
         public static void StopCServer()
@@ -90,6 +95,24 @@ namespace YMax.rpc
             op.Ratio = 90;
             var reply = client.BatchOptimizeAsync(op);
             channel.ShutdownAsync().Wait();
+        }
+
+        public static void test_loader()
+        {
+            //LoaderChannel
+            (new Thread(() => {
+                try
+                {
+                    var channel = new Channel("127.0.0.0:50050", ChannelCredentials.Insecure);
+                    var client = new Y3D.Loader.LoaderClient(channel);
+                    //var reply = client.LoadDll(new EmptyParam());
+                    MessageBox.Show("Ket qua: ");
+                } catch (Exception e)
+                {
+                    MessageBox.Show("Exception : "+e.Message);
+                }
+                //channel.ShutdownAsync().Wait();
+            })).Start();
         }
     }
 }

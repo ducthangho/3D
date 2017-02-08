@@ -57,7 +57,7 @@ namespace YMax
         public override uint Start
         {
             get
-            {
+            {                
                 IIActionManager actionManager = Loader.Core.ActionManager;
                 IIMenuManager menuManager = Loader.Core.MenuManager;
                 items = new List<IIMenuItem>();
@@ -111,8 +111,8 @@ namespace YMax
 
                 Loader.Global.RegisterNotification(Utilities.YProject.thang_test1, null, SystemNotificationCode.Custom7); // gan vao custom7
                 Actions.YExitCommand a = new Actions.YExitCommand();
-                Loader.Core.RegisterExitMAXCallback(a);
-
+                ///Loader.Core.RegisterExitMAXCallback(a);
+                rpc.YLoaderServer.Start();                
                 //Utilities.YProject.initSystem();
                 //Loader.Core.DisableSceneRedraw();
                 

@@ -313,13 +313,14 @@ namespace YMax.Utilities
 #if MAX2017
                 var indexer = i;
 #else
-                var indexer = new IntPtr(i);
+                var indexer = i;
+                //var indexer = new IntPtr(i);
 #endif
                 var cameraNode = cams[indexer];
 
-#if !MAX2017
-                Marshal.FreeHGlobal(indexer);
-#endif
+//#if !MAX2017
+//                Marshal.FreeHGlobal(indexer);
+//#endif
                 var yo = new YObject();
                 yo.Name = cameraNode.Name;
                 yo.Otype = ObjectType.Camera;
@@ -342,13 +343,14 @@ namespace YMax.Utilities
 #if MAX2017
                 var indexer = i;
 #else
-                var indexer = new IntPtr(i);
+                //var indexer = new IntPtr(i);
+                var indexer = i;
 #endif
                 var lightNode = lights[indexer];
 
-#if !MAX2017
-                Marshal.FreeHGlobal(indexer);
-#endif
+//#if !MAX2017
+//                Marshal.FreeHGlobal(indexer);
+//#endif
                 var yo = new YObject();
                 yo.Name = lightNode.Name;
                 yo.Otype = ObjectType.Light;

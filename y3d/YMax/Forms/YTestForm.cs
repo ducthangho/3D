@@ -78,7 +78,8 @@ namespace YMax.Forms
 
         private void btnGrpcStop_Click(object sender, EventArgs e)
         {
-            rpc.YServer.Stop();
+            //rpc.LoaderClient;
+            rpc.YClient.test_loader();
         }
 
         private void btnGrpcStart_Click(object sender, EventArgs e)
