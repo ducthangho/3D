@@ -398,6 +398,7 @@ message ENormal {
 message Normal3DMax {
 }
 
+<<<<<<< Updated upstream
 
 
 // ------------------------------ Task,Worker,Job...
@@ -474,3 +475,9 @@ message YWorkerResponse {
   YWorker new_worker=2;
   string error=3;
 }
+=======
+message ResponseEvent {
+  bool error = 1;
+  string msg = 2;
+}
+>>>>>>> Stashed changes
