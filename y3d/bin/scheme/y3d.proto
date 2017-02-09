@@ -398,86 +398,8 @@ message ENormal {
 message Normal3DMax {
 }
 
-<<<<<<< Updated upstream
-
-
-// ------------------------------ Task,Worker,Job...
-message YTask {
-  oneof task {
-    EUnwrap unwrap = 1;
-    EPacking pack = 2;
-    ELowpoly lowpoly = 3;
-    ENormal bake_normal = 4;
-  }  
-}
-message YItemMesh {
-  YMat bake_mat=1;
-  YBaseMap map=2;
-  YMesh mesh=3;
-  repeated YMesh meshes=4;
-}
-
-message TestObject {
-  bool active=1;
-  YMat original_mat=2;
-  string tname=3;
-  string oname=4;
-  // string name_low=3;
-  // string name_high=4;  
-  // string name_cage=5;  
-  // string obj_low= 6;  
-  // string obj_high=7;  
-  // string obj_cage=8;  
-  string save_path=9;
-  YItemMesh out=10;
-}
-
-message YJob {
-  string jname = 1;
-  repeated YTask task=2;
-  YObject obj = 3;
-  repeated YObject objs = 4;
-  YItemMesh out=5;
-  repeated TestObject tests=7;
-}
-
-message YWorker {
-  int32 wid=1;
-  string wname=2;
-  string ip_address =3;
-  enum ServingStatus {
-    UNKNOWN = 0;
-    SERVING = 1;
-    NOT_SERVING = 2;
-  }
-  ServingStatus status = 4;
-}
-
-message YWorkerList {
-  YWorker master = 1;
-  repeated YWorker workers=2;
-}
-
-message YWorkerRequest {
-  bool call_in_app=1;
-  bool slient=2;
-  WorkerApp app=3;
-}
-
-message WorkerApp {
-  string wname=1;
-  string path_run=2;
-  string extra=3;
-}
-
-message YWorkerResponse {
-  YWorkerList wlist = 1;
-  YWorker new_worker=2;
-  string error=3;
-}
-=======
 message ResponseEvent {
   bool error = 1;
   string msg = 2;
 }
->>>>>>> Stashed changes
+
