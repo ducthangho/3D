@@ -12,20 +12,21 @@
 // AUTHOR: 
 //***************************************************************************/
 
+#include "common.h"
 #include "Y3dService.h"
 #include <iostream>
 #include <memory>
 #include <string>
-#include <grpc++/grpc++.h>
 
-#include "YCServer.h"
+#include <grpc++/grpc++.h>
 #include <grpc++/impl/grpc_library.h>
 #include <grpc++/impl/codegen/proto_utils.h>
+
+#include "YCServer.h"
 
 #define Service_CLASS_ID	Class_ID(0x768455e0, 0x74aca221)
 const std::string LOADER_IP = "0.0.0.0:50050";
 const std::string SERVER_IP = "0.0.0.0:50051";
-static const char *dll_fname = "SBMExporter.dle";
 
 HMODULE dll = nullptr;
 std::promise<void> exit_requested;
