@@ -14,12 +14,8 @@
 // AUTHOR: 
 //***************************************************************************/
 
-#include "3dsmaxsdk_preinclude.h"
-#include "resource.h"
-#include <istdplug.h>
-#include <iparamb2.h>
-#include <iparamm2.h>
-#include <maxtypes.h>
+
+#include <tchar.h>
 #include <condition_variable>
 #include <future>
 #include <mutex>
@@ -27,9 +23,9 @@
 //SIMPLE TYPE
 
 
-#include <guplib.h>
+#include <windows.h>
 
-#define GPR_INT64_MAX (gpr_int64)(~(gpr_uint64)0 >> 1)
+//#define GPR_INT64_MAX (gpr_int64)(~(gpr_uint64)0 >> 1)
 extern TCHAR *GetString(int id);
 
 extern HINSTANCE hInstance;

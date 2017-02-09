@@ -1,11 +1,8 @@
 #pragma once
 
-#include "YLibs.h"
-#include "grpc++/grpc++.h"
 #include "y3d.pb.h"
 #include "yservice.pb.h"
 #include "yservice.grpc.pb.h"
-#include "YProjectUtils.h"
 
 
 #ifdef YSERVICE_EXPORT
