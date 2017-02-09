@@ -499,9 +499,6 @@
     <ClInclude Include="..\include\common.h" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="Service.rc" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="packages.config" />
     <None Include="Service.def" />
   </ItemGroup>

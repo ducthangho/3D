@@ -90,7 +90,7 @@
       <AdditionalDependencies>grpc_dll.lib;libprotoc.lib;ws2_32.lib;libprotobuf.lib;tbb.lib;tbbmalloc.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ModuleDefinitionFile>
       </ModuleDefinitionFile>
-      <LinkTimeCodeGeneration Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+      <LinkTimeCodeGeneration Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">Default</LinkTimeCodeGeneration>
       <LinkTimeCodeGeneration Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
       <LinkTimeCodeGeneration Condition="'$(Configuration)|$(Platform)'=='Release|x64'">UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
     </Link>
@@ -123,8 +123,7 @@
       </Command>
     </PreBuildEvent>
     <PreLinkEvent>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">
-      </Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">"$(ProjectDir)..\bin\LoaderCmd.exe" -l 0</Command>
     </PreLinkEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -628,9 +627,6 @@
     <ClInclude Include="grpc\third_party\nanopb\pb_encode.h" />
     <ClInclude Include="Y3dService.h" />
     <ClInclude Include="resource.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="Service.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
