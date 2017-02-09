@@ -43,21 +43,8 @@ BOOL WINAPI DllMain(HINSTANCE hinstDLL,ULONG fdwReason,LPVOID /*lpvReserved*/)
 		MaxSDK::Util::UseLanguagePackLocale();
 		// Hang on to this DLL's instance handle.
 		hInstance = hinstDLL;
-
-		//grpc::internal::GrpcLibraryInitializer m;
-		
-		wchar_t buf[256];
-		auto nsize = GetModuleFileName(hInstance, buf, 256);
-		std::wstring tmp(buf,nsize);
-		LOG("DLL_PROCESS_ATTACH {0}\n", ws2s(tmp).c_str() );
 		DisableThreadLibraryCalls(hInstance);
 		// DO NOT do any initialization here. Use LibInitialize() instead.
-	}
-	else if (fdwReason == DLL_PROCESS_DETACH) {
-		wchar_t buf[256];
-		auto nsize = GetModuleFileName(hInstance, buf, 256);
-		std::wstring tmp(buf, nsize);
-		LOG("DLL_PROCESS_DETACH {0}\n", ws2s(tmp).c_str());
 	}
 	return(TRUE);
 }

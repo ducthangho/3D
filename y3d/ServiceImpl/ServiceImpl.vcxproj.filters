@@ -23,9 +23,6 @@
     <ClCompile Include="ysetting.pb.cc" />
     <ClCompile Include="ymax.grpc.pb.cc" />
     <ClCompile Include="ymax.pb.cc" />
-    <ClCompile Include="ServiceImpl.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="pugixml.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -41,67 +38,13 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="3dsmaxsdk_preinclude.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="resource.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="3dsmaxUtils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\include\YCServer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\include\YLibs.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\ServiceImpl.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\xnormal.pb.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\xNormalSettings.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\y3d.pb.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\ymax.grpc.pb.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\ymax.pb.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\yservice.grpc.pb.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\yservice.pb.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\ysetting.pb.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\xml_format.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Service\grpc\include\grpc++\impl\codegen\core_codegen_interface.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Service\grpc\include\grpc++\impl\codegen\server_interface.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Service\grpc\include\grpc++\impl\codegen\async_unary_call.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Service\grpc\include\grpc++\impl\codegen\completion_queue.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Service\grpc\include\grpc++\impl\codegen\proto_utils.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Service\grpc\include\grpc++\impl\codegen\core_codegen.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
