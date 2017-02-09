@@ -1,6 +1,8 @@
 #ifndef Y3D_EXPORT_MACRO
 #define Y3D_EXPORT_MACRO
 #endif
+#include "common.h"
+#include "YLibs.h"
 #include "YCServer.h"
 #include "xnormal.pb.h"
 #include "xNormalSettings.h"
@@ -259,7 +261,7 @@ Status YServiceImpl::CloneObject(::grpc::ServerContext* context, const ::y3d::Em
 		}
 		mprintf(L"Hello world\n");
 	});
-	response->set_message("Xin chao. Xong");
+	response->set_message("Xin chao ngay mai");
 	return Status::OK;
 }
 

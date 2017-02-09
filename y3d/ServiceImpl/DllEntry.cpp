@@ -16,7 +16,7 @@
 #endif
 #pragma warning( disable : 4706 )
 #include "ServiceImpl.h"
-#include "YLibs.h"
+#include "common.h"
 //#include <grpc/grpc.h>
 //#include <grpc++/impl/grpc_library.h>
 
