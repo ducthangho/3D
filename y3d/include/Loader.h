@@ -14,17 +14,6 @@
 // AUTHOR: 
 //***************************************************************************/
 
-#include "3dsmaxsdk_preinclude.h"
-#include "resource.h"
-#include <istdplug.h>
-#include <iparamb2.h>
-#include <iparamm2.h>
-#include <maxtypes.h>
-//SIMPLE TYPE
-
-
-#include <guplib.h>
-
 #include <grpc++/impl/codegen/core_codegen_interface.h>
 #include <grpc++/impl/codegen/grpc_library.h>
 
@@ -62,5 +51,4 @@ YSERVICE_API void APIENTRY releaseObject(LoaderPtr obj);
 YSERVICE_API LoaderSharedPtr APIENTRY getLoaderServicePtr();
 
 extern TCHAR *GetString(int id);
-
 extern HINSTANCE hInstance;
