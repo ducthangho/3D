@@ -85,6 +85,52 @@ private:
 static LOGGER LOG;
 
 
+//Returns the last Win32 error, in string format. Returns an empty string if there is no error.
+inline std::string GetLastErrorAsString(DWORD errorMessageID)
+{
+	//Get the error message, if any.
+	//DWORD errorMessageID = ::GetLastError();
+	if (errorMessageID == 0)
+		return std::string(); //No error message has been recorded
+
+	LPSTR messageBuffer = nullptr;
+	size_t size = FormatMessageA(FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS,
+		NULL, errorMessageID, MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), (LPSTR)&messageBuffer, 0, NULL);
+
+	std::string message(messageBuffer, size);
+
+	//Free the buffer.
+	LocalFree(messageBuffer);
+
+	return message;
+}
+
+#define SYSTEM_CALL_ERROR_MSG(code,error_code,msg)	\
+	code;	\
+	auto error_code = GetLastError();	\
+	std::wstring msg;	\
+	if (error_code){	\
+		msg = s2ws(fmt::format("Error : {0}. {1}\n", error_code, GetLastErrorAsString(error_code).c_str()));	\
+	}
+
+#define SYSTEM_CALL_ERROR(code,error_code)	\
+	code;	\
+	auto error_code = GetLastError();	\
+	if (error_code){	\
+		auto msg = s2ws(fmt::format("Error : {0}. {1}\n", error_code, GetLastErrorAsString(error_code).c_str()));	\
+		MessageBox(NULL, msg.c_str(), L"Error", MB_OK);	\
+	}
+
+#define SYSTEM_CALL(code)	\
+	code;	\
+	{	\
+	auto error_code = GetLastError();	\
+	if (error_code){	\
+		auto msg = s2ws(fmt::format("Error : {0}. {1}\n", error_code, GetLastErrorAsString(error_code).c_str()));	\
+		MessageBox(NULL, msg.c_str(), L"Error", MB_OK);	\
+	}	\
+	}
+
 // multi byte to wide char:
 inline std::wstring s2ws(const std::string& str)
 {
