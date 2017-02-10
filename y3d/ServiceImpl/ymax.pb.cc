@@ -18,226 +18,188 @@
 // @@protoc_insertion_point(includes)
 
 namespace yproto {
+class NumFaceRangeDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<NumFaceRange> {
+} _NumFaceRange_default_instance_;
+class Point3DefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<Point3> {
+} _Point3_default_instance_;
+class Box3DefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<Box3> {
+} _Box3_default_instance_;
+class MNMapDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<MNMap> {
+} _MNMap_default_instance_;
+class ObjItemDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<ObjItem> {
+} _ObjItem_default_instance_;
+class ObjListDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<ObjList> {
+} _ObjList_default_instance_;
+
+namespace protobuf_ymax_2eproto {
+
 
 namespace {
 
-const ::google::protobuf::Descriptor* NumFaceRange_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  NumFaceRange_reflection_ = NULL;
-const ::google::protobuf::Descriptor* Point3_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  Point3_reflection_ = NULL;
-const ::google::protobuf::Descriptor* Box3_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  Box3_reflection_ = NULL;
-const ::google::protobuf::Descriptor* MNMap_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  MNMap_reflection_ = NULL;
-const ::google::protobuf::Descriptor* ObjItem_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  ObjItem_reflection_ = NULL;
-const ::google::protobuf::Descriptor* ObjList_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  ObjList_reflection_ = NULL;
+::google::protobuf::Metadata file_level_metadata[6];
 
 }  // namespace
 
+const ::google::protobuf::uint32 TableStruct::offsets[] = {
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NumFaceRange, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NumFaceRange, f_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Point3, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Point3, x_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Point3, y_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Point3, z_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Box3, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Box3, pmin_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Box3, pmax_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MNMap, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MNMap, f_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MNMap, v_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MNMap, channel_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ObjItem, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ObjItem, oname_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ObjItem, idx_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ObjItem, num_faces_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ObjItem, pos_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ObjItem, bbox_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ObjItem, xref_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ObjList, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ObjList, objs_),
+};
 
-void protobuf_AssignDesc_ymax_2eproto() GOOGLE_ATTRIBUTE_COLD;
-void protobuf_AssignDesc_ymax_2eproto() {
-  protobuf_AddDesc_ymax_2eproto();
-  const ::google::protobuf::FileDescriptor* file =
-    ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
-      "ymax.proto");
-  GOOGLE_CHECK(file != NULL);
-  NumFaceRange_descriptor_ = file->message_type(0);
-  static const int NumFaceRange_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NumFaceRange, f_),
-  };
-  NumFaceRange_reflection_ =
-    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      NumFaceRange_descriptor_,
-      NumFaceRange::default_instance_,
-      NumFaceRange_offsets_,
-      -1,
-      -1,
-      -1,
-      sizeof(NumFaceRange),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NumFaceRange, _internal_metadata_),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NumFaceRange, _is_default_instance_));
-  Point3_descriptor_ = file->message_type(1);
-  static const int Point3_offsets_[3] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Point3, x_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Point3, y_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Point3, z_),
-  };
-  Point3_reflection_ =
-    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      Point3_descriptor_,
-      Point3::default_instance_,
-      Point3_offsets_,
-      -1,
-      -1,
-      -1,
-      sizeof(Point3),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Point3, _internal_metadata_),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Point3, _is_default_instance_));
-  Box3_descriptor_ = file->message_type(2);
-  static const int Box3_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Box3, pmin_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Box3, pmax_),
-  };
-  Box3_reflection_ =
-    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      Box3_descriptor_,
-      Box3::default_instance_,
-      Box3_offsets_,
-      -1,
-      -1,
-      -1,
-      sizeof(Box3),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Box3, _internal_metadata_),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Box3, _is_default_instance_));
-  MNMap_descriptor_ = file->message_type(3);
-  static const int MNMap_offsets_[3] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MNMap, f_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MNMap, v_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MNMap, channel_),
-  };
-  MNMap_reflection_ =
-    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      MNMap_descriptor_,
-      MNMap::default_instance_,
-      MNMap_offsets_,
-      -1,
-      -1,
-      -1,
-      sizeof(MNMap),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MNMap, _internal_metadata_),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MNMap, _is_default_instance_));
-  ObjItem_descriptor_ = file->message_type(4);
-  static const int ObjItem_offsets_[6] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ObjItem, oname_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ObjItem, idx_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ObjItem, num_faces_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ObjItem, pos_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ObjItem, bbox_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ObjItem, xref_),
-  };
-  ObjItem_reflection_ =
-    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      ObjItem_descriptor_,
-      ObjItem::default_instance_,
-      ObjItem_offsets_,
-      -1,
-      -1,
-      -1,
-      sizeof(ObjItem),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ObjItem, _internal_metadata_),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ObjItem, _is_default_instance_));
-  ObjList_descriptor_ = file->message_type(5);
-  static const int ObjList_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ObjList, objs_),
-  };
-  ObjList_reflection_ =
-    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      ObjList_descriptor_,
-      ObjList::default_instance_,
-      ObjList_offsets_,
-      -1,
-      -1,
-      -1,
-      sizeof(ObjList),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ObjList, _internal_metadata_),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ObjList, _is_default_instance_));
-}
+static const ::google::protobuf::internal::MigrationSchema schemas[] = {
+  { 0, -1, sizeof(NumFaceRange)},
+  { 5, -1, sizeof(Point3)},
+  { 12, -1, sizeof(Box3)},
+  { 18, -1, sizeof(MNMap)},
+  { 25, -1, sizeof(ObjItem)},
+  { 35, -1, sizeof(ObjList)},
+};
+
+static ::google::protobuf::Message const * const file_default_instances[] = {
+  reinterpret_cast<const ::google::protobuf::Message*>(&_NumFaceRange_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_Point3_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_Box3_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_MNMap_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_ObjItem_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_ObjList_default_instance_),
+};
 
 namespace {
 
-GOOGLE_PROTOBUF_DECLARE_ONCE(protobuf_AssignDescriptors_once_);
-inline void protobuf_AssignDescriptorsOnce() {
-  ::google::protobuf::GoogleOnceInit(&protobuf_AssignDescriptors_once_,
-                 &protobuf_AssignDesc_ymax_2eproto);
+void protobuf_AssignDescriptors() {
+  AddDescriptors();
+  ::google::protobuf::MessageFactory* factory = NULL;
+  AssignDescriptors(
+      "ymax.proto", schemas, file_default_instances, TableStruct::offsets, factory,
+      file_level_metadata, NULL, NULL);
+}
+
+void protobuf_AssignDescriptorsOnce() {
+  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
+  ::google::protobuf::GoogleOnceInit(&once, &protobuf_AssignDescriptors);
 }
 
 void protobuf_RegisterTypes(const ::std::string&) GOOGLE_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      NumFaceRange_descriptor_, &NumFaceRange::default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      Point3_descriptor_, &Point3::default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      Box3_descriptor_, &Box3::default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      MNMap_descriptor_, &MNMap::default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      ObjItem_descriptor_, &ObjItem::default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      ObjList_descriptor_, &ObjList::default_instance());
+  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 6);
 }
 
 }  // namespace
 
-void protobuf_ShutdownFile_ymax_2eproto() {
-  delete NumFaceRange::default_instance_;
-  delete NumFaceRange_reflection_;
-  delete Point3::default_instance_;
-  delete Point3_reflection_;
-  delete Box3::default_instance_;
-  delete Box3_reflection_;
-  delete MNMap::default_instance_;
-  delete MNMap_reflection_;
-  delete ObjItem::default_instance_;
-  delete ObjItem_reflection_;
-  delete ObjList::default_instance_;
-  delete ObjList_reflection_;
+void TableStruct::Shutdown() {
+  _NumFaceRange_default_instance_.Shutdown();
+  delete file_level_metadata[0].reflection;
+  _Point3_default_instance_.Shutdown();
+  delete file_level_metadata[1].reflection;
+  _Box3_default_instance_.Shutdown();
+  delete file_level_metadata[2].reflection;
+  _MNMap_default_instance_.Shutdown();
+  delete file_level_metadata[3].reflection;
+  _ObjItem_default_instance_.Shutdown();
+  delete file_level_metadata[4].reflection;
+  _ObjList_default_instance_.Shutdown();
+  delete file_level_metadata[5].reflection;
 }
 
-void protobuf_AddDesc_ymax_2eproto() GOOGLE_ATTRIBUTE_COLD;
-void protobuf_AddDesc_ymax_2eproto() {
-  static bool already_here = false;
-  if (already_here) return;
-  already_here = true;
+void TableStruct::InitDefaultsImpl() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\nymax.proto\022\006yproto\"\031\n\014NumFaceRange\022\t\n\001"
-    "f\030\001 \003(\005\")\n\006Point3\022\t\n\001x\030\001 \001(\002\022\t\n\001y\030\002 \001(\002\022"
-    "\t\n\001z\030\003 \001(\002\"B\n\004Box3\022\034\n\004pmin\030\001 \001(\0132\016.yprot"
-    "o.Point3\022\034\n\004pmax\030\002 \001(\0132\016.yproto.Point3\">"
-    "\n\005MNMap\022\t\n\001f\030\001 \003(\005\022\031\n\001v\030\002 \003(\0132\016.yproto.P"
-    "oint3\022\017\n\007channel\030\003 \001(\005\"\177\n\007ObjItem\022\r\n\005ona"
-    "me\030\001 \001(\t\022\013\n\003idx\030\002 \001(\r\022\021\n\tnum_faces\030\003 \001(\005"
-    "\022\033\n\003pos\030\004 \001(\0132\016.yproto.Point3\022\032\n\004bbox\030\005 "
-    "\001(\0132\014.yproto.Box3\022\014\n\004xref\030\006 \003(\005\"(\n\007ObjLi"
-    "st\022\035\n\004objs\030\001 \003(\0132\017.yproto.ObjItem2>\n\010YPr"
-    "epare\0222\n\007MakeBox\022\024.yproto.NumFaceRange\032\017"
-    ".yproto.ObjList\"\000B\017\242\002\003Y3D\252\002\006yprotob\006prot"
-    "o3", 482);
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
-    "ymax.proto", &protobuf_RegisterTypes);
-  NumFaceRange::default_instance_ = new NumFaceRange();
-  Point3::default_instance_ = new Point3();
-  Box3::default_instance_ = new Box3();
-  MNMap::default_instance_ = new MNMap();
-  ObjItem::default_instance_ = new ObjItem();
-  ObjList::default_instance_ = new ObjList();
-  NumFaceRange::default_instance_->InitAsDefaultInstance();
-  Point3::default_instance_->InitAsDefaultInstance();
-  Box3::default_instance_->InitAsDefaultInstance();
-  MNMap::default_instance_->InitAsDefaultInstance();
-  ObjItem::default_instance_->InitAsDefaultInstance();
-  ObjList::default_instance_->InitAsDefaultInstance();
-  ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_ymax_2eproto);
+  ::google::protobuf::internal::InitProtobufDefaults();
+  _NumFaceRange_default_instance_.DefaultConstruct();
+  _Point3_default_instance_.DefaultConstruct();
+  _Box3_default_instance_.DefaultConstruct();
+  _MNMap_default_instance_.DefaultConstruct();
+  _ObjItem_default_instance_.DefaultConstruct();
+  _ObjList_default_instance_.DefaultConstruct();
+  _Box3_default_instance_.get_mutable()->pmin_ = const_cast< ::yproto::Point3*>(
+      ::yproto::Point3::internal_default_instance());
+  _Box3_default_instance_.get_mutable()->pmax_ = const_cast< ::yproto::Point3*>(
+      ::yproto::Point3::internal_default_instance());
+  _ObjItem_default_instance_.get_mutable()->pos_ = const_cast< ::yproto::Point3*>(
+      ::yproto::Point3::internal_default_instance());
+  _ObjItem_default_instance_.get_mutable()->bbox_ = const_cast< ::yproto::Box3*>(
+      ::yproto::Box3::internal_default_instance());
 }
 
+void InitDefaults() {
+  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
+  ::google::protobuf::GoogleOnceInit(&once, &TableStruct::InitDefaultsImpl);
+}
+void AddDescriptorsImpl() {
+  InitDefaults();
+  static const char descriptor[] = {
+      "\n\nymax.proto\022\006yproto\"\031\n\014NumFaceRange\022\t\n\001"
+      "f\030\001 \003(\005\")\n\006Point3\022\t\n\001x\030\001 \001(\002\022\t\n\001y\030\002 \001(\002\022"
+      "\t\n\001z\030\003 \001(\002\"B\n\004Box3\022\034\n\004pmin\030\001 \001(\0132\016.yprot"
+      "o.Point3\022\034\n\004pmax\030\002 \001(\0132\016.yproto.Point3\">"
+      "\n\005MNMap\022\t\n\001f\030\001 \003(\005\022\031\n\001v\030\002 \003(\0132\016.yproto.P"
+      "oint3\022\017\n\007channel\030\003 \001(\005\"\177\n\007ObjItem\022\r\n\005ona"
+      "me\030\001 \001(\t\022\013\n\003idx\030\002 \001(\r\022\021\n\tnum_faces\030\003 \001(\005"
+      "\022\033\n\003pos\030\004 \001(\0132\016.yproto.Point3\022\032\n\004bbox\030\005 "
+      "\001(\0132\014.yproto.Box3\022\014\n\004xref\030\006 \003(\005\"(\n\007ObjLi"
+      "st\022\035\n\004objs\030\001 \003(\0132\017.yproto.ObjItem2>\n\010YPr"
+      "epare\0222\n\007MakeBox\022\024.yproto.NumFaceRange\032\017"
+      ".yproto.ObjList\"\000B\017\242\002\003Y3D\252\002\006yprotob\006prot"
+      "o3"
+  };
+  ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
+      descriptor, 482);
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
+    "ymax.proto", &protobuf_RegisterTypes);
+  ::google::protobuf::internal::OnShutdown(&TableStruct::Shutdown);
+}
+
+void AddDescriptors() {
+  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
+  ::google::protobuf::GoogleOnceInit(&once, &AddDescriptorsImpl);
+}
 // Force AddDescriptors() to be called at static initialization time.
-struct StaticDescriptorInitializer_ymax_2eproto {
-  StaticDescriptorInitializer_ymax_2eproto() {
-    protobuf_AddDesc_ymax_2eproto();
+struct StaticDescriptorInitializer {
+  StaticDescriptorInitializer() {
+    AddDescriptors();
   }
-} static_descriptor_initializer_ymax_2eproto_;
+} static_descriptor_initializer;
+
+}  // namespace protobuf_ymax_2eproto
+
 
 // ===================================================================
 
@@ -247,24 +209,22 @@ const int NumFaceRange::kFFieldNumber;
 
 NumFaceRange::NumFaceRange()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_ymax_2eproto::InitDefaults();
+  }
   SharedCtor();
   // @@protoc_insertion_point(constructor:yproto.NumFaceRange)
 }
-
-void NumFaceRange::InitAsDefaultInstance() {
-  _is_default_instance_ = true;
-}
-
 NumFaceRange::NumFaceRange(const NumFaceRange& from)
   : ::google::protobuf::Message(),
-    _internal_metadata_(NULL) {
-  SharedCtor();
-  MergeFrom(from);
+      _internal_metadata_(NULL),
+      f_(from.f_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
   // @@protoc_insertion_point(copy_constructor:yproto.NumFaceRange)
 }
 
 void NumFaceRange::SharedCtor() {
-    _is_default_instance_ = false;
   _cached_size_ = 0;
 }
 
@@ -274,8 +234,6 @@ NumFaceRange::~NumFaceRange() {
 }
 
 void NumFaceRange::SharedDtor() {
-  if (this != default_instance_) {
-  }
 }
 
 void NumFaceRange::SetCachedSize(int size) const {
@@ -284,16 +242,14 @@ void NumFaceRange::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
 const ::google::protobuf::Descriptor* NumFaceRange::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return NumFaceRange_descriptor_;
+  protobuf_ymax_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_ymax_2eproto::file_level_metadata[0].descriptor;
 }
 
 const NumFaceRange& NumFaceRange::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_ymax_2eproto();
-  return *default_instance_;
+  protobuf_ymax_2eproto::InitDefaults();
+  return *internal_default_instance();
 }
-
-NumFaceRange* NumFaceRange::default_instance_ = NULL;
 
 NumFaceRange* NumFaceRange::New(::google::protobuf::Arena* arena) const {
   NumFaceRange* n = new NumFaceRange;
@@ -314,24 +270,23 @@ bool NumFaceRange::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:yproto.NumFaceRange)
   for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
       // repeated int32 f = 1;
       case 1: {
-        if (tag == 10) {
+        if (tag == 10u) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, this->mutable_f())));
-        } else if (tag == 8) {
+        } else if (tag == 8u) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitiveNoInline<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 1, 10, input, this->mutable_f())));
+                 1, 10u, input, this->mutable_f())));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectAtEnd()) goto success;
         break;
       }
 
@@ -374,7 +329,7 @@ void NumFaceRange::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* NumFaceRange::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
+  (void)deterministic;  // Unused
   // @@protoc_insertion_point(serialize_to_array_start:yproto.NumFaceRange)
   // repeated int32 f = 1;
   if (this->f_size() > 0) {
@@ -394,39 +349,36 @@ void NumFaceRange::SerializeWithCachedSizes(
   return target;
 }
 
-int NumFaceRange::ByteSize() const {
+size_t NumFaceRange::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:yproto.NumFaceRange)
-  int total_size = 0;
+  size_t total_size = 0;
 
   // repeated int32 f = 1;
   {
-    int data_size = 0;
-    for (int i = 0; i < this->f_size(); i++) {
-      data_size += ::google::protobuf::internal::WireFormatLite::
-        Int32Size(this->f(i));
-    }
+    size_t data_size = ::google::protobuf::internal::WireFormatLite::
+      Int32Size(this->f_);
     if (data_size > 0) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(data_size);
     }
+    int cached_size = ::google::protobuf::internal::ToCachedSize(data_size);
     GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-    _f_cached_byte_size_ = data_size;
+    _f_cached_byte_size_ = cached_size;
     GOOGLE_SAFE_CONCURRENT_WRITES_END();
     total_size += data_size;
   }
 
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
+  _cached_size_ = cached_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void NumFaceRange::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:yproto.NumFaceRange)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
-  const NumFaceRange* source = 
+  GOOGLE_DCHECK_NE(&from, this);
+  const NumFaceRange* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const NumFaceRange>(
           &from);
   if (source == NULL) {
@@ -440,9 +392,8 @@ void NumFaceRange::MergeFrom(const ::google::protobuf::Message& from) {
 
 void NumFaceRange::MergeFrom(const NumFaceRange& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:yproto.NumFaceRange)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
   f_.MergeFrom(from.f_);
 }
 
@@ -461,7 +412,6 @@ void NumFaceRange::CopyFrom(const NumFaceRange& from) {
 }
 
 bool NumFaceRange::IsInitialized() const {
-
   return true;
 }
 
@@ -471,16 +421,12 @@ void NumFaceRange::Swap(NumFaceRange* other) {
 }
 void NumFaceRange::InternalSwap(NumFaceRange* other) {
   f_.UnsafeArenaSwap(&other->f_);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
 
 ::google::protobuf::Metadata NumFaceRange::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = NumFaceRange_descriptor_;
-  metadata.reflection = NumFaceRange_reflection_;
-  return metadata;
+  protobuf_ymax_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_ymax_2eproto::file_level_metadata[0];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -493,24 +439,24 @@ int NumFaceRange::f_size() const {
 void NumFaceRange::clear_f() {
   f_.Clear();
 }
- ::google::protobuf::int32 NumFaceRange::f(int index) const {
+::google::protobuf::int32 NumFaceRange::f(int index) const {
   // @@protoc_insertion_point(field_get:yproto.NumFaceRange.f)
   return f_.Get(index);
 }
- void NumFaceRange::set_f(int index, ::google::protobuf::int32 value) {
+void NumFaceRange::set_f(int index, ::google::protobuf::int32 value) {
   f_.Set(index, value);
   // @@protoc_insertion_point(field_set:yproto.NumFaceRange.f)
 }
- void NumFaceRange::add_f(::google::protobuf::int32 value) {
+void NumFaceRange::add_f(::google::protobuf::int32 value) {
   f_.Add(value);
   // @@protoc_insertion_point(field_add:yproto.NumFaceRange.f)
 }
- const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
 NumFaceRange::f() const {
   // @@protoc_insertion_point(field_list:yproto.NumFaceRange.f)
   return f_;
 }
- ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
 NumFaceRange::mutable_f() {
   // @@protoc_insertion_point(field_mutable_list:yproto.NumFaceRange.f)
   return &f_;
@@ -528,28 +474,27 @@ const int Point3::kZFieldNumber;
 
 Point3::Point3()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_ymax_2eproto::InitDefaults();
+  }
   SharedCtor();
   // @@protoc_insertion_point(constructor:yproto.Point3)
 }
-
-void Point3::InitAsDefaultInstance() {
-  _is_default_instance_ = true;
-}
-
 Point3::Point3(const Point3& from)
   : ::google::protobuf::Message(),
-    _internal_metadata_(NULL) {
-  SharedCtor();
-  MergeFrom(from);
+      _internal_metadata_(NULL),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::memcpy(&x_, &from.x_,
+    reinterpret_cast<char*>(&z_) -
+    reinterpret_cast<char*>(&x_) + sizeof(z_));
   // @@protoc_insertion_point(copy_constructor:yproto.Point3)
 }
 
 void Point3::SharedCtor() {
-    _is_default_instance_ = false;
+  ::memset(&x_, 0, reinterpret_cast<char*>(&z_) -
+    reinterpret_cast<char*>(&x_) + sizeof(z_));
   _cached_size_ = 0;
-  x_ = 0;
-  y_ = 0;
-  z_ = 0;
 }
 
 Point3::~Point3() {
@@ -558,8 +503,6 @@ Point3::~Point3() {
 }
 
 void Point3::SharedDtor() {
-  if (this != default_instance_) {
-  }
 }
 
 void Point3::SetCachedSize(int size) const {
@@ -568,16 +511,14 @@ void Point3::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
 const ::google::protobuf::Descriptor* Point3::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return Point3_descriptor_;
+  protobuf_ymax_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_ymax_2eproto::file_level_metadata[1].descriptor;
 }
 
 const Point3& Point3::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_ymax_2eproto();
-  return *default_instance_;
+  protobuf_ymax_2eproto::InitDefaults();
+  return *internal_default_instance();
 }
-
-Point3* Point3::default_instance_ = NULL;
 
 Point3* Point3::New(::google::protobuf::Arena* arena) const {
   Point3* n = new Point3;
@@ -589,27 +530,8 @@ Point3* Point3::New(::google::protobuf::Arena* arena) const {
 
 void Point3::Clear() {
 // @@protoc_insertion_point(message_clear_start:yproto.Point3)
-#if defined(__clang__)
-#define ZR_HELPER_(f) \
-  _Pragma("clang diagnostic push") \
-  _Pragma("clang diagnostic ignored \"-Winvalid-offsetof\"") \
-  __builtin_offsetof(Point3, f) \
-  _Pragma("clang diagnostic pop")
-#else
-#define ZR_HELPER_(f) reinterpret_cast<char*>(\
-  &reinterpret_cast<Point3*>(16)->f)
-#endif
-
-#define ZR_(first, last) do {\
-  ::memset(&first, 0,\
-           ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
-} while (0)
-
-  ZR_(x_, z_);
-
-#undef ZR_HELPER_
-#undef ZR_
-
+  ::memset(&x_, 0, reinterpret_cast<char*>(&z_) -
+    reinterpret_cast<char*>(&x_) + sizeof(z_));
 }
 
 bool Point3::MergePartialFromCodedStream(
@@ -618,51 +540,46 @@ bool Point3::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:yproto.Point3)
   for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional float x = 1;
+      // float x = 1;
       case 1: {
-        if (tag == 13) {
+        if (tag == 13u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &x_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(21)) goto parse_y;
         break;
       }
 
-      // optional float y = 2;
+      // float y = 2;
       case 2: {
-        if (tag == 21) {
-         parse_y:
+        if (tag == 21u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &y_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(29)) goto parse_z;
         break;
       }
 
-      // optional float z = 3;
+      // float z = 3;
       case 3: {
-        if (tag == 29) {
-         parse_z:
+        if (tag == 29u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &z_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectAtEnd()) goto success;
         break;
       }
 
@@ -690,17 +607,17 @@ failure:
 void Point3::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:yproto.Point3)
-  // optional float x = 1;
+  // float x = 1;
   if (this->x() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(1, this->x(), output);
   }
 
-  // optional float y = 2;
+  // float y = 2;
   if (this->y() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(2, this->y(), output);
   }
 
-  // optional float z = 3;
+  // float z = 3;
   if (this->z() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(3, this->z(), output);
   }
@@ -710,19 +627,19 @@ void Point3::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* Point3::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
+  (void)deterministic;  // Unused
   // @@protoc_insertion_point(serialize_to_array_start:yproto.Point3)
-  // optional float x = 1;
+  // float x = 1;
   if (this->x() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(1, this->x(), target);
   }
 
-  // optional float y = 2;
+  // float y = 2;
   if (this->y() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(2, this->y(), target);
   }
 
-  // optional float z = 3;
+  // float z = 3;
   if (this->z() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(3, this->z(), target);
   }
@@ -731,37 +648,36 @@ void Point3::SerializeWithCachedSizes(
   return target;
 }
 
-int Point3::ByteSize() const {
+size_t Point3::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:yproto.Point3)
-  int total_size = 0;
+  size_t total_size = 0;
 
-  // optional float x = 1;
+  // float x = 1;
   if (this->x() != 0) {
     total_size += 1 + 4;
   }
 
-  // optional float y = 2;
+  // float y = 2;
   if (this->y() != 0) {
     total_size += 1 + 4;
   }
 
-  // optional float z = 3;
+  // float z = 3;
   if (this->z() != 0) {
     total_size += 1 + 4;
   }
 
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
+  _cached_size_ = cached_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void Point3::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:yproto.Point3)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
-  const Point3* source = 
+  GOOGLE_DCHECK_NE(&from, this);
+  const Point3* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const Point3>(
           &from);
   if (source == NULL) {
@@ -775,9 +691,8 @@ void Point3::MergeFrom(const ::google::protobuf::Message& from) {
 
 void Point3::MergeFrom(const Point3& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:yproto.Point3)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
   if (from.x() != 0) {
     set_x(from.x());
   }
@@ -804,7 +719,6 @@ void Point3::CopyFrom(const Point3& from) {
 }
 
 bool Point3::IsInitialized() const {
-
   return true;
 }
 
@@ -816,58 +730,54 @@ void Point3::InternalSwap(Point3* other) {
   std::swap(x_, other->x_);
   std::swap(y_, other->y_);
   std::swap(z_, other->z_);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
 
 ::google::protobuf::Metadata Point3::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = Point3_descriptor_;
-  metadata.reflection = Point3_reflection_;
-  return metadata;
+  protobuf_ymax_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_ymax_2eproto::file_level_metadata[1];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // Point3
 
-// optional float x = 1;
+// float x = 1;
 void Point3::clear_x() {
   x_ = 0;
 }
- float Point3::x() const {
+float Point3::x() const {
   // @@protoc_insertion_point(field_get:yproto.Point3.x)
   return x_;
 }
- void Point3::set_x(float value) {
+void Point3::set_x(float value) {
   
   x_ = value;
   // @@protoc_insertion_point(field_set:yproto.Point3.x)
 }
 
-// optional float y = 2;
+// float y = 2;
 void Point3::clear_y() {
   y_ = 0;
 }
- float Point3::y() const {
+float Point3::y() const {
   // @@protoc_insertion_point(field_get:yproto.Point3.y)
   return y_;
 }
- void Point3::set_y(float value) {
+void Point3::set_y(float value) {
   
   y_ = value;
   // @@protoc_insertion_point(field_set:yproto.Point3.y)
 }
 
-// optional float z = 3;
+// float z = 3;
 void Point3::clear_z() {
   z_ = 0;
 }
- float Point3::z() const {
+float Point3::z() const {
   // @@protoc_insertion_point(field_get:yproto.Point3.z)
   return z_;
 }
- void Point3::set_z(float value) {
+void Point3::set_z(float value) {
   
   z_ = value;
   // @@protoc_insertion_point(field_set:yproto.Point3.z)
@@ -884,29 +794,34 @@ const int Box3::kPmaxFieldNumber;
 
 Box3::Box3()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_ymax_2eproto::InitDefaults();
+  }
   SharedCtor();
   // @@protoc_insertion_point(constructor:yproto.Box3)
 }
-
-void Box3::InitAsDefaultInstance() {
-  _is_default_instance_ = true;
-  pmin_ = const_cast< ::yproto::Point3*>(&::yproto::Point3::default_instance());
-  pmax_ = const_cast< ::yproto::Point3*>(&::yproto::Point3::default_instance());
-}
-
 Box3::Box3(const Box3& from)
   : ::google::protobuf::Message(),
-    _internal_metadata_(NULL) {
-  SharedCtor();
-  MergeFrom(from);
+      _internal_metadata_(NULL),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  if (from.has_pmin()) {
+    pmin_ = new ::yproto::Point3(*from.pmin_);
+  } else {
+    pmin_ = NULL;
+  }
+  if (from.has_pmax()) {
+    pmax_ = new ::yproto::Point3(*from.pmax_);
+  } else {
+    pmax_ = NULL;
+  }
   // @@protoc_insertion_point(copy_constructor:yproto.Box3)
 }
 
 void Box3::SharedCtor() {
-    _is_default_instance_ = false;
+  ::memset(&pmin_, 0, reinterpret_cast<char*>(&pmax_) -
+    reinterpret_cast<char*>(&pmin_) + sizeof(pmax_));
   _cached_size_ = 0;
-  pmin_ = NULL;
-  pmax_ = NULL;
 }
 
 Box3::~Box3() {
@@ -915,8 +830,10 @@ Box3::~Box3() {
 }
 
 void Box3::SharedDtor() {
-  if (this != default_instance_) {
+  if (this != internal_default_instance()) {
     delete pmin_;
+  }
+  if (this != internal_default_instance()) {
     delete pmax_;
   }
 }
@@ -927,16 +844,14 @@ void Box3::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
 const ::google::protobuf::Descriptor* Box3::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return Box3_descriptor_;
+  protobuf_ymax_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_ymax_2eproto::file_level_metadata[2].descriptor;
 }
 
 const Box3& Box3::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_ymax_2eproto();
-  return *default_instance_;
+  protobuf_ymax_2eproto::InitDefaults();
+  return *internal_default_instance();
 }
-
-Box3* Box3::default_instance_ = NULL;
 
 Box3* Box3::New(::google::protobuf::Arena* arena) const {
   Box3* n = new Box3;
@@ -948,9 +863,13 @@ Box3* Box3::New(::google::protobuf::Arena* arena) const {
 
 void Box3::Clear() {
 // @@protoc_insertion_point(message_clear_start:yproto.Box3)
-  if (GetArenaNoVirtual() == NULL && pmin_ != NULL) delete pmin_;
+  if (GetArenaNoVirtual() == NULL && pmin_ != NULL) {
+    delete pmin_;
+  }
   pmin_ = NULL;
-  if (GetArenaNoVirtual() == NULL && pmax_ != NULL) delete pmax_;
+  if (GetArenaNoVirtual() == NULL && pmax_ != NULL) {
+    delete pmax_;
+  }
   pmax_ = NULL;
 }
 
@@ -960,32 +879,29 @@ bool Box3::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:yproto.Box3)
   for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional .yproto.Point3 pmin = 1;
+      // .yproto.Point3 pmin = 1;
       case 1: {
-        if (tag == 10) {
+        if (tag == 10u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_pmin()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(18)) goto parse_pmax;
         break;
       }
 
-      // optional .yproto.Point3 pmax = 2;
+      // .yproto.Point3 pmax = 2;
       case 2: {
-        if (tag == 18) {
-         parse_pmax:
+        if (tag == 18u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_pmax()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectAtEnd()) goto success;
         break;
       }
 
@@ -1013,13 +929,13 @@ failure:
 void Box3::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:yproto.Box3)
-  // optional .yproto.Point3 pmin = 1;
+  // .yproto.Point3 pmin = 1;
   if (this->has_pmin()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       1, *this->pmin_, output);
   }
 
-  // optional .yproto.Point3 pmax = 2;
+  // .yproto.Point3 pmax = 2;
   if (this->has_pmax()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       2, *this->pmax_, output);
@@ -1030,16 +946,16 @@ void Box3::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* Box3::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
+  (void)deterministic;  // Unused
   // @@protoc_insertion_point(serialize_to_array_start:yproto.Box3)
-  // optional .yproto.Point3 pmin = 1;
+  // .yproto.Point3 pmin = 1;
   if (this->has_pmin()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
         1, *this->pmin_, false, target);
   }
 
-  // optional .yproto.Point3 pmax = 2;
+  // .yproto.Point3 pmax = 2;
   if (this->has_pmax()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
@@ -1050,36 +966,35 @@ void Box3::SerializeWithCachedSizes(
   return target;
 }
 
-int Box3::ByteSize() const {
+size_t Box3::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:yproto.Box3)
-  int total_size = 0;
+  size_t total_size = 0;
 
-  // optional .yproto.Point3 pmin = 1;
+  // .yproto.Point3 pmin = 1;
   if (this->has_pmin()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->pmin_);
   }
 
-  // optional .yproto.Point3 pmax = 2;
+  // .yproto.Point3 pmax = 2;
   if (this->has_pmax()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->pmax_);
   }
 
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
+  _cached_size_ = cached_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void Box3::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:yproto.Box3)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
-  const Box3* source = 
+  GOOGLE_DCHECK_NE(&from, this);
+  const Box3* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const Box3>(
           &from);
   if (source == NULL) {
@@ -1093,9 +1008,8 @@ void Box3::MergeFrom(const ::google::protobuf::Message& from) {
 
 void Box3::MergeFrom(const Box3& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:yproto.Box3)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
   if (from.has_pmin()) {
     mutable_pmin()->::yproto::Point3::MergeFrom(from.pmin());
   }
@@ -1119,7 +1033,6 @@ void Box3::CopyFrom(const Box3& from) {
 }
 
 bool Box3::IsInitialized() const {
-
   return true;
 }
 
@@ -1130,24 +1043,20 @@ void Box3::Swap(Box3* other) {
 void Box3::InternalSwap(Box3* other) {
   std::swap(pmin_, other->pmin_);
   std::swap(pmax_, other->pmax_);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
 
 ::google::protobuf::Metadata Box3::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = Box3_descriptor_;
-  metadata.reflection = Box3_reflection_;
-  return metadata;
+  protobuf_ymax_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_ymax_2eproto::file_level_metadata[2];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // Box3
 
-// optional .yproto.Point3 pmin = 1;
+// .yproto.Point3 pmin = 1;
 bool Box3::has_pmin() const {
-  return !_is_default_instance_ && pmin_ != NULL;
+  return this != internal_default_instance() && pmin_ != NULL;
 }
 void Box3::clear_pmin() {
   if (GetArenaNoVirtual() == NULL && pmin_ != NULL) delete pmin_;
@@ -1155,7 +1064,8 @@ void Box3::clear_pmin() {
 }
 const ::yproto::Point3& Box3::pmin() const {
   // @@protoc_insertion_point(field_get:yproto.Box3.pmin)
-  return pmin_ != NULL ? *pmin_ : *default_instance_->pmin_;
+  return pmin_ != NULL ? *pmin_
+                         : *::yproto::Point3::internal_default_instance();
 }
 ::yproto::Point3* Box3::mutable_pmin() {
   
@@ -1183,9 +1093,9 @@ void Box3::set_allocated_pmin(::yproto::Point3* pmin) {
   // @@protoc_insertion_point(field_set_allocated:yproto.Box3.pmin)
 }
 
-// optional .yproto.Point3 pmax = 2;
+// .yproto.Point3 pmax = 2;
 bool Box3::has_pmax() const {
-  return !_is_default_instance_ && pmax_ != NULL;
+  return this != internal_default_instance() && pmax_ != NULL;
 }
 void Box3::clear_pmax() {
   if (GetArenaNoVirtual() == NULL && pmax_ != NULL) delete pmax_;
@@ -1193,7 +1103,8 @@ void Box3::clear_pmax() {
 }
 const ::yproto::Point3& Box3::pmax() const {
   // @@protoc_insertion_point(field_get:yproto.Box3.pmax)
-  return pmax_ != NULL ? *pmax_ : *default_instance_->pmax_;
+  return pmax_ != NULL ? *pmax_
+                         : *::yproto::Point3::internal_default_instance();
 }
 ::yproto::Point3* Box3::mutable_pmax() {
   
@@ -1233,26 +1144,26 @@ const int MNMap::kChannelFieldNumber;
 
 MNMap::MNMap()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_ymax_2eproto::InitDefaults();
+  }
   SharedCtor();
   // @@protoc_insertion_point(constructor:yproto.MNMap)
 }
-
-void MNMap::InitAsDefaultInstance() {
-  _is_default_instance_ = true;
-}
-
 MNMap::MNMap(const MNMap& from)
   : ::google::protobuf::Message(),
-    _internal_metadata_(NULL) {
-  SharedCtor();
-  MergeFrom(from);
+      _internal_metadata_(NULL),
+      f_(from.f_),
+      v_(from.v_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  channel_ = from.channel_;
   // @@protoc_insertion_point(copy_constructor:yproto.MNMap)
 }
 
 void MNMap::SharedCtor() {
-    _is_default_instance_ = false;
-  _cached_size_ = 0;
   channel_ = 0;
+  _cached_size_ = 0;
 }
 
 MNMap::~MNMap() {
@@ -1261,8 +1172,6 @@ MNMap::~MNMap() {
 }
 
 void MNMap::SharedDtor() {
-  if (this != default_instance_) {
-  }
 }
 
 void MNMap::SetCachedSize(int size) const {
@@ -1271,16 +1180,14 @@ void MNMap::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
 const ::google::protobuf::Descriptor* MNMap::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return MNMap_descriptor_;
+  protobuf_ymax_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_ymax_2eproto::file_level_metadata[3].descriptor;
 }
 
 const MNMap& MNMap::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_ymax_2eproto();
-  return *default_instance_;
+  protobuf_ymax_2eproto::InitDefaults();
+  return *internal_default_instance();
 }
-
-MNMap* MNMap::default_instance_ = NULL;
 
 MNMap* MNMap::New(::google::protobuf::Arena* arena) const {
   MNMap* n = new MNMap;
@@ -1292,9 +1199,9 @@ MNMap* MNMap::New(::google::protobuf::Arena* arena) const {
 
 void MNMap::Clear() {
 // @@protoc_insertion_point(message_clear_start:yproto.MNMap)
-  channel_ = 0;
   f_.Clear();
   v_.Clear();
+  channel_ = 0;
 }
 
 bool MNMap::MergePartialFromCodedStream(
@@ -1303,56 +1210,49 @@ bool MNMap::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:yproto.MNMap)
   for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
       // repeated int32 f = 1;
       case 1: {
-        if (tag == 10) {
+        if (tag == 10u) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, this->mutable_f())));
-        } else if (tag == 8) {
+        } else if (tag == 8u) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitiveNoInline<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 1, 10, input, this->mutable_f())));
+                 1, 10u, input, this->mutable_f())));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(18)) goto parse_v;
         break;
       }
 
       // repeated .yproto.Point3 v = 2;
       case 2: {
-        if (tag == 18) {
-         parse_v:
+        if (tag == 18u) {
           DO_(input->IncrementRecursionDepth());
-         parse_loop_v:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtualNoRecursionDepth(
                 input, add_v()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(18)) goto parse_loop_v;
         input->UnsafeDecrementRecursionDepth();
-        if (input->ExpectTag(24)) goto parse_channel;
         break;
       }
 
-      // optional int32 channel = 3;
+      // int32 channel = 3;
       case 3: {
-        if (tag == 24) {
-         parse_channel:
+        if (tag == 24u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &channel_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectAtEnd()) goto success;
         break;
       }
 
@@ -1396,7 +1296,7 @@ void MNMap::SerializeWithCachedSizes(
       2, this->v(i), output);
   }
 
-  // optional int32 channel = 3;
+  // int32 channel = 3;
   if (this->channel() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->channel(), output);
   }
@@ -1406,7 +1306,7 @@ void MNMap::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* MNMap::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
+  (void)deterministic;  // Unused
   // @@protoc_insertion_point(serialize_to_array_start:yproto.MNMap)
   // repeated int32 f = 1;
   if (this->f_size() > 0) {
@@ -1429,7 +1329,7 @@ void MNMap::SerializeWithCachedSizes(
         2, this->v(i), false, target);
   }
 
-  // optional int32 channel = 3;
+  // int32 channel = 3;
   if (this->channel() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->channel(), target);
   }
@@ -1438,54 +1338,54 @@ void MNMap::SerializeWithCachedSizes(
   return target;
 }
 
-int MNMap::ByteSize() const {
+size_t MNMap::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:yproto.MNMap)
-  int total_size = 0;
+  size_t total_size = 0;
 
-  // optional int32 channel = 3;
+  // repeated int32 f = 1;
+  {
+    size_t data_size = ::google::protobuf::internal::WireFormatLite::
+      Int32Size(this->f_);
+    if (data_size > 0) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(data_size);
+    }
+    int cached_size = ::google::protobuf::internal::ToCachedSize(data_size);
+    GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+    _f_cached_byte_size_ = cached_size;
+    GOOGLE_SAFE_CONCURRENT_WRITES_END();
+    total_size += data_size;
+  }
+
+  // repeated .yproto.Point3 v = 2;
+  {
+    unsigned int count = this->v_size();
+    total_size += 1UL * count;
+    for (unsigned int i = 0; i < count; i++) {
+      total_size +=
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->v(i));
+    }
+  }
+
+  // int32 channel = 3;
   if (this->channel() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->channel());
   }
 
-  // repeated int32 f = 1;
-  {
-    int data_size = 0;
-    for (int i = 0; i < this->f_size(); i++) {
-      data_size += ::google::protobuf::internal::WireFormatLite::
-        Int32Size(this->f(i));
-    }
-    if (data_size > 0) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(data_size);
-    }
-    GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-    _f_cached_byte_size_ = data_size;
-    GOOGLE_SAFE_CONCURRENT_WRITES_END();
-    total_size += data_size;
-  }
-
-  // repeated .yproto.Point3 v = 2;
-  total_size += 1 * this->v_size();
-  for (int i = 0; i < this->v_size(); i++) {
-    total_size +=
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->v(i));
-  }
-
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
+  _cached_size_ = cached_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void MNMap::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:yproto.MNMap)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
-  const MNMap* source = 
+  GOOGLE_DCHECK_NE(&from, this);
+  const MNMap* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const MNMap>(
           &from);
   if (source == NULL) {
@@ -1499,9 +1399,8 @@ void MNMap::MergeFrom(const ::google::protobuf::Message& from) {
 
 void MNMap::MergeFrom(const MNMap& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:yproto.MNMap)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
   f_.MergeFrom(from.f_);
   v_.MergeFrom(from.v_);
   if (from.channel() != 0) {
@@ -1524,7 +1423,6 @@ void MNMap::CopyFrom(const MNMap& from) {
 }
 
 bool MNMap::IsInitialized() const {
-
   return true;
 }
 
@@ -1536,16 +1434,12 @@ void MNMap::InternalSwap(MNMap* other) {
   f_.UnsafeArenaSwap(&other->f_);
   v_.UnsafeArenaSwap(&other->v_);
   std::swap(channel_, other->channel_);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
 
 ::google::protobuf::Metadata MNMap::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = MNMap_descriptor_;
-  metadata.reflection = MNMap_reflection_;
-  return metadata;
+  protobuf_ymax_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_ymax_2eproto::file_level_metadata[3];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -1558,24 +1452,24 @@ int MNMap::f_size() const {
 void MNMap::clear_f() {
   f_.Clear();
 }
- ::google::protobuf::int32 MNMap::f(int index) const {
+::google::protobuf::int32 MNMap::f(int index) const {
   // @@protoc_insertion_point(field_get:yproto.MNMap.f)
   return f_.Get(index);
 }
- void MNMap::set_f(int index, ::google::protobuf::int32 value) {
+void MNMap::set_f(int index, ::google::protobuf::int32 value) {
   f_.Set(index, value);
   // @@protoc_insertion_point(field_set:yproto.MNMap.f)
 }
- void MNMap::add_f(::google::protobuf::int32 value) {
+void MNMap::add_f(::google::protobuf::int32 value) {
   f_.Add(value);
   // @@protoc_insertion_point(field_add:yproto.MNMap.f)
 }
- const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
 MNMap::f() const {
   // @@protoc_insertion_point(field_list:yproto.MNMap.f)
   return f_;
 }
- ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
 MNMap::mutable_f() {
   // @@protoc_insertion_point(field_mutable_list:yproto.MNMap.f)
   return &f_;
@@ -1611,15 +1505,15 @@ MNMap::v() const {
   return v_;
 }
 
-// optional int32 channel = 3;
+// int32 channel = 3;
 void MNMap::clear_channel() {
   channel_ = 0;
 }
- ::google::protobuf::int32 MNMap::channel() const {
+::google::protobuf::int32 MNMap::channel() const {
   // @@protoc_insertion_point(field_get:yproto.MNMap.channel)
   return channel_;
 }
- void MNMap::set_channel(::google::protobuf::int32 value) {
+void MNMap::set_channel(::google::protobuf::int32 value) {
   
   channel_ = value;
   // @@protoc_insertion_point(field_set:yproto.MNMap.channel)
@@ -1640,33 +1534,43 @@ const int ObjItem::kXrefFieldNumber;
 
 ObjItem::ObjItem()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_ymax_2eproto::InitDefaults();
+  }
   SharedCtor();
   // @@protoc_insertion_point(constructor:yproto.ObjItem)
 }
-
-void ObjItem::InitAsDefaultInstance() {
-  _is_default_instance_ = true;
-  pos_ = const_cast< ::yproto::Point3*>(&::yproto::Point3::default_instance());
-  bbox_ = const_cast< ::yproto::Box3*>(&::yproto::Box3::default_instance());
-}
-
 ObjItem::ObjItem(const ObjItem& from)
   : ::google::protobuf::Message(),
-    _internal_metadata_(NULL) {
-  SharedCtor();
-  MergeFrom(from);
+      _internal_metadata_(NULL),
+      xref_(from.xref_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  oname_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.oname().size() > 0) {
+    oname_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.oname_);
+  }
+  if (from.has_pos()) {
+    pos_ = new ::yproto::Point3(*from.pos_);
+  } else {
+    pos_ = NULL;
+  }
+  if (from.has_bbox()) {
+    bbox_ = new ::yproto::Box3(*from.bbox_);
+  } else {
+    bbox_ = NULL;
+  }
+  ::memcpy(&idx_, &from.idx_,
+    reinterpret_cast<char*>(&num_faces_) -
+    reinterpret_cast<char*>(&idx_) + sizeof(num_faces_));
   // @@protoc_insertion_point(copy_constructor:yproto.ObjItem)
 }
 
 void ObjItem::SharedCtor() {
-    _is_default_instance_ = false;
-  ::google::protobuf::internal::GetEmptyString();
-  _cached_size_ = 0;
   oname_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  idx_ = 0u;
-  num_faces_ = 0;
-  pos_ = NULL;
-  bbox_ = NULL;
+  ::memset(&pos_, 0, reinterpret_cast<char*>(&num_faces_) -
+    reinterpret_cast<char*>(&pos_) + sizeof(num_faces_));
+  _cached_size_ = 0;
 }
 
 ObjItem::~ObjItem() {
@@ -1676,8 +1580,10 @@ ObjItem::~ObjItem() {
 
 void ObjItem::SharedDtor() {
   oname_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (this != default_instance_) {
+  if (this != internal_default_instance()) {
     delete pos_;
+  }
+  if (this != internal_default_instance()) {
     delete bbox_;
   }
 }
@@ -1688,16 +1594,14 @@ void ObjItem::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
 const ::google::protobuf::Descriptor* ObjItem::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return ObjItem_descriptor_;
+  protobuf_ymax_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_ymax_2eproto::file_level_metadata[4].descriptor;
 }
 
 const ObjItem& ObjItem::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_ymax_2eproto();
-  return *default_instance_;
+  protobuf_ymax_2eproto::InitDefaults();
+  return *internal_default_instance();
 }
-
-ObjItem* ObjItem::default_instance_ = NULL;
 
 ObjItem* ObjItem::New(::google::protobuf::Arena* arena) const {
   ObjItem* n = new ObjItem;
@@ -1709,33 +1613,18 @@ ObjItem* ObjItem::New(::google::protobuf::Arena* arena) const {
 
 void ObjItem::Clear() {
 // @@protoc_insertion_point(message_clear_start:yproto.ObjItem)
-#if defined(__clang__)
-#define ZR_HELPER_(f) \
-  _Pragma("clang diagnostic push") \
-  _Pragma("clang diagnostic ignored \"-Winvalid-offsetof\"") \
-  __builtin_offsetof(ObjItem, f) \
-  _Pragma("clang diagnostic pop")
-#else
-#define ZR_HELPER_(f) reinterpret_cast<char*>(\
-  &reinterpret_cast<ObjItem*>(16)->f)
-#endif
-
-#define ZR_(first, last) do {\
-  ::memset(&first, 0,\
-           ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
-} while (0)
-
-  ZR_(idx_, num_faces_);
-  oname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (GetArenaNoVirtual() == NULL && pos_ != NULL) delete pos_;
-  pos_ = NULL;
-  if (GetArenaNoVirtual() == NULL && bbox_ != NULL) delete bbox_;
-  bbox_ = NULL;
-
-#undef ZR_HELPER_
-#undef ZR_
-
   xref_.Clear();
+  oname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (GetArenaNoVirtual() == NULL && pos_ != NULL) {
+    delete pos_;
+  }
+  pos_ = NULL;
+  if (GetArenaNoVirtual() == NULL && bbox_ != NULL) {
+    delete bbox_;
+  }
+  bbox_ = NULL;
+  ::memset(&idx_, 0, reinterpret_cast<char*>(&num_faces_) -
+    reinterpret_cast<char*>(&idx_) + sizeof(num_faces_));
 }
 
 bool ObjItem::MergePartialFromCodedStream(
@@ -1744,13 +1633,13 @@ bool ObjItem::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:yproto.ObjItem)
   for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional string oname = 1;
+      // string oname = 1;
       case 1: {
-        if (tag == 10) {
+        if (tag == 10u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_oname()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -1760,81 +1649,70 @@ bool ObjItem::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(16)) goto parse_idx;
         break;
       }
 
-      // optional uint32 idx = 2;
+      // uint32 idx = 2;
       case 2: {
-        if (tag == 16) {
-         parse_idx:
+        if (tag == 16u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &idx_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(24)) goto parse_num_faces;
         break;
       }
 
-      // optional int32 num_faces = 3;
+      // int32 num_faces = 3;
       case 3: {
-        if (tag == 24) {
-         parse_num_faces:
+        if (tag == 24u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &num_faces_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(34)) goto parse_pos;
         break;
       }
 
-      // optional .yproto.Point3 pos = 4;
+      // .yproto.Point3 pos = 4;
       case 4: {
-        if (tag == 34) {
-         parse_pos:
+        if (tag == 34u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_pos()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(42)) goto parse_bbox;
         break;
       }
 
-      // optional .yproto.Box3 bbox = 5;
+      // .yproto.Box3 bbox = 5;
       case 5: {
-        if (tag == 42) {
-         parse_bbox:
+        if (tag == 42u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_bbox()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(50)) goto parse_xref;
         break;
       }
 
       // repeated int32 xref = 6;
       case 6: {
-        if (tag == 50) {
-         parse_xref:
+        if (tag == 50u) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, this->mutable_xref())));
-        } else if (tag == 48) {
+        } else if (tag == 48u) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitiveNoInline<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 1, 50, input, this->mutable_xref())));
+                 1, 50u, input, this->mutable_xref())));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectAtEnd()) goto success;
         break;
       }
 
@@ -1862,7 +1740,7 @@ failure:
 void ObjItem::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:yproto.ObjItem)
-  // optional string oname = 1;
+  // string oname = 1;
   if (this->oname().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->oname().data(), this->oname().length(),
@@ -1872,23 +1750,23 @@ void ObjItem::SerializeWithCachedSizes(
       1, this->oname(), output);
   }
 
-  // optional uint32 idx = 2;
+  // uint32 idx = 2;
   if (this->idx() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->idx(), output);
   }
 
-  // optional int32 num_faces = 3;
+  // int32 num_faces = 3;
   if (this->num_faces() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->num_faces(), output);
   }
 
-  // optional .yproto.Point3 pos = 4;
+  // .yproto.Point3 pos = 4;
   if (this->has_pos()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       4, *this->pos_, output);
   }
 
-  // optional .yproto.Box3 bbox = 5;
+  // .yproto.Box3 bbox = 5;
   if (this->has_bbox()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       5, *this->bbox_, output);
@@ -1909,9 +1787,9 @@ void ObjItem::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* ObjItem::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
+  (void)deterministic;  // Unused
   // @@protoc_insertion_point(serialize_to_array_start:yproto.ObjItem)
-  // optional string oname = 1;
+  // string oname = 1;
   if (this->oname().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->oname().data(), this->oname().length(),
@@ -1922,24 +1800,24 @@ void ObjItem::SerializeWithCachedSizes(
         1, this->oname(), target);
   }
 
-  // optional uint32 idx = 2;
+  // uint32 idx = 2;
   if (this->idx() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->idx(), target);
   }
 
-  // optional int32 num_faces = 3;
+  // int32 num_faces = 3;
   if (this->num_faces() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->num_faces(), target);
   }
 
-  // optional .yproto.Point3 pos = 4;
+  // .yproto.Point3 pos = 4;
   if (this->has_pos()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
         4, *this->pos_, false, target);
   }
 
-  // optional .yproto.Box3 bbox = 5;
+  // .yproto.Box3 bbox = 5;
   if (this->has_bbox()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
@@ -1964,74 +1842,71 @@ void ObjItem::SerializeWithCachedSizes(
   return target;
 }
 
-int ObjItem::ByteSize() const {
+size_t ObjItem::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:yproto.ObjItem)
-  int total_size = 0;
+  size_t total_size = 0;
 
-  // optional string oname = 1;
+  // repeated int32 xref = 6;
+  {
+    size_t data_size = ::google::protobuf::internal::WireFormatLite::
+      Int32Size(this->xref_);
+    if (data_size > 0) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(data_size);
+    }
+    int cached_size = ::google::protobuf::internal::ToCachedSize(data_size);
+    GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+    _xref_cached_byte_size_ = cached_size;
+    GOOGLE_SAFE_CONCURRENT_WRITES_END();
+    total_size += data_size;
+  }
+
+  // string oname = 1;
   if (this->oname().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->oname());
   }
 
-  // optional uint32 idx = 2;
-  if (this->idx() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->idx());
-  }
-
-  // optional int32 num_faces = 3;
-  if (this->num_faces() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->num_faces());
-  }
-
-  // optional .yproto.Point3 pos = 4;
+  // .yproto.Point3 pos = 4;
   if (this->has_pos()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->pos_);
   }
 
-  // optional .yproto.Box3 bbox = 5;
+  // .yproto.Box3 bbox = 5;
   if (this->has_bbox()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->bbox_);
   }
 
-  // repeated int32 xref = 6;
-  {
-    int data_size = 0;
-    for (int i = 0; i < this->xref_size(); i++) {
-      data_size += ::google::protobuf::internal::WireFormatLite::
-        Int32Size(this->xref(i));
-    }
-    if (data_size > 0) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(data_size);
-    }
-    GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-    _xref_cached_byte_size_ = data_size;
-    GOOGLE_SAFE_CONCURRENT_WRITES_END();
-    total_size += data_size;
+  // uint32 idx = 2;
+  if (this->idx() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->idx());
   }
 
+  // int32 num_faces = 3;
+  if (this->num_faces() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->num_faces());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
+  _cached_size_ = cached_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void ObjItem::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:yproto.ObjItem)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
-  const ObjItem* source = 
+  GOOGLE_DCHECK_NE(&from, this);
+  const ObjItem* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const ObjItem>(
           &from);
   if (source == NULL) {
@@ -2045,25 +1920,24 @@ void ObjItem::MergeFrom(const ::google::protobuf::Message& from) {
 
 void ObjItem::MergeFrom(const ObjItem& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:yproto.ObjItem)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
   xref_.MergeFrom(from.xref_);
   if (from.oname().size() > 0) {
 
     oname_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.oname_);
-  }
-  if (from.idx() != 0) {
-    set_idx(from.idx());
-  }
-  if (from.num_faces() != 0) {
-    set_num_faces(from.num_faces());
   }
   if (from.has_pos()) {
     mutable_pos()->::yproto::Point3::MergeFrom(from.pos());
   }
   if (from.has_bbox()) {
     mutable_bbox()->::yproto::Box3::MergeFrom(from.bbox());
+  }
+  if (from.idx() != 0) {
+    set_idx(from.idx());
+  }
+  if (from.num_faces() != 0) {
+    set_num_faces(from.num_faces());
   }
 }
 
@@ -2082,7 +1956,6 @@ void ObjItem::CopyFrom(const ObjItem& from) {
 }
 
 bool ObjItem::IsInitialized() const {
-
   return true;
 }
 
@@ -2091,62 +1964,66 @@ void ObjItem::Swap(ObjItem* other) {
   InternalSwap(other);
 }
 void ObjItem::InternalSwap(ObjItem* other) {
+  xref_.UnsafeArenaSwap(&other->xref_);
   oname_.Swap(&other->oname_);
-  std::swap(idx_, other->idx_);
-  std::swap(num_faces_, other->num_faces_);
   std::swap(pos_, other->pos_);
   std::swap(bbox_, other->bbox_);
-  xref_.UnsafeArenaSwap(&other->xref_);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(idx_, other->idx_);
+  std::swap(num_faces_, other->num_faces_);
   std::swap(_cached_size_, other->_cached_size_);
 }
 
 ::google::protobuf::Metadata ObjItem::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = ObjItem_descriptor_;
-  metadata.reflection = ObjItem_reflection_;
-  return metadata;
+  protobuf_ymax_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_ymax_2eproto::file_level_metadata[4];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // ObjItem
 
-// optional string oname = 1;
+// string oname = 1;
 void ObjItem::clear_oname() {
   oname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- const ::std::string& ObjItem::oname() const {
+const ::std::string& ObjItem::oname() const {
   // @@protoc_insertion_point(field_get:yproto.ObjItem.oname)
-  return oname_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return oname_.GetNoArena();
 }
- void ObjItem::set_oname(const ::std::string& value) {
+void ObjItem::set_oname(const ::std::string& value) {
   
   oname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:yproto.ObjItem.oname)
 }
- void ObjItem::set_oname(const char* value) {
+#if LANG_CXX11
+void ObjItem::set_oname(::std::string&& value) {
+  
+  oname_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:yproto.ObjItem.oname)
+}
+#endif
+void ObjItem::set_oname(const char* value) {
   
   oname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:yproto.ObjItem.oname)
 }
- void ObjItem::set_oname(const char* value, size_t size) {
+void ObjItem::set_oname(const char* value, size_t size) {
   
   oname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:yproto.ObjItem.oname)
 }
- ::std::string* ObjItem::mutable_oname() {
+::std::string* ObjItem::mutable_oname() {
   
   // @@protoc_insertion_point(field_mutable:yproto.ObjItem.oname)
   return oname_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* ObjItem::release_oname() {
+::std::string* ObjItem::release_oname() {
   // @@protoc_insertion_point(field_release:yproto.ObjItem.oname)
   
   return oname_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void ObjItem::set_allocated_oname(::std::string* oname) {
+void ObjItem::set_allocated_oname(::std::string* oname) {
   if (oname != NULL) {
     
   } else {
@@ -2156,37 +2033,37 @@ void ObjItem::clear_oname() {
   // @@protoc_insertion_point(field_set_allocated:yproto.ObjItem.oname)
 }
 
-// optional uint32 idx = 2;
+// uint32 idx = 2;
 void ObjItem::clear_idx() {
   idx_ = 0u;
 }
- ::google::protobuf::uint32 ObjItem::idx() const {
+::google::protobuf::uint32 ObjItem::idx() const {
   // @@protoc_insertion_point(field_get:yproto.ObjItem.idx)
   return idx_;
 }
- void ObjItem::set_idx(::google::protobuf::uint32 value) {
+void ObjItem::set_idx(::google::protobuf::uint32 value) {
   
   idx_ = value;
   // @@protoc_insertion_point(field_set:yproto.ObjItem.idx)
 }
 
-// optional int32 num_faces = 3;
+// int32 num_faces = 3;
 void ObjItem::clear_num_faces() {
   num_faces_ = 0;
 }
- ::google::protobuf::int32 ObjItem::num_faces() const {
+::google::protobuf::int32 ObjItem::num_faces() const {
   // @@protoc_insertion_point(field_get:yproto.ObjItem.num_faces)
   return num_faces_;
 }
- void ObjItem::set_num_faces(::google::protobuf::int32 value) {
+void ObjItem::set_num_faces(::google::protobuf::int32 value) {
   
   num_faces_ = value;
   // @@protoc_insertion_point(field_set:yproto.ObjItem.num_faces)
 }
 
-// optional .yproto.Point3 pos = 4;
+// .yproto.Point3 pos = 4;
 bool ObjItem::has_pos() const {
-  return !_is_default_instance_ && pos_ != NULL;
+  return this != internal_default_instance() && pos_ != NULL;
 }
 void ObjItem::clear_pos() {
   if (GetArenaNoVirtual() == NULL && pos_ != NULL) delete pos_;
@@ -2194,7 +2071,8 @@ void ObjItem::clear_pos() {
 }
 const ::yproto::Point3& ObjItem::pos() const {
   // @@protoc_insertion_point(field_get:yproto.ObjItem.pos)
-  return pos_ != NULL ? *pos_ : *default_instance_->pos_;
+  return pos_ != NULL ? *pos_
+                         : *::yproto::Point3::internal_default_instance();
 }
 ::yproto::Point3* ObjItem::mutable_pos() {
   
@@ -2222,9 +2100,9 @@ void ObjItem::set_allocated_pos(::yproto::Point3* pos) {
   // @@protoc_insertion_point(field_set_allocated:yproto.ObjItem.pos)
 }
 
-// optional .yproto.Box3 bbox = 5;
+// .yproto.Box3 bbox = 5;
 bool ObjItem::has_bbox() const {
-  return !_is_default_instance_ && bbox_ != NULL;
+  return this != internal_default_instance() && bbox_ != NULL;
 }
 void ObjItem::clear_bbox() {
   if (GetArenaNoVirtual() == NULL && bbox_ != NULL) delete bbox_;
@@ -2232,7 +2110,8 @@ void ObjItem::clear_bbox() {
 }
 const ::yproto::Box3& ObjItem::bbox() const {
   // @@protoc_insertion_point(field_get:yproto.ObjItem.bbox)
-  return bbox_ != NULL ? *bbox_ : *default_instance_->bbox_;
+  return bbox_ != NULL ? *bbox_
+                         : *::yproto::Box3::internal_default_instance();
 }
 ::yproto::Box3* ObjItem::mutable_bbox() {
   
@@ -2267,24 +2146,24 @@ int ObjItem::xref_size() const {
 void ObjItem::clear_xref() {
   xref_.Clear();
 }
- ::google::protobuf::int32 ObjItem::xref(int index) const {
+::google::protobuf::int32 ObjItem::xref(int index) const {
   // @@protoc_insertion_point(field_get:yproto.ObjItem.xref)
   return xref_.Get(index);
 }
- void ObjItem::set_xref(int index, ::google::protobuf::int32 value) {
+void ObjItem::set_xref(int index, ::google::protobuf::int32 value) {
   xref_.Set(index, value);
   // @@protoc_insertion_point(field_set:yproto.ObjItem.xref)
 }
- void ObjItem::add_xref(::google::protobuf::int32 value) {
+void ObjItem::add_xref(::google::protobuf::int32 value) {
   xref_.Add(value);
   // @@protoc_insertion_point(field_add:yproto.ObjItem.xref)
 }
- const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
 ObjItem::xref() const {
   // @@protoc_insertion_point(field_list:yproto.ObjItem.xref)
   return xref_;
 }
- ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
 ObjItem::mutable_xref() {
   // @@protoc_insertion_point(field_mutable_list:yproto.ObjItem.xref)
   return &xref_;
@@ -2300,24 +2179,22 @@ const int ObjList::kObjsFieldNumber;
 
 ObjList::ObjList()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_ymax_2eproto::InitDefaults();
+  }
   SharedCtor();
   // @@protoc_insertion_point(constructor:yproto.ObjList)
 }
-
-void ObjList::InitAsDefaultInstance() {
-  _is_default_instance_ = true;
-}
-
 ObjList::ObjList(const ObjList& from)
   : ::google::protobuf::Message(),
-    _internal_metadata_(NULL) {
-  SharedCtor();
-  MergeFrom(from);
+      _internal_metadata_(NULL),
+      objs_(from.objs_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
   // @@protoc_insertion_point(copy_constructor:yproto.ObjList)
 }
 
 void ObjList::SharedCtor() {
-    _is_default_instance_ = false;
   _cached_size_ = 0;
 }
 
@@ -2327,8 +2204,6 @@ ObjList::~ObjList() {
 }
 
 void ObjList::SharedDtor() {
-  if (this != default_instance_) {
-  }
 }
 
 void ObjList::SetCachedSize(int size) const {
@@ -2337,16 +2212,14 @@ void ObjList::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
 const ::google::protobuf::Descriptor* ObjList::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return ObjList_descriptor_;
+  protobuf_ymax_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_ymax_2eproto::file_level_metadata[5].descriptor;
 }
 
 const ObjList& ObjList::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_ymax_2eproto();
-  return *default_instance_;
+  protobuf_ymax_2eproto::InitDefaults();
+  return *internal_default_instance();
 }
-
-ObjList* ObjList::default_instance_ = NULL;
 
 ObjList* ObjList::New(::google::protobuf::Arena* arena) const {
   ObjList* n = new ObjList;
@@ -2367,23 +2240,20 @@ bool ObjList::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:yproto.ObjList)
   for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
       // repeated .yproto.ObjItem objs = 1;
       case 1: {
-        if (tag == 10) {
+        if (tag == 10u) {
           DO_(input->IncrementRecursionDepth());
-         parse_loop_objs:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtualNoRecursionDepth(
                 input, add_objs()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(10)) goto parse_loop_objs;
         input->UnsafeDecrementRecursionDepth();
-        if (input->ExpectAtEnd()) goto success;
         break;
       }
 
@@ -2422,7 +2292,7 @@ void ObjList::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* ObjList::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
+  (void)deterministic;  // Unused
   // @@protoc_insertion_point(serialize_to_array_start:yproto.ObjList)
   // repeated .yproto.ObjItem objs = 1;
   for (unsigned int i = 0, n = this->objs_size(); i < n; i++) {
@@ -2435,30 +2305,32 @@ void ObjList::SerializeWithCachedSizes(
   return target;
 }
 
-int ObjList::ByteSize() const {
+size_t ObjList::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:yproto.ObjList)
-  int total_size = 0;
+  size_t total_size = 0;
 
   // repeated .yproto.ObjItem objs = 1;
-  total_size += 1 * this->objs_size();
-  for (int i = 0; i < this->objs_size(); i++) {
-    total_size +=
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->objs(i));
+  {
+    unsigned int count = this->objs_size();
+    total_size += 1UL * count;
+    for (unsigned int i = 0; i < count; i++) {
+      total_size +=
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->objs(i));
+    }
   }
 
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
+  _cached_size_ = cached_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void ObjList::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:yproto.ObjList)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
-  const ObjList* source = 
+  GOOGLE_DCHECK_NE(&from, this);
+  const ObjList* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const ObjList>(
           &from);
   if (source == NULL) {
@@ -2472,9 +2344,8 @@ void ObjList::MergeFrom(const ::google::protobuf::Message& from) {
 
 void ObjList::MergeFrom(const ObjList& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:yproto.ObjList)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
   objs_.MergeFrom(from.objs_);
 }
 
@@ -2493,7 +2364,6 @@ void ObjList::CopyFrom(const ObjList& from) {
 }
 
 bool ObjList::IsInitialized() const {
-
   return true;
 }
 
@@ -2503,16 +2373,12 @@ void ObjList::Swap(ObjList* other) {
 }
 void ObjList::InternalSwap(ObjList* other) {
   objs_.UnsafeArenaSwap(&other->objs_);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
 
 ::google::protobuf::Metadata ObjList::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = ObjList_descriptor_;
-  metadata.reflection = ObjList_reflection_;
-  return metadata;
+  protobuf_ymax_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_ymax_2eproto::file_level_metadata[5];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS

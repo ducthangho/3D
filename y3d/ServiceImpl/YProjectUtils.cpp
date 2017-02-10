@@ -195,13 +195,13 @@ void NewYProject(const NewProjectParam* pp, ResponseNProject* rnp) {
 		MessageBoxW(NULL, L"Can not create List Area Object file!", L"Error", MB_OK);
 	}
 	rnp->mutable_yal()->CopyFrom(yal);
-	rnp->mutable_sys()->CopyFrom(YSys);
+	//rnp->mutable_sys()->CopyFrom(YSys);
 }
 
 void LoadNProject(ResponseNProject* rnp) {
 	auto* ip = GetCOREInterface();
 	std::string pfolder;
-	pfolder.append(rnp->pinfo().path().c_str());
+	pfolder.append(rnp->pinfo().project_path().c_str());
 	pfolder += "\\" + rnp->pinfo().pname() + "_y3d\\";
 	//pfolder.append("\\");
 	std::string wpath;
@@ -226,7 +226,7 @@ void LoadNProject(ResponseNProject* rnp) {
 			}
 			else {
 				rnp->mutable_yal()->CopyFrom(yal);
-				rnp->mutable_sys()->CopyFrom(YSys);
+				//rnp->mutable_sys()->CopyFrom(YSys);
 			}
 		}
 	}
@@ -236,10 +236,10 @@ void DeleteYProject(ResponseNProject* rnp) {
 	for (int i = 0; i < YSys.projects_size(); i++)
 	{
 		auto pi = YSys.projects(i);
-		if ((pi.pname() == rnp->pinfo().pname()) && (pi.path() == rnp->pinfo().path())) {
+		if ((pi.pname() == rnp->pinfo().pname()) && (pi.project_path() == rnp->pinfo().project_path())) {
 			YSys.mutable_projects()->DeleteSubrange(i, 1);
 			saveSystem();
-			rnp->mutable_sys()->CopyFrom(YSys);
+			//rnp->mutable_sys()->CopyFrom(YSys);
 			return;
 		}
 	}

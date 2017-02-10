@@ -149,7 +149,7 @@ Status YServiceImpl::NewProject(ServerContext* context, const NewProjectParam* n
 		for (int i = 0; i < YSys.projects_size(); i++)
 		{
 			auto pi = YSys.projects(i);
-			if ((pi.pname() == np->fname()) && (pi.path() == np->folder())) {
+			if ((pi.pname() == np->fname()) && (pi.project_path() == np->folder())) {
 				rnp->mutable_pinfo()->CopyFrom(pi);
 				LoadNProject(rnp);
 				//MessageBoxW(NULL, L"Load project cu....(chua lam)", L"Oh", MB_OK);
@@ -158,7 +158,7 @@ Status YServiceImpl::NewProject(ServerContext* context, const NewProjectParam* n
 			}
 		}
 		if (noProject) {
-			rnp->mutable_pinfo()->set_path(np->folder());
+			rnp->mutable_pinfo()->set_project_path(np->folder());
 			rnp->mutable_pinfo()->set_pname(np->fname());
 			NewYProject(np, rnp);
 		}

@@ -18,113 +18,115 @@
 // @@protoc_insertion_point(includes)
 
 namespace y3d {
+class LibInfoDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<LibInfo> {
+} _LibInfo_default_instance_;
+class ResultTypeDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<ResultType> {
+} _ResultType_default_instance_;
+
+namespace protobuf_yloader_2eproto {
+
 
 namespace {
 
-const ::google::protobuf::Descriptor* LibInfo_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  LibInfo_reflection_ = NULL;
-const ::google::protobuf::Descriptor* ResultType_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  ResultType_reflection_ = NULL;
+::google::protobuf::Metadata file_level_metadata[2];
 
 }  // namespace
 
+const ::google::protobuf::uint32 TableStruct::offsets[] = {
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LibInfo, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LibInfo, id_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ResultType, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ResultType, error_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ResultType, message_),
+};
 
-void protobuf_AssignDesc_yloader_2eproto() GOOGLE_ATTRIBUTE_COLD;
-void protobuf_AssignDesc_yloader_2eproto() {
-  protobuf_AddDesc_yloader_2eproto();
-  const ::google::protobuf::FileDescriptor* file =
-    ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
-      "yloader.proto");
-  GOOGLE_CHECK(file != NULL);
-  LibInfo_descriptor_ = file->message_type(0);
-  static const int LibInfo_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LibInfo, id_),
-  };
-  LibInfo_reflection_ =
-    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      LibInfo_descriptor_,
-      LibInfo::default_instance_,
-      LibInfo_offsets_,
-      -1,
-      -1,
-      -1,
-      sizeof(LibInfo),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LibInfo, _internal_metadata_),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LibInfo, _is_default_instance_));
-  ResultType_descriptor_ = file->message_type(1);
-  static const int ResultType_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ResultType, error_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ResultType, message_),
-  };
-  ResultType_reflection_ =
-    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      ResultType_descriptor_,
-      ResultType::default_instance_,
-      ResultType_offsets_,
-      -1,
-      -1,
-      -1,
-      sizeof(ResultType),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ResultType, _internal_metadata_),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ResultType, _is_default_instance_));
-}
+static const ::google::protobuf::internal::MigrationSchema schemas[] = {
+  { 0, -1, sizeof(LibInfo)},
+  { 5, -1, sizeof(ResultType)},
+};
+
+static ::google::protobuf::Message const * const file_default_instances[] = {
+  reinterpret_cast<const ::google::protobuf::Message*>(&_LibInfo_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_ResultType_default_instance_),
+};
 
 namespace {
 
-GOOGLE_PROTOBUF_DECLARE_ONCE(protobuf_AssignDescriptors_once_);
-inline void protobuf_AssignDescriptorsOnce() {
-  ::google::protobuf::GoogleOnceInit(&protobuf_AssignDescriptors_once_,
-                 &protobuf_AssignDesc_yloader_2eproto);
+void protobuf_AssignDescriptors() {
+  AddDescriptors();
+  ::google::protobuf::MessageFactory* factory = NULL;
+  AssignDescriptors(
+      "yloader.proto", schemas, file_default_instances, TableStruct::offsets, factory,
+      file_level_metadata, NULL, NULL);
+}
+
+void protobuf_AssignDescriptorsOnce() {
+  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
+  ::google::protobuf::GoogleOnceInit(&once, &protobuf_AssignDescriptors);
 }
 
 void protobuf_RegisterTypes(const ::std::string&) GOOGLE_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      LibInfo_descriptor_, &LibInfo::default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      ResultType_descriptor_, &ResultType::default_instance());
+  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 2);
 }
 
 }  // namespace
 
-void protobuf_ShutdownFile_yloader_2eproto() {
-  delete LibInfo::default_instance_;
-  delete LibInfo_reflection_;
-  delete ResultType::default_instance_;
-  delete ResultType_reflection_;
+void TableStruct::Shutdown() {
+  _LibInfo_default_instance_.Shutdown();
+  delete file_level_metadata[0].reflection;
+  _ResultType_default_instance_.Shutdown();
+  delete file_level_metadata[1].reflection;
 }
 
-void protobuf_AddDesc_yloader_2eproto() GOOGLE_ATTRIBUTE_COLD;
-void protobuf_AddDesc_yloader_2eproto() {
-  static bool already_here = false;
-  if (already_here) return;
-  already_here = true;
+void TableStruct::InitDefaultsImpl() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\ryloader.proto\022\003y3d\"\025\n\007LibInfo\022\n\n\002id\030\001 "
-    "\001(\005\",\n\nResultType\022\r\n\005error\030\001 \001(\010\022\017\n\007mess"
-    "age\030\002 \001(\t2a\n\006Loader\022+\n\010Shutdown\022\014.y3d.Li"
-    "bInfo\032\017.y3d.ResultType\"\000\022*\n\007LoadDll\022\014.y3"
-    "d.LibInfo\032\017.y3d.ResultType\"\000b\006proto3", 196);
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
-    "yloader.proto", &protobuf_RegisterTypes);
-  LibInfo::default_instance_ = new LibInfo();
-  ResultType::default_instance_ = new ResultType();
-  LibInfo::default_instance_->InitAsDefaultInstance();
-  ResultType::default_instance_->InitAsDefaultInstance();
-  ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_yloader_2eproto);
+  ::google::protobuf::internal::InitProtobufDefaults();
+  _LibInfo_default_instance_.DefaultConstruct();
+  _ResultType_default_instance_.DefaultConstruct();
 }
 
+void InitDefaults() {
+  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
+  ::google::protobuf::GoogleOnceInit(&once, &TableStruct::InitDefaultsImpl);
+}
+void AddDescriptorsImpl() {
+  InitDefaults();
+  static const char descriptor[] = {
+      "\n\ryloader.proto\022\003y3d\"\025\n\007LibInfo\022\n\n\002id\030\001 "
+      "\001(\005\",\n\nResultType\022\r\n\005error\030\001 \001(\010\022\017\n\007mess"
+      "age\030\002 \001(\t2a\n\006Loader\022+\n\010Shutdown\022\014.y3d.Li"
+      "bInfo\032\017.y3d.ResultType\"\000\022*\n\007LoadDll\022\014.y3"
+      "d.LibInfo\032\017.y3d.ResultType\"\000b\006proto3"
+  };
+  ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
+      descriptor, 196);
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
+    "yloader.proto", &protobuf_RegisterTypes);
+  ::google::protobuf::internal::OnShutdown(&TableStruct::Shutdown);
+}
+
+void AddDescriptors() {
+  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
+  ::google::protobuf::GoogleOnceInit(&once, &AddDescriptorsImpl);
+}
 // Force AddDescriptors() to be called at static initialization time.
-struct StaticDescriptorInitializer_yloader_2eproto {
-  StaticDescriptorInitializer_yloader_2eproto() {
-    protobuf_AddDesc_yloader_2eproto();
+struct StaticDescriptorInitializer {
+  StaticDescriptorInitializer() {
+    AddDescriptors();
   }
-} static_descriptor_initializer_yloader_2eproto_;
+} static_descriptor_initializer;
+
+}  // namespace protobuf_yloader_2eproto
+
 
 // ===================================================================
 
@@ -134,26 +136,24 @@ const int LibInfo::kIdFieldNumber;
 
 LibInfo::LibInfo()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_yloader_2eproto::InitDefaults();
+  }
   SharedCtor();
   // @@protoc_insertion_point(constructor:y3d.LibInfo)
 }
-
-void LibInfo::InitAsDefaultInstance() {
-  _is_default_instance_ = true;
-}
-
 LibInfo::LibInfo(const LibInfo& from)
   : ::google::protobuf::Message(),
-    _internal_metadata_(NULL) {
-  SharedCtor();
-  MergeFrom(from);
+      _internal_metadata_(NULL),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  id_ = from.id_;
   // @@protoc_insertion_point(copy_constructor:y3d.LibInfo)
 }
 
 void LibInfo::SharedCtor() {
-    _is_default_instance_ = false;
-  _cached_size_ = 0;
   id_ = 0;
+  _cached_size_ = 0;
 }
 
 LibInfo::~LibInfo() {
@@ -162,8 +162,6 @@ LibInfo::~LibInfo() {
 }
 
 void LibInfo::SharedDtor() {
-  if (this != default_instance_) {
-  }
 }
 
 void LibInfo::SetCachedSize(int size) const {
@@ -172,16 +170,14 @@ void LibInfo::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
 const ::google::protobuf::Descriptor* LibInfo::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return LibInfo_descriptor_;
+  protobuf_yloader_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_yloader_2eproto::file_level_metadata[0].descriptor;
 }
 
 const LibInfo& LibInfo::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_yloader_2eproto();
-  return *default_instance_;
+  protobuf_yloader_2eproto::InitDefaults();
+  return *internal_default_instance();
 }
-
-LibInfo* LibInfo::default_instance_ = NULL;
 
 LibInfo* LibInfo::New(::google::protobuf::Arena* arena) const {
   LibInfo* n = new LibInfo;
@@ -202,21 +198,20 @@ bool LibInfo::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:y3d.LibInfo)
   for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 id = 1;
+      // int32 id = 1;
       case 1: {
-        if (tag == 8) {
+        if (tag == 8u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &id_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectAtEnd()) goto success;
         break;
       }
 
@@ -244,7 +239,7 @@ failure:
 void LibInfo::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:y3d.LibInfo)
-  // optional int32 id = 1;
+  // int32 id = 1;
   if (this->id() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->id(), output);
   }
@@ -254,9 +249,9 @@ void LibInfo::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* LibInfo::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
+  (void)deterministic;  // Unused
   // @@protoc_insertion_point(serialize_to_array_start:y3d.LibInfo)
-  // optional int32 id = 1;
+  // int32 id = 1;
   if (this->id() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->id(), target);
   }
@@ -265,29 +260,28 @@ void LibInfo::SerializeWithCachedSizes(
   return target;
 }
 
-int LibInfo::ByteSize() const {
+size_t LibInfo::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:y3d.LibInfo)
-  int total_size = 0;
+  size_t total_size = 0;
 
-  // optional int32 id = 1;
+  // int32 id = 1;
   if (this->id() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->id());
   }
 
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
+  _cached_size_ = cached_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void LibInfo::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:y3d.LibInfo)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
-  const LibInfo* source = 
+  GOOGLE_DCHECK_NE(&from, this);
+  const LibInfo* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const LibInfo>(
           &from);
   if (source == NULL) {
@@ -301,9 +295,8 @@ void LibInfo::MergeFrom(const ::google::protobuf::Message& from) {
 
 void LibInfo::MergeFrom(const LibInfo& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:y3d.LibInfo)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
   if (from.id() != 0) {
     set_id(from.id());
   }
@@ -324,7 +317,6 @@ void LibInfo::CopyFrom(const LibInfo& from) {
 }
 
 bool LibInfo::IsInitialized() const {
-
   return true;
 }
 
@@ -334,30 +326,26 @@ void LibInfo::Swap(LibInfo* other) {
 }
 void LibInfo::InternalSwap(LibInfo* other) {
   std::swap(id_, other->id_);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
 
 ::google::protobuf::Metadata LibInfo::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = LibInfo_descriptor_;
-  metadata.reflection = LibInfo_reflection_;
-  return metadata;
+  protobuf_yloader_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_yloader_2eproto::file_level_metadata[0];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // LibInfo
 
-// optional int32 id = 1;
+// int32 id = 1;
 void LibInfo::clear_id() {
   id_ = 0;
 }
- ::google::protobuf::int32 LibInfo::id() const {
+::google::protobuf::int32 LibInfo::id() const {
   // @@protoc_insertion_point(field_get:y3d.LibInfo.id)
   return id_;
 }
- void LibInfo::set_id(::google::protobuf::int32 value) {
+void LibInfo::set_id(::google::protobuf::int32 value) {
   
   id_ = value;
   // @@protoc_insertion_point(field_set:y3d.LibInfo.id)
@@ -374,28 +362,29 @@ const int ResultType::kMessageFieldNumber;
 
 ResultType::ResultType()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_yloader_2eproto::InitDefaults();
+  }
   SharedCtor();
   // @@protoc_insertion_point(constructor:y3d.ResultType)
 }
-
-void ResultType::InitAsDefaultInstance() {
-  _is_default_instance_ = true;
-}
-
 ResultType::ResultType(const ResultType& from)
   : ::google::protobuf::Message(),
-    _internal_metadata_(NULL) {
-  SharedCtor();
-  MergeFrom(from);
+      _internal_metadata_(NULL),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  message_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.message().size() > 0) {
+    message_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.message_);
+  }
+  error_ = from.error_;
   // @@protoc_insertion_point(copy_constructor:y3d.ResultType)
 }
 
 void ResultType::SharedCtor() {
-    _is_default_instance_ = false;
-  ::google::protobuf::internal::GetEmptyString();
-  _cached_size_ = 0;
-  error_ = false;
   message_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  error_ = false;
+  _cached_size_ = 0;
 }
 
 ResultType::~ResultType() {
@@ -405,8 +394,6 @@ ResultType::~ResultType() {
 
 void ResultType::SharedDtor() {
   message_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (this != default_instance_) {
-  }
 }
 
 void ResultType::SetCachedSize(int size) const {
@@ -415,16 +402,14 @@ void ResultType::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
 const ::google::protobuf::Descriptor* ResultType::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return ResultType_descriptor_;
+  protobuf_yloader_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_yloader_2eproto::file_level_metadata[1].descriptor;
 }
 
 const ResultType& ResultType::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_yloader_2eproto();
-  return *default_instance_;
+  protobuf_yloader_2eproto::InitDefaults();
+  return *internal_default_instance();
 }
-
-ResultType* ResultType::default_instance_ = NULL;
 
 ResultType* ResultType::New(::google::protobuf::Arena* arena) const {
   ResultType* n = new ResultType;
@@ -436,8 +421,8 @@ ResultType* ResultType::New(::google::protobuf::Arena* arena) const {
 
 void ResultType::Clear() {
 // @@protoc_insertion_point(message_clear_start:y3d.ResultType)
-  error_ = false;
   message_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  error_ = false;
 }
 
 bool ResultType::MergePartialFromCodedStream(
@@ -446,28 +431,26 @@ bool ResultType::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:y3d.ResultType)
   for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional bool error = 1;
+      // bool error = 1;
       case 1: {
-        if (tag == 8) {
+        if (tag == 8u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &error_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(18)) goto parse_message;
         break;
       }
 
-      // optional string message = 2;
+      // string message = 2;
       case 2: {
-        if (tag == 18) {
-         parse_message:
+        if (tag == 18u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_message()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -477,7 +460,6 @@ bool ResultType::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectAtEnd()) goto success;
         break;
       }
 
@@ -505,12 +487,12 @@ failure:
 void ResultType::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:y3d.ResultType)
-  // optional bool error = 1;
+  // bool error = 1;
   if (this->error() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(1, this->error(), output);
   }
 
-  // optional string message = 2;
+  // string message = 2;
   if (this->message().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->message().data(), this->message().length(),
@@ -525,14 +507,14 @@ void ResultType::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* ResultType::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
+  (void)deterministic;  // Unused
   // @@protoc_insertion_point(serialize_to_array_start:y3d.ResultType)
-  // optional bool error = 1;
+  // bool error = 1;
   if (this->error() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(1, this->error(), target);
   }
 
-  // optional string message = 2;
+  // string message = 2;
   if (this->message().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->message().data(), this->message().length(),
@@ -547,34 +529,33 @@ void ResultType::SerializeWithCachedSizes(
   return target;
 }
 
-int ResultType::ByteSize() const {
+size_t ResultType::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:y3d.ResultType)
-  int total_size = 0;
+  size_t total_size = 0;
 
-  // optional bool error = 1;
-  if (this->error() != 0) {
-    total_size += 1 + 1;
-  }
-
-  // optional string message = 2;
+  // string message = 2;
   if (this->message().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->message());
   }
 
+  // bool error = 1;
+  if (this->error() != 0) {
+    total_size += 1 + 1;
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
+  _cached_size_ = cached_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void ResultType::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:y3d.ResultType)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
-  const ResultType* source = 
+  GOOGLE_DCHECK_NE(&from, this);
+  const ResultType* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const ResultType>(
           &from);
   if (source == NULL) {
@@ -588,15 +569,14 @@ void ResultType::MergeFrom(const ::google::protobuf::Message& from) {
 
 void ResultType::MergeFrom(const ResultType& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:y3d.ResultType)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
-  if (from.error() != 0) {
-    set_error(from.error());
-  }
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
   if (from.message().size() > 0) {
 
     message_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.message_);
+  }
+  if (from.error() != 0) {
+    set_error(from.error());
   }
 }
 
@@ -615,7 +595,6 @@ void ResultType::CopyFrom(const ResultType& from) {
 }
 
 bool ResultType::IsInitialized() const {
-
   return true;
 }
 
@@ -624,72 +603,76 @@ void ResultType::Swap(ResultType* other) {
   InternalSwap(other);
 }
 void ResultType::InternalSwap(ResultType* other) {
-  std::swap(error_, other->error_);
   message_.Swap(&other->message_);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(error_, other->error_);
   std::swap(_cached_size_, other->_cached_size_);
 }
 
 ::google::protobuf::Metadata ResultType::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = ResultType_descriptor_;
-  metadata.reflection = ResultType_reflection_;
-  return metadata;
+  protobuf_yloader_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_yloader_2eproto::file_level_metadata[1];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // ResultType
 
-// optional bool error = 1;
+// bool error = 1;
 void ResultType::clear_error() {
   error_ = false;
 }
- bool ResultType::error() const {
+bool ResultType::error() const {
   // @@protoc_insertion_point(field_get:y3d.ResultType.error)
   return error_;
 }
- void ResultType::set_error(bool value) {
+void ResultType::set_error(bool value) {
   
   error_ = value;
   // @@protoc_insertion_point(field_set:y3d.ResultType.error)
 }
 
-// optional string message = 2;
+// string message = 2;
 void ResultType::clear_message() {
   message_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- const ::std::string& ResultType::message() const {
+const ::std::string& ResultType::message() const {
   // @@protoc_insertion_point(field_get:y3d.ResultType.message)
-  return message_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return message_.GetNoArena();
 }
- void ResultType::set_message(const ::std::string& value) {
+void ResultType::set_message(const ::std::string& value) {
   
   message_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:y3d.ResultType.message)
 }
- void ResultType::set_message(const char* value) {
+#if LANG_CXX11
+void ResultType::set_message(::std::string&& value) {
+  
+  message_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:y3d.ResultType.message)
+}
+#endif
+void ResultType::set_message(const char* value) {
   
   message_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:y3d.ResultType.message)
 }
- void ResultType::set_message(const char* value, size_t size) {
+void ResultType::set_message(const char* value, size_t size) {
   
   message_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:y3d.ResultType.message)
 }
- ::std::string* ResultType::mutable_message() {
+::std::string* ResultType::mutable_message() {
   
   // @@protoc_insertion_point(field_mutable:y3d.ResultType.message)
   return message_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* ResultType::release_message() {
+::std::string* ResultType::release_message() {
   // @@protoc_insertion_point(field_release:y3d.ResultType.message)
   
   return message_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void ResultType::set_allocated_message(::std::string* message) {
+void ResultType::set_allocated_message(::std::string* message) {
   if (message != NULL) {
     
   } else {

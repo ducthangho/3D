@@ -18,314 +18,275 @@
 // @@protoc_insertion_point(includes)
 
 namespace y3d {
-
-namespace {
-
-const ::google::protobuf::Descriptor* CustomAttr_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  CustomAttr_reflection_ = NULL;
-struct CustomAttrOneofInstance {
+class CustomAttrDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<CustomAttr> {
+  public:
   const ::y3d::TString* str_;
   const ::y3d::TOptionString* optionstring_;
   const ::y3d::TOptionInt* optionint_;
   const ::y3d::TOptionFloat* optionfloat_;
   const ::y3d::TColor* color_;
-}* CustomAttr_default_oneof_instance_ = NULL;
-const ::google::protobuf::Descriptor* TString_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  TString_reflection_ = NULL;
-const ::google::protobuf::Descriptor* TInt_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  TInt_reflection_ = NULL;
-const ::google::protobuf::Descriptor* TOptionString_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  TOptionString_reflection_ = NULL;
-const ::google::protobuf::Descriptor* TOptionInt_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  TOptionInt_reflection_ = NULL;
-const ::google::protobuf::Descriptor* TOptionFloat_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  TOptionFloat_reflection_ = NULL;
-const ::google::protobuf::Descriptor* TColor_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  TColor_reflection_ = NULL;
-const ::google::protobuf::EnumDescriptor* TColor_ColorType_descriptor_ = NULL;
-const ::google::protobuf::Descriptor* AttrSet_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  AttrSet_reflection_ = NULL;
-const ::google::protobuf::EnumDescriptor* ComType_descriptor_ = NULL;
+} _CustomAttr_default_instance_;
+class TStringDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<TString> {
+} _TString_default_instance_;
+class TIntDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<TInt> {
+} _TInt_default_instance_;
+class TOptionStringDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<TOptionString> {
+} _TOptionString_default_instance_;
+class TOptionIntDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<TOptionInt> {
+} _TOptionInt_default_instance_;
+class TOptionFloatDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<TOptionFloat> {
+} _TOptionFloat_default_instance_;
+class TColorDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<TColor> {
+} _TColor_default_instance_;
+class AttrSetDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<AttrSet> {
+} _AttrSet_default_instance_;
 
-}  // namespace
+namespace protobuf_ysetting_2eproto {
 
-
-void protobuf_AssignDesc_ysetting_2eproto() GOOGLE_ATTRIBUTE_COLD;
-void protobuf_AssignDesc_ysetting_2eproto() {
-  protobuf_AddDesc_ysetting_2eproto();
-  const ::google::protobuf::FileDescriptor* file =
-    ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
-      "ysetting.proto");
-  GOOGLE_CHECK(file != NULL);
-  CustomAttr_descriptor_ = file->message_type(0);
-  static const int CustomAttr_offsets_[7] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CustomAttr, name_),
-    PROTO2_GENERATED_DEFAULT_ONEOF_FIELD_OFFSET(CustomAttr_default_oneof_instance_, str_),
-    PROTO2_GENERATED_DEFAULT_ONEOF_FIELD_OFFSET(CustomAttr_default_oneof_instance_, optionstring_),
-    PROTO2_GENERATED_DEFAULT_ONEOF_FIELD_OFFSET(CustomAttr_default_oneof_instance_, optionint_),
-    PROTO2_GENERATED_DEFAULT_ONEOF_FIELD_OFFSET(CustomAttr_default_oneof_instance_, optionfloat_),
-    PROTO2_GENERATED_DEFAULT_ONEOF_FIELD_OFFSET(CustomAttr_default_oneof_instance_, color_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CustomAttr, dataType_),
-  };
-  CustomAttr_reflection_ =
-    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      CustomAttr_descriptor_,
-      CustomAttr::default_instance_,
-      CustomAttr_offsets_,
-      -1,
-      -1,
-      -1,
-      CustomAttr_default_oneof_instance_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CustomAttr, _oneof_case_[0]),
-      sizeof(CustomAttr),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CustomAttr, _internal_metadata_),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CustomAttr, _is_default_instance_));
-  TString_descriptor_ = file->message_type(1);
-  static const int TString_offsets_[3] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TString, com_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TString, regex_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TString, mask_),
-  };
-  TString_reflection_ =
-    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      TString_descriptor_,
-      TString::default_instance_,
-      TString_offsets_,
-      -1,
-      -1,
-      -1,
-      sizeof(TString),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TString, _internal_metadata_),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TString, _is_default_instance_));
-  TInt_descriptor_ = file->message_type(2);
-  static const int TInt_offsets_[3] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TInt, com_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TInt, minvalue_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TInt, maxvalue_),
-  };
-  TInt_reflection_ =
-    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      TInt_descriptor_,
-      TInt::default_instance_,
-      TInt_offsets_,
-      -1,
-      -1,
-      -1,
-      sizeof(TInt),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TInt, _internal_metadata_),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TInt, _is_default_instance_));
-  TOptionString_descriptor_ = file->message_type(3);
-  static const int TOptionString_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TOptionString, com_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TOptionString, options_),
-  };
-  TOptionString_reflection_ =
-    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      TOptionString_descriptor_,
-      TOptionString::default_instance_,
-      TOptionString_offsets_,
-      -1,
-      -1,
-      -1,
-      sizeof(TOptionString),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TOptionString, _internal_metadata_),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TOptionString, _is_default_instance_));
-  TOptionInt_descriptor_ = file->message_type(4);
-  static const int TOptionInt_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TOptionInt, com_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TOptionInt, options_),
-  };
-  TOptionInt_reflection_ =
-    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      TOptionInt_descriptor_,
-      TOptionInt::default_instance_,
-      TOptionInt_offsets_,
-      -1,
-      -1,
-      -1,
-      sizeof(TOptionInt),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TOptionInt, _internal_metadata_),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TOptionInt, _is_default_instance_));
-  TOptionFloat_descriptor_ = file->message_type(5);
-  static const int TOptionFloat_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TOptionFloat, com_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TOptionFloat, options_),
-  };
-  TOptionFloat_reflection_ =
-    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      TOptionFloat_descriptor_,
-      TOptionFloat::default_instance_,
-      TOptionFloat_offsets_,
-      -1,
-      -1,
-      -1,
-      sizeof(TOptionFloat),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TOptionFloat, _internal_metadata_),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TOptionFloat, _is_default_instance_));
-  TColor_descriptor_ = file->message_type(6);
-  static const int TColor_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TColor, com_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TColor, ctype_),
-  };
-  TColor_reflection_ =
-    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      TColor_descriptor_,
-      TColor::default_instance_,
-      TColor_offsets_,
-      -1,
-      -1,
-      -1,
-      sizeof(TColor),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TColor, _internal_metadata_),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TColor, _is_default_instance_));
-  TColor_ColorType_descriptor_ = TColor_descriptor_->enum_type(0);
-  AttrSet_descriptor_ = file->message_type(7);
-  static const int AttrSet_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AttrSet, sname_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AttrSet, attrs_),
-  };
-  AttrSet_reflection_ =
-    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      AttrSet_descriptor_,
-      AttrSet::default_instance_,
-      AttrSet_offsets_,
-      -1,
-      -1,
-      -1,
-      sizeof(AttrSet),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AttrSet, _internal_metadata_),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AttrSet, _is_default_instance_));
-  ComType_descriptor_ = file->enum_type(0);
-}
 
 namespace {
 
-GOOGLE_PROTOBUF_DECLARE_ONCE(protobuf_AssignDescriptors_once_);
-inline void protobuf_AssignDescriptorsOnce() {
-  ::google::protobuf::GoogleOnceInit(&protobuf_AssignDescriptors_once_,
-                 &protobuf_AssignDesc_ysetting_2eproto);
+::google::protobuf::Metadata file_level_metadata[8];
+const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[2];
+
+}  // namespace
+
+const ::google::protobuf::uint32 TableStruct::offsets[] = {
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CustomAttr, _internal_metadata_),
+  ~0u,  // no _extensions_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CustomAttr, _oneof_case_[0]),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CustomAttr, name_),
+  PROTO2_GENERATED_DEFAULT_ONEOF_FIELD_OFFSET((&_CustomAttr_default_instance_), str_),
+  PROTO2_GENERATED_DEFAULT_ONEOF_FIELD_OFFSET((&_CustomAttr_default_instance_), optionstring_),
+  PROTO2_GENERATED_DEFAULT_ONEOF_FIELD_OFFSET((&_CustomAttr_default_instance_), optionint_),
+  PROTO2_GENERATED_DEFAULT_ONEOF_FIELD_OFFSET((&_CustomAttr_default_instance_), optionfloat_),
+  PROTO2_GENERATED_DEFAULT_ONEOF_FIELD_OFFSET((&_CustomAttr_default_instance_), color_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CustomAttr, dataType_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TString, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TString, com_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TString, regex_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TString, mask_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TInt, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TInt, com_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TInt, minvalue_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TInt, maxvalue_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TOptionString, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TOptionString, com_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TOptionString, options_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TOptionInt, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TOptionInt, com_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TOptionInt, options_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TOptionFloat, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TOptionFloat, com_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TOptionFloat, options_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TColor, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TColor, com_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TColor, ctype_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AttrSet, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AttrSet, sname_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AttrSet, attrs_),
+};
+
+static const ::google::protobuf::internal::MigrationSchema schemas[] = {
+  { 0, -1, sizeof(CustomAttr)},
+  { 11, -1, sizeof(TString)},
+  { 18, -1, sizeof(TInt)},
+  { 25, -1, sizeof(TOptionString)},
+  { 31, -1, sizeof(TOptionInt)},
+  { 37, -1, sizeof(TOptionFloat)},
+  { 43, -1, sizeof(TColor)},
+  { 49, -1, sizeof(AttrSet)},
+};
+
+static ::google::protobuf::Message const * const file_default_instances[] = {
+  reinterpret_cast<const ::google::protobuf::Message*>(&_CustomAttr_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_TString_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_TInt_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_TOptionString_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_TOptionInt_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_TOptionFloat_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_TColor_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_AttrSet_default_instance_),
+};
+
+namespace {
+
+void protobuf_AssignDescriptors() {
+  AddDescriptors();
+  ::google::protobuf::MessageFactory* factory = NULL;
+  AssignDescriptors(
+      "ysetting.proto", schemas, file_default_instances, TableStruct::offsets, factory,
+      file_level_metadata, file_level_enum_descriptors, NULL);
+}
+
+void protobuf_AssignDescriptorsOnce() {
+  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
+  ::google::protobuf::GoogleOnceInit(&once, &protobuf_AssignDescriptors);
 }
 
 void protobuf_RegisterTypes(const ::std::string&) GOOGLE_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      CustomAttr_descriptor_, &CustomAttr::default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      TString_descriptor_, &TString::default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      TInt_descriptor_, &TInt::default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      TOptionString_descriptor_, &TOptionString::default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      TOptionInt_descriptor_, &TOptionInt::default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      TOptionFloat_descriptor_, &TOptionFloat::default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      TColor_descriptor_, &TColor::default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      AttrSet_descriptor_, &AttrSet::default_instance());
+  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 8);
 }
 
 }  // namespace
 
-void protobuf_ShutdownFile_ysetting_2eproto() {
-  delete CustomAttr::default_instance_;
-  delete CustomAttr_default_oneof_instance_;
-  delete CustomAttr_reflection_;
-  delete TString::default_instance_;
-  delete TString_reflection_;
-  delete TInt::default_instance_;
-  delete TInt_reflection_;
-  delete TOptionString::default_instance_;
-  delete TOptionString_reflection_;
-  delete TOptionInt::default_instance_;
-  delete TOptionInt_reflection_;
-  delete TOptionFloat::default_instance_;
-  delete TOptionFloat_reflection_;
-  delete TColor::default_instance_;
-  delete TColor_reflection_;
-  delete AttrSet::default_instance_;
-  delete AttrSet_reflection_;
+void TableStruct::Shutdown() {
+  _CustomAttr_default_instance_.Shutdown();
+  delete file_level_metadata[0].reflection;
+  _TString_default_instance_.Shutdown();
+  delete file_level_metadata[1].reflection;
+  _TInt_default_instance_.Shutdown();
+  delete file_level_metadata[2].reflection;
+  _TOptionString_default_instance_.Shutdown();
+  delete file_level_metadata[3].reflection;
+  _TOptionInt_default_instance_.Shutdown();
+  delete file_level_metadata[4].reflection;
+  _TOptionFloat_default_instance_.Shutdown();
+  delete file_level_metadata[5].reflection;
+  _TColor_default_instance_.Shutdown();
+  delete file_level_metadata[6].reflection;
+  _AttrSet_default_instance_.Shutdown();
+  delete file_level_metadata[7].reflection;
 }
 
-void protobuf_AddDesc_ysetting_2eproto() GOOGLE_ATTRIBUTE_COLD;
-void protobuf_AddDesc_ysetting_2eproto() {
-  static bool already_here = false;
-  if (already_here) return;
-  already_here = true;
+void TableStruct::InitDefaultsImpl() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::google::protobuf::protobuf_AddDesc_google_2fprotobuf_2fany_2eproto();
-  ::y3d::protobuf_AddDesc_y3d_2eproto();
-  ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\016ysetting.proto\022\003y3d\032\031google/protobuf/a"
-    "ny.proto\032\ty3d.proto\"\335\001\n\nCustomAttr\022\014\n\004na"
-    "me\030\001 \001(\t\022\033\n\003str\030\003 \001(\0132\014.y3d.TStringH\000\022*\n"
-    "\014optionString\030\004 \001(\0132\022.y3d.TOptionStringH"
-    "\000\022$\n\toptionInt\030\005 \001(\0132\017.y3d.TOptionIntH\000\022"
-    "(\n\013optionFloat\030\006 \001(\0132\021.y3d.TOptionFloatH"
-    "\000\022\034\n\005color\030\007 \001(\0132\013.y3d.TColorH\000B\n\n\010dataT"
-    "ype\"A\n\007TString\022\031\n\003com\030\001 \001(\0162\014.y3d.ComTyp"
-    "e\022\r\n\005RegEx\030\002 \001(\t\022\014\n\004Mask\030\003 \001(\t\"E\n\004TInt\022\031"
-    "\n\003com\030\001 \001(\0162\014.y3d.ComType\022\020\n\010minValue\030\002 "
-    "\001(\005\022\020\n\010maxValue\030\003 \001(\005\";\n\rTOptionString\022\031"
-    "\n\003com\030\001 \001(\0162\014.y3d.ComType\022\017\n\007options\030\002 \003"
-    "(\t\"8\n\nTOptionInt\022\031\n\003com\030\001 \001(\0162\014.y3d.ComT"
-    "ype\022\017\n\007options\030\002 \003(\005\":\n\014TOptionFloat\022\031\n\003"
-    "com\030\001 \001(\0162\014.y3d.ComType\022\017\n\007options\030\002 \003(\002"
-    "\"\205\001\n\006TColor\022\031\n\003com\030\001 \001(\0162\014.y3d.ComType\022$"
-    "\n\005ctype\030\002 \001(\0162\025.y3d.TColor.ColorType\":\n\t"
-    "ColorType\022\007\n\003RGB\020\000\022\010\n\004RGBA\020\001\022\007\n\003HEX\020\002\022\010\n"
-    "\004CMYK\020\003\022\007\n\003INT\020\004\"8\n\007AttrSet\022\r\n\005sname\030\001 \001"
-    "(\t\022\036\n\005attrs\030\002 \003(\0132\017.y3d.CustomAttr*\223\001\n\007C"
-    "omType\022\010\n\004TEXT\020\000\022\t\n\005RADIO\020\001\022\014\n\010COMBOBOX\020"
-    "\002\022\017\n\013MUTILSELECT\020\003\022\014\n\010CHECKBOX\020\004\022\n\n\006ON_O"
-    "FF\020\005\022\010\n\004FILE\020\006\022\t\n\005COLOR\020\007\022\007\n\003TAG\020\010\022\007\n\003RE"
-    "F\020\t\022\t\n\005IMAGE\020\n\022\010\n\004LINK\020\013B\016\252\002\013y3d.setting"
-    "b\006proto3", 968);
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
-    "ysetting.proto", &protobuf_RegisterTypes);
-  CustomAttr::default_instance_ = new CustomAttr();
-  CustomAttr_default_oneof_instance_ = new CustomAttrOneofInstance();
-  TString::default_instance_ = new TString();
-  TInt::default_instance_ = new TInt();
-  TOptionString::default_instance_ = new TOptionString();
-  TOptionInt::default_instance_ = new TOptionInt();
-  TOptionFloat::default_instance_ = new TOptionFloat();
-  TColor::default_instance_ = new TColor();
-  AttrSet::default_instance_ = new AttrSet();
-  CustomAttr::default_instance_->InitAsDefaultInstance();
-  TString::default_instance_->InitAsDefaultInstance();
-  TInt::default_instance_->InitAsDefaultInstance();
-  TOptionString::default_instance_->InitAsDefaultInstance();
-  TOptionInt::default_instance_->InitAsDefaultInstance();
-  TOptionFloat::default_instance_->InitAsDefaultInstance();
-  TColor::default_instance_->InitAsDefaultInstance();
-  AttrSet::default_instance_->InitAsDefaultInstance();
-  ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_ysetting_2eproto);
+  ::google::protobuf::internal::InitProtobufDefaults();
+  ::google::protobuf::protobuf_google_2fprotobuf_2fany_2eproto::InitDefaults();
+  ::y3d::protobuf_y3d_2eproto::InitDefaults();
+  _CustomAttr_default_instance_.DefaultConstruct();
+  _TString_default_instance_.DefaultConstruct();
+  _TInt_default_instance_.DefaultConstruct();
+  _TOptionString_default_instance_.DefaultConstruct();
+  _TOptionInt_default_instance_.DefaultConstruct();
+  _TOptionFloat_default_instance_.DefaultConstruct();
+  _TColor_default_instance_.DefaultConstruct();
+  _AttrSet_default_instance_.DefaultConstruct();
+  _CustomAttr_default_instance_.str_ = const_cast< ::y3d::TString*>(
+      ::y3d::TString::internal_default_instance());
+  _CustomAttr_default_instance_.optionstring_ = const_cast< ::y3d::TOptionString*>(
+      ::y3d::TOptionString::internal_default_instance());
+  _CustomAttr_default_instance_.optionint_ = const_cast< ::y3d::TOptionInt*>(
+      ::y3d::TOptionInt::internal_default_instance());
+  _CustomAttr_default_instance_.optionfloat_ = const_cast< ::y3d::TOptionFloat*>(
+      ::y3d::TOptionFloat::internal_default_instance());
+  _CustomAttr_default_instance_.color_ = const_cast< ::y3d::TColor*>(
+      ::y3d::TColor::internal_default_instance());
 }
 
+void InitDefaults() {
+  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
+  ::google::protobuf::GoogleOnceInit(&once, &TableStruct::InitDefaultsImpl);
+}
+void AddDescriptorsImpl() {
+  InitDefaults();
+  static const char descriptor[] = {
+      "\n\016ysetting.proto\022\003y3d\032\031google/protobuf/a"
+      "ny.proto\032\ty3d.proto\"\335\001\n\nCustomAttr\022\014\n\004na"
+      "me\030\001 \001(\t\022\033\n\003str\030\003 \001(\0132\014.y3d.TStringH\000\022*\n"
+      "\014optionString\030\004 \001(\0132\022.y3d.TOptionStringH"
+      "\000\022$\n\toptionInt\030\005 \001(\0132\017.y3d.TOptionIntH\000\022"
+      "(\n\013optionFloat\030\006 \001(\0132\021.y3d.TOptionFloatH"
+      "\000\022\034\n\005color\030\007 \001(\0132\013.y3d.TColorH\000B\n\n\010dataT"
+      "ype\"A\n\007TString\022\031\n\003com\030\001 \001(\0162\014.y3d.ComTyp"
+      "e\022\r\n\005RegEx\030\002 \001(\t\022\014\n\004Mask\030\003 \001(\t\"E\n\004TInt\022\031"
+      "\n\003com\030\001 \001(\0162\014.y3d.ComType\022\020\n\010minValue\030\002 "
+      "\001(\005\022\020\n\010maxValue\030\003 \001(\005\";\n\rTOptionString\022\031"
+      "\n\003com\030\001 \001(\0162\014.y3d.ComType\022\017\n\007options\030\002 \003"
+      "(\t\"8\n\nTOptionInt\022\031\n\003com\030\001 \001(\0162\014.y3d.ComT"
+      "ype\022\017\n\007options\030\002 \003(\005\":\n\014TOptionFloat\022\031\n\003"
+      "com\030\001 \001(\0162\014.y3d.ComType\022\017\n\007options\030\002 \003(\002"
+      "\"\205\001\n\006TColor\022\031\n\003com\030\001 \001(\0162\014.y3d.ComType\022$"
+      "\n\005ctype\030\002 \001(\0162\025.y3d.TColor.ColorType\":\n\t"
+      "ColorType\022\007\n\003RGB\020\000\022\010\n\004RGBA\020\001\022\007\n\003HEX\020\002\022\010\n"
+      "\004CMYK\020\003\022\007\n\003INT\020\004\"8\n\007AttrSet\022\r\n\005sname\030\001 \001"
+      "(\t\022\036\n\005attrs\030\002 \003(\0132\017.y3d.CustomAttr*\223\001\n\007C"
+      "omType\022\010\n\004TEXT\020\000\022\t\n\005RADIO\020\001\022\014\n\010COMBOBOX\020"
+      "\002\022\017\n\013MUTILSELECT\020\003\022\014\n\010CHECKBOX\020\004\022\n\n\006ON_O"
+      "FF\020\005\022\010\n\004FILE\020\006\022\t\n\005COLOR\020\007\022\007\n\003TAG\020\010\022\007\n\003RE"
+      "F\020\t\022\t\n\005IMAGE\020\n\022\010\n\004LINK\020\013B\016\252\002\013y3d.setting"
+      "b\006proto3"
+  };
+  ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
+      descriptor, 968);
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
+    "ysetting.proto", &protobuf_RegisterTypes);
+  ::google::protobuf::protobuf_google_2fprotobuf_2fany_2eproto::AddDescriptors();
+  ::y3d::protobuf_y3d_2eproto::AddDescriptors();
+  ::google::protobuf::internal::OnShutdown(&TableStruct::Shutdown);
+}
+
+void AddDescriptors() {
+  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
+  ::google::protobuf::GoogleOnceInit(&once, &AddDescriptorsImpl);
+}
 // Force AddDescriptors() to be called at static initialization time.
-struct StaticDescriptorInitializer_ysetting_2eproto {
-  StaticDescriptorInitializer_ysetting_2eproto() {
-    protobuf_AddDesc_ysetting_2eproto();
+struct StaticDescriptorInitializer {
+  StaticDescriptorInitializer() {
+    AddDescriptors();
   }
-} static_descriptor_initializer_ysetting_2eproto_;
+} static_descriptor_initializer;
+
+}  // namespace protobuf_ysetting_2eproto
+
+const ::google::protobuf::EnumDescriptor* TColor_ColorType_descriptor() {
+  protobuf_ysetting_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_ysetting_2eproto::file_level_enum_descriptors[0];
+}
+bool TColor_ColorType_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const TColor_ColorType TColor::RGB;
+const TColor_ColorType TColor::RGBA;
+const TColor_ColorType TColor::HEX;
+const TColor_ColorType TColor::CMYK;
+const TColor_ColorType TColor::INT;
+const TColor_ColorType TColor::ColorType_MIN;
+const TColor_ColorType TColor::ColorType_MAX;
+const int TColor::ColorType_ARRAYSIZE;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 const ::google::protobuf::EnumDescriptor* ComType_descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return ComType_descriptor_;
+  protobuf_ysetting_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_ysetting_2eproto::file_level_enum_descriptors[1];
 }
 bool ComType_IsValid(int value) {
-  switch(value) {
+  switch (value) {
     case 0:
     case 1:
     case 2:
@@ -358,33 +319,54 @@ const int CustomAttr::kColorFieldNumber;
 
 CustomAttr::CustomAttr()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_ysetting_2eproto::InitDefaults();
+  }
   SharedCtor();
   // @@protoc_insertion_point(constructor:y3d.CustomAttr)
 }
-
-void CustomAttr::InitAsDefaultInstance() {
-  _is_default_instance_ = true;
-  CustomAttr_default_oneof_instance_->str_ = const_cast< ::y3d::TString*>(&::y3d::TString::default_instance());
-  CustomAttr_default_oneof_instance_->optionstring_ = const_cast< ::y3d::TOptionString*>(&::y3d::TOptionString::default_instance());
-  CustomAttr_default_oneof_instance_->optionint_ = const_cast< ::y3d::TOptionInt*>(&::y3d::TOptionInt::default_instance());
-  CustomAttr_default_oneof_instance_->optionfloat_ = const_cast< ::y3d::TOptionFloat*>(&::y3d::TOptionFloat::default_instance());
-  CustomAttr_default_oneof_instance_->color_ = const_cast< ::y3d::TColor*>(&::y3d::TColor::default_instance());
-}
-
 CustomAttr::CustomAttr(const CustomAttr& from)
   : ::google::protobuf::Message(),
-    _internal_metadata_(NULL) {
-  SharedCtor();
-  MergeFrom(from);
+      _internal_metadata_(NULL),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.name().size() > 0) {
+    name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
+  }
+  clear_has_dataType();
+  switch (from.dataType_case()) {
+    case kStr: {
+      mutable_str()->::y3d::TString::MergeFrom(from.str());
+      break;
+    }
+    case kOptionString: {
+      mutable_optionstring()->::y3d::TOptionString::MergeFrom(from.optionstring());
+      break;
+    }
+    case kOptionInt: {
+      mutable_optionint()->::y3d::TOptionInt::MergeFrom(from.optionint());
+      break;
+    }
+    case kOptionFloat: {
+      mutable_optionfloat()->::y3d::TOptionFloat::MergeFrom(from.optionfloat());
+      break;
+    }
+    case kColor: {
+      mutable_color()->::y3d::TColor::MergeFrom(from.color());
+      break;
+    }
+    case DATATYPE_NOT_SET: {
+      break;
+    }
+  }
   // @@protoc_insertion_point(copy_constructor:y3d.CustomAttr)
 }
 
 void CustomAttr::SharedCtor() {
-    _is_default_instance_ = false;
-  ::google::protobuf::internal::GetEmptyString();
-  _cached_size_ = 0;
   name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   clear_has_dataType();
+  _cached_size_ = 0;
 }
 
 CustomAttr::~CustomAttr() {
@@ -397,8 +379,6 @@ void CustomAttr::SharedDtor() {
   if (has_dataType()) {
     clear_dataType();
   }
-  if (this != default_instance_) {
-  }
 }
 
 void CustomAttr::SetCachedSize(int size) const {
@@ -407,16 +387,14 @@ void CustomAttr::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
 const ::google::protobuf::Descriptor* CustomAttr::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return CustomAttr_descriptor_;
+  protobuf_ysetting_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_ysetting_2eproto::file_level_metadata[0].descriptor;
 }
 
 const CustomAttr& CustomAttr::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_ysetting_2eproto();
-  return *default_instance_;
+  protobuf_ysetting_2eproto::InitDefaults();
+  return *internal_default_instance();
 }
-
-CustomAttr* CustomAttr::default_instance_ = NULL;
 
 CustomAttr* CustomAttr::New(::google::protobuf::Arena* arena) const {
   CustomAttr* n = new CustomAttr;
@@ -428,7 +406,7 @@ CustomAttr* CustomAttr::New(::google::protobuf::Arena* arena) const {
 
 void CustomAttr::clear_dataType() {
 // @@protoc_insertion_point(one_of_clear_start:y3d.CustomAttr)
-  switch(dataType_case()) {
+  switch (dataType_case()) {
     case kStr: {
       delete dataType_.str_;
       break;
@@ -469,13 +447,13 @@ bool CustomAttr::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:y3d.CustomAttr)
   for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional string name = 1;
+      // string name = 1;
       case 1: {
-        if (tag == 10) {
+        if (tag == 10u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_name()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -485,72 +463,61 @@ bool CustomAttr::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(26)) goto parse_str;
         break;
       }
 
-      // optional .y3d.TString str = 3;
+      // .y3d.TString str = 3;
       case 3: {
-        if (tag == 26) {
-         parse_str:
+        if (tag == 26u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_str()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(34)) goto parse_optionString;
         break;
       }
 
-      // optional .y3d.TOptionString optionString = 4;
+      // .y3d.TOptionString optionString = 4;
       case 4: {
-        if (tag == 34) {
-         parse_optionString:
+        if (tag == 34u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_optionstring()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(42)) goto parse_optionInt;
         break;
       }
 
-      // optional .y3d.TOptionInt optionInt = 5;
+      // .y3d.TOptionInt optionInt = 5;
       case 5: {
-        if (tag == 42) {
-         parse_optionInt:
+        if (tag == 42u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_optionint()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(50)) goto parse_optionFloat;
         break;
       }
 
-      // optional .y3d.TOptionFloat optionFloat = 6;
+      // .y3d.TOptionFloat optionFloat = 6;
       case 6: {
-        if (tag == 50) {
-         parse_optionFloat:
+        if (tag == 50u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_optionfloat()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(58)) goto parse_color;
         break;
       }
 
-      // optional .y3d.TColor color = 7;
+      // .y3d.TColor color = 7;
       case 7: {
-        if (tag == 58) {
-         parse_color:
+        if (tag == 58u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_color()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectAtEnd()) goto success;
         break;
       }
 
@@ -578,7 +545,7 @@ failure:
 void CustomAttr::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:y3d.CustomAttr)
-  // optional string name = 1;
+  // string name = 1;
   if (this->name().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->name().data(), this->name().length(),
@@ -588,31 +555,31 @@ void CustomAttr::SerializeWithCachedSizes(
       1, this->name(), output);
   }
 
-  // optional .y3d.TString str = 3;
+  // .y3d.TString str = 3;
   if (has_str()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       3, *dataType_.str_, output);
   }
 
-  // optional .y3d.TOptionString optionString = 4;
+  // .y3d.TOptionString optionString = 4;
   if (has_optionstring()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       4, *dataType_.optionstring_, output);
   }
 
-  // optional .y3d.TOptionInt optionInt = 5;
+  // .y3d.TOptionInt optionInt = 5;
   if (has_optionint()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       5, *dataType_.optionint_, output);
   }
 
-  // optional .y3d.TOptionFloat optionFloat = 6;
+  // .y3d.TOptionFloat optionFloat = 6;
   if (has_optionfloat()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       6, *dataType_.optionfloat_, output);
   }
 
-  // optional .y3d.TColor color = 7;
+  // .y3d.TColor color = 7;
   if (has_color()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       7, *dataType_.color_, output);
@@ -623,9 +590,9 @@ void CustomAttr::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* CustomAttr::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
+  (void)deterministic;  // Unused
   // @@protoc_insertion_point(serialize_to_array_start:y3d.CustomAttr)
-  // optional string name = 1;
+  // string name = 1;
   if (this->name().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->name().data(), this->name().length(),
@@ -636,35 +603,35 @@ void CustomAttr::SerializeWithCachedSizes(
         1, this->name(), target);
   }
 
-  // optional .y3d.TString str = 3;
+  // .y3d.TString str = 3;
   if (has_str()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
         3, *dataType_.str_, false, target);
   }
 
-  // optional .y3d.TOptionString optionString = 4;
+  // .y3d.TOptionString optionString = 4;
   if (has_optionstring()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
         4, *dataType_.optionstring_, false, target);
   }
 
-  // optional .y3d.TOptionInt optionInt = 5;
+  // .y3d.TOptionInt optionInt = 5;
   if (has_optionint()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
         5, *dataType_.optionint_, false, target);
   }
 
-  // optional .y3d.TOptionFloat optionFloat = 6;
+  // .y3d.TOptionFloat optionFloat = 6;
   if (has_optionfloat()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
         6, *dataType_.optionfloat_, false, target);
   }
 
-  // optional .y3d.TColor color = 7;
+  // .y3d.TColor color = 7;
   if (has_color()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
@@ -675,11 +642,11 @@ void CustomAttr::SerializeWithCachedSizes(
   return target;
 }
 
-int CustomAttr::ByteSize() const {
+size_t CustomAttr::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:y3d.CustomAttr)
-  int total_size = 0;
+  size_t total_size = 0;
 
-  // optional string name = 1;
+  // string name = 1;
   if (this->name().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
@@ -687,35 +654,35 @@ int CustomAttr::ByteSize() const {
   }
 
   switch (dataType_case()) {
-    // optional .y3d.TString str = 3;
+    // .y3d.TString str = 3;
     case kStr: {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
           *dataType_.str_);
       break;
     }
-    // optional .y3d.TOptionString optionString = 4;
+    // .y3d.TOptionString optionString = 4;
     case kOptionString: {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
           *dataType_.optionstring_);
       break;
     }
-    // optional .y3d.TOptionInt optionInt = 5;
+    // .y3d.TOptionInt optionInt = 5;
     case kOptionInt: {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
           *dataType_.optionint_);
       break;
     }
-    // optional .y3d.TOptionFloat optionFloat = 6;
+    // .y3d.TOptionFloat optionFloat = 6;
     case kOptionFloat: {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
           *dataType_.optionfloat_);
       break;
     }
-    // optional .y3d.TColor color = 7;
+    // .y3d.TColor color = 7;
     case kColor: {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
@@ -726,18 +693,17 @@ int CustomAttr::ByteSize() const {
       break;
     }
   }
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
+  _cached_size_ = cached_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void CustomAttr::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:y3d.CustomAttr)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
-  const CustomAttr* source = 
+  GOOGLE_DCHECK_NE(&from, this);
+  const CustomAttr* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const CustomAttr>(
           &from);
   if (source == NULL) {
@@ -751,8 +717,11 @@ void CustomAttr::MergeFrom(const ::google::protobuf::Message& from) {
 
 void CustomAttr::MergeFrom(const CustomAttr& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:y3d.CustomAttr)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  if (from.name().size() > 0) {
+
+    name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
   }
   switch (from.dataType_case()) {
     case kStr: {
@@ -779,10 +748,6 @@ void CustomAttr::MergeFrom(const CustomAttr& from) {
       break;
     }
   }
-  if (from.name().size() > 0) {
-
-    name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
-  }
 }
 
 void CustomAttr::CopyFrom(const ::google::protobuf::Message& from) {
@@ -800,7 +765,6 @@ void CustomAttr::CopyFrom(const CustomAttr& from) {
 }
 
 bool CustomAttr::IsInitialized() const {
-
   return true;
 }
 
@@ -812,56 +776,60 @@ void CustomAttr::InternalSwap(CustomAttr* other) {
   name_.Swap(&other->name_);
   std::swap(dataType_, other->dataType_);
   std::swap(_oneof_case_[0], other->_oneof_case_[0]);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
 
 ::google::protobuf::Metadata CustomAttr::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = CustomAttr_descriptor_;
-  metadata.reflection = CustomAttr_reflection_;
-  return metadata;
+  protobuf_ysetting_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_ysetting_2eproto::file_level_metadata[0];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // CustomAttr
 
-// optional string name = 1;
+// string name = 1;
 void CustomAttr::clear_name() {
   name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- const ::std::string& CustomAttr::name() const {
+const ::std::string& CustomAttr::name() const {
   // @@protoc_insertion_point(field_get:y3d.CustomAttr.name)
-  return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return name_.GetNoArena();
 }
- void CustomAttr::set_name(const ::std::string& value) {
+void CustomAttr::set_name(const ::std::string& value) {
   
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:y3d.CustomAttr.name)
 }
- void CustomAttr::set_name(const char* value) {
+#if LANG_CXX11
+void CustomAttr::set_name(::std::string&& value) {
+  
+  name_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:y3d.CustomAttr.name)
+}
+#endif
+void CustomAttr::set_name(const char* value) {
   
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:y3d.CustomAttr.name)
 }
- void CustomAttr::set_name(const char* value, size_t size) {
+void CustomAttr::set_name(const char* value, size_t size) {
   
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:y3d.CustomAttr.name)
 }
- ::std::string* CustomAttr::mutable_name() {
+::std::string* CustomAttr::mutable_name() {
   
   // @@protoc_insertion_point(field_mutable:y3d.CustomAttr.name)
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* CustomAttr::release_name() {
+::std::string* CustomAttr::release_name() {
   // @@protoc_insertion_point(field_release:y3d.CustomAttr.name)
   
   return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void CustomAttr::set_allocated_name(::std::string* name) {
+void CustomAttr::set_allocated_name(::std::string* name) {
   if (name != NULL) {
     
   } else {
@@ -871,7 +839,7 @@ void CustomAttr::clear_name() {
   // @@protoc_insertion_point(field_set_allocated:y3d.CustomAttr.name)
 }
 
-// optional .y3d.TString str = 3;
+// .y3d.TString str = 3;
 bool CustomAttr::has_str() const {
   return dataType_case() == kStr;
 }
@@ -919,7 +887,7 @@ void CustomAttr::set_allocated_str(::y3d::TString* str) {
   // @@protoc_insertion_point(field_set_allocated:y3d.CustomAttr.str)
 }
 
-// optional .y3d.TOptionString optionString = 4;
+// .y3d.TOptionString optionString = 4;
 bool CustomAttr::has_optionstring() const {
   return dataType_case() == kOptionString;
 }
@@ -967,7 +935,7 @@ void CustomAttr::set_allocated_optionstring(::y3d::TOptionString* optionstring) 
   // @@protoc_insertion_point(field_set_allocated:y3d.CustomAttr.optionString)
 }
 
-// optional .y3d.TOptionInt optionInt = 5;
+// .y3d.TOptionInt optionInt = 5;
 bool CustomAttr::has_optionint() const {
   return dataType_case() == kOptionInt;
 }
@@ -1015,7 +983,7 @@ void CustomAttr::set_allocated_optionint(::y3d::TOptionInt* optionint) {
   // @@protoc_insertion_point(field_set_allocated:y3d.CustomAttr.optionInt)
 }
 
-// optional .y3d.TOptionFloat optionFloat = 6;
+// .y3d.TOptionFloat optionFloat = 6;
 bool CustomAttr::has_optionfloat() const {
   return dataType_case() == kOptionFloat;
 }
@@ -1063,7 +1031,7 @@ void CustomAttr::set_allocated_optionfloat(::y3d::TOptionFloat* optionfloat) {
   // @@protoc_insertion_point(field_set_allocated:y3d.CustomAttr.optionFloat)
 }
 
-// optional .y3d.TColor color = 7;
+// .y3d.TColor color = 7;
 bool CustomAttr::has_color() const {
   return dataType_case() == kColor;
 }
@@ -1132,29 +1100,34 @@ const int TString::kMaskFieldNumber;
 
 TString::TString()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_ysetting_2eproto::InitDefaults();
+  }
   SharedCtor();
   // @@protoc_insertion_point(constructor:y3d.TString)
 }
-
-void TString::InitAsDefaultInstance() {
-  _is_default_instance_ = true;
-}
-
 TString::TString(const TString& from)
   : ::google::protobuf::Message(),
-    _internal_metadata_(NULL) {
-  SharedCtor();
-  MergeFrom(from);
+      _internal_metadata_(NULL),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  regex_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.regex().size() > 0) {
+    regex_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.regex_);
+  }
+  mask_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.mask().size() > 0) {
+    mask_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.mask_);
+  }
+  com_ = from.com_;
   // @@protoc_insertion_point(copy_constructor:y3d.TString)
 }
 
 void TString::SharedCtor() {
-    _is_default_instance_ = false;
-  ::google::protobuf::internal::GetEmptyString();
-  _cached_size_ = 0;
-  com_ = 0;
   regex_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   mask_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  com_ = 0;
+  _cached_size_ = 0;
 }
 
 TString::~TString() {
@@ -1165,8 +1138,6 @@ TString::~TString() {
 void TString::SharedDtor() {
   regex_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   mask_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (this != default_instance_) {
-  }
 }
 
 void TString::SetCachedSize(int size) const {
@@ -1175,16 +1146,14 @@ void TString::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
 const ::google::protobuf::Descriptor* TString::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return TString_descriptor_;
+  protobuf_ysetting_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_ysetting_2eproto::file_level_metadata[1].descriptor;
 }
 
 const TString& TString::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_ysetting_2eproto();
-  return *default_instance_;
+  protobuf_ysetting_2eproto::InitDefaults();
+  return *internal_default_instance();
 }
-
-TString* TString::default_instance_ = NULL;
 
 TString* TString::New(::google::protobuf::Arena* arena) const {
   TString* n = new TString;
@@ -1196,9 +1165,9 @@ TString* TString::New(::google::protobuf::Arena* arena) const {
 
 void TString::Clear() {
 // @@protoc_insertion_point(message_clear_start:y3d.TString)
-  com_ = 0;
   regex_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   mask_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  com_ = 0;
 }
 
 bool TString::MergePartialFromCodedStream(
@@ -1207,13 +1176,13 @@ bool TString::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:y3d.TString)
   for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional .y3d.ComType com = 1;
+      // .y3d.ComType com = 1;
       case 1: {
-        if (tag == 8) {
+        if (tag == 8u) {
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
@@ -1222,14 +1191,12 @@ bool TString::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(18)) goto parse_RegEx;
         break;
       }
 
-      // optional string RegEx = 2;
+      // string RegEx = 2;
       case 2: {
-        if (tag == 18) {
-         parse_RegEx:
+        if (tag == 18u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_regex()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -1239,14 +1206,12 @@ bool TString::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(26)) goto parse_Mask;
         break;
       }
 
-      // optional string Mask = 3;
+      // string Mask = 3;
       case 3: {
-        if (tag == 26) {
-         parse_Mask:
+        if (tag == 26u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_mask()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -1256,7 +1221,6 @@ bool TString::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectAtEnd()) goto success;
         break;
       }
 
@@ -1284,13 +1248,13 @@ failure:
 void TString::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:y3d.TString)
-  // optional .y3d.ComType com = 1;
+  // .y3d.ComType com = 1;
   if (this->com() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       1, this->com(), output);
   }
 
-  // optional string RegEx = 2;
+  // string RegEx = 2;
   if (this->regex().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->regex().data(), this->regex().length(),
@@ -1300,7 +1264,7 @@ void TString::SerializeWithCachedSizes(
       2, this->regex(), output);
   }
 
-  // optional string Mask = 3;
+  // string Mask = 3;
   if (this->mask().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->mask().data(), this->mask().length(),
@@ -1315,15 +1279,15 @@ void TString::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* TString::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
+  (void)deterministic;  // Unused
   // @@protoc_insertion_point(serialize_to_array_start:y3d.TString)
-  // optional .y3d.ComType com = 1;
+  // .y3d.ComType com = 1;
   if (this->com() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       1, this->com(), target);
   }
 
-  // optional string RegEx = 2;
+  // string RegEx = 2;
   if (this->regex().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->regex().data(), this->regex().length(),
@@ -1334,7 +1298,7 @@ void TString::SerializeWithCachedSizes(
         2, this->regex(), target);
   }
 
-  // optional string Mask = 3;
+  // string Mask = 3;
   if (this->mask().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->mask().data(), this->mask().length(),
@@ -1349,42 +1313,41 @@ void TString::SerializeWithCachedSizes(
   return target;
 }
 
-int TString::ByteSize() const {
+size_t TString::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:y3d.TString)
-  int total_size = 0;
+  size_t total_size = 0;
 
-  // optional .y3d.ComType com = 1;
-  if (this->com() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::EnumSize(this->com());
-  }
-
-  // optional string RegEx = 2;
+  // string RegEx = 2;
   if (this->regex().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->regex());
   }
 
-  // optional string Mask = 3;
+  // string Mask = 3;
   if (this->mask().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->mask());
   }
 
+  // .y3d.ComType com = 1;
+  if (this->com() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->com());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
+  _cached_size_ = cached_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void TString::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:y3d.TString)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
-  const TString* source = 
+  GOOGLE_DCHECK_NE(&from, this);
+  const TString* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const TString>(
           &from);
   if (source == NULL) {
@@ -1398,12 +1361,8 @@ void TString::MergeFrom(const ::google::protobuf::Message& from) {
 
 void TString::MergeFrom(const TString& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:y3d.TString)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
-  if (from.com() != 0) {
-    set_com(from.com());
-  }
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
   if (from.regex().size() > 0) {
 
     regex_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.regex_);
@@ -1411,6 +1370,9 @@ void TString::MergeFrom(const TString& from) {
   if (from.mask().size() > 0) {
 
     mask_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.mask_);
+  }
+  if (from.com() != 0) {
+    set_com(from.com());
   }
 }
 
@@ -1429,7 +1391,6 @@ void TString::CopyFrom(const TString& from) {
 }
 
 bool TString::IsInitialized() const {
-
   return true;
 }
 
@@ -1438,73 +1399,77 @@ void TString::Swap(TString* other) {
   InternalSwap(other);
 }
 void TString::InternalSwap(TString* other) {
-  std::swap(com_, other->com_);
   regex_.Swap(&other->regex_);
   mask_.Swap(&other->mask_);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(com_, other->com_);
   std::swap(_cached_size_, other->_cached_size_);
 }
 
 ::google::protobuf::Metadata TString::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = TString_descriptor_;
-  metadata.reflection = TString_reflection_;
-  return metadata;
+  protobuf_ysetting_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_ysetting_2eproto::file_level_metadata[1];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // TString
 
-// optional .y3d.ComType com = 1;
+// .y3d.ComType com = 1;
 void TString::clear_com() {
   com_ = 0;
 }
- ::y3d::ComType TString::com() const {
+::y3d::ComType TString::com() const {
   // @@protoc_insertion_point(field_get:y3d.TString.com)
   return static_cast< ::y3d::ComType >(com_);
 }
- void TString::set_com(::y3d::ComType value) {
+void TString::set_com(::y3d::ComType value) {
   
   com_ = value;
   // @@protoc_insertion_point(field_set:y3d.TString.com)
 }
 
-// optional string RegEx = 2;
+// string RegEx = 2;
 void TString::clear_regex() {
   regex_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- const ::std::string& TString::regex() const {
+const ::std::string& TString::regex() const {
   // @@protoc_insertion_point(field_get:y3d.TString.RegEx)
-  return regex_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return regex_.GetNoArena();
 }
- void TString::set_regex(const ::std::string& value) {
+void TString::set_regex(const ::std::string& value) {
   
   regex_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:y3d.TString.RegEx)
 }
- void TString::set_regex(const char* value) {
+#if LANG_CXX11
+void TString::set_regex(::std::string&& value) {
+  
+  regex_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:y3d.TString.RegEx)
+}
+#endif
+void TString::set_regex(const char* value) {
   
   regex_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:y3d.TString.RegEx)
 }
- void TString::set_regex(const char* value, size_t size) {
+void TString::set_regex(const char* value, size_t size) {
   
   regex_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:y3d.TString.RegEx)
 }
- ::std::string* TString::mutable_regex() {
+::std::string* TString::mutable_regex() {
   
   // @@protoc_insertion_point(field_mutable:y3d.TString.RegEx)
   return regex_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* TString::release_regex() {
+::std::string* TString::release_regex() {
   // @@protoc_insertion_point(field_release:y3d.TString.RegEx)
   
   return regex_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void TString::set_allocated_regex(::std::string* regex) {
+void TString::set_allocated_regex(::std::string* regex) {
   if (regex != NULL) {
     
   } else {
@@ -1514,41 +1479,49 @@ void TString::clear_regex() {
   // @@protoc_insertion_point(field_set_allocated:y3d.TString.RegEx)
 }
 
-// optional string Mask = 3;
+// string Mask = 3;
 void TString::clear_mask() {
   mask_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- const ::std::string& TString::mask() const {
+const ::std::string& TString::mask() const {
   // @@protoc_insertion_point(field_get:y3d.TString.Mask)
-  return mask_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return mask_.GetNoArena();
 }
- void TString::set_mask(const ::std::string& value) {
+void TString::set_mask(const ::std::string& value) {
   
   mask_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:y3d.TString.Mask)
 }
- void TString::set_mask(const char* value) {
+#if LANG_CXX11
+void TString::set_mask(::std::string&& value) {
+  
+  mask_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:y3d.TString.Mask)
+}
+#endif
+void TString::set_mask(const char* value) {
   
   mask_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:y3d.TString.Mask)
 }
- void TString::set_mask(const char* value, size_t size) {
+void TString::set_mask(const char* value, size_t size) {
   
   mask_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:y3d.TString.Mask)
 }
- ::std::string* TString::mutable_mask() {
+::std::string* TString::mutable_mask() {
   
   // @@protoc_insertion_point(field_mutable:y3d.TString.Mask)
   return mask_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* TString::release_mask() {
+::std::string* TString::release_mask() {
   // @@protoc_insertion_point(field_release:y3d.TString.Mask)
   
   return mask_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void TString::set_allocated_mask(::std::string* mask) {
+void TString::set_allocated_mask(::std::string* mask) {
   if (mask != NULL) {
     
   } else {
@@ -1570,28 +1543,27 @@ const int TInt::kMaxValueFieldNumber;
 
 TInt::TInt()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_ysetting_2eproto::InitDefaults();
+  }
   SharedCtor();
   // @@protoc_insertion_point(constructor:y3d.TInt)
 }
-
-void TInt::InitAsDefaultInstance() {
-  _is_default_instance_ = true;
-}
-
 TInt::TInt(const TInt& from)
   : ::google::protobuf::Message(),
-    _internal_metadata_(NULL) {
-  SharedCtor();
-  MergeFrom(from);
+      _internal_metadata_(NULL),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::memcpy(&com_, &from.com_,
+    reinterpret_cast<char*>(&maxvalue_) -
+    reinterpret_cast<char*>(&com_) + sizeof(maxvalue_));
   // @@protoc_insertion_point(copy_constructor:y3d.TInt)
 }
 
 void TInt::SharedCtor() {
-    _is_default_instance_ = false;
+  ::memset(&com_, 0, reinterpret_cast<char*>(&maxvalue_) -
+    reinterpret_cast<char*>(&com_) + sizeof(maxvalue_));
   _cached_size_ = 0;
-  com_ = 0;
-  minvalue_ = 0;
-  maxvalue_ = 0;
 }
 
 TInt::~TInt() {
@@ -1600,8 +1572,6 @@ TInt::~TInt() {
 }
 
 void TInt::SharedDtor() {
-  if (this != default_instance_) {
-  }
 }
 
 void TInt::SetCachedSize(int size) const {
@@ -1610,16 +1580,14 @@ void TInt::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
 const ::google::protobuf::Descriptor* TInt::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return TInt_descriptor_;
+  protobuf_ysetting_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_ysetting_2eproto::file_level_metadata[2].descriptor;
 }
 
 const TInt& TInt::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_ysetting_2eproto();
-  return *default_instance_;
+  protobuf_ysetting_2eproto::InitDefaults();
+  return *internal_default_instance();
 }
-
-TInt* TInt::default_instance_ = NULL;
 
 TInt* TInt::New(::google::protobuf::Arena* arena) const {
   TInt* n = new TInt;
@@ -1631,27 +1599,8 @@ TInt* TInt::New(::google::protobuf::Arena* arena) const {
 
 void TInt::Clear() {
 // @@protoc_insertion_point(message_clear_start:y3d.TInt)
-#if defined(__clang__)
-#define ZR_HELPER_(f) \
-  _Pragma("clang diagnostic push") \
-  _Pragma("clang diagnostic ignored \"-Winvalid-offsetof\"") \
-  __builtin_offsetof(TInt, f) \
-  _Pragma("clang diagnostic pop")
-#else
-#define ZR_HELPER_(f) reinterpret_cast<char*>(\
-  &reinterpret_cast<TInt*>(16)->f)
-#endif
-
-#define ZR_(first, last) do {\
-  ::memset(&first, 0,\
-           ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
-} while (0)
-
-  ZR_(com_, maxvalue_);
-
-#undef ZR_HELPER_
-#undef ZR_
-
+  ::memset(&com_, 0, reinterpret_cast<char*>(&maxvalue_) -
+    reinterpret_cast<char*>(&com_) + sizeof(maxvalue_));
 }
 
 bool TInt::MergePartialFromCodedStream(
@@ -1660,13 +1609,13 @@ bool TInt::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:y3d.TInt)
   for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional .y3d.ComType com = 1;
+      // .y3d.ComType com = 1;
       case 1: {
-        if (tag == 8) {
+        if (tag == 8u) {
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
@@ -1675,37 +1624,32 @@ bool TInt::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(16)) goto parse_minValue;
         break;
       }
 
-      // optional int32 minValue = 2;
+      // int32 minValue = 2;
       case 2: {
-        if (tag == 16) {
-         parse_minValue:
+        if (tag == 16u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &minvalue_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(24)) goto parse_maxValue;
         break;
       }
 
-      // optional int32 maxValue = 3;
+      // int32 maxValue = 3;
       case 3: {
-        if (tag == 24) {
-         parse_maxValue:
+        if (tag == 24u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &maxvalue_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectAtEnd()) goto success;
         break;
       }
 
@@ -1733,18 +1677,18 @@ failure:
 void TInt::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:y3d.TInt)
-  // optional .y3d.ComType com = 1;
+  // .y3d.ComType com = 1;
   if (this->com() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       1, this->com(), output);
   }
 
-  // optional int32 minValue = 2;
+  // int32 minValue = 2;
   if (this->minvalue() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->minvalue(), output);
   }
 
-  // optional int32 maxValue = 3;
+  // int32 maxValue = 3;
   if (this->maxvalue() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->maxvalue(), output);
   }
@@ -1754,20 +1698,20 @@ void TInt::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* TInt::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
+  (void)deterministic;  // Unused
   // @@protoc_insertion_point(serialize_to_array_start:y3d.TInt)
-  // optional .y3d.ComType com = 1;
+  // .y3d.ComType com = 1;
   if (this->com() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       1, this->com(), target);
   }
 
-  // optional int32 minValue = 2;
+  // int32 minValue = 2;
   if (this->minvalue() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->minvalue(), target);
   }
 
-  // optional int32 maxValue = 3;
+  // int32 maxValue = 3;
   if (this->maxvalue() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->maxvalue(), target);
   }
@@ -1776,42 +1720,41 @@ void TInt::SerializeWithCachedSizes(
   return target;
 }
 
-int TInt::ByteSize() const {
+size_t TInt::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:y3d.TInt)
-  int total_size = 0;
+  size_t total_size = 0;
 
-  // optional .y3d.ComType com = 1;
+  // .y3d.ComType com = 1;
   if (this->com() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->com());
   }
 
-  // optional int32 minValue = 2;
+  // int32 minValue = 2;
   if (this->minvalue() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->minvalue());
   }
 
-  // optional int32 maxValue = 3;
+  // int32 maxValue = 3;
   if (this->maxvalue() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->maxvalue());
   }
 
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
+  _cached_size_ = cached_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void TInt::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:y3d.TInt)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
-  const TInt* source = 
+  GOOGLE_DCHECK_NE(&from, this);
+  const TInt* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const TInt>(
           &from);
   if (source == NULL) {
@@ -1825,9 +1768,8 @@ void TInt::MergeFrom(const ::google::protobuf::Message& from) {
 
 void TInt::MergeFrom(const TInt& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:y3d.TInt)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
   if (from.com() != 0) {
     set_com(from.com());
   }
@@ -1854,7 +1796,6 @@ void TInt::CopyFrom(const TInt& from) {
 }
 
 bool TInt::IsInitialized() const {
-
   return true;
 }
 
@@ -1866,58 +1807,54 @@ void TInt::InternalSwap(TInt* other) {
   std::swap(com_, other->com_);
   std::swap(minvalue_, other->minvalue_);
   std::swap(maxvalue_, other->maxvalue_);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
 
 ::google::protobuf::Metadata TInt::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = TInt_descriptor_;
-  metadata.reflection = TInt_reflection_;
-  return metadata;
+  protobuf_ysetting_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_ysetting_2eproto::file_level_metadata[2];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // TInt
 
-// optional .y3d.ComType com = 1;
+// .y3d.ComType com = 1;
 void TInt::clear_com() {
   com_ = 0;
 }
- ::y3d::ComType TInt::com() const {
+::y3d::ComType TInt::com() const {
   // @@protoc_insertion_point(field_get:y3d.TInt.com)
   return static_cast< ::y3d::ComType >(com_);
 }
- void TInt::set_com(::y3d::ComType value) {
+void TInt::set_com(::y3d::ComType value) {
   
   com_ = value;
   // @@protoc_insertion_point(field_set:y3d.TInt.com)
 }
 
-// optional int32 minValue = 2;
+// int32 minValue = 2;
 void TInt::clear_minvalue() {
   minvalue_ = 0;
 }
- ::google::protobuf::int32 TInt::minvalue() const {
+::google::protobuf::int32 TInt::minvalue() const {
   // @@protoc_insertion_point(field_get:y3d.TInt.minValue)
   return minvalue_;
 }
- void TInt::set_minvalue(::google::protobuf::int32 value) {
+void TInt::set_minvalue(::google::protobuf::int32 value) {
   
   minvalue_ = value;
   // @@protoc_insertion_point(field_set:y3d.TInt.minValue)
 }
 
-// optional int32 maxValue = 3;
+// int32 maxValue = 3;
 void TInt::clear_maxvalue() {
   maxvalue_ = 0;
 }
- ::google::protobuf::int32 TInt::maxvalue() const {
+::google::protobuf::int32 TInt::maxvalue() const {
   // @@protoc_insertion_point(field_get:y3d.TInt.maxValue)
   return maxvalue_;
 }
- void TInt::set_maxvalue(::google::protobuf::int32 value) {
+void TInt::set_maxvalue(::google::protobuf::int32 value) {
   
   maxvalue_ = value;
   // @@protoc_insertion_point(field_set:y3d.TInt.maxValue)
@@ -1934,27 +1871,25 @@ const int TOptionString::kOptionsFieldNumber;
 
 TOptionString::TOptionString()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_ysetting_2eproto::InitDefaults();
+  }
   SharedCtor();
   // @@protoc_insertion_point(constructor:y3d.TOptionString)
 }
-
-void TOptionString::InitAsDefaultInstance() {
-  _is_default_instance_ = true;
-}
-
 TOptionString::TOptionString(const TOptionString& from)
   : ::google::protobuf::Message(),
-    _internal_metadata_(NULL) {
-  SharedCtor();
-  MergeFrom(from);
+      _internal_metadata_(NULL),
+      options_(from.options_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  com_ = from.com_;
   // @@protoc_insertion_point(copy_constructor:y3d.TOptionString)
 }
 
 void TOptionString::SharedCtor() {
-    _is_default_instance_ = false;
-  ::google::protobuf::internal::GetEmptyString();
-  _cached_size_ = 0;
   com_ = 0;
+  _cached_size_ = 0;
 }
 
 TOptionString::~TOptionString() {
@@ -1963,8 +1898,6 @@ TOptionString::~TOptionString() {
 }
 
 void TOptionString::SharedDtor() {
-  if (this != default_instance_) {
-  }
 }
 
 void TOptionString::SetCachedSize(int size) const {
@@ -1973,16 +1906,14 @@ void TOptionString::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
 const ::google::protobuf::Descriptor* TOptionString::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return TOptionString_descriptor_;
+  protobuf_ysetting_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_ysetting_2eproto::file_level_metadata[3].descriptor;
 }
 
 const TOptionString& TOptionString::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_ysetting_2eproto();
-  return *default_instance_;
+  protobuf_ysetting_2eproto::InitDefaults();
+  return *internal_default_instance();
 }
-
-TOptionString* TOptionString::default_instance_ = NULL;
 
 TOptionString* TOptionString::New(::google::protobuf::Arena* arena) const {
   TOptionString* n = new TOptionString;
@@ -1994,8 +1925,8 @@ TOptionString* TOptionString::New(::google::protobuf::Arena* arena) const {
 
 void TOptionString::Clear() {
 // @@protoc_insertion_point(message_clear_start:y3d.TOptionString)
-  com_ = 0;
   options_.Clear();
+  com_ = 0;
 }
 
 bool TOptionString::MergePartialFromCodedStream(
@@ -2004,13 +1935,13 @@ bool TOptionString::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:y3d.TOptionString)
   for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional .y3d.ComType com = 1;
+      // .y3d.ComType com = 1;
       case 1: {
-        if (tag == 8) {
+        if (tag == 8u) {
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
@@ -2019,14 +1950,12 @@ bool TOptionString::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(18)) goto parse_options;
         break;
       }
 
       // repeated string options = 2;
       case 2: {
-        if (tag == 18) {
-         parse_options:
+        if (tag == 18u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->add_options()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -2037,8 +1966,6 @@ bool TOptionString::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(18)) goto parse_options;
-        if (input->ExpectAtEnd()) goto success;
         break;
       }
 
@@ -2066,7 +1993,7 @@ failure:
 void TOptionString::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:y3d.TOptionString)
-  // optional .y3d.ComType com = 1;
+  // .y3d.ComType com = 1;
   if (this->com() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       1, this->com(), output);
@@ -2087,9 +2014,9 @@ void TOptionString::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* TOptionString::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
+  (void)deterministic;  // Unused
   // @@protoc_insertion_point(serialize_to_array_start:y3d.TOptionString)
-  // optional .y3d.ComType com = 1;
+  // .y3d.ComType com = 1;
   if (this->com() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       1, this->com(), target);
@@ -2109,35 +2036,35 @@ void TOptionString::SerializeWithCachedSizes(
   return target;
 }
 
-int TOptionString::ByteSize() const {
+size_t TOptionString::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:y3d.TOptionString)
-  int total_size = 0;
-
-  // optional .y3d.ComType com = 1;
-  if (this->com() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::EnumSize(this->com());
-  }
+  size_t total_size = 0;
 
   // repeated string options = 2;
-  total_size += 1 * this->options_size();
+  total_size += 1 *
+      ::google::protobuf::internal::FromIntSize(this->options_size());
   for (int i = 0; i < this->options_size(); i++) {
     total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
       this->options(i));
   }
 
+  // .y3d.ComType com = 1;
+  if (this->com() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->com());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
+  _cached_size_ = cached_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void TOptionString::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:y3d.TOptionString)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
-  const TOptionString* source = 
+  GOOGLE_DCHECK_NE(&from, this);
+  const TOptionString* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const TOptionString>(
           &from);
   if (source == NULL) {
@@ -2151,9 +2078,8 @@ void TOptionString::MergeFrom(const ::google::protobuf::Message& from) {
 
 void TOptionString::MergeFrom(const TOptionString& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:y3d.TOptionString)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
   options_.MergeFrom(from.options_);
   if (from.com() != 0) {
     set_com(from.com());
@@ -2175,7 +2101,6 @@ void TOptionString::CopyFrom(const TOptionString& from) {
 }
 
 bool TOptionString::IsInitialized() const {
-
   return true;
 }
 
@@ -2184,32 +2109,28 @@ void TOptionString::Swap(TOptionString* other) {
   InternalSwap(other);
 }
 void TOptionString::InternalSwap(TOptionString* other) {
-  std::swap(com_, other->com_);
   options_.UnsafeArenaSwap(&other->options_);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(com_, other->com_);
   std::swap(_cached_size_, other->_cached_size_);
 }
 
 ::google::protobuf::Metadata TOptionString::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = TOptionString_descriptor_;
-  metadata.reflection = TOptionString_reflection_;
-  return metadata;
+  protobuf_ysetting_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_ysetting_2eproto::file_level_metadata[3];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // TOptionString
 
-// optional .y3d.ComType com = 1;
+// .y3d.ComType com = 1;
 void TOptionString::clear_com() {
   com_ = 0;
 }
- ::y3d::ComType TOptionString::com() const {
+::y3d::ComType TOptionString::com() const {
   // @@protoc_insertion_point(field_get:y3d.TOptionString.com)
   return static_cast< ::y3d::ComType >(com_);
 }
- void TOptionString::set_com(::y3d::ComType value) {
+void TOptionString::set_com(::y3d::ComType value) {
   
   com_ = value;
   // @@protoc_insertion_point(field_set:y3d.TOptionString.com)
@@ -2222,49 +2143,49 @@ int TOptionString::options_size() const {
 void TOptionString::clear_options() {
   options_.Clear();
 }
- const ::std::string& TOptionString::options(int index) const {
+const ::std::string& TOptionString::options(int index) const {
   // @@protoc_insertion_point(field_get:y3d.TOptionString.options)
   return options_.Get(index);
 }
- ::std::string* TOptionString::mutable_options(int index) {
+::std::string* TOptionString::mutable_options(int index) {
   // @@protoc_insertion_point(field_mutable:y3d.TOptionString.options)
   return options_.Mutable(index);
 }
- void TOptionString::set_options(int index, const ::std::string& value) {
+void TOptionString::set_options(int index, const ::std::string& value) {
   // @@protoc_insertion_point(field_set:y3d.TOptionString.options)
   options_.Mutable(index)->assign(value);
 }
- void TOptionString::set_options(int index, const char* value) {
+void TOptionString::set_options(int index, const char* value) {
   options_.Mutable(index)->assign(value);
   // @@protoc_insertion_point(field_set_char:y3d.TOptionString.options)
 }
- void TOptionString::set_options(int index, const char* value, size_t size) {
+void TOptionString::set_options(int index, const char* value, size_t size) {
   options_.Mutable(index)->assign(
     reinterpret_cast<const char*>(value), size);
   // @@protoc_insertion_point(field_set_pointer:y3d.TOptionString.options)
 }
- ::std::string* TOptionString::add_options() {
+::std::string* TOptionString::add_options() {
   // @@protoc_insertion_point(field_add_mutable:y3d.TOptionString.options)
   return options_.Add();
 }
- void TOptionString::add_options(const ::std::string& value) {
+void TOptionString::add_options(const ::std::string& value) {
   options_.Add()->assign(value);
   // @@protoc_insertion_point(field_add:y3d.TOptionString.options)
 }
- void TOptionString::add_options(const char* value) {
+void TOptionString::add_options(const char* value) {
   options_.Add()->assign(value);
   // @@protoc_insertion_point(field_add_char:y3d.TOptionString.options)
 }
- void TOptionString::add_options(const char* value, size_t size) {
+void TOptionString::add_options(const char* value, size_t size) {
   options_.Add()->assign(reinterpret_cast<const char*>(value), size);
   // @@protoc_insertion_point(field_add_pointer:y3d.TOptionString.options)
 }
- const ::google::protobuf::RepeatedPtrField< ::std::string>&
+const ::google::protobuf::RepeatedPtrField< ::std::string>&
 TOptionString::options() const {
   // @@protoc_insertion_point(field_list:y3d.TOptionString.options)
   return options_;
 }
- ::google::protobuf::RepeatedPtrField< ::std::string>*
+::google::protobuf::RepeatedPtrField< ::std::string>*
 TOptionString::mutable_options() {
   // @@protoc_insertion_point(field_mutable_list:y3d.TOptionString.options)
   return &options_;
@@ -2281,26 +2202,25 @@ const int TOptionInt::kOptionsFieldNumber;
 
 TOptionInt::TOptionInt()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_ysetting_2eproto::InitDefaults();
+  }
   SharedCtor();
   // @@protoc_insertion_point(constructor:y3d.TOptionInt)
 }
-
-void TOptionInt::InitAsDefaultInstance() {
-  _is_default_instance_ = true;
-}
-
 TOptionInt::TOptionInt(const TOptionInt& from)
   : ::google::protobuf::Message(),
-    _internal_metadata_(NULL) {
-  SharedCtor();
-  MergeFrom(from);
+      _internal_metadata_(NULL),
+      options_(from.options_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  com_ = from.com_;
   // @@protoc_insertion_point(copy_constructor:y3d.TOptionInt)
 }
 
 void TOptionInt::SharedCtor() {
-    _is_default_instance_ = false;
-  _cached_size_ = 0;
   com_ = 0;
+  _cached_size_ = 0;
 }
 
 TOptionInt::~TOptionInt() {
@@ -2309,8 +2229,6 @@ TOptionInt::~TOptionInt() {
 }
 
 void TOptionInt::SharedDtor() {
-  if (this != default_instance_) {
-  }
 }
 
 void TOptionInt::SetCachedSize(int size) const {
@@ -2319,16 +2237,14 @@ void TOptionInt::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
 const ::google::protobuf::Descriptor* TOptionInt::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return TOptionInt_descriptor_;
+  protobuf_ysetting_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_ysetting_2eproto::file_level_metadata[4].descriptor;
 }
 
 const TOptionInt& TOptionInt::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_ysetting_2eproto();
-  return *default_instance_;
+  protobuf_ysetting_2eproto::InitDefaults();
+  return *internal_default_instance();
 }
-
-TOptionInt* TOptionInt::default_instance_ = NULL;
 
 TOptionInt* TOptionInt::New(::google::protobuf::Arena* arena) const {
   TOptionInt* n = new TOptionInt;
@@ -2340,8 +2256,8 @@ TOptionInt* TOptionInt::New(::google::protobuf::Arena* arena) const {
 
 void TOptionInt::Clear() {
 // @@protoc_insertion_point(message_clear_start:y3d.TOptionInt)
-  com_ = 0;
   options_.Clear();
+  com_ = 0;
 }
 
 bool TOptionInt::MergePartialFromCodedStream(
@@ -2350,13 +2266,13 @@ bool TOptionInt::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:y3d.TOptionInt)
   for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional .y3d.ComType com = 1;
+      // .y3d.ComType com = 1;
       case 1: {
-        if (tag == 8) {
+        if (tag == 8u) {
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
@@ -2365,25 +2281,22 @@ bool TOptionInt::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(18)) goto parse_options;
         break;
       }
 
       // repeated int32 options = 2;
       case 2: {
-        if (tag == 18) {
-         parse_options:
+        if (tag == 18u) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, this->mutable_options())));
-        } else if (tag == 16) {
+        } else if (tag == 16u) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitiveNoInline<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 1, 18, input, this->mutable_options())));
+                 1, 18u, input, this->mutable_options())));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectAtEnd()) goto success;
         break;
       }
 
@@ -2411,7 +2324,7 @@ failure:
 void TOptionInt::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:y3d.TOptionInt)
-  // optional .y3d.ComType com = 1;
+  // .y3d.ComType com = 1;
   if (this->com() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       1, this->com(), output);
@@ -2432,9 +2345,9 @@ void TOptionInt::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* TOptionInt::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
+  (void)deterministic;  // Unused
   // @@protoc_insertion_point(serialize_to_array_start:y3d.TOptionInt)
-  // optional .y3d.ComType com = 1;
+  // .y3d.ComType com = 1;
   if (this->com() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       1, this->com(), target);
@@ -2458,45 +2371,42 @@ void TOptionInt::SerializeWithCachedSizes(
   return target;
 }
 
-int TOptionInt::ByteSize() const {
+size_t TOptionInt::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:y3d.TOptionInt)
-  int total_size = 0;
+  size_t total_size = 0;
 
-  // optional .y3d.ComType com = 1;
+  // repeated int32 options = 2;
+  {
+    size_t data_size = ::google::protobuf::internal::WireFormatLite::
+      Int32Size(this->options_);
+    if (data_size > 0) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(data_size);
+    }
+    int cached_size = ::google::protobuf::internal::ToCachedSize(data_size);
+    GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+    _options_cached_byte_size_ = cached_size;
+    GOOGLE_SAFE_CONCURRENT_WRITES_END();
+    total_size += data_size;
+  }
+
+  // .y3d.ComType com = 1;
   if (this->com() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->com());
   }
 
-  // repeated int32 options = 2;
-  {
-    int data_size = 0;
-    for (int i = 0; i < this->options_size(); i++) {
-      data_size += ::google::protobuf::internal::WireFormatLite::
-        Int32Size(this->options(i));
-    }
-    if (data_size > 0) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(data_size);
-    }
-    GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-    _options_cached_byte_size_ = data_size;
-    GOOGLE_SAFE_CONCURRENT_WRITES_END();
-    total_size += data_size;
-  }
-
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
+  _cached_size_ = cached_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void TOptionInt::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:y3d.TOptionInt)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
-  const TOptionInt* source = 
+  GOOGLE_DCHECK_NE(&from, this);
+  const TOptionInt* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const TOptionInt>(
           &from);
   if (source == NULL) {
@@ -2510,9 +2420,8 @@ void TOptionInt::MergeFrom(const ::google::protobuf::Message& from) {
 
 void TOptionInt::MergeFrom(const TOptionInt& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:y3d.TOptionInt)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
   options_.MergeFrom(from.options_);
   if (from.com() != 0) {
     set_com(from.com());
@@ -2534,7 +2443,6 @@ void TOptionInt::CopyFrom(const TOptionInt& from) {
 }
 
 bool TOptionInt::IsInitialized() const {
-
   return true;
 }
 
@@ -2543,32 +2451,28 @@ void TOptionInt::Swap(TOptionInt* other) {
   InternalSwap(other);
 }
 void TOptionInt::InternalSwap(TOptionInt* other) {
-  std::swap(com_, other->com_);
   options_.UnsafeArenaSwap(&other->options_);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(com_, other->com_);
   std::swap(_cached_size_, other->_cached_size_);
 }
 
 ::google::protobuf::Metadata TOptionInt::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = TOptionInt_descriptor_;
-  metadata.reflection = TOptionInt_reflection_;
-  return metadata;
+  protobuf_ysetting_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_ysetting_2eproto::file_level_metadata[4];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // TOptionInt
 
-// optional .y3d.ComType com = 1;
+// .y3d.ComType com = 1;
 void TOptionInt::clear_com() {
   com_ = 0;
 }
- ::y3d::ComType TOptionInt::com() const {
+::y3d::ComType TOptionInt::com() const {
   // @@protoc_insertion_point(field_get:y3d.TOptionInt.com)
   return static_cast< ::y3d::ComType >(com_);
 }
- void TOptionInt::set_com(::y3d::ComType value) {
+void TOptionInt::set_com(::y3d::ComType value) {
   
   com_ = value;
   // @@protoc_insertion_point(field_set:y3d.TOptionInt.com)
@@ -2581,24 +2485,24 @@ int TOptionInt::options_size() const {
 void TOptionInt::clear_options() {
   options_.Clear();
 }
- ::google::protobuf::int32 TOptionInt::options(int index) const {
+::google::protobuf::int32 TOptionInt::options(int index) const {
   // @@protoc_insertion_point(field_get:y3d.TOptionInt.options)
   return options_.Get(index);
 }
- void TOptionInt::set_options(int index, ::google::protobuf::int32 value) {
+void TOptionInt::set_options(int index, ::google::protobuf::int32 value) {
   options_.Set(index, value);
   // @@protoc_insertion_point(field_set:y3d.TOptionInt.options)
 }
- void TOptionInt::add_options(::google::protobuf::int32 value) {
+void TOptionInt::add_options(::google::protobuf::int32 value) {
   options_.Add(value);
   // @@protoc_insertion_point(field_add:y3d.TOptionInt.options)
 }
- const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
 TOptionInt::options() const {
   // @@protoc_insertion_point(field_list:y3d.TOptionInt.options)
   return options_;
 }
- ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
 TOptionInt::mutable_options() {
   // @@protoc_insertion_point(field_mutable_list:y3d.TOptionInt.options)
   return &options_;
@@ -2615,26 +2519,25 @@ const int TOptionFloat::kOptionsFieldNumber;
 
 TOptionFloat::TOptionFloat()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_ysetting_2eproto::InitDefaults();
+  }
   SharedCtor();
   // @@protoc_insertion_point(constructor:y3d.TOptionFloat)
 }
-
-void TOptionFloat::InitAsDefaultInstance() {
-  _is_default_instance_ = true;
-}
-
 TOptionFloat::TOptionFloat(const TOptionFloat& from)
   : ::google::protobuf::Message(),
-    _internal_metadata_(NULL) {
-  SharedCtor();
-  MergeFrom(from);
+      _internal_metadata_(NULL),
+      options_(from.options_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  com_ = from.com_;
   // @@protoc_insertion_point(copy_constructor:y3d.TOptionFloat)
 }
 
 void TOptionFloat::SharedCtor() {
-    _is_default_instance_ = false;
-  _cached_size_ = 0;
   com_ = 0;
+  _cached_size_ = 0;
 }
 
 TOptionFloat::~TOptionFloat() {
@@ -2643,8 +2546,6 @@ TOptionFloat::~TOptionFloat() {
 }
 
 void TOptionFloat::SharedDtor() {
-  if (this != default_instance_) {
-  }
 }
 
 void TOptionFloat::SetCachedSize(int size) const {
@@ -2653,16 +2554,14 @@ void TOptionFloat::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
 const ::google::protobuf::Descriptor* TOptionFloat::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return TOptionFloat_descriptor_;
+  protobuf_ysetting_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_ysetting_2eproto::file_level_metadata[5].descriptor;
 }
 
 const TOptionFloat& TOptionFloat::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_ysetting_2eproto();
-  return *default_instance_;
+  protobuf_ysetting_2eproto::InitDefaults();
+  return *internal_default_instance();
 }
-
-TOptionFloat* TOptionFloat::default_instance_ = NULL;
 
 TOptionFloat* TOptionFloat::New(::google::protobuf::Arena* arena) const {
   TOptionFloat* n = new TOptionFloat;
@@ -2674,8 +2573,8 @@ TOptionFloat* TOptionFloat::New(::google::protobuf::Arena* arena) const {
 
 void TOptionFloat::Clear() {
 // @@protoc_insertion_point(message_clear_start:y3d.TOptionFloat)
-  com_ = 0;
   options_.Clear();
+  com_ = 0;
 }
 
 bool TOptionFloat::MergePartialFromCodedStream(
@@ -2684,13 +2583,13 @@ bool TOptionFloat::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:y3d.TOptionFloat)
   for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional .y3d.ComType com = 1;
+      // .y3d.ComType com = 1;
       case 1: {
-        if (tag == 8) {
+        if (tag == 8u) {
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
@@ -2699,25 +2598,22 @@ bool TOptionFloat::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(18)) goto parse_options;
         break;
       }
 
       // repeated float options = 2;
       case 2: {
-        if (tag == 18) {
-         parse_options:
+        if (tag == 18u) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, this->mutable_options())));
-        } else if (tag == 21) {
+        } else if (tag == 21u) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitiveNoInline<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
-                 1, 18, input, this->mutable_options())));
+                 1, 18u, input, this->mutable_options())));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectAtEnd()) goto success;
         break;
       }
 
@@ -2745,7 +2641,7 @@ failure:
 void TOptionFloat::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:y3d.TOptionFloat)
-  // optional .y3d.ComType com = 1;
+  // .y3d.ComType com = 1;
   if (this->com() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       1, this->com(), output);
@@ -2755,10 +2651,8 @@ void TOptionFloat::SerializeWithCachedSizes(
   if (this->options_size() > 0) {
     ::google::protobuf::internal::WireFormatLite::WriteTag(2, ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED, output);
     output->WriteVarint32(_options_cached_byte_size_);
-  }
-  for (int i = 0; i < this->options_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteFloatNoTag(
-      this->options(i), output);
+    ::google::protobuf::internal::WireFormatLite::WriteFloatArray(
+      this->options().data(), this->options_size(), output);
   }
 
   // @@protoc_insertion_point(serialize_end:y3d.TOptionFloat)
@@ -2766,9 +2660,9 @@ void TOptionFloat::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* TOptionFloat::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
+  (void)deterministic;  // Unused
   // @@protoc_insertion_point(serialize_to_array_start:y3d.TOptionFloat)
-  // optional .y3d.ComType com = 1;
+  // .y3d.ComType com = 1;
   if (this->com() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       1, this->com(), target);
@@ -2792,42 +2686,42 @@ void TOptionFloat::SerializeWithCachedSizes(
   return target;
 }
 
-int TOptionFloat::ByteSize() const {
+size_t TOptionFloat::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:y3d.TOptionFloat)
-  int total_size = 0;
+  size_t total_size = 0;
 
-  // optional .y3d.ComType com = 1;
+  // repeated float options = 2;
+  {
+    unsigned int count = this->options_size();
+    size_t data_size = 4UL * count;
+    if (data_size > 0) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(data_size);
+    }
+    int cached_size = ::google::protobuf::internal::ToCachedSize(data_size);
+    GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+    _options_cached_byte_size_ = cached_size;
+    GOOGLE_SAFE_CONCURRENT_WRITES_END();
+    total_size += data_size;
+  }
+
+  // .y3d.ComType com = 1;
   if (this->com() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->com());
   }
 
-  // repeated float options = 2;
-  {
-    int data_size = 0;
-    data_size = 4 * this->options_size();
-    if (data_size > 0) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(data_size);
-    }
-    GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-    _options_cached_byte_size_ = data_size;
-    GOOGLE_SAFE_CONCURRENT_WRITES_END();
-    total_size += data_size;
-  }
-
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
+  _cached_size_ = cached_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void TOptionFloat::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:y3d.TOptionFloat)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
-  const TOptionFloat* source = 
+  GOOGLE_DCHECK_NE(&from, this);
+  const TOptionFloat* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const TOptionFloat>(
           &from);
   if (source == NULL) {
@@ -2841,9 +2735,8 @@ void TOptionFloat::MergeFrom(const ::google::protobuf::Message& from) {
 
 void TOptionFloat::MergeFrom(const TOptionFloat& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:y3d.TOptionFloat)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
   options_.MergeFrom(from.options_);
   if (from.com() != 0) {
     set_com(from.com());
@@ -2865,7 +2758,6 @@ void TOptionFloat::CopyFrom(const TOptionFloat& from) {
 }
 
 bool TOptionFloat::IsInitialized() const {
-
   return true;
 }
 
@@ -2874,32 +2766,28 @@ void TOptionFloat::Swap(TOptionFloat* other) {
   InternalSwap(other);
 }
 void TOptionFloat::InternalSwap(TOptionFloat* other) {
-  std::swap(com_, other->com_);
   options_.UnsafeArenaSwap(&other->options_);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(com_, other->com_);
   std::swap(_cached_size_, other->_cached_size_);
 }
 
 ::google::protobuf::Metadata TOptionFloat::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = TOptionFloat_descriptor_;
-  metadata.reflection = TOptionFloat_reflection_;
-  return metadata;
+  protobuf_ysetting_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_ysetting_2eproto::file_level_metadata[5];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // TOptionFloat
 
-// optional .y3d.ComType com = 1;
+// .y3d.ComType com = 1;
 void TOptionFloat::clear_com() {
   com_ = 0;
 }
- ::y3d::ComType TOptionFloat::com() const {
+::y3d::ComType TOptionFloat::com() const {
   // @@protoc_insertion_point(field_get:y3d.TOptionFloat.com)
   return static_cast< ::y3d::ComType >(com_);
 }
- void TOptionFloat::set_com(::y3d::ComType value) {
+void TOptionFloat::set_com(::y3d::ComType value) {
   
   com_ = value;
   // @@protoc_insertion_point(field_set:y3d.TOptionFloat.com)
@@ -2912,24 +2800,24 @@ int TOptionFloat::options_size() const {
 void TOptionFloat::clear_options() {
   options_.Clear();
 }
- float TOptionFloat::options(int index) const {
+float TOptionFloat::options(int index) const {
   // @@protoc_insertion_point(field_get:y3d.TOptionFloat.options)
   return options_.Get(index);
 }
- void TOptionFloat::set_options(int index, float value) {
+void TOptionFloat::set_options(int index, float value) {
   options_.Set(index, value);
   // @@protoc_insertion_point(field_set:y3d.TOptionFloat.options)
 }
- void TOptionFloat::add_options(float value) {
+void TOptionFloat::add_options(float value) {
   options_.Add(value);
   // @@protoc_insertion_point(field_add:y3d.TOptionFloat.options)
 }
- const ::google::protobuf::RepeatedField< float >&
+const ::google::protobuf::RepeatedField< float >&
 TOptionFloat::options() const {
   // @@protoc_insertion_point(field_list:y3d.TOptionFloat.options)
   return options_;
 }
- ::google::protobuf::RepeatedField< float >*
+::google::protobuf::RepeatedField< float >*
 TOptionFloat::mutable_options() {
   // @@protoc_insertion_point(field_mutable_list:y3d.TOptionFloat.options)
   return &options_;
@@ -2939,33 +2827,6 @@ TOptionFloat::mutable_options() {
 
 // ===================================================================
 
-const ::google::protobuf::EnumDescriptor* TColor_ColorType_descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return TColor_ColorType_descriptor_;
-}
-bool TColor_ColorType_IsValid(int value) {
-  switch(value) {
-    case 0:
-    case 1:
-    case 2:
-    case 3:
-    case 4:
-      return true;
-    default:
-      return false;
-  }
-}
-
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
-const TColor_ColorType TColor::RGB;
-const TColor_ColorType TColor::RGBA;
-const TColor_ColorType TColor::HEX;
-const TColor_ColorType TColor::CMYK;
-const TColor_ColorType TColor::INT;
-const TColor_ColorType TColor::ColorType_MIN;
-const TColor_ColorType TColor::ColorType_MAX;
-const int TColor::ColorType_ARRAYSIZE;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int TColor::kComFieldNumber;
 const int TColor::kCtypeFieldNumber;
@@ -2973,27 +2834,27 @@ const int TColor::kCtypeFieldNumber;
 
 TColor::TColor()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_ysetting_2eproto::InitDefaults();
+  }
   SharedCtor();
   // @@protoc_insertion_point(constructor:y3d.TColor)
 }
-
-void TColor::InitAsDefaultInstance() {
-  _is_default_instance_ = true;
-}
-
 TColor::TColor(const TColor& from)
   : ::google::protobuf::Message(),
-    _internal_metadata_(NULL) {
-  SharedCtor();
-  MergeFrom(from);
+      _internal_metadata_(NULL),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::memcpy(&com_, &from.com_,
+    reinterpret_cast<char*>(&ctype_) -
+    reinterpret_cast<char*>(&com_) + sizeof(ctype_));
   // @@protoc_insertion_point(copy_constructor:y3d.TColor)
 }
 
 void TColor::SharedCtor() {
-    _is_default_instance_ = false;
+  ::memset(&com_, 0, reinterpret_cast<char*>(&ctype_) -
+    reinterpret_cast<char*>(&com_) + sizeof(ctype_));
   _cached_size_ = 0;
-  com_ = 0;
-  ctype_ = 0;
 }
 
 TColor::~TColor() {
@@ -3002,8 +2863,6 @@ TColor::~TColor() {
 }
 
 void TColor::SharedDtor() {
-  if (this != default_instance_) {
-  }
 }
 
 void TColor::SetCachedSize(int size) const {
@@ -3012,16 +2871,14 @@ void TColor::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
 const ::google::protobuf::Descriptor* TColor::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return TColor_descriptor_;
+  protobuf_ysetting_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_ysetting_2eproto::file_level_metadata[6].descriptor;
 }
 
 const TColor& TColor::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_ysetting_2eproto();
-  return *default_instance_;
+  protobuf_ysetting_2eproto::InitDefaults();
+  return *internal_default_instance();
 }
-
-TColor* TColor::default_instance_ = NULL;
 
 TColor* TColor::New(::google::protobuf::Arena* arena) const {
   TColor* n = new TColor;
@@ -3033,27 +2890,8 @@ TColor* TColor::New(::google::protobuf::Arena* arena) const {
 
 void TColor::Clear() {
 // @@protoc_insertion_point(message_clear_start:y3d.TColor)
-#if defined(__clang__)
-#define ZR_HELPER_(f) \
-  _Pragma("clang diagnostic push") \
-  _Pragma("clang diagnostic ignored \"-Winvalid-offsetof\"") \
-  __builtin_offsetof(TColor, f) \
-  _Pragma("clang diagnostic pop")
-#else
-#define ZR_HELPER_(f) reinterpret_cast<char*>(\
-  &reinterpret_cast<TColor*>(16)->f)
-#endif
-
-#define ZR_(first, last) do {\
-  ::memset(&first, 0,\
-           ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
-} while (0)
-
-  ZR_(com_, ctype_);
-
-#undef ZR_HELPER_
-#undef ZR_
-
+  ::memset(&com_, 0, reinterpret_cast<char*>(&ctype_) -
+    reinterpret_cast<char*>(&com_) + sizeof(ctype_));
 }
 
 bool TColor::MergePartialFromCodedStream(
@@ -3062,13 +2900,13 @@ bool TColor::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:y3d.TColor)
   for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional .y3d.ComType com = 1;
+      // .y3d.ComType com = 1;
       case 1: {
-        if (tag == 8) {
+        if (tag == 8u) {
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
@@ -3077,14 +2915,12 @@ bool TColor::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(16)) goto parse_ctype;
         break;
       }
 
-      // optional .y3d.TColor.ColorType ctype = 2;
+      // .y3d.TColor.ColorType ctype = 2;
       case 2: {
-        if (tag == 16) {
-         parse_ctype:
+        if (tag == 16u) {
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
@@ -3093,7 +2929,6 @@ bool TColor::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectAtEnd()) goto success;
         break;
       }
 
@@ -3121,13 +2956,13 @@ failure:
 void TColor::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:y3d.TColor)
-  // optional .y3d.ComType com = 1;
+  // .y3d.ComType com = 1;
   if (this->com() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       1, this->com(), output);
   }
 
-  // optional .y3d.TColor.ColorType ctype = 2;
+  // .y3d.TColor.ColorType ctype = 2;
   if (this->ctype() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       2, this->ctype(), output);
@@ -3138,15 +2973,15 @@ void TColor::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* TColor::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
+  (void)deterministic;  // Unused
   // @@protoc_insertion_point(serialize_to_array_start:y3d.TColor)
-  // optional .y3d.ComType com = 1;
+  // .y3d.ComType com = 1;
   if (this->com() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       1, this->com(), target);
   }
 
-  // optional .y3d.TColor.ColorType ctype = 2;
+  // .y3d.TColor.ColorType ctype = 2;
   if (this->ctype() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       2, this->ctype(), target);
@@ -3156,34 +2991,33 @@ void TColor::SerializeWithCachedSizes(
   return target;
 }
 
-int TColor::ByteSize() const {
+size_t TColor::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:y3d.TColor)
-  int total_size = 0;
+  size_t total_size = 0;
 
-  // optional .y3d.ComType com = 1;
+  // .y3d.ComType com = 1;
   if (this->com() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->com());
   }
 
-  // optional .y3d.TColor.ColorType ctype = 2;
+  // .y3d.TColor.ColorType ctype = 2;
   if (this->ctype() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->ctype());
   }
 
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
+  _cached_size_ = cached_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void TColor::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:y3d.TColor)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
-  const TColor* source = 
+  GOOGLE_DCHECK_NE(&from, this);
+  const TColor* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const TColor>(
           &from);
   if (source == NULL) {
@@ -3197,9 +3031,8 @@ void TColor::MergeFrom(const ::google::protobuf::Message& from) {
 
 void TColor::MergeFrom(const TColor& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:y3d.TColor)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
   if (from.com() != 0) {
     set_com(from.com());
   }
@@ -3223,7 +3056,6 @@ void TColor::CopyFrom(const TColor& from) {
 }
 
 bool TColor::IsInitialized() const {
-
   return true;
 }
 
@@ -3234,44 +3066,40 @@ void TColor::Swap(TColor* other) {
 void TColor::InternalSwap(TColor* other) {
   std::swap(com_, other->com_);
   std::swap(ctype_, other->ctype_);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
 
 ::google::protobuf::Metadata TColor::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = TColor_descriptor_;
-  metadata.reflection = TColor_reflection_;
-  return metadata;
+  protobuf_ysetting_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_ysetting_2eproto::file_level_metadata[6];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // TColor
 
-// optional .y3d.ComType com = 1;
+// .y3d.ComType com = 1;
 void TColor::clear_com() {
   com_ = 0;
 }
- ::y3d::ComType TColor::com() const {
+::y3d::ComType TColor::com() const {
   // @@protoc_insertion_point(field_get:y3d.TColor.com)
   return static_cast< ::y3d::ComType >(com_);
 }
- void TColor::set_com(::y3d::ComType value) {
+void TColor::set_com(::y3d::ComType value) {
   
   com_ = value;
   // @@protoc_insertion_point(field_set:y3d.TColor.com)
 }
 
-// optional .y3d.TColor.ColorType ctype = 2;
+// .y3d.TColor.ColorType ctype = 2;
 void TColor::clear_ctype() {
   ctype_ = 0;
 }
- ::y3d::TColor_ColorType TColor::ctype() const {
+::y3d::TColor_ColorType TColor::ctype() const {
   // @@protoc_insertion_point(field_get:y3d.TColor.ctype)
   return static_cast< ::y3d::TColor_ColorType >(ctype_);
 }
- void TColor::set_ctype(::y3d::TColor_ColorType value) {
+void TColor::set_ctype(::y3d::TColor_ColorType value) {
   
   ctype_ = value;
   // @@protoc_insertion_point(field_set:y3d.TColor.ctype)
@@ -3288,27 +3116,28 @@ const int AttrSet::kAttrsFieldNumber;
 
 AttrSet::AttrSet()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_ysetting_2eproto::InitDefaults();
+  }
   SharedCtor();
   // @@protoc_insertion_point(constructor:y3d.AttrSet)
 }
-
-void AttrSet::InitAsDefaultInstance() {
-  _is_default_instance_ = true;
-}
-
 AttrSet::AttrSet(const AttrSet& from)
   : ::google::protobuf::Message(),
-    _internal_metadata_(NULL) {
-  SharedCtor();
-  MergeFrom(from);
+      _internal_metadata_(NULL),
+      attrs_(from.attrs_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  sname_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.sname().size() > 0) {
+    sname_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.sname_);
+  }
   // @@protoc_insertion_point(copy_constructor:y3d.AttrSet)
 }
 
 void AttrSet::SharedCtor() {
-    _is_default_instance_ = false;
-  ::google::protobuf::internal::GetEmptyString();
-  _cached_size_ = 0;
   sname_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  _cached_size_ = 0;
 }
 
 AttrSet::~AttrSet() {
@@ -3318,8 +3147,6 @@ AttrSet::~AttrSet() {
 
 void AttrSet::SharedDtor() {
   sname_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (this != default_instance_) {
-  }
 }
 
 void AttrSet::SetCachedSize(int size) const {
@@ -3328,16 +3155,14 @@ void AttrSet::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
 const ::google::protobuf::Descriptor* AttrSet::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return AttrSet_descriptor_;
+  protobuf_ysetting_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_ysetting_2eproto::file_level_metadata[7].descriptor;
 }
 
 const AttrSet& AttrSet::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_ysetting_2eproto();
-  return *default_instance_;
+  protobuf_ysetting_2eproto::InitDefaults();
+  return *internal_default_instance();
 }
-
-AttrSet* AttrSet::default_instance_ = NULL;
 
 AttrSet* AttrSet::New(::google::protobuf::Arena* arena) const {
   AttrSet* n = new AttrSet;
@@ -3349,8 +3174,8 @@ AttrSet* AttrSet::New(::google::protobuf::Arena* arena) const {
 
 void AttrSet::Clear() {
 // @@protoc_insertion_point(message_clear_start:y3d.AttrSet)
-  sname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   attrs_.Clear();
+  sname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 bool AttrSet::MergePartialFromCodedStream(
@@ -3359,13 +3184,13 @@ bool AttrSet::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:y3d.AttrSet)
   for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional string sname = 1;
+      // string sname = 1;
       case 1: {
-        if (tag == 10) {
+        if (tag == 10u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_sname()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -3375,24 +3200,19 @@ bool AttrSet::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(18)) goto parse_attrs;
         break;
       }
 
       // repeated .y3d.CustomAttr attrs = 2;
       case 2: {
-        if (tag == 18) {
-         parse_attrs:
+        if (tag == 18u) {
           DO_(input->IncrementRecursionDepth());
-         parse_loop_attrs:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtualNoRecursionDepth(
                 input, add_attrs()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(18)) goto parse_loop_attrs;
         input->UnsafeDecrementRecursionDepth();
-        if (input->ExpectAtEnd()) goto success;
         break;
       }
 
@@ -3420,7 +3240,7 @@ failure:
 void AttrSet::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:y3d.AttrSet)
-  // optional string sname = 1;
+  // string sname = 1;
   if (this->sname().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->sname().data(), this->sname().length(),
@@ -3441,9 +3261,9 @@ void AttrSet::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* AttrSet::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
+  (void)deterministic;  // Unused
   // @@protoc_insertion_point(serialize_to_array_start:y3d.AttrSet)
-  // optional string sname = 1;
+  // string sname = 1;
   if (this->sname().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->sname().data(), this->sname().length(),
@@ -3465,37 +3285,39 @@ void AttrSet::SerializeWithCachedSizes(
   return target;
 }
 
-int AttrSet::ByteSize() const {
+size_t AttrSet::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:y3d.AttrSet)
-  int total_size = 0;
+  size_t total_size = 0;
 
-  // optional string sname = 1;
+  // repeated .y3d.CustomAttr attrs = 2;
+  {
+    unsigned int count = this->attrs_size();
+    total_size += 1UL * count;
+    for (unsigned int i = 0; i < count; i++) {
+      total_size +=
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->attrs(i));
+    }
+  }
+
+  // string sname = 1;
   if (this->sname().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->sname());
   }
 
-  // repeated .y3d.CustomAttr attrs = 2;
-  total_size += 1 * this->attrs_size();
-  for (int i = 0; i < this->attrs_size(); i++) {
-    total_size +=
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->attrs(i));
-  }
-
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
+  _cached_size_ = cached_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void AttrSet::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:y3d.AttrSet)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
-  const AttrSet* source = 
+  GOOGLE_DCHECK_NE(&from, this);
+  const AttrSet* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const AttrSet>(
           &from);
   if (source == NULL) {
@@ -3509,9 +3331,8 @@ void AttrSet::MergeFrom(const ::google::protobuf::Message& from) {
 
 void AttrSet::MergeFrom(const AttrSet& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:y3d.AttrSet)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
   attrs_.MergeFrom(from.attrs_);
   if (from.sname().size() > 0) {
 
@@ -3534,7 +3355,6 @@ void AttrSet::CopyFrom(const AttrSet& from) {
 }
 
 bool AttrSet::IsInitialized() const {
-
   return true;
 }
 
@@ -3543,58 +3363,62 @@ void AttrSet::Swap(AttrSet* other) {
   InternalSwap(other);
 }
 void AttrSet::InternalSwap(AttrSet* other) {
-  sname_.Swap(&other->sname_);
   attrs_.UnsafeArenaSwap(&other->attrs_);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
+  sname_.Swap(&other->sname_);
   std::swap(_cached_size_, other->_cached_size_);
 }
 
 ::google::protobuf::Metadata AttrSet::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = AttrSet_descriptor_;
-  metadata.reflection = AttrSet_reflection_;
-  return metadata;
+  protobuf_ysetting_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_ysetting_2eproto::file_level_metadata[7];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // AttrSet
 
-// optional string sname = 1;
+// string sname = 1;
 void AttrSet::clear_sname() {
   sname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- const ::std::string& AttrSet::sname() const {
+const ::std::string& AttrSet::sname() const {
   // @@protoc_insertion_point(field_get:y3d.AttrSet.sname)
-  return sname_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return sname_.GetNoArena();
 }
- void AttrSet::set_sname(const ::std::string& value) {
+void AttrSet::set_sname(const ::std::string& value) {
   
   sname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:y3d.AttrSet.sname)
 }
- void AttrSet::set_sname(const char* value) {
+#if LANG_CXX11
+void AttrSet::set_sname(::std::string&& value) {
+  
+  sname_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:y3d.AttrSet.sname)
+}
+#endif
+void AttrSet::set_sname(const char* value) {
   
   sname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:y3d.AttrSet.sname)
 }
- void AttrSet::set_sname(const char* value, size_t size) {
+void AttrSet::set_sname(const char* value, size_t size) {
   
   sname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:y3d.AttrSet.sname)
 }
- ::std::string* AttrSet::mutable_sname() {
+::std::string* AttrSet::mutable_sname() {
   
   // @@protoc_insertion_point(field_mutable:y3d.AttrSet.sname)
   return sname_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* AttrSet::release_sname() {
+::std::string* AttrSet::release_sname() {
   // @@protoc_insertion_point(field_release:y3d.AttrSet.sname)
   
   return sname_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void AttrSet::set_allocated_sname(::std::string* sname) {
+void AttrSet::set_allocated_sname(::std::string* sname) {
   if (sname != NULL) {
     
   } else {

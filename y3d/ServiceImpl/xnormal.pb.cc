@@ -18,852 +18,1070 @@
 // @@protoc_insertion_point(includes)
 
 namespace xnormal {
+class UnspecifiedTypeDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<UnspecifiedType> {
+} _UnspecifiedType_default_instance_;
+class tMatrixDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<tMatrix> {
+} _tMatrix_default_instance_;
+class tDetailDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<tDetail> {
+} _tDetail_default_instance_;
+class tRGB8DefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<tRGB8> {
+} _tRGB8_default_instance_;
+class tHighPolyMeshDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<tHighPolyMesh> {
+} _tHighPolyMesh_default_instance_;
+class tLowPolyMeshDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<tLowPolyMesh> {
+} _tLowPolyMesh_default_instance_;
+class tVector3DefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<tVector3> {
+} _tVector3_default_instance_;
+class tGenerateMapsDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<tGenerateMaps> {
+} _tGenerateMaps_default_instance_;
+class tHighPolyModelDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<tHighPolyModel> {
+} _tHighPolyModel_default_instance_;
+class tLowPolyModelDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<tLowPolyModel> {
+} _tLowPolyModel_default_instance_;
+class tViewer3DDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<tViewer3D> {
+} _tViewer3D_default_instance_;
+class SettingsDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<Settings> {
+} _Settings_default_instance_;
+
+namespace protobuf_xnormal_2eproto {
+
 
 namespace {
 
-const ::google::protobuf::Descriptor* UnspecifiedType_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  UnspecifiedType_reflection_ = NULL;
-const ::google::protobuf::Descriptor* tMatrix_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  tMatrix_reflection_ = NULL;
-const ::google::protobuf::Descriptor* tDetail_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  tDetail_reflection_ = NULL;
-const ::google::protobuf::EnumDescriptor* tDetail_eHM2NMMethod_descriptor_ = NULL;
-const ::google::protobuf::Descriptor* tRGB8_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  tRGB8_reflection_ = NULL;
-const ::google::protobuf::Descriptor* tHighPolyMesh_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  tHighPolyMesh_reflection_ = NULL;
-const ::google::protobuf::EnumDescriptor* tHighPolyMesh_eSmoothNormals_descriptor_ = NULL;
-const ::google::protobuf::Descriptor* tLowPolyMesh_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  tLowPolyMesh_reflection_ = NULL;
-const ::google::protobuf::EnumDescriptor* tLowPolyMesh_eSwizzleComponent_descriptor_ = NULL;
-const ::google::protobuf::EnumDescriptor* tLowPolyMesh_eTransparencyMode_descriptor_ = NULL;
-const ::google::protobuf::EnumDescriptor* tLowPolyMesh_eNormalMapType_descriptor_ = NULL;
-const ::google::protobuf::Descriptor* tVector3_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  tVector3_reflection_ = NULL;
-const ::google::protobuf::Descriptor* tGenerateMaps_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  tGenerateMaps_reflection_ = NULL;
-const ::google::protobuf::EnumDescriptor* tGenerateMaps_eAODistribution_descriptor_ = NULL;
-const ::google::protobuf::EnumDescriptor* tGenerateMaps_eSwizzleComponent_descriptor_ = NULL;
-const ::google::protobuf::EnumDescriptor* tGenerateMaps_eHMNormalization_descriptor_ = NULL;
-const ::google::protobuf::EnumDescriptor* tGenerateMaps_eRNMCoordSys_descriptor_ = NULL;
-const ::google::protobuf::EnumDescriptor* tGenerateMaps_eAntialiasing_descriptor_ = NULL;
-const ::google::protobuf::EnumDescriptor* tGenerateMaps_eCurvAlgorithm_descriptor_ = NULL;
-const ::google::protobuf::Descriptor* tHighPolyModel_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  tHighPolyModel_reflection_ = NULL;
-const ::google::protobuf::Descriptor* tLowPolyModel_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  tLowPolyModel_reflection_ = NULL;
-const ::google::protobuf::Descriptor* tViewer3D_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  tViewer3D_reflection_ = NULL;
-const ::google::protobuf::Descriptor* Settings_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  Settings_reflection_ = NULL;
+::google::protobuf::Metadata file_level_metadata[12];
+const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[11];
 
 }  // namespace
 
+const ::google::protobuf::uint32 TableStruct::offsets[] = {
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UnspecifiedType, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UnspecifiedType, baseobjecttype_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UnspecifiedType, object_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tMatrix, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tMatrix, e13_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tMatrix, e12_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tMatrix, e23_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tMatrix, e31_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tMatrix, e11_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tMatrix, e22_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tMatrix, e33_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tMatrix, e21_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tMatrix, e32_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tDetail, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tDetail, method_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tDetail, scale_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tDetail, file_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tRGB8, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tRGB8, r_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tRGB8, g_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tRGB8, b_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tHighPolyMesh, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tHighPolyMesh, file_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tHighPolyMesh, positionoffset_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tHighPolyMesh, ignorepervertexcolor_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tHighPolyMesh, averagenormals_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tHighPolyMesh, visible_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tHighPolyMesh, basetexistsnm_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tHighPolyMesh, scale_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, basetex_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, blockersfile_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, vvdmswizzlez_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, fresnelrefractiveindex_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, uoffset_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, reflecthdrmult_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, transparencymode_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, voffset_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, reflecttex_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, maxraydistancefront_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, diffusegitex_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, normapmaptype_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, file_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, vvdmswizzley_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, cagefile_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, heighttex_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, nmswizzley_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, batchprotect_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, alphatestvalue_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, subdivisions_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, matte_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, averagenormals_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, vectordisplacementts_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, usecage_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, visible_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, nmswizzlex_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, glosstex_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, scale_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, nmswizzlez_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, vectordisplacementtex_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, vvdmswizzlex_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, usepervertexcolors_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, highpolynormalsoverridetangentspace_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, lmaotex_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, spectex_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, normtex_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, highpolynormaloverride_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, positionoffset_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, maxraydistanceback_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, usefresnel_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, receiveshadows_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, emissivetex_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, backfacecull_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, castshadows_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, matchuvs_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tVector3, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tVector3, x_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tVector3, y_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tVector3, z_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, nmbackgroundcolor_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, hmbackgroundcolor_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, bakehighpolybasetexturenotexcol_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, bakehighpolybasetexturebackgroundcolor_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, renderwireframebackgroundcolor_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, renderwireframecol_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, rendercwcol_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, renderseamcol_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, renderrayfailscol_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, aooccludedcolor_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, aounoccludedcolor_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, aobackgroundcolor_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, bentbackgroundcolor_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, prtbackgroundcolor_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, convexitybackgroundcolor_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, thicknessbackgroundcolor_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, proximitybackgroundcolor_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, cavitybackgroundcolor_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, vdmbackgroundcolor_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, radnmbackgroundcolor_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, curvbackgroundcolor_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, derivnmbackgroundcolor_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, translubackgroundcolor_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, bakehighpolyvcolsbackgroundcol_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, closestiffails_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, directionstonemapmax_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, curvmonocrome_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, aobias_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, benttangentspace_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, gentranslu_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, aodistribution_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, prtthreshold_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, directionstonemapmin_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, curvdistribution_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, bentjitter_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, bentdistribution_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, bakehighpolybasetexture_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, genconvexity_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, radiositynormalsattenlinear_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, translurayspersample_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, curvsearchdistance_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, swizzlez_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, translubias_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, prtlimitraydistance_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, genbent_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, aolimitraydistance_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, curvrayspersample_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, radiositynormalsdistribution_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, radiositynormalsrayspersample_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, curvjitter_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, tangentspace_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, radiositynormalsallowpureocclusion_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, bentswizzlex_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, swizzley_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, gencurv_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, prtjitter_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, aoattencuadratic_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, bentconeangle_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, swizzlex_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, renderrayfails_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, cavitysearchradius_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, radiositynormalsencodeao_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, transluconeangle_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, bentrayspersample_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, convexityscale_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, radiositynormalsconeangle_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, file_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, genderivnm_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, bentlimitraydistance_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, prtbias_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, renderwireframe_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, prtnormalize_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, genao_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, prtconeangle_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, height_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, radiositynormalsattencuadratic_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, directionstonemap_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, directionsts_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, prtrayspersample_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, edgepadding_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, directionsswizzlez_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, aoallowpureoccluded_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, aoignorebackfacehits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, cavityrayspersample_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, aoattenconstant_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, cavityjitter_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, heighttonemapmax_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, gendirections_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, radiositynormalslimitraydistance_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, heighttonemapmin_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, radiositynormalsjitter_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, directionsswizzley_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, width_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, bakehighpolybasetexturedrawobjectidifnotexture_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, concavity_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, directionsswizzlex_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, gennormals_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, proximityrayspersample_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, genheights_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, radiositynormalsattenconstant_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, genproximity_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, genprt_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, cavitycontrast_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, radiositynormalscoordsys_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, translujitter_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, aorayspersample_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, bentbias_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, discardraybackfaceshits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, aoconeangle_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, bentswizzley_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, radiositynormalsbias_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, radiositynormalscontrast_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, cavitysteps_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, aa_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, bentswizzlez_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, bucketsize_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, curvconeangle_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, transludist_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, aojitter_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, curvbias_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, genwirerays_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, curvalgorithm_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, transludistribution_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, aoattenlinear_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, proximitylimitraydistance_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, genradiositynormals_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, proximityconeangle_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, heighttonemap_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, gencavity_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, bakehighpolyvcols_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tHighPolyModel, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tHighPolyModel, mesh_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tHighPolyModel, basetex_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tHighPolyModel, defaultmeshscale_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyModel, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyModel, mesh_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyModel, defaultmeshscale_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, lightambientcolor_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, lightdiffusecolor_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, lightspecularcolor_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, lightsecondarycolor_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, lighttertiarycolor_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, backgroundcolor_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, gridcolor_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, cagecolor_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, camerarotation_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, cameraposition_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, lightposition_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, axisscl_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, xemakosexample_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, showwireframe_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, cageopacity_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, diffusegiintensity_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, showao_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, ssaocontrast_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, shadowarea_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, lightindiretintensity_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, showhighpolys_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, showstarfield_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, showblockers_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, hdrthreshold_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, ssaobright_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, ssaoblurradius_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, showgrid_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, parallaxstrength_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, ssaoatten_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, cameraorbitdistance_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, useglow_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, ssaoenabled_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, shadowbias_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, ssaoradius_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, lightintensity_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, exposure_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, cameraorbitautocenter_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, castshadows_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, shownormals_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, maxtessellationlevel_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, showtangents_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, glowintensity_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Settings, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Settings, highpolymodel_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Settings, lowpolymodel_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Settings, generatemaps_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Settings, detail_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Settings, viewer3d_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Settings, version_),
+};
 
-void protobuf_AssignDesc_xnormal_2eproto() GOOGLE_ATTRIBUTE_COLD;
-void protobuf_AssignDesc_xnormal_2eproto() {
-  protobuf_AddDesc_xnormal_2eproto();
-  const ::google::protobuf::FileDescriptor* file =
-    ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
-      "xnormal.proto");
-  GOOGLE_CHECK(file != NULL);
-  UnspecifiedType_descriptor_ = file->message_type(0);
-  static const int UnspecifiedType_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UnspecifiedType, baseobjecttype_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UnspecifiedType, object_),
-  };
-  UnspecifiedType_reflection_ =
-    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      UnspecifiedType_descriptor_,
-      UnspecifiedType::default_instance_,
-      UnspecifiedType_offsets_,
-      -1,
-      -1,
-      -1,
-      sizeof(UnspecifiedType),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UnspecifiedType, _internal_metadata_),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UnspecifiedType, _is_default_instance_));
-  tMatrix_descriptor_ = file->message_type(1);
-  static const int tMatrix_offsets_[9] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tMatrix, e13_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tMatrix, e12_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tMatrix, e23_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tMatrix, e31_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tMatrix, e11_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tMatrix, e22_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tMatrix, e33_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tMatrix, e21_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tMatrix, e32_),
-  };
-  tMatrix_reflection_ =
-    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      tMatrix_descriptor_,
-      tMatrix::default_instance_,
-      tMatrix_offsets_,
-      -1,
-      -1,
-      -1,
-      sizeof(tMatrix),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tMatrix, _internal_metadata_),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tMatrix, _is_default_instance_));
-  tDetail_descriptor_ = file->message_type(2);
-  static const int tDetail_offsets_[3] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tDetail, method_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tDetail, scale_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tDetail, file_),
-  };
-  tDetail_reflection_ =
-    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      tDetail_descriptor_,
-      tDetail::default_instance_,
-      tDetail_offsets_,
-      -1,
-      -1,
-      -1,
-      sizeof(tDetail),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tDetail, _internal_metadata_),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tDetail, _is_default_instance_));
-  tDetail_eHM2NMMethod_descriptor_ = tDetail_descriptor_->enum_type(0);
-  tRGB8_descriptor_ = file->message_type(3);
-  static const int tRGB8_offsets_[3] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tRGB8, r_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tRGB8, g_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tRGB8, b_),
-  };
-  tRGB8_reflection_ =
-    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      tRGB8_descriptor_,
-      tRGB8::default_instance_,
-      tRGB8_offsets_,
-      -1,
-      -1,
-      -1,
-      sizeof(tRGB8),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tRGB8, _internal_metadata_),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tRGB8, _is_default_instance_));
-  tHighPolyMesh_descriptor_ = file->message_type(4);
-  static const int tHighPolyMesh_offsets_[7] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tHighPolyMesh, file_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tHighPolyMesh, positionoffset_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tHighPolyMesh, ignorepervertexcolor_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tHighPolyMesh, averagenormals_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tHighPolyMesh, visible_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tHighPolyMesh, basetexistsnm_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tHighPolyMesh, scale_),
-  };
-  tHighPolyMesh_reflection_ =
-    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      tHighPolyMesh_descriptor_,
-      tHighPolyMesh::default_instance_,
-      tHighPolyMesh_offsets_,
-      -1,
-      -1,
-      -1,
-      sizeof(tHighPolyMesh),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tHighPolyMesh, _internal_metadata_),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tHighPolyMesh, _is_default_instance_));
-  tHighPolyMesh_eSmoothNormals_descriptor_ = tHighPolyMesh_descriptor_->enum_type(0);
-  tLowPolyMesh_descriptor_ = file->message_type(5);
-  static const int tLowPolyMesh_offsets_[45] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, basetex_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, blockersfile_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, vvdmswizzlez_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, fresnelrefractiveindex_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, uoffset_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, reflecthdrmult_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, transparencymode_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, voffset_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, reflecttex_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, maxraydistancefront_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, diffusegitex_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, normapmaptype_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, file_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, vvdmswizzley_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, cagefile_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, heighttex_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, nmswizzley_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, batchprotect_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, alphatestvalue_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, subdivisions_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, matte_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, averagenormals_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, vectordisplacementts_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, usecage_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, visible_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, nmswizzlex_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, glosstex_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, scale_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, nmswizzlez_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, vectordisplacementtex_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, vvdmswizzlex_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, usepervertexcolors_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, highpolynormalsoverridetangentspace_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, lmaotex_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, spectex_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, normtex_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, highpolynormaloverride_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, positionoffset_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, maxraydistanceback_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, usefresnel_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, receiveshadows_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, emissivetex_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, backfacecull_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, castshadows_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, matchuvs_),
-  };
-  tLowPolyMesh_reflection_ =
-    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      tLowPolyMesh_descriptor_,
-      tLowPolyMesh::default_instance_,
-      tLowPolyMesh_offsets_,
-      -1,
-      -1,
-      -1,
-      sizeof(tLowPolyMesh),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, _internal_metadata_),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyMesh, _is_default_instance_));
-  tLowPolyMesh_eSwizzleComponent_descriptor_ = tLowPolyMesh_descriptor_->enum_type(0);
-  tLowPolyMesh_eTransparencyMode_descriptor_ = tLowPolyMesh_descriptor_->enum_type(1);
-  tLowPolyMesh_eNormalMapType_descriptor_ = tLowPolyMesh_descriptor_->enum_type(2);
-  tVector3_descriptor_ = file->message_type(6);
-  static const int tVector3_offsets_[3] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tVector3, x_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tVector3, y_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tVector3, z_),
-  };
-  tVector3_reflection_ =
-    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      tVector3_descriptor_,
-      tVector3::default_instance_,
-      tVector3_offsets_,
-      -1,
-      -1,
-      -1,
-      sizeof(tVector3),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tVector3, _internal_metadata_),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tVector3, _is_default_instance_));
-  tGenerateMaps_descriptor_ = file->message_type(7);
-  static const int tGenerateMaps_offsets_[130] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, nmbackgroundcolor_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, hmbackgroundcolor_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, bakehighpolybasetexturenotexcol_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, bakehighpolybasetexturebackgroundcolor_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, renderwireframebackgroundcolor_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, renderwireframecol_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, rendercwcol_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, renderseamcol_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, renderrayfailscol_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, aooccludedcolor_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, aounoccludedcolor_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, aobackgroundcolor_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, bentbackgroundcolor_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, prtbackgroundcolor_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, convexitybackgroundcolor_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, thicknessbackgroundcolor_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, proximitybackgroundcolor_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, cavitybackgroundcolor_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, vdmbackgroundcolor_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, radnmbackgroundcolor_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, curvbackgroundcolor_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, derivnmbackgroundcolor_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, translubackgroundcolor_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, bakehighpolyvcolsbackgroundcol_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, closestiffails_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, directionstonemapmax_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, curvmonocrome_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, aobias_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, benttangentspace_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, gentranslu_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, aodistribution_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, prtthreshold_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, directionstonemapmin_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, curvdistribution_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, bentjitter_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, bentdistribution_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, bakehighpolybasetexture_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, genconvexity_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, radiositynormalsattenlinear_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, translurayspersample_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, curvsearchdistance_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, swizzlez_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, translubias_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, prtlimitraydistance_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, genbent_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, aolimitraydistance_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, curvrayspersample_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, radiositynormalsdistribution_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, radiositynormalsrayspersample_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, curvjitter_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, tangentspace_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, radiositynormalsallowpureocclusion_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, bentswizzlex_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, swizzley_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, gencurv_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, prtjitter_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, aoattencuadratic_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, bentconeangle_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, swizzlex_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, renderrayfails_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, cavitysearchradius_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, radiositynormalsencodeao_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, transluconeangle_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, bentrayspersample_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, convexityscale_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, radiositynormalsconeangle_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, file_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, genderivnm_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, bentlimitraydistance_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, prtbias_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, renderwireframe_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, prtnormalize_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, genao_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, prtconeangle_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, height_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, radiositynormalsattencuadratic_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, directionstonemap_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, directionsts_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, prtrayspersample_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, edgepadding_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, directionsswizzlez_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, aoallowpureoccluded_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, aoignorebackfacehits_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, cavityrayspersample_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, aoattenconstant_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, cavityjitter_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, heighttonemapmax_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, gendirections_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, radiositynormalslimitraydistance_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, heighttonemapmin_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, radiositynormalsjitter_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, directionsswizzley_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, width_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, bakehighpolybasetexturedrawobjectidifnotexture_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, concavity_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, directionsswizzlex_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, gennormals_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, proximityrayspersample_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, genheights_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, radiositynormalsattenconstant_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, genproximity_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, genprt_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, cavitycontrast_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, radiositynormalscoordsys_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, translujitter_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, aorayspersample_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, bentbias_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, discardraybackfaceshits_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, aoconeangle_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, bentswizzley_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, radiositynormalsbias_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, radiositynormalscontrast_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, cavitysteps_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, aa_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, bentswizzlez_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, bucketsize_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, curvconeangle_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, transludist_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, aojitter_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, curvbias_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, genwirerays_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, curvalgorithm_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, transludistribution_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, aoattenlinear_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, proximitylimitraydistance_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, genradiositynormals_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, proximityconeangle_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, heighttonemap_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, gencavity_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, bakehighpolyvcols_),
-  };
-  tGenerateMaps_reflection_ =
-    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      tGenerateMaps_descriptor_,
-      tGenerateMaps::default_instance_,
-      tGenerateMaps_offsets_,
-      -1,
-      -1,
-      -1,
-      sizeof(tGenerateMaps),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, _internal_metadata_),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tGenerateMaps, _is_default_instance_));
-  tGenerateMaps_eAODistribution_descriptor_ = tGenerateMaps_descriptor_->enum_type(0);
-  tGenerateMaps_eSwizzleComponent_descriptor_ = tGenerateMaps_descriptor_->enum_type(1);
-  tGenerateMaps_eHMNormalization_descriptor_ = tGenerateMaps_descriptor_->enum_type(2);
-  tGenerateMaps_eRNMCoordSys_descriptor_ = tGenerateMaps_descriptor_->enum_type(3);
-  tGenerateMaps_eAntialiasing_descriptor_ = tGenerateMaps_descriptor_->enum_type(4);
-  tGenerateMaps_eCurvAlgorithm_descriptor_ = tGenerateMaps_descriptor_->enum_type(5);
-  tHighPolyModel_descriptor_ = file->message_type(8);
-  static const int tHighPolyModel_offsets_[3] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tHighPolyModel, mesh_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tHighPolyModel, basetex_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tHighPolyModel, defaultmeshscale_),
-  };
-  tHighPolyModel_reflection_ =
-    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      tHighPolyModel_descriptor_,
-      tHighPolyModel::default_instance_,
-      tHighPolyModel_offsets_,
-      -1,
-      -1,
-      -1,
-      sizeof(tHighPolyModel),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tHighPolyModel, _internal_metadata_),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tHighPolyModel, _is_default_instance_));
-  tLowPolyModel_descriptor_ = file->message_type(9);
-  static const int tLowPolyModel_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyModel, mesh_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyModel, defaultmeshscale_),
-  };
-  tLowPolyModel_reflection_ =
-    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      tLowPolyModel_descriptor_,
-      tLowPolyModel::default_instance_,
-      tLowPolyModel_offsets_,
-      -1,
-      -1,
-      -1,
-      sizeof(tLowPolyModel),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyModel, _internal_metadata_),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tLowPolyModel, _is_default_instance_));
-  tViewer3D_descriptor_ = file->message_type(10);
-  static const int tViewer3D_offsets_[42] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, lightambientcolor_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, lightdiffusecolor_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, lightspecularcolor_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, lightsecondarycolor_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, lighttertiarycolor_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, backgroundcolor_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, gridcolor_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, cagecolor_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, camerarotation_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, cameraposition_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, lightposition_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, axisscl_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, xemakosexample_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, showwireframe_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, cageopacity_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, diffusegiintensity_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, showao_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, ssaocontrast_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, shadowarea_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, lightindiretintensity_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, showhighpolys_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, showstarfield_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, showblockers_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, hdrthreshold_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, ssaobright_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, ssaoblurradius_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, showgrid_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, parallaxstrength_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, ssaoatten_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, cameraorbitdistance_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, useglow_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, ssaoenabled_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, shadowbias_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, ssaoradius_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, lightintensity_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, exposure_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, cameraorbitautocenter_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, castshadows_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, shownormals_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, maxtessellationlevel_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, showtangents_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, glowintensity_),
-  };
-  tViewer3D_reflection_ =
-    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      tViewer3D_descriptor_,
-      tViewer3D::default_instance_,
-      tViewer3D_offsets_,
-      -1,
-      -1,
-      -1,
-      sizeof(tViewer3D),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, _internal_metadata_),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tViewer3D, _is_default_instance_));
-  Settings_descriptor_ = file->message_type(11);
-  static const int Settings_offsets_[6] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Settings, highpolymodel_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Settings, lowpolymodel_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Settings, generatemaps_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Settings, detail_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Settings, viewer3d_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Settings, version_),
-  };
-  Settings_reflection_ =
-    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      Settings_descriptor_,
-      Settings::default_instance_,
-      Settings_offsets_,
-      -1,
-      -1,
-      -1,
-      sizeof(Settings),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Settings, _internal_metadata_),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Settings, _is_default_instance_));
-}
+static const ::google::protobuf::internal::MigrationSchema schemas[] = {
+  { 0, -1, sizeof(UnspecifiedType)},
+  { 6, -1, sizeof(tMatrix)},
+  { 19, -1, sizeof(tDetail)},
+  { 26, -1, sizeof(tRGB8)},
+  { 33, -1, sizeof(tHighPolyMesh)},
+  { 44, -1, sizeof(tLowPolyMesh)},
+  { 93, -1, sizeof(tVector3)},
+  { 100, -1, sizeof(tGenerateMaps)},
+  { 234, -1, sizeof(tHighPolyModel)},
+  { 241, -1, sizeof(tLowPolyModel)},
+  { 247, -1, sizeof(tViewer3D)},
+  { 293, -1, sizeof(Settings)},
+};
+
+static ::google::protobuf::Message const * const file_default_instances[] = {
+  reinterpret_cast<const ::google::protobuf::Message*>(&_UnspecifiedType_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_tMatrix_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_tDetail_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_tRGB8_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_tHighPolyMesh_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_tLowPolyMesh_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_tVector3_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_tGenerateMaps_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_tHighPolyModel_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_tLowPolyModel_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_tViewer3D_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_Settings_default_instance_),
+};
 
 namespace {
 
-GOOGLE_PROTOBUF_DECLARE_ONCE(protobuf_AssignDescriptors_once_);
-inline void protobuf_AssignDescriptorsOnce() {
-  ::google::protobuf::GoogleOnceInit(&protobuf_AssignDescriptors_once_,
-                 &protobuf_AssignDesc_xnormal_2eproto);
+void protobuf_AssignDescriptors() {
+  AddDescriptors();
+  ::google::protobuf::MessageFactory* factory = NULL;
+  AssignDescriptors(
+      "xnormal.proto", schemas, file_default_instances, TableStruct::offsets, factory,
+      file_level_metadata, file_level_enum_descriptors, NULL);
+}
+
+void protobuf_AssignDescriptorsOnce() {
+  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
+  ::google::protobuf::GoogleOnceInit(&once, &protobuf_AssignDescriptors);
 }
 
 void protobuf_RegisterTypes(const ::std::string&) GOOGLE_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      UnspecifiedType_descriptor_, &UnspecifiedType::default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      tMatrix_descriptor_, &tMatrix::default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      tDetail_descriptor_, &tDetail::default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      tRGB8_descriptor_, &tRGB8::default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      tHighPolyMesh_descriptor_, &tHighPolyMesh::default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      tLowPolyMesh_descriptor_, &tLowPolyMesh::default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      tVector3_descriptor_, &tVector3::default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      tGenerateMaps_descriptor_, &tGenerateMaps::default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      tHighPolyModel_descriptor_, &tHighPolyModel::default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      tLowPolyModel_descriptor_, &tLowPolyModel::default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      tViewer3D_descriptor_, &tViewer3D::default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      Settings_descriptor_, &Settings::default_instance());
+  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 12);
 }
 
 }  // namespace
 
-void protobuf_ShutdownFile_xnormal_2eproto() {
-  delete UnspecifiedType::default_instance_;
-  delete UnspecifiedType_reflection_;
-  delete tMatrix::default_instance_;
-  delete tMatrix_reflection_;
-  delete tDetail::default_instance_;
-  delete tDetail_reflection_;
-  delete tRGB8::default_instance_;
-  delete tRGB8_reflection_;
-  delete tHighPolyMesh::default_instance_;
-  delete tHighPolyMesh_reflection_;
-  delete tLowPolyMesh::default_instance_;
-  delete tLowPolyMesh_reflection_;
-  delete tVector3::default_instance_;
-  delete tVector3_reflection_;
-  delete tGenerateMaps::default_instance_;
-  delete tGenerateMaps_reflection_;
-  delete tHighPolyModel::default_instance_;
-  delete tHighPolyModel_reflection_;
-  delete tLowPolyModel::default_instance_;
-  delete tLowPolyModel_reflection_;
-  delete tViewer3D::default_instance_;
-  delete tViewer3D_reflection_;
-  delete Settings::default_instance_;
-  delete Settings_reflection_;
+void TableStruct::Shutdown() {
+  _UnspecifiedType_default_instance_.Shutdown();
+  delete file_level_metadata[0].reflection;
+  _tMatrix_default_instance_.Shutdown();
+  delete file_level_metadata[1].reflection;
+  _tDetail_default_instance_.Shutdown();
+  delete file_level_metadata[2].reflection;
+  _tRGB8_default_instance_.Shutdown();
+  delete file_level_metadata[3].reflection;
+  _tHighPolyMesh_default_instance_.Shutdown();
+  delete file_level_metadata[4].reflection;
+  _tLowPolyMesh_default_instance_.Shutdown();
+  delete file_level_metadata[5].reflection;
+  _tVector3_default_instance_.Shutdown();
+  delete file_level_metadata[6].reflection;
+  _tGenerateMaps_default_instance_.Shutdown();
+  delete file_level_metadata[7].reflection;
+  _tHighPolyModel_default_instance_.Shutdown();
+  delete file_level_metadata[8].reflection;
+  _tLowPolyModel_default_instance_.Shutdown();
+  delete file_level_metadata[9].reflection;
+  _tViewer3D_default_instance_.Shutdown();
+  delete file_level_metadata[10].reflection;
+  _Settings_default_instance_.Shutdown();
+  delete file_level_metadata[11].reflection;
 }
 
-void protobuf_AddDesc_xnormal_2eproto() GOOGLE_ATTRIBUTE_COLD;
-void protobuf_AddDesc_xnormal_2eproto() {
-  static bool already_here = false;
-  if (already_here) return;
-  already_here = true;
+void TableStruct::InitDefaultsImpl() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\rxnormal.proto\022\007xnormal\"9\n\017UnspecifiedT"
-    "ype\022\026\n\016baseObjectType\030\001 \001(\t\022\016\n\006object\030\002 "
-    "\001(\014\"~\n\007tMatrix\022\013\n\003e13\030\001 \001(\002\022\013\n\003e12\030\002 \001(\002"
-    "\022\013\n\003e23\030\003 \001(\002\022\013\n\003e31\030\004 \001(\002\022\013\n\003e11\030\005 \001(\002\022"
-    "\013\n\003e22\030\006 \001(\002\022\013\n\003e33\030\007 \001(\002\022\013\n\003e21\030\010 \001(\002\022\013"
-    "\n\003e32\030\t \001(\002\"\217\002\n\007tDetail\022-\n\006Method\030\001 \001(\0162"
-    "\035.xnormal.tDetail.eHM2NMMethod\022\r\n\005Scale\030"
-    "\002 \001(\002\022\014\n\004File\030\003 \001(\t\"\267\001\n\014eHM2NMMethod\022\024\n\020"
-    "eHM2NMMethod_3x3\020\000\022\031\n\025eHM2NMMethod_4Samp"
-    "les\020\001\022\024\n\020eHM2NMMethod_5x5\020\002\022\027\n\023eHM2NMMet"
-    "hod_PRE3x3\020\003\022\027\n\023eHM2NMMethod_PRE5x5\020\004\022\026\n"
-    "\022eHM2NMMethod_SO3x3\020\005\022\026\n\022eHM2NMMethod_SO"
-    "5x5\020\006\"(\n\005tRGB8\022\t\n\001R\030\001 \001(\r\022\t\n\001G\030\002 \001(\r\022\t\n\001"
-    "B\030\003 \001(\r\"\307\002\n\rtHighPolyMesh\022\014\n\004File\030\001 \001(\t\022"
-    "\026\n\016PositionOffset\030\002 \001(\t\022\034\n\024IgnorePerVert"
-    "exColor\030\003 \001(\010\022=\n\016AverageNormals\030\004 \001(\0162%."
-    "xnormal.tHighPolyMesh.eSmoothNormals\022\017\n\007"
-    "Visible\030\005 \001(\010\022\025\n\rBaseTexIsTSNM\030\006 \001(\010\022\r\n\005"
-    "Scale\030\007 \001(\002\"|\n\016eSmoothNormals\022!\n\035eSmooth"
-    "Normals_AverageNormals\020\000\022 \n\034eSmoothNorma"
-    "ls_HardenNormals\020\001\022%\n!eSmoothNormals_Use"
-    "ExportedNormals\020\002\"\250\016\n\014tLowPolyMesh\022\017\n\007Ba"
-    "seTex\030\001 \001(\t\022\024\n\014BlockersFile\030\002 \001(\t\022=\n\014VVD"
-    "MSwizzleZ\030\003 \001(\0162\'.xnormal.tLowPolyMesh.e"
-    "SwizzleComponent\022\036\n\026FresnelRefractiveInd"
-    "ex\030\004 \001(\002\022\017\n\007UOffset\030\005 \001(\002\022\026\n\016ReflectHDRM"
-    "ult\030\006 \001(\002\022A\n\020TransparencyMode\030\007 \001(\0162\'.xn"
-    "ormal.tLowPolyMesh.eTransparencyMode\022\017\n\007"
-    "VOffset\030\010 \001(\002\022\022\n\nReflectTex\030\t \001(\t\022\033\n\023Max"
-    "RayDistanceFront\030\n \001(\002\022\024\n\014DiffuseGITex\030\013"
-    " \001(\t\022;\n\rNormapMapType\030\014 \001(\0162$.xnormal.tL"
-    "owPolyMesh.eNormalMapType\022\014\n\004File\030\r \001(\t\022"
-    "=\n\014VVDMSwizzleY\030\016 \001(\0162\'.xnormal.tLowPoly"
-    "Mesh.eSwizzleComponent\022\020\n\010CageFile\030\017 \001(\t"
-    "\022\021\n\tHeightTex\030\020 \001(\t\022;\n\nNMSwizzleY\030\021 \001(\0162"
-    "\'.xnormal.tLowPolyMesh.eSwizzleComponent"
-    "\022\024\n\014BatchProtect\030\022 \001(\010\022\026\n\016AlphaTestValue"
-    "\030\023 \001(\014\022\024\n\014Subdivisions\030\024 \001(\r\022\r\n\005Matte\030\025 "
-    "\001(\010\022\026\n\016AverageNormals\030\026 \001(\010\022\034\n\024VectorDis"
-    "placementTS\030\027 \001(\010\022\017\n\007UseCage\030\030 \001(\010\022\017\n\007Vi"
-    "sible\030\031 \001(\010\022;\n\nNMSwizzleX\030\032 \001(\0162\'.xnorma"
-    "l.tLowPolyMesh.eSwizzleComponent\022\020\n\010Glos"
-    "sTex\030\033 \001(\t\022\r\n\005Scale\030\034 \001(\002\022;\n\nNMSwizzleZ\030"
-    "\035 \001(\0162\'.xnormal.tLowPolyMesh.eSwizzleCom"
-    "ponent\022\035\n\025VectorDisplacementTex\030\036 \001(\t\022=\n"
-    "\014VVDMSwizzleX\030\037 \001(\0162\'.xnormal.tLowPolyMe"
-    "sh.eSwizzleComponent\022\032\n\022UsePerVertexColo"
-    "rs\030  \001(\010\022+\n#HighpolyNormalsOverrideTange"
-    "ntSpace\030! \001(\010\022\017\n\007LMAOTex\030\" \001(\t\022\017\n\007SpecTe"
-    "x\030# \001(\t\022\017\n\007NormTex\030$ \001(\t\0228\n\026HighpolyNorm"
-    "alOverride\030% \001(\0132\030.xnormal.UnspecifiedTy"
-    "pe\022\026\n\016PositionOffset\030& \001(\t\022\032\n\022MaxRayDist"
-    "anceBack\030\' \001(\002\022\022\n\nUseFresnel\030( \001(\010\022\026\n\016Re"
-    "ceiveShadows\030) \001(\010\022\023\n\013EmissiveTex\030* \001(\t\022"
-    "\024\n\014BackfaceCull\030+ \001(\010\022\023\n\013CastShadows\030, \001"
-    "(\010\022\020\n\010MatchUVs\030- \001(\010\"\257\001\n\021eSwizzleCompone"
-    "nt\022\030\n\024eSwizzleComponent_X0\020\000\022\030\n\024eSwizzle"
-    "Component_X1\020\001\022\030\n\024eSwizzleComponent_Y0\020\002"
-    "\022\030\n\024eSwizzleComponent_Y1\020\003\022\030\n\024eSwizzleCo"
-    "mponent_Z0\020\004\022\030\n\024eSwizzleComponent_Z1\020\005\"\257"
-    "\001\n\021eTransparencyMode\022\032\n\026eTransparencyMod"
-    "e_1Bit\020\000\022\"\n\036eTransparencyMode_AdditiveGl"
-    "ow\020\001\022\033\n\027eTransparencyMode_Blend\020\002\022\032\n\026eTr"
-    "ansparencyMode_None\020\003\022!\n\035eTransparencyMo"
-    "de_ScreenGlass\020\004\"r\n\016eNormalMapType\022\035\n\031eN"
-    "ormalMapType_Derivative\020\000\022\037\n\033eNormalMapT"
-    "ype_Object_space\020\001\022 \n\034eNormalMapType_Tan"
-    "gent_space\020\002\"+\n\010tVector3\022\t\n\001x\030\001 \001(\002\022\t\n\001y"
-    "\030\002 \001(\002\022\t\n\001z\030\003 \001(\002\"\366(\n\rtGenerateMaps\022)\n\021N"
-    "MBackgroundColor\030\001 \001(\0132\016.xnormal.tRGB8\022)"
-    "\n\021HMBackgroundColor\030\002 \001(\0132\016.xnormal.tRGB"
-    "8\0227\n\037BakeHighpolyBaseTextureNoTexCol\030\003 \001"
-    "(\0132\016.xnormal.tRGB8\022>\n&BakeHighpolyBaseTe"
-    "xtureBackgroundColor\030\004 \001(\0132\016.xnormal.tRG"
-    "B8\0226\n\036RenderWireframeBackgroundColor\030\005 \001"
-    "(\0132\016.xnormal.tRGB8\022*\n\022RenderWireframeCol"
-    "\030\006 \001(\0132\016.xnormal.tRGB8\022#\n\013RenderCWCol\030\007 "
-    "\001(\0132\016.xnormal.tRGB8\022%\n\rRenderSeamCol\030\010 \001"
-    "(\0132\016.xnormal.tRGB8\022)\n\021RenderRayFailsCol\030"
-    "\t \001(\0132\016.xnormal.tRGB8\022\'\n\017AOOccludedColor"
-    "\030\n \001(\0132\016.xnormal.tRGB8\022)\n\021AOUnoccludedCo"
-    "lor\030\013 \001(\0132\016.xnormal.tRGB8\022)\n\021AOBackgroun"
-    "dColor\030\014 \001(\0132\016.xnormal.tRGB8\022+\n\023BentBack"
-    "groundColor\030\r \001(\0132\016.xnormal.tRGB8\022*\n\022PRT"
-    "BackgroundColor\030\016 \001(\0132\016.xnormal.tRGB8\0220\n"
-    "\030ConvexityBackgroundColor\030\017 \001(\0132\016.xnorma"
-    "l.tRGB8\0220\n\030ThicknessBackgroundColor\030\020 \001("
-    "\0132\016.xnormal.tRGB8\0220\n\030ProximityBackground"
-    "Color\030\021 \001(\0132\016.xnormal.tRGB8\022-\n\025CavityBac"
-    "kgroundColor\030\022 \001(\0132\016.xnormal.tRGB8\022*\n\022VD"
-    "MBackgroundColor\030\023 \001(\0132\016.xnormal.tRGB8\022,"
-    "\n\024RadNMBackgroundColor\030\024 \001(\0132\016.xnormal.t"
-    "RGB8\022+\n\023CurvBackgroundColor\030\025 \001(\0132\016.xnor"
-    "mal.tRGB8\022.\n\026DerivNMBackgroundColor\030\026 \001("
-    "\0132\016.xnormal.tRGB8\022.\n\026TransluBackgroundCo"
-    "lor\030\027 \001(\0132\016.xnormal.tRGB8\0226\n\036BakeHighpol"
-    "yVColsBackgroundCol\030\030 \001(\0132\016.xnormal.tRGB"
-    "8\022\026\n\016ClosestIfFails\030\031 \001(\010\022\034\n\024DirectionsT"
-    "onemapMax\030\032 \001(\002\022\025\n\rCurvMonocrome\030\033 \001(\010\022\016"
-    "\n\006AOBias\030\034 \001(\002\022\030\n\020BentTangentSpace\030\035 \001(\010"
-    "\022\022\n\nGenTranslu\030\036 \001(\010\022>\n\016AODistribution\030\037"
-    " \001(\0162&.xnormal.tGenerateMaps.eAODistribu"
-    "tion\022\024\n\014PRTThreshold\030  \001(\002\022\034\n\024Directions"
-    "TonemapMin\030! \001(\002\022@\n\020CurvDistribution\030\" \001"
-    "(\0162&.xnormal.tGenerateMaps.eAODistributi"
-    "on\022\022\n\nBentJitter\030# \001(\010\022@\n\020BentDistributi"
-    "on\030$ \001(\0162&.xnormal.tGenerateMaps.eAODist"
-    "ribution\022\037\n\027BakeHighpolyBaseTexture\030% \001("
-    "\010\022\024\n\014GenConvexity\030& \001(\010\022#\n\033RadiosityNorm"
-    "alsAttenLinear\030\' \001(\002\022\034\n\024TransluRaysPerSa"
-    "mple\030( \001(\r\022\032\n\022CurvSearchDistance\030) \001(\002\022:"
-    "\n\010SwizzleZ\030* \001(\0162(.xnormal.tGenerateMaps"
-    ".eSwizzleComponent\022\023\n\013TransluBias\030+ \001(\002\022"
-    "\033\n\023PRTLimitRayDistance\030, \001(\010\022\017\n\007GenBent\030"
-    "- \001(\010\022\032\n\022AOLimitRayDistance\030. \001(\010\022\031\n\021Cur"
-    "vRaysPerSample\030/ \001(\r\022L\n\034RadiosityNormals"
-    "Distribution\0300 \001(\0162&.xnormal.tGenerateMa"
-    "ps.eAODistribution\022%\n\035RadiosityNormalsRa"
-    "ysPerSample\0301 \001(\r\022\022\n\nCurvJitter\0302 \001(\010\022\024\n"
-    "\014TangentSpace\0303 \001(\010\022*\n\"RadiosityNormalsA"
-    "llowPureOcclusion\0304 \001(\010\022>\n\014BentSwizzleX\030"
-    "5 \001(\0162(.xnormal.tGenerateMaps.eSwizzleCo"
-    "mponent\022:\n\010SwizzleY\0306 \001(\0162(.xnormal.tGen"
-    "erateMaps.eSwizzleComponent\022\017\n\007GenCurv\0307"
-    " \001(\010\022\021\n\tPRTJitter\0308 \001(\010\022\030\n\020AOAttenCuadra"
-    "tic\0309 \001(\002\022\025\n\rBentConeAngle\030: \001(\002\022:\n\010Swiz"
-    "zleX\030; \001(\0162(.xnormal.tGenerateMaps.eSwiz"
-    "zleComponent\022\026\n\016RenderRayFails\030< \001(\010\022\032\n\022"
-    "CavitySearchRadius\030= \001(\002\022 \n\030RadiosityNor"
-    "malsEncodeAO\030> \001(\010\022\030\n\020TransluConeAngle\030\?"
-    " \001(\002\022\031\n\021BentRaysPerSample\030@ \001(\r\022\026\n\016Conve"
-    "xityScale\030A \001(\002\022!\n\031RadiosityNormalsConeA"
-    "ngle\030B \001(\002\022\014\n\004File\030C \001(\t\022\022\n\nGenDerivNM\030D"
-    " \001(\010\022\034\n\024BentLimitRayDistance\030E \001(\010\022\017\n\007PR"
-    "TBias\030F \001(\002\022\027\n\017RenderWireframe\030G \001(\010\022\024\n\014"
-    "PRTNormalize\030H \001(\010\022\r\n\005GenAO\030I \001(\010\022\024\n\014PRT"
-    "ConeAngle\030J \001(\002\022\016\n\006Height\030K \001(\r\022&\n\036Radio"
-    "sityNormalsAttenCuadratic\030L \001(\002\022B\n\021Direc"
-    "tionsTonemap\030M \001(\0162\'.xnormal.tGenerateMa"
-    "ps.eHMNormalization\022\024\n\014DirectionsTS\030N \001("
-    "\010\022\030\n\020PRTRaysPerSample\030O \001(\r\022\023\n\013EdgePaddi"
-    "ng\030P \001(\r\022D\n\022DirectionsSwizzleZ\030Q \001(\0162(.x"
-    "normal.tGenerateMaps.eSwizzleComponent\022\033"
-    "\n\023AOAllowPureOccluded\030R \001(\010\022\034\n\024AOIgnoreB"
-    "ackfaceHits\030S \001(\010\022\033\n\023CavityRaysPerSample"
-    "\030T \001(\r\022\027\n\017AOAttenConstant\030U \001(\002\022\024\n\014Cavit"
-    "yJitter\030V \001(\010\022\030\n\020HeightTonemapMax\030W \001(\002\022"
-    "\025\n\rGenDirections\030X \001(\010\022(\n RadiosityNorma"
-    "lsLimitRayDistance\030Y \001(\010\022\030\n\020HeightTonema"
-    "pMin\030Z \001(\002\022\036\n\026RadiosityNormalsJitter\030[ \001"
-    "(\010\022D\n\022DirectionsSwizzleY\030\\ \001(\0162(.xnormal"
-    ".tGenerateMaps.eSwizzleComponent\022\r\n\005Widt"
-    "h\030] \001(\r\0226\n.BakeHighpolyBaseTextureDrawOb"
-    "jectIDIfNoTexture\030^ \001(\010\022\021\n\tConcavity\030_ \001"
-    "(\010\022D\n\022DirectionsSwizzleX\030` \001(\0162(.xnormal"
-    ".tGenerateMaps.eSwizzleComponent\022\022\n\nGenN"
-    "ormals\030a \001(\010\022\036\n\026ProximityRaysPerSample\030b"
-    " \001(\r\022\022\n\nGenHeights\030c \001(\010\022%\n\035RadiosityNor"
-    "malsAttenConstant\030d \001(\002\022\024\n\014GenProximity\030"
-    "e \001(\010\022\016\n\006GenPRT\030f \001(\010\022\026\n\016CavityContrast\030"
-    "g \001(\002\022E\n\030RadiosityNormalsCoordSys\030h \001(\0162"
-    "#.xnormal.tGenerateMaps.eRNMCoordSys\022\025\n\r"
-    "TransluJitter\030i \001(\010\022\027\n\017AORaysPerSample\030j"
-    " \001(\r\022\020\n\010BentBias\030k \001(\002\022\037\n\027DiscardRayBack"
-    "FacesHits\030l \001(\010\022\023\n\013AOConeAngle\030m \001(\002\022>\n\014"
-    "BentSwizzleY\030n \001(\0162(.xnormal.tGenerateMa"
-    "ps.eSwizzleComponent\022\034\n\024RadiosityNormals"
-    "Bias\030o \001(\002\022 \n\030RadiosityNormalsContrast\030p"
-    " \001(\002\022\023\n\013CavitySteps\030q \001(\r\0220\n\002AA\030r \001(\0162$."
-    "xnormal.tGenerateMaps.eAntialiasing\022>\n\014B"
-    "entSwizzleZ\030s \001(\0162(.xnormal.tGenerateMap"
-    "s.eSwizzleComponent\022\022\n\nBucketSize\030t \001(\r\022"
-    "\025\n\rCurvConeAngle\030u \001(\002\022\023\n\013TransluDist\030v "
-    "\001(\002\022\020\n\010AOJitter\030w \001(\010\022\020\n\010CurvBias\030x \001(\002\022"
-    "\023\n\013GenWireRays\030y \001(\010\022<\n\rCurvAlgorithm\030z "
-    "\001(\0162%.xnormal.tGenerateMaps.eCurvAlgorit"
-    "hm\022C\n\023TransluDistribution\030{ \001(\0162&.xnorma"
-    "l.tGenerateMaps.eAODistribution\022\025\n\rAOAtt"
-    "enLinear\030| \001(\002\022!\n\031ProximityLimitRayDista"
-    "nce\030} \001(\010\022\033\n\023GenRadiosityNormals\030~ \001(\010\022\032"
-    "\n\022ProximityConeAngle\030\177 \001(\002\022\?\n\rHeightTone"
-    "map\030\200\001 \001(\0162\'.xnormal.tGenerateMaps.eHMNo"
-    "rmalization\022\022\n\tGenCavity\030\201\001 \001(\010\022\032\n\021BakeH"
-    "ighpolyVCols\030\202\001 \001(\010\"h\n\017eAODistribution\022\032"
-    "\n\026eAODistribution_Cosine\020\000\022\034\n\030eAODistrib"
-    "ution_CosineSq\020\001\022\033\n\027eAODistribution_Unif"
-    "orm\020\002\"\257\001\n\021eSwizzleComponent\022\030\n\024eSwizzleC"
-    "omponent_X0\020\000\022\030\n\024eSwizzleComponent_X1\020\001\022"
-    "\030\n\024eSwizzleComponent_Y0\020\002\022\030\n\024eSwizzleCom"
-    "ponent_Y1\020\003\022\030\n\024eSwizzleComponent_Z0\020\004\022\030\n"
-    "\024eSwizzleComponent_Z1\020\005\"k\n\020eHMNormalizat"
-    "ion\022 \n\034eHMNormalization_Interactive\020\000\022\033\n"
-    "\027eHMNormalization_Manual\020\001\022\030\n\024eHMNormali"
-    "zation_Raw\020\002\"Y\n\014eRNMCoordSys\022\025\n\021eRNMCoor"
-    "dSys_AliB\020\000\022\031\n\025eRNMCoordSys_Direct3D\020\001\022\027"
-    "\n\023eRNMCoordSys_OpenGL\020\002\"N\n\reAntialiasing"
-    "\022\023\n\017eAntialiasing_1\020\000\022\023\n\017eAntialiasing_2"
-    "\020\001\022\023\n\017eAntialiasing_4\020\002\"I\n\016eCurvAlgorith"
-    "m\022\032\n\026eCurvAlgorithm_Average\020\000\022\033\n\027eCurvAl"
-    "gorithm_Gaussian\020\001\"a\n\016tHighPolyModel\022$\n\004"
-    "Mesh\030\001 \003(\0132\026.xnormal.tHighPolyMesh\022\017\n\007Ba"
-    "seTex\030\002 \001(\t\022\030\n\020DefaultMeshScale\030\003 \001(\002\"N\n"
-    "\rtLowPolyModel\022#\n\004Mesh\030\001 \003(\0132\025.xnormal.t"
-    "LowPolyMesh\022\030\n\020DefaultMeshScale\030\002 \001(\002\"\214\t"
-    "\n\ttViewer3D\022)\n\021LightAmbientColor\030\001 \001(\0132\016"
-    ".xnormal.tRGB8\022)\n\021LightDiffuseColor\030\002 \001("
-    "\0132\016.xnormal.tRGB8\022*\n\022LightSpecularColor\030"
-    "\003 \001(\0132\016.xnormal.tRGB8\022+\n\023LightSecondaryC"
-    "olor\030\004 \001(\0132\016.xnormal.tRGB8\022*\n\022LightTerti"
-    "aryColor\030\005 \001(\0132\016.xnormal.tRGB8\022\'\n\017Backgr"
-    "oundColor\030\006 \001(\0132\016.xnormal.tRGB8\022!\n\tGridC"
-    "olor\030\007 \001(\0132\016.xnormal.tRGB8\022!\n\tCageColor\030"
-    "\010 \001(\0132\016.xnormal.tRGB8\022(\n\016CameraRotation\030"
-    "\t \001(\0132\020.xnormal.tMatrix\022)\n\016CameraPositio"
-    "n\030\n \001(\0132\021.xnormal.tVector3\022(\n\rLightPosit"
-    "ion\030\013 \001(\0132\021.xnormal.tVector3\022\017\n\007AxisScl\030"
-    "\014 \001(\002\022\026\n\016XemakosExample\030\r \001(\010\022\025\n\rShowWir"
-    "eframe\030\016 \001(\010\022\023\n\013CageOpacity\030\017 \001(\002\022\032\n\022Dif"
-    "fuseGIIntensity\030\020 \001(\002\022\016\n\006ShowAO\030\021 \001(\010\022\024\n"
-    "\014SSAOContrast\030\022 \001(\002\022\022\n\nShadowArea\030\023 \001(\002\022"
-    "\035\n\025LightIndiretIntensity\030\024 \001(\002\022\025\n\rShowHi"
-    "ghpolys\030\025 \001(\010\022\025\n\rShowStarfield\030\026 \001(\010\022\024\n\014"
-    "ShowBlockers\030\027 \001(\010\022\024\n\014HDRThreshold\030\030 \001(\002"
-    "\022\022\n\nSSAOBright\030\031 \001(\002\022\026\n\016SSAOBlurRadius\030\032"
-    " \001(\002\022\020\n\010ShowGrid\030\033 \001(\010\022\030\n\020ParallaxStreng"
-    "th\030\034 \001(\002\022\021\n\tSSAOAtten\030\035 \001(\002\022\033\n\023CameraOrb"
-    "itDistance\030\036 \001(\002\022\017\n\007UseGlow\030\037 \001(\010\022\023\n\013SSA"
-    "OEnabled\030  \001(\010\022\022\n\nShadowBias\030! \001(\002\022\022\n\nSS"
-    "AORadius\030\" \001(\002\022\026\n\016LightIntensity\030# \001(\002\022\020"
-    "\n\010Exposure\030$ \001(\002\022\035\n\025CameraOrbitAutoCente"
-    "r\030% \001(\010\022\023\n\013CastShadows\030& \001(\010\022\023\n\013ShowNorm"
-    "als\030\' \001(\010\022\034\n\024MaxTessellationLevel\030( \001(\003\022"
-    "\024\n\014ShowTangents\030) \001(\010\022\025\n\rGlowIntensity\030*"
-    " \001(\002\"\357\001\n\010Settings\022.\n\rHighPolyModel\030\001 \001(\013"
-    "2\027.xnormal.tHighPolyModel\022,\n\014LowPolyMode"
-    "l\030\002 \001(\0132\026.xnormal.tLowPolyModel\022,\n\014Gener"
-    "ateMaps\030\003 \001(\0132\026.xnormal.tGenerateMaps\022 \n"
-    "\006Detail\030\004 \001(\0132\020.xnormal.tDetail\022$\n\010Viewe"
-    "r3D\030\005 \001(\0132\022.xnormal.tViewer3D\022\017\n\007Version"
-    "\030\006 \001(\tB\n\252\002\007xnormalb\006proto3", 9586);
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
-    "xnormal.proto", &protobuf_RegisterTypes);
-  UnspecifiedType::default_instance_ = new UnspecifiedType();
-  tMatrix::default_instance_ = new tMatrix();
-  tDetail::default_instance_ = new tDetail();
-  tRGB8::default_instance_ = new tRGB8();
-  tHighPolyMesh::default_instance_ = new tHighPolyMesh();
-  tLowPolyMesh::default_instance_ = new tLowPolyMesh();
-  tVector3::default_instance_ = new tVector3();
-  tGenerateMaps::default_instance_ = new tGenerateMaps();
-  tHighPolyModel::default_instance_ = new tHighPolyModel();
-  tLowPolyModel::default_instance_ = new tLowPolyModel();
-  tViewer3D::default_instance_ = new tViewer3D();
-  Settings::default_instance_ = new Settings();
-  UnspecifiedType::default_instance_->InitAsDefaultInstance();
-  tMatrix::default_instance_->InitAsDefaultInstance();
-  tDetail::default_instance_->InitAsDefaultInstance();
-  tRGB8::default_instance_->InitAsDefaultInstance();
-  tHighPolyMesh::default_instance_->InitAsDefaultInstance();
-  tLowPolyMesh::default_instance_->InitAsDefaultInstance();
-  tVector3::default_instance_->InitAsDefaultInstance();
-  tGenerateMaps::default_instance_->InitAsDefaultInstance();
-  tHighPolyModel::default_instance_->InitAsDefaultInstance();
-  tLowPolyModel::default_instance_->InitAsDefaultInstance();
-  tViewer3D::default_instance_->InitAsDefaultInstance();
-  Settings::default_instance_->InitAsDefaultInstance();
-  ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_xnormal_2eproto);
+  ::google::protobuf::internal::InitProtobufDefaults();
+  _UnspecifiedType_default_instance_.DefaultConstruct();
+  _tMatrix_default_instance_.DefaultConstruct();
+  _tDetail_default_instance_.DefaultConstruct();
+  _tRGB8_default_instance_.DefaultConstruct();
+  _tHighPolyMesh_default_instance_.DefaultConstruct();
+  _tLowPolyMesh_default_instance_.DefaultConstruct();
+  _tVector3_default_instance_.DefaultConstruct();
+  _tGenerateMaps_default_instance_.DefaultConstruct();
+  _tHighPolyModel_default_instance_.DefaultConstruct();
+  _tLowPolyModel_default_instance_.DefaultConstruct();
+  _tViewer3D_default_instance_.DefaultConstruct();
+  _Settings_default_instance_.DefaultConstruct();
+  _tLowPolyMesh_default_instance_.get_mutable()->highpolynormaloverride_ = const_cast< ::xnormal::UnspecifiedType*>(
+      ::xnormal::UnspecifiedType::internal_default_instance());
+  _tGenerateMaps_default_instance_.get_mutable()->nmbackgroundcolor_ = const_cast< ::xnormal::tRGB8*>(
+      ::xnormal::tRGB8::internal_default_instance());
+  _tGenerateMaps_default_instance_.get_mutable()->hmbackgroundcolor_ = const_cast< ::xnormal::tRGB8*>(
+      ::xnormal::tRGB8::internal_default_instance());
+  _tGenerateMaps_default_instance_.get_mutable()->bakehighpolybasetexturenotexcol_ = const_cast< ::xnormal::tRGB8*>(
+      ::xnormal::tRGB8::internal_default_instance());
+  _tGenerateMaps_default_instance_.get_mutable()->bakehighpolybasetexturebackgroundcolor_ = const_cast< ::xnormal::tRGB8*>(
+      ::xnormal::tRGB8::internal_default_instance());
+  _tGenerateMaps_default_instance_.get_mutable()->renderwireframebackgroundcolor_ = const_cast< ::xnormal::tRGB8*>(
+      ::xnormal::tRGB8::internal_default_instance());
+  _tGenerateMaps_default_instance_.get_mutable()->renderwireframecol_ = const_cast< ::xnormal::tRGB8*>(
+      ::xnormal::tRGB8::internal_default_instance());
+  _tGenerateMaps_default_instance_.get_mutable()->rendercwcol_ = const_cast< ::xnormal::tRGB8*>(
+      ::xnormal::tRGB8::internal_default_instance());
+  _tGenerateMaps_default_instance_.get_mutable()->renderseamcol_ = const_cast< ::xnormal::tRGB8*>(
+      ::xnormal::tRGB8::internal_default_instance());
+  _tGenerateMaps_default_instance_.get_mutable()->renderrayfailscol_ = const_cast< ::xnormal::tRGB8*>(
+      ::xnormal::tRGB8::internal_default_instance());
+  _tGenerateMaps_default_instance_.get_mutable()->aooccludedcolor_ = const_cast< ::xnormal::tRGB8*>(
+      ::xnormal::tRGB8::internal_default_instance());
+  _tGenerateMaps_default_instance_.get_mutable()->aounoccludedcolor_ = const_cast< ::xnormal::tRGB8*>(
+      ::xnormal::tRGB8::internal_default_instance());
+  _tGenerateMaps_default_instance_.get_mutable()->aobackgroundcolor_ = const_cast< ::xnormal::tRGB8*>(
+      ::xnormal::tRGB8::internal_default_instance());
+  _tGenerateMaps_default_instance_.get_mutable()->bentbackgroundcolor_ = const_cast< ::xnormal::tRGB8*>(
+      ::xnormal::tRGB8::internal_default_instance());
+  _tGenerateMaps_default_instance_.get_mutable()->prtbackgroundcolor_ = const_cast< ::xnormal::tRGB8*>(
+      ::xnormal::tRGB8::internal_default_instance());
+  _tGenerateMaps_default_instance_.get_mutable()->convexitybackgroundcolor_ = const_cast< ::xnormal::tRGB8*>(
+      ::xnormal::tRGB8::internal_default_instance());
+  _tGenerateMaps_default_instance_.get_mutable()->thicknessbackgroundcolor_ = const_cast< ::xnormal::tRGB8*>(
+      ::xnormal::tRGB8::internal_default_instance());
+  _tGenerateMaps_default_instance_.get_mutable()->proximitybackgroundcolor_ = const_cast< ::xnormal::tRGB8*>(
+      ::xnormal::tRGB8::internal_default_instance());
+  _tGenerateMaps_default_instance_.get_mutable()->cavitybackgroundcolor_ = const_cast< ::xnormal::tRGB8*>(
+      ::xnormal::tRGB8::internal_default_instance());
+  _tGenerateMaps_default_instance_.get_mutable()->vdmbackgroundcolor_ = const_cast< ::xnormal::tRGB8*>(
+      ::xnormal::tRGB8::internal_default_instance());
+  _tGenerateMaps_default_instance_.get_mutable()->radnmbackgroundcolor_ = const_cast< ::xnormal::tRGB8*>(
+      ::xnormal::tRGB8::internal_default_instance());
+  _tGenerateMaps_default_instance_.get_mutable()->curvbackgroundcolor_ = const_cast< ::xnormal::tRGB8*>(
+      ::xnormal::tRGB8::internal_default_instance());
+  _tGenerateMaps_default_instance_.get_mutable()->derivnmbackgroundcolor_ = const_cast< ::xnormal::tRGB8*>(
+      ::xnormal::tRGB8::internal_default_instance());
+  _tGenerateMaps_default_instance_.get_mutable()->translubackgroundcolor_ = const_cast< ::xnormal::tRGB8*>(
+      ::xnormal::tRGB8::internal_default_instance());
+  _tGenerateMaps_default_instance_.get_mutable()->bakehighpolyvcolsbackgroundcol_ = const_cast< ::xnormal::tRGB8*>(
+      ::xnormal::tRGB8::internal_default_instance());
+  _tViewer3D_default_instance_.get_mutable()->lightambientcolor_ = const_cast< ::xnormal::tRGB8*>(
+      ::xnormal::tRGB8::internal_default_instance());
+  _tViewer3D_default_instance_.get_mutable()->lightdiffusecolor_ = const_cast< ::xnormal::tRGB8*>(
+      ::xnormal::tRGB8::internal_default_instance());
+  _tViewer3D_default_instance_.get_mutable()->lightspecularcolor_ = const_cast< ::xnormal::tRGB8*>(
+      ::xnormal::tRGB8::internal_default_instance());
+  _tViewer3D_default_instance_.get_mutable()->lightsecondarycolor_ = const_cast< ::xnormal::tRGB8*>(
+      ::xnormal::tRGB8::internal_default_instance());
+  _tViewer3D_default_instance_.get_mutable()->lighttertiarycolor_ = const_cast< ::xnormal::tRGB8*>(
+      ::xnormal::tRGB8::internal_default_instance());
+  _tViewer3D_default_instance_.get_mutable()->backgroundcolor_ = const_cast< ::xnormal::tRGB8*>(
+      ::xnormal::tRGB8::internal_default_instance());
+  _tViewer3D_default_instance_.get_mutable()->gridcolor_ = const_cast< ::xnormal::tRGB8*>(
+      ::xnormal::tRGB8::internal_default_instance());
+  _tViewer3D_default_instance_.get_mutable()->cagecolor_ = const_cast< ::xnormal::tRGB8*>(
+      ::xnormal::tRGB8::internal_default_instance());
+  _tViewer3D_default_instance_.get_mutable()->camerarotation_ = const_cast< ::xnormal::tMatrix*>(
+      ::xnormal::tMatrix::internal_default_instance());
+  _tViewer3D_default_instance_.get_mutable()->cameraposition_ = const_cast< ::xnormal::tVector3*>(
+      ::xnormal::tVector3::internal_default_instance());
+  _tViewer3D_default_instance_.get_mutable()->lightposition_ = const_cast< ::xnormal::tVector3*>(
+      ::xnormal::tVector3::internal_default_instance());
+  _Settings_default_instance_.get_mutable()->highpolymodel_ = const_cast< ::xnormal::tHighPolyModel*>(
+      ::xnormal::tHighPolyModel::internal_default_instance());
+  _Settings_default_instance_.get_mutable()->lowpolymodel_ = const_cast< ::xnormal::tLowPolyModel*>(
+      ::xnormal::tLowPolyModel::internal_default_instance());
+  _Settings_default_instance_.get_mutable()->generatemaps_ = const_cast< ::xnormal::tGenerateMaps*>(
+      ::xnormal::tGenerateMaps::internal_default_instance());
+  _Settings_default_instance_.get_mutable()->detail_ = const_cast< ::xnormal::tDetail*>(
+      ::xnormal::tDetail::internal_default_instance());
+  _Settings_default_instance_.get_mutable()->viewer3d_ = const_cast< ::xnormal::tViewer3D*>(
+      ::xnormal::tViewer3D::internal_default_instance());
 }
 
+void InitDefaults() {
+  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
+  ::google::protobuf::GoogleOnceInit(&once, &TableStruct::InitDefaultsImpl);
+}
+void AddDescriptorsImpl() {
+  InitDefaults();
+  static const char descriptor[] = {
+      "\n\rxnormal.proto\022\007xnormal\"9\n\017UnspecifiedT"
+      "ype\022\026\n\016baseObjectType\030\001 \001(\t\022\016\n\006object\030\002 "
+      "\001(\014\"~\n\007tMatrix\022\013\n\003e13\030\001 \001(\002\022\013\n\003e12\030\002 \001(\002"
+      "\022\013\n\003e23\030\003 \001(\002\022\013\n\003e31\030\004 \001(\002\022\013\n\003e11\030\005 \001(\002\022"
+      "\013\n\003e22\030\006 \001(\002\022\013\n\003e33\030\007 \001(\002\022\013\n\003e21\030\010 \001(\002\022\013"
+      "\n\003e32\030\t \001(\002\"\217\002\n\007tDetail\022-\n\006Method\030\001 \001(\0162"
+      "\035.xnormal.tDetail.eHM2NMMethod\022\r\n\005Scale\030"
+      "\002 \001(\002\022\014\n\004File\030\003 \001(\t\"\267\001\n\014eHM2NMMethod\022\024\n\020"
+      "eHM2NMMethod_3x3\020\000\022\031\n\025eHM2NMMethod_4Samp"
+      "les\020\001\022\024\n\020eHM2NMMethod_5x5\020\002\022\027\n\023eHM2NMMet"
+      "hod_PRE3x3\020\003\022\027\n\023eHM2NMMethod_PRE5x5\020\004\022\026\n"
+      "\022eHM2NMMethod_SO3x3\020\005\022\026\n\022eHM2NMMethod_SO"
+      "5x5\020\006\"(\n\005tRGB8\022\t\n\001R\030\001 \001(\r\022\t\n\001G\030\002 \001(\r\022\t\n\001"
+      "B\030\003 \001(\r\"\307\002\n\rtHighPolyMesh\022\014\n\004File\030\001 \001(\t\022"
+      "\026\n\016PositionOffset\030\002 \001(\t\022\034\n\024IgnorePerVert"
+      "exColor\030\003 \001(\010\022=\n\016AverageNormals\030\004 \001(\0162%."
+      "xnormal.tHighPolyMesh.eSmoothNormals\022\017\n\007"
+      "Visible\030\005 \001(\010\022\025\n\rBaseTexIsTSNM\030\006 \001(\010\022\r\n\005"
+      "Scale\030\007 \001(\002\"|\n\016eSmoothNormals\022!\n\035eSmooth"
+      "Normals_AverageNormals\020\000\022 \n\034eSmoothNorma"
+      "ls_HardenNormals\020\001\022%\n!eSmoothNormals_Use"
+      "ExportedNormals\020\002\"\250\016\n\014tLowPolyMesh\022\017\n\007Ba"
+      "seTex\030\001 \001(\t\022\024\n\014BlockersFile\030\002 \001(\t\022=\n\014VVD"
+      "MSwizzleZ\030\003 \001(\0162\'.xnormal.tLowPolyMesh.e"
+      "SwizzleComponent\022\036\n\026FresnelRefractiveInd"
+      "ex\030\004 \001(\002\022\017\n\007UOffset\030\005 \001(\002\022\026\n\016ReflectHDRM"
+      "ult\030\006 \001(\002\022A\n\020TransparencyMode\030\007 \001(\0162\'.xn"
+      "ormal.tLowPolyMesh.eTransparencyMode\022\017\n\007"
+      "VOffset\030\010 \001(\002\022\022\n\nReflectTex\030\t \001(\t\022\033\n\023Max"
+      "RayDistanceFront\030\n \001(\002\022\024\n\014DiffuseGITex\030\013"
+      " \001(\t\022;\n\rNormapMapType\030\014 \001(\0162$.xnormal.tL"
+      "owPolyMesh.eNormalMapType\022\014\n\004File\030\r \001(\t\022"
+      "=\n\014VVDMSwizzleY\030\016 \001(\0162\'.xnormal.tLowPoly"
+      "Mesh.eSwizzleComponent\022\020\n\010CageFile\030\017 \001(\t"
+      "\022\021\n\tHeightTex\030\020 \001(\t\022;\n\nNMSwizzleY\030\021 \001(\0162"
+      "\'.xnormal.tLowPolyMesh.eSwizzleComponent"
+      "\022\024\n\014BatchProtect\030\022 \001(\010\022\026\n\016AlphaTestValue"
+      "\030\023 \001(\014\022\024\n\014Subdivisions\030\024 \001(\r\022\r\n\005Matte\030\025 "
+      "\001(\010\022\026\n\016AverageNormals\030\026 \001(\010\022\034\n\024VectorDis"
+      "placementTS\030\027 \001(\010\022\017\n\007UseCage\030\030 \001(\010\022\017\n\007Vi"
+      "sible\030\031 \001(\010\022;\n\nNMSwizzleX\030\032 \001(\0162\'.xnorma"
+      "l.tLowPolyMesh.eSwizzleComponent\022\020\n\010Glos"
+      "sTex\030\033 \001(\t\022\r\n\005Scale\030\034 \001(\002\022;\n\nNMSwizzleZ\030"
+      "\035 \001(\0162\'.xnormal.tLowPolyMesh.eSwizzleCom"
+      "ponent\022\035\n\025VectorDisplacementTex\030\036 \001(\t\022=\n"
+      "\014VVDMSwizzleX\030\037 \001(\0162\'.xnormal.tLowPolyMe"
+      "sh.eSwizzleComponent\022\032\n\022UsePerVertexColo"
+      "rs\030  \001(\010\022+\n#HighpolyNormalsOverrideTange"
+      "ntSpace\030! \001(\010\022\017\n\007LMAOTex\030\" \001(\t\022\017\n\007SpecTe"
+      "x\030# \001(\t\022\017\n\007NormTex\030$ \001(\t\0228\n\026HighpolyNorm"
+      "alOverride\030% \001(\0132\030.xnormal.UnspecifiedTy"
+      "pe\022\026\n\016PositionOffset\030& \001(\t\022\032\n\022MaxRayDist"
+      "anceBack\030\' \001(\002\022\022\n\nUseFresnel\030( \001(\010\022\026\n\016Re"
+      "ceiveShadows\030) \001(\010\022\023\n\013EmissiveTex\030* \001(\t\022"
+      "\024\n\014BackfaceCull\030+ \001(\010\022\023\n\013CastShadows\030, \001"
+      "(\010\022\020\n\010MatchUVs\030- \001(\010\"\257\001\n\021eSwizzleCompone"
+      "nt\022\030\n\024eSwizzleComponent_X0\020\000\022\030\n\024eSwizzle"
+      "Component_X1\020\001\022\030\n\024eSwizzleComponent_Y0\020\002"
+      "\022\030\n\024eSwizzleComponent_Y1\020\003\022\030\n\024eSwizzleCo"
+      "mponent_Z0\020\004\022\030\n\024eSwizzleComponent_Z1\020\005\"\257"
+      "\001\n\021eTransparencyMode\022\032\n\026eTransparencyMod"
+      "e_1Bit\020\000\022\"\n\036eTransparencyMode_AdditiveGl"
+      "ow\020\001\022\033\n\027eTransparencyMode_Blend\020\002\022\032\n\026eTr"
+      "ansparencyMode_None\020\003\022!\n\035eTransparencyMo"
+      "de_ScreenGlass\020\004\"r\n\016eNormalMapType\022\035\n\031eN"
+      "ormalMapType_Derivative\020\000\022\037\n\033eNormalMapT"
+      "ype_Object_space\020\001\022 \n\034eNormalMapType_Tan"
+      "gent_space\020\002\"+\n\010tVector3\022\t\n\001x\030\001 \001(\002\022\t\n\001y"
+      "\030\002 \001(\002\022\t\n\001z\030\003 \001(\002\"\366(\n\rtGenerateMaps\022)\n\021N"
+      "MBackgroundColor\030\001 \001(\0132\016.xnormal.tRGB8\022)"
+      "\n\021HMBackgroundColor\030\002 \001(\0132\016.xnormal.tRGB"
+      "8\0227\n\037BakeHighpolyBaseTextureNoTexCol\030\003 \001"
+      "(\0132\016.xnormal.tRGB8\022>\n&BakeHighpolyBaseTe"
+      "xtureBackgroundColor\030\004 \001(\0132\016.xnormal.tRG"
+      "B8\0226\n\036RenderWireframeBackgroundColor\030\005 \001"
+      "(\0132\016.xnormal.tRGB8\022*\n\022RenderWireframeCol"
+      "\030\006 \001(\0132\016.xnormal.tRGB8\022#\n\013RenderCWCol\030\007 "
+      "\001(\0132\016.xnormal.tRGB8\022%\n\rRenderSeamCol\030\010 \001"
+      "(\0132\016.xnormal.tRGB8\022)\n\021RenderRayFailsCol\030"
+      "\t \001(\0132\016.xnormal.tRGB8\022\'\n\017AOOccludedColor"
+      "\030\n \001(\0132\016.xnormal.tRGB8\022)\n\021AOUnoccludedCo"
+      "lor\030\013 \001(\0132\016.xnormal.tRGB8\022)\n\021AOBackgroun"
+      "dColor\030\014 \001(\0132\016.xnormal.tRGB8\022+\n\023BentBack"
+      "groundColor\030\r \001(\0132\016.xnormal.tRGB8\022*\n\022PRT"
+      "BackgroundColor\030\016 \001(\0132\016.xnormal.tRGB8\0220\n"
+      "\030ConvexityBackgroundColor\030\017 \001(\0132\016.xnorma"
+      "l.tRGB8\0220\n\030ThicknessBackgroundColor\030\020 \001("
+      "\0132\016.xnormal.tRGB8\0220\n\030ProximityBackground"
+      "Color\030\021 \001(\0132\016.xnormal.tRGB8\022-\n\025CavityBac"
+      "kgroundColor\030\022 \001(\0132\016.xnormal.tRGB8\022*\n\022VD"
+      "MBackgroundColor\030\023 \001(\0132\016.xnormal.tRGB8\022,"
+      "\n\024RadNMBackgroundColor\030\024 \001(\0132\016.xnormal.t"
+      "RGB8\022+\n\023CurvBackgroundColor\030\025 \001(\0132\016.xnor"
+      "mal.tRGB8\022.\n\026DerivNMBackgroundColor\030\026 \001("
+      "\0132\016.xnormal.tRGB8\022.\n\026TransluBackgroundCo"
+      "lor\030\027 \001(\0132\016.xnormal.tRGB8\0226\n\036BakeHighpol"
+      "yVColsBackgroundCol\030\030 \001(\0132\016.xnormal.tRGB"
+      "8\022\026\n\016ClosestIfFails\030\031 \001(\010\022\034\n\024DirectionsT"
+      "onemapMax\030\032 \001(\002\022\025\n\rCurvMonocrome\030\033 \001(\010\022\016"
+      "\n\006AOBias\030\034 \001(\002\022\030\n\020BentTangentSpace\030\035 \001(\010"
+      "\022\022\n\nGenTranslu\030\036 \001(\010\022>\n\016AODistribution\030\037"
+      " \001(\0162&.xnormal.tGenerateMaps.eAODistribu"
+      "tion\022\024\n\014PRTThreshold\030  \001(\002\022\034\n\024Directions"
+      "TonemapMin\030! \001(\002\022@\n\020CurvDistribution\030\" \001"
+      "(\0162&.xnormal.tGenerateMaps.eAODistributi"
+      "on\022\022\n\nBentJitter\030# \001(\010\022@\n\020BentDistributi"
+      "on\030$ \001(\0162&.xnormal.tGenerateMaps.eAODist"
+      "ribution\022\037\n\027BakeHighpolyBaseTexture\030% \001("
+      "\010\022\024\n\014GenConvexity\030& \001(\010\022#\n\033RadiosityNorm"
+      "alsAttenLinear\030\' \001(\002\022\034\n\024TransluRaysPerSa"
+      "mple\030( \001(\r\022\032\n\022CurvSearchDistance\030) \001(\002\022:"
+      "\n\010SwizzleZ\030* \001(\0162(.xnormal.tGenerateMaps"
+      ".eSwizzleComponent\022\023\n\013TransluBias\030+ \001(\002\022"
+      "\033\n\023PRTLimitRayDistance\030, \001(\010\022\017\n\007GenBent\030"
+      "- \001(\010\022\032\n\022AOLimitRayDistance\030. \001(\010\022\031\n\021Cur"
+      "vRaysPerSample\030/ \001(\r\022L\n\034RadiosityNormals"
+      "Distribution\0300 \001(\0162&.xnormal.tGenerateMa"
+      "ps.eAODistribution\022%\n\035RadiosityNormalsRa"
+      "ysPerSample\0301 \001(\r\022\022\n\nCurvJitter\0302 \001(\010\022\024\n"
+      "\014TangentSpace\0303 \001(\010\022*\n\"RadiosityNormalsA"
+      "llowPureOcclusion\0304 \001(\010\022>\n\014BentSwizzleX\030"
+      "5 \001(\0162(.xnormal.tGenerateMaps.eSwizzleCo"
+      "mponent\022:\n\010SwizzleY\0306 \001(\0162(.xnormal.tGen"
+      "erateMaps.eSwizzleComponent\022\017\n\007GenCurv\0307"
+      " \001(\010\022\021\n\tPRTJitter\0308 \001(\010\022\030\n\020AOAttenCuadra"
+      "tic\0309 \001(\002\022\025\n\rBentConeAngle\030: \001(\002\022:\n\010Swiz"
+      "zleX\030; \001(\0162(.xnormal.tGenerateMaps.eSwiz"
+      "zleComponent\022\026\n\016RenderRayFails\030< \001(\010\022\032\n\022"
+      "CavitySearchRadius\030= \001(\002\022 \n\030RadiosityNor"
+      "malsEncodeAO\030> \001(\010\022\030\n\020TransluConeAngle\030\?"
+      " \001(\002\022\031\n\021BentRaysPerSample\030@ \001(\r\022\026\n\016Conve"
+      "xityScale\030A \001(\002\022!\n\031RadiosityNormalsConeA"
+      "ngle\030B \001(\002\022\014\n\004File\030C \001(\t\022\022\n\nGenDerivNM\030D"
+      " \001(\010\022\034\n\024BentLimitRayDistance\030E \001(\010\022\017\n\007PR"
+      "TBias\030F \001(\002\022\027\n\017RenderWireframe\030G \001(\010\022\024\n\014"
+      "PRTNormalize\030H \001(\010\022\r\n\005GenAO\030I \001(\010\022\024\n\014PRT"
+      "ConeAngle\030J \001(\002\022\016\n\006Height\030K \001(\r\022&\n\036Radio"
+      "sityNormalsAttenCuadratic\030L \001(\002\022B\n\021Direc"
+      "tionsTonemap\030M \001(\0162\'.xnormal.tGenerateMa"
+      "ps.eHMNormalization\022\024\n\014DirectionsTS\030N \001("
+      "\010\022\030\n\020PRTRaysPerSample\030O \001(\r\022\023\n\013EdgePaddi"
+      "ng\030P \001(\r\022D\n\022DirectionsSwizzleZ\030Q \001(\0162(.x"
+      "normal.tGenerateMaps.eSwizzleComponent\022\033"
+      "\n\023AOAllowPureOccluded\030R \001(\010\022\034\n\024AOIgnoreB"
+      "ackfaceHits\030S \001(\010\022\033\n\023CavityRaysPerSample"
+      "\030T \001(\r\022\027\n\017AOAttenConstant\030U \001(\002\022\024\n\014Cavit"
+      "yJitter\030V \001(\010\022\030\n\020HeightTonemapMax\030W \001(\002\022"
+      "\025\n\rGenDirections\030X \001(\010\022(\n RadiosityNorma"
+      "lsLimitRayDistance\030Y \001(\010\022\030\n\020HeightTonema"
+      "pMin\030Z \001(\002\022\036\n\026RadiosityNormalsJitter\030[ \001"
+      "(\010\022D\n\022DirectionsSwizzleY\030\\ \001(\0162(.xnormal"
+      ".tGenerateMaps.eSwizzleComponent\022\r\n\005Widt"
+      "h\030] \001(\r\0226\n.BakeHighpolyBaseTextureDrawOb"
+      "jectIDIfNoTexture\030^ \001(\010\022\021\n\tConcavity\030_ \001"
+      "(\010\022D\n\022DirectionsSwizzleX\030` \001(\0162(.xnormal"
+      ".tGenerateMaps.eSwizzleComponent\022\022\n\nGenN"
+      "ormals\030a \001(\010\022\036\n\026ProximityRaysPerSample\030b"
+      " \001(\r\022\022\n\nGenHeights\030c \001(\010\022%\n\035RadiosityNor"
+      "malsAttenConstant\030d \001(\002\022\024\n\014GenProximity\030"
+      "e \001(\010\022\016\n\006GenPRT\030f \001(\010\022\026\n\016CavityContrast\030"
+      "g \001(\002\022E\n\030RadiosityNormalsCoordSys\030h \001(\0162"
+      "#.xnormal.tGenerateMaps.eRNMCoordSys\022\025\n\r"
+      "TransluJitter\030i \001(\010\022\027\n\017AORaysPerSample\030j"
+      " \001(\r\022\020\n\010BentBias\030k \001(\002\022\037\n\027DiscardRayBack"
+      "FacesHits\030l \001(\010\022\023\n\013AOConeAngle\030m \001(\002\022>\n\014"
+      "BentSwizzleY\030n \001(\0162(.xnormal.tGenerateMa"
+      "ps.eSwizzleComponent\022\034\n\024RadiosityNormals"
+      "Bias\030o \001(\002\022 \n\030RadiosityNormalsContrast\030p"
+      " \001(\002\022\023\n\013CavitySteps\030q \001(\r\0220\n\002AA\030r \001(\0162$."
+      "xnormal.tGenerateMaps.eAntialiasing\022>\n\014B"
+      "entSwizzleZ\030s \001(\0162(.xnormal.tGenerateMap"
+      "s.eSwizzleComponent\022\022\n\nBucketSize\030t \001(\r\022"
+      "\025\n\rCurvConeAngle\030u \001(\002\022\023\n\013TransluDist\030v "
+      "\001(\002\022\020\n\010AOJitter\030w \001(\010\022\020\n\010CurvBias\030x \001(\002\022"
+      "\023\n\013GenWireRays\030y \001(\010\022<\n\rCurvAlgorithm\030z "
+      "\001(\0162%.xnormal.tGenerateMaps.eCurvAlgorit"
+      "hm\022C\n\023TransluDistribution\030{ \001(\0162&.xnorma"
+      "l.tGenerateMaps.eAODistribution\022\025\n\rAOAtt"
+      "enLinear\030| \001(\002\022!\n\031ProximityLimitRayDista"
+      "nce\030} \001(\010\022\033\n\023GenRadiosityNormals\030~ \001(\010\022\032"
+      "\n\022ProximityConeAngle\030\177 \001(\002\022\?\n\rHeightTone"
+      "map\030\200\001 \001(\0162\'.xnormal.tGenerateMaps.eHMNo"
+      "rmalization\022\022\n\tGenCavity\030\201\001 \001(\010\022\032\n\021BakeH"
+      "ighpolyVCols\030\202\001 \001(\010\"h\n\017eAODistribution\022\032"
+      "\n\026eAODistribution_Cosine\020\000\022\034\n\030eAODistrib"
+      "ution_CosineSq\020\001\022\033\n\027eAODistribution_Unif"
+      "orm\020\002\"\257\001\n\021eSwizzleComponent\022\030\n\024eSwizzleC"
+      "omponent_X0\020\000\022\030\n\024eSwizzleComponent_X1\020\001\022"
+      "\030\n\024eSwizzleComponent_Y0\020\002\022\030\n\024eSwizzleCom"
+      "ponent_Y1\020\003\022\030\n\024eSwizzleComponent_Z0\020\004\022\030\n"
+      "\024eSwizzleComponent_Z1\020\005\"k\n\020eHMNormalizat"
+      "ion\022 \n\034eHMNormalization_Interactive\020\000\022\033\n"
+      "\027eHMNormalization_Manual\020\001\022\030\n\024eHMNormali"
+      "zation_Raw\020\002\"Y\n\014eRNMCoordSys\022\025\n\021eRNMCoor"
+      "dSys_AliB\020\000\022\031\n\025eRNMCoordSys_Direct3D\020\001\022\027"
+      "\n\023eRNMCoordSys_OpenGL\020\002\"N\n\reAntialiasing"
+      "\022\023\n\017eAntialiasing_1\020\000\022\023\n\017eAntialiasing_2"
+      "\020\001\022\023\n\017eAntialiasing_4\020\002\"I\n\016eCurvAlgorith"
+      "m\022\032\n\026eCurvAlgorithm_Average\020\000\022\033\n\027eCurvAl"
+      "gorithm_Gaussian\020\001\"a\n\016tHighPolyModel\022$\n\004"
+      "Mesh\030\001 \003(\0132\026.xnormal.tHighPolyMesh\022\017\n\007Ba"
+      "seTex\030\002 \001(\t\022\030\n\020DefaultMeshScale\030\003 \001(\002\"N\n"
+      "\rtLowPolyModel\022#\n\004Mesh\030\001 \003(\0132\025.xnormal.t"
+      "LowPolyMesh\022\030\n\020DefaultMeshScale\030\002 \001(\002\"\214\t"
+      "\n\ttViewer3D\022)\n\021LightAmbientColor\030\001 \001(\0132\016"
+      ".xnormal.tRGB8\022)\n\021LightDiffuseColor\030\002 \001("
+      "\0132\016.xnormal.tRGB8\022*\n\022LightSpecularColor\030"
+      "\003 \001(\0132\016.xnormal.tRGB8\022+\n\023LightSecondaryC"
+      "olor\030\004 \001(\0132\016.xnormal.tRGB8\022*\n\022LightTerti"
+      "aryColor\030\005 \001(\0132\016.xnormal.tRGB8\022\'\n\017Backgr"
+      "oundColor\030\006 \001(\0132\016.xnormal.tRGB8\022!\n\tGridC"
+      "olor\030\007 \001(\0132\016.xnormal.tRGB8\022!\n\tCageColor\030"
+      "\010 \001(\0132\016.xnormal.tRGB8\022(\n\016CameraRotation\030"
+      "\t \001(\0132\020.xnormal.tMatrix\022)\n\016CameraPositio"
+      "n\030\n \001(\0132\021.xnormal.tVector3\022(\n\rLightPosit"
+      "ion\030\013 \001(\0132\021.xnormal.tVector3\022\017\n\007AxisScl\030"
+      "\014 \001(\002\022\026\n\016XemakosExample\030\r \001(\010\022\025\n\rShowWir"
+      "eframe\030\016 \001(\010\022\023\n\013CageOpacity\030\017 \001(\002\022\032\n\022Dif"
+      "fuseGIIntensity\030\020 \001(\002\022\016\n\006ShowAO\030\021 \001(\010\022\024\n"
+      "\014SSAOContrast\030\022 \001(\002\022\022\n\nShadowArea\030\023 \001(\002\022"
+      "\035\n\025LightIndiretIntensity\030\024 \001(\002\022\025\n\rShowHi"
+      "ghpolys\030\025 \001(\010\022\025\n\rShowStarfield\030\026 \001(\010\022\024\n\014"
+      "ShowBlockers\030\027 \001(\010\022\024\n\014HDRThreshold\030\030 \001(\002"
+      "\022\022\n\nSSAOBright\030\031 \001(\002\022\026\n\016SSAOBlurRadius\030\032"
+      " \001(\002\022\020\n\010ShowGrid\030\033 \001(\010\022\030\n\020ParallaxStreng"
+      "th\030\034 \001(\002\022\021\n\tSSAOAtten\030\035 \001(\002\022\033\n\023CameraOrb"
+      "itDistance\030\036 \001(\002\022\017\n\007UseGlow\030\037 \001(\010\022\023\n\013SSA"
+      "OEnabled\030  \001(\010\022\022\n\nShadowBias\030! \001(\002\022\022\n\nSS"
+      "AORadius\030\" \001(\002\022\026\n\016LightIntensity\030# \001(\002\022\020"
+      "\n\010Exposure\030$ \001(\002\022\035\n\025CameraOrbitAutoCente"
+      "r\030% \001(\010\022\023\n\013CastShadows\030& \001(\010\022\023\n\013ShowNorm"
+      "als\030\' \001(\010\022\034\n\024MaxTessellationLevel\030( \001(\003\022"
+      "\024\n\014ShowTangents\030) \001(\010\022\025\n\rGlowIntensity\030*"
+      " \001(\002\"\357\001\n\010Settings\022.\n\rHighPolyModel\030\001 \001(\013"
+      "2\027.xnormal.tHighPolyModel\022,\n\014LowPolyMode"
+      "l\030\002 \001(\0132\026.xnormal.tLowPolyModel\022,\n\014Gener"
+      "ateMaps\030\003 \001(\0132\026.xnormal.tGenerateMaps\022 \n"
+      "\006Detail\030\004 \001(\0132\020.xnormal.tDetail\022$\n\010Viewe"
+      "r3D\030\005 \001(\0132\022.xnormal.tViewer3D\022\017\n\007Version"
+      "\030\006 \001(\tB\n\252\002\007xnormalb\006proto3"
+  };
+  ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
+      descriptor, 9586);
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
+    "xnormal.proto", &protobuf_RegisterTypes);
+  ::google::protobuf::internal::OnShutdown(&TableStruct::Shutdown);
+}
+
+void AddDescriptors() {
+  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
+  ::google::protobuf::GoogleOnceInit(&once, &AddDescriptorsImpl);
+}
 // Force AddDescriptors() to be called at static initialization time.
-struct StaticDescriptorInitializer_xnormal_2eproto {
-  StaticDescriptorInitializer_xnormal_2eproto() {
-    protobuf_AddDesc_xnormal_2eproto();
+struct StaticDescriptorInitializer {
+  StaticDescriptorInitializer() {
+    AddDescriptors();
   }
-} static_descriptor_initializer_xnormal_2eproto_;
+} static_descriptor_initializer;
+
+}  // namespace protobuf_xnormal_2eproto
+
+const ::google::protobuf::EnumDescriptor* tDetail_eHM2NMMethod_descriptor() {
+  protobuf_xnormal_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_xnormal_2eproto::file_level_enum_descriptors[0];
+}
+bool tDetail_eHM2NMMethod_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+    case 6:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const tDetail_eHM2NMMethod tDetail::eHM2NMMethod_3x3;
+const tDetail_eHM2NMMethod tDetail::eHM2NMMethod_4Samples;
+const tDetail_eHM2NMMethod tDetail::eHM2NMMethod_5x5;
+const tDetail_eHM2NMMethod tDetail::eHM2NMMethod_PRE3x3;
+const tDetail_eHM2NMMethod tDetail::eHM2NMMethod_PRE5x5;
+const tDetail_eHM2NMMethod tDetail::eHM2NMMethod_SO3x3;
+const tDetail_eHM2NMMethod tDetail::eHM2NMMethod_SO5x5;
+const tDetail_eHM2NMMethod tDetail::eHM2NMMethod_MIN;
+const tDetail_eHM2NMMethod tDetail::eHM2NMMethod_MAX;
+const int tDetail::eHM2NMMethod_ARRAYSIZE;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+const ::google::protobuf::EnumDescriptor* tHighPolyMesh_eSmoothNormals_descriptor() {
+  protobuf_xnormal_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_xnormal_2eproto::file_level_enum_descriptors[1];
+}
+bool tHighPolyMesh_eSmoothNormals_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const tHighPolyMesh_eSmoothNormals tHighPolyMesh::eSmoothNormals_AverageNormals;
+const tHighPolyMesh_eSmoothNormals tHighPolyMesh::eSmoothNormals_HardenNormals;
+const tHighPolyMesh_eSmoothNormals tHighPolyMesh::eSmoothNormals_UseExportedNormals;
+const tHighPolyMesh_eSmoothNormals tHighPolyMesh::eSmoothNormals_MIN;
+const tHighPolyMesh_eSmoothNormals tHighPolyMesh::eSmoothNormals_MAX;
+const int tHighPolyMesh::eSmoothNormals_ARRAYSIZE;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+const ::google::protobuf::EnumDescriptor* tLowPolyMesh_eSwizzleComponent_descriptor() {
+  protobuf_xnormal_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_xnormal_2eproto::file_level_enum_descriptors[2];
+}
+bool tLowPolyMesh_eSwizzleComponent_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const tLowPolyMesh_eSwizzleComponent tLowPolyMesh::eSwizzleComponent_X0;
+const tLowPolyMesh_eSwizzleComponent tLowPolyMesh::eSwizzleComponent_X1;
+const tLowPolyMesh_eSwizzleComponent tLowPolyMesh::eSwizzleComponent_Y0;
+const tLowPolyMesh_eSwizzleComponent tLowPolyMesh::eSwizzleComponent_Y1;
+const tLowPolyMesh_eSwizzleComponent tLowPolyMesh::eSwizzleComponent_Z0;
+const tLowPolyMesh_eSwizzleComponent tLowPolyMesh::eSwizzleComponent_Z1;
+const tLowPolyMesh_eSwizzleComponent tLowPolyMesh::eSwizzleComponent_MIN;
+const tLowPolyMesh_eSwizzleComponent tLowPolyMesh::eSwizzleComponent_MAX;
+const int tLowPolyMesh::eSwizzleComponent_ARRAYSIZE;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+const ::google::protobuf::EnumDescriptor* tLowPolyMesh_eTransparencyMode_descriptor() {
+  protobuf_xnormal_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_xnormal_2eproto::file_level_enum_descriptors[3];
+}
+bool tLowPolyMesh_eTransparencyMode_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const tLowPolyMesh_eTransparencyMode tLowPolyMesh::eTransparencyMode_1Bit;
+const tLowPolyMesh_eTransparencyMode tLowPolyMesh::eTransparencyMode_AdditiveGlow;
+const tLowPolyMesh_eTransparencyMode tLowPolyMesh::eTransparencyMode_Blend;
+const tLowPolyMesh_eTransparencyMode tLowPolyMesh::eTransparencyMode_None;
+const tLowPolyMesh_eTransparencyMode tLowPolyMesh::eTransparencyMode_ScreenGlass;
+const tLowPolyMesh_eTransparencyMode tLowPolyMesh::eTransparencyMode_MIN;
+const tLowPolyMesh_eTransparencyMode tLowPolyMesh::eTransparencyMode_MAX;
+const int tLowPolyMesh::eTransparencyMode_ARRAYSIZE;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+const ::google::protobuf::EnumDescriptor* tLowPolyMesh_eNormalMapType_descriptor() {
+  protobuf_xnormal_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_xnormal_2eproto::file_level_enum_descriptors[4];
+}
+bool tLowPolyMesh_eNormalMapType_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const tLowPolyMesh_eNormalMapType tLowPolyMesh::eNormalMapType_Derivative;
+const tLowPolyMesh_eNormalMapType tLowPolyMesh::eNormalMapType_Object_space;
+const tLowPolyMesh_eNormalMapType tLowPolyMesh::eNormalMapType_Tangent_space;
+const tLowPolyMesh_eNormalMapType tLowPolyMesh::eNormalMapType_MIN;
+const tLowPolyMesh_eNormalMapType tLowPolyMesh::eNormalMapType_MAX;
+const int tLowPolyMesh::eNormalMapType_ARRAYSIZE;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+const ::google::protobuf::EnumDescriptor* tGenerateMaps_eAODistribution_descriptor() {
+  protobuf_xnormal_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_xnormal_2eproto::file_level_enum_descriptors[5];
+}
+bool tGenerateMaps_eAODistribution_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const tGenerateMaps_eAODistribution tGenerateMaps::eAODistribution_Cosine;
+const tGenerateMaps_eAODistribution tGenerateMaps::eAODistribution_CosineSq;
+const tGenerateMaps_eAODistribution tGenerateMaps::eAODistribution_Uniform;
+const tGenerateMaps_eAODistribution tGenerateMaps::eAODistribution_MIN;
+const tGenerateMaps_eAODistribution tGenerateMaps::eAODistribution_MAX;
+const int tGenerateMaps::eAODistribution_ARRAYSIZE;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+const ::google::protobuf::EnumDescriptor* tGenerateMaps_eSwizzleComponent_descriptor() {
+  protobuf_xnormal_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_xnormal_2eproto::file_level_enum_descriptors[6];
+}
+bool tGenerateMaps_eSwizzleComponent_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const tGenerateMaps_eSwizzleComponent tGenerateMaps::eSwizzleComponent_X0;
+const tGenerateMaps_eSwizzleComponent tGenerateMaps::eSwizzleComponent_X1;
+const tGenerateMaps_eSwizzleComponent tGenerateMaps::eSwizzleComponent_Y0;
+const tGenerateMaps_eSwizzleComponent tGenerateMaps::eSwizzleComponent_Y1;
+const tGenerateMaps_eSwizzleComponent tGenerateMaps::eSwizzleComponent_Z0;
+const tGenerateMaps_eSwizzleComponent tGenerateMaps::eSwizzleComponent_Z1;
+const tGenerateMaps_eSwizzleComponent tGenerateMaps::eSwizzleComponent_MIN;
+const tGenerateMaps_eSwizzleComponent tGenerateMaps::eSwizzleComponent_MAX;
+const int tGenerateMaps::eSwizzleComponent_ARRAYSIZE;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+const ::google::protobuf::EnumDescriptor* tGenerateMaps_eHMNormalization_descriptor() {
+  protobuf_xnormal_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_xnormal_2eproto::file_level_enum_descriptors[7];
+}
+bool tGenerateMaps_eHMNormalization_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const tGenerateMaps_eHMNormalization tGenerateMaps::eHMNormalization_Interactive;
+const tGenerateMaps_eHMNormalization tGenerateMaps::eHMNormalization_Manual;
+const tGenerateMaps_eHMNormalization tGenerateMaps::eHMNormalization_Raw;
+const tGenerateMaps_eHMNormalization tGenerateMaps::eHMNormalization_MIN;
+const tGenerateMaps_eHMNormalization tGenerateMaps::eHMNormalization_MAX;
+const int tGenerateMaps::eHMNormalization_ARRAYSIZE;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+const ::google::protobuf::EnumDescriptor* tGenerateMaps_eRNMCoordSys_descriptor() {
+  protobuf_xnormal_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_xnormal_2eproto::file_level_enum_descriptors[8];
+}
+bool tGenerateMaps_eRNMCoordSys_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const tGenerateMaps_eRNMCoordSys tGenerateMaps::eRNMCoordSys_AliB;
+const tGenerateMaps_eRNMCoordSys tGenerateMaps::eRNMCoordSys_Direct3D;
+const tGenerateMaps_eRNMCoordSys tGenerateMaps::eRNMCoordSys_OpenGL;
+const tGenerateMaps_eRNMCoordSys tGenerateMaps::eRNMCoordSys_MIN;
+const tGenerateMaps_eRNMCoordSys tGenerateMaps::eRNMCoordSys_MAX;
+const int tGenerateMaps::eRNMCoordSys_ARRAYSIZE;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+const ::google::protobuf::EnumDescriptor* tGenerateMaps_eAntialiasing_descriptor() {
+  protobuf_xnormal_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_xnormal_2eproto::file_level_enum_descriptors[9];
+}
+bool tGenerateMaps_eAntialiasing_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const tGenerateMaps_eAntialiasing tGenerateMaps::eAntialiasing_1;
+const tGenerateMaps_eAntialiasing tGenerateMaps::eAntialiasing_2;
+const tGenerateMaps_eAntialiasing tGenerateMaps::eAntialiasing_4;
+const tGenerateMaps_eAntialiasing tGenerateMaps::eAntialiasing_MIN;
+const tGenerateMaps_eAntialiasing tGenerateMaps::eAntialiasing_MAX;
+const int tGenerateMaps::eAntialiasing_ARRAYSIZE;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+const ::google::protobuf::EnumDescriptor* tGenerateMaps_eCurvAlgorithm_descriptor() {
+  protobuf_xnormal_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_xnormal_2eproto::file_level_enum_descriptors[10];
+}
+bool tGenerateMaps_eCurvAlgorithm_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const tGenerateMaps_eCurvAlgorithm tGenerateMaps::eCurvAlgorithm_Average;
+const tGenerateMaps_eCurvAlgorithm tGenerateMaps::eCurvAlgorithm_Gaussian;
+const tGenerateMaps_eCurvAlgorithm tGenerateMaps::eCurvAlgorithm_MIN;
+const tGenerateMaps_eCurvAlgorithm tGenerateMaps::eCurvAlgorithm_MAX;
+const int tGenerateMaps::eCurvAlgorithm_ARRAYSIZE;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 // ===================================================================
 
@@ -874,28 +1092,32 @@ const int UnspecifiedType::kObjectFieldNumber;
 
 UnspecifiedType::UnspecifiedType()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_xnormal_2eproto::InitDefaults();
+  }
   SharedCtor();
   // @@protoc_insertion_point(constructor:xnormal.UnspecifiedType)
 }
-
-void UnspecifiedType::InitAsDefaultInstance() {
-  _is_default_instance_ = true;
-}
-
 UnspecifiedType::UnspecifiedType(const UnspecifiedType& from)
   : ::google::protobuf::Message(),
-    _internal_metadata_(NULL) {
-  SharedCtor();
-  MergeFrom(from);
+      _internal_metadata_(NULL),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  baseobjecttype_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.baseobjecttype().size() > 0) {
+    baseobjecttype_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.baseobjecttype_);
+  }
+  object_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.object().size() > 0) {
+    object_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.object_);
+  }
   // @@protoc_insertion_point(copy_constructor:xnormal.UnspecifiedType)
 }
 
 void UnspecifiedType::SharedCtor() {
-    _is_default_instance_ = false;
-  ::google::protobuf::internal::GetEmptyString();
-  _cached_size_ = 0;
   baseobjecttype_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   object_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  _cached_size_ = 0;
 }
 
 UnspecifiedType::~UnspecifiedType() {
@@ -906,8 +1128,6 @@ UnspecifiedType::~UnspecifiedType() {
 void UnspecifiedType::SharedDtor() {
   baseobjecttype_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   object_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (this != default_instance_) {
-  }
 }
 
 void UnspecifiedType::SetCachedSize(int size) const {
@@ -916,16 +1136,14 @@ void UnspecifiedType::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
 const ::google::protobuf::Descriptor* UnspecifiedType::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return UnspecifiedType_descriptor_;
+  protobuf_xnormal_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_xnormal_2eproto::file_level_metadata[0].descriptor;
 }
 
 const UnspecifiedType& UnspecifiedType::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_xnormal_2eproto();
-  return *default_instance_;
+  protobuf_xnormal_2eproto::InitDefaults();
+  return *internal_default_instance();
 }
-
-UnspecifiedType* UnspecifiedType::default_instance_ = NULL;
 
 UnspecifiedType* UnspecifiedType::New(::google::protobuf::Arena* arena) const {
   UnspecifiedType* n = new UnspecifiedType;
@@ -947,13 +1165,13 @@ bool UnspecifiedType::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:xnormal.UnspecifiedType)
   for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional string baseObjectType = 1;
+      // string baseObjectType = 1;
       case 1: {
-        if (tag == 10) {
+        if (tag == 10u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_baseobjecttype()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -963,20 +1181,17 @@ bool UnspecifiedType::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(18)) goto parse_object;
         break;
       }
 
-      // optional bytes object = 2;
+      // bytes object = 2;
       case 2: {
-        if (tag == 18) {
-         parse_object:
+        if (tag == 18u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
                 input, this->mutable_object()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectAtEnd()) goto success;
         break;
       }
 
@@ -1004,7 +1219,7 @@ failure:
 void UnspecifiedType::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:xnormal.UnspecifiedType)
-  // optional string baseObjectType = 1;
+  // string baseObjectType = 1;
   if (this->baseobjecttype().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->baseobjecttype().data(), this->baseobjecttype().length(),
@@ -1014,7 +1229,7 @@ void UnspecifiedType::SerializeWithCachedSizes(
       1, this->baseobjecttype(), output);
   }
 
-  // optional bytes object = 2;
+  // bytes object = 2;
   if (this->object().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
       2, this->object(), output);
@@ -1025,9 +1240,9 @@ void UnspecifiedType::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* UnspecifiedType::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
+  (void)deterministic;  // Unused
   // @@protoc_insertion_point(serialize_to_array_start:xnormal.UnspecifiedType)
-  // optional string baseObjectType = 1;
+  // string baseObjectType = 1;
   if (this->baseobjecttype().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->baseobjecttype().data(), this->baseobjecttype().length(),
@@ -1038,7 +1253,7 @@ void UnspecifiedType::SerializeWithCachedSizes(
         1, this->baseobjecttype(), target);
   }
 
-  // optional bytes object = 2;
+  // bytes object = 2;
   if (this->object().size() > 0) {
     target =
       ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
@@ -1049,36 +1264,35 @@ void UnspecifiedType::SerializeWithCachedSizes(
   return target;
 }
 
-int UnspecifiedType::ByteSize() const {
+size_t UnspecifiedType::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:xnormal.UnspecifiedType)
-  int total_size = 0;
+  size_t total_size = 0;
 
-  // optional string baseObjectType = 1;
+  // string baseObjectType = 1;
   if (this->baseobjecttype().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->baseobjecttype());
   }
 
-  // optional bytes object = 2;
+  // bytes object = 2;
   if (this->object().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::BytesSize(
         this->object());
   }
 
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
+  _cached_size_ = cached_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void UnspecifiedType::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:xnormal.UnspecifiedType)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
-  const UnspecifiedType* source = 
+  GOOGLE_DCHECK_NE(&from, this);
+  const UnspecifiedType* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const UnspecifiedType>(
           &from);
   if (source == NULL) {
@@ -1092,9 +1306,8 @@ void UnspecifiedType::MergeFrom(const ::google::protobuf::Message& from) {
 
 void UnspecifiedType::MergeFrom(const UnspecifiedType& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:xnormal.UnspecifiedType)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
   if (from.baseobjecttype().size() > 0) {
 
     baseobjecttype_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.baseobjecttype_);
@@ -1120,7 +1333,6 @@ void UnspecifiedType::CopyFrom(const UnspecifiedType& from) {
 }
 
 bool UnspecifiedType::IsInitialized() const {
-
   return true;
 }
 
@@ -1131,56 +1343,60 @@ void UnspecifiedType::Swap(UnspecifiedType* other) {
 void UnspecifiedType::InternalSwap(UnspecifiedType* other) {
   baseobjecttype_.Swap(&other->baseobjecttype_);
   object_.Swap(&other->object_);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
 
 ::google::protobuf::Metadata UnspecifiedType::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = UnspecifiedType_descriptor_;
-  metadata.reflection = UnspecifiedType_reflection_;
-  return metadata;
+  protobuf_xnormal_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_xnormal_2eproto::file_level_metadata[0];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // UnspecifiedType
 
-// optional string baseObjectType = 1;
+// string baseObjectType = 1;
 void UnspecifiedType::clear_baseobjecttype() {
   baseobjecttype_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- const ::std::string& UnspecifiedType::baseobjecttype() const {
+const ::std::string& UnspecifiedType::baseobjecttype() const {
   // @@protoc_insertion_point(field_get:xnormal.UnspecifiedType.baseObjectType)
-  return baseobjecttype_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return baseobjecttype_.GetNoArena();
 }
- void UnspecifiedType::set_baseobjecttype(const ::std::string& value) {
+void UnspecifiedType::set_baseobjecttype(const ::std::string& value) {
   
   baseobjecttype_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:xnormal.UnspecifiedType.baseObjectType)
 }
- void UnspecifiedType::set_baseobjecttype(const char* value) {
+#if LANG_CXX11
+void UnspecifiedType::set_baseobjecttype(::std::string&& value) {
+  
+  baseobjecttype_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:xnormal.UnspecifiedType.baseObjectType)
+}
+#endif
+void UnspecifiedType::set_baseobjecttype(const char* value) {
   
   baseobjecttype_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:xnormal.UnspecifiedType.baseObjectType)
 }
- void UnspecifiedType::set_baseobjecttype(const char* value, size_t size) {
+void UnspecifiedType::set_baseobjecttype(const char* value, size_t size) {
   
   baseobjecttype_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:xnormal.UnspecifiedType.baseObjectType)
 }
- ::std::string* UnspecifiedType::mutable_baseobjecttype() {
+::std::string* UnspecifiedType::mutable_baseobjecttype() {
   
   // @@protoc_insertion_point(field_mutable:xnormal.UnspecifiedType.baseObjectType)
   return baseobjecttype_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* UnspecifiedType::release_baseobjecttype() {
+::std::string* UnspecifiedType::release_baseobjecttype() {
   // @@protoc_insertion_point(field_release:xnormal.UnspecifiedType.baseObjectType)
   
   return baseobjecttype_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void UnspecifiedType::set_allocated_baseobjecttype(::std::string* baseobjecttype) {
+void UnspecifiedType::set_allocated_baseobjecttype(::std::string* baseobjecttype) {
   if (baseobjecttype != NULL) {
     
   } else {
@@ -1190,41 +1406,49 @@ void UnspecifiedType::clear_baseobjecttype() {
   // @@protoc_insertion_point(field_set_allocated:xnormal.UnspecifiedType.baseObjectType)
 }
 
-// optional bytes object = 2;
+// bytes object = 2;
 void UnspecifiedType::clear_object() {
   object_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- const ::std::string& UnspecifiedType::object() const {
+const ::std::string& UnspecifiedType::object() const {
   // @@protoc_insertion_point(field_get:xnormal.UnspecifiedType.object)
-  return object_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return object_.GetNoArena();
 }
- void UnspecifiedType::set_object(const ::std::string& value) {
+void UnspecifiedType::set_object(const ::std::string& value) {
   
   object_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:xnormal.UnspecifiedType.object)
 }
- void UnspecifiedType::set_object(const char* value) {
+#if LANG_CXX11
+void UnspecifiedType::set_object(::std::string&& value) {
+  
+  object_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:xnormal.UnspecifiedType.object)
+}
+#endif
+void UnspecifiedType::set_object(const char* value) {
   
   object_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:xnormal.UnspecifiedType.object)
 }
- void UnspecifiedType::set_object(const void* value, size_t size) {
+void UnspecifiedType::set_object(const void* value, size_t size) {
   
   object_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:xnormal.UnspecifiedType.object)
 }
- ::std::string* UnspecifiedType::mutable_object() {
+::std::string* UnspecifiedType::mutable_object() {
   
   // @@protoc_insertion_point(field_mutable:xnormal.UnspecifiedType.object)
   return object_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* UnspecifiedType::release_object() {
+::std::string* UnspecifiedType::release_object() {
   // @@protoc_insertion_point(field_release:xnormal.UnspecifiedType.object)
   
   return object_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void UnspecifiedType::set_allocated_object(::std::string* object) {
+void UnspecifiedType::set_allocated_object(::std::string* object) {
   if (object != NULL) {
     
   } else {
@@ -1252,34 +1476,27 @@ const int tMatrix::kE32FieldNumber;
 
 tMatrix::tMatrix()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_xnormal_2eproto::InitDefaults();
+  }
   SharedCtor();
   // @@protoc_insertion_point(constructor:xnormal.tMatrix)
 }
-
-void tMatrix::InitAsDefaultInstance() {
-  _is_default_instance_ = true;
-}
-
 tMatrix::tMatrix(const tMatrix& from)
   : ::google::protobuf::Message(),
-    _internal_metadata_(NULL) {
-  SharedCtor();
-  MergeFrom(from);
+      _internal_metadata_(NULL),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::memcpy(&e13_, &from.e13_,
+    reinterpret_cast<char*>(&e32_) -
+    reinterpret_cast<char*>(&e13_) + sizeof(e32_));
   // @@protoc_insertion_point(copy_constructor:xnormal.tMatrix)
 }
 
 void tMatrix::SharedCtor() {
-    _is_default_instance_ = false;
+  ::memset(&e13_, 0, reinterpret_cast<char*>(&e32_) -
+    reinterpret_cast<char*>(&e13_) + sizeof(e32_));
   _cached_size_ = 0;
-  e13_ = 0;
-  e12_ = 0;
-  e23_ = 0;
-  e31_ = 0;
-  e11_ = 0;
-  e22_ = 0;
-  e33_ = 0;
-  e21_ = 0;
-  e32_ = 0;
 }
 
 tMatrix::~tMatrix() {
@@ -1288,8 +1505,6 @@ tMatrix::~tMatrix() {
 }
 
 void tMatrix::SharedDtor() {
-  if (this != default_instance_) {
-  }
 }
 
 void tMatrix::SetCachedSize(int size) const {
@@ -1298,16 +1513,14 @@ void tMatrix::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
 const ::google::protobuf::Descriptor* tMatrix::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return tMatrix_descriptor_;
+  protobuf_xnormal_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_xnormal_2eproto::file_level_metadata[1].descriptor;
 }
 
 const tMatrix& tMatrix::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_xnormal_2eproto();
-  return *default_instance_;
+  protobuf_xnormal_2eproto::InitDefaults();
+  return *internal_default_instance();
 }
-
-tMatrix* tMatrix::default_instance_ = NULL;
 
 tMatrix* tMatrix::New(::google::protobuf::Arena* arena) const {
   tMatrix* n = new tMatrix;
@@ -1319,28 +1532,8 @@ tMatrix* tMatrix::New(::google::protobuf::Arena* arena) const {
 
 void tMatrix::Clear() {
 // @@protoc_insertion_point(message_clear_start:xnormal.tMatrix)
-#if defined(__clang__)
-#define ZR_HELPER_(f) \
-  _Pragma("clang diagnostic push") \
-  _Pragma("clang diagnostic ignored \"-Winvalid-offsetof\"") \
-  __builtin_offsetof(tMatrix, f) \
-  _Pragma("clang diagnostic pop")
-#else
-#define ZR_HELPER_(f) reinterpret_cast<char*>(\
-  &reinterpret_cast<tMatrix*>(16)->f)
-#endif
-
-#define ZR_(first, last) do {\
-  ::memset(&first, 0,\
-           ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
-} while (0)
-
-  ZR_(e13_, e21_);
-  e32_ = 0;
-
-#undef ZR_HELPER_
-#undef ZR_
-
+  ::memset(&e13_, 0, reinterpret_cast<char*>(&e32_) -
+    reinterpret_cast<char*>(&e13_) + sizeof(e32_));
 }
 
 bool tMatrix::MergePartialFromCodedStream(
@@ -1349,141 +1542,124 @@ bool tMatrix::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:xnormal.tMatrix)
   for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional float e13 = 1;
+      // float e13 = 1;
       case 1: {
-        if (tag == 13) {
+        if (tag == 13u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &e13_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(21)) goto parse_e12;
         break;
       }
 
-      // optional float e12 = 2;
+      // float e12 = 2;
       case 2: {
-        if (tag == 21) {
-         parse_e12:
+        if (tag == 21u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &e12_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(29)) goto parse_e23;
         break;
       }
 
-      // optional float e23 = 3;
+      // float e23 = 3;
       case 3: {
-        if (tag == 29) {
-         parse_e23:
+        if (tag == 29u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &e23_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(37)) goto parse_e31;
         break;
       }
 
-      // optional float e31 = 4;
+      // float e31 = 4;
       case 4: {
-        if (tag == 37) {
-         parse_e31:
+        if (tag == 37u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &e31_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(45)) goto parse_e11;
         break;
       }
 
-      // optional float e11 = 5;
+      // float e11 = 5;
       case 5: {
-        if (tag == 45) {
-         parse_e11:
+        if (tag == 45u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &e11_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(53)) goto parse_e22;
         break;
       }
 
-      // optional float e22 = 6;
+      // float e22 = 6;
       case 6: {
-        if (tag == 53) {
-         parse_e22:
+        if (tag == 53u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &e22_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(61)) goto parse_e33;
         break;
       }
 
-      // optional float e33 = 7;
+      // float e33 = 7;
       case 7: {
-        if (tag == 61) {
-         parse_e33:
+        if (tag == 61u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &e33_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(69)) goto parse_e21;
         break;
       }
 
-      // optional float e21 = 8;
+      // float e21 = 8;
       case 8: {
-        if (tag == 69) {
-         parse_e21:
+        if (tag == 69u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &e21_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(77)) goto parse_e32;
         break;
       }
 
-      // optional float e32 = 9;
+      // float e32 = 9;
       case 9: {
-        if (tag == 77) {
-         parse_e32:
+        if (tag == 77u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &e32_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectAtEnd()) goto success;
         break;
       }
 
@@ -1511,47 +1687,47 @@ failure:
 void tMatrix::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:xnormal.tMatrix)
-  // optional float e13 = 1;
+  // float e13 = 1;
   if (this->e13() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(1, this->e13(), output);
   }
 
-  // optional float e12 = 2;
+  // float e12 = 2;
   if (this->e12() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(2, this->e12(), output);
   }
 
-  // optional float e23 = 3;
+  // float e23 = 3;
   if (this->e23() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(3, this->e23(), output);
   }
 
-  // optional float e31 = 4;
+  // float e31 = 4;
   if (this->e31() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(4, this->e31(), output);
   }
 
-  // optional float e11 = 5;
+  // float e11 = 5;
   if (this->e11() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(5, this->e11(), output);
   }
 
-  // optional float e22 = 6;
+  // float e22 = 6;
   if (this->e22() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(6, this->e22(), output);
   }
 
-  // optional float e33 = 7;
+  // float e33 = 7;
   if (this->e33() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(7, this->e33(), output);
   }
 
-  // optional float e21 = 8;
+  // float e21 = 8;
   if (this->e21() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(8, this->e21(), output);
   }
 
-  // optional float e32 = 9;
+  // float e32 = 9;
   if (this->e32() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(9, this->e32(), output);
   }
@@ -1561,49 +1737,49 @@ void tMatrix::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* tMatrix::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
+  (void)deterministic;  // Unused
   // @@protoc_insertion_point(serialize_to_array_start:xnormal.tMatrix)
-  // optional float e13 = 1;
+  // float e13 = 1;
   if (this->e13() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(1, this->e13(), target);
   }
 
-  // optional float e12 = 2;
+  // float e12 = 2;
   if (this->e12() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(2, this->e12(), target);
   }
 
-  // optional float e23 = 3;
+  // float e23 = 3;
   if (this->e23() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(3, this->e23(), target);
   }
 
-  // optional float e31 = 4;
+  // float e31 = 4;
   if (this->e31() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(4, this->e31(), target);
   }
 
-  // optional float e11 = 5;
+  // float e11 = 5;
   if (this->e11() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(5, this->e11(), target);
   }
 
-  // optional float e22 = 6;
+  // float e22 = 6;
   if (this->e22() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(6, this->e22(), target);
   }
 
-  // optional float e33 = 7;
+  // float e33 = 7;
   if (this->e33() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(7, this->e33(), target);
   }
 
-  // optional float e21 = 8;
+  // float e21 = 8;
   if (this->e21() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(8, this->e21(), target);
   }
 
-  // optional float e32 = 9;
+  // float e32 = 9;
   if (this->e32() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(9, this->e32(), target);
   }
@@ -1612,67 +1788,66 @@ void tMatrix::SerializeWithCachedSizes(
   return target;
 }
 
-int tMatrix::ByteSize() const {
+size_t tMatrix::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:xnormal.tMatrix)
-  int total_size = 0;
+  size_t total_size = 0;
 
-  // optional float e13 = 1;
+  // float e13 = 1;
   if (this->e13() != 0) {
     total_size += 1 + 4;
   }
 
-  // optional float e12 = 2;
+  // float e12 = 2;
   if (this->e12() != 0) {
     total_size += 1 + 4;
   }
 
-  // optional float e23 = 3;
+  // float e23 = 3;
   if (this->e23() != 0) {
     total_size += 1 + 4;
   }
 
-  // optional float e31 = 4;
+  // float e31 = 4;
   if (this->e31() != 0) {
     total_size += 1 + 4;
   }
 
-  // optional float e11 = 5;
+  // float e11 = 5;
   if (this->e11() != 0) {
     total_size += 1 + 4;
   }
 
-  // optional float e22 = 6;
+  // float e22 = 6;
   if (this->e22() != 0) {
     total_size += 1 + 4;
   }
 
-  // optional float e33 = 7;
+  // float e33 = 7;
   if (this->e33() != 0) {
     total_size += 1 + 4;
   }
 
-  // optional float e21 = 8;
+  // float e21 = 8;
   if (this->e21() != 0) {
     total_size += 1 + 4;
   }
 
-  // optional float e32 = 9;
+  // float e32 = 9;
   if (this->e32() != 0) {
     total_size += 1 + 4;
   }
 
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
+  _cached_size_ = cached_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void tMatrix::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:xnormal.tMatrix)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
-  const tMatrix* source = 
+  GOOGLE_DCHECK_NE(&from, this);
+  const tMatrix* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const tMatrix>(
           &from);
   if (source == NULL) {
@@ -1686,9 +1861,8 @@ void tMatrix::MergeFrom(const ::google::protobuf::Message& from) {
 
 void tMatrix::MergeFrom(const tMatrix& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:xnormal.tMatrix)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
   if (from.e13() != 0) {
     set_e13(from.e13());
   }
@@ -1733,7 +1907,6 @@ void tMatrix::CopyFrom(const tMatrix& from) {
 }
 
 bool tMatrix::IsInitialized() const {
-
   return true;
 }
 
@@ -1751,142 +1924,138 @@ void tMatrix::InternalSwap(tMatrix* other) {
   std::swap(e33_, other->e33_);
   std::swap(e21_, other->e21_);
   std::swap(e32_, other->e32_);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
 
 ::google::protobuf::Metadata tMatrix::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = tMatrix_descriptor_;
-  metadata.reflection = tMatrix_reflection_;
-  return metadata;
+  protobuf_xnormal_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_xnormal_2eproto::file_level_metadata[1];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // tMatrix
 
-// optional float e13 = 1;
+// float e13 = 1;
 void tMatrix::clear_e13() {
   e13_ = 0;
 }
- float tMatrix::e13() const {
+float tMatrix::e13() const {
   // @@protoc_insertion_point(field_get:xnormal.tMatrix.e13)
   return e13_;
 }
- void tMatrix::set_e13(float value) {
+void tMatrix::set_e13(float value) {
   
   e13_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tMatrix.e13)
 }
 
-// optional float e12 = 2;
+// float e12 = 2;
 void tMatrix::clear_e12() {
   e12_ = 0;
 }
- float tMatrix::e12() const {
+float tMatrix::e12() const {
   // @@protoc_insertion_point(field_get:xnormal.tMatrix.e12)
   return e12_;
 }
- void tMatrix::set_e12(float value) {
+void tMatrix::set_e12(float value) {
   
   e12_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tMatrix.e12)
 }
 
-// optional float e23 = 3;
+// float e23 = 3;
 void tMatrix::clear_e23() {
   e23_ = 0;
 }
- float tMatrix::e23() const {
+float tMatrix::e23() const {
   // @@protoc_insertion_point(field_get:xnormal.tMatrix.e23)
   return e23_;
 }
- void tMatrix::set_e23(float value) {
+void tMatrix::set_e23(float value) {
   
   e23_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tMatrix.e23)
 }
 
-// optional float e31 = 4;
+// float e31 = 4;
 void tMatrix::clear_e31() {
   e31_ = 0;
 }
- float tMatrix::e31() const {
+float tMatrix::e31() const {
   // @@protoc_insertion_point(field_get:xnormal.tMatrix.e31)
   return e31_;
 }
- void tMatrix::set_e31(float value) {
+void tMatrix::set_e31(float value) {
   
   e31_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tMatrix.e31)
 }
 
-// optional float e11 = 5;
+// float e11 = 5;
 void tMatrix::clear_e11() {
   e11_ = 0;
 }
- float tMatrix::e11() const {
+float tMatrix::e11() const {
   // @@protoc_insertion_point(field_get:xnormal.tMatrix.e11)
   return e11_;
 }
- void tMatrix::set_e11(float value) {
+void tMatrix::set_e11(float value) {
   
   e11_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tMatrix.e11)
 }
 
-// optional float e22 = 6;
+// float e22 = 6;
 void tMatrix::clear_e22() {
   e22_ = 0;
 }
- float tMatrix::e22() const {
+float tMatrix::e22() const {
   // @@protoc_insertion_point(field_get:xnormal.tMatrix.e22)
   return e22_;
 }
- void tMatrix::set_e22(float value) {
+void tMatrix::set_e22(float value) {
   
   e22_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tMatrix.e22)
 }
 
-// optional float e33 = 7;
+// float e33 = 7;
 void tMatrix::clear_e33() {
   e33_ = 0;
 }
- float tMatrix::e33() const {
+float tMatrix::e33() const {
   // @@protoc_insertion_point(field_get:xnormal.tMatrix.e33)
   return e33_;
 }
- void tMatrix::set_e33(float value) {
+void tMatrix::set_e33(float value) {
   
   e33_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tMatrix.e33)
 }
 
-// optional float e21 = 8;
+// float e21 = 8;
 void tMatrix::clear_e21() {
   e21_ = 0;
 }
- float tMatrix::e21() const {
+float tMatrix::e21() const {
   // @@protoc_insertion_point(field_get:xnormal.tMatrix.e21)
   return e21_;
 }
- void tMatrix::set_e21(float value) {
+void tMatrix::set_e21(float value) {
   
   e21_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tMatrix.e21)
 }
 
-// optional float e32 = 9;
+// float e32 = 9;
 void tMatrix::clear_e32() {
   e32_ = 0;
 }
- float tMatrix::e32() const {
+float tMatrix::e32() const {
   // @@protoc_insertion_point(field_get:xnormal.tMatrix.e32)
   return e32_;
 }
- void tMatrix::set_e32(float value) {
+void tMatrix::set_e32(float value) {
   
   e32_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tMatrix.e32)
@@ -1896,37 +2065,6 @@ void tMatrix::clear_e32() {
 
 // ===================================================================
 
-const ::google::protobuf::EnumDescriptor* tDetail_eHM2NMMethod_descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return tDetail_eHM2NMMethod_descriptor_;
-}
-bool tDetail_eHM2NMMethod_IsValid(int value) {
-  switch(value) {
-    case 0:
-    case 1:
-    case 2:
-    case 3:
-    case 4:
-    case 5:
-    case 6:
-      return true;
-    default:
-      return false;
-  }
-}
-
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
-const tDetail_eHM2NMMethod tDetail::eHM2NMMethod_3x3;
-const tDetail_eHM2NMMethod tDetail::eHM2NMMethod_4Samples;
-const tDetail_eHM2NMMethod tDetail::eHM2NMMethod_5x5;
-const tDetail_eHM2NMMethod tDetail::eHM2NMMethod_PRE3x3;
-const tDetail_eHM2NMMethod tDetail::eHM2NMMethod_PRE5x5;
-const tDetail_eHM2NMMethod tDetail::eHM2NMMethod_SO3x3;
-const tDetail_eHM2NMMethod tDetail::eHM2NMMethod_SO5x5;
-const tDetail_eHM2NMMethod tDetail::eHM2NMMethod_MIN;
-const tDetail_eHM2NMMethod tDetail::eHM2NMMethod_MAX;
-const int tDetail::eHM2NMMethod_ARRAYSIZE;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int tDetail::kMethodFieldNumber;
 const int tDetail::kScaleFieldNumber;
@@ -1935,29 +2073,32 @@ const int tDetail::kFileFieldNumber;
 
 tDetail::tDetail()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_xnormal_2eproto::InitDefaults();
+  }
   SharedCtor();
   // @@protoc_insertion_point(constructor:xnormal.tDetail)
 }
-
-void tDetail::InitAsDefaultInstance() {
-  _is_default_instance_ = true;
-}
-
 tDetail::tDetail(const tDetail& from)
   : ::google::protobuf::Message(),
-    _internal_metadata_(NULL) {
-  SharedCtor();
-  MergeFrom(from);
+      _internal_metadata_(NULL),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  file_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.file().size() > 0) {
+    file_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.file_);
+  }
+  ::memcpy(&method_, &from.method_,
+    reinterpret_cast<char*>(&scale_) -
+    reinterpret_cast<char*>(&method_) + sizeof(scale_));
   // @@protoc_insertion_point(copy_constructor:xnormal.tDetail)
 }
 
 void tDetail::SharedCtor() {
-    _is_default_instance_ = false;
-  ::google::protobuf::internal::GetEmptyString();
-  _cached_size_ = 0;
-  method_ = 0;
-  scale_ = 0;
   file_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(&method_, 0, reinterpret_cast<char*>(&scale_) -
+    reinterpret_cast<char*>(&method_) + sizeof(scale_));
+  _cached_size_ = 0;
 }
 
 tDetail::~tDetail() {
@@ -1967,8 +2108,6 @@ tDetail::~tDetail() {
 
 void tDetail::SharedDtor() {
   file_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (this != default_instance_) {
-  }
 }
 
 void tDetail::SetCachedSize(int size) const {
@@ -1977,16 +2116,14 @@ void tDetail::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
 const ::google::protobuf::Descriptor* tDetail::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return tDetail_descriptor_;
+  protobuf_xnormal_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_xnormal_2eproto::file_level_metadata[2].descriptor;
 }
 
 const tDetail& tDetail::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_xnormal_2eproto();
-  return *default_instance_;
+  protobuf_xnormal_2eproto::InitDefaults();
+  return *internal_default_instance();
 }
-
-tDetail* tDetail::default_instance_ = NULL;
 
 tDetail* tDetail::New(::google::protobuf::Arena* arena) const {
   tDetail* n = new tDetail;
@@ -1998,28 +2135,9 @@ tDetail* tDetail::New(::google::protobuf::Arena* arena) const {
 
 void tDetail::Clear() {
 // @@protoc_insertion_point(message_clear_start:xnormal.tDetail)
-#if defined(__clang__)
-#define ZR_HELPER_(f) \
-  _Pragma("clang diagnostic push") \
-  _Pragma("clang diagnostic ignored \"-Winvalid-offsetof\"") \
-  __builtin_offsetof(tDetail, f) \
-  _Pragma("clang diagnostic pop")
-#else
-#define ZR_HELPER_(f) reinterpret_cast<char*>(\
-  &reinterpret_cast<tDetail*>(16)->f)
-#endif
-
-#define ZR_(first, last) do {\
-  ::memset(&first, 0,\
-           ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
-} while (0)
-
-  ZR_(method_, scale_);
   file_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-
-#undef ZR_HELPER_
-#undef ZR_
-
+  ::memset(&method_, 0, reinterpret_cast<char*>(&scale_) -
+    reinterpret_cast<char*>(&method_) + sizeof(scale_));
 }
 
 bool tDetail::MergePartialFromCodedStream(
@@ -2028,13 +2146,13 @@ bool tDetail::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:xnormal.tDetail)
   for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional .xnormal.tDetail.eHM2NMMethod Method = 1;
+      // .xnormal.tDetail.eHM2NMMethod Method = 1;
       case 1: {
-        if (tag == 8) {
+        if (tag == 8u) {
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
@@ -2043,29 +2161,25 @@ bool tDetail::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(21)) goto parse_Scale;
         break;
       }
 
-      // optional float Scale = 2;
+      // float Scale = 2;
       case 2: {
-        if (tag == 21) {
-         parse_Scale:
+        if (tag == 21u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &scale_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(26)) goto parse_File;
         break;
       }
 
-      // optional string File = 3;
+      // string File = 3;
       case 3: {
-        if (tag == 26) {
-         parse_File:
+        if (tag == 26u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_file()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -2075,7 +2189,6 @@ bool tDetail::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectAtEnd()) goto success;
         break;
       }
 
@@ -2103,18 +2216,18 @@ failure:
 void tDetail::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:xnormal.tDetail)
-  // optional .xnormal.tDetail.eHM2NMMethod Method = 1;
+  // .xnormal.tDetail.eHM2NMMethod Method = 1;
   if (this->method() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       1, this->method(), output);
   }
 
-  // optional float Scale = 2;
+  // float Scale = 2;
   if (this->scale() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(2, this->scale(), output);
   }
 
-  // optional string File = 3;
+  // string File = 3;
   if (this->file().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->file().data(), this->file().length(),
@@ -2129,20 +2242,20 @@ void tDetail::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* tDetail::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
+  (void)deterministic;  // Unused
   // @@protoc_insertion_point(serialize_to_array_start:xnormal.tDetail)
-  // optional .xnormal.tDetail.eHM2NMMethod Method = 1;
+  // .xnormal.tDetail.eHM2NMMethod Method = 1;
   if (this->method() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       1, this->method(), target);
   }
 
-  // optional float Scale = 2;
+  // float Scale = 2;
   if (this->scale() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(2, this->scale(), target);
   }
 
-  // optional string File = 3;
+  // string File = 3;
   if (this->file().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->file().data(), this->file().length(),
@@ -2157,40 +2270,39 @@ void tDetail::SerializeWithCachedSizes(
   return target;
 }
 
-int tDetail::ByteSize() const {
+size_t tDetail::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:xnormal.tDetail)
-  int total_size = 0;
+  size_t total_size = 0;
 
-  // optional .xnormal.tDetail.eHM2NMMethod Method = 1;
-  if (this->method() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::EnumSize(this->method());
-  }
-
-  // optional float Scale = 2;
-  if (this->scale() != 0) {
-    total_size += 1 + 4;
-  }
-
-  // optional string File = 3;
+  // string File = 3;
   if (this->file().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->file());
   }
 
+  // .xnormal.tDetail.eHM2NMMethod Method = 1;
+  if (this->method() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->method());
+  }
+
+  // float Scale = 2;
+  if (this->scale() != 0) {
+    total_size += 1 + 4;
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
+  _cached_size_ = cached_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void tDetail::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:xnormal.tDetail)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
-  const tDetail* source = 
+  GOOGLE_DCHECK_NE(&from, this);
+  const tDetail* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const tDetail>(
           &from);
   if (source == NULL) {
@@ -2204,18 +2316,17 @@ void tDetail::MergeFrom(const ::google::protobuf::Message& from) {
 
 void tDetail::MergeFrom(const tDetail& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:xnormal.tDetail)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  if (from.file().size() > 0) {
+
+    file_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.file_);
   }
   if (from.method() != 0) {
     set_method(from.method());
   }
   if (from.scale() != 0) {
     set_scale(from.scale());
-  }
-  if (from.file().size() > 0) {
-
-    file_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.file_);
   }
 }
 
@@ -2234,7 +2345,6 @@ void tDetail::CopyFrom(const tDetail& from) {
 }
 
 bool tDetail::IsInitialized() const {
-
   return true;
 }
 
@@ -2243,87 +2353,91 @@ void tDetail::Swap(tDetail* other) {
   InternalSwap(other);
 }
 void tDetail::InternalSwap(tDetail* other) {
+  file_.Swap(&other->file_);
   std::swap(method_, other->method_);
   std::swap(scale_, other->scale_);
-  file_.Swap(&other->file_);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
 
 ::google::protobuf::Metadata tDetail::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = tDetail_descriptor_;
-  metadata.reflection = tDetail_reflection_;
-  return metadata;
+  protobuf_xnormal_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_xnormal_2eproto::file_level_metadata[2];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // tDetail
 
-// optional .xnormal.tDetail.eHM2NMMethod Method = 1;
+// .xnormal.tDetail.eHM2NMMethod Method = 1;
 void tDetail::clear_method() {
   method_ = 0;
 }
- ::xnormal::tDetail_eHM2NMMethod tDetail::method() const {
+::xnormal::tDetail_eHM2NMMethod tDetail::method() const {
   // @@protoc_insertion_point(field_get:xnormal.tDetail.Method)
   return static_cast< ::xnormal::tDetail_eHM2NMMethod >(method_);
 }
- void tDetail::set_method(::xnormal::tDetail_eHM2NMMethod value) {
+void tDetail::set_method(::xnormal::tDetail_eHM2NMMethod value) {
   
   method_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tDetail.Method)
 }
 
-// optional float Scale = 2;
+// float Scale = 2;
 void tDetail::clear_scale() {
   scale_ = 0;
 }
- float tDetail::scale() const {
+float tDetail::scale() const {
   // @@protoc_insertion_point(field_get:xnormal.tDetail.Scale)
   return scale_;
 }
- void tDetail::set_scale(float value) {
+void tDetail::set_scale(float value) {
   
   scale_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tDetail.Scale)
 }
 
-// optional string File = 3;
+// string File = 3;
 void tDetail::clear_file() {
   file_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- const ::std::string& tDetail::file() const {
+const ::std::string& tDetail::file() const {
   // @@protoc_insertion_point(field_get:xnormal.tDetail.File)
-  return file_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return file_.GetNoArena();
 }
- void tDetail::set_file(const ::std::string& value) {
+void tDetail::set_file(const ::std::string& value) {
   
   file_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:xnormal.tDetail.File)
 }
- void tDetail::set_file(const char* value) {
+#if LANG_CXX11
+void tDetail::set_file(::std::string&& value) {
+  
+  file_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:xnormal.tDetail.File)
+}
+#endif
+void tDetail::set_file(const char* value) {
   
   file_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:xnormal.tDetail.File)
 }
- void tDetail::set_file(const char* value, size_t size) {
+void tDetail::set_file(const char* value, size_t size) {
   
   file_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:xnormal.tDetail.File)
 }
- ::std::string* tDetail::mutable_file() {
+::std::string* tDetail::mutable_file() {
   
   // @@protoc_insertion_point(field_mutable:xnormal.tDetail.File)
   return file_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* tDetail::release_file() {
+::std::string* tDetail::release_file() {
   // @@protoc_insertion_point(field_release:xnormal.tDetail.File)
   
   return file_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void tDetail::set_allocated_file(::std::string* file) {
+void tDetail::set_allocated_file(::std::string* file) {
   if (file != NULL) {
     
   } else {
@@ -2345,28 +2459,27 @@ const int tRGB8::kBFieldNumber;
 
 tRGB8::tRGB8()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_xnormal_2eproto::InitDefaults();
+  }
   SharedCtor();
   // @@protoc_insertion_point(constructor:xnormal.tRGB8)
 }
-
-void tRGB8::InitAsDefaultInstance() {
-  _is_default_instance_ = true;
-}
-
 tRGB8::tRGB8(const tRGB8& from)
   : ::google::protobuf::Message(),
-    _internal_metadata_(NULL) {
-  SharedCtor();
-  MergeFrom(from);
+      _internal_metadata_(NULL),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::memcpy(&r_, &from.r_,
+    reinterpret_cast<char*>(&b_) -
+    reinterpret_cast<char*>(&r_) + sizeof(b_));
   // @@protoc_insertion_point(copy_constructor:xnormal.tRGB8)
 }
 
 void tRGB8::SharedCtor() {
-    _is_default_instance_ = false;
+  ::memset(&r_, 0, reinterpret_cast<char*>(&b_) -
+    reinterpret_cast<char*>(&r_) + sizeof(b_));
   _cached_size_ = 0;
-  r_ = 0u;
-  g_ = 0u;
-  b_ = 0u;
 }
 
 tRGB8::~tRGB8() {
@@ -2375,8 +2488,6 @@ tRGB8::~tRGB8() {
 }
 
 void tRGB8::SharedDtor() {
-  if (this != default_instance_) {
-  }
 }
 
 void tRGB8::SetCachedSize(int size) const {
@@ -2385,16 +2496,14 @@ void tRGB8::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
 const ::google::protobuf::Descriptor* tRGB8::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return tRGB8_descriptor_;
+  protobuf_xnormal_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_xnormal_2eproto::file_level_metadata[3].descriptor;
 }
 
 const tRGB8& tRGB8::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_xnormal_2eproto();
-  return *default_instance_;
+  protobuf_xnormal_2eproto::InitDefaults();
+  return *internal_default_instance();
 }
-
-tRGB8* tRGB8::default_instance_ = NULL;
 
 tRGB8* tRGB8::New(::google::protobuf::Arena* arena) const {
   tRGB8* n = new tRGB8;
@@ -2406,27 +2515,8 @@ tRGB8* tRGB8::New(::google::protobuf::Arena* arena) const {
 
 void tRGB8::Clear() {
 // @@protoc_insertion_point(message_clear_start:xnormal.tRGB8)
-#if defined(__clang__)
-#define ZR_HELPER_(f) \
-  _Pragma("clang diagnostic push") \
-  _Pragma("clang diagnostic ignored \"-Winvalid-offsetof\"") \
-  __builtin_offsetof(tRGB8, f) \
-  _Pragma("clang diagnostic pop")
-#else
-#define ZR_HELPER_(f) reinterpret_cast<char*>(\
-  &reinterpret_cast<tRGB8*>(16)->f)
-#endif
-
-#define ZR_(first, last) do {\
-  ::memset(&first, 0,\
-           ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
-} while (0)
-
-  ZR_(r_, b_);
-
-#undef ZR_HELPER_
-#undef ZR_
-
+  ::memset(&r_, 0, reinterpret_cast<char*>(&b_) -
+    reinterpret_cast<char*>(&r_) + sizeof(b_));
 }
 
 bool tRGB8::MergePartialFromCodedStream(
@@ -2435,51 +2525,46 @@ bool tRGB8::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:xnormal.tRGB8)
   for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional uint32 R = 1;
+      // uint32 R = 1;
       case 1: {
-        if (tag == 8) {
+        if (tag == 8u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &r_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(16)) goto parse_G;
         break;
       }
 
-      // optional uint32 G = 2;
+      // uint32 G = 2;
       case 2: {
-        if (tag == 16) {
-         parse_G:
+        if (tag == 16u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &g_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(24)) goto parse_B;
         break;
       }
 
-      // optional uint32 B = 3;
+      // uint32 B = 3;
       case 3: {
-        if (tag == 24) {
-         parse_B:
+        if (tag == 24u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &b_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectAtEnd()) goto success;
         break;
       }
 
@@ -2507,17 +2592,17 @@ failure:
 void tRGB8::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:xnormal.tRGB8)
-  // optional uint32 R = 1;
+  // uint32 R = 1;
   if (this->r() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->r(), output);
   }
 
-  // optional uint32 G = 2;
+  // uint32 G = 2;
   if (this->g() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->g(), output);
   }
 
-  // optional uint32 B = 3;
+  // uint32 B = 3;
   if (this->b() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->b(), output);
   }
@@ -2527,19 +2612,19 @@ void tRGB8::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* tRGB8::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
+  (void)deterministic;  // Unused
   // @@protoc_insertion_point(serialize_to_array_start:xnormal.tRGB8)
-  // optional uint32 R = 1;
+  // uint32 R = 1;
   if (this->r() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->r(), target);
   }
 
-  // optional uint32 G = 2;
+  // uint32 G = 2;
   if (this->g() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->g(), target);
   }
 
-  // optional uint32 B = 3;
+  // uint32 B = 3;
   if (this->b() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->b(), target);
   }
@@ -2548,43 +2633,42 @@ void tRGB8::SerializeWithCachedSizes(
   return target;
 }
 
-int tRGB8::ByteSize() const {
+size_t tRGB8::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:xnormal.tRGB8)
-  int total_size = 0;
+  size_t total_size = 0;
 
-  // optional uint32 R = 1;
+  // uint32 R = 1;
   if (this->r() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt32Size(
         this->r());
   }
 
-  // optional uint32 G = 2;
+  // uint32 G = 2;
   if (this->g() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt32Size(
         this->g());
   }
 
-  // optional uint32 B = 3;
+  // uint32 B = 3;
   if (this->b() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt32Size(
         this->b());
   }
 
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
+  _cached_size_ = cached_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void tRGB8::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:xnormal.tRGB8)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
-  const tRGB8* source = 
+  GOOGLE_DCHECK_NE(&from, this);
+  const tRGB8* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const tRGB8>(
           &from);
   if (source == NULL) {
@@ -2598,9 +2682,8 @@ void tRGB8::MergeFrom(const ::google::protobuf::Message& from) {
 
 void tRGB8::MergeFrom(const tRGB8& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:xnormal.tRGB8)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
   if (from.r() != 0) {
     set_r(from.r());
   }
@@ -2627,7 +2710,6 @@ void tRGB8::CopyFrom(const tRGB8& from) {
 }
 
 bool tRGB8::IsInitialized() const {
-
   return true;
 }
 
@@ -2639,58 +2721,54 @@ void tRGB8::InternalSwap(tRGB8* other) {
   std::swap(r_, other->r_);
   std::swap(g_, other->g_);
   std::swap(b_, other->b_);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
 
 ::google::protobuf::Metadata tRGB8::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = tRGB8_descriptor_;
-  metadata.reflection = tRGB8_reflection_;
-  return metadata;
+  protobuf_xnormal_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_xnormal_2eproto::file_level_metadata[3];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // tRGB8
 
-// optional uint32 R = 1;
+// uint32 R = 1;
 void tRGB8::clear_r() {
   r_ = 0u;
 }
- ::google::protobuf::uint32 tRGB8::r() const {
+::google::protobuf::uint32 tRGB8::r() const {
   // @@protoc_insertion_point(field_get:xnormal.tRGB8.R)
   return r_;
 }
- void tRGB8::set_r(::google::protobuf::uint32 value) {
+void tRGB8::set_r(::google::protobuf::uint32 value) {
   
   r_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tRGB8.R)
 }
 
-// optional uint32 G = 2;
+// uint32 G = 2;
 void tRGB8::clear_g() {
   g_ = 0u;
 }
- ::google::protobuf::uint32 tRGB8::g() const {
+::google::protobuf::uint32 tRGB8::g() const {
   // @@protoc_insertion_point(field_get:xnormal.tRGB8.G)
   return g_;
 }
- void tRGB8::set_g(::google::protobuf::uint32 value) {
+void tRGB8::set_g(::google::protobuf::uint32 value) {
   
   g_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tRGB8.G)
 }
 
-// optional uint32 B = 3;
+// uint32 B = 3;
 void tRGB8::clear_b() {
   b_ = 0u;
 }
- ::google::protobuf::uint32 tRGB8::b() const {
+::google::protobuf::uint32 tRGB8::b() const {
   // @@protoc_insertion_point(field_get:xnormal.tRGB8.B)
   return b_;
 }
- void tRGB8::set_b(::google::protobuf::uint32 value) {
+void tRGB8::set_b(::google::protobuf::uint32 value) {
   
   b_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tRGB8.B)
@@ -2700,29 +2778,6 @@ void tRGB8::clear_b() {
 
 // ===================================================================
 
-const ::google::protobuf::EnumDescriptor* tHighPolyMesh_eSmoothNormals_descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return tHighPolyMesh_eSmoothNormals_descriptor_;
-}
-bool tHighPolyMesh_eSmoothNormals_IsValid(int value) {
-  switch(value) {
-    case 0:
-    case 1:
-    case 2:
-      return true;
-    default:
-      return false;
-  }
-}
-
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
-const tHighPolyMesh_eSmoothNormals tHighPolyMesh::eSmoothNormals_AverageNormals;
-const tHighPolyMesh_eSmoothNormals tHighPolyMesh::eSmoothNormals_HardenNormals;
-const tHighPolyMesh_eSmoothNormals tHighPolyMesh::eSmoothNormals_UseExportedNormals;
-const tHighPolyMesh_eSmoothNormals tHighPolyMesh::eSmoothNormals_MIN;
-const tHighPolyMesh_eSmoothNormals tHighPolyMesh::eSmoothNormals_MAX;
-const int tHighPolyMesh::eSmoothNormals_ARRAYSIZE;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int tHighPolyMesh::kFileFieldNumber;
 const int tHighPolyMesh::kPositionOffsetFieldNumber;
@@ -2735,33 +2790,37 @@ const int tHighPolyMesh::kScaleFieldNumber;
 
 tHighPolyMesh::tHighPolyMesh()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_xnormal_2eproto::InitDefaults();
+  }
   SharedCtor();
   // @@protoc_insertion_point(constructor:xnormal.tHighPolyMesh)
 }
-
-void tHighPolyMesh::InitAsDefaultInstance() {
-  _is_default_instance_ = true;
-}
-
 tHighPolyMesh::tHighPolyMesh(const tHighPolyMesh& from)
   : ::google::protobuf::Message(),
-    _internal_metadata_(NULL) {
-  SharedCtor();
-  MergeFrom(from);
+      _internal_metadata_(NULL),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  file_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.file().size() > 0) {
+    file_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.file_);
+  }
+  positionoffset_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.positionoffset().size() > 0) {
+    positionoffset_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.positionoffset_);
+  }
+  ::memcpy(&averagenormals_, &from.averagenormals_,
+    reinterpret_cast<char*>(&scale_) -
+    reinterpret_cast<char*>(&averagenormals_) + sizeof(scale_));
   // @@protoc_insertion_point(copy_constructor:xnormal.tHighPolyMesh)
 }
 
 void tHighPolyMesh::SharedCtor() {
-    _is_default_instance_ = false;
-  ::google::protobuf::internal::GetEmptyString();
-  _cached_size_ = 0;
   file_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   positionoffset_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  ignorepervertexcolor_ = false;
-  averagenormals_ = 0;
-  visible_ = false;
-  basetexistsnm_ = false;
-  scale_ = 0;
+  ::memset(&averagenormals_, 0, reinterpret_cast<char*>(&scale_) -
+    reinterpret_cast<char*>(&averagenormals_) + sizeof(scale_));
+  _cached_size_ = 0;
 }
 
 tHighPolyMesh::~tHighPolyMesh() {
@@ -2772,8 +2831,6 @@ tHighPolyMesh::~tHighPolyMesh() {
 void tHighPolyMesh::SharedDtor() {
   file_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   positionoffset_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (this != default_instance_) {
-  }
 }
 
 void tHighPolyMesh::SetCachedSize(int size) const {
@@ -2782,16 +2839,14 @@ void tHighPolyMesh::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
 const ::google::protobuf::Descriptor* tHighPolyMesh::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return tHighPolyMesh_descriptor_;
+  protobuf_xnormal_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_xnormal_2eproto::file_level_metadata[4].descriptor;
 }
 
 const tHighPolyMesh& tHighPolyMesh::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_xnormal_2eproto();
-  return *default_instance_;
+  protobuf_xnormal_2eproto::InitDefaults();
+  return *internal_default_instance();
 }
-
-tHighPolyMesh* tHighPolyMesh::default_instance_ = NULL;
 
 tHighPolyMesh* tHighPolyMesh::New(::google::protobuf::Arena* arena) const {
   tHighPolyMesh* n = new tHighPolyMesh;
@@ -2803,29 +2858,10 @@ tHighPolyMesh* tHighPolyMesh::New(::google::protobuf::Arena* arena) const {
 
 void tHighPolyMesh::Clear() {
 // @@protoc_insertion_point(message_clear_start:xnormal.tHighPolyMesh)
-#if defined(__clang__)
-#define ZR_HELPER_(f) \
-  _Pragma("clang diagnostic push") \
-  _Pragma("clang diagnostic ignored \"-Winvalid-offsetof\"") \
-  __builtin_offsetof(tHighPolyMesh, f) \
-  _Pragma("clang diagnostic pop")
-#else
-#define ZR_HELPER_(f) reinterpret_cast<char*>(\
-  &reinterpret_cast<tHighPolyMesh*>(16)->f)
-#endif
-
-#define ZR_(first, last) do {\
-  ::memset(&first, 0,\
-           ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
-} while (0)
-
-  ZR_(averagenormals_, scale_);
   file_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   positionoffset_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-
-#undef ZR_HELPER_
-#undef ZR_
-
+  ::memset(&averagenormals_, 0, reinterpret_cast<char*>(&scale_) -
+    reinterpret_cast<char*>(&averagenormals_) + sizeof(scale_));
 }
 
 bool tHighPolyMesh::MergePartialFromCodedStream(
@@ -2834,13 +2870,13 @@ bool tHighPolyMesh::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:xnormal.tHighPolyMesh)
   for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional string File = 1;
+      // string File = 1;
       case 1: {
-        if (tag == 10) {
+        if (tag == 10u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_file()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -2850,14 +2886,12 @@ bool tHighPolyMesh::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(18)) goto parse_PositionOffset;
         break;
       }
 
-      // optional string PositionOffset = 2;
+      // string PositionOffset = 2;
       case 2: {
-        if (tag == 18) {
-         parse_PositionOffset:
+        if (tag == 18u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_positionoffset()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -2867,29 +2901,25 @@ bool tHighPolyMesh::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(24)) goto parse_IgnorePerVertexColor;
         break;
       }
 
-      // optional bool IgnorePerVertexColor = 3;
+      // bool IgnorePerVertexColor = 3;
       case 3: {
-        if (tag == 24) {
-         parse_IgnorePerVertexColor:
+        if (tag == 24u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &ignorepervertexcolor_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(32)) goto parse_AverageNormals;
         break;
       }
 
-      // optional .xnormal.tHighPolyMesh.eSmoothNormals AverageNormals = 4;
+      // .xnormal.tHighPolyMesh.eSmoothNormals AverageNormals = 4;
       case 4: {
-        if (tag == 32) {
-         parse_AverageNormals:
+        if (tag == 32u) {
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
@@ -2898,52 +2928,45 @@ bool tHighPolyMesh::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(40)) goto parse_Visible;
         break;
       }
 
-      // optional bool Visible = 5;
+      // bool Visible = 5;
       case 5: {
-        if (tag == 40) {
-         parse_Visible:
+        if (tag == 40u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &visible_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(48)) goto parse_BaseTexIsTSNM;
         break;
       }
 
-      // optional bool BaseTexIsTSNM = 6;
+      // bool BaseTexIsTSNM = 6;
       case 6: {
-        if (tag == 48) {
-         parse_BaseTexIsTSNM:
+        if (tag == 48u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &basetexistsnm_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(61)) goto parse_Scale;
         break;
       }
 
-      // optional float Scale = 7;
+      // float Scale = 7;
       case 7: {
-        if (tag == 61) {
-         parse_Scale:
+        if (tag == 61u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &scale_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectAtEnd()) goto success;
         break;
       }
 
@@ -2971,7 +2994,7 @@ failure:
 void tHighPolyMesh::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:xnormal.tHighPolyMesh)
-  // optional string File = 1;
+  // string File = 1;
   if (this->file().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->file().data(), this->file().length(),
@@ -2981,7 +3004,7 @@ void tHighPolyMesh::SerializeWithCachedSizes(
       1, this->file(), output);
   }
 
-  // optional string PositionOffset = 2;
+  // string PositionOffset = 2;
   if (this->positionoffset().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->positionoffset().data(), this->positionoffset().length(),
@@ -2991,28 +3014,28 @@ void tHighPolyMesh::SerializeWithCachedSizes(
       2, this->positionoffset(), output);
   }
 
-  // optional bool IgnorePerVertexColor = 3;
+  // bool IgnorePerVertexColor = 3;
   if (this->ignorepervertexcolor() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(3, this->ignorepervertexcolor(), output);
   }
 
-  // optional .xnormal.tHighPolyMesh.eSmoothNormals AverageNormals = 4;
+  // .xnormal.tHighPolyMesh.eSmoothNormals AverageNormals = 4;
   if (this->averagenormals() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       4, this->averagenormals(), output);
   }
 
-  // optional bool Visible = 5;
+  // bool Visible = 5;
   if (this->visible() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(5, this->visible(), output);
   }
 
-  // optional bool BaseTexIsTSNM = 6;
+  // bool BaseTexIsTSNM = 6;
   if (this->basetexistsnm() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(6, this->basetexistsnm(), output);
   }
 
-  // optional float Scale = 7;
+  // float Scale = 7;
   if (this->scale() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(7, this->scale(), output);
   }
@@ -3022,9 +3045,9 @@ void tHighPolyMesh::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* tHighPolyMesh::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
+  (void)deterministic;  // Unused
   // @@protoc_insertion_point(serialize_to_array_start:xnormal.tHighPolyMesh)
-  // optional string File = 1;
+  // string File = 1;
   if (this->file().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->file().data(), this->file().length(),
@@ -3035,7 +3058,7 @@ void tHighPolyMesh::SerializeWithCachedSizes(
         1, this->file(), target);
   }
 
-  // optional string PositionOffset = 2;
+  // string PositionOffset = 2;
   if (this->positionoffset().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->positionoffset().data(), this->positionoffset().length(),
@@ -3046,28 +3069,28 @@ void tHighPolyMesh::SerializeWithCachedSizes(
         2, this->positionoffset(), target);
   }
 
-  // optional bool IgnorePerVertexColor = 3;
+  // bool IgnorePerVertexColor = 3;
   if (this->ignorepervertexcolor() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(3, this->ignorepervertexcolor(), target);
   }
 
-  // optional .xnormal.tHighPolyMesh.eSmoothNormals AverageNormals = 4;
+  // .xnormal.tHighPolyMesh.eSmoothNormals AverageNormals = 4;
   if (this->averagenormals() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       4, this->averagenormals(), target);
   }
 
-  // optional bool Visible = 5;
+  // bool Visible = 5;
   if (this->visible() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(5, this->visible(), target);
   }
 
-  // optional bool BaseTexIsTSNM = 6;
+  // bool BaseTexIsTSNM = 6;
   if (this->basetexistsnm() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(6, this->basetexistsnm(), target);
   }
 
-  // optional float Scale = 7;
+  // float Scale = 7;
   if (this->scale() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(7, this->scale(), target);
   }
@@ -3076,62 +3099,61 @@ void tHighPolyMesh::SerializeWithCachedSizes(
   return target;
 }
 
-int tHighPolyMesh::ByteSize() const {
+size_t tHighPolyMesh::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:xnormal.tHighPolyMesh)
-  int total_size = 0;
+  size_t total_size = 0;
 
-  // optional string File = 1;
+  // string File = 1;
   if (this->file().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->file());
   }
 
-  // optional string PositionOffset = 2;
+  // string PositionOffset = 2;
   if (this->positionoffset().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->positionoffset());
   }
 
-  // optional bool IgnorePerVertexColor = 3;
-  if (this->ignorepervertexcolor() != 0) {
-    total_size += 1 + 1;
-  }
-
-  // optional .xnormal.tHighPolyMesh.eSmoothNormals AverageNormals = 4;
+  // .xnormal.tHighPolyMesh.eSmoothNormals AverageNormals = 4;
   if (this->averagenormals() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->averagenormals());
   }
 
-  // optional bool Visible = 5;
+  // bool IgnorePerVertexColor = 3;
+  if (this->ignorepervertexcolor() != 0) {
+    total_size += 1 + 1;
+  }
+
+  // bool Visible = 5;
   if (this->visible() != 0) {
     total_size += 1 + 1;
   }
 
-  // optional bool BaseTexIsTSNM = 6;
+  // bool BaseTexIsTSNM = 6;
   if (this->basetexistsnm() != 0) {
     total_size += 1 + 1;
   }
 
-  // optional float Scale = 7;
+  // float Scale = 7;
   if (this->scale() != 0) {
     total_size += 1 + 4;
   }
 
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
+  _cached_size_ = cached_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void tHighPolyMesh::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:xnormal.tHighPolyMesh)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
-  const tHighPolyMesh* source = 
+  GOOGLE_DCHECK_NE(&from, this);
+  const tHighPolyMesh* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const tHighPolyMesh>(
           &from);
   if (source == NULL) {
@@ -3145,9 +3167,8 @@ void tHighPolyMesh::MergeFrom(const ::google::protobuf::Message& from) {
 
 void tHighPolyMesh::MergeFrom(const tHighPolyMesh& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:xnormal.tHighPolyMesh)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
   if (from.file().size() > 0) {
 
     file_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.file_);
@@ -3156,11 +3177,11 @@ void tHighPolyMesh::MergeFrom(const tHighPolyMesh& from) {
 
     positionoffset_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.positionoffset_);
   }
-  if (from.ignorepervertexcolor() != 0) {
-    set_ignorepervertexcolor(from.ignorepervertexcolor());
-  }
   if (from.averagenormals() != 0) {
     set_averagenormals(from.averagenormals());
+  }
+  if (from.ignorepervertexcolor() != 0) {
+    set_ignorepervertexcolor(from.ignorepervertexcolor());
   }
   if (from.visible() != 0) {
     set_visible(from.visible());
@@ -3188,7 +3209,6 @@ void tHighPolyMesh::CopyFrom(const tHighPolyMesh& from) {
 }
 
 bool tHighPolyMesh::IsInitialized() const {
-
   return true;
 }
 
@@ -3199,61 +3219,65 @@ void tHighPolyMesh::Swap(tHighPolyMesh* other) {
 void tHighPolyMesh::InternalSwap(tHighPolyMesh* other) {
   file_.Swap(&other->file_);
   positionoffset_.Swap(&other->positionoffset_);
-  std::swap(ignorepervertexcolor_, other->ignorepervertexcolor_);
   std::swap(averagenormals_, other->averagenormals_);
+  std::swap(ignorepervertexcolor_, other->ignorepervertexcolor_);
   std::swap(visible_, other->visible_);
   std::swap(basetexistsnm_, other->basetexistsnm_);
   std::swap(scale_, other->scale_);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
 
 ::google::protobuf::Metadata tHighPolyMesh::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = tHighPolyMesh_descriptor_;
-  metadata.reflection = tHighPolyMesh_reflection_;
-  return metadata;
+  protobuf_xnormal_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_xnormal_2eproto::file_level_metadata[4];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // tHighPolyMesh
 
-// optional string File = 1;
+// string File = 1;
 void tHighPolyMesh::clear_file() {
   file_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- const ::std::string& tHighPolyMesh::file() const {
+const ::std::string& tHighPolyMesh::file() const {
   // @@protoc_insertion_point(field_get:xnormal.tHighPolyMesh.File)
-  return file_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return file_.GetNoArena();
 }
- void tHighPolyMesh::set_file(const ::std::string& value) {
+void tHighPolyMesh::set_file(const ::std::string& value) {
   
   file_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:xnormal.tHighPolyMesh.File)
 }
- void tHighPolyMesh::set_file(const char* value) {
+#if LANG_CXX11
+void tHighPolyMesh::set_file(::std::string&& value) {
+  
+  file_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:xnormal.tHighPolyMesh.File)
+}
+#endif
+void tHighPolyMesh::set_file(const char* value) {
   
   file_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:xnormal.tHighPolyMesh.File)
 }
- void tHighPolyMesh::set_file(const char* value, size_t size) {
+void tHighPolyMesh::set_file(const char* value, size_t size) {
   
   file_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:xnormal.tHighPolyMesh.File)
 }
- ::std::string* tHighPolyMesh::mutable_file() {
+::std::string* tHighPolyMesh::mutable_file() {
   
   // @@protoc_insertion_point(field_mutable:xnormal.tHighPolyMesh.File)
   return file_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* tHighPolyMesh::release_file() {
+::std::string* tHighPolyMesh::release_file() {
   // @@protoc_insertion_point(field_release:xnormal.tHighPolyMesh.File)
   
   return file_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void tHighPolyMesh::set_allocated_file(::std::string* file) {
+void tHighPolyMesh::set_allocated_file(::std::string* file) {
   if (file != NULL) {
     
   } else {
@@ -3263,41 +3287,49 @@ void tHighPolyMesh::clear_file() {
   // @@protoc_insertion_point(field_set_allocated:xnormal.tHighPolyMesh.File)
 }
 
-// optional string PositionOffset = 2;
+// string PositionOffset = 2;
 void tHighPolyMesh::clear_positionoffset() {
   positionoffset_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- const ::std::string& tHighPolyMesh::positionoffset() const {
+const ::std::string& tHighPolyMesh::positionoffset() const {
   // @@protoc_insertion_point(field_get:xnormal.tHighPolyMesh.PositionOffset)
-  return positionoffset_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return positionoffset_.GetNoArena();
 }
- void tHighPolyMesh::set_positionoffset(const ::std::string& value) {
+void tHighPolyMesh::set_positionoffset(const ::std::string& value) {
   
   positionoffset_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:xnormal.tHighPolyMesh.PositionOffset)
 }
- void tHighPolyMesh::set_positionoffset(const char* value) {
+#if LANG_CXX11
+void tHighPolyMesh::set_positionoffset(::std::string&& value) {
+  
+  positionoffset_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:xnormal.tHighPolyMesh.PositionOffset)
+}
+#endif
+void tHighPolyMesh::set_positionoffset(const char* value) {
   
   positionoffset_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:xnormal.tHighPolyMesh.PositionOffset)
 }
- void tHighPolyMesh::set_positionoffset(const char* value, size_t size) {
+void tHighPolyMesh::set_positionoffset(const char* value, size_t size) {
   
   positionoffset_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:xnormal.tHighPolyMesh.PositionOffset)
 }
- ::std::string* tHighPolyMesh::mutable_positionoffset() {
+::std::string* tHighPolyMesh::mutable_positionoffset() {
   
   // @@protoc_insertion_point(field_mutable:xnormal.tHighPolyMesh.PositionOffset)
   return positionoffset_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* tHighPolyMesh::release_positionoffset() {
+::std::string* tHighPolyMesh::release_positionoffset() {
   // @@protoc_insertion_point(field_release:xnormal.tHighPolyMesh.PositionOffset)
   
   return positionoffset_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void tHighPolyMesh::set_allocated_positionoffset(::std::string* positionoffset) {
+void tHighPolyMesh::set_allocated_positionoffset(::std::string* positionoffset) {
   if (positionoffset != NULL) {
     
   } else {
@@ -3307,71 +3339,71 @@ void tHighPolyMesh::clear_positionoffset() {
   // @@protoc_insertion_point(field_set_allocated:xnormal.tHighPolyMesh.PositionOffset)
 }
 
-// optional bool IgnorePerVertexColor = 3;
+// bool IgnorePerVertexColor = 3;
 void tHighPolyMesh::clear_ignorepervertexcolor() {
   ignorepervertexcolor_ = false;
 }
- bool tHighPolyMesh::ignorepervertexcolor() const {
+bool tHighPolyMesh::ignorepervertexcolor() const {
   // @@protoc_insertion_point(field_get:xnormal.tHighPolyMesh.IgnorePerVertexColor)
   return ignorepervertexcolor_;
 }
- void tHighPolyMesh::set_ignorepervertexcolor(bool value) {
+void tHighPolyMesh::set_ignorepervertexcolor(bool value) {
   
   ignorepervertexcolor_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tHighPolyMesh.IgnorePerVertexColor)
 }
 
-// optional .xnormal.tHighPolyMesh.eSmoothNormals AverageNormals = 4;
+// .xnormal.tHighPolyMesh.eSmoothNormals AverageNormals = 4;
 void tHighPolyMesh::clear_averagenormals() {
   averagenormals_ = 0;
 }
- ::xnormal::tHighPolyMesh_eSmoothNormals tHighPolyMesh::averagenormals() const {
+::xnormal::tHighPolyMesh_eSmoothNormals tHighPolyMesh::averagenormals() const {
   // @@protoc_insertion_point(field_get:xnormal.tHighPolyMesh.AverageNormals)
   return static_cast< ::xnormal::tHighPolyMesh_eSmoothNormals >(averagenormals_);
 }
- void tHighPolyMesh::set_averagenormals(::xnormal::tHighPolyMesh_eSmoothNormals value) {
+void tHighPolyMesh::set_averagenormals(::xnormal::tHighPolyMesh_eSmoothNormals value) {
   
   averagenormals_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tHighPolyMesh.AverageNormals)
 }
 
-// optional bool Visible = 5;
+// bool Visible = 5;
 void tHighPolyMesh::clear_visible() {
   visible_ = false;
 }
- bool tHighPolyMesh::visible() const {
+bool tHighPolyMesh::visible() const {
   // @@protoc_insertion_point(field_get:xnormal.tHighPolyMesh.Visible)
   return visible_;
 }
- void tHighPolyMesh::set_visible(bool value) {
+void tHighPolyMesh::set_visible(bool value) {
   
   visible_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tHighPolyMesh.Visible)
 }
 
-// optional bool BaseTexIsTSNM = 6;
+// bool BaseTexIsTSNM = 6;
 void tHighPolyMesh::clear_basetexistsnm() {
   basetexistsnm_ = false;
 }
- bool tHighPolyMesh::basetexistsnm() const {
+bool tHighPolyMesh::basetexistsnm() const {
   // @@protoc_insertion_point(field_get:xnormal.tHighPolyMesh.BaseTexIsTSNM)
   return basetexistsnm_;
 }
- void tHighPolyMesh::set_basetexistsnm(bool value) {
+void tHighPolyMesh::set_basetexistsnm(bool value) {
   
   basetexistsnm_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tHighPolyMesh.BaseTexIsTSNM)
 }
 
-// optional float Scale = 7;
+// float Scale = 7;
 void tHighPolyMesh::clear_scale() {
   scale_ = 0;
 }
- float tHighPolyMesh::scale() const {
+float tHighPolyMesh::scale() const {
   // @@protoc_insertion_point(field_get:xnormal.tHighPolyMesh.Scale)
   return scale_;
 }
- void tHighPolyMesh::set_scale(float value) {
+void tHighPolyMesh::set_scale(float value) {
   
   scale_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tHighPolyMesh.Scale)
@@ -3381,85 +3413,6 @@ void tHighPolyMesh::clear_scale() {
 
 // ===================================================================
 
-const ::google::protobuf::EnumDescriptor* tLowPolyMesh_eSwizzleComponent_descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return tLowPolyMesh_eSwizzleComponent_descriptor_;
-}
-bool tLowPolyMesh_eSwizzleComponent_IsValid(int value) {
-  switch(value) {
-    case 0:
-    case 1:
-    case 2:
-    case 3:
-    case 4:
-    case 5:
-      return true;
-    default:
-      return false;
-  }
-}
-
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
-const tLowPolyMesh_eSwizzleComponent tLowPolyMesh::eSwizzleComponent_X0;
-const tLowPolyMesh_eSwizzleComponent tLowPolyMesh::eSwizzleComponent_X1;
-const tLowPolyMesh_eSwizzleComponent tLowPolyMesh::eSwizzleComponent_Y0;
-const tLowPolyMesh_eSwizzleComponent tLowPolyMesh::eSwizzleComponent_Y1;
-const tLowPolyMesh_eSwizzleComponent tLowPolyMesh::eSwizzleComponent_Z0;
-const tLowPolyMesh_eSwizzleComponent tLowPolyMesh::eSwizzleComponent_Z1;
-const tLowPolyMesh_eSwizzleComponent tLowPolyMesh::eSwizzleComponent_MIN;
-const tLowPolyMesh_eSwizzleComponent tLowPolyMesh::eSwizzleComponent_MAX;
-const int tLowPolyMesh::eSwizzleComponent_ARRAYSIZE;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
-const ::google::protobuf::EnumDescriptor* tLowPolyMesh_eTransparencyMode_descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return tLowPolyMesh_eTransparencyMode_descriptor_;
-}
-bool tLowPolyMesh_eTransparencyMode_IsValid(int value) {
-  switch(value) {
-    case 0:
-    case 1:
-    case 2:
-    case 3:
-    case 4:
-      return true;
-    default:
-      return false;
-  }
-}
-
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
-const tLowPolyMesh_eTransparencyMode tLowPolyMesh::eTransparencyMode_1Bit;
-const tLowPolyMesh_eTransparencyMode tLowPolyMesh::eTransparencyMode_AdditiveGlow;
-const tLowPolyMesh_eTransparencyMode tLowPolyMesh::eTransparencyMode_Blend;
-const tLowPolyMesh_eTransparencyMode tLowPolyMesh::eTransparencyMode_None;
-const tLowPolyMesh_eTransparencyMode tLowPolyMesh::eTransparencyMode_ScreenGlass;
-const tLowPolyMesh_eTransparencyMode tLowPolyMesh::eTransparencyMode_MIN;
-const tLowPolyMesh_eTransparencyMode tLowPolyMesh::eTransparencyMode_MAX;
-const int tLowPolyMesh::eTransparencyMode_ARRAYSIZE;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
-const ::google::protobuf::EnumDescriptor* tLowPolyMesh_eNormalMapType_descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return tLowPolyMesh_eNormalMapType_descriptor_;
-}
-bool tLowPolyMesh_eNormalMapType_IsValid(int value) {
-  switch(value) {
-    case 0:
-    case 1:
-    case 2:
-      return true;
-    default:
-      return false;
-  }
-}
-
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
-const tLowPolyMesh_eNormalMapType tLowPolyMesh::eNormalMapType_Derivative;
-const tLowPolyMesh_eNormalMapType tLowPolyMesh::eNormalMapType_Object_space;
-const tLowPolyMesh_eNormalMapType tLowPolyMesh::eNormalMapType_Tangent_space;
-const tLowPolyMesh_eNormalMapType tLowPolyMesh::eNormalMapType_MIN;
-const tLowPolyMesh_eNormalMapType tLowPolyMesh::eNormalMapType_MAX;
-const int tLowPolyMesh::eNormalMapType_ARRAYSIZE;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int tLowPolyMesh::kBaseTexFieldNumber;
 const int tLowPolyMesh::kBlockersFileFieldNumber;
@@ -3510,72 +3463,107 @@ const int tLowPolyMesh::kMatchUVsFieldNumber;
 
 tLowPolyMesh::tLowPolyMesh()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_xnormal_2eproto::InitDefaults();
+  }
   SharedCtor();
   // @@protoc_insertion_point(constructor:xnormal.tLowPolyMesh)
 }
-
-void tLowPolyMesh::InitAsDefaultInstance() {
-  _is_default_instance_ = true;
-  highpolynormaloverride_ = const_cast< ::xnormal::UnspecifiedType*>(&::xnormal::UnspecifiedType::default_instance());
-}
-
 tLowPolyMesh::tLowPolyMesh(const tLowPolyMesh& from)
   : ::google::protobuf::Message(),
-    _internal_metadata_(NULL) {
-  SharedCtor();
-  MergeFrom(from);
+      _internal_metadata_(NULL),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  basetex_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.basetex().size() > 0) {
+    basetex_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.basetex_);
+  }
+  blockersfile_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.blockersfile().size() > 0) {
+    blockersfile_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.blockersfile_);
+  }
+  reflecttex_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.reflecttex().size() > 0) {
+    reflecttex_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.reflecttex_);
+  }
+  diffusegitex_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.diffusegitex().size() > 0) {
+    diffusegitex_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.diffusegitex_);
+  }
+  file_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.file().size() > 0) {
+    file_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.file_);
+  }
+  cagefile_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.cagefile().size() > 0) {
+    cagefile_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.cagefile_);
+  }
+  heighttex_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.heighttex().size() > 0) {
+    heighttex_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.heighttex_);
+  }
+  alphatestvalue_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.alphatestvalue().size() > 0) {
+    alphatestvalue_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.alphatestvalue_);
+  }
+  glosstex_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.glosstex().size() > 0) {
+    glosstex_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.glosstex_);
+  }
+  vectordisplacementtex_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.vectordisplacementtex().size() > 0) {
+    vectordisplacementtex_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.vectordisplacementtex_);
+  }
+  lmaotex_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.lmaotex().size() > 0) {
+    lmaotex_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.lmaotex_);
+  }
+  spectex_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.spectex().size() > 0) {
+    spectex_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.spectex_);
+  }
+  normtex_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.normtex().size() > 0) {
+    normtex_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.normtex_);
+  }
+  positionoffset_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.positionoffset().size() > 0) {
+    positionoffset_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.positionoffset_);
+  }
+  emissivetex_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.emissivetex().size() > 0) {
+    emissivetex_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.emissivetex_);
+  }
+  if (from.has_highpolynormaloverride()) {
+    highpolynormaloverride_ = new ::xnormal::UnspecifiedType(*from.highpolynormaloverride_);
+  } else {
+    highpolynormaloverride_ = NULL;
+  }
+  ::memcpy(&vvdmswizzlez_, &from.vvdmswizzlez_,
+    reinterpret_cast<char*>(&matchuvs_) -
+    reinterpret_cast<char*>(&vvdmswizzlez_) + sizeof(matchuvs_));
   // @@protoc_insertion_point(copy_constructor:xnormal.tLowPolyMesh)
 }
 
 void tLowPolyMesh::SharedCtor() {
-    _is_default_instance_ = false;
-  ::google::protobuf::internal::GetEmptyString();
-  _cached_size_ = 0;
   basetex_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   blockersfile_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  vvdmswizzlez_ = 0;
-  fresnelrefractiveindex_ = 0;
-  uoffset_ = 0;
-  reflecthdrmult_ = 0;
-  transparencymode_ = 0;
-  voffset_ = 0;
   reflecttex_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  maxraydistancefront_ = 0;
   diffusegitex_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  normapmaptype_ = 0;
   file_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  vvdmswizzley_ = 0;
   cagefile_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   heighttex_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  nmswizzley_ = 0;
-  batchprotect_ = false;
   alphatestvalue_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  subdivisions_ = 0u;
-  matte_ = false;
-  averagenormals_ = false;
-  vectordisplacementts_ = false;
-  usecage_ = false;
-  visible_ = false;
-  nmswizzlex_ = 0;
   glosstex_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  scale_ = 0;
-  nmswizzlez_ = 0;
   vectordisplacementtex_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  vvdmswizzlex_ = 0;
-  usepervertexcolors_ = false;
-  highpolynormalsoverridetangentspace_ = false;
   lmaotex_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   spectex_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   normtex_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  highpolynormaloverride_ = NULL;
   positionoffset_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  maxraydistanceback_ = 0;
-  usefresnel_ = false;
-  receiveshadows_ = false;
   emissivetex_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  backfacecull_ = false;
-  castshadows_ = false;
-  matchuvs_ = false;
+  ::memset(&highpolynormaloverride_, 0, reinterpret_cast<char*>(&matchuvs_) -
+    reinterpret_cast<char*>(&highpolynormaloverride_) + sizeof(matchuvs_));
+  _cached_size_ = 0;
 }
 
 tLowPolyMesh::~tLowPolyMesh() {
@@ -3599,7 +3587,7 @@ void tLowPolyMesh::SharedDtor() {
   normtex_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   positionoffset_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   emissivetex_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (this != default_instance_) {
+  if (this != internal_default_instance()) {
     delete highpolynormaloverride_;
   }
 }
@@ -3610,16 +3598,14 @@ void tLowPolyMesh::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
 const ::google::protobuf::Descriptor* tLowPolyMesh::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return tLowPolyMesh_descriptor_;
+  protobuf_xnormal_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_xnormal_2eproto::file_level_metadata[5].descriptor;
 }
 
 const tLowPolyMesh& tLowPolyMesh::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_xnormal_2eproto();
-  return *default_instance_;
+  protobuf_xnormal_2eproto::InitDefaults();
+  return *internal_default_instance();
 }
-
-tLowPolyMesh* tLowPolyMesh::default_instance_ = NULL;
 
 tLowPolyMesh* tLowPolyMesh::New(::google::protobuf::Arena* arena) const {
   tLowPolyMesh* n = new tLowPolyMesh;
@@ -3631,57 +3617,27 @@ tLowPolyMesh* tLowPolyMesh::New(::google::protobuf::Arena* arena) const {
 
 void tLowPolyMesh::Clear() {
 // @@protoc_insertion_point(message_clear_start:xnormal.tLowPolyMesh)
-#if defined(__clang__)
-#define ZR_HELPER_(f) \
-  _Pragma("clang diagnostic push") \
-  _Pragma("clang diagnostic ignored \"-Winvalid-offsetof\"") \
-  __builtin_offsetof(tLowPolyMesh, f) \
-  _Pragma("clang diagnostic pop")
-#else
-#define ZR_HELPER_(f) reinterpret_cast<char*>(\
-  &reinterpret_cast<tLowPolyMesh*>(16)->f)
-#endif
-
-#define ZR_(first, last) do {\
-  ::memset(&first, 0,\
-           ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
-} while (0)
-
-  ZR_(vvdmswizzlez_, voffset_);
   basetex_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   blockersfile_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  ZR_(maxraydistancefront_, normapmaptype_);
   reflecttex_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   diffusegitex_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   file_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  vvdmswizzley_ = 0;
   cagefile_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   heighttex_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  ZR_(subdivisions_, vectordisplacementts_);
-  nmswizzley_ = 0;
   alphatestvalue_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  usecage_ = false;
-  ZR_(nmswizzlex_, scale_);
-  ZR_(visible_, usepervertexcolors_);
   glosstex_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  nmswizzlez_ = 0;
   vectordisplacementtex_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  vvdmswizzlex_ = 0;
-  highpolynormalsoverridetangentspace_ = false;
   lmaotex_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   spectex_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   normtex_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (GetArenaNoVirtual() == NULL && highpolynormaloverride_ != NULL) delete highpolynormaloverride_;
-  highpolynormaloverride_ = NULL;
   positionoffset_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  maxraydistanceback_ = 0;
-  usefresnel_ = false;
-  ZR_(receiveshadows_, matchuvs_);
   emissivetex_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-
-#undef ZR_HELPER_
-#undef ZR_
-
+  if (GetArenaNoVirtual() == NULL && highpolynormaloverride_ != NULL) {
+    delete highpolynormaloverride_;
+  }
+  highpolynormaloverride_ = NULL;
+  ::memset(&vvdmswizzlez_, 0, reinterpret_cast<char*>(&matchuvs_) -
+    reinterpret_cast<char*>(&vvdmswizzlez_) + sizeof(matchuvs_));
 }
 
 bool tLowPolyMesh::MergePartialFromCodedStream(
@@ -3690,13 +3646,13 @@ bool tLowPolyMesh::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:xnormal.tLowPolyMesh)
   for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(16383);
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(16383u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional string BaseTex = 1;
+      // string BaseTex = 1;
       case 1: {
-        if (tag == 10) {
+        if (tag == 10u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_basetex()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -3706,14 +3662,12 @@ bool tLowPolyMesh::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(18)) goto parse_BlockersFile;
         break;
       }
 
-      // optional string BlockersFile = 2;
+      // string BlockersFile = 2;
       case 2: {
-        if (tag == 18) {
-         parse_BlockersFile:
+        if (tag == 18u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_blockersfile()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -3723,14 +3677,12 @@ bool tLowPolyMesh::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(24)) goto parse_VVDMSwizzleZ;
         break;
       }
 
-      // optional .xnormal.tLowPolyMesh.eSwizzleComponent VVDMSwizzleZ = 3;
+      // .xnormal.tLowPolyMesh.eSwizzleComponent VVDMSwizzleZ = 3;
       case 3: {
-        if (tag == 24) {
-         parse_VVDMSwizzleZ:
+        if (tag == 24u) {
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
@@ -3739,59 +3691,51 @@ bool tLowPolyMesh::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(37)) goto parse_FresnelRefractiveIndex;
         break;
       }
 
-      // optional float FresnelRefractiveIndex = 4;
+      // float FresnelRefractiveIndex = 4;
       case 4: {
-        if (tag == 37) {
-         parse_FresnelRefractiveIndex:
+        if (tag == 37u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &fresnelrefractiveindex_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(45)) goto parse_UOffset;
         break;
       }
 
-      // optional float UOffset = 5;
+      // float UOffset = 5;
       case 5: {
-        if (tag == 45) {
-         parse_UOffset:
+        if (tag == 45u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &uoffset_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(53)) goto parse_ReflectHDRMult;
         break;
       }
 
-      // optional float ReflectHDRMult = 6;
+      // float ReflectHDRMult = 6;
       case 6: {
-        if (tag == 53) {
-         parse_ReflectHDRMult:
+        if (tag == 53u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &reflecthdrmult_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(56)) goto parse_TransparencyMode;
         break;
       }
 
-      // optional .xnormal.tLowPolyMesh.eTransparencyMode TransparencyMode = 7;
+      // .xnormal.tLowPolyMesh.eTransparencyMode TransparencyMode = 7;
       case 7: {
-        if (tag == 56) {
-         parse_TransparencyMode:
+        if (tag == 56u) {
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
@@ -3800,29 +3744,25 @@ bool tLowPolyMesh::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(69)) goto parse_VOffset;
         break;
       }
 
-      // optional float VOffset = 8;
+      // float VOffset = 8;
       case 8: {
-        if (tag == 69) {
-         parse_VOffset:
+        if (tag == 69u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &voffset_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(74)) goto parse_ReflectTex;
         break;
       }
 
-      // optional string ReflectTex = 9;
+      // string ReflectTex = 9;
       case 9: {
-        if (tag == 74) {
-         parse_ReflectTex:
+        if (tag == 74u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_reflecttex()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -3832,29 +3772,25 @@ bool tLowPolyMesh::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(85)) goto parse_MaxRayDistanceFront;
         break;
       }
 
-      // optional float MaxRayDistanceFront = 10;
+      // float MaxRayDistanceFront = 10;
       case 10: {
-        if (tag == 85) {
-         parse_MaxRayDistanceFront:
+        if (tag == 85u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &maxraydistancefront_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(90)) goto parse_DiffuseGITex;
         break;
       }
 
-      // optional string DiffuseGITex = 11;
+      // string DiffuseGITex = 11;
       case 11: {
-        if (tag == 90) {
-         parse_DiffuseGITex:
+        if (tag == 90u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_diffusegitex()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -3864,14 +3800,12 @@ bool tLowPolyMesh::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(96)) goto parse_NormapMapType;
         break;
       }
 
-      // optional .xnormal.tLowPolyMesh.eNormalMapType NormapMapType = 12;
+      // .xnormal.tLowPolyMesh.eNormalMapType NormapMapType = 12;
       case 12: {
-        if (tag == 96) {
-         parse_NormapMapType:
+        if (tag == 96u) {
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
@@ -3880,14 +3814,12 @@ bool tLowPolyMesh::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(106)) goto parse_File;
         break;
       }
 
-      // optional string File = 13;
+      // string File = 13;
       case 13: {
-        if (tag == 106) {
-         parse_File:
+        if (tag == 106u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_file()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -3897,14 +3829,12 @@ bool tLowPolyMesh::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(112)) goto parse_VVDMSwizzleY;
         break;
       }
 
-      // optional .xnormal.tLowPolyMesh.eSwizzleComponent VVDMSwizzleY = 14;
+      // .xnormal.tLowPolyMesh.eSwizzleComponent VVDMSwizzleY = 14;
       case 14: {
-        if (tag == 112) {
-         parse_VVDMSwizzleY:
+        if (tag == 112u) {
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
@@ -3913,14 +3843,12 @@ bool tLowPolyMesh::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(122)) goto parse_CageFile;
         break;
       }
 
-      // optional string CageFile = 15;
+      // string CageFile = 15;
       case 15: {
-        if (tag == 122) {
-         parse_CageFile:
+        if (tag == 122u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_cagefile()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -3930,14 +3858,12 @@ bool tLowPolyMesh::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(130)) goto parse_HeightTex;
         break;
       }
 
-      // optional string HeightTex = 16;
+      // string HeightTex = 16;
       case 16: {
-        if (tag == 130) {
-         parse_HeightTex:
+        if (tag == 130u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_heighttex()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -3947,14 +3873,12 @@ bool tLowPolyMesh::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(136)) goto parse_NMSwizzleY;
         break;
       }
 
-      // optional .xnormal.tLowPolyMesh.eSwizzleComponent NMSwizzleY = 17;
+      // .xnormal.tLowPolyMesh.eSwizzleComponent NMSwizzleY = 17;
       case 17: {
-        if (tag == 136) {
-         parse_NMSwizzleY:
+        if (tag == 136u) {
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
@@ -3963,132 +3887,114 @@ bool tLowPolyMesh::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(144)) goto parse_BatchProtect;
         break;
       }
 
-      // optional bool BatchProtect = 18;
+      // bool BatchProtect = 18;
       case 18: {
-        if (tag == 144) {
-         parse_BatchProtect:
+        if (tag == 144u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &batchprotect_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(154)) goto parse_AlphaTestValue;
         break;
       }
 
-      // optional bytes AlphaTestValue = 19;
+      // bytes AlphaTestValue = 19;
       case 19: {
-        if (tag == 154) {
-         parse_AlphaTestValue:
+        if (tag == 154u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
                 input, this->mutable_alphatestvalue()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(160)) goto parse_Subdivisions;
         break;
       }
 
-      // optional uint32 Subdivisions = 20;
+      // uint32 Subdivisions = 20;
       case 20: {
-        if (tag == 160) {
-         parse_Subdivisions:
+        if (tag == 160u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &subdivisions_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(168)) goto parse_Matte;
         break;
       }
 
-      // optional bool Matte = 21;
+      // bool Matte = 21;
       case 21: {
-        if (tag == 168) {
-         parse_Matte:
+        if (tag == 168u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &matte_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(176)) goto parse_AverageNormals;
         break;
       }
 
-      // optional bool AverageNormals = 22;
+      // bool AverageNormals = 22;
       case 22: {
-        if (tag == 176) {
-         parse_AverageNormals:
+        if (tag == 176u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &averagenormals_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(184)) goto parse_VectorDisplacementTS;
         break;
       }
 
-      // optional bool VectorDisplacementTS = 23;
+      // bool VectorDisplacementTS = 23;
       case 23: {
-        if (tag == 184) {
-         parse_VectorDisplacementTS:
+        if (tag == 184u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &vectordisplacementts_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(192)) goto parse_UseCage;
         break;
       }
 
-      // optional bool UseCage = 24;
+      // bool UseCage = 24;
       case 24: {
-        if (tag == 192) {
-         parse_UseCage:
+        if (tag == 192u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &usecage_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(200)) goto parse_Visible;
         break;
       }
 
-      // optional bool Visible = 25;
+      // bool Visible = 25;
       case 25: {
-        if (tag == 200) {
-         parse_Visible:
+        if (tag == 200u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &visible_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(208)) goto parse_NMSwizzleX;
         break;
       }
 
-      // optional .xnormal.tLowPolyMesh.eSwizzleComponent NMSwizzleX = 26;
+      // .xnormal.tLowPolyMesh.eSwizzleComponent NMSwizzleX = 26;
       case 26: {
-        if (tag == 208) {
-         parse_NMSwizzleX:
+        if (tag == 208u) {
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
@@ -4097,14 +4003,12 @@ bool tLowPolyMesh::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(218)) goto parse_GlossTex;
         break;
       }
 
-      // optional string GlossTex = 27;
+      // string GlossTex = 27;
       case 27: {
-        if (tag == 218) {
-         parse_GlossTex:
+        if (tag == 218u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_glosstex()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -4114,29 +4018,25 @@ bool tLowPolyMesh::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(229)) goto parse_Scale;
         break;
       }
 
-      // optional float Scale = 28;
+      // float Scale = 28;
       case 28: {
-        if (tag == 229) {
-         parse_Scale:
+        if (tag == 229u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &scale_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(232)) goto parse_NMSwizzleZ;
         break;
       }
 
-      // optional .xnormal.tLowPolyMesh.eSwizzleComponent NMSwizzleZ = 29;
+      // .xnormal.tLowPolyMesh.eSwizzleComponent NMSwizzleZ = 29;
       case 29: {
-        if (tag == 232) {
-         parse_NMSwizzleZ:
+        if (tag == 232u) {
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
@@ -4145,14 +4045,12 @@ bool tLowPolyMesh::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(242)) goto parse_VectorDisplacementTex;
         break;
       }
 
-      // optional string VectorDisplacementTex = 30;
+      // string VectorDisplacementTex = 30;
       case 30: {
-        if (tag == 242) {
-         parse_VectorDisplacementTex:
+        if (tag == 242u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_vectordisplacementtex()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -4162,14 +4060,12 @@ bool tLowPolyMesh::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(248)) goto parse_VVDMSwizzleX;
         break;
       }
 
-      // optional .xnormal.tLowPolyMesh.eSwizzleComponent VVDMSwizzleX = 31;
+      // .xnormal.tLowPolyMesh.eSwizzleComponent VVDMSwizzleX = 31;
       case 31: {
-        if (tag == 248) {
-         parse_VVDMSwizzleX:
+        if (tag == 248u) {
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
@@ -4178,44 +4074,38 @@ bool tLowPolyMesh::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(256)) goto parse_UsePerVertexColors;
         break;
       }
 
-      // optional bool UsePerVertexColors = 32;
+      // bool UsePerVertexColors = 32;
       case 32: {
-        if (tag == 256) {
-         parse_UsePerVertexColors:
+        if (tag == 256u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &usepervertexcolors_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(264)) goto parse_HighpolyNormalsOverrideTangentSpace;
         break;
       }
 
-      // optional bool HighpolyNormalsOverrideTangentSpace = 33;
+      // bool HighpolyNormalsOverrideTangentSpace = 33;
       case 33: {
-        if (tag == 264) {
-         parse_HighpolyNormalsOverrideTangentSpace:
+        if (tag == 264u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &highpolynormalsoverridetangentspace_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(274)) goto parse_LMAOTex;
         break;
       }
 
-      // optional string LMAOTex = 34;
+      // string LMAOTex = 34;
       case 34: {
-        if (tag == 274) {
-         parse_LMAOTex:
+        if (tag == 274u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_lmaotex()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -4225,14 +4115,12 @@ bool tLowPolyMesh::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(282)) goto parse_SpecTex;
         break;
       }
 
-      // optional string SpecTex = 35;
+      // string SpecTex = 35;
       case 35: {
-        if (tag == 282) {
-         parse_SpecTex:
+        if (tag == 282u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_spectex()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -4242,14 +4130,12 @@ bool tLowPolyMesh::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(290)) goto parse_NormTex;
         break;
       }
 
-      // optional string NormTex = 36;
+      // string NormTex = 36;
       case 36: {
-        if (tag == 290) {
-         parse_NormTex:
+        if (tag == 290u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_normtex()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -4259,27 +4145,23 @@ bool tLowPolyMesh::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(298)) goto parse_HighpolyNormalOverride;
         break;
       }
 
-      // optional .xnormal.UnspecifiedType HighpolyNormalOverride = 37;
+      // .xnormal.UnspecifiedType HighpolyNormalOverride = 37;
       case 37: {
-        if (tag == 298) {
-         parse_HighpolyNormalOverride:
+        if (tag == 298u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_highpolynormaloverride()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(306)) goto parse_PositionOffset;
         break;
       }
 
-      // optional string PositionOffset = 38;
+      // string PositionOffset = 38;
       case 38: {
-        if (tag == 306) {
-         parse_PositionOffset:
+        if (tag == 306u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_positionoffset()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -4289,59 +4171,51 @@ bool tLowPolyMesh::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(317)) goto parse_MaxRayDistanceBack;
         break;
       }
 
-      // optional float MaxRayDistanceBack = 39;
+      // float MaxRayDistanceBack = 39;
       case 39: {
-        if (tag == 317) {
-         parse_MaxRayDistanceBack:
+        if (tag == 317u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &maxraydistanceback_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(320)) goto parse_UseFresnel;
         break;
       }
 
-      // optional bool UseFresnel = 40;
+      // bool UseFresnel = 40;
       case 40: {
-        if (tag == 320) {
-         parse_UseFresnel:
+        if (tag == 320u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &usefresnel_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(328)) goto parse_ReceiveShadows;
         break;
       }
 
-      // optional bool ReceiveShadows = 41;
+      // bool ReceiveShadows = 41;
       case 41: {
-        if (tag == 328) {
-         parse_ReceiveShadows:
+        if (tag == 328u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &receiveshadows_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(338)) goto parse_EmissiveTex;
         break;
       }
 
-      // optional string EmissiveTex = 42;
+      // string EmissiveTex = 42;
       case 42: {
-        if (tag == 338) {
-         parse_EmissiveTex:
+        if (tag == 338u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_emissivetex()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -4351,52 +4225,45 @@ bool tLowPolyMesh::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(344)) goto parse_BackfaceCull;
         break;
       }
 
-      // optional bool BackfaceCull = 43;
+      // bool BackfaceCull = 43;
       case 43: {
-        if (tag == 344) {
-         parse_BackfaceCull:
+        if (tag == 344u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &backfacecull_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(352)) goto parse_CastShadows;
         break;
       }
 
-      // optional bool CastShadows = 44;
+      // bool CastShadows = 44;
       case 44: {
-        if (tag == 352) {
-         parse_CastShadows:
+        if (tag == 352u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &castshadows_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(360)) goto parse_MatchUVs;
         break;
       }
 
-      // optional bool MatchUVs = 45;
+      // bool MatchUVs = 45;
       case 45: {
-        if (tag == 360) {
-         parse_MatchUVs:
+        if (tag == 360u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &matchuvs_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectAtEnd()) goto success;
         break;
       }
 
@@ -4424,7 +4291,7 @@ failure:
 void tLowPolyMesh::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:xnormal.tLowPolyMesh)
-  // optional string BaseTex = 1;
+  // string BaseTex = 1;
   if (this->basetex().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->basetex().data(), this->basetex().length(),
@@ -4434,7 +4301,7 @@ void tLowPolyMesh::SerializeWithCachedSizes(
       1, this->basetex(), output);
   }
 
-  // optional string BlockersFile = 2;
+  // string BlockersFile = 2;
   if (this->blockersfile().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->blockersfile().data(), this->blockersfile().length(),
@@ -4444,39 +4311,39 @@ void tLowPolyMesh::SerializeWithCachedSizes(
       2, this->blockersfile(), output);
   }
 
-  // optional .xnormal.tLowPolyMesh.eSwizzleComponent VVDMSwizzleZ = 3;
+  // .xnormal.tLowPolyMesh.eSwizzleComponent VVDMSwizzleZ = 3;
   if (this->vvdmswizzlez() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       3, this->vvdmswizzlez(), output);
   }
 
-  // optional float FresnelRefractiveIndex = 4;
+  // float FresnelRefractiveIndex = 4;
   if (this->fresnelrefractiveindex() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(4, this->fresnelrefractiveindex(), output);
   }
 
-  // optional float UOffset = 5;
+  // float UOffset = 5;
   if (this->uoffset() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(5, this->uoffset(), output);
   }
 
-  // optional float ReflectHDRMult = 6;
+  // float ReflectHDRMult = 6;
   if (this->reflecthdrmult() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(6, this->reflecthdrmult(), output);
   }
 
-  // optional .xnormal.tLowPolyMesh.eTransparencyMode TransparencyMode = 7;
+  // .xnormal.tLowPolyMesh.eTransparencyMode TransparencyMode = 7;
   if (this->transparencymode() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       7, this->transparencymode(), output);
   }
 
-  // optional float VOffset = 8;
+  // float VOffset = 8;
   if (this->voffset() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(8, this->voffset(), output);
   }
 
-  // optional string ReflectTex = 9;
+  // string ReflectTex = 9;
   if (this->reflecttex().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->reflecttex().data(), this->reflecttex().length(),
@@ -4486,12 +4353,12 @@ void tLowPolyMesh::SerializeWithCachedSizes(
       9, this->reflecttex(), output);
   }
 
-  // optional float MaxRayDistanceFront = 10;
+  // float MaxRayDistanceFront = 10;
   if (this->maxraydistancefront() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(10, this->maxraydistancefront(), output);
   }
 
-  // optional string DiffuseGITex = 11;
+  // string DiffuseGITex = 11;
   if (this->diffusegitex().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->diffusegitex().data(), this->diffusegitex().length(),
@@ -4501,13 +4368,13 @@ void tLowPolyMesh::SerializeWithCachedSizes(
       11, this->diffusegitex(), output);
   }
 
-  // optional .xnormal.tLowPolyMesh.eNormalMapType NormapMapType = 12;
+  // .xnormal.tLowPolyMesh.eNormalMapType NormapMapType = 12;
   if (this->normapmaptype() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       12, this->normapmaptype(), output);
   }
 
-  // optional string File = 13;
+  // string File = 13;
   if (this->file().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->file().data(), this->file().length(),
@@ -4517,13 +4384,13 @@ void tLowPolyMesh::SerializeWithCachedSizes(
       13, this->file(), output);
   }
 
-  // optional .xnormal.tLowPolyMesh.eSwizzleComponent VVDMSwizzleY = 14;
+  // .xnormal.tLowPolyMesh.eSwizzleComponent VVDMSwizzleY = 14;
   if (this->vvdmswizzley() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       14, this->vvdmswizzley(), output);
   }
 
-  // optional string CageFile = 15;
+  // string CageFile = 15;
   if (this->cagefile().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->cagefile().data(), this->cagefile().length(),
@@ -4533,7 +4400,7 @@ void tLowPolyMesh::SerializeWithCachedSizes(
       15, this->cagefile(), output);
   }
 
-  // optional string HeightTex = 16;
+  // string HeightTex = 16;
   if (this->heighttex().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->heighttex().data(), this->heighttex().length(),
@@ -4543,60 +4410,60 @@ void tLowPolyMesh::SerializeWithCachedSizes(
       16, this->heighttex(), output);
   }
 
-  // optional .xnormal.tLowPolyMesh.eSwizzleComponent NMSwizzleY = 17;
+  // .xnormal.tLowPolyMesh.eSwizzleComponent NMSwizzleY = 17;
   if (this->nmswizzley() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       17, this->nmswizzley(), output);
   }
 
-  // optional bool BatchProtect = 18;
+  // bool BatchProtect = 18;
   if (this->batchprotect() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(18, this->batchprotect(), output);
   }
 
-  // optional bytes AlphaTestValue = 19;
+  // bytes AlphaTestValue = 19;
   if (this->alphatestvalue().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
       19, this->alphatestvalue(), output);
   }
 
-  // optional uint32 Subdivisions = 20;
+  // uint32 Subdivisions = 20;
   if (this->subdivisions() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(20, this->subdivisions(), output);
   }
 
-  // optional bool Matte = 21;
+  // bool Matte = 21;
   if (this->matte() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(21, this->matte(), output);
   }
 
-  // optional bool AverageNormals = 22;
+  // bool AverageNormals = 22;
   if (this->averagenormals() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(22, this->averagenormals(), output);
   }
 
-  // optional bool VectorDisplacementTS = 23;
+  // bool VectorDisplacementTS = 23;
   if (this->vectordisplacementts() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(23, this->vectordisplacementts(), output);
   }
 
-  // optional bool UseCage = 24;
+  // bool UseCage = 24;
   if (this->usecage() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(24, this->usecage(), output);
   }
 
-  // optional bool Visible = 25;
+  // bool Visible = 25;
   if (this->visible() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(25, this->visible(), output);
   }
 
-  // optional .xnormal.tLowPolyMesh.eSwizzleComponent NMSwizzleX = 26;
+  // .xnormal.tLowPolyMesh.eSwizzleComponent NMSwizzleX = 26;
   if (this->nmswizzlex() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       26, this->nmswizzlex(), output);
   }
 
-  // optional string GlossTex = 27;
+  // string GlossTex = 27;
   if (this->glosstex().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->glosstex().data(), this->glosstex().length(),
@@ -4606,18 +4473,18 @@ void tLowPolyMesh::SerializeWithCachedSizes(
       27, this->glosstex(), output);
   }
 
-  // optional float Scale = 28;
+  // float Scale = 28;
   if (this->scale() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(28, this->scale(), output);
   }
 
-  // optional .xnormal.tLowPolyMesh.eSwizzleComponent NMSwizzleZ = 29;
+  // .xnormal.tLowPolyMesh.eSwizzleComponent NMSwizzleZ = 29;
   if (this->nmswizzlez() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       29, this->nmswizzlez(), output);
   }
 
-  // optional string VectorDisplacementTex = 30;
+  // string VectorDisplacementTex = 30;
   if (this->vectordisplacementtex().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->vectordisplacementtex().data(), this->vectordisplacementtex().length(),
@@ -4627,23 +4494,23 @@ void tLowPolyMesh::SerializeWithCachedSizes(
       30, this->vectordisplacementtex(), output);
   }
 
-  // optional .xnormal.tLowPolyMesh.eSwizzleComponent VVDMSwizzleX = 31;
+  // .xnormal.tLowPolyMesh.eSwizzleComponent VVDMSwizzleX = 31;
   if (this->vvdmswizzlex() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       31, this->vvdmswizzlex(), output);
   }
 
-  // optional bool UsePerVertexColors = 32;
+  // bool UsePerVertexColors = 32;
   if (this->usepervertexcolors() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(32, this->usepervertexcolors(), output);
   }
 
-  // optional bool HighpolyNormalsOverrideTangentSpace = 33;
+  // bool HighpolyNormalsOverrideTangentSpace = 33;
   if (this->highpolynormalsoverridetangentspace() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(33, this->highpolynormalsoverridetangentspace(), output);
   }
 
-  // optional string LMAOTex = 34;
+  // string LMAOTex = 34;
   if (this->lmaotex().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->lmaotex().data(), this->lmaotex().length(),
@@ -4653,7 +4520,7 @@ void tLowPolyMesh::SerializeWithCachedSizes(
       34, this->lmaotex(), output);
   }
 
-  // optional string SpecTex = 35;
+  // string SpecTex = 35;
   if (this->spectex().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->spectex().data(), this->spectex().length(),
@@ -4663,7 +4530,7 @@ void tLowPolyMesh::SerializeWithCachedSizes(
       35, this->spectex(), output);
   }
 
-  // optional string NormTex = 36;
+  // string NormTex = 36;
   if (this->normtex().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->normtex().data(), this->normtex().length(),
@@ -4673,13 +4540,13 @@ void tLowPolyMesh::SerializeWithCachedSizes(
       36, this->normtex(), output);
   }
 
-  // optional .xnormal.UnspecifiedType HighpolyNormalOverride = 37;
+  // .xnormal.UnspecifiedType HighpolyNormalOverride = 37;
   if (this->has_highpolynormaloverride()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       37, *this->highpolynormaloverride_, output);
   }
 
-  // optional string PositionOffset = 38;
+  // string PositionOffset = 38;
   if (this->positionoffset().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->positionoffset().data(), this->positionoffset().length(),
@@ -4689,22 +4556,22 @@ void tLowPolyMesh::SerializeWithCachedSizes(
       38, this->positionoffset(), output);
   }
 
-  // optional float MaxRayDistanceBack = 39;
+  // float MaxRayDistanceBack = 39;
   if (this->maxraydistanceback() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(39, this->maxraydistanceback(), output);
   }
 
-  // optional bool UseFresnel = 40;
+  // bool UseFresnel = 40;
   if (this->usefresnel() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(40, this->usefresnel(), output);
   }
 
-  // optional bool ReceiveShadows = 41;
+  // bool ReceiveShadows = 41;
   if (this->receiveshadows() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(41, this->receiveshadows(), output);
   }
 
-  // optional string EmissiveTex = 42;
+  // string EmissiveTex = 42;
   if (this->emissivetex().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->emissivetex().data(), this->emissivetex().length(),
@@ -4714,17 +4581,17 @@ void tLowPolyMesh::SerializeWithCachedSizes(
       42, this->emissivetex(), output);
   }
 
-  // optional bool BackfaceCull = 43;
+  // bool BackfaceCull = 43;
   if (this->backfacecull() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(43, this->backfacecull(), output);
   }
 
-  // optional bool CastShadows = 44;
+  // bool CastShadows = 44;
   if (this->castshadows() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(44, this->castshadows(), output);
   }
 
-  // optional bool MatchUVs = 45;
+  // bool MatchUVs = 45;
   if (this->matchuvs() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(45, this->matchuvs(), output);
   }
@@ -4734,9 +4601,9 @@ void tLowPolyMesh::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* tLowPolyMesh::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
+  (void)deterministic;  // Unused
   // @@protoc_insertion_point(serialize_to_array_start:xnormal.tLowPolyMesh)
-  // optional string BaseTex = 1;
+  // string BaseTex = 1;
   if (this->basetex().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->basetex().data(), this->basetex().length(),
@@ -4747,7 +4614,7 @@ void tLowPolyMesh::SerializeWithCachedSizes(
         1, this->basetex(), target);
   }
 
-  // optional string BlockersFile = 2;
+  // string BlockersFile = 2;
   if (this->blockersfile().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->blockersfile().data(), this->blockersfile().length(),
@@ -4758,39 +4625,39 @@ void tLowPolyMesh::SerializeWithCachedSizes(
         2, this->blockersfile(), target);
   }
 
-  // optional .xnormal.tLowPolyMesh.eSwizzleComponent VVDMSwizzleZ = 3;
+  // .xnormal.tLowPolyMesh.eSwizzleComponent VVDMSwizzleZ = 3;
   if (this->vvdmswizzlez() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       3, this->vvdmswizzlez(), target);
   }
 
-  // optional float FresnelRefractiveIndex = 4;
+  // float FresnelRefractiveIndex = 4;
   if (this->fresnelrefractiveindex() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(4, this->fresnelrefractiveindex(), target);
   }
 
-  // optional float UOffset = 5;
+  // float UOffset = 5;
   if (this->uoffset() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(5, this->uoffset(), target);
   }
 
-  // optional float ReflectHDRMult = 6;
+  // float ReflectHDRMult = 6;
   if (this->reflecthdrmult() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(6, this->reflecthdrmult(), target);
   }
 
-  // optional .xnormal.tLowPolyMesh.eTransparencyMode TransparencyMode = 7;
+  // .xnormal.tLowPolyMesh.eTransparencyMode TransparencyMode = 7;
   if (this->transparencymode() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       7, this->transparencymode(), target);
   }
 
-  // optional float VOffset = 8;
+  // float VOffset = 8;
   if (this->voffset() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(8, this->voffset(), target);
   }
 
-  // optional string ReflectTex = 9;
+  // string ReflectTex = 9;
   if (this->reflecttex().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->reflecttex().data(), this->reflecttex().length(),
@@ -4801,12 +4668,12 @@ void tLowPolyMesh::SerializeWithCachedSizes(
         9, this->reflecttex(), target);
   }
 
-  // optional float MaxRayDistanceFront = 10;
+  // float MaxRayDistanceFront = 10;
   if (this->maxraydistancefront() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(10, this->maxraydistancefront(), target);
   }
 
-  // optional string DiffuseGITex = 11;
+  // string DiffuseGITex = 11;
   if (this->diffusegitex().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->diffusegitex().data(), this->diffusegitex().length(),
@@ -4817,13 +4684,13 @@ void tLowPolyMesh::SerializeWithCachedSizes(
         11, this->diffusegitex(), target);
   }
 
-  // optional .xnormal.tLowPolyMesh.eNormalMapType NormapMapType = 12;
+  // .xnormal.tLowPolyMesh.eNormalMapType NormapMapType = 12;
   if (this->normapmaptype() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       12, this->normapmaptype(), target);
   }
 
-  // optional string File = 13;
+  // string File = 13;
   if (this->file().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->file().data(), this->file().length(),
@@ -4834,13 +4701,13 @@ void tLowPolyMesh::SerializeWithCachedSizes(
         13, this->file(), target);
   }
 
-  // optional .xnormal.tLowPolyMesh.eSwizzleComponent VVDMSwizzleY = 14;
+  // .xnormal.tLowPolyMesh.eSwizzleComponent VVDMSwizzleY = 14;
   if (this->vvdmswizzley() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       14, this->vvdmswizzley(), target);
   }
 
-  // optional string CageFile = 15;
+  // string CageFile = 15;
   if (this->cagefile().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->cagefile().data(), this->cagefile().length(),
@@ -4851,7 +4718,7 @@ void tLowPolyMesh::SerializeWithCachedSizes(
         15, this->cagefile(), target);
   }
 
-  // optional string HeightTex = 16;
+  // string HeightTex = 16;
   if (this->heighttex().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->heighttex().data(), this->heighttex().length(),
@@ -4862,61 +4729,61 @@ void tLowPolyMesh::SerializeWithCachedSizes(
         16, this->heighttex(), target);
   }
 
-  // optional .xnormal.tLowPolyMesh.eSwizzleComponent NMSwizzleY = 17;
+  // .xnormal.tLowPolyMesh.eSwizzleComponent NMSwizzleY = 17;
   if (this->nmswizzley() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       17, this->nmswizzley(), target);
   }
 
-  // optional bool BatchProtect = 18;
+  // bool BatchProtect = 18;
   if (this->batchprotect() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(18, this->batchprotect(), target);
   }
 
-  // optional bytes AlphaTestValue = 19;
+  // bytes AlphaTestValue = 19;
   if (this->alphatestvalue().size() > 0) {
     target =
       ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
         19, this->alphatestvalue(), target);
   }
 
-  // optional uint32 Subdivisions = 20;
+  // uint32 Subdivisions = 20;
   if (this->subdivisions() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(20, this->subdivisions(), target);
   }
 
-  // optional bool Matte = 21;
+  // bool Matte = 21;
   if (this->matte() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(21, this->matte(), target);
   }
 
-  // optional bool AverageNormals = 22;
+  // bool AverageNormals = 22;
   if (this->averagenormals() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(22, this->averagenormals(), target);
   }
 
-  // optional bool VectorDisplacementTS = 23;
+  // bool VectorDisplacementTS = 23;
   if (this->vectordisplacementts() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(23, this->vectordisplacementts(), target);
   }
 
-  // optional bool UseCage = 24;
+  // bool UseCage = 24;
   if (this->usecage() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(24, this->usecage(), target);
   }
 
-  // optional bool Visible = 25;
+  // bool Visible = 25;
   if (this->visible() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(25, this->visible(), target);
   }
 
-  // optional .xnormal.tLowPolyMesh.eSwizzleComponent NMSwizzleX = 26;
+  // .xnormal.tLowPolyMesh.eSwizzleComponent NMSwizzleX = 26;
   if (this->nmswizzlex() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       26, this->nmswizzlex(), target);
   }
 
-  // optional string GlossTex = 27;
+  // string GlossTex = 27;
   if (this->glosstex().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->glosstex().data(), this->glosstex().length(),
@@ -4927,18 +4794,18 @@ void tLowPolyMesh::SerializeWithCachedSizes(
         27, this->glosstex(), target);
   }
 
-  // optional float Scale = 28;
+  // float Scale = 28;
   if (this->scale() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(28, this->scale(), target);
   }
 
-  // optional .xnormal.tLowPolyMesh.eSwizzleComponent NMSwizzleZ = 29;
+  // .xnormal.tLowPolyMesh.eSwizzleComponent NMSwizzleZ = 29;
   if (this->nmswizzlez() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       29, this->nmswizzlez(), target);
   }
 
-  // optional string VectorDisplacementTex = 30;
+  // string VectorDisplacementTex = 30;
   if (this->vectordisplacementtex().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->vectordisplacementtex().data(), this->vectordisplacementtex().length(),
@@ -4949,23 +4816,23 @@ void tLowPolyMesh::SerializeWithCachedSizes(
         30, this->vectordisplacementtex(), target);
   }
 
-  // optional .xnormal.tLowPolyMesh.eSwizzleComponent VVDMSwizzleX = 31;
+  // .xnormal.tLowPolyMesh.eSwizzleComponent VVDMSwizzleX = 31;
   if (this->vvdmswizzlex() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       31, this->vvdmswizzlex(), target);
   }
 
-  // optional bool UsePerVertexColors = 32;
+  // bool UsePerVertexColors = 32;
   if (this->usepervertexcolors() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(32, this->usepervertexcolors(), target);
   }
 
-  // optional bool HighpolyNormalsOverrideTangentSpace = 33;
+  // bool HighpolyNormalsOverrideTangentSpace = 33;
   if (this->highpolynormalsoverridetangentspace() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(33, this->highpolynormalsoverridetangentspace(), target);
   }
 
-  // optional string LMAOTex = 34;
+  // string LMAOTex = 34;
   if (this->lmaotex().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->lmaotex().data(), this->lmaotex().length(),
@@ -4976,7 +4843,7 @@ void tLowPolyMesh::SerializeWithCachedSizes(
         34, this->lmaotex(), target);
   }
 
-  // optional string SpecTex = 35;
+  // string SpecTex = 35;
   if (this->spectex().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->spectex().data(), this->spectex().length(),
@@ -4987,7 +4854,7 @@ void tLowPolyMesh::SerializeWithCachedSizes(
         35, this->spectex(), target);
   }
 
-  // optional string NormTex = 36;
+  // string NormTex = 36;
   if (this->normtex().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->normtex().data(), this->normtex().length(),
@@ -4998,14 +4865,14 @@ void tLowPolyMesh::SerializeWithCachedSizes(
         36, this->normtex(), target);
   }
 
-  // optional .xnormal.UnspecifiedType HighpolyNormalOverride = 37;
+  // .xnormal.UnspecifiedType HighpolyNormalOverride = 37;
   if (this->has_highpolynormaloverride()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
         37, *this->highpolynormaloverride_, false, target);
   }
 
-  // optional string PositionOffset = 38;
+  // string PositionOffset = 38;
   if (this->positionoffset().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->positionoffset().data(), this->positionoffset().length(),
@@ -5016,22 +4883,22 @@ void tLowPolyMesh::SerializeWithCachedSizes(
         38, this->positionoffset(), target);
   }
 
-  // optional float MaxRayDistanceBack = 39;
+  // float MaxRayDistanceBack = 39;
   if (this->maxraydistanceback() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(39, this->maxraydistanceback(), target);
   }
 
-  // optional bool UseFresnel = 40;
+  // bool UseFresnel = 40;
   if (this->usefresnel() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(40, this->usefresnel(), target);
   }
 
-  // optional bool ReceiveShadows = 41;
+  // bool ReceiveShadows = 41;
   if (this->receiveshadows() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(41, this->receiveshadows(), target);
   }
 
-  // optional string EmissiveTex = 42;
+  // string EmissiveTex = 42;
   if (this->emissivetex().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->emissivetex().data(), this->emissivetex().length(),
@@ -5042,17 +4909,17 @@ void tLowPolyMesh::SerializeWithCachedSizes(
         42, this->emissivetex(), target);
   }
 
-  // optional bool BackfaceCull = 43;
+  // bool BackfaceCull = 43;
   if (this->backfacecull() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(43, this->backfacecull(), target);
   }
 
-  // optional bool CastShadows = 44;
+  // bool CastShadows = 44;
   if (this->castshadows() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(44, this->castshadows(), target);
   }
 
-  // optional bool MatchUVs = 45;
+  // bool MatchUVs = 45;
   if (this->matchuvs() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(45, this->matchuvs(), target);
   }
@@ -5061,289 +4928,288 @@ void tLowPolyMesh::SerializeWithCachedSizes(
   return target;
 }
 
-int tLowPolyMesh::ByteSize() const {
+size_t tLowPolyMesh::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:xnormal.tLowPolyMesh)
-  int total_size = 0;
+  size_t total_size = 0;
 
-  // optional string BaseTex = 1;
+  // string BaseTex = 1;
   if (this->basetex().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->basetex());
   }
 
-  // optional string BlockersFile = 2;
+  // string BlockersFile = 2;
   if (this->blockersfile().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->blockersfile());
   }
 
-  // optional .xnormal.tLowPolyMesh.eSwizzleComponent VVDMSwizzleZ = 3;
-  if (this->vvdmswizzlez() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::EnumSize(this->vvdmswizzlez());
-  }
-
-  // optional float FresnelRefractiveIndex = 4;
-  if (this->fresnelrefractiveindex() != 0) {
-    total_size += 1 + 4;
-  }
-
-  // optional float UOffset = 5;
-  if (this->uoffset() != 0) {
-    total_size += 1 + 4;
-  }
-
-  // optional float ReflectHDRMult = 6;
-  if (this->reflecthdrmult() != 0) {
-    total_size += 1 + 4;
-  }
-
-  // optional .xnormal.tLowPolyMesh.eTransparencyMode TransparencyMode = 7;
-  if (this->transparencymode() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::EnumSize(this->transparencymode());
-  }
-
-  // optional float VOffset = 8;
-  if (this->voffset() != 0) {
-    total_size += 1 + 4;
-  }
-
-  // optional string ReflectTex = 9;
+  // string ReflectTex = 9;
   if (this->reflecttex().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->reflecttex());
   }
 
-  // optional float MaxRayDistanceFront = 10;
-  if (this->maxraydistancefront() != 0) {
-    total_size += 1 + 4;
-  }
-
-  // optional string DiffuseGITex = 11;
+  // string DiffuseGITex = 11;
   if (this->diffusegitex().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->diffusegitex());
   }
 
-  // optional .xnormal.tLowPolyMesh.eNormalMapType NormapMapType = 12;
-  if (this->normapmaptype() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::EnumSize(this->normapmaptype());
-  }
-
-  // optional string File = 13;
+  // string File = 13;
   if (this->file().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->file());
   }
 
-  // optional .xnormal.tLowPolyMesh.eSwizzleComponent VVDMSwizzleY = 14;
-  if (this->vvdmswizzley() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::EnumSize(this->vvdmswizzley());
-  }
-
-  // optional string CageFile = 15;
+  // string CageFile = 15;
   if (this->cagefile().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->cagefile());
   }
 
-  // optional string HeightTex = 16;
+  // string HeightTex = 16;
   if (this->heighttex().size() > 0) {
     total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->heighttex());
   }
 
-  // optional .xnormal.tLowPolyMesh.eSwizzleComponent NMSwizzleY = 17;
-  if (this->nmswizzley() != 0) {
-    total_size += 2 +
-      ::google::protobuf::internal::WireFormatLite::EnumSize(this->nmswizzley());
-  }
-
-  // optional bool BatchProtect = 18;
-  if (this->batchprotect() != 0) {
-    total_size += 2 + 1;
-  }
-
-  // optional bytes AlphaTestValue = 19;
+  // bytes AlphaTestValue = 19;
   if (this->alphatestvalue().size() > 0) {
     total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::BytesSize(
         this->alphatestvalue());
   }
 
-  // optional uint32 Subdivisions = 20;
-  if (this->subdivisions() != 0) {
-    total_size += 2 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->subdivisions());
-  }
-
-  // optional bool Matte = 21;
-  if (this->matte() != 0) {
-    total_size += 2 + 1;
-  }
-
-  // optional bool AverageNormals = 22;
-  if (this->averagenormals() != 0) {
-    total_size += 2 + 1;
-  }
-
-  // optional bool VectorDisplacementTS = 23;
-  if (this->vectordisplacementts() != 0) {
-    total_size += 2 + 1;
-  }
-
-  // optional bool UseCage = 24;
-  if (this->usecage() != 0) {
-    total_size += 2 + 1;
-  }
-
-  // optional bool Visible = 25;
-  if (this->visible() != 0) {
-    total_size += 2 + 1;
-  }
-
-  // optional .xnormal.tLowPolyMesh.eSwizzleComponent NMSwizzleX = 26;
-  if (this->nmswizzlex() != 0) {
-    total_size += 2 +
-      ::google::protobuf::internal::WireFormatLite::EnumSize(this->nmswizzlex());
-  }
-
-  // optional string GlossTex = 27;
+  // string GlossTex = 27;
   if (this->glosstex().size() > 0) {
     total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->glosstex());
   }
 
-  // optional float Scale = 28;
-  if (this->scale() != 0) {
-    total_size += 2 + 4;
-  }
-
-  // optional .xnormal.tLowPolyMesh.eSwizzleComponent NMSwizzleZ = 29;
-  if (this->nmswizzlez() != 0) {
-    total_size += 2 +
-      ::google::protobuf::internal::WireFormatLite::EnumSize(this->nmswizzlez());
-  }
-
-  // optional string VectorDisplacementTex = 30;
+  // string VectorDisplacementTex = 30;
   if (this->vectordisplacementtex().size() > 0) {
     total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->vectordisplacementtex());
   }
 
-  // optional .xnormal.tLowPolyMesh.eSwizzleComponent VVDMSwizzleX = 31;
-  if (this->vvdmswizzlex() != 0) {
-    total_size += 2 +
-      ::google::protobuf::internal::WireFormatLite::EnumSize(this->vvdmswizzlex());
-  }
-
-  // optional bool UsePerVertexColors = 32;
-  if (this->usepervertexcolors() != 0) {
-    total_size += 2 + 1;
-  }
-
-  // optional bool HighpolyNormalsOverrideTangentSpace = 33;
-  if (this->highpolynormalsoverridetangentspace() != 0) {
-    total_size += 2 + 1;
-  }
-
-  // optional string LMAOTex = 34;
+  // string LMAOTex = 34;
   if (this->lmaotex().size() > 0) {
     total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->lmaotex());
   }
 
-  // optional string SpecTex = 35;
+  // string SpecTex = 35;
   if (this->spectex().size() > 0) {
     total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->spectex());
   }
 
-  // optional string NormTex = 36;
+  // string NormTex = 36;
   if (this->normtex().size() > 0) {
     total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->normtex());
   }
 
-  // optional .xnormal.UnspecifiedType HighpolyNormalOverride = 37;
-  if (this->has_highpolynormaloverride()) {
-    total_size += 2 +
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        *this->highpolynormaloverride_);
-  }
-
-  // optional string PositionOffset = 38;
+  // string PositionOffset = 38;
   if (this->positionoffset().size() > 0) {
     total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->positionoffset());
   }
 
-  // optional float MaxRayDistanceBack = 39;
-  if (this->maxraydistanceback() != 0) {
-    total_size += 2 + 4;
-  }
-
-  // optional bool UseFresnel = 40;
-  if (this->usefresnel() != 0) {
-    total_size += 2 + 1;
-  }
-
-  // optional bool ReceiveShadows = 41;
-  if (this->receiveshadows() != 0) {
-    total_size += 2 + 1;
-  }
-
-  // optional string EmissiveTex = 42;
+  // string EmissiveTex = 42;
   if (this->emissivetex().size() > 0) {
     total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->emissivetex());
   }
 
-  // optional bool BackfaceCull = 43;
+  // .xnormal.UnspecifiedType HighpolyNormalOverride = 37;
+  if (this->has_highpolynormaloverride()) {
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->highpolynormaloverride_);
+  }
+
+  // .xnormal.tLowPolyMesh.eSwizzleComponent VVDMSwizzleZ = 3;
+  if (this->vvdmswizzlez() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->vvdmswizzlez());
+  }
+
+  // float FresnelRefractiveIndex = 4;
+  if (this->fresnelrefractiveindex() != 0) {
+    total_size += 1 + 4;
+  }
+
+  // float UOffset = 5;
+  if (this->uoffset() != 0) {
+    total_size += 1 + 4;
+  }
+
+  // float ReflectHDRMult = 6;
+  if (this->reflecthdrmult() != 0) {
+    total_size += 1 + 4;
+  }
+
+  // .xnormal.tLowPolyMesh.eTransparencyMode TransparencyMode = 7;
+  if (this->transparencymode() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->transparencymode());
+  }
+
+  // float VOffset = 8;
+  if (this->voffset() != 0) {
+    total_size += 1 + 4;
+  }
+
+  // float MaxRayDistanceFront = 10;
+  if (this->maxraydistancefront() != 0) {
+    total_size += 1 + 4;
+  }
+
+  // .xnormal.tLowPolyMesh.eNormalMapType NormapMapType = 12;
+  if (this->normapmaptype() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->normapmaptype());
+  }
+
+  // .xnormal.tLowPolyMesh.eSwizzleComponent VVDMSwizzleY = 14;
+  if (this->vvdmswizzley() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->vvdmswizzley());
+  }
+
+  // .xnormal.tLowPolyMesh.eSwizzleComponent NMSwizzleY = 17;
+  if (this->nmswizzley() != 0) {
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->nmswizzley());
+  }
+
+  // uint32 Subdivisions = 20;
+  if (this->subdivisions() != 0) {
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->subdivisions());
+  }
+
+  // bool BatchProtect = 18;
+  if (this->batchprotect() != 0) {
+    total_size += 2 + 1;
+  }
+
+  // bool Matte = 21;
+  if (this->matte() != 0) {
+    total_size += 2 + 1;
+  }
+
+  // bool AverageNormals = 22;
+  if (this->averagenormals() != 0) {
+    total_size += 2 + 1;
+  }
+
+  // bool VectorDisplacementTS = 23;
+  if (this->vectordisplacementts() != 0) {
+    total_size += 2 + 1;
+  }
+
+  // .xnormal.tLowPolyMesh.eSwizzleComponent NMSwizzleX = 26;
+  if (this->nmswizzlex() != 0) {
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->nmswizzlex());
+  }
+
+  // float Scale = 28;
+  if (this->scale() != 0) {
+    total_size += 2 + 4;
+  }
+
+  // bool UseCage = 24;
+  if (this->usecage() != 0) {
+    total_size += 2 + 1;
+  }
+
+  // bool Visible = 25;
+  if (this->visible() != 0) {
+    total_size += 2 + 1;
+  }
+
+  // bool UsePerVertexColors = 32;
+  if (this->usepervertexcolors() != 0) {
+    total_size += 2 + 1;
+  }
+
+  // bool HighpolyNormalsOverrideTangentSpace = 33;
+  if (this->highpolynormalsoverridetangentspace() != 0) {
+    total_size += 2 + 1;
+  }
+
+  // .xnormal.tLowPolyMesh.eSwizzleComponent NMSwizzleZ = 29;
+  if (this->nmswizzlez() != 0) {
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->nmswizzlez());
+  }
+
+  // .xnormal.tLowPolyMesh.eSwizzleComponent VVDMSwizzleX = 31;
+  if (this->vvdmswizzlex() != 0) {
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->vvdmswizzlex());
+  }
+
+  // float MaxRayDistanceBack = 39;
+  if (this->maxraydistanceback() != 0) {
+    total_size += 2 + 4;
+  }
+
+  // bool UseFresnel = 40;
+  if (this->usefresnel() != 0) {
+    total_size += 2 + 1;
+  }
+
+  // bool ReceiveShadows = 41;
+  if (this->receiveshadows() != 0) {
+    total_size += 2 + 1;
+  }
+
+  // bool BackfaceCull = 43;
   if (this->backfacecull() != 0) {
     total_size += 2 + 1;
   }
 
-  // optional bool CastShadows = 44;
+  // bool CastShadows = 44;
   if (this->castshadows() != 0) {
     total_size += 2 + 1;
   }
 
-  // optional bool MatchUVs = 45;
+  // bool MatchUVs = 45;
   if (this->matchuvs() != 0) {
     total_size += 2 + 1;
   }
 
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
+  _cached_size_ = cached_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void tLowPolyMesh::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:xnormal.tLowPolyMesh)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
-  const tLowPolyMesh* source = 
+  GOOGLE_DCHECK_NE(&from, this);
+  const tLowPolyMesh* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const tLowPolyMesh>(
           &from);
   if (source == NULL) {
@@ -5357,9 +5223,8 @@ void tLowPolyMesh::MergeFrom(const ::google::protobuf::Message& from) {
 
 void tLowPolyMesh::MergeFrom(const tLowPolyMesh& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:xnormal.tLowPolyMesh)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
   if (from.basetex().size() > 0) {
 
     basetex_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.basetex_);
@@ -5367,6 +5232,61 @@ void tLowPolyMesh::MergeFrom(const tLowPolyMesh& from) {
   if (from.blockersfile().size() > 0) {
 
     blockersfile_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.blockersfile_);
+  }
+  if (from.reflecttex().size() > 0) {
+
+    reflecttex_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.reflecttex_);
+  }
+  if (from.diffusegitex().size() > 0) {
+
+    diffusegitex_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.diffusegitex_);
+  }
+  if (from.file().size() > 0) {
+
+    file_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.file_);
+  }
+  if (from.cagefile().size() > 0) {
+
+    cagefile_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.cagefile_);
+  }
+  if (from.heighttex().size() > 0) {
+
+    heighttex_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.heighttex_);
+  }
+  if (from.alphatestvalue().size() > 0) {
+
+    alphatestvalue_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.alphatestvalue_);
+  }
+  if (from.glosstex().size() > 0) {
+
+    glosstex_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.glosstex_);
+  }
+  if (from.vectordisplacementtex().size() > 0) {
+
+    vectordisplacementtex_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.vectordisplacementtex_);
+  }
+  if (from.lmaotex().size() > 0) {
+
+    lmaotex_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.lmaotex_);
+  }
+  if (from.spectex().size() > 0) {
+
+    spectex_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.spectex_);
+  }
+  if (from.normtex().size() > 0) {
+
+    normtex_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.normtex_);
+  }
+  if (from.positionoffset().size() > 0) {
+
+    positionoffset_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.positionoffset_);
+  }
+  if (from.emissivetex().size() > 0) {
+
+    emissivetex_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.emissivetex_);
+  }
+  if (from.has_highpolynormaloverride()) {
+    mutable_highpolynormaloverride()->::xnormal::UnspecifiedType::MergeFrom(from.highpolynormaloverride());
   }
   if (from.vvdmswizzlez() != 0) {
     set_vvdmswizzlez(from.vvdmswizzlez());
@@ -5386,47 +5306,23 @@ void tLowPolyMesh::MergeFrom(const tLowPolyMesh& from) {
   if (from.voffset() != 0) {
     set_voffset(from.voffset());
   }
-  if (from.reflecttex().size() > 0) {
-
-    reflecttex_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.reflecttex_);
-  }
   if (from.maxraydistancefront() != 0) {
     set_maxraydistancefront(from.maxraydistancefront());
-  }
-  if (from.diffusegitex().size() > 0) {
-
-    diffusegitex_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.diffusegitex_);
   }
   if (from.normapmaptype() != 0) {
     set_normapmaptype(from.normapmaptype());
   }
-  if (from.file().size() > 0) {
-
-    file_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.file_);
-  }
   if (from.vvdmswizzley() != 0) {
     set_vvdmswizzley(from.vvdmswizzley());
-  }
-  if (from.cagefile().size() > 0) {
-
-    cagefile_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.cagefile_);
-  }
-  if (from.heighttex().size() > 0) {
-
-    heighttex_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.heighttex_);
   }
   if (from.nmswizzley() != 0) {
     set_nmswizzley(from.nmswizzley());
   }
-  if (from.batchprotect() != 0) {
-    set_batchprotect(from.batchprotect());
-  }
-  if (from.alphatestvalue().size() > 0) {
-
-    alphatestvalue_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.alphatestvalue_);
-  }
   if (from.subdivisions() != 0) {
     set_subdivisions(from.subdivisions());
+  }
+  if (from.batchprotect() != 0) {
+    set_batchprotect(from.batchprotect());
   }
   if (from.matte() != 0) {
     set_matte(from.matte());
@@ -5437,31 +5333,17 @@ void tLowPolyMesh::MergeFrom(const tLowPolyMesh& from) {
   if (from.vectordisplacementts() != 0) {
     set_vectordisplacementts(from.vectordisplacementts());
   }
+  if (from.nmswizzlex() != 0) {
+    set_nmswizzlex(from.nmswizzlex());
+  }
+  if (from.scale() != 0) {
+    set_scale(from.scale());
+  }
   if (from.usecage() != 0) {
     set_usecage(from.usecage());
   }
   if (from.visible() != 0) {
     set_visible(from.visible());
-  }
-  if (from.nmswizzlex() != 0) {
-    set_nmswizzlex(from.nmswizzlex());
-  }
-  if (from.glosstex().size() > 0) {
-
-    glosstex_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.glosstex_);
-  }
-  if (from.scale() != 0) {
-    set_scale(from.scale());
-  }
-  if (from.nmswizzlez() != 0) {
-    set_nmswizzlez(from.nmswizzlez());
-  }
-  if (from.vectordisplacementtex().size() > 0) {
-
-    vectordisplacementtex_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.vectordisplacementtex_);
-  }
-  if (from.vvdmswizzlex() != 0) {
-    set_vvdmswizzlex(from.vvdmswizzlex());
   }
   if (from.usepervertexcolors() != 0) {
     set_usepervertexcolors(from.usepervertexcolors());
@@ -5469,24 +5351,11 @@ void tLowPolyMesh::MergeFrom(const tLowPolyMesh& from) {
   if (from.highpolynormalsoverridetangentspace() != 0) {
     set_highpolynormalsoverridetangentspace(from.highpolynormalsoverridetangentspace());
   }
-  if (from.lmaotex().size() > 0) {
-
-    lmaotex_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.lmaotex_);
+  if (from.nmswizzlez() != 0) {
+    set_nmswizzlez(from.nmswizzlez());
   }
-  if (from.spectex().size() > 0) {
-
-    spectex_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.spectex_);
-  }
-  if (from.normtex().size() > 0) {
-
-    normtex_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.normtex_);
-  }
-  if (from.has_highpolynormaloverride()) {
-    mutable_highpolynormaloverride()->::xnormal::UnspecifiedType::MergeFrom(from.highpolynormaloverride());
-  }
-  if (from.positionoffset().size() > 0) {
-
-    positionoffset_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.positionoffset_);
+  if (from.vvdmswizzlex() != 0) {
+    set_vvdmswizzlex(from.vvdmswizzlex());
   }
   if (from.maxraydistanceback() != 0) {
     set_maxraydistanceback(from.maxraydistanceback());
@@ -5496,10 +5365,6 @@ void tLowPolyMesh::MergeFrom(const tLowPolyMesh& from) {
   }
   if (from.receiveshadows() != 0) {
     set_receiveshadows(from.receiveshadows());
-  }
-  if (from.emissivetex().size() > 0) {
-
-    emissivetex_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.emissivetex_);
   }
   if (from.backfacecull() != 0) {
     set_backfacecull(from.backfacecull());
@@ -5527,7 +5392,6 @@ void tLowPolyMesh::CopyFrom(const tLowPolyMesh& from) {
 }
 
 bool tLowPolyMesh::IsInitialized() const {
-
   return true;
 }
 
@@ -5538,99 +5402,103 @@ void tLowPolyMesh::Swap(tLowPolyMesh* other) {
 void tLowPolyMesh::InternalSwap(tLowPolyMesh* other) {
   basetex_.Swap(&other->basetex_);
   blockersfile_.Swap(&other->blockersfile_);
+  reflecttex_.Swap(&other->reflecttex_);
+  diffusegitex_.Swap(&other->diffusegitex_);
+  file_.Swap(&other->file_);
+  cagefile_.Swap(&other->cagefile_);
+  heighttex_.Swap(&other->heighttex_);
+  alphatestvalue_.Swap(&other->alphatestvalue_);
+  glosstex_.Swap(&other->glosstex_);
+  vectordisplacementtex_.Swap(&other->vectordisplacementtex_);
+  lmaotex_.Swap(&other->lmaotex_);
+  spectex_.Swap(&other->spectex_);
+  normtex_.Swap(&other->normtex_);
+  positionoffset_.Swap(&other->positionoffset_);
+  emissivetex_.Swap(&other->emissivetex_);
+  std::swap(highpolynormaloverride_, other->highpolynormaloverride_);
   std::swap(vvdmswizzlez_, other->vvdmswizzlez_);
   std::swap(fresnelrefractiveindex_, other->fresnelrefractiveindex_);
   std::swap(uoffset_, other->uoffset_);
   std::swap(reflecthdrmult_, other->reflecthdrmult_);
   std::swap(transparencymode_, other->transparencymode_);
   std::swap(voffset_, other->voffset_);
-  reflecttex_.Swap(&other->reflecttex_);
   std::swap(maxraydistancefront_, other->maxraydistancefront_);
-  diffusegitex_.Swap(&other->diffusegitex_);
   std::swap(normapmaptype_, other->normapmaptype_);
-  file_.Swap(&other->file_);
   std::swap(vvdmswizzley_, other->vvdmswizzley_);
-  cagefile_.Swap(&other->cagefile_);
-  heighttex_.Swap(&other->heighttex_);
   std::swap(nmswizzley_, other->nmswizzley_);
-  std::swap(batchprotect_, other->batchprotect_);
-  alphatestvalue_.Swap(&other->alphatestvalue_);
   std::swap(subdivisions_, other->subdivisions_);
+  std::swap(batchprotect_, other->batchprotect_);
   std::swap(matte_, other->matte_);
   std::swap(averagenormals_, other->averagenormals_);
   std::swap(vectordisplacementts_, other->vectordisplacementts_);
+  std::swap(nmswizzlex_, other->nmswizzlex_);
+  std::swap(scale_, other->scale_);
   std::swap(usecage_, other->usecage_);
   std::swap(visible_, other->visible_);
-  std::swap(nmswizzlex_, other->nmswizzlex_);
-  glosstex_.Swap(&other->glosstex_);
-  std::swap(scale_, other->scale_);
-  std::swap(nmswizzlez_, other->nmswizzlez_);
-  vectordisplacementtex_.Swap(&other->vectordisplacementtex_);
-  std::swap(vvdmswizzlex_, other->vvdmswizzlex_);
   std::swap(usepervertexcolors_, other->usepervertexcolors_);
   std::swap(highpolynormalsoverridetangentspace_, other->highpolynormalsoverridetangentspace_);
-  lmaotex_.Swap(&other->lmaotex_);
-  spectex_.Swap(&other->spectex_);
-  normtex_.Swap(&other->normtex_);
-  std::swap(highpolynormaloverride_, other->highpolynormaloverride_);
-  positionoffset_.Swap(&other->positionoffset_);
+  std::swap(nmswizzlez_, other->nmswizzlez_);
+  std::swap(vvdmswizzlex_, other->vvdmswizzlex_);
   std::swap(maxraydistanceback_, other->maxraydistanceback_);
   std::swap(usefresnel_, other->usefresnel_);
   std::swap(receiveshadows_, other->receiveshadows_);
-  emissivetex_.Swap(&other->emissivetex_);
   std::swap(backfacecull_, other->backfacecull_);
   std::swap(castshadows_, other->castshadows_);
   std::swap(matchuvs_, other->matchuvs_);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
 
 ::google::protobuf::Metadata tLowPolyMesh::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = tLowPolyMesh_descriptor_;
-  metadata.reflection = tLowPolyMesh_reflection_;
-  return metadata;
+  protobuf_xnormal_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_xnormal_2eproto::file_level_metadata[5];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // tLowPolyMesh
 
-// optional string BaseTex = 1;
+// string BaseTex = 1;
 void tLowPolyMesh::clear_basetex() {
   basetex_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- const ::std::string& tLowPolyMesh::basetex() const {
+const ::std::string& tLowPolyMesh::basetex() const {
   // @@protoc_insertion_point(field_get:xnormal.tLowPolyMesh.BaseTex)
-  return basetex_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return basetex_.GetNoArena();
 }
- void tLowPolyMesh::set_basetex(const ::std::string& value) {
+void tLowPolyMesh::set_basetex(const ::std::string& value) {
   
   basetex_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:xnormal.tLowPolyMesh.BaseTex)
 }
- void tLowPolyMesh::set_basetex(const char* value) {
+#if LANG_CXX11
+void tLowPolyMesh::set_basetex(::std::string&& value) {
+  
+  basetex_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:xnormal.tLowPolyMesh.BaseTex)
+}
+#endif
+void tLowPolyMesh::set_basetex(const char* value) {
   
   basetex_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:xnormal.tLowPolyMesh.BaseTex)
 }
- void tLowPolyMesh::set_basetex(const char* value, size_t size) {
+void tLowPolyMesh::set_basetex(const char* value, size_t size) {
   
   basetex_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:xnormal.tLowPolyMesh.BaseTex)
 }
- ::std::string* tLowPolyMesh::mutable_basetex() {
+::std::string* tLowPolyMesh::mutable_basetex() {
   
   // @@protoc_insertion_point(field_mutable:xnormal.tLowPolyMesh.BaseTex)
   return basetex_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* tLowPolyMesh::release_basetex() {
+::std::string* tLowPolyMesh::release_basetex() {
   // @@protoc_insertion_point(field_release:xnormal.tLowPolyMesh.BaseTex)
   
   return basetex_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void tLowPolyMesh::set_allocated_basetex(::std::string* basetex) {
+void tLowPolyMesh::set_allocated_basetex(::std::string* basetex) {
   if (basetex != NULL) {
     
   } else {
@@ -5640,41 +5508,49 @@ void tLowPolyMesh::clear_basetex() {
   // @@protoc_insertion_point(field_set_allocated:xnormal.tLowPolyMesh.BaseTex)
 }
 
-// optional string BlockersFile = 2;
+// string BlockersFile = 2;
 void tLowPolyMesh::clear_blockersfile() {
   blockersfile_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- const ::std::string& tLowPolyMesh::blockersfile() const {
+const ::std::string& tLowPolyMesh::blockersfile() const {
   // @@protoc_insertion_point(field_get:xnormal.tLowPolyMesh.BlockersFile)
-  return blockersfile_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return blockersfile_.GetNoArena();
 }
- void tLowPolyMesh::set_blockersfile(const ::std::string& value) {
+void tLowPolyMesh::set_blockersfile(const ::std::string& value) {
   
   blockersfile_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:xnormal.tLowPolyMesh.BlockersFile)
 }
- void tLowPolyMesh::set_blockersfile(const char* value) {
+#if LANG_CXX11
+void tLowPolyMesh::set_blockersfile(::std::string&& value) {
+  
+  blockersfile_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:xnormal.tLowPolyMesh.BlockersFile)
+}
+#endif
+void tLowPolyMesh::set_blockersfile(const char* value) {
   
   blockersfile_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:xnormal.tLowPolyMesh.BlockersFile)
 }
- void tLowPolyMesh::set_blockersfile(const char* value, size_t size) {
+void tLowPolyMesh::set_blockersfile(const char* value, size_t size) {
   
   blockersfile_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:xnormal.tLowPolyMesh.BlockersFile)
 }
- ::std::string* tLowPolyMesh::mutable_blockersfile() {
+::std::string* tLowPolyMesh::mutable_blockersfile() {
   
   // @@protoc_insertion_point(field_mutable:xnormal.tLowPolyMesh.BlockersFile)
   return blockersfile_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* tLowPolyMesh::release_blockersfile() {
+::std::string* tLowPolyMesh::release_blockersfile() {
   // @@protoc_insertion_point(field_release:xnormal.tLowPolyMesh.BlockersFile)
   
   return blockersfile_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void tLowPolyMesh::set_allocated_blockersfile(::std::string* blockersfile) {
+void tLowPolyMesh::set_allocated_blockersfile(::std::string* blockersfile) {
   if (blockersfile != NULL) {
     
   } else {
@@ -5684,125 +5560,133 @@ void tLowPolyMesh::clear_blockersfile() {
   // @@protoc_insertion_point(field_set_allocated:xnormal.tLowPolyMesh.BlockersFile)
 }
 
-// optional .xnormal.tLowPolyMesh.eSwizzleComponent VVDMSwizzleZ = 3;
+// .xnormal.tLowPolyMesh.eSwizzleComponent VVDMSwizzleZ = 3;
 void tLowPolyMesh::clear_vvdmswizzlez() {
   vvdmswizzlez_ = 0;
 }
- ::xnormal::tLowPolyMesh_eSwizzleComponent tLowPolyMesh::vvdmswizzlez() const {
+::xnormal::tLowPolyMesh_eSwizzleComponent tLowPolyMesh::vvdmswizzlez() const {
   // @@protoc_insertion_point(field_get:xnormal.tLowPolyMesh.VVDMSwizzleZ)
   return static_cast< ::xnormal::tLowPolyMesh_eSwizzleComponent >(vvdmswizzlez_);
 }
- void tLowPolyMesh::set_vvdmswizzlez(::xnormal::tLowPolyMesh_eSwizzleComponent value) {
+void tLowPolyMesh::set_vvdmswizzlez(::xnormal::tLowPolyMesh_eSwizzleComponent value) {
   
   vvdmswizzlez_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tLowPolyMesh.VVDMSwizzleZ)
 }
 
-// optional float FresnelRefractiveIndex = 4;
+// float FresnelRefractiveIndex = 4;
 void tLowPolyMesh::clear_fresnelrefractiveindex() {
   fresnelrefractiveindex_ = 0;
 }
- float tLowPolyMesh::fresnelrefractiveindex() const {
+float tLowPolyMesh::fresnelrefractiveindex() const {
   // @@protoc_insertion_point(field_get:xnormal.tLowPolyMesh.FresnelRefractiveIndex)
   return fresnelrefractiveindex_;
 }
- void tLowPolyMesh::set_fresnelrefractiveindex(float value) {
+void tLowPolyMesh::set_fresnelrefractiveindex(float value) {
   
   fresnelrefractiveindex_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tLowPolyMesh.FresnelRefractiveIndex)
 }
 
-// optional float UOffset = 5;
+// float UOffset = 5;
 void tLowPolyMesh::clear_uoffset() {
   uoffset_ = 0;
 }
- float tLowPolyMesh::uoffset() const {
+float tLowPolyMesh::uoffset() const {
   // @@protoc_insertion_point(field_get:xnormal.tLowPolyMesh.UOffset)
   return uoffset_;
 }
- void tLowPolyMesh::set_uoffset(float value) {
+void tLowPolyMesh::set_uoffset(float value) {
   
   uoffset_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tLowPolyMesh.UOffset)
 }
 
-// optional float ReflectHDRMult = 6;
+// float ReflectHDRMult = 6;
 void tLowPolyMesh::clear_reflecthdrmult() {
   reflecthdrmult_ = 0;
 }
- float tLowPolyMesh::reflecthdrmult() const {
+float tLowPolyMesh::reflecthdrmult() const {
   // @@protoc_insertion_point(field_get:xnormal.tLowPolyMesh.ReflectHDRMult)
   return reflecthdrmult_;
 }
- void tLowPolyMesh::set_reflecthdrmult(float value) {
+void tLowPolyMesh::set_reflecthdrmult(float value) {
   
   reflecthdrmult_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tLowPolyMesh.ReflectHDRMult)
 }
 
-// optional .xnormal.tLowPolyMesh.eTransparencyMode TransparencyMode = 7;
+// .xnormal.tLowPolyMesh.eTransparencyMode TransparencyMode = 7;
 void tLowPolyMesh::clear_transparencymode() {
   transparencymode_ = 0;
 }
- ::xnormal::tLowPolyMesh_eTransparencyMode tLowPolyMesh::transparencymode() const {
+::xnormal::tLowPolyMesh_eTransparencyMode tLowPolyMesh::transparencymode() const {
   // @@protoc_insertion_point(field_get:xnormal.tLowPolyMesh.TransparencyMode)
   return static_cast< ::xnormal::tLowPolyMesh_eTransparencyMode >(transparencymode_);
 }
- void tLowPolyMesh::set_transparencymode(::xnormal::tLowPolyMesh_eTransparencyMode value) {
+void tLowPolyMesh::set_transparencymode(::xnormal::tLowPolyMesh_eTransparencyMode value) {
   
   transparencymode_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tLowPolyMesh.TransparencyMode)
 }
 
-// optional float VOffset = 8;
+// float VOffset = 8;
 void tLowPolyMesh::clear_voffset() {
   voffset_ = 0;
 }
- float tLowPolyMesh::voffset() const {
+float tLowPolyMesh::voffset() const {
   // @@protoc_insertion_point(field_get:xnormal.tLowPolyMesh.VOffset)
   return voffset_;
 }
- void tLowPolyMesh::set_voffset(float value) {
+void tLowPolyMesh::set_voffset(float value) {
   
   voffset_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tLowPolyMesh.VOffset)
 }
 
-// optional string ReflectTex = 9;
+// string ReflectTex = 9;
 void tLowPolyMesh::clear_reflecttex() {
   reflecttex_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- const ::std::string& tLowPolyMesh::reflecttex() const {
+const ::std::string& tLowPolyMesh::reflecttex() const {
   // @@protoc_insertion_point(field_get:xnormal.tLowPolyMesh.ReflectTex)
-  return reflecttex_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return reflecttex_.GetNoArena();
 }
- void tLowPolyMesh::set_reflecttex(const ::std::string& value) {
+void tLowPolyMesh::set_reflecttex(const ::std::string& value) {
   
   reflecttex_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:xnormal.tLowPolyMesh.ReflectTex)
 }
- void tLowPolyMesh::set_reflecttex(const char* value) {
+#if LANG_CXX11
+void tLowPolyMesh::set_reflecttex(::std::string&& value) {
+  
+  reflecttex_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:xnormal.tLowPolyMesh.ReflectTex)
+}
+#endif
+void tLowPolyMesh::set_reflecttex(const char* value) {
   
   reflecttex_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:xnormal.tLowPolyMesh.ReflectTex)
 }
- void tLowPolyMesh::set_reflecttex(const char* value, size_t size) {
+void tLowPolyMesh::set_reflecttex(const char* value, size_t size) {
   
   reflecttex_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:xnormal.tLowPolyMesh.ReflectTex)
 }
- ::std::string* tLowPolyMesh::mutable_reflecttex() {
+::std::string* tLowPolyMesh::mutable_reflecttex() {
   
   // @@protoc_insertion_point(field_mutable:xnormal.tLowPolyMesh.ReflectTex)
   return reflecttex_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* tLowPolyMesh::release_reflecttex() {
+::std::string* tLowPolyMesh::release_reflecttex() {
   // @@protoc_insertion_point(field_release:xnormal.tLowPolyMesh.ReflectTex)
   
   return reflecttex_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void tLowPolyMesh::set_allocated_reflecttex(::std::string* reflecttex) {
+void tLowPolyMesh::set_allocated_reflecttex(::std::string* reflecttex) {
   if (reflecttex != NULL) {
     
   } else {
@@ -5812,55 +5696,63 @@ void tLowPolyMesh::clear_reflecttex() {
   // @@protoc_insertion_point(field_set_allocated:xnormal.tLowPolyMesh.ReflectTex)
 }
 
-// optional float MaxRayDistanceFront = 10;
+// float MaxRayDistanceFront = 10;
 void tLowPolyMesh::clear_maxraydistancefront() {
   maxraydistancefront_ = 0;
 }
- float tLowPolyMesh::maxraydistancefront() const {
+float tLowPolyMesh::maxraydistancefront() const {
   // @@protoc_insertion_point(field_get:xnormal.tLowPolyMesh.MaxRayDistanceFront)
   return maxraydistancefront_;
 }
- void tLowPolyMesh::set_maxraydistancefront(float value) {
+void tLowPolyMesh::set_maxraydistancefront(float value) {
   
   maxraydistancefront_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tLowPolyMesh.MaxRayDistanceFront)
 }
 
-// optional string DiffuseGITex = 11;
+// string DiffuseGITex = 11;
 void tLowPolyMesh::clear_diffusegitex() {
   diffusegitex_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- const ::std::string& tLowPolyMesh::diffusegitex() const {
+const ::std::string& tLowPolyMesh::diffusegitex() const {
   // @@protoc_insertion_point(field_get:xnormal.tLowPolyMesh.DiffuseGITex)
-  return diffusegitex_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return diffusegitex_.GetNoArena();
 }
- void tLowPolyMesh::set_diffusegitex(const ::std::string& value) {
+void tLowPolyMesh::set_diffusegitex(const ::std::string& value) {
   
   diffusegitex_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:xnormal.tLowPolyMesh.DiffuseGITex)
 }
- void tLowPolyMesh::set_diffusegitex(const char* value) {
+#if LANG_CXX11
+void tLowPolyMesh::set_diffusegitex(::std::string&& value) {
+  
+  diffusegitex_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:xnormal.tLowPolyMesh.DiffuseGITex)
+}
+#endif
+void tLowPolyMesh::set_diffusegitex(const char* value) {
   
   diffusegitex_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:xnormal.tLowPolyMesh.DiffuseGITex)
 }
- void tLowPolyMesh::set_diffusegitex(const char* value, size_t size) {
+void tLowPolyMesh::set_diffusegitex(const char* value, size_t size) {
   
   diffusegitex_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:xnormal.tLowPolyMesh.DiffuseGITex)
 }
- ::std::string* tLowPolyMesh::mutable_diffusegitex() {
+::std::string* tLowPolyMesh::mutable_diffusegitex() {
   
   // @@protoc_insertion_point(field_mutable:xnormal.tLowPolyMesh.DiffuseGITex)
   return diffusegitex_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* tLowPolyMesh::release_diffusegitex() {
+::std::string* tLowPolyMesh::release_diffusegitex() {
   // @@protoc_insertion_point(field_release:xnormal.tLowPolyMesh.DiffuseGITex)
   
   return diffusegitex_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void tLowPolyMesh::set_allocated_diffusegitex(::std::string* diffusegitex) {
+void tLowPolyMesh::set_allocated_diffusegitex(::std::string* diffusegitex) {
   if (diffusegitex != NULL) {
     
   } else {
@@ -5870,55 +5762,63 @@ void tLowPolyMesh::clear_diffusegitex() {
   // @@protoc_insertion_point(field_set_allocated:xnormal.tLowPolyMesh.DiffuseGITex)
 }
 
-// optional .xnormal.tLowPolyMesh.eNormalMapType NormapMapType = 12;
+// .xnormal.tLowPolyMesh.eNormalMapType NormapMapType = 12;
 void tLowPolyMesh::clear_normapmaptype() {
   normapmaptype_ = 0;
 }
- ::xnormal::tLowPolyMesh_eNormalMapType tLowPolyMesh::normapmaptype() const {
+::xnormal::tLowPolyMesh_eNormalMapType tLowPolyMesh::normapmaptype() const {
   // @@protoc_insertion_point(field_get:xnormal.tLowPolyMesh.NormapMapType)
   return static_cast< ::xnormal::tLowPolyMesh_eNormalMapType >(normapmaptype_);
 }
- void tLowPolyMesh::set_normapmaptype(::xnormal::tLowPolyMesh_eNormalMapType value) {
+void tLowPolyMesh::set_normapmaptype(::xnormal::tLowPolyMesh_eNormalMapType value) {
   
   normapmaptype_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tLowPolyMesh.NormapMapType)
 }
 
-// optional string File = 13;
+// string File = 13;
 void tLowPolyMesh::clear_file() {
   file_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- const ::std::string& tLowPolyMesh::file() const {
+const ::std::string& tLowPolyMesh::file() const {
   // @@protoc_insertion_point(field_get:xnormal.tLowPolyMesh.File)
-  return file_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return file_.GetNoArena();
 }
- void tLowPolyMesh::set_file(const ::std::string& value) {
+void tLowPolyMesh::set_file(const ::std::string& value) {
   
   file_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:xnormal.tLowPolyMesh.File)
 }
- void tLowPolyMesh::set_file(const char* value) {
+#if LANG_CXX11
+void tLowPolyMesh::set_file(::std::string&& value) {
+  
+  file_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:xnormal.tLowPolyMesh.File)
+}
+#endif
+void tLowPolyMesh::set_file(const char* value) {
   
   file_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:xnormal.tLowPolyMesh.File)
 }
- void tLowPolyMesh::set_file(const char* value, size_t size) {
+void tLowPolyMesh::set_file(const char* value, size_t size) {
   
   file_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:xnormal.tLowPolyMesh.File)
 }
- ::std::string* tLowPolyMesh::mutable_file() {
+::std::string* tLowPolyMesh::mutable_file() {
   
   // @@protoc_insertion_point(field_mutable:xnormal.tLowPolyMesh.File)
   return file_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* tLowPolyMesh::release_file() {
+::std::string* tLowPolyMesh::release_file() {
   // @@protoc_insertion_point(field_release:xnormal.tLowPolyMesh.File)
   
   return file_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void tLowPolyMesh::set_allocated_file(::std::string* file) {
+void tLowPolyMesh::set_allocated_file(::std::string* file) {
   if (file != NULL) {
     
   } else {
@@ -5928,55 +5828,63 @@ void tLowPolyMesh::clear_file() {
   // @@protoc_insertion_point(field_set_allocated:xnormal.tLowPolyMesh.File)
 }
 
-// optional .xnormal.tLowPolyMesh.eSwizzleComponent VVDMSwizzleY = 14;
+// .xnormal.tLowPolyMesh.eSwizzleComponent VVDMSwizzleY = 14;
 void tLowPolyMesh::clear_vvdmswizzley() {
   vvdmswizzley_ = 0;
 }
- ::xnormal::tLowPolyMesh_eSwizzleComponent tLowPolyMesh::vvdmswizzley() const {
+::xnormal::tLowPolyMesh_eSwizzleComponent tLowPolyMesh::vvdmswizzley() const {
   // @@protoc_insertion_point(field_get:xnormal.tLowPolyMesh.VVDMSwizzleY)
   return static_cast< ::xnormal::tLowPolyMesh_eSwizzleComponent >(vvdmswizzley_);
 }
- void tLowPolyMesh::set_vvdmswizzley(::xnormal::tLowPolyMesh_eSwizzleComponent value) {
+void tLowPolyMesh::set_vvdmswizzley(::xnormal::tLowPolyMesh_eSwizzleComponent value) {
   
   vvdmswizzley_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tLowPolyMesh.VVDMSwizzleY)
 }
 
-// optional string CageFile = 15;
+// string CageFile = 15;
 void tLowPolyMesh::clear_cagefile() {
   cagefile_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- const ::std::string& tLowPolyMesh::cagefile() const {
+const ::std::string& tLowPolyMesh::cagefile() const {
   // @@protoc_insertion_point(field_get:xnormal.tLowPolyMesh.CageFile)
-  return cagefile_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return cagefile_.GetNoArena();
 }
- void tLowPolyMesh::set_cagefile(const ::std::string& value) {
+void tLowPolyMesh::set_cagefile(const ::std::string& value) {
   
   cagefile_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:xnormal.tLowPolyMesh.CageFile)
 }
- void tLowPolyMesh::set_cagefile(const char* value) {
+#if LANG_CXX11
+void tLowPolyMesh::set_cagefile(::std::string&& value) {
+  
+  cagefile_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:xnormal.tLowPolyMesh.CageFile)
+}
+#endif
+void tLowPolyMesh::set_cagefile(const char* value) {
   
   cagefile_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:xnormal.tLowPolyMesh.CageFile)
 }
- void tLowPolyMesh::set_cagefile(const char* value, size_t size) {
+void tLowPolyMesh::set_cagefile(const char* value, size_t size) {
   
   cagefile_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:xnormal.tLowPolyMesh.CageFile)
 }
- ::std::string* tLowPolyMesh::mutable_cagefile() {
+::std::string* tLowPolyMesh::mutable_cagefile() {
   
   // @@protoc_insertion_point(field_mutable:xnormal.tLowPolyMesh.CageFile)
   return cagefile_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* tLowPolyMesh::release_cagefile() {
+::std::string* tLowPolyMesh::release_cagefile() {
   // @@protoc_insertion_point(field_release:xnormal.tLowPolyMesh.CageFile)
   
   return cagefile_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void tLowPolyMesh::set_allocated_cagefile(::std::string* cagefile) {
+void tLowPolyMesh::set_allocated_cagefile(::std::string* cagefile) {
   if (cagefile != NULL) {
     
   } else {
@@ -5986,41 +5894,49 @@ void tLowPolyMesh::clear_cagefile() {
   // @@protoc_insertion_point(field_set_allocated:xnormal.tLowPolyMesh.CageFile)
 }
 
-// optional string HeightTex = 16;
+// string HeightTex = 16;
 void tLowPolyMesh::clear_heighttex() {
   heighttex_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- const ::std::string& tLowPolyMesh::heighttex() const {
+const ::std::string& tLowPolyMesh::heighttex() const {
   // @@protoc_insertion_point(field_get:xnormal.tLowPolyMesh.HeightTex)
-  return heighttex_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return heighttex_.GetNoArena();
 }
- void tLowPolyMesh::set_heighttex(const ::std::string& value) {
+void tLowPolyMesh::set_heighttex(const ::std::string& value) {
   
   heighttex_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:xnormal.tLowPolyMesh.HeightTex)
 }
- void tLowPolyMesh::set_heighttex(const char* value) {
+#if LANG_CXX11
+void tLowPolyMesh::set_heighttex(::std::string&& value) {
+  
+  heighttex_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:xnormal.tLowPolyMesh.HeightTex)
+}
+#endif
+void tLowPolyMesh::set_heighttex(const char* value) {
   
   heighttex_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:xnormal.tLowPolyMesh.HeightTex)
 }
- void tLowPolyMesh::set_heighttex(const char* value, size_t size) {
+void tLowPolyMesh::set_heighttex(const char* value, size_t size) {
   
   heighttex_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:xnormal.tLowPolyMesh.HeightTex)
 }
- ::std::string* tLowPolyMesh::mutable_heighttex() {
+::std::string* tLowPolyMesh::mutable_heighttex() {
   
   // @@protoc_insertion_point(field_mutable:xnormal.tLowPolyMesh.HeightTex)
   return heighttex_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* tLowPolyMesh::release_heighttex() {
+::std::string* tLowPolyMesh::release_heighttex() {
   // @@protoc_insertion_point(field_release:xnormal.tLowPolyMesh.HeightTex)
   
   return heighttex_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void tLowPolyMesh::set_allocated_heighttex(::std::string* heighttex) {
+void tLowPolyMesh::set_allocated_heighttex(::std::string* heighttex) {
   if (heighttex != NULL) {
     
   } else {
@@ -6030,69 +5946,77 @@ void tLowPolyMesh::clear_heighttex() {
   // @@protoc_insertion_point(field_set_allocated:xnormal.tLowPolyMesh.HeightTex)
 }
 
-// optional .xnormal.tLowPolyMesh.eSwizzleComponent NMSwizzleY = 17;
+// .xnormal.tLowPolyMesh.eSwizzleComponent NMSwizzleY = 17;
 void tLowPolyMesh::clear_nmswizzley() {
   nmswizzley_ = 0;
 }
- ::xnormal::tLowPolyMesh_eSwizzleComponent tLowPolyMesh::nmswizzley() const {
+::xnormal::tLowPolyMesh_eSwizzleComponent tLowPolyMesh::nmswizzley() const {
   // @@protoc_insertion_point(field_get:xnormal.tLowPolyMesh.NMSwizzleY)
   return static_cast< ::xnormal::tLowPolyMesh_eSwizzleComponent >(nmswizzley_);
 }
- void tLowPolyMesh::set_nmswizzley(::xnormal::tLowPolyMesh_eSwizzleComponent value) {
+void tLowPolyMesh::set_nmswizzley(::xnormal::tLowPolyMesh_eSwizzleComponent value) {
   
   nmswizzley_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tLowPolyMesh.NMSwizzleY)
 }
 
-// optional bool BatchProtect = 18;
+// bool BatchProtect = 18;
 void tLowPolyMesh::clear_batchprotect() {
   batchprotect_ = false;
 }
- bool tLowPolyMesh::batchprotect() const {
+bool tLowPolyMesh::batchprotect() const {
   // @@protoc_insertion_point(field_get:xnormal.tLowPolyMesh.BatchProtect)
   return batchprotect_;
 }
- void tLowPolyMesh::set_batchprotect(bool value) {
+void tLowPolyMesh::set_batchprotect(bool value) {
   
   batchprotect_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tLowPolyMesh.BatchProtect)
 }
 
-// optional bytes AlphaTestValue = 19;
+// bytes AlphaTestValue = 19;
 void tLowPolyMesh::clear_alphatestvalue() {
   alphatestvalue_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- const ::std::string& tLowPolyMesh::alphatestvalue() const {
+const ::std::string& tLowPolyMesh::alphatestvalue() const {
   // @@protoc_insertion_point(field_get:xnormal.tLowPolyMesh.AlphaTestValue)
-  return alphatestvalue_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return alphatestvalue_.GetNoArena();
 }
- void tLowPolyMesh::set_alphatestvalue(const ::std::string& value) {
+void tLowPolyMesh::set_alphatestvalue(const ::std::string& value) {
   
   alphatestvalue_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:xnormal.tLowPolyMesh.AlphaTestValue)
 }
- void tLowPolyMesh::set_alphatestvalue(const char* value) {
+#if LANG_CXX11
+void tLowPolyMesh::set_alphatestvalue(::std::string&& value) {
+  
+  alphatestvalue_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:xnormal.tLowPolyMesh.AlphaTestValue)
+}
+#endif
+void tLowPolyMesh::set_alphatestvalue(const char* value) {
   
   alphatestvalue_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:xnormal.tLowPolyMesh.AlphaTestValue)
 }
- void tLowPolyMesh::set_alphatestvalue(const void* value, size_t size) {
+void tLowPolyMesh::set_alphatestvalue(const void* value, size_t size) {
   
   alphatestvalue_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:xnormal.tLowPolyMesh.AlphaTestValue)
 }
- ::std::string* tLowPolyMesh::mutable_alphatestvalue() {
+::std::string* tLowPolyMesh::mutable_alphatestvalue() {
   
   // @@protoc_insertion_point(field_mutable:xnormal.tLowPolyMesh.AlphaTestValue)
   return alphatestvalue_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* tLowPolyMesh::release_alphatestvalue() {
+::std::string* tLowPolyMesh::release_alphatestvalue() {
   // @@protoc_insertion_point(field_release:xnormal.tLowPolyMesh.AlphaTestValue)
   
   return alphatestvalue_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void tLowPolyMesh::set_allocated_alphatestvalue(::std::string* alphatestvalue) {
+void tLowPolyMesh::set_allocated_alphatestvalue(::std::string* alphatestvalue) {
   if (alphatestvalue != NULL) {
     
   } else {
@@ -6102,139 +6026,147 @@ void tLowPolyMesh::clear_alphatestvalue() {
   // @@protoc_insertion_point(field_set_allocated:xnormal.tLowPolyMesh.AlphaTestValue)
 }
 
-// optional uint32 Subdivisions = 20;
+// uint32 Subdivisions = 20;
 void tLowPolyMesh::clear_subdivisions() {
   subdivisions_ = 0u;
 }
- ::google::protobuf::uint32 tLowPolyMesh::subdivisions() const {
+::google::protobuf::uint32 tLowPolyMesh::subdivisions() const {
   // @@protoc_insertion_point(field_get:xnormal.tLowPolyMesh.Subdivisions)
   return subdivisions_;
 }
- void tLowPolyMesh::set_subdivisions(::google::protobuf::uint32 value) {
+void tLowPolyMesh::set_subdivisions(::google::protobuf::uint32 value) {
   
   subdivisions_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tLowPolyMesh.Subdivisions)
 }
 
-// optional bool Matte = 21;
+// bool Matte = 21;
 void tLowPolyMesh::clear_matte() {
   matte_ = false;
 }
- bool tLowPolyMesh::matte() const {
+bool tLowPolyMesh::matte() const {
   // @@protoc_insertion_point(field_get:xnormal.tLowPolyMesh.Matte)
   return matte_;
 }
- void tLowPolyMesh::set_matte(bool value) {
+void tLowPolyMesh::set_matte(bool value) {
   
   matte_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tLowPolyMesh.Matte)
 }
 
-// optional bool AverageNormals = 22;
+// bool AverageNormals = 22;
 void tLowPolyMesh::clear_averagenormals() {
   averagenormals_ = false;
 }
- bool tLowPolyMesh::averagenormals() const {
+bool tLowPolyMesh::averagenormals() const {
   // @@protoc_insertion_point(field_get:xnormal.tLowPolyMesh.AverageNormals)
   return averagenormals_;
 }
- void tLowPolyMesh::set_averagenormals(bool value) {
+void tLowPolyMesh::set_averagenormals(bool value) {
   
   averagenormals_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tLowPolyMesh.AverageNormals)
 }
 
-// optional bool VectorDisplacementTS = 23;
+// bool VectorDisplacementTS = 23;
 void tLowPolyMesh::clear_vectordisplacementts() {
   vectordisplacementts_ = false;
 }
- bool tLowPolyMesh::vectordisplacementts() const {
+bool tLowPolyMesh::vectordisplacementts() const {
   // @@protoc_insertion_point(field_get:xnormal.tLowPolyMesh.VectorDisplacementTS)
   return vectordisplacementts_;
 }
- void tLowPolyMesh::set_vectordisplacementts(bool value) {
+void tLowPolyMesh::set_vectordisplacementts(bool value) {
   
   vectordisplacementts_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tLowPolyMesh.VectorDisplacementTS)
 }
 
-// optional bool UseCage = 24;
+// bool UseCage = 24;
 void tLowPolyMesh::clear_usecage() {
   usecage_ = false;
 }
- bool tLowPolyMesh::usecage() const {
+bool tLowPolyMesh::usecage() const {
   // @@protoc_insertion_point(field_get:xnormal.tLowPolyMesh.UseCage)
   return usecage_;
 }
- void tLowPolyMesh::set_usecage(bool value) {
+void tLowPolyMesh::set_usecage(bool value) {
   
   usecage_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tLowPolyMesh.UseCage)
 }
 
-// optional bool Visible = 25;
+// bool Visible = 25;
 void tLowPolyMesh::clear_visible() {
   visible_ = false;
 }
- bool tLowPolyMesh::visible() const {
+bool tLowPolyMesh::visible() const {
   // @@protoc_insertion_point(field_get:xnormal.tLowPolyMesh.Visible)
   return visible_;
 }
- void tLowPolyMesh::set_visible(bool value) {
+void tLowPolyMesh::set_visible(bool value) {
   
   visible_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tLowPolyMesh.Visible)
 }
 
-// optional .xnormal.tLowPolyMesh.eSwizzleComponent NMSwizzleX = 26;
+// .xnormal.tLowPolyMesh.eSwizzleComponent NMSwizzleX = 26;
 void tLowPolyMesh::clear_nmswizzlex() {
   nmswizzlex_ = 0;
 }
- ::xnormal::tLowPolyMesh_eSwizzleComponent tLowPolyMesh::nmswizzlex() const {
+::xnormal::tLowPolyMesh_eSwizzleComponent tLowPolyMesh::nmswizzlex() const {
   // @@protoc_insertion_point(field_get:xnormal.tLowPolyMesh.NMSwizzleX)
   return static_cast< ::xnormal::tLowPolyMesh_eSwizzleComponent >(nmswizzlex_);
 }
- void tLowPolyMesh::set_nmswizzlex(::xnormal::tLowPolyMesh_eSwizzleComponent value) {
+void tLowPolyMesh::set_nmswizzlex(::xnormal::tLowPolyMesh_eSwizzleComponent value) {
   
   nmswizzlex_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tLowPolyMesh.NMSwizzleX)
 }
 
-// optional string GlossTex = 27;
+// string GlossTex = 27;
 void tLowPolyMesh::clear_glosstex() {
   glosstex_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- const ::std::string& tLowPolyMesh::glosstex() const {
+const ::std::string& tLowPolyMesh::glosstex() const {
   // @@protoc_insertion_point(field_get:xnormal.tLowPolyMesh.GlossTex)
-  return glosstex_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return glosstex_.GetNoArena();
 }
- void tLowPolyMesh::set_glosstex(const ::std::string& value) {
+void tLowPolyMesh::set_glosstex(const ::std::string& value) {
   
   glosstex_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:xnormal.tLowPolyMesh.GlossTex)
 }
- void tLowPolyMesh::set_glosstex(const char* value) {
+#if LANG_CXX11
+void tLowPolyMesh::set_glosstex(::std::string&& value) {
+  
+  glosstex_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:xnormal.tLowPolyMesh.GlossTex)
+}
+#endif
+void tLowPolyMesh::set_glosstex(const char* value) {
   
   glosstex_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:xnormal.tLowPolyMesh.GlossTex)
 }
- void tLowPolyMesh::set_glosstex(const char* value, size_t size) {
+void tLowPolyMesh::set_glosstex(const char* value, size_t size) {
   
   glosstex_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:xnormal.tLowPolyMesh.GlossTex)
 }
- ::std::string* tLowPolyMesh::mutable_glosstex() {
+::std::string* tLowPolyMesh::mutable_glosstex() {
   
   // @@protoc_insertion_point(field_mutable:xnormal.tLowPolyMesh.GlossTex)
   return glosstex_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* tLowPolyMesh::release_glosstex() {
+::std::string* tLowPolyMesh::release_glosstex() {
   // @@protoc_insertion_point(field_release:xnormal.tLowPolyMesh.GlossTex)
   
   return glosstex_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void tLowPolyMesh::set_allocated_glosstex(::std::string* glosstex) {
+void tLowPolyMesh::set_allocated_glosstex(::std::string* glosstex) {
   if (glosstex != NULL) {
     
   } else {
@@ -6244,69 +6176,77 @@ void tLowPolyMesh::clear_glosstex() {
   // @@protoc_insertion_point(field_set_allocated:xnormal.tLowPolyMesh.GlossTex)
 }
 
-// optional float Scale = 28;
+// float Scale = 28;
 void tLowPolyMesh::clear_scale() {
   scale_ = 0;
 }
- float tLowPolyMesh::scale() const {
+float tLowPolyMesh::scale() const {
   // @@protoc_insertion_point(field_get:xnormal.tLowPolyMesh.Scale)
   return scale_;
 }
- void tLowPolyMesh::set_scale(float value) {
+void tLowPolyMesh::set_scale(float value) {
   
   scale_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tLowPolyMesh.Scale)
 }
 
-// optional .xnormal.tLowPolyMesh.eSwizzleComponent NMSwizzleZ = 29;
+// .xnormal.tLowPolyMesh.eSwizzleComponent NMSwizzleZ = 29;
 void tLowPolyMesh::clear_nmswizzlez() {
   nmswizzlez_ = 0;
 }
- ::xnormal::tLowPolyMesh_eSwizzleComponent tLowPolyMesh::nmswizzlez() const {
+::xnormal::tLowPolyMesh_eSwizzleComponent tLowPolyMesh::nmswizzlez() const {
   // @@protoc_insertion_point(field_get:xnormal.tLowPolyMesh.NMSwizzleZ)
   return static_cast< ::xnormal::tLowPolyMesh_eSwizzleComponent >(nmswizzlez_);
 }
- void tLowPolyMesh::set_nmswizzlez(::xnormal::tLowPolyMesh_eSwizzleComponent value) {
+void tLowPolyMesh::set_nmswizzlez(::xnormal::tLowPolyMesh_eSwizzleComponent value) {
   
   nmswizzlez_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tLowPolyMesh.NMSwizzleZ)
 }
 
-// optional string VectorDisplacementTex = 30;
+// string VectorDisplacementTex = 30;
 void tLowPolyMesh::clear_vectordisplacementtex() {
   vectordisplacementtex_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- const ::std::string& tLowPolyMesh::vectordisplacementtex() const {
+const ::std::string& tLowPolyMesh::vectordisplacementtex() const {
   // @@protoc_insertion_point(field_get:xnormal.tLowPolyMesh.VectorDisplacementTex)
-  return vectordisplacementtex_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return vectordisplacementtex_.GetNoArena();
 }
- void tLowPolyMesh::set_vectordisplacementtex(const ::std::string& value) {
+void tLowPolyMesh::set_vectordisplacementtex(const ::std::string& value) {
   
   vectordisplacementtex_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:xnormal.tLowPolyMesh.VectorDisplacementTex)
 }
- void tLowPolyMesh::set_vectordisplacementtex(const char* value) {
+#if LANG_CXX11
+void tLowPolyMesh::set_vectordisplacementtex(::std::string&& value) {
+  
+  vectordisplacementtex_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:xnormal.tLowPolyMesh.VectorDisplacementTex)
+}
+#endif
+void tLowPolyMesh::set_vectordisplacementtex(const char* value) {
   
   vectordisplacementtex_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:xnormal.tLowPolyMesh.VectorDisplacementTex)
 }
- void tLowPolyMesh::set_vectordisplacementtex(const char* value, size_t size) {
+void tLowPolyMesh::set_vectordisplacementtex(const char* value, size_t size) {
   
   vectordisplacementtex_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:xnormal.tLowPolyMesh.VectorDisplacementTex)
 }
- ::std::string* tLowPolyMesh::mutable_vectordisplacementtex() {
+::std::string* tLowPolyMesh::mutable_vectordisplacementtex() {
   
   // @@protoc_insertion_point(field_mutable:xnormal.tLowPolyMesh.VectorDisplacementTex)
   return vectordisplacementtex_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* tLowPolyMesh::release_vectordisplacementtex() {
+::std::string* tLowPolyMesh::release_vectordisplacementtex() {
   // @@protoc_insertion_point(field_release:xnormal.tLowPolyMesh.VectorDisplacementTex)
   
   return vectordisplacementtex_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void tLowPolyMesh::set_allocated_vectordisplacementtex(::std::string* vectordisplacementtex) {
+void tLowPolyMesh::set_allocated_vectordisplacementtex(::std::string* vectordisplacementtex) {
   if (vectordisplacementtex != NULL) {
     
   } else {
@@ -6316,83 +6256,91 @@ void tLowPolyMesh::clear_vectordisplacementtex() {
   // @@protoc_insertion_point(field_set_allocated:xnormal.tLowPolyMesh.VectorDisplacementTex)
 }
 
-// optional .xnormal.tLowPolyMesh.eSwizzleComponent VVDMSwizzleX = 31;
+// .xnormal.tLowPolyMesh.eSwizzleComponent VVDMSwizzleX = 31;
 void tLowPolyMesh::clear_vvdmswizzlex() {
   vvdmswizzlex_ = 0;
 }
- ::xnormal::tLowPolyMesh_eSwizzleComponent tLowPolyMesh::vvdmswizzlex() const {
+::xnormal::tLowPolyMesh_eSwizzleComponent tLowPolyMesh::vvdmswizzlex() const {
   // @@protoc_insertion_point(field_get:xnormal.tLowPolyMesh.VVDMSwizzleX)
   return static_cast< ::xnormal::tLowPolyMesh_eSwizzleComponent >(vvdmswizzlex_);
 }
- void tLowPolyMesh::set_vvdmswizzlex(::xnormal::tLowPolyMesh_eSwizzleComponent value) {
+void tLowPolyMesh::set_vvdmswizzlex(::xnormal::tLowPolyMesh_eSwizzleComponent value) {
   
   vvdmswizzlex_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tLowPolyMesh.VVDMSwizzleX)
 }
 
-// optional bool UsePerVertexColors = 32;
+// bool UsePerVertexColors = 32;
 void tLowPolyMesh::clear_usepervertexcolors() {
   usepervertexcolors_ = false;
 }
- bool tLowPolyMesh::usepervertexcolors() const {
+bool tLowPolyMesh::usepervertexcolors() const {
   // @@protoc_insertion_point(field_get:xnormal.tLowPolyMesh.UsePerVertexColors)
   return usepervertexcolors_;
 }
- void tLowPolyMesh::set_usepervertexcolors(bool value) {
+void tLowPolyMesh::set_usepervertexcolors(bool value) {
   
   usepervertexcolors_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tLowPolyMesh.UsePerVertexColors)
 }
 
-// optional bool HighpolyNormalsOverrideTangentSpace = 33;
+// bool HighpolyNormalsOverrideTangentSpace = 33;
 void tLowPolyMesh::clear_highpolynormalsoverridetangentspace() {
   highpolynormalsoverridetangentspace_ = false;
 }
- bool tLowPolyMesh::highpolynormalsoverridetangentspace() const {
+bool tLowPolyMesh::highpolynormalsoverridetangentspace() const {
   // @@protoc_insertion_point(field_get:xnormal.tLowPolyMesh.HighpolyNormalsOverrideTangentSpace)
   return highpolynormalsoverridetangentspace_;
 }
- void tLowPolyMesh::set_highpolynormalsoverridetangentspace(bool value) {
+void tLowPolyMesh::set_highpolynormalsoverridetangentspace(bool value) {
   
   highpolynormalsoverridetangentspace_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tLowPolyMesh.HighpolyNormalsOverrideTangentSpace)
 }
 
-// optional string LMAOTex = 34;
+// string LMAOTex = 34;
 void tLowPolyMesh::clear_lmaotex() {
   lmaotex_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- const ::std::string& tLowPolyMesh::lmaotex() const {
+const ::std::string& tLowPolyMesh::lmaotex() const {
   // @@protoc_insertion_point(field_get:xnormal.tLowPolyMesh.LMAOTex)
-  return lmaotex_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return lmaotex_.GetNoArena();
 }
- void tLowPolyMesh::set_lmaotex(const ::std::string& value) {
+void tLowPolyMesh::set_lmaotex(const ::std::string& value) {
   
   lmaotex_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:xnormal.tLowPolyMesh.LMAOTex)
 }
- void tLowPolyMesh::set_lmaotex(const char* value) {
+#if LANG_CXX11
+void tLowPolyMesh::set_lmaotex(::std::string&& value) {
+  
+  lmaotex_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:xnormal.tLowPolyMesh.LMAOTex)
+}
+#endif
+void tLowPolyMesh::set_lmaotex(const char* value) {
   
   lmaotex_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:xnormal.tLowPolyMesh.LMAOTex)
 }
- void tLowPolyMesh::set_lmaotex(const char* value, size_t size) {
+void tLowPolyMesh::set_lmaotex(const char* value, size_t size) {
   
   lmaotex_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:xnormal.tLowPolyMesh.LMAOTex)
 }
- ::std::string* tLowPolyMesh::mutable_lmaotex() {
+::std::string* tLowPolyMesh::mutable_lmaotex() {
   
   // @@protoc_insertion_point(field_mutable:xnormal.tLowPolyMesh.LMAOTex)
   return lmaotex_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* tLowPolyMesh::release_lmaotex() {
+::std::string* tLowPolyMesh::release_lmaotex() {
   // @@protoc_insertion_point(field_release:xnormal.tLowPolyMesh.LMAOTex)
   
   return lmaotex_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void tLowPolyMesh::set_allocated_lmaotex(::std::string* lmaotex) {
+void tLowPolyMesh::set_allocated_lmaotex(::std::string* lmaotex) {
   if (lmaotex != NULL) {
     
   } else {
@@ -6402,41 +6350,49 @@ void tLowPolyMesh::clear_lmaotex() {
   // @@protoc_insertion_point(field_set_allocated:xnormal.tLowPolyMesh.LMAOTex)
 }
 
-// optional string SpecTex = 35;
+// string SpecTex = 35;
 void tLowPolyMesh::clear_spectex() {
   spectex_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- const ::std::string& tLowPolyMesh::spectex() const {
+const ::std::string& tLowPolyMesh::spectex() const {
   // @@protoc_insertion_point(field_get:xnormal.tLowPolyMesh.SpecTex)
-  return spectex_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return spectex_.GetNoArena();
 }
- void tLowPolyMesh::set_spectex(const ::std::string& value) {
+void tLowPolyMesh::set_spectex(const ::std::string& value) {
   
   spectex_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:xnormal.tLowPolyMesh.SpecTex)
 }
- void tLowPolyMesh::set_spectex(const char* value) {
+#if LANG_CXX11
+void tLowPolyMesh::set_spectex(::std::string&& value) {
+  
+  spectex_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:xnormal.tLowPolyMesh.SpecTex)
+}
+#endif
+void tLowPolyMesh::set_spectex(const char* value) {
   
   spectex_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:xnormal.tLowPolyMesh.SpecTex)
 }
- void tLowPolyMesh::set_spectex(const char* value, size_t size) {
+void tLowPolyMesh::set_spectex(const char* value, size_t size) {
   
   spectex_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:xnormal.tLowPolyMesh.SpecTex)
 }
- ::std::string* tLowPolyMesh::mutable_spectex() {
+::std::string* tLowPolyMesh::mutable_spectex() {
   
   // @@protoc_insertion_point(field_mutable:xnormal.tLowPolyMesh.SpecTex)
   return spectex_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* tLowPolyMesh::release_spectex() {
+::std::string* tLowPolyMesh::release_spectex() {
   // @@protoc_insertion_point(field_release:xnormal.tLowPolyMesh.SpecTex)
   
   return spectex_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void tLowPolyMesh::set_allocated_spectex(::std::string* spectex) {
+void tLowPolyMesh::set_allocated_spectex(::std::string* spectex) {
   if (spectex != NULL) {
     
   } else {
@@ -6446,41 +6402,49 @@ void tLowPolyMesh::clear_spectex() {
   // @@protoc_insertion_point(field_set_allocated:xnormal.tLowPolyMesh.SpecTex)
 }
 
-// optional string NormTex = 36;
+// string NormTex = 36;
 void tLowPolyMesh::clear_normtex() {
   normtex_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- const ::std::string& tLowPolyMesh::normtex() const {
+const ::std::string& tLowPolyMesh::normtex() const {
   // @@protoc_insertion_point(field_get:xnormal.tLowPolyMesh.NormTex)
-  return normtex_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return normtex_.GetNoArena();
 }
- void tLowPolyMesh::set_normtex(const ::std::string& value) {
+void tLowPolyMesh::set_normtex(const ::std::string& value) {
   
   normtex_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:xnormal.tLowPolyMesh.NormTex)
 }
- void tLowPolyMesh::set_normtex(const char* value) {
+#if LANG_CXX11
+void tLowPolyMesh::set_normtex(::std::string&& value) {
+  
+  normtex_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:xnormal.tLowPolyMesh.NormTex)
+}
+#endif
+void tLowPolyMesh::set_normtex(const char* value) {
   
   normtex_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:xnormal.tLowPolyMesh.NormTex)
 }
- void tLowPolyMesh::set_normtex(const char* value, size_t size) {
+void tLowPolyMesh::set_normtex(const char* value, size_t size) {
   
   normtex_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:xnormal.tLowPolyMesh.NormTex)
 }
- ::std::string* tLowPolyMesh::mutable_normtex() {
+::std::string* tLowPolyMesh::mutable_normtex() {
   
   // @@protoc_insertion_point(field_mutable:xnormal.tLowPolyMesh.NormTex)
   return normtex_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* tLowPolyMesh::release_normtex() {
+::std::string* tLowPolyMesh::release_normtex() {
   // @@protoc_insertion_point(field_release:xnormal.tLowPolyMesh.NormTex)
   
   return normtex_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void tLowPolyMesh::set_allocated_normtex(::std::string* normtex) {
+void tLowPolyMesh::set_allocated_normtex(::std::string* normtex) {
   if (normtex != NULL) {
     
   } else {
@@ -6490,9 +6454,9 @@ void tLowPolyMesh::clear_normtex() {
   // @@protoc_insertion_point(field_set_allocated:xnormal.tLowPolyMesh.NormTex)
 }
 
-// optional .xnormal.UnspecifiedType HighpolyNormalOverride = 37;
+// .xnormal.UnspecifiedType HighpolyNormalOverride = 37;
 bool tLowPolyMesh::has_highpolynormaloverride() const {
-  return !_is_default_instance_ && highpolynormaloverride_ != NULL;
+  return this != internal_default_instance() && highpolynormaloverride_ != NULL;
 }
 void tLowPolyMesh::clear_highpolynormaloverride() {
   if (GetArenaNoVirtual() == NULL && highpolynormaloverride_ != NULL) delete highpolynormaloverride_;
@@ -6500,7 +6464,8 @@ void tLowPolyMesh::clear_highpolynormaloverride() {
 }
 const ::xnormal::UnspecifiedType& tLowPolyMesh::highpolynormaloverride() const {
   // @@protoc_insertion_point(field_get:xnormal.tLowPolyMesh.HighpolyNormalOverride)
-  return highpolynormaloverride_ != NULL ? *highpolynormaloverride_ : *default_instance_->highpolynormaloverride_;
+  return highpolynormaloverride_ != NULL ? *highpolynormaloverride_
+                         : *::xnormal::UnspecifiedType::internal_default_instance();
 }
 ::xnormal::UnspecifiedType* tLowPolyMesh::mutable_highpolynormaloverride() {
   
@@ -6528,41 +6493,49 @@ void tLowPolyMesh::set_allocated_highpolynormaloverride(::xnormal::UnspecifiedTy
   // @@protoc_insertion_point(field_set_allocated:xnormal.tLowPolyMesh.HighpolyNormalOverride)
 }
 
-// optional string PositionOffset = 38;
+// string PositionOffset = 38;
 void tLowPolyMesh::clear_positionoffset() {
   positionoffset_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- const ::std::string& tLowPolyMesh::positionoffset() const {
+const ::std::string& tLowPolyMesh::positionoffset() const {
   // @@protoc_insertion_point(field_get:xnormal.tLowPolyMesh.PositionOffset)
-  return positionoffset_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return positionoffset_.GetNoArena();
 }
- void tLowPolyMesh::set_positionoffset(const ::std::string& value) {
+void tLowPolyMesh::set_positionoffset(const ::std::string& value) {
   
   positionoffset_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:xnormal.tLowPolyMesh.PositionOffset)
 }
- void tLowPolyMesh::set_positionoffset(const char* value) {
+#if LANG_CXX11
+void tLowPolyMesh::set_positionoffset(::std::string&& value) {
+  
+  positionoffset_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:xnormal.tLowPolyMesh.PositionOffset)
+}
+#endif
+void tLowPolyMesh::set_positionoffset(const char* value) {
   
   positionoffset_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:xnormal.tLowPolyMesh.PositionOffset)
 }
- void tLowPolyMesh::set_positionoffset(const char* value, size_t size) {
+void tLowPolyMesh::set_positionoffset(const char* value, size_t size) {
   
   positionoffset_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:xnormal.tLowPolyMesh.PositionOffset)
 }
- ::std::string* tLowPolyMesh::mutable_positionoffset() {
+::std::string* tLowPolyMesh::mutable_positionoffset() {
   
   // @@protoc_insertion_point(field_mutable:xnormal.tLowPolyMesh.PositionOffset)
   return positionoffset_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* tLowPolyMesh::release_positionoffset() {
+::std::string* tLowPolyMesh::release_positionoffset() {
   // @@protoc_insertion_point(field_release:xnormal.tLowPolyMesh.PositionOffset)
   
   return positionoffset_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void tLowPolyMesh::set_allocated_positionoffset(::std::string* positionoffset) {
+void tLowPolyMesh::set_allocated_positionoffset(::std::string* positionoffset) {
   if (positionoffset != NULL) {
     
   } else {
@@ -6572,83 +6545,91 @@ void tLowPolyMesh::clear_positionoffset() {
   // @@protoc_insertion_point(field_set_allocated:xnormal.tLowPolyMesh.PositionOffset)
 }
 
-// optional float MaxRayDistanceBack = 39;
+// float MaxRayDistanceBack = 39;
 void tLowPolyMesh::clear_maxraydistanceback() {
   maxraydistanceback_ = 0;
 }
- float tLowPolyMesh::maxraydistanceback() const {
+float tLowPolyMesh::maxraydistanceback() const {
   // @@protoc_insertion_point(field_get:xnormal.tLowPolyMesh.MaxRayDistanceBack)
   return maxraydistanceback_;
 }
- void tLowPolyMesh::set_maxraydistanceback(float value) {
+void tLowPolyMesh::set_maxraydistanceback(float value) {
   
   maxraydistanceback_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tLowPolyMesh.MaxRayDistanceBack)
 }
 
-// optional bool UseFresnel = 40;
+// bool UseFresnel = 40;
 void tLowPolyMesh::clear_usefresnel() {
   usefresnel_ = false;
 }
- bool tLowPolyMesh::usefresnel() const {
+bool tLowPolyMesh::usefresnel() const {
   // @@protoc_insertion_point(field_get:xnormal.tLowPolyMesh.UseFresnel)
   return usefresnel_;
 }
- void tLowPolyMesh::set_usefresnel(bool value) {
+void tLowPolyMesh::set_usefresnel(bool value) {
   
   usefresnel_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tLowPolyMesh.UseFresnel)
 }
 
-// optional bool ReceiveShadows = 41;
+// bool ReceiveShadows = 41;
 void tLowPolyMesh::clear_receiveshadows() {
   receiveshadows_ = false;
 }
- bool tLowPolyMesh::receiveshadows() const {
+bool tLowPolyMesh::receiveshadows() const {
   // @@protoc_insertion_point(field_get:xnormal.tLowPolyMesh.ReceiveShadows)
   return receiveshadows_;
 }
- void tLowPolyMesh::set_receiveshadows(bool value) {
+void tLowPolyMesh::set_receiveshadows(bool value) {
   
   receiveshadows_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tLowPolyMesh.ReceiveShadows)
 }
 
-// optional string EmissiveTex = 42;
+// string EmissiveTex = 42;
 void tLowPolyMesh::clear_emissivetex() {
   emissivetex_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- const ::std::string& tLowPolyMesh::emissivetex() const {
+const ::std::string& tLowPolyMesh::emissivetex() const {
   // @@protoc_insertion_point(field_get:xnormal.tLowPolyMesh.EmissiveTex)
-  return emissivetex_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return emissivetex_.GetNoArena();
 }
- void tLowPolyMesh::set_emissivetex(const ::std::string& value) {
+void tLowPolyMesh::set_emissivetex(const ::std::string& value) {
   
   emissivetex_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:xnormal.tLowPolyMesh.EmissiveTex)
 }
- void tLowPolyMesh::set_emissivetex(const char* value) {
+#if LANG_CXX11
+void tLowPolyMesh::set_emissivetex(::std::string&& value) {
+  
+  emissivetex_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:xnormal.tLowPolyMesh.EmissiveTex)
+}
+#endif
+void tLowPolyMesh::set_emissivetex(const char* value) {
   
   emissivetex_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:xnormal.tLowPolyMesh.EmissiveTex)
 }
- void tLowPolyMesh::set_emissivetex(const char* value, size_t size) {
+void tLowPolyMesh::set_emissivetex(const char* value, size_t size) {
   
   emissivetex_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:xnormal.tLowPolyMesh.EmissiveTex)
 }
- ::std::string* tLowPolyMesh::mutable_emissivetex() {
+::std::string* tLowPolyMesh::mutable_emissivetex() {
   
   // @@protoc_insertion_point(field_mutable:xnormal.tLowPolyMesh.EmissiveTex)
   return emissivetex_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* tLowPolyMesh::release_emissivetex() {
+::std::string* tLowPolyMesh::release_emissivetex() {
   // @@protoc_insertion_point(field_release:xnormal.tLowPolyMesh.EmissiveTex)
   
   return emissivetex_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void tLowPolyMesh::set_allocated_emissivetex(::std::string* emissivetex) {
+void tLowPolyMesh::set_allocated_emissivetex(::std::string* emissivetex) {
   if (emissivetex != NULL) {
     
   } else {
@@ -6658,43 +6639,43 @@ void tLowPolyMesh::clear_emissivetex() {
   // @@protoc_insertion_point(field_set_allocated:xnormal.tLowPolyMesh.EmissiveTex)
 }
 
-// optional bool BackfaceCull = 43;
+// bool BackfaceCull = 43;
 void tLowPolyMesh::clear_backfacecull() {
   backfacecull_ = false;
 }
- bool tLowPolyMesh::backfacecull() const {
+bool tLowPolyMesh::backfacecull() const {
   // @@protoc_insertion_point(field_get:xnormal.tLowPolyMesh.BackfaceCull)
   return backfacecull_;
 }
- void tLowPolyMesh::set_backfacecull(bool value) {
+void tLowPolyMesh::set_backfacecull(bool value) {
   
   backfacecull_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tLowPolyMesh.BackfaceCull)
 }
 
-// optional bool CastShadows = 44;
+// bool CastShadows = 44;
 void tLowPolyMesh::clear_castshadows() {
   castshadows_ = false;
 }
- bool tLowPolyMesh::castshadows() const {
+bool tLowPolyMesh::castshadows() const {
   // @@protoc_insertion_point(field_get:xnormal.tLowPolyMesh.CastShadows)
   return castshadows_;
 }
- void tLowPolyMesh::set_castshadows(bool value) {
+void tLowPolyMesh::set_castshadows(bool value) {
   
   castshadows_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tLowPolyMesh.CastShadows)
 }
 
-// optional bool MatchUVs = 45;
+// bool MatchUVs = 45;
 void tLowPolyMesh::clear_matchuvs() {
   matchuvs_ = false;
 }
- bool tLowPolyMesh::matchuvs() const {
+bool tLowPolyMesh::matchuvs() const {
   // @@protoc_insertion_point(field_get:xnormal.tLowPolyMesh.MatchUVs)
   return matchuvs_;
 }
- void tLowPolyMesh::set_matchuvs(bool value) {
+void tLowPolyMesh::set_matchuvs(bool value) {
   
   matchuvs_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tLowPolyMesh.MatchUVs)
@@ -6712,28 +6693,27 @@ const int tVector3::kZFieldNumber;
 
 tVector3::tVector3()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_xnormal_2eproto::InitDefaults();
+  }
   SharedCtor();
   // @@protoc_insertion_point(constructor:xnormal.tVector3)
 }
-
-void tVector3::InitAsDefaultInstance() {
-  _is_default_instance_ = true;
-}
-
 tVector3::tVector3(const tVector3& from)
   : ::google::protobuf::Message(),
-    _internal_metadata_(NULL) {
-  SharedCtor();
-  MergeFrom(from);
+      _internal_metadata_(NULL),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::memcpy(&x_, &from.x_,
+    reinterpret_cast<char*>(&z_) -
+    reinterpret_cast<char*>(&x_) + sizeof(z_));
   // @@protoc_insertion_point(copy_constructor:xnormal.tVector3)
 }
 
 void tVector3::SharedCtor() {
-    _is_default_instance_ = false;
+  ::memset(&x_, 0, reinterpret_cast<char*>(&z_) -
+    reinterpret_cast<char*>(&x_) + sizeof(z_));
   _cached_size_ = 0;
-  x_ = 0;
-  y_ = 0;
-  z_ = 0;
 }
 
 tVector3::~tVector3() {
@@ -6742,8 +6722,6 @@ tVector3::~tVector3() {
 }
 
 void tVector3::SharedDtor() {
-  if (this != default_instance_) {
-  }
 }
 
 void tVector3::SetCachedSize(int size) const {
@@ -6752,16 +6730,14 @@ void tVector3::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
 const ::google::protobuf::Descriptor* tVector3::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return tVector3_descriptor_;
+  protobuf_xnormal_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_xnormal_2eproto::file_level_metadata[6].descriptor;
 }
 
 const tVector3& tVector3::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_xnormal_2eproto();
-  return *default_instance_;
+  protobuf_xnormal_2eproto::InitDefaults();
+  return *internal_default_instance();
 }
-
-tVector3* tVector3::default_instance_ = NULL;
 
 tVector3* tVector3::New(::google::protobuf::Arena* arena) const {
   tVector3* n = new tVector3;
@@ -6773,27 +6749,8 @@ tVector3* tVector3::New(::google::protobuf::Arena* arena) const {
 
 void tVector3::Clear() {
 // @@protoc_insertion_point(message_clear_start:xnormal.tVector3)
-#if defined(__clang__)
-#define ZR_HELPER_(f) \
-  _Pragma("clang diagnostic push") \
-  _Pragma("clang diagnostic ignored \"-Winvalid-offsetof\"") \
-  __builtin_offsetof(tVector3, f) \
-  _Pragma("clang diagnostic pop")
-#else
-#define ZR_HELPER_(f) reinterpret_cast<char*>(\
-  &reinterpret_cast<tVector3*>(16)->f)
-#endif
-
-#define ZR_(first, last) do {\
-  ::memset(&first, 0,\
-           ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
-} while (0)
-
-  ZR_(x_, z_);
-
-#undef ZR_HELPER_
-#undef ZR_
-
+  ::memset(&x_, 0, reinterpret_cast<char*>(&z_) -
+    reinterpret_cast<char*>(&x_) + sizeof(z_));
 }
 
 bool tVector3::MergePartialFromCodedStream(
@@ -6802,51 +6759,46 @@ bool tVector3::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:xnormal.tVector3)
   for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional float x = 1;
+      // float x = 1;
       case 1: {
-        if (tag == 13) {
+        if (tag == 13u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &x_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(21)) goto parse_y;
         break;
       }
 
-      // optional float y = 2;
+      // float y = 2;
       case 2: {
-        if (tag == 21) {
-         parse_y:
+        if (tag == 21u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &y_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(29)) goto parse_z;
         break;
       }
 
-      // optional float z = 3;
+      // float z = 3;
       case 3: {
-        if (tag == 29) {
-         parse_z:
+        if (tag == 29u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &z_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectAtEnd()) goto success;
         break;
       }
 
@@ -6874,17 +6826,17 @@ failure:
 void tVector3::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:xnormal.tVector3)
-  // optional float x = 1;
+  // float x = 1;
   if (this->x() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(1, this->x(), output);
   }
 
-  // optional float y = 2;
+  // float y = 2;
   if (this->y() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(2, this->y(), output);
   }
 
-  // optional float z = 3;
+  // float z = 3;
   if (this->z() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(3, this->z(), output);
   }
@@ -6894,19 +6846,19 @@ void tVector3::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* tVector3::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
+  (void)deterministic;  // Unused
   // @@protoc_insertion_point(serialize_to_array_start:xnormal.tVector3)
-  // optional float x = 1;
+  // float x = 1;
   if (this->x() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(1, this->x(), target);
   }
 
-  // optional float y = 2;
+  // float y = 2;
   if (this->y() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(2, this->y(), target);
   }
 
-  // optional float z = 3;
+  // float z = 3;
   if (this->z() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(3, this->z(), target);
   }
@@ -6915,37 +6867,36 @@ void tVector3::SerializeWithCachedSizes(
   return target;
 }
 
-int tVector3::ByteSize() const {
+size_t tVector3::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:xnormal.tVector3)
-  int total_size = 0;
+  size_t total_size = 0;
 
-  // optional float x = 1;
+  // float x = 1;
   if (this->x() != 0) {
     total_size += 1 + 4;
   }
 
-  // optional float y = 2;
+  // float y = 2;
   if (this->y() != 0) {
     total_size += 1 + 4;
   }
 
-  // optional float z = 3;
+  // float z = 3;
   if (this->z() != 0) {
     total_size += 1 + 4;
   }
 
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
+  _cached_size_ = cached_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void tVector3::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:xnormal.tVector3)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
-  const tVector3* source = 
+  GOOGLE_DCHECK_NE(&from, this);
+  const tVector3* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const tVector3>(
           &from);
   if (source == NULL) {
@@ -6959,9 +6910,8 @@ void tVector3::MergeFrom(const ::google::protobuf::Message& from) {
 
 void tVector3::MergeFrom(const tVector3& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:xnormal.tVector3)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
   if (from.x() != 0) {
     set_x(from.x());
   }
@@ -6988,7 +6938,6 @@ void tVector3::CopyFrom(const tVector3& from) {
 }
 
 bool tVector3::IsInitialized() const {
-
   return true;
 }
 
@@ -7000,58 +6949,54 @@ void tVector3::InternalSwap(tVector3* other) {
   std::swap(x_, other->x_);
   std::swap(y_, other->y_);
   std::swap(z_, other->z_);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
 
 ::google::protobuf::Metadata tVector3::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = tVector3_descriptor_;
-  metadata.reflection = tVector3_reflection_;
-  return metadata;
+  protobuf_xnormal_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_xnormal_2eproto::file_level_metadata[6];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // tVector3
 
-// optional float x = 1;
+// float x = 1;
 void tVector3::clear_x() {
   x_ = 0;
 }
- float tVector3::x() const {
+float tVector3::x() const {
   // @@protoc_insertion_point(field_get:xnormal.tVector3.x)
   return x_;
 }
- void tVector3::set_x(float value) {
+void tVector3::set_x(float value) {
   
   x_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tVector3.x)
 }
 
-// optional float y = 2;
+// float y = 2;
 void tVector3::clear_y() {
   y_ = 0;
 }
- float tVector3::y() const {
+float tVector3::y() const {
   // @@protoc_insertion_point(field_get:xnormal.tVector3.y)
   return y_;
 }
- void tVector3::set_y(float value) {
+void tVector3::set_y(float value) {
   
   y_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tVector3.y)
 }
 
-// optional float z = 3;
+// float z = 3;
 void tVector3::clear_z() {
   z_ = 0;
 }
- float tVector3::z() const {
+float tVector3::z() const {
   // @@protoc_insertion_point(field_get:xnormal.tVector3.z)
   return z_;
 }
- void tVector3::set_z(float value) {
+void tVector3::set_z(float value) {
   
   z_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tVector3.z)
@@ -7061,148 +7006,6 @@ void tVector3::clear_z() {
 
 // ===================================================================
 
-const ::google::protobuf::EnumDescriptor* tGenerateMaps_eAODistribution_descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return tGenerateMaps_eAODistribution_descriptor_;
-}
-bool tGenerateMaps_eAODistribution_IsValid(int value) {
-  switch(value) {
-    case 0:
-    case 1:
-    case 2:
-      return true;
-    default:
-      return false;
-  }
-}
-
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
-const tGenerateMaps_eAODistribution tGenerateMaps::eAODistribution_Cosine;
-const tGenerateMaps_eAODistribution tGenerateMaps::eAODistribution_CosineSq;
-const tGenerateMaps_eAODistribution tGenerateMaps::eAODistribution_Uniform;
-const tGenerateMaps_eAODistribution tGenerateMaps::eAODistribution_MIN;
-const tGenerateMaps_eAODistribution tGenerateMaps::eAODistribution_MAX;
-const int tGenerateMaps::eAODistribution_ARRAYSIZE;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
-const ::google::protobuf::EnumDescriptor* tGenerateMaps_eSwizzleComponent_descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return tGenerateMaps_eSwizzleComponent_descriptor_;
-}
-bool tGenerateMaps_eSwizzleComponent_IsValid(int value) {
-  switch(value) {
-    case 0:
-    case 1:
-    case 2:
-    case 3:
-    case 4:
-    case 5:
-      return true;
-    default:
-      return false;
-  }
-}
-
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
-const tGenerateMaps_eSwizzleComponent tGenerateMaps::eSwizzleComponent_X0;
-const tGenerateMaps_eSwizzleComponent tGenerateMaps::eSwizzleComponent_X1;
-const tGenerateMaps_eSwizzleComponent tGenerateMaps::eSwizzleComponent_Y0;
-const tGenerateMaps_eSwizzleComponent tGenerateMaps::eSwizzleComponent_Y1;
-const tGenerateMaps_eSwizzleComponent tGenerateMaps::eSwizzleComponent_Z0;
-const tGenerateMaps_eSwizzleComponent tGenerateMaps::eSwizzleComponent_Z1;
-const tGenerateMaps_eSwizzleComponent tGenerateMaps::eSwizzleComponent_MIN;
-const tGenerateMaps_eSwizzleComponent tGenerateMaps::eSwizzleComponent_MAX;
-const int tGenerateMaps::eSwizzleComponent_ARRAYSIZE;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
-const ::google::protobuf::EnumDescriptor* tGenerateMaps_eHMNormalization_descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return tGenerateMaps_eHMNormalization_descriptor_;
-}
-bool tGenerateMaps_eHMNormalization_IsValid(int value) {
-  switch(value) {
-    case 0:
-    case 1:
-    case 2:
-      return true;
-    default:
-      return false;
-  }
-}
-
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
-const tGenerateMaps_eHMNormalization tGenerateMaps::eHMNormalization_Interactive;
-const tGenerateMaps_eHMNormalization tGenerateMaps::eHMNormalization_Manual;
-const tGenerateMaps_eHMNormalization tGenerateMaps::eHMNormalization_Raw;
-const tGenerateMaps_eHMNormalization tGenerateMaps::eHMNormalization_MIN;
-const tGenerateMaps_eHMNormalization tGenerateMaps::eHMNormalization_MAX;
-const int tGenerateMaps::eHMNormalization_ARRAYSIZE;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
-const ::google::protobuf::EnumDescriptor* tGenerateMaps_eRNMCoordSys_descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return tGenerateMaps_eRNMCoordSys_descriptor_;
-}
-bool tGenerateMaps_eRNMCoordSys_IsValid(int value) {
-  switch(value) {
-    case 0:
-    case 1:
-    case 2:
-      return true;
-    default:
-      return false;
-  }
-}
-
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
-const tGenerateMaps_eRNMCoordSys tGenerateMaps::eRNMCoordSys_AliB;
-const tGenerateMaps_eRNMCoordSys tGenerateMaps::eRNMCoordSys_Direct3D;
-const tGenerateMaps_eRNMCoordSys tGenerateMaps::eRNMCoordSys_OpenGL;
-const tGenerateMaps_eRNMCoordSys tGenerateMaps::eRNMCoordSys_MIN;
-const tGenerateMaps_eRNMCoordSys tGenerateMaps::eRNMCoordSys_MAX;
-const int tGenerateMaps::eRNMCoordSys_ARRAYSIZE;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
-const ::google::protobuf::EnumDescriptor* tGenerateMaps_eAntialiasing_descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return tGenerateMaps_eAntialiasing_descriptor_;
-}
-bool tGenerateMaps_eAntialiasing_IsValid(int value) {
-  switch(value) {
-    case 0:
-    case 1:
-    case 2:
-      return true;
-    default:
-      return false;
-  }
-}
-
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
-const tGenerateMaps_eAntialiasing tGenerateMaps::eAntialiasing_1;
-const tGenerateMaps_eAntialiasing tGenerateMaps::eAntialiasing_2;
-const tGenerateMaps_eAntialiasing tGenerateMaps::eAntialiasing_4;
-const tGenerateMaps_eAntialiasing tGenerateMaps::eAntialiasing_MIN;
-const tGenerateMaps_eAntialiasing tGenerateMaps::eAntialiasing_MAX;
-const int tGenerateMaps::eAntialiasing_ARRAYSIZE;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
-const ::google::protobuf::EnumDescriptor* tGenerateMaps_eCurvAlgorithm_descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return tGenerateMaps_eCurvAlgorithm_descriptor_;
-}
-bool tGenerateMaps_eCurvAlgorithm_IsValid(int value) {
-  switch(value) {
-    case 0:
-    case 1:
-      return true;
-    default:
-      return false;
-  }
-}
-
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
-const tGenerateMaps_eCurvAlgorithm tGenerateMaps::eCurvAlgorithm_Average;
-const tGenerateMaps_eCurvAlgorithm tGenerateMaps::eCurvAlgorithm_Gaussian;
-const tGenerateMaps_eCurvAlgorithm tGenerateMaps::eCurvAlgorithm_MIN;
-const tGenerateMaps_eCurvAlgorithm tGenerateMaps::eCurvAlgorithm_MAX;
-const int tGenerateMaps::eCurvAlgorithm_ARRAYSIZE;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int tGenerateMaps::kNMBackgroundColorFieldNumber;
 const int tGenerateMaps::kHMBackgroundColorFieldNumber;
@@ -7338,180 +7141,152 @@ const int tGenerateMaps::kBakeHighpolyVColsFieldNumber;
 
 tGenerateMaps::tGenerateMaps()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_xnormal_2eproto::InitDefaults();
+  }
   SharedCtor();
   // @@protoc_insertion_point(constructor:xnormal.tGenerateMaps)
 }
-
-void tGenerateMaps::InitAsDefaultInstance() {
-  _is_default_instance_ = true;
-  nmbackgroundcolor_ = const_cast< ::xnormal::tRGB8*>(&::xnormal::tRGB8::default_instance());
-  hmbackgroundcolor_ = const_cast< ::xnormal::tRGB8*>(&::xnormal::tRGB8::default_instance());
-  bakehighpolybasetexturenotexcol_ = const_cast< ::xnormal::tRGB8*>(&::xnormal::tRGB8::default_instance());
-  bakehighpolybasetexturebackgroundcolor_ = const_cast< ::xnormal::tRGB8*>(&::xnormal::tRGB8::default_instance());
-  renderwireframebackgroundcolor_ = const_cast< ::xnormal::tRGB8*>(&::xnormal::tRGB8::default_instance());
-  renderwireframecol_ = const_cast< ::xnormal::tRGB8*>(&::xnormal::tRGB8::default_instance());
-  rendercwcol_ = const_cast< ::xnormal::tRGB8*>(&::xnormal::tRGB8::default_instance());
-  renderseamcol_ = const_cast< ::xnormal::tRGB8*>(&::xnormal::tRGB8::default_instance());
-  renderrayfailscol_ = const_cast< ::xnormal::tRGB8*>(&::xnormal::tRGB8::default_instance());
-  aooccludedcolor_ = const_cast< ::xnormal::tRGB8*>(&::xnormal::tRGB8::default_instance());
-  aounoccludedcolor_ = const_cast< ::xnormal::tRGB8*>(&::xnormal::tRGB8::default_instance());
-  aobackgroundcolor_ = const_cast< ::xnormal::tRGB8*>(&::xnormal::tRGB8::default_instance());
-  bentbackgroundcolor_ = const_cast< ::xnormal::tRGB8*>(&::xnormal::tRGB8::default_instance());
-  prtbackgroundcolor_ = const_cast< ::xnormal::tRGB8*>(&::xnormal::tRGB8::default_instance());
-  convexitybackgroundcolor_ = const_cast< ::xnormal::tRGB8*>(&::xnormal::tRGB8::default_instance());
-  thicknessbackgroundcolor_ = const_cast< ::xnormal::tRGB8*>(&::xnormal::tRGB8::default_instance());
-  proximitybackgroundcolor_ = const_cast< ::xnormal::tRGB8*>(&::xnormal::tRGB8::default_instance());
-  cavitybackgroundcolor_ = const_cast< ::xnormal::tRGB8*>(&::xnormal::tRGB8::default_instance());
-  vdmbackgroundcolor_ = const_cast< ::xnormal::tRGB8*>(&::xnormal::tRGB8::default_instance());
-  radnmbackgroundcolor_ = const_cast< ::xnormal::tRGB8*>(&::xnormal::tRGB8::default_instance());
-  curvbackgroundcolor_ = const_cast< ::xnormal::tRGB8*>(&::xnormal::tRGB8::default_instance());
-  derivnmbackgroundcolor_ = const_cast< ::xnormal::tRGB8*>(&::xnormal::tRGB8::default_instance());
-  translubackgroundcolor_ = const_cast< ::xnormal::tRGB8*>(&::xnormal::tRGB8::default_instance());
-  bakehighpolyvcolsbackgroundcol_ = const_cast< ::xnormal::tRGB8*>(&::xnormal::tRGB8::default_instance());
-}
-
 tGenerateMaps::tGenerateMaps(const tGenerateMaps& from)
   : ::google::protobuf::Message(),
-    _internal_metadata_(NULL) {
-  SharedCtor();
-  MergeFrom(from);
+      _internal_metadata_(NULL),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  file_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.file().size() > 0) {
+    file_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.file_);
+  }
+  if (from.has_nmbackgroundcolor()) {
+    nmbackgroundcolor_ = new ::xnormal::tRGB8(*from.nmbackgroundcolor_);
+  } else {
+    nmbackgroundcolor_ = NULL;
+  }
+  if (from.has_hmbackgroundcolor()) {
+    hmbackgroundcolor_ = new ::xnormal::tRGB8(*from.hmbackgroundcolor_);
+  } else {
+    hmbackgroundcolor_ = NULL;
+  }
+  if (from.has_bakehighpolybasetexturenotexcol()) {
+    bakehighpolybasetexturenotexcol_ = new ::xnormal::tRGB8(*from.bakehighpolybasetexturenotexcol_);
+  } else {
+    bakehighpolybasetexturenotexcol_ = NULL;
+  }
+  if (from.has_bakehighpolybasetexturebackgroundcolor()) {
+    bakehighpolybasetexturebackgroundcolor_ = new ::xnormal::tRGB8(*from.bakehighpolybasetexturebackgroundcolor_);
+  } else {
+    bakehighpolybasetexturebackgroundcolor_ = NULL;
+  }
+  if (from.has_renderwireframebackgroundcolor()) {
+    renderwireframebackgroundcolor_ = new ::xnormal::tRGB8(*from.renderwireframebackgroundcolor_);
+  } else {
+    renderwireframebackgroundcolor_ = NULL;
+  }
+  if (from.has_renderwireframecol()) {
+    renderwireframecol_ = new ::xnormal::tRGB8(*from.renderwireframecol_);
+  } else {
+    renderwireframecol_ = NULL;
+  }
+  if (from.has_rendercwcol()) {
+    rendercwcol_ = new ::xnormal::tRGB8(*from.rendercwcol_);
+  } else {
+    rendercwcol_ = NULL;
+  }
+  if (from.has_renderseamcol()) {
+    renderseamcol_ = new ::xnormal::tRGB8(*from.renderseamcol_);
+  } else {
+    renderseamcol_ = NULL;
+  }
+  if (from.has_renderrayfailscol()) {
+    renderrayfailscol_ = new ::xnormal::tRGB8(*from.renderrayfailscol_);
+  } else {
+    renderrayfailscol_ = NULL;
+  }
+  if (from.has_aooccludedcolor()) {
+    aooccludedcolor_ = new ::xnormal::tRGB8(*from.aooccludedcolor_);
+  } else {
+    aooccludedcolor_ = NULL;
+  }
+  if (from.has_aounoccludedcolor()) {
+    aounoccludedcolor_ = new ::xnormal::tRGB8(*from.aounoccludedcolor_);
+  } else {
+    aounoccludedcolor_ = NULL;
+  }
+  if (from.has_aobackgroundcolor()) {
+    aobackgroundcolor_ = new ::xnormal::tRGB8(*from.aobackgroundcolor_);
+  } else {
+    aobackgroundcolor_ = NULL;
+  }
+  if (from.has_bentbackgroundcolor()) {
+    bentbackgroundcolor_ = new ::xnormal::tRGB8(*from.bentbackgroundcolor_);
+  } else {
+    bentbackgroundcolor_ = NULL;
+  }
+  if (from.has_prtbackgroundcolor()) {
+    prtbackgroundcolor_ = new ::xnormal::tRGB8(*from.prtbackgroundcolor_);
+  } else {
+    prtbackgroundcolor_ = NULL;
+  }
+  if (from.has_convexitybackgroundcolor()) {
+    convexitybackgroundcolor_ = new ::xnormal::tRGB8(*from.convexitybackgroundcolor_);
+  } else {
+    convexitybackgroundcolor_ = NULL;
+  }
+  if (from.has_thicknessbackgroundcolor()) {
+    thicknessbackgroundcolor_ = new ::xnormal::tRGB8(*from.thicknessbackgroundcolor_);
+  } else {
+    thicknessbackgroundcolor_ = NULL;
+  }
+  if (from.has_proximitybackgroundcolor()) {
+    proximitybackgroundcolor_ = new ::xnormal::tRGB8(*from.proximitybackgroundcolor_);
+  } else {
+    proximitybackgroundcolor_ = NULL;
+  }
+  if (from.has_cavitybackgroundcolor()) {
+    cavitybackgroundcolor_ = new ::xnormal::tRGB8(*from.cavitybackgroundcolor_);
+  } else {
+    cavitybackgroundcolor_ = NULL;
+  }
+  if (from.has_vdmbackgroundcolor()) {
+    vdmbackgroundcolor_ = new ::xnormal::tRGB8(*from.vdmbackgroundcolor_);
+  } else {
+    vdmbackgroundcolor_ = NULL;
+  }
+  if (from.has_radnmbackgroundcolor()) {
+    radnmbackgroundcolor_ = new ::xnormal::tRGB8(*from.radnmbackgroundcolor_);
+  } else {
+    radnmbackgroundcolor_ = NULL;
+  }
+  if (from.has_curvbackgroundcolor()) {
+    curvbackgroundcolor_ = new ::xnormal::tRGB8(*from.curvbackgroundcolor_);
+  } else {
+    curvbackgroundcolor_ = NULL;
+  }
+  if (from.has_derivnmbackgroundcolor()) {
+    derivnmbackgroundcolor_ = new ::xnormal::tRGB8(*from.derivnmbackgroundcolor_);
+  } else {
+    derivnmbackgroundcolor_ = NULL;
+  }
+  if (from.has_translubackgroundcolor()) {
+    translubackgroundcolor_ = new ::xnormal::tRGB8(*from.translubackgroundcolor_);
+  } else {
+    translubackgroundcolor_ = NULL;
+  }
+  if (from.has_bakehighpolyvcolsbackgroundcol()) {
+    bakehighpolyvcolsbackgroundcol_ = new ::xnormal::tRGB8(*from.bakehighpolyvcolsbackgroundcol_);
+  } else {
+    bakehighpolyvcolsbackgroundcol_ = NULL;
+  }
+  ::memcpy(&directionstonemapmax_, &from.directionstonemapmax_,
+    reinterpret_cast<char*>(&bakehighpolyvcols_) -
+    reinterpret_cast<char*>(&directionstonemapmax_) + sizeof(bakehighpolyvcols_));
   // @@protoc_insertion_point(copy_constructor:xnormal.tGenerateMaps)
 }
 
 void tGenerateMaps::SharedCtor() {
-    _is_default_instance_ = false;
-  ::google::protobuf::internal::GetEmptyString();
-  _cached_size_ = 0;
-  nmbackgroundcolor_ = NULL;
-  hmbackgroundcolor_ = NULL;
-  bakehighpolybasetexturenotexcol_ = NULL;
-  bakehighpolybasetexturebackgroundcolor_ = NULL;
-  renderwireframebackgroundcolor_ = NULL;
-  renderwireframecol_ = NULL;
-  rendercwcol_ = NULL;
-  renderseamcol_ = NULL;
-  renderrayfailscol_ = NULL;
-  aooccludedcolor_ = NULL;
-  aounoccludedcolor_ = NULL;
-  aobackgroundcolor_ = NULL;
-  bentbackgroundcolor_ = NULL;
-  prtbackgroundcolor_ = NULL;
-  convexitybackgroundcolor_ = NULL;
-  thicknessbackgroundcolor_ = NULL;
-  proximitybackgroundcolor_ = NULL;
-  cavitybackgroundcolor_ = NULL;
-  vdmbackgroundcolor_ = NULL;
-  radnmbackgroundcolor_ = NULL;
-  curvbackgroundcolor_ = NULL;
-  derivnmbackgroundcolor_ = NULL;
-  translubackgroundcolor_ = NULL;
-  bakehighpolyvcolsbackgroundcol_ = NULL;
-  closestiffails_ = false;
-  directionstonemapmax_ = 0;
-  curvmonocrome_ = false;
-  aobias_ = 0;
-  benttangentspace_ = false;
-  gentranslu_ = false;
-  aodistribution_ = 0;
-  prtthreshold_ = 0;
-  directionstonemapmin_ = 0;
-  curvdistribution_ = 0;
-  bentjitter_ = false;
-  bentdistribution_ = 0;
-  bakehighpolybasetexture_ = false;
-  genconvexity_ = false;
-  radiositynormalsattenlinear_ = 0;
-  translurayspersample_ = 0u;
-  curvsearchdistance_ = 0;
-  swizzlez_ = 0;
-  translubias_ = 0;
-  prtlimitraydistance_ = false;
-  genbent_ = false;
-  aolimitraydistance_ = false;
-  curvrayspersample_ = 0u;
-  radiositynormalsdistribution_ = 0;
-  radiositynormalsrayspersample_ = 0u;
-  curvjitter_ = false;
-  tangentspace_ = false;
-  radiositynormalsallowpureocclusion_ = false;
-  bentswizzlex_ = 0;
-  swizzley_ = 0;
-  gencurv_ = false;
-  prtjitter_ = false;
-  aoattencuadratic_ = 0;
-  bentconeangle_ = 0;
-  swizzlex_ = 0;
-  renderrayfails_ = false;
-  cavitysearchradius_ = 0;
-  radiositynormalsencodeao_ = false;
-  transluconeangle_ = 0;
-  bentrayspersample_ = 0u;
-  convexityscale_ = 0;
-  radiositynormalsconeangle_ = 0;
   file_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  genderivnm_ = false;
-  bentlimitraydistance_ = false;
-  prtbias_ = 0;
-  renderwireframe_ = false;
-  prtnormalize_ = false;
-  genao_ = false;
-  prtconeangle_ = 0;
-  height_ = 0u;
-  radiositynormalsattencuadratic_ = 0;
-  directionstonemap_ = 0;
-  directionsts_ = false;
-  prtrayspersample_ = 0u;
-  edgepadding_ = 0u;
-  directionsswizzlez_ = 0;
-  aoallowpureoccluded_ = false;
-  aoignorebackfacehits_ = false;
-  cavityrayspersample_ = 0u;
-  aoattenconstant_ = 0;
-  cavityjitter_ = false;
-  heighttonemapmax_ = 0;
-  gendirections_ = false;
-  radiositynormalslimitraydistance_ = false;
-  heighttonemapmin_ = 0;
-  radiositynormalsjitter_ = false;
-  directionsswizzley_ = 0;
-  width_ = 0u;
-  bakehighpolybasetexturedrawobjectidifnotexture_ = false;
-  concavity_ = false;
-  directionsswizzlex_ = 0;
-  gennormals_ = false;
-  proximityrayspersample_ = 0u;
-  genheights_ = false;
-  radiositynormalsattenconstant_ = 0;
-  genproximity_ = false;
-  genprt_ = false;
-  cavitycontrast_ = 0;
-  radiositynormalscoordsys_ = 0;
-  translujitter_ = false;
-  aorayspersample_ = 0u;
-  bentbias_ = 0;
-  discardraybackfaceshits_ = false;
-  aoconeangle_ = 0;
-  bentswizzley_ = 0;
-  radiositynormalsbias_ = 0;
-  radiositynormalscontrast_ = 0;
-  cavitysteps_ = 0u;
-  aa_ = 0;
-  bentswizzlez_ = 0;
-  bucketsize_ = 0u;
-  curvconeangle_ = 0;
-  transludist_ = 0;
-  aojitter_ = false;
-  curvbias_ = 0;
-  genwirerays_ = false;
-  curvalgorithm_ = 0;
-  transludistribution_ = 0;
-  aoattenlinear_ = 0;
-  proximitylimitraydistance_ = false;
-  genradiositynormals_ = false;
-  proximityconeangle_ = 0;
-  heighttonemap_ = 0;
-  gencavity_ = false;
-  bakehighpolyvcols_ = false;
+  ::memset(&nmbackgroundcolor_, 0, reinterpret_cast<char*>(&bakehighpolyvcols_) -
+    reinterpret_cast<char*>(&nmbackgroundcolor_) + sizeof(bakehighpolyvcols_));
+  _cached_size_ = 0;
 }
 
 tGenerateMaps::~tGenerateMaps() {
@@ -7521,30 +7296,76 @@ tGenerateMaps::~tGenerateMaps() {
 
 void tGenerateMaps::SharedDtor() {
   file_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (this != default_instance_) {
+  if (this != internal_default_instance()) {
     delete nmbackgroundcolor_;
+  }
+  if (this != internal_default_instance()) {
     delete hmbackgroundcolor_;
+  }
+  if (this != internal_default_instance()) {
     delete bakehighpolybasetexturenotexcol_;
+  }
+  if (this != internal_default_instance()) {
     delete bakehighpolybasetexturebackgroundcolor_;
+  }
+  if (this != internal_default_instance()) {
     delete renderwireframebackgroundcolor_;
+  }
+  if (this != internal_default_instance()) {
     delete renderwireframecol_;
+  }
+  if (this != internal_default_instance()) {
     delete rendercwcol_;
+  }
+  if (this != internal_default_instance()) {
     delete renderseamcol_;
+  }
+  if (this != internal_default_instance()) {
     delete renderrayfailscol_;
+  }
+  if (this != internal_default_instance()) {
     delete aooccludedcolor_;
+  }
+  if (this != internal_default_instance()) {
     delete aounoccludedcolor_;
+  }
+  if (this != internal_default_instance()) {
     delete aobackgroundcolor_;
+  }
+  if (this != internal_default_instance()) {
     delete bentbackgroundcolor_;
+  }
+  if (this != internal_default_instance()) {
     delete prtbackgroundcolor_;
+  }
+  if (this != internal_default_instance()) {
     delete convexitybackgroundcolor_;
+  }
+  if (this != internal_default_instance()) {
     delete thicknessbackgroundcolor_;
+  }
+  if (this != internal_default_instance()) {
     delete proximitybackgroundcolor_;
+  }
+  if (this != internal_default_instance()) {
     delete cavitybackgroundcolor_;
+  }
+  if (this != internal_default_instance()) {
     delete vdmbackgroundcolor_;
+  }
+  if (this != internal_default_instance()) {
     delete radnmbackgroundcolor_;
+  }
+  if (this != internal_default_instance()) {
     delete curvbackgroundcolor_;
+  }
+  if (this != internal_default_instance()) {
     delete derivnmbackgroundcolor_;
+  }
+  if (this != internal_default_instance()) {
     delete translubackgroundcolor_;
+  }
+  if (this != internal_default_instance()) {
     delete bakehighpolyvcolsbackgroundcol_;
   }
 }
@@ -7555,16 +7376,14 @@ void tGenerateMaps::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
 const ::google::protobuf::Descriptor* tGenerateMaps::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return tGenerateMaps_descriptor_;
+  protobuf_xnormal_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_xnormal_2eproto::file_level_metadata[7].descriptor;
 }
 
 const tGenerateMaps& tGenerateMaps::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_xnormal_2eproto();
-  return *default_instance_;
+  protobuf_xnormal_2eproto::InitDefaults();
+  return *internal_default_instance();
 }
-
-tGenerateMaps* tGenerateMaps::default_instance_ = NULL;
 
 tGenerateMaps* tGenerateMaps::New(::google::protobuf::Arena* arena) const {
   tGenerateMaps* n = new tGenerateMaps;
@@ -7576,108 +7395,105 @@ tGenerateMaps* tGenerateMaps::New(::google::protobuf::Arena* arena) const {
 
 void tGenerateMaps::Clear() {
 // @@protoc_insertion_point(message_clear_start:xnormal.tGenerateMaps)
-#if defined(__clang__)
-#define ZR_HELPER_(f) \
-  _Pragma("clang diagnostic push") \
-  _Pragma("clang diagnostic ignored \"-Winvalid-offsetof\"") \
-  __builtin_offsetof(tGenerateMaps, f) \
-  _Pragma("clang diagnostic pop")
-#else
-#define ZR_HELPER_(f) reinterpret_cast<char*>(\
-  &reinterpret_cast<tGenerateMaps*>(16)->f)
-#endif
-
-#define ZR_(first, last) do {\
-  ::memset(&first, 0,\
-           ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
-} while (0)
-
-  if (GetArenaNoVirtual() == NULL && nmbackgroundcolor_ != NULL) delete nmbackgroundcolor_;
-  nmbackgroundcolor_ = NULL;
-  if (GetArenaNoVirtual() == NULL && hmbackgroundcolor_ != NULL) delete hmbackgroundcolor_;
-  hmbackgroundcolor_ = NULL;
-  if (GetArenaNoVirtual() == NULL && bakehighpolybasetexturenotexcol_ != NULL) delete bakehighpolybasetexturenotexcol_;
-  bakehighpolybasetexturenotexcol_ = NULL;
-  if (GetArenaNoVirtual() == NULL && bakehighpolybasetexturebackgroundcolor_ != NULL) delete bakehighpolybasetexturebackgroundcolor_;
-  bakehighpolybasetexturebackgroundcolor_ = NULL;
-  if (GetArenaNoVirtual() == NULL && renderwireframebackgroundcolor_ != NULL) delete renderwireframebackgroundcolor_;
-  renderwireframebackgroundcolor_ = NULL;
-  if (GetArenaNoVirtual() == NULL && renderwireframecol_ != NULL) delete renderwireframecol_;
-  renderwireframecol_ = NULL;
-  if (GetArenaNoVirtual() == NULL && rendercwcol_ != NULL) delete rendercwcol_;
-  rendercwcol_ = NULL;
-  if (GetArenaNoVirtual() == NULL && renderseamcol_ != NULL) delete renderseamcol_;
-  renderseamcol_ = NULL;
-  if (GetArenaNoVirtual() == NULL && renderrayfailscol_ != NULL) delete renderrayfailscol_;
-  renderrayfailscol_ = NULL;
-  if (GetArenaNoVirtual() == NULL && aooccludedcolor_ != NULL) delete aooccludedcolor_;
-  aooccludedcolor_ = NULL;
-  if (GetArenaNoVirtual() == NULL && aounoccludedcolor_ != NULL) delete aounoccludedcolor_;
-  aounoccludedcolor_ = NULL;
-  if (GetArenaNoVirtual() == NULL && aobackgroundcolor_ != NULL) delete aobackgroundcolor_;
-  aobackgroundcolor_ = NULL;
-  if (GetArenaNoVirtual() == NULL && bentbackgroundcolor_ != NULL) delete bentbackgroundcolor_;
-  bentbackgroundcolor_ = NULL;
-  if (GetArenaNoVirtual() == NULL && prtbackgroundcolor_ != NULL) delete prtbackgroundcolor_;
-  prtbackgroundcolor_ = NULL;
-  if (GetArenaNoVirtual() == NULL && convexitybackgroundcolor_ != NULL) delete convexitybackgroundcolor_;
-  convexitybackgroundcolor_ = NULL;
-  if (GetArenaNoVirtual() == NULL && thicknessbackgroundcolor_ != NULL) delete thicknessbackgroundcolor_;
-  thicknessbackgroundcolor_ = NULL;
-  if (GetArenaNoVirtual() == NULL && proximitybackgroundcolor_ != NULL) delete proximitybackgroundcolor_;
-  proximitybackgroundcolor_ = NULL;
-  if (GetArenaNoVirtual() == NULL && cavitybackgroundcolor_ != NULL) delete cavitybackgroundcolor_;
-  cavitybackgroundcolor_ = NULL;
-  if (GetArenaNoVirtual() == NULL && vdmbackgroundcolor_ != NULL) delete vdmbackgroundcolor_;
-  vdmbackgroundcolor_ = NULL;
-  if (GetArenaNoVirtual() == NULL && radnmbackgroundcolor_ != NULL) delete radnmbackgroundcolor_;
-  radnmbackgroundcolor_ = NULL;
-  if (GetArenaNoVirtual() == NULL && curvbackgroundcolor_ != NULL) delete curvbackgroundcolor_;
-  curvbackgroundcolor_ = NULL;
-  if (GetArenaNoVirtual() == NULL && derivnmbackgroundcolor_ != NULL) delete derivnmbackgroundcolor_;
-  derivnmbackgroundcolor_ = NULL;
-  if (GetArenaNoVirtual() == NULL && translubackgroundcolor_ != NULL) delete translubackgroundcolor_;
-  translubackgroundcolor_ = NULL;
-  if (GetArenaNoVirtual() == NULL && bakehighpolyvcolsbackgroundcol_ != NULL) delete bakehighpolyvcolsbackgroundcol_;
-  bakehighpolyvcolsbackgroundcol_ = NULL;
-  ZR_(directionstonemapmax_, prtthreshold_);
-  ZR_(directionstonemapmin_, genconvexity_);
-  ZR_(radiositynormalsattenlinear_, translurayspersample_);
-  ZR_(curvsearchdistance_, aolimitraydistance_);
-  prtlimitraydistance_ = false;
-  ZR_(curvjitter_, prtjitter_);
-  ZR_(renderrayfails_, bentrayspersample_);
-  radiositynormalsencodeao_ = false;
-  ZR_(genderivnm_, prtbias_);
-  convexityscale_ = 0;
-  radiositynormalsconeangle_ = 0;
   file_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  prtnormalize_ = false;
-  ZR_(prtconeangle_, radiositynormalsattencuadratic_);
-  ZR_(genao_, directionsts_);
-  ZR_(directionstonemap_, edgepadding_);
-  ZR_(directionsswizzlez_, gendirections_);
-  aoallowpureoccluded_ = false;
-  heighttonemapmax_ = 0;
-  ZR_(heighttonemapmin_, concavity_);
-  radiositynormalslimitraydistance_ = false;
-  directionsswizzlex_ = 0;
-  ZR_(proximityrayspersample_, genprt_);
-  ZR_(cavitycontrast_, radiositynormalscoordsys_);
-  gennormals_ = false;
-  ZR_(aorayspersample_, radiositynormalscontrast_);
-  translujitter_ = false;
-  discardraybackfaceshits_ = false;
-  ZR_(cavitysteps_, transludist_);
-  aojitter_ = false;
-  curvbias_ = 0;
-  ZR_(genwirerays_, proximitylimitraydistance_);
-  ZR_(curvalgorithm_, genradiositynormals_);
-  ZR_(gencavity_, bakehighpolyvcols_);
-
-#undef ZR_HELPER_
-#undef ZR_
-
+  if (GetArenaNoVirtual() == NULL && nmbackgroundcolor_ != NULL) {
+    delete nmbackgroundcolor_;
+  }
+  nmbackgroundcolor_ = NULL;
+  if (GetArenaNoVirtual() == NULL && hmbackgroundcolor_ != NULL) {
+    delete hmbackgroundcolor_;
+  }
+  hmbackgroundcolor_ = NULL;
+  if (GetArenaNoVirtual() == NULL && bakehighpolybasetexturenotexcol_ != NULL) {
+    delete bakehighpolybasetexturenotexcol_;
+  }
+  bakehighpolybasetexturenotexcol_ = NULL;
+  if (GetArenaNoVirtual() == NULL && bakehighpolybasetexturebackgroundcolor_ != NULL) {
+    delete bakehighpolybasetexturebackgroundcolor_;
+  }
+  bakehighpolybasetexturebackgroundcolor_ = NULL;
+  if (GetArenaNoVirtual() == NULL && renderwireframebackgroundcolor_ != NULL) {
+    delete renderwireframebackgroundcolor_;
+  }
+  renderwireframebackgroundcolor_ = NULL;
+  if (GetArenaNoVirtual() == NULL && renderwireframecol_ != NULL) {
+    delete renderwireframecol_;
+  }
+  renderwireframecol_ = NULL;
+  if (GetArenaNoVirtual() == NULL && rendercwcol_ != NULL) {
+    delete rendercwcol_;
+  }
+  rendercwcol_ = NULL;
+  if (GetArenaNoVirtual() == NULL && renderseamcol_ != NULL) {
+    delete renderseamcol_;
+  }
+  renderseamcol_ = NULL;
+  if (GetArenaNoVirtual() == NULL && renderrayfailscol_ != NULL) {
+    delete renderrayfailscol_;
+  }
+  renderrayfailscol_ = NULL;
+  if (GetArenaNoVirtual() == NULL && aooccludedcolor_ != NULL) {
+    delete aooccludedcolor_;
+  }
+  aooccludedcolor_ = NULL;
+  if (GetArenaNoVirtual() == NULL && aounoccludedcolor_ != NULL) {
+    delete aounoccludedcolor_;
+  }
+  aounoccludedcolor_ = NULL;
+  if (GetArenaNoVirtual() == NULL && aobackgroundcolor_ != NULL) {
+    delete aobackgroundcolor_;
+  }
+  aobackgroundcolor_ = NULL;
+  if (GetArenaNoVirtual() == NULL && bentbackgroundcolor_ != NULL) {
+    delete bentbackgroundcolor_;
+  }
+  bentbackgroundcolor_ = NULL;
+  if (GetArenaNoVirtual() == NULL && prtbackgroundcolor_ != NULL) {
+    delete prtbackgroundcolor_;
+  }
+  prtbackgroundcolor_ = NULL;
+  if (GetArenaNoVirtual() == NULL && convexitybackgroundcolor_ != NULL) {
+    delete convexitybackgroundcolor_;
+  }
+  convexitybackgroundcolor_ = NULL;
+  if (GetArenaNoVirtual() == NULL && thicknessbackgroundcolor_ != NULL) {
+    delete thicknessbackgroundcolor_;
+  }
+  thicknessbackgroundcolor_ = NULL;
+  if (GetArenaNoVirtual() == NULL && proximitybackgroundcolor_ != NULL) {
+    delete proximitybackgroundcolor_;
+  }
+  proximitybackgroundcolor_ = NULL;
+  if (GetArenaNoVirtual() == NULL && cavitybackgroundcolor_ != NULL) {
+    delete cavitybackgroundcolor_;
+  }
+  cavitybackgroundcolor_ = NULL;
+  if (GetArenaNoVirtual() == NULL && vdmbackgroundcolor_ != NULL) {
+    delete vdmbackgroundcolor_;
+  }
+  vdmbackgroundcolor_ = NULL;
+  if (GetArenaNoVirtual() == NULL && radnmbackgroundcolor_ != NULL) {
+    delete radnmbackgroundcolor_;
+  }
+  radnmbackgroundcolor_ = NULL;
+  if (GetArenaNoVirtual() == NULL && curvbackgroundcolor_ != NULL) {
+    delete curvbackgroundcolor_;
+  }
+  curvbackgroundcolor_ = NULL;
+  if (GetArenaNoVirtual() == NULL && derivnmbackgroundcolor_ != NULL) {
+    delete derivnmbackgroundcolor_;
+  }
+  derivnmbackgroundcolor_ = NULL;
+  if (GetArenaNoVirtual() == NULL && translubackgroundcolor_ != NULL) {
+    delete translubackgroundcolor_;
+  }
+  translubackgroundcolor_ = NULL;
+  if (GetArenaNoVirtual() == NULL && bakehighpolyvcolsbackgroundcol_ != NULL) {
+    delete bakehighpolyvcolsbackgroundcol_;
+  }
+  bakehighpolyvcolsbackgroundcol_ = NULL;
+  ::memset(&directionstonemapmax_, 0, reinterpret_cast<char*>(&bakehighpolyvcols_) -
+    reinterpret_cast<char*>(&directionstonemapmax_) + sizeof(bakehighpolyvcols_));
 }
 
 bool tGenerateMaps::MergePartialFromCodedStream(
@@ -7686,415 +7502,355 @@ bool tGenerateMaps::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:xnormal.tGenerateMaps)
   for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(16383);
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(16383u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional .xnormal.tRGB8 NMBackgroundColor = 1;
+      // .xnormal.tRGB8 NMBackgroundColor = 1;
       case 1: {
-        if (tag == 10) {
+        if (tag == 10u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_nmbackgroundcolor()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(18)) goto parse_HMBackgroundColor;
         break;
       }
 
-      // optional .xnormal.tRGB8 HMBackgroundColor = 2;
+      // .xnormal.tRGB8 HMBackgroundColor = 2;
       case 2: {
-        if (tag == 18) {
-         parse_HMBackgroundColor:
+        if (tag == 18u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_hmbackgroundcolor()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(26)) goto parse_BakeHighpolyBaseTextureNoTexCol;
         break;
       }
 
-      // optional .xnormal.tRGB8 BakeHighpolyBaseTextureNoTexCol = 3;
+      // .xnormal.tRGB8 BakeHighpolyBaseTextureNoTexCol = 3;
       case 3: {
-        if (tag == 26) {
-         parse_BakeHighpolyBaseTextureNoTexCol:
+        if (tag == 26u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_bakehighpolybasetexturenotexcol()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(34)) goto parse_BakeHighpolyBaseTextureBackgroundColor;
         break;
       }
 
-      // optional .xnormal.tRGB8 BakeHighpolyBaseTextureBackgroundColor = 4;
+      // .xnormal.tRGB8 BakeHighpolyBaseTextureBackgroundColor = 4;
       case 4: {
-        if (tag == 34) {
-         parse_BakeHighpolyBaseTextureBackgroundColor:
+        if (tag == 34u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_bakehighpolybasetexturebackgroundcolor()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(42)) goto parse_RenderWireframeBackgroundColor;
         break;
       }
 
-      // optional .xnormal.tRGB8 RenderWireframeBackgroundColor = 5;
+      // .xnormal.tRGB8 RenderWireframeBackgroundColor = 5;
       case 5: {
-        if (tag == 42) {
-         parse_RenderWireframeBackgroundColor:
+        if (tag == 42u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_renderwireframebackgroundcolor()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(50)) goto parse_RenderWireframeCol;
         break;
       }
 
-      // optional .xnormal.tRGB8 RenderWireframeCol = 6;
+      // .xnormal.tRGB8 RenderWireframeCol = 6;
       case 6: {
-        if (tag == 50) {
-         parse_RenderWireframeCol:
+        if (tag == 50u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_renderwireframecol()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(58)) goto parse_RenderCWCol;
         break;
       }
 
-      // optional .xnormal.tRGB8 RenderCWCol = 7;
+      // .xnormal.tRGB8 RenderCWCol = 7;
       case 7: {
-        if (tag == 58) {
-         parse_RenderCWCol:
+        if (tag == 58u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_rendercwcol()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(66)) goto parse_RenderSeamCol;
         break;
       }
 
-      // optional .xnormal.tRGB8 RenderSeamCol = 8;
+      // .xnormal.tRGB8 RenderSeamCol = 8;
       case 8: {
-        if (tag == 66) {
-         parse_RenderSeamCol:
+        if (tag == 66u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_renderseamcol()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(74)) goto parse_RenderRayFailsCol;
         break;
       }
 
-      // optional .xnormal.tRGB8 RenderRayFailsCol = 9;
+      // .xnormal.tRGB8 RenderRayFailsCol = 9;
       case 9: {
-        if (tag == 74) {
-         parse_RenderRayFailsCol:
+        if (tag == 74u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_renderrayfailscol()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(82)) goto parse_AOOccludedColor;
         break;
       }
 
-      // optional .xnormal.tRGB8 AOOccludedColor = 10;
+      // .xnormal.tRGB8 AOOccludedColor = 10;
       case 10: {
-        if (tag == 82) {
-         parse_AOOccludedColor:
+        if (tag == 82u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_aooccludedcolor()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(90)) goto parse_AOUnoccludedColor;
         break;
       }
 
-      // optional .xnormal.tRGB8 AOUnoccludedColor = 11;
+      // .xnormal.tRGB8 AOUnoccludedColor = 11;
       case 11: {
-        if (tag == 90) {
-         parse_AOUnoccludedColor:
+        if (tag == 90u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_aounoccludedcolor()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(98)) goto parse_AOBackgroundColor;
         break;
       }
 
-      // optional .xnormal.tRGB8 AOBackgroundColor = 12;
+      // .xnormal.tRGB8 AOBackgroundColor = 12;
       case 12: {
-        if (tag == 98) {
-         parse_AOBackgroundColor:
+        if (tag == 98u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_aobackgroundcolor()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(106)) goto parse_BentBackgroundColor;
         break;
       }
 
-      // optional .xnormal.tRGB8 BentBackgroundColor = 13;
+      // .xnormal.tRGB8 BentBackgroundColor = 13;
       case 13: {
-        if (tag == 106) {
-         parse_BentBackgroundColor:
+        if (tag == 106u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_bentbackgroundcolor()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(114)) goto parse_PRTBackgroundColor;
         break;
       }
 
-      // optional .xnormal.tRGB8 PRTBackgroundColor = 14;
+      // .xnormal.tRGB8 PRTBackgroundColor = 14;
       case 14: {
-        if (tag == 114) {
-         parse_PRTBackgroundColor:
+        if (tag == 114u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_prtbackgroundcolor()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(122)) goto parse_ConvexityBackgroundColor;
         break;
       }
 
-      // optional .xnormal.tRGB8 ConvexityBackgroundColor = 15;
+      // .xnormal.tRGB8 ConvexityBackgroundColor = 15;
       case 15: {
-        if (tag == 122) {
-         parse_ConvexityBackgroundColor:
+        if (tag == 122u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_convexitybackgroundcolor()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(130)) goto parse_ThicknessBackgroundColor;
         break;
       }
 
-      // optional .xnormal.tRGB8 ThicknessBackgroundColor = 16;
+      // .xnormal.tRGB8 ThicknessBackgroundColor = 16;
       case 16: {
-        if (tag == 130) {
-         parse_ThicknessBackgroundColor:
+        if (tag == 130u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_thicknessbackgroundcolor()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(138)) goto parse_ProximityBackgroundColor;
         break;
       }
 
-      // optional .xnormal.tRGB8 ProximityBackgroundColor = 17;
+      // .xnormal.tRGB8 ProximityBackgroundColor = 17;
       case 17: {
-        if (tag == 138) {
-         parse_ProximityBackgroundColor:
+        if (tag == 138u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_proximitybackgroundcolor()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(146)) goto parse_CavityBackgroundColor;
         break;
       }
 
-      // optional .xnormal.tRGB8 CavityBackgroundColor = 18;
+      // .xnormal.tRGB8 CavityBackgroundColor = 18;
       case 18: {
-        if (tag == 146) {
-         parse_CavityBackgroundColor:
+        if (tag == 146u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_cavitybackgroundcolor()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(154)) goto parse_VDMBackgroundColor;
         break;
       }
 
-      // optional .xnormal.tRGB8 VDMBackgroundColor = 19;
+      // .xnormal.tRGB8 VDMBackgroundColor = 19;
       case 19: {
-        if (tag == 154) {
-         parse_VDMBackgroundColor:
+        if (tag == 154u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_vdmbackgroundcolor()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(162)) goto parse_RadNMBackgroundColor;
         break;
       }
 
-      // optional .xnormal.tRGB8 RadNMBackgroundColor = 20;
+      // .xnormal.tRGB8 RadNMBackgroundColor = 20;
       case 20: {
-        if (tag == 162) {
-         parse_RadNMBackgroundColor:
+        if (tag == 162u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_radnmbackgroundcolor()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(170)) goto parse_CurvBackgroundColor;
         break;
       }
 
-      // optional .xnormal.tRGB8 CurvBackgroundColor = 21;
+      // .xnormal.tRGB8 CurvBackgroundColor = 21;
       case 21: {
-        if (tag == 170) {
-         parse_CurvBackgroundColor:
+        if (tag == 170u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_curvbackgroundcolor()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(178)) goto parse_DerivNMBackgroundColor;
         break;
       }
 
-      // optional .xnormal.tRGB8 DerivNMBackgroundColor = 22;
+      // .xnormal.tRGB8 DerivNMBackgroundColor = 22;
       case 22: {
-        if (tag == 178) {
-         parse_DerivNMBackgroundColor:
+        if (tag == 178u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_derivnmbackgroundcolor()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(186)) goto parse_TransluBackgroundColor;
         break;
       }
 
-      // optional .xnormal.tRGB8 TransluBackgroundColor = 23;
+      // .xnormal.tRGB8 TransluBackgroundColor = 23;
       case 23: {
-        if (tag == 186) {
-         parse_TransluBackgroundColor:
+        if (tag == 186u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_translubackgroundcolor()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(194)) goto parse_BakeHighpolyVColsBackgroundCol;
         break;
       }
 
-      // optional .xnormal.tRGB8 BakeHighpolyVColsBackgroundCol = 24;
+      // .xnormal.tRGB8 BakeHighpolyVColsBackgroundCol = 24;
       case 24: {
-        if (tag == 194) {
-         parse_BakeHighpolyVColsBackgroundCol:
+        if (tag == 194u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_bakehighpolyvcolsbackgroundcol()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(200)) goto parse_ClosestIfFails;
         break;
       }
 
-      // optional bool ClosestIfFails = 25;
+      // bool ClosestIfFails = 25;
       case 25: {
-        if (tag == 200) {
-         parse_ClosestIfFails:
+        if (tag == 200u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &closestiffails_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(213)) goto parse_DirectionsTonemapMax;
         break;
       }
 
-      // optional float DirectionsTonemapMax = 26;
+      // float DirectionsTonemapMax = 26;
       case 26: {
-        if (tag == 213) {
-         parse_DirectionsTonemapMax:
+        if (tag == 213u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &directionstonemapmax_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(216)) goto parse_CurvMonocrome;
         break;
       }
 
-      // optional bool CurvMonocrome = 27;
+      // bool CurvMonocrome = 27;
       case 27: {
-        if (tag == 216) {
-         parse_CurvMonocrome:
+        if (tag == 216u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &curvmonocrome_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(229)) goto parse_AOBias;
         break;
       }
 
-      // optional float AOBias = 28;
+      // float AOBias = 28;
       case 28: {
-        if (tag == 229) {
-         parse_AOBias:
+        if (tag == 229u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &aobias_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(232)) goto parse_BentTangentSpace;
         break;
       }
 
-      // optional bool BentTangentSpace = 29;
+      // bool BentTangentSpace = 29;
       case 29: {
-        if (tag == 232) {
-         parse_BentTangentSpace:
+        if (tag == 232u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &benttangentspace_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(240)) goto parse_GenTranslu;
         break;
       }
 
-      // optional bool GenTranslu = 30;
+      // bool GenTranslu = 30;
       case 30: {
-        if (tag == 240) {
-         parse_GenTranslu:
+        if (tag == 240u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &gentranslu_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(248)) goto parse_AODistribution;
         break;
       }
 
-      // optional .xnormal.tGenerateMaps.eAODistribution AODistribution = 31;
+      // .xnormal.tGenerateMaps.eAODistribution AODistribution = 31;
       case 31: {
-        if (tag == 248) {
-         parse_AODistribution:
+        if (tag == 248u) {
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
@@ -8103,44 +7859,38 @@ bool tGenerateMaps::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(261)) goto parse_PRTThreshold;
         break;
       }
 
-      // optional float PRTThreshold = 32;
+      // float PRTThreshold = 32;
       case 32: {
-        if (tag == 261) {
-         parse_PRTThreshold:
+        if (tag == 261u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &prtthreshold_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(269)) goto parse_DirectionsTonemapMin;
         break;
       }
 
-      // optional float DirectionsTonemapMin = 33;
+      // float DirectionsTonemapMin = 33;
       case 33: {
-        if (tag == 269) {
-         parse_DirectionsTonemapMin:
+        if (tag == 269u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &directionstonemapmin_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(272)) goto parse_CurvDistribution;
         break;
       }
 
-      // optional .xnormal.tGenerateMaps.eAODistribution CurvDistribution = 34;
+      // .xnormal.tGenerateMaps.eAODistribution CurvDistribution = 34;
       case 34: {
-        if (tag == 272) {
-         parse_CurvDistribution:
+        if (tag == 272u) {
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
@@ -8149,29 +7899,25 @@ bool tGenerateMaps::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(280)) goto parse_BentJitter;
         break;
       }
 
-      // optional bool BentJitter = 35;
+      // bool BentJitter = 35;
       case 35: {
-        if (tag == 280) {
-         parse_BentJitter:
+        if (tag == 280u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &bentjitter_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(288)) goto parse_BentDistribution;
         break;
       }
 
-      // optional .xnormal.tGenerateMaps.eAODistribution BentDistribution = 36;
+      // .xnormal.tGenerateMaps.eAODistribution BentDistribution = 36;
       case 36: {
-        if (tag == 288) {
-         parse_BentDistribution:
+        if (tag == 288u) {
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
@@ -8180,89 +7926,77 @@ bool tGenerateMaps::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(296)) goto parse_BakeHighpolyBaseTexture;
         break;
       }
 
-      // optional bool BakeHighpolyBaseTexture = 37;
+      // bool BakeHighpolyBaseTexture = 37;
       case 37: {
-        if (tag == 296) {
-         parse_BakeHighpolyBaseTexture:
+        if (tag == 296u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &bakehighpolybasetexture_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(304)) goto parse_GenConvexity;
         break;
       }
 
-      // optional bool GenConvexity = 38;
+      // bool GenConvexity = 38;
       case 38: {
-        if (tag == 304) {
-         parse_GenConvexity:
+        if (tag == 304u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &genconvexity_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(317)) goto parse_RadiosityNormalsAttenLinear;
         break;
       }
 
-      // optional float RadiosityNormalsAttenLinear = 39;
+      // float RadiosityNormalsAttenLinear = 39;
       case 39: {
-        if (tag == 317) {
-         parse_RadiosityNormalsAttenLinear:
+        if (tag == 317u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &radiositynormalsattenlinear_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(320)) goto parse_TransluRaysPerSample;
         break;
       }
 
-      // optional uint32 TransluRaysPerSample = 40;
+      // uint32 TransluRaysPerSample = 40;
       case 40: {
-        if (tag == 320) {
-         parse_TransluRaysPerSample:
+        if (tag == 320u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &translurayspersample_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(333)) goto parse_CurvSearchDistance;
         break;
       }
 
-      // optional float CurvSearchDistance = 41;
+      // float CurvSearchDistance = 41;
       case 41: {
-        if (tag == 333) {
-         parse_CurvSearchDistance:
+        if (tag == 333u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &curvsearchdistance_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(336)) goto parse_SwizzleZ;
         break;
       }
 
-      // optional .xnormal.tGenerateMaps.eSwizzleComponent SwizzleZ = 42;
+      // .xnormal.tGenerateMaps.eSwizzleComponent SwizzleZ = 42;
       case 42: {
-        if (tag == 336) {
-         parse_SwizzleZ:
+        if (tag == 336u) {
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
@@ -8271,89 +8005,77 @@ bool tGenerateMaps::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(349)) goto parse_TransluBias;
         break;
       }
 
-      // optional float TransluBias = 43;
+      // float TransluBias = 43;
       case 43: {
-        if (tag == 349) {
-         parse_TransluBias:
+        if (tag == 349u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &translubias_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(352)) goto parse_PRTLimitRayDistance;
         break;
       }
 
-      // optional bool PRTLimitRayDistance = 44;
+      // bool PRTLimitRayDistance = 44;
       case 44: {
-        if (tag == 352) {
-         parse_PRTLimitRayDistance:
+        if (tag == 352u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &prtlimitraydistance_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(360)) goto parse_GenBent;
         break;
       }
 
-      // optional bool GenBent = 45;
+      // bool GenBent = 45;
       case 45: {
-        if (tag == 360) {
-         parse_GenBent:
+        if (tag == 360u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &genbent_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(368)) goto parse_AOLimitRayDistance;
         break;
       }
 
-      // optional bool AOLimitRayDistance = 46;
+      // bool AOLimitRayDistance = 46;
       case 46: {
-        if (tag == 368) {
-         parse_AOLimitRayDistance:
+        if (tag == 368u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &aolimitraydistance_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(376)) goto parse_CurvRaysPerSample;
         break;
       }
 
-      // optional uint32 CurvRaysPerSample = 47;
+      // uint32 CurvRaysPerSample = 47;
       case 47: {
-        if (tag == 376) {
-         parse_CurvRaysPerSample:
+        if (tag == 376u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &curvrayspersample_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(384)) goto parse_RadiosityNormalsDistribution;
         break;
       }
 
-      // optional .xnormal.tGenerateMaps.eAODistribution RadiosityNormalsDistribution = 48;
+      // .xnormal.tGenerateMaps.eAODistribution RadiosityNormalsDistribution = 48;
       case 48: {
-        if (tag == 384) {
-         parse_RadiosityNormalsDistribution:
+        if (tag == 384u) {
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
@@ -8362,74 +8084,64 @@ bool tGenerateMaps::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(392)) goto parse_RadiosityNormalsRaysPerSample;
         break;
       }
 
-      // optional uint32 RadiosityNormalsRaysPerSample = 49;
+      // uint32 RadiosityNormalsRaysPerSample = 49;
       case 49: {
-        if (tag == 392) {
-         parse_RadiosityNormalsRaysPerSample:
+        if (tag == 392u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &radiositynormalsrayspersample_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(400)) goto parse_CurvJitter;
         break;
       }
 
-      // optional bool CurvJitter = 50;
+      // bool CurvJitter = 50;
       case 50: {
-        if (tag == 400) {
-         parse_CurvJitter:
+        if (tag == 400u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &curvjitter_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(408)) goto parse_TangentSpace;
         break;
       }
 
-      // optional bool TangentSpace = 51;
+      // bool TangentSpace = 51;
       case 51: {
-        if (tag == 408) {
-         parse_TangentSpace:
+        if (tag == 408u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &tangentspace_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(416)) goto parse_RadiosityNormalsAllowPureOcclusion;
         break;
       }
 
-      // optional bool RadiosityNormalsAllowPureOcclusion = 52;
+      // bool RadiosityNormalsAllowPureOcclusion = 52;
       case 52: {
-        if (tag == 416) {
-         parse_RadiosityNormalsAllowPureOcclusion:
+        if (tag == 416u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &radiositynormalsallowpureocclusion_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(424)) goto parse_BentSwizzleX;
         break;
       }
 
-      // optional .xnormal.tGenerateMaps.eSwizzleComponent BentSwizzleX = 53;
+      // .xnormal.tGenerateMaps.eSwizzleComponent BentSwizzleX = 53;
       case 53: {
-        if (tag == 424) {
-         parse_BentSwizzleX:
+        if (tag == 424u) {
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
@@ -8438,14 +8150,12 @@ bool tGenerateMaps::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(432)) goto parse_SwizzleY;
         break;
       }
 
-      // optional .xnormal.tGenerateMaps.eSwizzleComponent SwizzleY = 54;
+      // .xnormal.tGenerateMaps.eSwizzleComponent SwizzleY = 54;
       case 54: {
-        if (tag == 432) {
-         parse_SwizzleY:
+        if (tag == 432u) {
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
@@ -8454,74 +8164,64 @@ bool tGenerateMaps::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(440)) goto parse_GenCurv;
         break;
       }
 
-      // optional bool GenCurv = 55;
+      // bool GenCurv = 55;
       case 55: {
-        if (tag == 440) {
-         parse_GenCurv:
+        if (tag == 440u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &gencurv_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(448)) goto parse_PRTJitter;
         break;
       }
 
-      // optional bool PRTJitter = 56;
+      // bool PRTJitter = 56;
       case 56: {
-        if (tag == 448) {
-         parse_PRTJitter:
+        if (tag == 448u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &prtjitter_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(461)) goto parse_AOAttenCuadratic;
         break;
       }
 
-      // optional float AOAttenCuadratic = 57;
+      // float AOAttenCuadratic = 57;
       case 57: {
-        if (tag == 461) {
-         parse_AOAttenCuadratic:
+        if (tag == 461u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &aoattencuadratic_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(469)) goto parse_BentConeAngle;
         break;
       }
 
-      // optional float BentConeAngle = 58;
+      // float BentConeAngle = 58;
       case 58: {
-        if (tag == 469) {
-         parse_BentConeAngle:
+        if (tag == 469u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &bentconeangle_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(472)) goto parse_SwizzleX;
         break;
       }
 
-      // optional .xnormal.tGenerateMaps.eSwizzleComponent SwizzleX = 59;
+      // .xnormal.tGenerateMaps.eSwizzleComponent SwizzleX = 59;
       case 59: {
-        if (tag == 472) {
-         parse_SwizzleX:
+        if (tag == 472u) {
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
@@ -8530,119 +8230,103 @@ bool tGenerateMaps::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(480)) goto parse_RenderRayFails;
         break;
       }
 
-      // optional bool RenderRayFails = 60;
+      // bool RenderRayFails = 60;
       case 60: {
-        if (tag == 480) {
-         parse_RenderRayFails:
+        if (tag == 480u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &renderrayfails_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(493)) goto parse_CavitySearchRadius;
         break;
       }
 
-      // optional float CavitySearchRadius = 61;
+      // float CavitySearchRadius = 61;
       case 61: {
-        if (tag == 493) {
-         parse_CavitySearchRadius:
+        if (tag == 493u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &cavitysearchradius_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(496)) goto parse_RadiosityNormalsEncodeAO;
         break;
       }
 
-      // optional bool RadiosityNormalsEncodeAO = 62;
+      // bool RadiosityNormalsEncodeAO = 62;
       case 62: {
-        if (tag == 496) {
-         parse_RadiosityNormalsEncodeAO:
+        if (tag == 496u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &radiositynormalsencodeao_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(509)) goto parse_TransluConeAngle;
         break;
       }
 
-      // optional float TransluConeAngle = 63;
+      // float TransluConeAngle = 63;
       case 63: {
-        if (tag == 509) {
-         parse_TransluConeAngle:
+        if (tag == 509u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &transluconeangle_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(512)) goto parse_BentRaysPerSample;
         break;
       }
 
-      // optional uint32 BentRaysPerSample = 64;
+      // uint32 BentRaysPerSample = 64;
       case 64: {
-        if (tag == 512) {
-         parse_BentRaysPerSample:
+        if (tag == 512u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &bentrayspersample_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(525)) goto parse_ConvexityScale;
         break;
       }
 
-      // optional float ConvexityScale = 65;
+      // float ConvexityScale = 65;
       case 65: {
-        if (tag == 525) {
-         parse_ConvexityScale:
+        if (tag == 525u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &convexityscale_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(533)) goto parse_RadiosityNormalsConeAngle;
         break;
       }
 
-      // optional float RadiosityNormalsConeAngle = 66;
+      // float RadiosityNormalsConeAngle = 66;
       case 66: {
-        if (tag == 533) {
-         parse_RadiosityNormalsConeAngle:
+        if (tag == 533u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &radiositynormalsconeangle_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(538)) goto parse_File;
         break;
       }
 
-      // optional string File = 67;
+      // string File = 67;
       case 67: {
-        if (tag == 538) {
-         parse_File:
+        if (tag == 538u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_file()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -8652,149 +8336,129 @@ bool tGenerateMaps::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(544)) goto parse_GenDerivNM;
         break;
       }
 
-      // optional bool GenDerivNM = 68;
+      // bool GenDerivNM = 68;
       case 68: {
-        if (tag == 544) {
-         parse_GenDerivNM:
+        if (tag == 544u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &genderivnm_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(552)) goto parse_BentLimitRayDistance;
         break;
       }
 
-      // optional bool BentLimitRayDistance = 69;
+      // bool BentLimitRayDistance = 69;
       case 69: {
-        if (tag == 552) {
-         parse_BentLimitRayDistance:
+        if (tag == 552u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &bentlimitraydistance_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(565)) goto parse_PRTBias;
         break;
       }
 
-      // optional float PRTBias = 70;
+      // float PRTBias = 70;
       case 70: {
-        if (tag == 565) {
-         parse_PRTBias:
+        if (tag == 565u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &prtbias_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(568)) goto parse_RenderWireframe;
         break;
       }
 
-      // optional bool RenderWireframe = 71;
+      // bool RenderWireframe = 71;
       case 71: {
-        if (tag == 568) {
-         parse_RenderWireframe:
+        if (tag == 568u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &renderwireframe_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(576)) goto parse_PRTNormalize;
         break;
       }
 
-      // optional bool PRTNormalize = 72;
+      // bool PRTNormalize = 72;
       case 72: {
-        if (tag == 576) {
-         parse_PRTNormalize:
+        if (tag == 576u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &prtnormalize_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(584)) goto parse_GenAO;
         break;
       }
 
-      // optional bool GenAO = 73;
+      // bool GenAO = 73;
       case 73: {
-        if (tag == 584) {
-         parse_GenAO:
+        if (tag == 584u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &genao_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(597)) goto parse_PRTConeAngle;
         break;
       }
 
-      // optional float PRTConeAngle = 74;
+      // float PRTConeAngle = 74;
       case 74: {
-        if (tag == 597) {
-         parse_PRTConeAngle:
+        if (tag == 597u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &prtconeangle_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(600)) goto parse_Height;
         break;
       }
 
-      // optional uint32 Height = 75;
+      // uint32 Height = 75;
       case 75: {
-        if (tag == 600) {
-         parse_Height:
+        if (tag == 600u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &height_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(613)) goto parse_RadiosityNormalsAttenCuadratic;
         break;
       }
 
-      // optional float RadiosityNormalsAttenCuadratic = 76;
+      // float RadiosityNormalsAttenCuadratic = 76;
       case 76: {
-        if (tag == 613) {
-         parse_RadiosityNormalsAttenCuadratic:
+        if (tag == 613u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &radiositynormalsattencuadratic_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(616)) goto parse_DirectionsTonemap;
         break;
       }
 
-      // optional .xnormal.tGenerateMaps.eHMNormalization DirectionsTonemap = 77;
+      // .xnormal.tGenerateMaps.eHMNormalization DirectionsTonemap = 77;
       case 77: {
-        if (tag == 616) {
-         parse_DirectionsTonemap:
+        if (tag == 616u) {
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
@@ -8803,59 +8467,51 @@ bool tGenerateMaps::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(624)) goto parse_DirectionsTS;
         break;
       }
 
-      // optional bool DirectionsTS = 78;
+      // bool DirectionsTS = 78;
       case 78: {
-        if (tag == 624) {
-         parse_DirectionsTS:
+        if (tag == 624u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &directionsts_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(632)) goto parse_PRTRaysPerSample;
         break;
       }
 
-      // optional uint32 PRTRaysPerSample = 79;
+      // uint32 PRTRaysPerSample = 79;
       case 79: {
-        if (tag == 632) {
-         parse_PRTRaysPerSample:
+        if (tag == 632u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &prtrayspersample_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(640)) goto parse_EdgePadding;
         break;
       }
 
-      // optional uint32 EdgePadding = 80;
+      // uint32 EdgePadding = 80;
       case 80: {
-        if (tag == 640) {
-         parse_EdgePadding:
+        if (tag == 640u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &edgepadding_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(648)) goto parse_DirectionsSwizzleZ;
         break;
       }
 
-      // optional .xnormal.tGenerateMaps.eSwizzleComponent DirectionsSwizzleZ = 81;
+      // .xnormal.tGenerateMaps.eSwizzleComponent DirectionsSwizzleZ = 81;
       case 81: {
-        if (tag == 648) {
-         parse_DirectionsSwizzleZ:
+        if (tag == 648u) {
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
@@ -8864,164 +8520,142 @@ bool tGenerateMaps::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(656)) goto parse_AOAllowPureOccluded;
         break;
       }
 
-      // optional bool AOAllowPureOccluded = 82;
+      // bool AOAllowPureOccluded = 82;
       case 82: {
-        if (tag == 656) {
-         parse_AOAllowPureOccluded:
+        if (tag == 656u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &aoallowpureoccluded_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(664)) goto parse_AOIgnoreBackfaceHits;
         break;
       }
 
-      // optional bool AOIgnoreBackfaceHits = 83;
+      // bool AOIgnoreBackfaceHits = 83;
       case 83: {
-        if (tag == 664) {
-         parse_AOIgnoreBackfaceHits:
+        if (tag == 664u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &aoignorebackfacehits_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(672)) goto parse_CavityRaysPerSample;
         break;
       }
 
-      // optional uint32 CavityRaysPerSample = 84;
+      // uint32 CavityRaysPerSample = 84;
       case 84: {
-        if (tag == 672) {
-         parse_CavityRaysPerSample:
+        if (tag == 672u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &cavityrayspersample_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(685)) goto parse_AOAttenConstant;
         break;
       }
 
-      // optional float AOAttenConstant = 85;
+      // float AOAttenConstant = 85;
       case 85: {
-        if (tag == 685) {
-         parse_AOAttenConstant:
+        if (tag == 685u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &aoattenconstant_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(688)) goto parse_CavityJitter;
         break;
       }
 
-      // optional bool CavityJitter = 86;
+      // bool CavityJitter = 86;
       case 86: {
-        if (tag == 688) {
-         parse_CavityJitter:
+        if (tag == 688u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &cavityjitter_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(701)) goto parse_HeightTonemapMax;
         break;
       }
 
-      // optional float HeightTonemapMax = 87;
+      // float HeightTonemapMax = 87;
       case 87: {
-        if (tag == 701) {
-         parse_HeightTonemapMax:
+        if (tag == 701u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &heighttonemapmax_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(704)) goto parse_GenDirections;
         break;
       }
 
-      // optional bool GenDirections = 88;
+      // bool GenDirections = 88;
       case 88: {
-        if (tag == 704) {
-         parse_GenDirections:
+        if (tag == 704u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &gendirections_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(712)) goto parse_RadiosityNormalsLimitRayDistance;
         break;
       }
 
-      // optional bool RadiosityNormalsLimitRayDistance = 89;
+      // bool RadiosityNormalsLimitRayDistance = 89;
       case 89: {
-        if (tag == 712) {
-         parse_RadiosityNormalsLimitRayDistance:
+        if (tag == 712u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &radiositynormalslimitraydistance_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(725)) goto parse_HeightTonemapMin;
         break;
       }
 
-      // optional float HeightTonemapMin = 90;
+      // float HeightTonemapMin = 90;
       case 90: {
-        if (tag == 725) {
-         parse_HeightTonemapMin:
+        if (tag == 725u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &heighttonemapmin_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(728)) goto parse_RadiosityNormalsJitter;
         break;
       }
 
-      // optional bool RadiosityNormalsJitter = 91;
+      // bool RadiosityNormalsJitter = 91;
       case 91: {
-        if (tag == 728) {
-         parse_RadiosityNormalsJitter:
+        if (tag == 728u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &radiositynormalsjitter_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(736)) goto parse_DirectionsSwizzleY;
         break;
       }
 
-      // optional .xnormal.tGenerateMaps.eSwizzleComponent DirectionsSwizzleY = 92;
+      // .xnormal.tGenerateMaps.eSwizzleComponent DirectionsSwizzleY = 92;
       case 92: {
-        if (tag == 736) {
-         parse_DirectionsSwizzleY:
+        if (tag == 736u) {
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
@@ -9030,59 +8664,51 @@ bool tGenerateMaps::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(744)) goto parse_Width;
         break;
       }
 
-      // optional uint32 Width = 93;
+      // uint32 Width = 93;
       case 93: {
-        if (tag == 744) {
-         parse_Width:
+        if (tag == 744u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &width_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(752)) goto parse_BakeHighpolyBaseTextureDrawObjectIDIfNoTexture;
         break;
       }
 
-      // optional bool BakeHighpolyBaseTextureDrawObjectIDIfNoTexture = 94;
+      // bool BakeHighpolyBaseTextureDrawObjectIDIfNoTexture = 94;
       case 94: {
-        if (tag == 752) {
-         parse_BakeHighpolyBaseTextureDrawObjectIDIfNoTexture:
+        if (tag == 752u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &bakehighpolybasetexturedrawobjectidifnotexture_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(760)) goto parse_Concavity;
         break;
       }
 
-      // optional bool Concavity = 95;
+      // bool Concavity = 95;
       case 95: {
-        if (tag == 760) {
-         parse_Concavity:
+        if (tag == 760u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &concavity_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(768)) goto parse_DirectionsSwizzleX;
         break;
       }
 
-      // optional .xnormal.tGenerateMaps.eSwizzleComponent DirectionsSwizzleX = 96;
+      // .xnormal.tGenerateMaps.eSwizzleComponent DirectionsSwizzleX = 96;
       case 96: {
-        if (tag == 768) {
-         parse_DirectionsSwizzleX:
+        if (tag == 768u) {
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
@@ -9091,119 +8717,103 @@ bool tGenerateMaps::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(776)) goto parse_GenNormals;
         break;
       }
 
-      // optional bool GenNormals = 97;
+      // bool GenNormals = 97;
       case 97: {
-        if (tag == 776) {
-         parse_GenNormals:
+        if (tag == 776u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &gennormals_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(784)) goto parse_ProximityRaysPerSample;
         break;
       }
 
-      // optional uint32 ProximityRaysPerSample = 98;
+      // uint32 ProximityRaysPerSample = 98;
       case 98: {
-        if (tag == 784) {
-         parse_ProximityRaysPerSample:
+        if (tag == 784u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &proximityrayspersample_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(792)) goto parse_GenHeights;
         break;
       }
 
-      // optional bool GenHeights = 99;
+      // bool GenHeights = 99;
       case 99: {
-        if (tag == 792) {
-         parse_GenHeights:
+        if (tag == 792u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &genheights_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(805)) goto parse_RadiosityNormalsAttenConstant;
         break;
       }
 
-      // optional float RadiosityNormalsAttenConstant = 100;
+      // float RadiosityNormalsAttenConstant = 100;
       case 100: {
-        if (tag == 805) {
-         parse_RadiosityNormalsAttenConstant:
+        if (tag == 805u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &radiositynormalsattenconstant_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(808)) goto parse_GenProximity;
         break;
       }
 
-      // optional bool GenProximity = 101;
+      // bool GenProximity = 101;
       case 101: {
-        if (tag == 808) {
-         parse_GenProximity:
+        if (tag == 808u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &genproximity_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(816)) goto parse_GenPRT;
         break;
       }
 
-      // optional bool GenPRT = 102;
+      // bool GenPRT = 102;
       case 102: {
-        if (tag == 816) {
-         parse_GenPRT:
+        if (tag == 816u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &genprt_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(829)) goto parse_CavityContrast;
         break;
       }
 
-      // optional float CavityContrast = 103;
+      // float CavityContrast = 103;
       case 103: {
-        if (tag == 829) {
-         parse_CavityContrast:
+        if (tag == 829u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &cavitycontrast_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(832)) goto parse_RadiosityNormalsCoordSys;
         break;
       }
 
-      // optional .xnormal.tGenerateMaps.eRNMCoordSys RadiosityNormalsCoordSys = 104;
+      // .xnormal.tGenerateMaps.eRNMCoordSys RadiosityNormalsCoordSys = 104;
       case 104: {
-        if (tag == 832) {
-         parse_RadiosityNormalsCoordSys:
+        if (tag == 832u) {
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
@@ -9212,89 +8822,77 @@ bool tGenerateMaps::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(840)) goto parse_TransluJitter;
         break;
       }
 
-      // optional bool TransluJitter = 105;
+      // bool TransluJitter = 105;
       case 105: {
-        if (tag == 840) {
-         parse_TransluJitter:
+        if (tag == 840u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &translujitter_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(848)) goto parse_AORaysPerSample;
         break;
       }
 
-      // optional uint32 AORaysPerSample = 106;
+      // uint32 AORaysPerSample = 106;
       case 106: {
-        if (tag == 848) {
-         parse_AORaysPerSample:
+        if (tag == 848u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &aorayspersample_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(861)) goto parse_BentBias;
         break;
       }
 
-      // optional float BentBias = 107;
+      // float BentBias = 107;
       case 107: {
-        if (tag == 861) {
-         parse_BentBias:
+        if (tag == 861u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &bentbias_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(864)) goto parse_DiscardRayBackFacesHits;
         break;
       }
 
-      // optional bool DiscardRayBackFacesHits = 108;
+      // bool DiscardRayBackFacesHits = 108;
       case 108: {
-        if (tag == 864) {
-         parse_DiscardRayBackFacesHits:
+        if (tag == 864u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &discardraybackfaceshits_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(877)) goto parse_AOConeAngle;
         break;
       }
 
-      // optional float AOConeAngle = 109;
+      // float AOConeAngle = 109;
       case 109: {
-        if (tag == 877) {
-         parse_AOConeAngle:
+        if (tag == 877u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &aoconeangle_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(880)) goto parse_BentSwizzleY;
         break;
       }
 
-      // optional .xnormal.tGenerateMaps.eSwizzleComponent BentSwizzleY = 110;
+      // .xnormal.tGenerateMaps.eSwizzleComponent BentSwizzleY = 110;
       case 110: {
-        if (tag == 880) {
-         parse_BentSwizzleY:
+        if (tag == 880u) {
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
@@ -9303,59 +8901,51 @@ bool tGenerateMaps::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(893)) goto parse_RadiosityNormalsBias;
         break;
       }
 
-      // optional float RadiosityNormalsBias = 111;
+      // float RadiosityNormalsBias = 111;
       case 111: {
-        if (tag == 893) {
-         parse_RadiosityNormalsBias:
+        if (tag == 893u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &radiositynormalsbias_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(901)) goto parse_RadiosityNormalsContrast;
         break;
       }
 
-      // optional float RadiosityNormalsContrast = 112;
+      // float RadiosityNormalsContrast = 112;
       case 112: {
-        if (tag == 901) {
-         parse_RadiosityNormalsContrast:
+        if (tag == 901u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &radiositynormalscontrast_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(904)) goto parse_CavitySteps;
         break;
       }
 
-      // optional uint32 CavitySteps = 113;
+      // uint32 CavitySteps = 113;
       case 113: {
-        if (tag == 904) {
-         parse_CavitySteps:
+        if (tag == 904u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &cavitysteps_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(912)) goto parse_AA;
         break;
       }
 
-      // optional .xnormal.tGenerateMaps.eAntialiasing AA = 114;
+      // .xnormal.tGenerateMaps.eAntialiasing AA = 114;
       case 114: {
-        if (tag == 912) {
-         parse_AA:
+        if (tag == 912u) {
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
@@ -9364,14 +8954,12 @@ bool tGenerateMaps::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(920)) goto parse_BentSwizzleZ;
         break;
       }
 
-      // optional .xnormal.tGenerateMaps.eSwizzleComponent BentSwizzleZ = 115;
+      // .xnormal.tGenerateMaps.eSwizzleComponent BentSwizzleZ = 115;
       case 115: {
-        if (tag == 920) {
-         parse_BentSwizzleZ:
+        if (tag == 920u) {
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
@@ -9380,104 +8968,90 @@ bool tGenerateMaps::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(928)) goto parse_BucketSize;
         break;
       }
 
-      // optional uint32 BucketSize = 116;
+      // uint32 BucketSize = 116;
       case 116: {
-        if (tag == 928) {
-         parse_BucketSize:
+        if (tag == 928u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &bucketsize_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(941)) goto parse_CurvConeAngle;
         break;
       }
 
-      // optional float CurvConeAngle = 117;
+      // float CurvConeAngle = 117;
       case 117: {
-        if (tag == 941) {
-         parse_CurvConeAngle:
+        if (tag == 941u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &curvconeangle_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(949)) goto parse_TransluDist;
         break;
       }
 
-      // optional float TransluDist = 118;
+      // float TransluDist = 118;
       case 118: {
-        if (tag == 949) {
-         parse_TransluDist:
+        if (tag == 949u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &transludist_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(952)) goto parse_AOJitter;
         break;
       }
 
-      // optional bool AOJitter = 119;
+      // bool AOJitter = 119;
       case 119: {
-        if (tag == 952) {
-         parse_AOJitter:
+        if (tag == 952u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &aojitter_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(965)) goto parse_CurvBias;
         break;
       }
 
-      // optional float CurvBias = 120;
+      // float CurvBias = 120;
       case 120: {
-        if (tag == 965) {
-         parse_CurvBias:
+        if (tag == 965u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &curvbias_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(968)) goto parse_GenWireRays;
         break;
       }
 
-      // optional bool GenWireRays = 121;
+      // bool GenWireRays = 121;
       case 121: {
-        if (tag == 968) {
-         parse_GenWireRays:
+        if (tag == 968u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &genwirerays_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(976)) goto parse_CurvAlgorithm;
         break;
       }
 
-      // optional .xnormal.tGenerateMaps.eCurvAlgorithm CurvAlgorithm = 122;
+      // .xnormal.tGenerateMaps.eCurvAlgorithm CurvAlgorithm = 122;
       case 122: {
-        if (tag == 976) {
-         parse_CurvAlgorithm:
+        if (tag == 976u) {
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
@@ -9486,14 +9060,12 @@ bool tGenerateMaps::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(984)) goto parse_TransluDistribution;
         break;
       }
 
-      // optional .xnormal.tGenerateMaps.eAODistribution TransluDistribution = 123;
+      // .xnormal.tGenerateMaps.eAODistribution TransluDistribution = 123;
       case 123: {
-        if (tag == 984) {
-         parse_TransluDistribution:
+        if (tag == 984u) {
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
@@ -9502,74 +9074,64 @@ bool tGenerateMaps::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(997)) goto parse_AOAttenLinear;
         break;
       }
 
-      // optional float AOAttenLinear = 124;
+      // float AOAttenLinear = 124;
       case 124: {
-        if (tag == 997) {
-         parse_AOAttenLinear:
+        if (tag == 997u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &aoattenlinear_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(1000)) goto parse_ProximityLimitRayDistance;
         break;
       }
 
-      // optional bool ProximityLimitRayDistance = 125;
+      // bool ProximityLimitRayDistance = 125;
       case 125: {
-        if (tag == 1000) {
-         parse_ProximityLimitRayDistance:
+        if (tag == 1000u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &proximitylimitraydistance_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(1008)) goto parse_GenRadiosityNormals;
         break;
       }
 
-      // optional bool GenRadiosityNormals = 126;
+      // bool GenRadiosityNormals = 126;
       case 126: {
-        if (tag == 1008) {
-         parse_GenRadiosityNormals:
+        if (tag == 1008u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &genradiositynormals_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(1021)) goto parse_ProximityConeAngle;
         break;
       }
 
-      // optional float ProximityConeAngle = 127;
+      // float ProximityConeAngle = 127;
       case 127: {
-        if (tag == 1021) {
-         parse_ProximityConeAngle:
+        if (tag == 1021u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &proximityconeangle_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(1024)) goto parse_HeightTonemap;
         break;
       }
 
-      // optional .xnormal.tGenerateMaps.eHMNormalization HeightTonemap = 128;
+      // .xnormal.tGenerateMaps.eHMNormalization HeightTonemap = 128;
       case 128: {
-        if (tag == 1024) {
-         parse_HeightTonemap:
+        if (tag == 1024u) {
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
@@ -9578,37 +9140,32 @@ bool tGenerateMaps::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(1032)) goto parse_GenCavity;
         break;
       }
 
-      // optional bool GenCavity = 129;
+      // bool GenCavity = 129;
       case 129: {
-        if (tag == 1032) {
-         parse_GenCavity:
+        if (tag == 1032u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &gencavity_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(1040)) goto parse_BakeHighpolyVCols;
         break;
       }
 
-      // optional bool BakeHighpolyVCols = 130;
+      // bool BakeHighpolyVCols = 130;
       case 130: {
-        if (tag == 1040) {
-         parse_BakeHighpolyVCols:
+        if (tag == 1040u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &bakehighpolyvcols_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectAtEnd()) goto success;
         break;
       }
 
@@ -9636,369 +9193,369 @@ failure:
 void tGenerateMaps::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:xnormal.tGenerateMaps)
-  // optional .xnormal.tRGB8 NMBackgroundColor = 1;
+  // .xnormal.tRGB8 NMBackgroundColor = 1;
   if (this->has_nmbackgroundcolor()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       1, *this->nmbackgroundcolor_, output);
   }
 
-  // optional .xnormal.tRGB8 HMBackgroundColor = 2;
+  // .xnormal.tRGB8 HMBackgroundColor = 2;
   if (this->has_hmbackgroundcolor()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       2, *this->hmbackgroundcolor_, output);
   }
 
-  // optional .xnormal.tRGB8 BakeHighpolyBaseTextureNoTexCol = 3;
+  // .xnormal.tRGB8 BakeHighpolyBaseTextureNoTexCol = 3;
   if (this->has_bakehighpolybasetexturenotexcol()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       3, *this->bakehighpolybasetexturenotexcol_, output);
   }
 
-  // optional .xnormal.tRGB8 BakeHighpolyBaseTextureBackgroundColor = 4;
+  // .xnormal.tRGB8 BakeHighpolyBaseTextureBackgroundColor = 4;
   if (this->has_bakehighpolybasetexturebackgroundcolor()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       4, *this->bakehighpolybasetexturebackgroundcolor_, output);
   }
 
-  // optional .xnormal.tRGB8 RenderWireframeBackgroundColor = 5;
+  // .xnormal.tRGB8 RenderWireframeBackgroundColor = 5;
   if (this->has_renderwireframebackgroundcolor()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       5, *this->renderwireframebackgroundcolor_, output);
   }
 
-  // optional .xnormal.tRGB8 RenderWireframeCol = 6;
+  // .xnormal.tRGB8 RenderWireframeCol = 6;
   if (this->has_renderwireframecol()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       6, *this->renderwireframecol_, output);
   }
 
-  // optional .xnormal.tRGB8 RenderCWCol = 7;
+  // .xnormal.tRGB8 RenderCWCol = 7;
   if (this->has_rendercwcol()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       7, *this->rendercwcol_, output);
   }
 
-  // optional .xnormal.tRGB8 RenderSeamCol = 8;
+  // .xnormal.tRGB8 RenderSeamCol = 8;
   if (this->has_renderseamcol()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       8, *this->renderseamcol_, output);
   }
 
-  // optional .xnormal.tRGB8 RenderRayFailsCol = 9;
+  // .xnormal.tRGB8 RenderRayFailsCol = 9;
   if (this->has_renderrayfailscol()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       9, *this->renderrayfailscol_, output);
   }
 
-  // optional .xnormal.tRGB8 AOOccludedColor = 10;
+  // .xnormal.tRGB8 AOOccludedColor = 10;
   if (this->has_aooccludedcolor()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       10, *this->aooccludedcolor_, output);
   }
 
-  // optional .xnormal.tRGB8 AOUnoccludedColor = 11;
+  // .xnormal.tRGB8 AOUnoccludedColor = 11;
   if (this->has_aounoccludedcolor()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       11, *this->aounoccludedcolor_, output);
   }
 
-  // optional .xnormal.tRGB8 AOBackgroundColor = 12;
+  // .xnormal.tRGB8 AOBackgroundColor = 12;
   if (this->has_aobackgroundcolor()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       12, *this->aobackgroundcolor_, output);
   }
 
-  // optional .xnormal.tRGB8 BentBackgroundColor = 13;
+  // .xnormal.tRGB8 BentBackgroundColor = 13;
   if (this->has_bentbackgroundcolor()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       13, *this->bentbackgroundcolor_, output);
   }
 
-  // optional .xnormal.tRGB8 PRTBackgroundColor = 14;
+  // .xnormal.tRGB8 PRTBackgroundColor = 14;
   if (this->has_prtbackgroundcolor()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       14, *this->prtbackgroundcolor_, output);
   }
 
-  // optional .xnormal.tRGB8 ConvexityBackgroundColor = 15;
+  // .xnormal.tRGB8 ConvexityBackgroundColor = 15;
   if (this->has_convexitybackgroundcolor()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       15, *this->convexitybackgroundcolor_, output);
   }
 
-  // optional .xnormal.tRGB8 ThicknessBackgroundColor = 16;
+  // .xnormal.tRGB8 ThicknessBackgroundColor = 16;
   if (this->has_thicknessbackgroundcolor()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       16, *this->thicknessbackgroundcolor_, output);
   }
 
-  // optional .xnormal.tRGB8 ProximityBackgroundColor = 17;
+  // .xnormal.tRGB8 ProximityBackgroundColor = 17;
   if (this->has_proximitybackgroundcolor()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       17, *this->proximitybackgroundcolor_, output);
   }
 
-  // optional .xnormal.tRGB8 CavityBackgroundColor = 18;
+  // .xnormal.tRGB8 CavityBackgroundColor = 18;
   if (this->has_cavitybackgroundcolor()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       18, *this->cavitybackgroundcolor_, output);
   }
 
-  // optional .xnormal.tRGB8 VDMBackgroundColor = 19;
+  // .xnormal.tRGB8 VDMBackgroundColor = 19;
   if (this->has_vdmbackgroundcolor()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       19, *this->vdmbackgroundcolor_, output);
   }
 
-  // optional .xnormal.tRGB8 RadNMBackgroundColor = 20;
+  // .xnormal.tRGB8 RadNMBackgroundColor = 20;
   if (this->has_radnmbackgroundcolor()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       20, *this->radnmbackgroundcolor_, output);
   }
 
-  // optional .xnormal.tRGB8 CurvBackgroundColor = 21;
+  // .xnormal.tRGB8 CurvBackgroundColor = 21;
   if (this->has_curvbackgroundcolor()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       21, *this->curvbackgroundcolor_, output);
   }
 
-  // optional .xnormal.tRGB8 DerivNMBackgroundColor = 22;
+  // .xnormal.tRGB8 DerivNMBackgroundColor = 22;
   if (this->has_derivnmbackgroundcolor()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       22, *this->derivnmbackgroundcolor_, output);
   }
 
-  // optional .xnormal.tRGB8 TransluBackgroundColor = 23;
+  // .xnormal.tRGB8 TransluBackgroundColor = 23;
   if (this->has_translubackgroundcolor()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       23, *this->translubackgroundcolor_, output);
   }
 
-  // optional .xnormal.tRGB8 BakeHighpolyVColsBackgroundCol = 24;
+  // .xnormal.tRGB8 BakeHighpolyVColsBackgroundCol = 24;
   if (this->has_bakehighpolyvcolsbackgroundcol()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       24, *this->bakehighpolyvcolsbackgroundcol_, output);
   }
 
-  // optional bool ClosestIfFails = 25;
+  // bool ClosestIfFails = 25;
   if (this->closestiffails() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(25, this->closestiffails(), output);
   }
 
-  // optional float DirectionsTonemapMax = 26;
+  // float DirectionsTonemapMax = 26;
   if (this->directionstonemapmax() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(26, this->directionstonemapmax(), output);
   }
 
-  // optional bool CurvMonocrome = 27;
+  // bool CurvMonocrome = 27;
   if (this->curvmonocrome() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(27, this->curvmonocrome(), output);
   }
 
-  // optional float AOBias = 28;
+  // float AOBias = 28;
   if (this->aobias() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(28, this->aobias(), output);
   }
 
-  // optional bool BentTangentSpace = 29;
+  // bool BentTangentSpace = 29;
   if (this->benttangentspace() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(29, this->benttangentspace(), output);
   }
 
-  // optional bool GenTranslu = 30;
+  // bool GenTranslu = 30;
   if (this->gentranslu() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(30, this->gentranslu(), output);
   }
 
-  // optional .xnormal.tGenerateMaps.eAODistribution AODistribution = 31;
+  // .xnormal.tGenerateMaps.eAODistribution AODistribution = 31;
   if (this->aodistribution() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       31, this->aodistribution(), output);
   }
 
-  // optional float PRTThreshold = 32;
+  // float PRTThreshold = 32;
   if (this->prtthreshold() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(32, this->prtthreshold(), output);
   }
 
-  // optional float DirectionsTonemapMin = 33;
+  // float DirectionsTonemapMin = 33;
   if (this->directionstonemapmin() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(33, this->directionstonemapmin(), output);
   }
 
-  // optional .xnormal.tGenerateMaps.eAODistribution CurvDistribution = 34;
+  // .xnormal.tGenerateMaps.eAODistribution CurvDistribution = 34;
   if (this->curvdistribution() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       34, this->curvdistribution(), output);
   }
 
-  // optional bool BentJitter = 35;
+  // bool BentJitter = 35;
   if (this->bentjitter() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(35, this->bentjitter(), output);
   }
 
-  // optional .xnormal.tGenerateMaps.eAODistribution BentDistribution = 36;
+  // .xnormal.tGenerateMaps.eAODistribution BentDistribution = 36;
   if (this->bentdistribution() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       36, this->bentdistribution(), output);
   }
 
-  // optional bool BakeHighpolyBaseTexture = 37;
+  // bool BakeHighpolyBaseTexture = 37;
   if (this->bakehighpolybasetexture() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(37, this->bakehighpolybasetexture(), output);
   }
 
-  // optional bool GenConvexity = 38;
+  // bool GenConvexity = 38;
   if (this->genconvexity() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(38, this->genconvexity(), output);
   }
 
-  // optional float RadiosityNormalsAttenLinear = 39;
+  // float RadiosityNormalsAttenLinear = 39;
   if (this->radiositynormalsattenlinear() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(39, this->radiositynormalsattenlinear(), output);
   }
 
-  // optional uint32 TransluRaysPerSample = 40;
+  // uint32 TransluRaysPerSample = 40;
   if (this->translurayspersample() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(40, this->translurayspersample(), output);
   }
 
-  // optional float CurvSearchDistance = 41;
+  // float CurvSearchDistance = 41;
   if (this->curvsearchdistance() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(41, this->curvsearchdistance(), output);
   }
 
-  // optional .xnormal.tGenerateMaps.eSwizzleComponent SwizzleZ = 42;
+  // .xnormal.tGenerateMaps.eSwizzleComponent SwizzleZ = 42;
   if (this->swizzlez() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       42, this->swizzlez(), output);
   }
 
-  // optional float TransluBias = 43;
+  // float TransluBias = 43;
   if (this->translubias() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(43, this->translubias(), output);
   }
 
-  // optional bool PRTLimitRayDistance = 44;
+  // bool PRTLimitRayDistance = 44;
   if (this->prtlimitraydistance() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(44, this->prtlimitraydistance(), output);
   }
 
-  // optional bool GenBent = 45;
+  // bool GenBent = 45;
   if (this->genbent() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(45, this->genbent(), output);
   }
 
-  // optional bool AOLimitRayDistance = 46;
+  // bool AOLimitRayDistance = 46;
   if (this->aolimitraydistance() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(46, this->aolimitraydistance(), output);
   }
 
-  // optional uint32 CurvRaysPerSample = 47;
+  // uint32 CurvRaysPerSample = 47;
   if (this->curvrayspersample() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(47, this->curvrayspersample(), output);
   }
 
-  // optional .xnormal.tGenerateMaps.eAODistribution RadiosityNormalsDistribution = 48;
+  // .xnormal.tGenerateMaps.eAODistribution RadiosityNormalsDistribution = 48;
   if (this->radiositynormalsdistribution() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       48, this->radiositynormalsdistribution(), output);
   }
 
-  // optional uint32 RadiosityNormalsRaysPerSample = 49;
+  // uint32 RadiosityNormalsRaysPerSample = 49;
   if (this->radiositynormalsrayspersample() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(49, this->radiositynormalsrayspersample(), output);
   }
 
-  // optional bool CurvJitter = 50;
+  // bool CurvJitter = 50;
   if (this->curvjitter() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(50, this->curvjitter(), output);
   }
 
-  // optional bool TangentSpace = 51;
+  // bool TangentSpace = 51;
   if (this->tangentspace() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(51, this->tangentspace(), output);
   }
 
-  // optional bool RadiosityNormalsAllowPureOcclusion = 52;
+  // bool RadiosityNormalsAllowPureOcclusion = 52;
   if (this->radiositynormalsallowpureocclusion() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(52, this->radiositynormalsallowpureocclusion(), output);
   }
 
-  // optional .xnormal.tGenerateMaps.eSwizzleComponent BentSwizzleX = 53;
+  // .xnormal.tGenerateMaps.eSwizzleComponent BentSwizzleX = 53;
   if (this->bentswizzlex() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       53, this->bentswizzlex(), output);
   }
 
-  // optional .xnormal.tGenerateMaps.eSwizzleComponent SwizzleY = 54;
+  // .xnormal.tGenerateMaps.eSwizzleComponent SwizzleY = 54;
   if (this->swizzley() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       54, this->swizzley(), output);
   }
 
-  // optional bool GenCurv = 55;
+  // bool GenCurv = 55;
   if (this->gencurv() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(55, this->gencurv(), output);
   }
 
-  // optional bool PRTJitter = 56;
+  // bool PRTJitter = 56;
   if (this->prtjitter() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(56, this->prtjitter(), output);
   }
 
-  // optional float AOAttenCuadratic = 57;
+  // float AOAttenCuadratic = 57;
   if (this->aoattencuadratic() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(57, this->aoattencuadratic(), output);
   }
 
-  // optional float BentConeAngle = 58;
+  // float BentConeAngle = 58;
   if (this->bentconeangle() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(58, this->bentconeangle(), output);
   }
 
-  // optional .xnormal.tGenerateMaps.eSwizzleComponent SwizzleX = 59;
+  // .xnormal.tGenerateMaps.eSwizzleComponent SwizzleX = 59;
   if (this->swizzlex() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       59, this->swizzlex(), output);
   }
 
-  // optional bool RenderRayFails = 60;
+  // bool RenderRayFails = 60;
   if (this->renderrayfails() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(60, this->renderrayfails(), output);
   }
 
-  // optional float CavitySearchRadius = 61;
+  // float CavitySearchRadius = 61;
   if (this->cavitysearchradius() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(61, this->cavitysearchradius(), output);
   }
 
-  // optional bool RadiosityNormalsEncodeAO = 62;
+  // bool RadiosityNormalsEncodeAO = 62;
   if (this->radiositynormalsencodeao() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(62, this->radiositynormalsencodeao(), output);
   }
 
-  // optional float TransluConeAngle = 63;
+  // float TransluConeAngle = 63;
   if (this->transluconeangle() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(63, this->transluconeangle(), output);
   }
 
-  // optional uint32 BentRaysPerSample = 64;
+  // uint32 BentRaysPerSample = 64;
   if (this->bentrayspersample() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(64, this->bentrayspersample(), output);
   }
 
-  // optional float ConvexityScale = 65;
+  // float ConvexityScale = 65;
   if (this->convexityscale() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(65, this->convexityscale(), output);
   }
 
-  // optional float RadiosityNormalsConeAngle = 66;
+  // float RadiosityNormalsConeAngle = 66;
   if (this->radiositynormalsconeangle() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(66, this->radiositynormalsconeangle(), output);
   }
 
-  // optional string File = 67;
+  // string File = 67;
   if (this->file().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->file().data(), this->file().length(),
@@ -10008,328 +9565,328 @@ void tGenerateMaps::SerializeWithCachedSizes(
       67, this->file(), output);
   }
 
-  // optional bool GenDerivNM = 68;
+  // bool GenDerivNM = 68;
   if (this->genderivnm() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(68, this->genderivnm(), output);
   }
 
-  // optional bool BentLimitRayDistance = 69;
+  // bool BentLimitRayDistance = 69;
   if (this->bentlimitraydistance() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(69, this->bentlimitraydistance(), output);
   }
 
-  // optional float PRTBias = 70;
+  // float PRTBias = 70;
   if (this->prtbias() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(70, this->prtbias(), output);
   }
 
-  // optional bool RenderWireframe = 71;
+  // bool RenderWireframe = 71;
   if (this->renderwireframe() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(71, this->renderwireframe(), output);
   }
 
-  // optional bool PRTNormalize = 72;
+  // bool PRTNormalize = 72;
   if (this->prtnormalize() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(72, this->prtnormalize(), output);
   }
 
-  // optional bool GenAO = 73;
+  // bool GenAO = 73;
   if (this->genao() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(73, this->genao(), output);
   }
 
-  // optional float PRTConeAngle = 74;
+  // float PRTConeAngle = 74;
   if (this->prtconeangle() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(74, this->prtconeangle(), output);
   }
 
-  // optional uint32 Height = 75;
+  // uint32 Height = 75;
   if (this->height() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(75, this->height(), output);
   }
 
-  // optional float RadiosityNormalsAttenCuadratic = 76;
+  // float RadiosityNormalsAttenCuadratic = 76;
   if (this->radiositynormalsattencuadratic() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(76, this->radiositynormalsattencuadratic(), output);
   }
 
-  // optional .xnormal.tGenerateMaps.eHMNormalization DirectionsTonemap = 77;
+  // .xnormal.tGenerateMaps.eHMNormalization DirectionsTonemap = 77;
   if (this->directionstonemap() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       77, this->directionstonemap(), output);
   }
 
-  // optional bool DirectionsTS = 78;
+  // bool DirectionsTS = 78;
   if (this->directionsts() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(78, this->directionsts(), output);
   }
 
-  // optional uint32 PRTRaysPerSample = 79;
+  // uint32 PRTRaysPerSample = 79;
   if (this->prtrayspersample() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(79, this->prtrayspersample(), output);
   }
 
-  // optional uint32 EdgePadding = 80;
+  // uint32 EdgePadding = 80;
   if (this->edgepadding() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(80, this->edgepadding(), output);
   }
 
-  // optional .xnormal.tGenerateMaps.eSwizzleComponent DirectionsSwizzleZ = 81;
+  // .xnormal.tGenerateMaps.eSwizzleComponent DirectionsSwizzleZ = 81;
   if (this->directionsswizzlez() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       81, this->directionsswizzlez(), output);
   }
 
-  // optional bool AOAllowPureOccluded = 82;
+  // bool AOAllowPureOccluded = 82;
   if (this->aoallowpureoccluded() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(82, this->aoallowpureoccluded(), output);
   }
 
-  // optional bool AOIgnoreBackfaceHits = 83;
+  // bool AOIgnoreBackfaceHits = 83;
   if (this->aoignorebackfacehits() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(83, this->aoignorebackfacehits(), output);
   }
 
-  // optional uint32 CavityRaysPerSample = 84;
+  // uint32 CavityRaysPerSample = 84;
   if (this->cavityrayspersample() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(84, this->cavityrayspersample(), output);
   }
 
-  // optional float AOAttenConstant = 85;
+  // float AOAttenConstant = 85;
   if (this->aoattenconstant() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(85, this->aoattenconstant(), output);
   }
 
-  // optional bool CavityJitter = 86;
+  // bool CavityJitter = 86;
   if (this->cavityjitter() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(86, this->cavityjitter(), output);
   }
 
-  // optional float HeightTonemapMax = 87;
+  // float HeightTonemapMax = 87;
   if (this->heighttonemapmax() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(87, this->heighttonemapmax(), output);
   }
 
-  // optional bool GenDirections = 88;
+  // bool GenDirections = 88;
   if (this->gendirections() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(88, this->gendirections(), output);
   }
 
-  // optional bool RadiosityNormalsLimitRayDistance = 89;
+  // bool RadiosityNormalsLimitRayDistance = 89;
   if (this->radiositynormalslimitraydistance() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(89, this->radiositynormalslimitraydistance(), output);
   }
 
-  // optional float HeightTonemapMin = 90;
+  // float HeightTonemapMin = 90;
   if (this->heighttonemapmin() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(90, this->heighttonemapmin(), output);
   }
 
-  // optional bool RadiosityNormalsJitter = 91;
+  // bool RadiosityNormalsJitter = 91;
   if (this->radiositynormalsjitter() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(91, this->radiositynormalsjitter(), output);
   }
 
-  // optional .xnormal.tGenerateMaps.eSwizzleComponent DirectionsSwizzleY = 92;
+  // .xnormal.tGenerateMaps.eSwizzleComponent DirectionsSwizzleY = 92;
   if (this->directionsswizzley() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       92, this->directionsswizzley(), output);
   }
 
-  // optional uint32 Width = 93;
+  // uint32 Width = 93;
   if (this->width() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(93, this->width(), output);
   }
 
-  // optional bool BakeHighpolyBaseTextureDrawObjectIDIfNoTexture = 94;
+  // bool BakeHighpolyBaseTextureDrawObjectIDIfNoTexture = 94;
   if (this->bakehighpolybasetexturedrawobjectidifnotexture() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(94, this->bakehighpolybasetexturedrawobjectidifnotexture(), output);
   }
 
-  // optional bool Concavity = 95;
+  // bool Concavity = 95;
   if (this->concavity() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(95, this->concavity(), output);
   }
 
-  // optional .xnormal.tGenerateMaps.eSwizzleComponent DirectionsSwizzleX = 96;
+  // .xnormal.tGenerateMaps.eSwizzleComponent DirectionsSwizzleX = 96;
   if (this->directionsswizzlex() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       96, this->directionsswizzlex(), output);
   }
 
-  // optional bool GenNormals = 97;
+  // bool GenNormals = 97;
   if (this->gennormals() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(97, this->gennormals(), output);
   }
 
-  // optional uint32 ProximityRaysPerSample = 98;
+  // uint32 ProximityRaysPerSample = 98;
   if (this->proximityrayspersample() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(98, this->proximityrayspersample(), output);
   }
 
-  // optional bool GenHeights = 99;
+  // bool GenHeights = 99;
   if (this->genheights() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(99, this->genheights(), output);
   }
 
-  // optional float RadiosityNormalsAttenConstant = 100;
+  // float RadiosityNormalsAttenConstant = 100;
   if (this->radiositynormalsattenconstant() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(100, this->radiositynormalsattenconstant(), output);
   }
 
-  // optional bool GenProximity = 101;
+  // bool GenProximity = 101;
   if (this->genproximity() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(101, this->genproximity(), output);
   }
 
-  // optional bool GenPRT = 102;
+  // bool GenPRT = 102;
   if (this->genprt() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(102, this->genprt(), output);
   }
 
-  // optional float CavityContrast = 103;
+  // float CavityContrast = 103;
   if (this->cavitycontrast() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(103, this->cavitycontrast(), output);
   }
 
-  // optional .xnormal.tGenerateMaps.eRNMCoordSys RadiosityNormalsCoordSys = 104;
+  // .xnormal.tGenerateMaps.eRNMCoordSys RadiosityNormalsCoordSys = 104;
   if (this->radiositynormalscoordsys() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       104, this->radiositynormalscoordsys(), output);
   }
 
-  // optional bool TransluJitter = 105;
+  // bool TransluJitter = 105;
   if (this->translujitter() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(105, this->translujitter(), output);
   }
 
-  // optional uint32 AORaysPerSample = 106;
+  // uint32 AORaysPerSample = 106;
   if (this->aorayspersample() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(106, this->aorayspersample(), output);
   }
 
-  // optional float BentBias = 107;
+  // float BentBias = 107;
   if (this->bentbias() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(107, this->bentbias(), output);
   }
 
-  // optional bool DiscardRayBackFacesHits = 108;
+  // bool DiscardRayBackFacesHits = 108;
   if (this->discardraybackfaceshits() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(108, this->discardraybackfaceshits(), output);
   }
 
-  // optional float AOConeAngle = 109;
+  // float AOConeAngle = 109;
   if (this->aoconeangle() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(109, this->aoconeangle(), output);
   }
 
-  // optional .xnormal.tGenerateMaps.eSwizzleComponent BentSwizzleY = 110;
+  // .xnormal.tGenerateMaps.eSwizzleComponent BentSwizzleY = 110;
   if (this->bentswizzley() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       110, this->bentswizzley(), output);
   }
 
-  // optional float RadiosityNormalsBias = 111;
+  // float RadiosityNormalsBias = 111;
   if (this->radiositynormalsbias() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(111, this->radiositynormalsbias(), output);
   }
 
-  // optional float RadiosityNormalsContrast = 112;
+  // float RadiosityNormalsContrast = 112;
   if (this->radiositynormalscontrast() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(112, this->radiositynormalscontrast(), output);
   }
 
-  // optional uint32 CavitySteps = 113;
+  // uint32 CavitySteps = 113;
   if (this->cavitysteps() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(113, this->cavitysteps(), output);
   }
 
-  // optional .xnormal.tGenerateMaps.eAntialiasing AA = 114;
+  // .xnormal.tGenerateMaps.eAntialiasing AA = 114;
   if (this->aa() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       114, this->aa(), output);
   }
 
-  // optional .xnormal.tGenerateMaps.eSwizzleComponent BentSwizzleZ = 115;
+  // .xnormal.tGenerateMaps.eSwizzleComponent BentSwizzleZ = 115;
   if (this->bentswizzlez() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       115, this->bentswizzlez(), output);
   }
 
-  // optional uint32 BucketSize = 116;
+  // uint32 BucketSize = 116;
   if (this->bucketsize() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(116, this->bucketsize(), output);
   }
 
-  // optional float CurvConeAngle = 117;
+  // float CurvConeAngle = 117;
   if (this->curvconeangle() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(117, this->curvconeangle(), output);
   }
 
-  // optional float TransluDist = 118;
+  // float TransluDist = 118;
   if (this->transludist() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(118, this->transludist(), output);
   }
 
-  // optional bool AOJitter = 119;
+  // bool AOJitter = 119;
   if (this->aojitter() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(119, this->aojitter(), output);
   }
 
-  // optional float CurvBias = 120;
+  // float CurvBias = 120;
   if (this->curvbias() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(120, this->curvbias(), output);
   }
 
-  // optional bool GenWireRays = 121;
+  // bool GenWireRays = 121;
   if (this->genwirerays() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(121, this->genwirerays(), output);
   }
 
-  // optional .xnormal.tGenerateMaps.eCurvAlgorithm CurvAlgorithm = 122;
+  // .xnormal.tGenerateMaps.eCurvAlgorithm CurvAlgorithm = 122;
   if (this->curvalgorithm() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       122, this->curvalgorithm(), output);
   }
 
-  // optional .xnormal.tGenerateMaps.eAODistribution TransluDistribution = 123;
+  // .xnormal.tGenerateMaps.eAODistribution TransluDistribution = 123;
   if (this->transludistribution() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       123, this->transludistribution(), output);
   }
 
-  // optional float AOAttenLinear = 124;
+  // float AOAttenLinear = 124;
   if (this->aoattenlinear() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(124, this->aoattenlinear(), output);
   }
 
-  // optional bool ProximityLimitRayDistance = 125;
+  // bool ProximityLimitRayDistance = 125;
   if (this->proximitylimitraydistance() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(125, this->proximitylimitraydistance(), output);
   }
 
-  // optional bool GenRadiosityNormals = 126;
+  // bool GenRadiosityNormals = 126;
   if (this->genradiositynormals() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(126, this->genradiositynormals(), output);
   }
 
-  // optional float ProximityConeAngle = 127;
+  // float ProximityConeAngle = 127;
   if (this->proximityconeangle() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(127, this->proximityconeangle(), output);
   }
 
-  // optional .xnormal.tGenerateMaps.eHMNormalization HeightTonemap = 128;
+  // .xnormal.tGenerateMaps.eHMNormalization HeightTonemap = 128;
   if (this->heighttonemap() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       128, this->heighttonemap(), output);
   }
 
-  // optional bool GenCavity = 129;
+  // bool GenCavity = 129;
   if (this->gencavity() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(129, this->gencavity(), output);
   }
 
-  // optional bool BakeHighpolyVCols = 130;
+  // bool BakeHighpolyVCols = 130;
   if (this->bakehighpolyvcols() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(130, this->bakehighpolyvcols(), output);
   }
@@ -10339,395 +9896,395 @@ void tGenerateMaps::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* tGenerateMaps::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
+  (void)deterministic;  // Unused
   // @@protoc_insertion_point(serialize_to_array_start:xnormal.tGenerateMaps)
-  // optional .xnormal.tRGB8 NMBackgroundColor = 1;
+  // .xnormal.tRGB8 NMBackgroundColor = 1;
   if (this->has_nmbackgroundcolor()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
         1, *this->nmbackgroundcolor_, false, target);
   }
 
-  // optional .xnormal.tRGB8 HMBackgroundColor = 2;
+  // .xnormal.tRGB8 HMBackgroundColor = 2;
   if (this->has_hmbackgroundcolor()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
         2, *this->hmbackgroundcolor_, false, target);
   }
 
-  // optional .xnormal.tRGB8 BakeHighpolyBaseTextureNoTexCol = 3;
+  // .xnormal.tRGB8 BakeHighpolyBaseTextureNoTexCol = 3;
   if (this->has_bakehighpolybasetexturenotexcol()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
         3, *this->bakehighpolybasetexturenotexcol_, false, target);
   }
 
-  // optional .xnormal.tRGB8 BakeHighpolyBaseTextureBackgroundColor = 4;
+  // .xnormal.tRGB8 BakeHighpolyBaseTextureBackgroundColor = 4;
   if (this->has_bakehighpolybasetexturebackgroundcolor()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
         4, *this->bakehighpolybasetexturebackgroundcolor_, false, target);
   }
 
-  // optional .xnormal.tRGB8 RenderWireframeBackgroundColor = 5;
+  // .xnormal.tRGB8 RenderWireframeBackgroundColor = 5;
   if (this->has_renderwireframebackgroundcolor()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
         5, *this->renderwireframebackgroundcolor_, false, target);
   }
 
-  // optional .xnormal.tRGB8 RenderWireframeCol = 6;
+  // .xnormal.tRGB8 RenderWireframeCol = 6;
   if (this->has_renderwireframecol()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
         6, *this->renderwireframecol_, false, target);
   }
 
-  // optional .xnormal.tRGB8 RenderCWCol = 7;
+  // .xnormal.tRGB8 RenderCWCol = 7;
   if (this->has_rendercwcol()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
         7, *this->rendercwcol_, false, target);
   }
 
-  // optional .xnormal.tRGB8 RenderSeamCol = 8;
+  // .xnormal.tRGB8 RenderSeamCol = 8;
   if (this->has_renderseamcol()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
         8, *this->renderseamcol_, false, target);
   }
 
-  // optional .xnormal.tRGB8 RenderRayFailsCol = 9;
+  // .xnormal.tRGB8 RenderRayFailsCol = 9;
   if (this->has_renderrayfailscol()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
         9, *this->renderrayfailscol_, false, target);
   }
 
-  // optional .xnormal.tRGB8 AOOccludedColor = 10;
+  // .xnormal.tRGB8 AOOccludedColor = 10;
   if (this->has_aooccludedcolor()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
         10, *this->aooccludedcolor_, false, target);
   }
 
-  // optional .xnormal.tRGB8 AOUnoccludedColor = 11;
+  // .xnormal.tRGB8 AOUnoccludedColor = 11;
   if (this->has_aounoccludedcolor()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
         11, *this->aounoccludedcolor_, false, target);
   }
 
-  // optional .xnormal.tRGB8 AOBackgroundColor = 12;
+  // .xnormal.tRGB8 AOBackgroundColor = 12;
   if (this->has_aobackgroundcolor()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
         12, *this->aobackgroundcolor_, false, target);
   }
 
-  // optional .xnormal.tRGB8 BentBackgroundColor = 13;
+  // .xnormal.tRGB8 BentBackgroundColor = 13;
   if (this->has_bentbackgroundcolor()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
         13, *this->bentbackgroundcolor_, false, target);
   }
 
-  // optional .xnormal.tRGB8 PRTBackgroundColor = 14;
+  // .xnormal.tRGB8 PRTBackgroundColor = 14;
   if (this->has_prtbackgroundcolor()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
         14, *this->prtbackgroundcolor_, false, target);
   }
 
-  // optional .xnormal.tRGB8 ConvexityBackgroundColor = 15;
+  // .xnormal.tRGB8 ConvexityBackgroundColor = 15;
   if (this->has_convexitybackgroundcolor()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
         15, *this->convexitybackgroundcolor_, false, target);
   }
 
-  // optional .xnormal.tRGB8 ThicknessBackgroundColor = 16;
+  // .xnormal.tRGB8 ThicknessBackgroundColor = 16;
   if (this->has_thicknessbackgroundcolor()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
         16, *this->thicknessbackgroundcolor_, false, target);
   }
 
-  // optional .xnormal.tRGB8 ProximityBackgroundColor = 17;
+  // .xnormal.tRGB8 ProximityBackgroundColor = 17;
   if (this->has_proximitybackgroundcolor()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
         17, *this->proximitybackgroundcolor_, false, target);
   }
 
-  // optional .xnormal.tRGB8 CavityBackgroundColor = 18;
+  // .xnormal.tRGB8 CavityBackgroundColor = 18;
   if (this->has_cavitybackgroundcolor()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
         18, *this->cavitybackgroundcolor_, false, target);
   }
 
-  // optional .xnormal.tRGB8 VDMBackgroundColor = 19;
+  // .xnormal.tRGB8 VDMBackgroundColor = 19;
   if (this->has_vdmbackgroundcolor()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
         19, *this->vdmbackgroundcolor_, false, target);
   }
 
-  // optional .xnormal.tRGB8 RadNMBackgroundColor = 20;
+  // .xnormal.tRGB8 RadNMBackgroundColor = 20;
   if (this->has_radnmbackgroundcolor()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
         20, *this->radnmbackgroundcolor_, false, target);
   }
 
-  // optional .xnormal.tRGB8 CurvBackgroundColor = 21;
+  // .xnormal.tRGB8 CurvBackgroundColor = 21;
   if (this->has_curvbackgroundcolor()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
         21, *this->curvbackgroundcolor_, false, target);
   }
 
-  // optional .xnormal.tRGB8 DerivNMBackgroundColor = 22;
+  // .xnormal.tRGB8 DerivNMBackgroundColor = 22;
   if (this->has_derivnmbackgroundcolor()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
         22, *this->derivnmbackgroundcolor_, false, target);
   }
 
-  // optional .xnormal.tRGB8 TransluBackgroundColor = 23;
+  // .xnormal.tRGB8 TransluBackgroundColor = 23;
   if (this->has_translubackgroundcolor()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
         23, *this->translubackgroundcolor_, false, target);
   }
 
-  // optional .xnormal.tRGB8 BakeHighpolyVColsBackgroundCol = 24;
+  // .xnormal.tRGB8 BakeHighpolyVColsBackgroundCol = 24;
   if (this->has_bakehighpolyvcolsbackgroundcol()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
         24, *this->bakehighpolyvcolsbackgroundcol_, false, target);
   }
 
-  // optional bool ClosestIfFails = 25;
+  // bool ClosestIfFails = 25;
   if (this->closestiffails() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(25, this->closestiffails(), target);
   }
 
-  // optional float DirectionsTonemapMax = 26;
+  // float DirectionsTonemapMax = 26;
   if (this->directionstonemapmax() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(26, this->directionstonemapmax(), target);
   }
 
-  // optional bool CurvMonocrome = 27;
+  // bool CurvMonocrome = 27;
   if (this->curvmonocrome() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(27, this->curvmonocrome(), target);
   }
 
-  // optional float AOBias = 28;
+  // float AOBias = 28;
   if (this->aobias() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(28, this->aobias(), target);
   }
 
-  // optional bool BentTangentSpace = 29;
+  // bool BentTangentSpace = 29;
   if (this->benttangentspace() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(29, this->benttangentspace(), target);
   }
 
-  // optional bool GenTranslu = 30;
+  // bool GenTranslu = 30;
   if (this->gentranslu() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(30, this->gentranslu(), target);
   }
 
-  // optional .xnormal.tGenerateMaps.eAODistribution AODistribution = 31;
+  // .xnormal.tGenerateMaps.eAODistribution AODistribution = 31;
   if (this->aodistribution() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       31, this->aodistribution(), target);
   }
 
-  // optional float PRTThreshold = 32;
+  // float PRTThreshold = 32;
   if (this->prtthreshold() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(32, this->prtthreshold(), target);
   }
 
-  // optional float DirectionsTonemapMin = 33;
+  // float DirectionsTonemapMin = 33;
   if (this->directionstonemapmin() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(33, this->directionstonemapmin(), target);
   }
 
-  // optional .xnormal.tGenerateMaps.eAODistribution CurvDistribution = 34;
+  // .xnormal.tGenerateMaps.eAODistribution CurvDistribution = 34;
   if (this->curvdistribution() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       34, this->curvdistribution(), target);
   }
 
-  // optional bool BentJitter = 35;
+  // bool BentJitter = 35;
   if (this->bentjitter() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(35, this->bentjitter(), target);
   }
 
-  // optional .xnormal.tGenerateMaps.eAODistribution BentDistribution = 36;
+  // .xnormal.tGenerateMaps.eAODistribution BentDistribution = 36;
   if (this->bentdistribution() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       36, this->bentdistribution(), target);
   }
 
-  // optional bool BakeHighpolyBaseTexture = 37;
+  // bool BakeHighpolyBaseTexture = 37;
   if (this->bakehighpolybasetexture() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(37, this->bakehighpolybasetexture(), target);
   }
 
-  // optional bool GenConvexity = 38;
+  // bool GenConvexity = 38;
   if (this->genconvexity() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(38, this->genconvexity(), target);
   }
 
-  // optional float RadiosityNormalsAttenLinear = 39;
+  // float RadiosityNormalsAttenLinear = 39;
   if (this->radiositynormalsattenlinear() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(39, this->radiositynormalsattenlinear(), target);
   }
 
-  // optional uint32 TransluRaysPerSample = 40;
+  // uint32 TransluRaysPerSample = 40;
   if (this->translurayspersample() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(40, this->translurayspersample(), target);
   }
 
-  // optional float CurvSearchDistance = 41;
+  // float CurvSearchDistance = 41;
   if (this->curvsearchdistance() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(41, this->curvsearchdistance(), target);
   }
 
-  // optional .xnormal.tGenerateMaps.eSwizzleComponent SwizzleZ = 42;
+  // .xnormal.tGenerateMaps.eSwizzleComponent SwizzleZ = 42;
   if (this->swizzlez() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       42, this->swizzlez(), target);
   }
 
-  // optional float TransluBias = 43;
+  // float TransluBias = 43;
   if (this->translubias() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(43, this->translubias(), target);
   }
 
-  // optional bool PRTLimitRayDistance = 44;
+  // bool PRTLimitRayDistance = 44;
   if (this->prtlimitraydistance() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(44, this->prtlimitraydistance(), target);
   }
 
-  // optional bool GenBent = 45;
+  // bool GenBent = 45;
   if (this->genbent() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(45, this->genbent(), target);
   }
 
-  // optional bool AOLimitRayDistance = 46;
+  // bool AOLimitRayDistance = 46;
   if (this->aolimitraydistance() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(46, this->aolimitraydistance(), target);
   }
 
-  // optional uint32 CurvRaysPerSample = 47;
+  // uint32 CurvRaysPerSample = 47;
   if (this->curvrayspersample() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(47, this->curvrayspersample(), target);
   }
 
-  // optional .xnormal.tGenerateMaps.eAODistribution RadiosityNormalsDistribution = 48;
+  // .xnormal.tGenerateMaps.eAODistribution RadiosityNormalsDistribution = 48;
   if (this->radiositynormalsdistribution() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       48, this->radiositynormalsdistribution(), target);
   }
 
-  // optional uint32 RadiosityNormalsRaysPerSample = 49;
+  // uint32 RadiosityNormalsRaysPerSample = 49;
   if (this->radiositynormalsrayspersample() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(49, this->radiositynormalsrayspersample(), target);
   }
 
-  // optional bool CurvJitter = 50;
+  // bool CurvJitter = 50;
   if (this->curvjitter() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(50, this->curvjitter(), target);
   }
 
-  // optional bool TangentSpace = 51;
+  // bool TangentSpace = 51;
   if (this->tangentspace() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(51, this->tangentspace(), target);
   }
 
-  // optional bool RadiosityNormalsAllowPureOcclusion = 52;
+  // bool RadiosityNormalsAllowPureOcclusion = 52;
   if (this->radiositynormalsallowpureocclusion() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(52, this->radiositynormalsallowpureocclusion(), target);
   }
 
-  // optional .xnormal.tGenerateMaps.eSwizzleComponent BentSwizzleX = 53;
+  // .xnormal.tGenerateMaps.eSwizzleComponent BentSwizzleX = 53;
   if (this->bentswizzlex() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       53, this->bentswizzlex(), target);
   }
 
-  // optional .xnormal.tGenerateMaps.eSwizzleComponent SwizzleY = 54;
+  // .xnormal.tGenerateMaps.eSwizzleComponent SwizzleY = 54;
   if (this->swizzley() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       54, this->swizzley(), target);
   }
 
-  // optional bool GenCurv = 55;
+  // bool GenCurv = 55;
   if (this->gencurv() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(55, this->gencurv(), target);
   }
 
-  // optional bool PRTJitter = 56;
+  // bool PRTJitter = 56;
   if (this->prtjitter() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(56, this->prtjitter(), target);
   }
 
-  // optional float AOAttenCuadratic = 57;
+  // float AOAttenCuadratic = 57;
   if (this->aoattencuadratic() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(57, this->aoattencuadratic(), target);
   }
 
-  // optional float BentConeAngle = 58;
+  // float BentConeAngle = 58;
   if (this->bentconeangle() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(58, this->bentconeangle(), target);
   }
 
-  // optional .xnormal.tGenerateMaps.eSwizzleComponent SwizzleX = 59;
+  // .xnormal.tGenerateMaps.eSwizzleComponent SwizzleX = 59;
   if (this->swizzlex() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       59, this->swizzlex(), target);
   }
 
-  // optional bool RenderRayFails = 60;
+  // bool RenderRayFails = 60;
   if (this->renderrayfails() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(60, this->renderrayfails(), target);
   }
 
-  // optional float CavitySearchRadius = 61;
+  // float CavitySearchRadius = 61;
   if (this->cavitysearchradius() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(61, this->cavitysearchradius(), target);
   }
 
-  // optional bool RadiosityNormalsEncodeAO = 62;
+  // bool RadiosityNormalsEncodeAO = 62;
   if (this->radiositynormalsencodeao() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(62, this->radiositynormalsencodeao(), target);
   }
 
-  // optional float TransluConeAngle = 63;
+  // float TransluConeAngle = 63;
   if (this->transluconeangle() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(63, this->transluconeangle(), target);
   }
 
-  // optional uint32 BentRaysPerSample = 64;
+  // uint32 BentRaysPerSample = 64;
   if (this->bentrayspersample() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(64, this->bentrayspersample(), target);
   }
 
-  // optional float ConvexityScale = 65;
+  // float ConvexityScale = 65;
   if (this->convexityscale() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(65, this->convexityscale(), target);
   }
 
-  // optional float RadiosityNormalsConeAngle = 66;
+  // float RadiosityNormalsConeAngle = 66;
   if (this->radiositynormalsconeangle() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(66, this->radiositynormalsconeangle(), target);
   }
 
-  // optional string File = 67;
+  // string File = 67;
   if (this->file().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->file().data(), this->file().length(),
@@ -10738,328 +10295,328 @@ void tGenerateMaps::SerializeWithCachedSizes(
         67, this->file(), target);
   }
 
-  // optional bool GenDerivNM = 68;
+  // bool GenDerivNM = 68;
   if (this->genderivnm() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(68, this->genderivnm(), target);
   }
 
-  // optional bool BentLimitRayDistance = 69;
+  // bool BentLimitRayDistance = 69;
   if (this->bentlimitraydistance() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(69, this->bentlimitraydistance(), target);
   }
 
-  // optional float PRTBias = 70;
+  // float PRTBias = 70;
   if (this->prtbias() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(70, this->prtbias(), target);
   }
 
-  // optional bool RenderWireframe = 71;
+  // bool RenderWireframe = 71;
   if (this->renderwireframe() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(71, this->renderwireframe(), target);
   }
 
-  // optional bool PRTNormalize = 72;
+  // bool PRTNormalize = 72;
   if (this->prtnormalize() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(72, this->prtnormalize(), target);
   }
 
-  // optional bool GenAO = 73;
+  // bool GenAO = 73;
   if (this->genao() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(73, this->genao(), target);
   }
 
-  // optional float PRTConeAngle = 74;
+  // float PRTConeAngle = 74;
   if (this->prtconeangle() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(74, this->prtconeangle(), target);
   }
 
-  // optional uint32 Height = 75;
+  // uint32 Height = 75;
   if (this->height() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(75, this->height(), target);
   }
 
-  // optional float RadiosityNormalsAttenCuadratic = 76;
+  // float RadiosityNormalsAttenCuadratic = 76;
   if (this->radiositynormalsattencuadratic() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(76, this->radiositynormalsattencuadratic(), target);
   }
 
-  // optional .xnormal.tGenerateMaps.eHMNormalization DirectionsTonemap = 77;
+  // .xnormal.tGenerateMaps.eHMNormalization DirectionsTonemap = 77;
   if (this->directionstonemap() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       77, this->directionstonemap(), target);
   }
 
-  // optional bool DirectionsTS = 78;
+  // bool DirectionsTS = 78;
   if (this->directionsts() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(78, this->directionsts(), target);
   }
 
-  // optional uint32 PRTRaysPerSample = 79;
+  // uint32 PRTRaysPerSample = 79;
   if (this->prtrayspersample() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(79, this->prtrayspersample(), target);
   }
 
-  // optional uint32 EdgePadding = 80;
+  // uint32 EdgePadding = 80;
   if (this->edgepadding() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(80, this->edgepadding(), target);
   }
 
-  // optional .xnormal.tGenerateMaps.eSwizzleComponent DirectionsSwizzleZ = 81;
+  // .xnormal.tGenerateMaps.eSwizzleComponent DirectionsSwizzleZ = 81;
   if (this->directionsswizzlez() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       81, this->directionsswizzlez(), target);
   }
 
-  // optional bool AOAllowPureOccluded = 82;
+  // bool AOAllowPureOccluded = 82;
   if (this->aoallowpureoccluded() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(82, this->aoallowpureoccluded(), target);
   }
 
-  // optional bool AOIgnoreBackfaceHits = 83;
+  // bool AOIgnoreBackfaceHits = 83;
   if (this->aoignorebackfacehits() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(83, this->aoignorebackfacehits(), target);
   }
 
-  // optional uint32 CavityRaysPerSample = 84;
+  // uint32 CavityRaysPerSample = 84;
   if (this->cavityrayspersample() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(84, this->cavityrayspersample(), target);
   }
 
-  // optional float AOAttenConstant = 85;
+  // float AOAttenConstant = 85;
   if (this->aoattenconstant() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(85, this->aoattenconstant(), target);
   }
 
-  // optional bool CavityJitter = 86;
+  // bool CavityJitter = 86;
   if (this->cavityjitter() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(86, this->cavityjitter(), target);
   }
 
-  // optional float HeightTonemapMax = 87;
+  // float HeightTonemapMax = 87;
   if (this->heighttonemapmax() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(87, this->heighttonemapmax(), target);
   }
 
-  // optional bool GenDirections = 88;
+  // bool GenDirections = 88;
   if (this->gendirections() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(88, this->gendirections(), target);
   }
 
-  // optional bool RadiosityNormalsLimitRayDistance = 89;
+  // bool RadiosityNormalsLimitRayDistance = 89;
   if (this->radiositynormalslimitraydistance() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(89, this->radiositynormalslimitraydistance(), target);
   }
 
-  // optional float HeightTonemapMin = 90;
+  // float HeightTonemapMin = 90;
   if (this->heighttonemapmin() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(90, this->heighttonemapmin(), target);
   }
 
-  // optional bool RadiosityNormalsJitter = 91;
+  // bool RadiosityNormalsJitter = 91;
   if (this->radiositynormalsjitter() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(91, this->radiositynormalsjitter(), target);
   }
 
-  // optional .xnormal.tGenerateMaps.eSwizzleComponent DirectionsSwizzleY = 92;
+  // .xnormal.tGenerateMaps.eSwizzleComponent DirectionsSwizzleY = 92;
   if (this->directionsswizzley() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       92, this->directionsswizzley(), target);
   }
 
-  // optional uint32 Width = 93;
+  // uint32 Width = 93;
   if (this->width() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(93, this->width(), target);
   }
 
-  // optional bool BakeHighpolyBaseTextureDrawObjectIDIfNoTexture = 94;
+  // bool BakeHighpolyBaseTextureDrawObjectIDIfNoTexture = 94;
   if (this->bakehighpolybasetexturedrawobjectidifnotexture() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(94, this->bakehighpolybasetexturedrawobjectidifnotexture(), target);
   }
 
-  // optional bool Concavity = 95;
+  // bool Concavity = 95;
   if (this->concavity() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(95, this->concavity(), target);
   }
 
-  // optional .xnormal.tGenerateMaps.eSwizzleComponent DirectionsSwizzleX = 96;
+  // .xnormal.tGenerateMaps.eSwizzleComponent DirectionsSwizzleX = 96;
   if (this->directionsswizzlex() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       96, this->directionsswizzlex(), target);
   }
 
-  // optional bool GenNormals = 97;
+  // bool GenNormals = 97;
   if (this->gennormals() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(97, this->gennormals(), target);
   }
 
-  // optional uint32 ProximityRaysPerSample = 98;
+  // uint32 ProximityRaysPerSample = 98;
   if (this->proximityrayspersample() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(98, this->proximityrayspersample(), target);
   }
 
-  // optional bool GenHeights = 99;
+  // bool GenHeights = 99;
   if (this->genheights() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(99, this->genheights(), target);
   }
 
-  // optional float RadiosityNormalsAttenConstant = 100;
+  // float RadiosityNormalsAttenConstant = 100;
   if (this->radiositynormalsattenconstant() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(100, this->radiositynormalsattenconstant(), target);
   }
 
-  // optional bool GenProximity = 101;
+  // bool GenProximity = 101;
   if (this->genproximity() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(101, this->genproximity(), target);
   }
 
-  // optional bool GenPRT = 102;
+  // bool GenPRT = 102;
   if (this->genprt() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(102, this->genprt(), target);
   }
 
-  // optional float CavityContrast = 103;
+  // float CavityContrast = 103;
   if (this->cavitycontrast() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(103, this->cavitycontrast(), target);
   }
 
-  // optional .xnormal.tGenerateMaps.eRNMCoordSys RadiosityNormalsCoordSys = 104;
+  // .xnormal.tGenerateMaps.eRNMCoordSys RadiosityNormalsCoordSys = 104;
   if (this->radiositynormalscoordsys() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       104, this->radiositynormalscoordsys(), target);
   }
 
-  // optional bool TransluJitter = 105;
+  // bool TransluJitter = 105;
   if (this->translujitter() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(105, this->translujitter(), target);
   }
 
-  // optional uint32 AORaysPerSample = 106;
+  // uint32 AORaysPerSample = 106;
   if (this->aorayspersample() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(106, this->aorayspersample(), target);
   }
 
-  // optional float BentBias = 107;
+  // float BentBias = 107;
   if (this->bentbias() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(107, this->bentbias(), target);
   }
 
-  // optional bool DiscardRayBackFacesHits = 108;
+  // bool DiscardRayBackFacesHits = 108;
   if (this->discardraybackfaceshits() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(108, this->discardraybackfaceshits(), target);
   }
 
-  // optional float AOConeAngle = 109;
+  // float AOConeAngle = 109;
   if (this->aoconeangle() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(109, this->aoconeangle(), target);
   }
 
-  // optional .xnormal.tGenerateMaps.eSwizzleComponent BentSwizzleY = 110;
+  // .xnormal.tGenerateMaps.eSwizzleComponent BentSwizzleY = 110;
   if (this->bentswizzley() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       110, this->bentswizzley(), target);
   }
 
-  // optional float RadiosityNormalsBias = 111;
+  // float RadiosityNormalsBias = 111;
   if (this->radiositynormalsbias() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(111, this->radiositynormalsbias(), target);
   }
 
-  // optional float RadiosityNormalsContrast = 112;
+  // float RadiosityNormalsContrast = 112;
   if (this->radiositynormalscontrast() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(112, this->radiositynormalscontrast(), target);
   }
 
-  // optional uint32 CavitySteps = 113;
+  // uint32 CavitySteps = 113;
   if (this->cavitysteps() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(113, this->cavitysteps(), target);
   }
 
-  // optional .xnormal.tGenerateMaps.eAntialiasing AA = 114;
+  // .xnormal.tGenerateMaps.eAntialiasing AA = 114;
   if (this->aa() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       114, this->aa(), target);
   }
 
-  // optional .xnormal.tGenerateMaps.eSwizzleComponent BentSwizzleZ = 115;
+  // .xnormal.tGenerateMaps.eSwizzleComponent BentSwizzleZ = 115;
   if (this->bentswizzlez() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       115, this->bentswizzlez(), target);
   }
 
-  // optional uint32 BucketSize = 116;
+  // uint32 BucketSize = 116;
   if (this->bucketsize() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(116, this->bucketsize(), target);
   }
 
-  // optional float CurvConeAngle = 117;
+  // float CurvConeAngle = 117;
   if (this->curvconeangle() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(117, this->curvconeangle(), target);
   }
 
-  // optional float TransluDist = 118;
+  // float TransluDist = 118;
   if (this->transludist() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(118, this->transludist(), target);
   }
 
-  // optional bool AOJitter = 119;
+  // bool AOJitter = 119;
   if (this->aojitter() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(119, this->aojitter(), target);
   }
 
-  // optional float CurvBias = 120;
+  // float CurvBias = 120;
   if (this->curvbias() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(120, this->curvbias(), target);
   }
 
-  // optional bool GenWireRays = 121;
+  // bool GenWireRays = 121;
   if (this->genwirerays() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(121, this->genwirerays(), target);
   }
 
-  // optional .xnormal.tGenerateMaps.eCurvAlgorithm CurvAlgorithm = 122;
+  // .xnormal.tGenerateMaps.eCurvAlgorithm CurvAlgorithm = 122;
   if (this->curvalgorithm() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       122, this->curvalgorithm(), target);
   }
 
-  // optional .xnormal.tGenerateMaps.eAODistribution TransluDistribution = 123;
+  // .xnormal.tGenerateMaps.eAODistribution TransluDistribution = 123;
   if (this->transludistribution() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       123, this->transludistribution(), target);
   }
 
-  // optional float AOAttenLinear = 124;
+  // float AOAttenLinear = 124;
   if (this->aoattenlinear() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(124, this->aoattenlinear(), target);
   }
 
-  // optional bool ProximityLimitRayDistance = 125;
+  // bool ProximityLimitRayDistance = 125;
   if (this->proximitylimitraydistance() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(125, this->proximitylimitraydistance(), target);
   }
 
-  // optional bool GenRadiosityNormals = 126;
+  // bool GenRadiosityNormals = 126;
   if (this->genradiositynormals() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(126, this->genradiositynormals(), target);
   }
 
-  // optional float ProximityConeAngle = 127;
+  // float ProximityConeAngle = 127;
   if (this->proximityconeangle() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(127, this->proximityconeangle(), target);
   }
 
-  // optional .xnormal.tGenerateMaps.eHMNormalization HeightTonemap = 128;
+  // .xnormal.tGenerateMaps.eHMNormalization HeightTonemap = 128;
   if (this->heighttonemap() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       128, this->heighttonemap(), target);
   }
 
-  // optional bool GenCavity = 129;
+  // bool GenCavity = 129;
   if (this->gencavity() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(129, this->gencavity(), target);
   }
 
-  // optional bool BakeHighpolyVCols = 130;
+  // bool BakeHighpolyVCols = 130;
   if (this->bakehighpolyvcols() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(130, this->bakehighpolyvcols(), target);
   }
@@ -11068,767 +10625,766 @@ void tGenerateMaps::SerializeWithCachedSizes(
   return target;
 }
 
-int tGenerateMaps::ByteSize() const {
+size_t tGenerateMaps::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:xnormal.tGenerateMaps)
-  int total_size = 0;
+  size_t total_size = 0;
 
-  // optional .xnormal.tRGB8 NMBackgroundColor = 1;
-  if (this->has_nmbackgroundcolor()) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        *this->nmbackgroundcolor_);
-  }
-
-  // optional .xnormal.tRGB8 HMBackgroundColor = 2;
-  if (this->has_hmbackgroundcolor()) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        *this->hmbackgroundcolor_);
-  }
-
-  // optional .xnormal.tRGB8 BakeHighpolyBaseTextureNoTexCol = 3;
-  if (this->has_bakehighpolybasetexturenotexcol()) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        *this->bakehighpolybasetexturenotexcol_);
-  }
-
-  // optional .xnormal.tRGB8 BakeHighpolyBaseTextureBackgroundColor = 4;
-  if (this->has_bakehighpolybasetexturebackgroundcolor()) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        *this->bakehighpolybasetexturebackgroundcolor_);
-  }
-
-  // optional .xnormal.tRGB8 RenderWireframeBackgroundColor = 5;
-  if (this->has_renderwireframebackgroundcolor()) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        *this->renderwireframebackgroundcolor_);
-  }
-
-  // optional .xnormal.tRGB8 RenderWireframeCol = 6;
-  if (this->has_renderwireframecol()) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        *this->renderwireframecol_);
-  }
-
-  // optional .xnormal.tRGB8 RenderCWCol = 7;
-  if (this->has_rendercwcol()) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        *this->rendercwcol_);
-  }
-
-  // optional .xnormal.tRGB8 RenderSeamCol = 8;
-  if (this->has_renderseamcol()) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        *this->renderseamcol_);
-  }
-
-  // optional .xnormal.tRGB8 RenderRayFailsCol = 9;
-  if (this->has_renderrayfailscol()) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        *this->renderrayfailscol_);
-  }
-
-  // optional .xnormal.tRGB8 AOOccludedColor = 10;
-  if (this->has_aooccludedcolor()) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        *this->aooccludedcolor_);
-  }
-
-  // optional .xnormal.tRGB8 AOUnoccludedColor = 11;
-  if (this->has_aounoccludedcolor()) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        *this->aounoccludedcolor_);
-  }
-
-  // optional .xnormal.tRGB8 AOBackgroundColor = 12;
-  if (this->has_aobackgroundcolor()) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        *this->aobackgroundcolor_);
-  }
-
-  // optional .xnormal.tRGB8 BentBackgroundColor = 13;
-  if (this->has_bentbackgroundcolor()) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        *this->bentbackgroundcolor_);
-  }
-
-  // optional .xnormal.tRGB8 PRTBackgroundColor = 14;
-  if (this->has_prtbackgroundcolor()) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        *this->prtbackgroundcolor_);
-  }
-
-  // optional .xnormal.tRGB8 ConvexityBackgroundColor = 15;
-  if (this->has_convexitybackgroundcolor()) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        *this->convexitybackgroundcolor_);
-  }
-
-  // optional .xnormal.tRGB8 ThicknessBackgroundColor = 16;
-  if (this->has_thicknessbackgroundcolor()) {
-    total_size += 2 +
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        *this->thicknessbackgroundcolor_);
-  }
-
-  // optional .xnormal.tRGB8 ProximityBackgroundColor = 17;
-  if (this->has_proximitybackgroundcolor()) {
-    total_size += 2 +
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        *this->proximitybackgroundcolor_);
-  }
-
-  // optional .xnormal.tRGB8 CavityBackgroundColor = 18;
-  if (this->has_cavitybackgroundcolor()) {
-    total_size += 2 +
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        *this->cavitybackgroundcolor_);
-  }
-
-  // optional .xnormal.tRGB8 VDMBackgroundColor = 19;
-  if (this->has_vdmbackgroundcolor()) {
-    total_size += 2 +
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        *this->vdmbackgroundcolor_);
-  }
-
-  // optional .xnormal.tRGB8 RadNMBackgroundColor = 20;
-  if (this->has_radnmbackgroundcolor()) {
-    total_size += 2 +
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        *this->radnmbackgroundcolor_);
-  }
-
-  // optional .xnormal.tRGB8 CurvBackgroundColor = 21;
-  if (this->has_curvbackgroundcolor()) {
-    total_size += 2 +
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        *this->curvbackgroundcolor_);
-  }
-
-  // optional .xnormal.tRGB8 DerivNMBackgroundColor = 22;
-  if (this->has_derivnmbackgroundcolor()) {
-    total_size += 2 +
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        *this->derivnmbackgroundcolor_);
-  }
-
-  // optional .xnormal.tRGB8 TransluBackgroundColor = 23;
-  if (this->has_translubackgroundcolor()) {
-    total_size += 2 +
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        *this->translubackgroundcolor_);
-  }
-
-  // optional .xnormal.tRGB8 BakeHighpolyVColsBackgroundCol = 24;
-  if (this->has_bakehighpolyvcolsbackgroundcol()) {
-    total_size += 2 +
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        *this->bakehighpolyvcolsbackgroundcol_);
-  }
-
-  // optional bool ClosestIfFails = 25;
-  if (this->closestiffails() != 0) {
-    total_size += 2 + 1;
-  }
-
-  // optional float DirectionsTonemapMax = 26;
-  if (this->directionstonemapmax() != 0) {
-    total_size += 2 + 4;
-  }
-
-  // optional bool CurvMonocrome = 27;
-  if (this->curvmonocrome() != 0) {
-    total_size += 2 + 1;
-  }
-
-  // optional float AOBias = 28;
-  if (this->aobias() != 0) {
-    total_size += 2 + 4;
-  }
-
-  // optional bool BentTangentSpace = 29;
-  if (this->benttangentspace() != 0) {
-    total_size += 2 + 1;
-  }
-
-  // optional bool GenTranslu = 30;
-  if (this->gentranslu() != 0) {
-    total_size += 2 + 1;
-  }
-
-  // optional .xnormal.tGenerateMaps.eAODistribution AODistribution = 31;
-  if (this->aodistribution() != 0) {
-    total_size += 2 +
-      ::google::protobuf::internal::WireFormatLite::EnumSize(this->aodistribution());
-  }
-
-  // optional float PRTThreshold = 32;
-  if (this->prtthreshold() != 0) {
-    total_size += 2 + 4;
-  }
-
-  // optional float DirectionsTonemapMin = 33;
-  if (this->directionstonemapmin() != 0) {
-    total_size += 2 + 4;
-  }
-
-  // optional .xnormal.tGenerateMaps.eAODistribution CurvDistribution = 34;
-  if (this->curvdistribution() != 0) {
-    total_size += 2 +
-      ::google::protobuf::internal::WireFormatLite::EnumSize(this->curvdistribution());
-  }
-
-  // optional bool BentJitter = 35;
-  if (this->bentjitter() != 0) {
-    total_size += 2 + 1;
-  }
-
-  // optional .xnormal.tGenerateMaps.eAODistribution BentDistribution = 36;
-  if (this->bentdistribution() != 0) {
-    total_size += 2 +
-      ::google::protobuf::internal::WireFormatLite::EnumSize(this->bentdistribution());
-  }
-
-  // optional bool BakeHighpolyBaseTexture = 37;
-  if (this->bakehighpolybasetexture() != 0) {
-    total_size += 2 + 1;
-  }
-
-  // optional bool GenConvexity = 38;
-  if (this->genconvexity() != 0) {
-    total_size += 2 + 1;
-  }
-
-  // optional float RadiosityNormalsAttenLinear = 39;
-  if (this->radiositynormalsattenlinear() != 0) {
-    total_size += 2 + 4;
-  }
-
-  // optional uint32 TransluRaysPerSample = 40;
-  if (this->translurayspersample() != 0) {
-    total_size += 2 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->translurayspersample());
-  }
-
-  // optional float CurvSearchDistance = 41;
-  if (this->curvsearchdistance() != 0) {
-    total_size += 2 + 4;
-  }
-
-  // optional .xnormal.tGenerateMaps.eSwizzleComponent SwizzleZ = 42;
-  if (this->swizzlez() != 0) {
-    total_size += 2 +
-      ::google::protobuf::internal::WireFormatLite::EnumSize(this->swizzlez());
-  }
-
-  // optional float TransluBias = 43;
-  if (this->translubias() != 0) {
-    total_size += 2 + 4;
-  }
-
-  // optional bool PRTLimitRayDistance = 44;
-  if (this->prtlimitraydistance() != 0) {
-    total_size += 2 + 1;
-  }
-
-  // optional bool GenBent = 45;
-  if (this->genbent() != 0) {
-    total_size += 2 + 1;
-  }
-
-  // optional bool AOLimitRayDistance = 46;
-  if (this->aolimitraydistance() != 0) {
-    total_size += 2 + 1;
-  }
-
-  // optional uint32 CurvRaysPerSample = 47;
-  if (this->curvrayspersample() != 0) {
-    total_size += 2 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->curvrayspersample());
-  }
-
-  // optional .xnormal.tGenerateMaps.eAODistribution RadiosityNormalsDistribution = 48;
-  if (this->radiositynormalsdistribution() != 0) {
-    total_size += 2 +
-      ::google::protobuf::internal::WireFormatLite::EnumSize(this->radiositynormalsdistribution());
-  }
-
-  // optional uint32 RadiosityNormalsRaysPerSample = 49;
-  if (this->radiositynormalsrayspersample() != 0) {
-    total_size += 2 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->radiositynormalsrayspersample());
-  }
-
-  // optional bool CurvJitter = 50;
-  if (this->curvjitter() != 0) {
-    total_size += 2 + 1;
-  }
-
-  // optional bool TangentSpace = 51;
-  if (this->tangentspace() != 0) {
-    total_size += 2 + 1;
-  }
-
-  // optional bool RadiosityNormalsAllowPureOcclusion = 52;
-  if (this->radiositynormalsallowpureocclusion() != 0) {
-    total_size += 2 + 1;
-  }
-
-  // optional .xnormal.tGenerateMaps.eSwizzleComponent BentSwizzleX = 53;
-  if (this->bentswizzlex() != 0) {
-    total_size += 2 +
-      ::google::protobuf::internal::WireFormatLite::EnumSize(this->bentswizzlex());
-  }
-
-  // optional .xnormal.tGenerateMaps.eSwizzleComponent SwizzleY = 54;
-  if (this->swizzley() != 0) {
-    total_size += 2 +
-      ::google::protobuf::internal::WireFormatLite::EnumSize(this->swizzley());
-  }
-
-  // optional bool GenCurv = 55;
-  if (this->gencurv() != 0) {
-    total_size += 2 + 1;
-  }
-
-  // optional bool PRTJitter = 56;
-  if (this->prtjitter() != 0) {
-    total_size += 2 + 1;
-  }
-
-  // optional float AOAttenCuadratic = 57;
-  if (this->aoattencuadratic() != 0) {
-    total_size += 2 + 4;
-  }
-
-  // optional float BentConeAngle = 58;
-  if (this->bentconeangle() != 0) {
-    total_size += 2 + 4;
-  }
-
-  // optional .xnormal.tGenerateMaps.eSwizzleComponent SwizzleX = 59;
-  if (this->swizzlex() != 0) {
-    total_size += 2 +
-      ::google::protobuf::internal::WireFormatLite::EnumSize(this->swizzlex());
-  }
-
-  // optional bool RenderRayFails = 60;
-  if (this->renderrayfails() != 0) {
-    total_size += 2 + 1;
-  }
-
-  // optional float CavitySearchRadius = 61;
-  if (this->cavitysearchradius() != 0) {
-    total_size += 2 + 4;
-  }
-
-  // optional bool RadiosityNormalsEncodeAO = 62;
-  if (this->radiositynormalsencodeao() != 0) {
-    total_size += 2 + 1;
-  }
-
-  // optional float TransluConeAngle = 63;
-  if (this->transluconeangle() != 0) {
-    total_size += 2 + 4;
-  }
-
-  // optional uint32 BentRaysPerSample = 64;
-  if (this->bentrayspersample() != 0) {
-    total_size += 2 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->bentrayspersample());
-  }
-
-  // optional float ConvexityScale = 65;
-  if (this->convexityscale() != 0) {
-    total_size += 2 + 4;
-  }
-
-  // optional float RadiosityNormalsConeAngle = 66;
-  if (this->radiositynormalsconeangle() != 0) {
-    total_size += 2 + 4;
-  }
-
-  // optional string File = 67;
+  // string File = 67;
   if (this->file().size() > 0) {
     total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->file());
   }
 
-  // optional bool GenDerivNM = 68;
+  // .xnormal.tRGB8 NMBackgroundColor = 1;
+  if (this->has_nmbackgroundcolor()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->nmbackgroundcolor_);
+  }
+
+  // .xnormal.tRGB8 HMBackgroundColor = 2;
+  if (this->has_hmbackgroundcolor()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->hmbackgroundcolor_);
+  }
+
+  // .xnormal.tRGB8 BakeHighpolyBaseTextureNoTexCol = 3;
+  if (this->has_bakehighpolybasetexturenotexcol()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->bakehighpolybasetexturenotexcol_);
+  }
+
+  // .xnormal.tRGB8 BakeHighpolyBaseTextureBackgroundColor = 4;
+  if (this->has_bakehighpolybasetexturebackgroundcolor()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->bakehighpolybasetexturebackgroundcolor_);
+  }
+
+  // .xnormal.tRGB8 RenderWireframeBackgroundColor = 5;
+  if (this->has_renderwireframebackgroundcolor()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->renderwireframebackgroundcolor_);
+  }
+
+  // .xnormal.tRGB8 RenderWireframeCol = 6;
+  if (this->has_renderwireframecol()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->renderwireframecol_);
+  }
+
+  // .xnormal.tRGB8 RenderCWCol = 7;
+  if (this->has_rendercwcol()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->rendercwcol_);
+  }
+
+  // .xnormal.tRGB8 RenderSeamCol = 8;
+  if (this->has_renderseamcol()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->renderseamcol_);
+  }
+
+  // .xnormal.tRGB8 RenderRayFailsCol = 9;
+  if (this->has_renderrayfailscol()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->renderrayfailscol_);
+  }
+
+  // .xnormal.tRGB8 AOOccludedColor = 10;
+  if (this->has_aooccludedcolor()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->aooccludedcolor_);
+  }
+
+  // .xnormal.tRGB8 AOUnoccludedColor = 11;
+  if (this->has_aounoccludedcolor()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->aounoccludedcolor_);
+  }
+
+  // .xnormal.tRGB8 AOBackgroundColor = 12;
+  if (this->has_aobackgroundcolor()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->aobackgroundcolor_);
+  }
+
+  // .xnormal.tRGB8 BentBackgroundColor = 13;
+  if (this->has_bentbackgroundcolor()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->bentbackgroundcolor_);
+  }
+
+  // .xnormal.tRGB8 PRTBackgroundColor = 14;
+  if (this->has_prtbackgroundcolor()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->prtbackgroundcolor_);
+  }
+
+  // .xnormal.tRGB8 ConvexityBackgroundColor = 15;
+  if (this->has_convexitybackgroundcolor()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->convexitybackgroundcolor_);
+  }
+
+  // .xnormal.tRGB8 ThicknessBackgroundColor = 16;
+  if (this->has_thicknessbackgroundcolor()) {
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->thicknessbackgroundcolor_);
+  }
+
+  // .xnormal.tRGB8 ProximityBackgroundColor = 17;
+  if (this->has_proximitybackgroundcolor()) {
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->proximitybackgroundcolor_);
+  }
+
+  // .xnormal.tRGB8 CavityBackgroundColor = 18;
+  if (this->has_cavitybackgroundcolor()) {
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->cavitybackgroundcolor_);
+  }
+
+  // .xnormal.tRGB8 VDMBackgroundColor = 19;
+  if (this->has_vdmbackgroundcolor()) {
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->vdmbackgroundcolor_);
+  }
+
+  // .xnormal.tRGB8 RadNMBackgroundColor = 20;
+  if (this->has_radnmbackgroundcolor()) {
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->radnmbackgroundcolor_);
+  }
+
+  // .xnormal.tRGB8 CurvBackgroundColor = 21;
+  if (this->has_curvbackgroundcolor()) {
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->curvbackgroundcolor_);
+  }
+
+  // .xnormal.tRGB8 DerivNMBackgroundColor = 22;
+  if (this->has_derivnmbackgroundcolor()) {
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->derivnmbackgroundcolor_);
+  }
+
+  // .xnormal.tRGB8 TransluBackgroundColor = 23;
+  if (this->has_translubackgroundcolor()) {
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->translubackgroundcolor_);
+  }
+
+  // .xnormal.tRGB8 BakeHighpolyVColsBackgroundCol = 24;
+  if (this->has_bakehighpolyvcolsbackgroundcol()) {
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->bakehighpolyvcolsbackgroundcol_);
+  }
+
+  // float DirectionsTonemapMax = 26;
+  if (this->directionstonemapmax() != 0) {
+    total_size += 2 + 4;
+  }
+
+  // bool ClosestIfFails = 25;
+  if (this->closestiffails() != 0) {
+    total_size += 2 + 1;
+  }
+
+  // bool CurvMonocrome = 27;
+  if (this->curvmonocrome() != 0) {
+    total_size += 2 + 1;
+  }
+
+  // bool BentTangentSpace = 29;
+  if (this->benttangentspace() != 0) {
+    total_size += 2 + 1;
+  }
+
+  // bool GenTranslu = 30;
+  if (this->gentranslu() != 0) {
+    total_size += 2 + 1;
+  }
+
+  // float AOBias = 28;
+  if (this->aobias() != 0) {
+    total_size += 2 + 4;
+  }
+
+  // .xnormal.tGenerateMaps.eAODistribution AODistribution = 31;
+  if (this->aodistribution() != 0) {
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->aodistribution());
+  }
+
+  // float PRTThreshold = 32;
+  if (this->prtthreshold() != 0) {
+    total_size += 2 + 4;
+  }
+
+  // float DirectionsTonemapMin = 33;
+  if (this->directionstonemapmin() != 0) {
+    total_size += 2 + 4;
+  }
+
+  // .xnormal.tGenerateMaps.eAODistribution CurvDistribution = 34;
+  if (this->curvdistribution() != 0) {
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->curvdistribution());
+  }
+
+  // .xnormal.tGenerateMaps.eAODistribution BentDistribution = 36;
+  if (this->bentdistribution() != 0) {
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->bentdistribution());
+  }
+
+  // bool BentJitter = 35;
+  if (this->bentjitter() != 0) {
+    total_size += 2 + 1;
+  }
+
+  // bool BakeHighpolyBaseTexture = 37;
+  if (this->bakehighpolybasetexture() != 0) {
+    total_size += 2 + 1;
+  }
+
+  // bool GenConvexity = 38;
+  if (this->genconvexity() != 0) {
+    total_size += 2 + 1;
+  }
+
+  // bool PRTLimitRayDistance = 44;
+  if (this->prtlimitraydistance() != 0) {
+    total_size += 2 + 1;
+  }
+
+  // float RadiosityNormalsAttenLinear = 39;
+  if (this->radiositynormalsattenlinear() != 0) {
+    total_size += 2 + 4;
+  }
+
+  // uint32 TransluRaysPerSample = 40;
+  if (this->translurayspersample() != 0) {
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->translurayspersample());
+  }
+
+  // float CurvSearchDistance = 41;
+  if (this->curvsearchdistance() != 0) {
+    total_size += 2 + 4;
+  }
+
+  // .xnormal.tGenerateMaps.eSwizzleComponent SwizzleZ = 42;
+  if (this->swizzlez() != 0) {
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->swizzlez());
+  }
+
+  // float TransluBias = 43;
+  if (this->translubias() != 0) {
+    total_size += 2 + 4;
+  }
+
+  // uint32 CurvRaysPerSample = 47;
+  if (this->curvrayspersample() != 0) {
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->curvrayspersample());
+  }
+
+  // .xnormal.tGenerateMaps.eAODistribution RadiosityNormalsDistribution = 48;
+  if (this->radiositynormalsdistribution() != 0) {
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->radiositynormalsdistribution());
+  }
+
+  // bool GenBent = 45;
+  if (this->genbent() != 0) {
+    total_size += 2 + 1;
+  }
+
+  // bool AOLimitRayDistance = 46;
+  if (this->aolimitraydistance() != 0) {
+    total_size += 2 + 1;
+  }
+
+  // bool CurvJitter = 50;
+  if (this->curvjitter() != 0) {
+    total_size += 2 + 1;
+  }
+
+  // bool TangentSpace = 51;
+  if (this->tangentspace() != 0) {
+    total_size += 2 + 1;
+  }
+
+  // uint32 RadiosityNormalsRaysPerSample = 49;
+  if (this->radiositynormalsrayspersample() != 0) {
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->radiositynormalsrayspersample());
+  }
+
+  // .xnormal.tGenerateMaps.eSwizzleComponent BentSwizzleX = 53;
+  if (this->bentswizzlex() != 0) {
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->bentswizzlex());
+  }
+
+  // .xnormal.tGenerateMaps.eSwizzleComponent SwizzleY = 54;
+  if (this->swizzley() != 0) {
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->swizzley());
+  }
+
+  // bool RadiosityNormalsAllowPureOcclusion = 52;
+  if (this->radiositynormalsallowpureocclusion() != 0) {
+    total_size += 2 + 1;
+  }
+
+  // bool GenCurv = 55;
+  if (this->gencurv() != 0) {
+    total_size += 2 + 1;
+  }
+
+  // bool PRTJitter = 56;
+  if (this->prtjitter() != 0) {
+    total_size += 2 + 1;
+  }
+
+  // bool RenderRayFails = 60;
+  if (this->renderrayfails() != 0) {
+    total_size += 2 + 1;
+  }
+
+  // float AOAttenCuadratic = 57;
+  if (this->aoattencuadratic() != 0) {
+    total_size += 2 + 4;
+  }
+
+  // float BentConeAngle = 58;
+  if (this->bentconeangle() != 0) {
+    total_size += 2 + 4;
+  }
+
+  // .xnormal.tGenerateMaps.eSwizzleComponent SwizzleX = 59;
+  if (this->swizzlex() != 0) {
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->swizzlex());
+  }
+
+  // float CavitySearchRadius = 61;
+  if (this->cavitysearchradius() != 0) {
+    total_size += 2 + 4;
+  }
+
+  // float TransluConeAngle = 63;
+  if (this->transluconeangle() != 0) {
+    total_size += 2 + 4;
+  }
+
+  // uint32 BentRaysPerSample = 64;
+  if (this->bentrayspersample() != 0) {
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->bentrayspersample());
+  }
+
+  // float ConvexityScale = 65;
+  if (this->convexityscale() != 0) {
+    total_size += 2 + 4;
+  }
+
+  // float RadiosityNormalsConeAngle = 66;
+  if (this->radiositynormalsconeangle() != 0) {
+    total_size += 2 + 4;
+  }
+
+  // bool RadiosityNormalsEncodeAO = 62;
+  if (this->radiositynormalsencodeao() != 0) {
+    total_size += 2 + 1;
+  }
+
+  // bool GenDerivNM = 68;
   if (this->genderivnm() != 0) {
     total_size += 2 + 1;
   }
 
-  // optional bool BentLimitRayDistance = 69;
+  // bool BentLimitRayDistance = 69;
   if (this->bentlimitraydistance() != 0) {
     total_size += 2 + 1;
   }
 
-  // optional float PRTBias = 70;
-  if (this->prtbias() != 0) {
-    total_size += 2 + 4;
-  }
-
-  // optional bool RenderWireframe = 71;
+  // bool RenderWireframe = 71;
   if (this->renderwireframe() != 0) {
     total_size += 2 + 1;
   }
 
-  // optional bool PRTNormalize = 72;
-  if (this->prtnormalize() != 0) {
-    total_size += 2 + 1;
+  // float PRTBias = 70;
+  if (this->prtbias() != 0) {
+    total_size += 2 + 4;
   }
 
-  // optional bool GenAO = 73;
-  if (this->genao() != 0) {
-    total_size += 2 + 1;
-  }
-
-  // optional float PRTConeAngle = 74;
+  // float PRTConeAngle = 74;
   if (this->prtconeangle() != 0) {
     total_size += 2 + 4;
   }
 
-  // optional uint32 Height = 75;
+  // uint32 Height = 75;
   if (this->height() != 0) {
     total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::UInt32Size(
         this->height());
   }
 
-  // optional float RadiosityNormalsAttenCuadratic = 76;
+  // float RadiosityNormalsAttenCuadratic = 76;
   if (this->radiositynormalsattencuadratic() != 0) {
     total_size += 2 + 4;
   }
 
-  // optional .xnormal.tGenerateMaps.eHMNormalization DirectionsTonemap = 77;
+  // bool PRTNormalize = 72;
+  if (this->prtnormalize() != 0) {
+    total_size += 2 + 1;
+  }
+
+  // bool GenAO = 73;
+  if (this->genao() != 0) {
+    total_size += 2 + 1;
+  }
+
+  // bool DirectionsTS = 78;
+  if (this->directionsts() != 0) {
+    total_size += 2 + 1;
+  }
+
+  // bool AOAllowPureOccluded = 82;
+  if (this->aoallowpureoccluded() != 0) {
+    total_size += 2 + 1;
+  }
+
+  // .xnormal.tGenerateMaps.eHMNormalization DirectionsTonemap = 77;
   if (this->directionstonemap() != 0) {
     total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->directionstonemap());
   }
 
-  // optional bool DirectionsTS = 78;
-  if (this->directionsts() != 0) {
-    total_size += 2 + 1;
-  }
-
-  // optional uint32 PRTRaysPerSample = 79;
+  // uint32 PRTRaysPerSample = 79;
   if (this->prtrayspersample() != 0) {
     total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::UInt32Size(
         this->prtrayspersample());
   }
 
-  // optional uint32 EdgePadding = 80;
+  // uint32 EdgePadding = 80;
   if (this->edgepadding() != 0) {
     total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::UInt32Size(
         this->edgepadding());
   }
 
-  // optional .xnormal.tGenerateMaps.eSwizzleComponent DirectionsSwizzleZ = 81;
+  // .xnormal.tGenerateMaps.eSwizzleComponent DirectionsSwizzleZ = 81;
   if (this->directionsswizzlez() != 0) {
     total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->directionsswizzlez());
   }
 
-  // optional bool AOAllowPureOccluded = 82;
-  if (this->aoallowpureoccluded() != 0) {
-    total_size += 2 + 1;
-  }
-
-  // optional bool AOIgnoreBackfaceHits = 83;
-  if (this->aoignorebackfacehits() != 0) {
-    total_size += 2 + 1;
-  }
-
-  // optional uint32 CavityRaysPerSample = 84;
+  // uint32 CavityRaysPerSample = 84;
   if (this->cavityrayspersample() != 0) {
     total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::UInt32Size(
         this->cavityrayspersample());
   }
 
-  // optional float AOAttenConstant = 85;
+  // float AOAttenConstant = 85;
   if (this->aoattenconstant() != 0) {
     total_size += 2 + 4;
   }
 
-  // optional bool CavityJitter = 86;
+  // bool AOIgnoreBackfaceHits = 83;
+  if (this->aoignorebackfacehits() != 0) {
+    total_size += 2 + 1;
+  }
+
+  // bool CavityJitter = 86;
   if (this->cavityjitter() != 0) {
     total_size += 2 + 1;
   }
 
-  // optional float HeightTonemapMax = 87;
-  if (this->heighttonemapmax() != 0) {
-    total_size += 2 + 4;
-  }
-
-  // optional bool GenDirections = 88;
+  // bool GenDirections = 88;
   if (this->gendirections() != 0) {
     total_size += 2 + 1;
   }
 
-  // optional bool RadiosityNormalsLimitRayDistance = 89;
+  // bool RadiosityNormalsLimitRayDistance = 89;
   if (this->radiositynormalslimitraydistance() != 0) {
     total_size += 2 + 1;
   }
 
-  // optional float HeightTonemapMin = 90;
+  // float HeightTonemapMax = 87;
+  if (this->heighttonemapmax() != 0) {
+    total_size += 2 + 4;
+  }
+
+  // float HeightTonemapMin = 90;
   if (this->heighttonemapmin() != 0) {
     total_size += 2 + 4;
   }
 
-  // optional bool RadiosityNormalsJitter = 91;
-  if (this->radiositynormalsjitter() != 0) {
-    total_size += 2 + 1;
-  }
-
-  // optional .xnormal.tGenerateMaps.eSwizzleComponent DirectionsSwizzleY = 92;
+  // .xnormal.tGenerateMaps.eSwizzleComponent DirectionsSwizzleY = 92;
   if (this->directionsswizzley() != 0) {
     total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->directionsswizzley());
   }
 
-  // optional uint32 Width = 93;
+  // uint32 Width = 93;
   if (this->width() != 0) {
     total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::UInt32Size(
         this->width());
   }
 
-  // optional bool BakeHighpolyBaseTextureDrawObjectIDIfNoTexture = 94;
+  // bool RadiosityNormalsJitter = 91;
+  if (this->radiositynormalsjitter() != 0) {
+    total_size += 2 + 1;
+  }
+
+  // bool BakeHighpolyBaseTextureDrawObjectIDIfNoTexture = 94;
   if (this->bakehighpolybasetexturedrawobjectidifnotexture() != 0) {
     total_size += 2 + 1;
   }
 
-  // optional bool Concavity = 95;
+  // bool Concavity = 95;
   if (this->concavity() != 0) {
     total_size += 2 + 1;
   }
 
-  // optional .xnormal.tGenerateMaps.eSwizzleComponent DirectionsSwizzleX = 96;
+  // bool GenNormals = 97;
+  if (this->gennormals() != 0) {
+    total_size += 2 + 1;
+  }
+
+  // .xnormal.tGenerateMaps.eSwizzleComponent DirectionsSwizzleX = 96;
   if (this->directionsswizzlex() != 0) {
     total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->directionsswizzlex());
   }
 
-  // optional bool GenNormals = 97;
-  if (this->gennormals() != 0) {
-    total_size += 2 + 1;
-  }
-
-  // optional uint32 ProximityRaysPerSample = 98;
+  // uint32 ProximityRaysPerSample = 98;
   if (this->proximityrayspersample() != 0) {
     total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::UInt32Size(
         this->proximityrayspersample());
   }
 
-  // optional bool GenHeights = 99;
-  if (this->genheights() != 0) {
-    total_size += 2 + 1;
-  }
-
-  // optional float RadiosityNormalsAttenConstant = 100;
+  // float RadiosityNormalsAttenConstant = 100;
   if (this->radiositynormalsattenconstant() != 0) {
     total_size += 2 + 4;
   }
 
-  // optional bool GenProximity = 101;
+  // bool GenHeights = 99;
+  if (this->genheights() != 0) {
+    total_size += 2 + 1;
+  }
+
+  // bool GenProximity = 101;
   if (this->genproximity() != 0) {
     total_size += 2 + 1;
   }
 
-  // optional bool GenPRT = 102;
+  // bool GenPRT = 102;
   if (this->genprt() != 0) {
     total_size += 2 + 1;
   }
 
-  // optional float CavityContrast = 103;
+  // bool TransluJitter = 105;
+  if (this->translujitter() != 0) {
+    total_size += 2 + 1;
+  }
+
+  // float CavityContrast = 103;
   if (this->cavitycontrast() != 0) {
     total_size += 2 + 4;
   }
 
-  // optional .xnormal.tGenerateMaps.eRNMCoordSys RadiosityNormalsCoordSys = 104;
+  // .xnormal.tGenerateMaps.eRNMCoordSys RadiosityNormalsCoordSys = 104;
   if (this->radiositynormalscoordsys() != 0) {
     total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->radiositynormalscoordsys());
   }
 
-  // optional bool TransluJitter = 105;
-  if (this->translujitter() != 0) {
-    total_size += 2 + 1;
-  }
-
-  // optional uint32 AORaysPerSample = 106;
+  // uint32 AORaysPerSample = 106;
   if (this->aorayspersample() != 0) {
     total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::UInt32Size(
         this->aorayspersample());
   }
 
-  // optional float BentBias = 107;
+  // float BentBias = 107;
   if (this->bentbias() != 0) {
     total_size += 2 + 4;
   }
 
-  // optional bool DiscardRayBackFacesHits = 108;
-  if (this->discardraybackfaceshits() != 0) {
-    total_size += 2 + 1;
-  }
-
-  // optional float AOConeAngle = 109;
+  // float AOConeAngle = 109;
   if (this->aoconeangle() != 0) {
     total_size += 2 + 4;
   }
 
-  // optional .xnormal.tGenerateMaps.eSwizzleComponent BentSwizzleY = 110;
+  // .xnormal.tGenerateMaps.eSwizzleComponent BentSwizzleY = 110;
   if (this->bentswizzley() != 0) {
     total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->bentswizzley());
   }
 
-  // optional float RadiosityNormalsBias = 111;
+  // float RadiosityNormalsBias = 111;
   if (this->radiositynormalsbias() != 0) {
     total_size += 2 + 4;
   }
 
-  // optional float RadiosityNormalsContrast = 112;
+  // float RadiosityNormalsContrast = 112;
   if (this->radiositynormalscontrast() != 0) {
     total_size += 2 + 4;
   }
 
-  // optional uint32 CavitySteps = 113;
+  // uint32 CavitySteps = 113;
   if (this->cavitysteps() != 0) {
     total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::UInt32Size(
         this->cavitysteps());
   }
 
-  // optional .xnormal.tGenerateMaps.eAntialiasing AA = 114;
+  // .xnormal.tGenerateMaps.eAntialiasing AA = 114;
   if (this->aa() != 0) {
     total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->aa());
   }
 
-  // optional .xnormal.tGenerateMaps.eSwizzleComponent BentSwizzleZ = 115;
+  // .xnormal.tGenerateMaps.eSwizzleComponent BentSwizzleZ = 115;
   if (this->bentswizzlez() != 0) {
     total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->bentswizzlez());
   }
 
-  // optional uint32 BucketSize = 116;
+  // uint32 BucketSize = 116;
   if (this->bucketsize() != 0) {
     total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::UInt32Size(
         this->bucketsize());
   }
 
-  // optional float CurvConeAngle = 117;
+  // float CurvConeAngle = 117;
   if (this->curvconeangle() != 0) {
     total_size += 2 + 4;
   }
 
-  // optional float TransluDist = 118;
+  // float TransluDist = 118;
   if (this->transludist() != 0) {
     total_size += 2 + 4;
   }
 
-  // optional bool AOJitter = 119;
+  // bool DiscardRayBackFacesHits = 108;
+  if (this->discardraybackfaceshits() != 0) {
+    total_size += 2 + 1;
+  }
+
+  // bool AOJitter = 119;
   if (this->aojitter() != 0) {
     total_size += 2 + 1;
   }
 
-  // optional float CurvBias = 120;
-  if (this->curvbias() != 0) {
-    total_size += 2 + 4;
-  }
-
-  // optional bool GenWireRays = 121;
+  // bool GenWireRays = 121;
   if (this->genwirerays() != 0) {
     total_size += 2 + 1;
   }
 
-  // optional .xnormal.tGenerateMaps.eCurvAlgorithm CurvAlgorithm = 122;
+  // bool ProximityLimitRayDistance = 125;
+  if (this->proximitylimitraydistance() != 0) {
+    total_size += 2 + 1;
+  }
+
+  // float CurvBias = 120;
+  if (this->curvbias() != 0) {
+    total_size += 2 + 4;
+  }
+
+  // .xnormal.tGenerateMaps.eCurvAlgorithm CurvAlgorithm = 122;
   if (this->curvalgorithm() != 0) {
     total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->curvalgorithm());
   }
 
-  // optional .xnormal.tGenerateMaps.eAODistribution TransluDistribution = 123;
+  // .xnormal.tGenerateMaps.eAODistribution TransluDistribution = 123;
   if (this->transludistribution() != 0) {
     total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->transludistribution());
   }
 
-  // optional float AOAttenLinear = 124;
+  // float AOAttenLinear = 124;
   if (this->aoattenlinear() != 0) {
     total_size += 2 + 4;
   }
 
-  // optional bool ProximityLimitRayDistance = 125;
-  if (this->proximitylimitraydistance() != 0) {
-    total_size += 2 + 1;
-  }
-
-  // optional bool GenRadiosityNormals = 126;
-  if (this->genradiositynormals() != 0) {
-    total_size += 2 + 1;
-  }
-
-  // optional float ProximityConeAngle = 127;
+  // float ProximityConeAngle = 127;
   if (this->proximityconeangle() != 0) {
     total_size += 2 + 4;
   }
 
-  // optional .xnormal.tGenerateMaps.eHMNormalization HeightTonemap = 128;
+  // .xnormal.tGenerateMaps.eHMNormalization HeightTonemap = 128;
   if (this->heighttonemap() != 0) {
     total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->heighttonemap());
   }
 
-  // optional bool GenCavity = 129;
+  // bool GenRadiosityNormals = 126;
+  if (this->genradiositynormals() != 0) {
+    total_size += 2 + 1;
+  }
+
+  // bool GenCavity = 129;
   if (this->gencavity() != 0) {
     total_size += 2 + 1;
   }
 
-  // optional bool BakeHighpolyVCols = 130;
+  // bool BakeHighpolyVCols = 130;
   if (this->bakehighpolyvcols() != 0) {
     total_size += 2 + 1;
   }
 
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
+  _cached_size_ = cached_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void tGenerateMaps::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:xnormal.tGenerateMaps)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
-  const tGenerateMaps* source = 
+  GOOGLE_DCHECK_NE(&from, this);
+  const tGenerateMaps* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const tGenerateMaps>(
           &from);
   if (source == NULL) {
@@ -11842,8 +11398,11 @@ void tGenerateMaps::MergeFrom(const ::google::protobuf::Message& from) {
 
 void tGenerateMaps::MergeFrom(const tGenerateMaps& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:xnormal.tGenerateMaps)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  if (from.file().size() > 0) {
+
+    file_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.file_);
   }
   if (from.has_nmbackgroundcolor()) {
     mutable_nmbackgroundcolor()->::xnormal::tRGB8::MergeFrom(from.nmbackgroundcolor());
@@ -11917,23 +11476,23 @@ void tGenerateMaps::MergeFrom(const tGenerateMaps& from) {
   if (from.has_bakehighpolyvcolsbackgroundcol()) {
     mutable_bakehighpolyvcolsbackgroundcol()->::xnormal::tRGB8::MergeFrom(from.bakehighpolyvcolsbackgroundcol());
   }
-  if (from.closestiffails() != 0) {
-    set_closestiffails(from.closestiffails());
-  }
   if (from.directionstonemapmax() != 0) {
     set_directionstonemapmax(from.directionstonemapmax());
   }
+  if (from.closestiffails() != 0) {
+    set_closestiffails(from.closestiffails());
+  }
   if (from.curvmonocrome() != 0) {
     set_curvmonocrome(from.curvmonocrome());
-  }
-  if (from.aobias() != 0) {
-    set_aobias(from.aobias());
   }
   if (from.benttangentspace() != 0) {
     set_benttangentspace(from.benttangentspace());
   }
   if (from.gentranslu() != 0) {
     set_gentranslu(from.gentranslu());
+  }
+  if (from.aobias() != 0) {
+    set_aobias(from.aobias());
   }
   if (from.aodistribution() != 0) {
     set_aodistribution(from.aodistribution());
@@ -11947,17 +11506,20 @@ void tGenerateMaps::MergeFrom(const tGenerateMaps& from) {
   if (from.curvdistribution() != 0) {
     set_curvdistribution(from.curvdistribution());
   }
-  if (from.bentjitter() != 0) {
-    set_bentjitter(from.bentjitter());
-  }
   if (from.bentdistribution() != 0) {
     set_bentdistribution(from.bentdistribution());
+  }
+  if (from.bentjitter() != 0) {
+    set_bentjitter(from.bentjitter());
   }
   if (from.bakehighpolybasetexture() != 0) {
     set_bakehighpolybasetexture(from.bakehighpolybasetexture());
   }
   if (from.genconvexity() != 0) {
     set_genconvexity(from.genconvexity());
+  }
+  if (from.prtlimitraydistance() != 0) {
+    set_prtlimitraydistance(from.prtlimitraydistance());
   }
   if (from.radiositynormalsattenlinear() != 0) {
     set_radiositynormalsattenlinear(from.radiositynormalsattenlinear());
@@ -11974,8 +11536,11 @@ void tGenerateMaps::MergeFrom(const tGenerateMaps& from) {
   if (from.translubias() != 0) {
     set_translubias(from.translubias());
   }
-  if (from.prtlimitraydistance() != 0) {
-    set_prtlimitraydistance(from.prtlimitraydistance());
+  if (from.curvrayspersample() != 0) {
+    set_curvrayspersample(from.curvrayspersample());
+  }
+  if (from.radiositynormalsdistribution() != 0) {
+    set_radiositynormalsdistribution(from.radiositynormalsdistribution());
   }
   if (from.genbent() != 0) {
     set_genbent(from.genbent());
@@ -11983,23 +11548,14 @@ void tGenerateMaps::MergeFrom(const tGenerateMaps& from) {
   if (from.aolimitraydistance() != 0) {
     set_aolimitraydistance(from.aolimitraydistance());
   }
-  if (from.curvrayspersample() != 0) {
-    set_curvrayspersample(from.curvrayspersample());
-  }
-  if (from.radiositynormalsdistribution() != 0) {
-    set_radiositynormalsdistribution(from.radiositynormalsdistribution());
-  }
-  if (from.radiositynormalsrayspersample() != 0) {
-    set_radiositynormalsrayspersample(from.radiositynormalsrayspersample());
-  }
   if (from.curvjitter() != 0) {
     set_curvjitter(from.curvjitter());
   }
   if (from.tangentspace() != 0) {
     set_tangentspace(from.tangentspace());
   }
-  if (from.radiositynormalsallowpureocclusion() != 0) {
-    set_radiositynormalsallowpureocclusion(from.radiositynormalsallowpureocclusion());
+  if (from.radiositynormalsrayspersample() != 0) {
+    set_radiositynormalsrayspersample(from.radiositynormalsrayspersample());
   }
   if (from.bentswizzlex() != 0) {
     set_bentswizzlex(from.bentswizzlex());
@@ -12007,11 +11563,17 @@ void tGenerateMaps::MergeFrom(const tGenerateMaps& from) {
   if (from.swizzley() != 0) {
     set_swizzley(from.swizzley());
   }
+  if (from.radiositynormalsallowpureocclusion() != 0) {
+    set_radiositynormalsallowpureocclusion(from.radiositynormalsallowpureocclusion());
+  }
   if (from.gencurv() != 0) {
     set_gencurv(from.gencurv());
   }
   if (from.prtjitter() != 0) {
     set_prtjitter(from.prtjitter());
+  }
+  if (from.renderrayfails() != 0) {
+    set_renderrayfails(from.renderrayfails());
   }
   if (from.aoattencuadratic() != 0) {
     set_aoattencuadratic(from.aoattencuadratic());
@@ -12022,14 +11584,8 @@ void tGenerateMaps::MergeFrom(const tGenerateMaps& from) {
   if (from.swizzlex() != 0) {
     set_swizzlex(from.swizzlex());
   }
-  if (from.renderrayfails() != 0) {
-    set_renderrayfails(from.renderrayfails());
-  }
   if (from.cavitysearchradius() != 0) {
     set_cavitysearchradius(from.cavitysearchradius());
-  }
-  if (from.radiositynormalsencodeao() != 0) {
-    set_radiositynormalsencodeao(from.radiositynormalsencodeao());
   }
   if (from.transluconeangle() != 0) {
     set_transluconeangle(from.transluconeangle());
@@ -12043,9 +11599,8 @@ void tGenerateMaps::MergeFrom(const tGenerateMaps& from) {
   if (from.radiositynormalsconeangle() != 0) {
     set_radiositynormalsconeangle(from.radiositynormalsconeangle());
   }
-  if (from.file().size() > 0) {
-
-    file_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.file_);
+  if (from.radiositynormalsencodeao() != 0) {
+    set_radiositynormalsencodeao(from.radiositynormalsencodeao());
   }
   if (from.genderivnm() != 0) {
     set_genderivnm(from.genderivnm());
@@ -12053,17 +11608,11 @@ void tGenerateMaps::MergeFrom(const tGenerateMaps& from) {
   if (from.bentlimitraydistance() != 0) {
     set_bentlimitraydistance(from.bentlimitraydistance());
   }
-  if (from.prtbias() != 0) {
-    set_prtbias(from.prtbias());
-  }
   if (from.renderwireframe() != 0) {
     set_renderwireframe(from.renderwireframe());
   }
-  if (from.prtnormalize() != 0) {
-    set_prtnormalize(from.prtnormalize());
-  }
-  if (from.genao() != 0) {
-    set_genao(from.genao());
+  if (from.prtbias() != 0) {
+    set_prtbias(from.prtbias());
   }
   if (from.prtconeangle() != 0) {
     set_prtconeangle(from.prtconeangle());
@@ -12074,11 +11623,20 @@ void tGenerateMaps::MergeFrom(const tGenerateMaps& from) {
   if (from.radiositynormalsattencuadratic() != 0) {
     set_radiositynormalsattencuadratic(from.radiositynormalsattencuadratic());
   }
-  if (from.directionstonemap() != 0) {
-    set_directionstonemap(from.directionstonemap());
+  if (from.prtnormalize() != 0) {
+    set_prtnormalize(from.prtnormalize());
+  }
+  if (from.genao() != 0) {
+    set_genao(from.genao());
   }
   if (from.directionsts() != 0) {
     set_directionsts(from.directionsts());
+  }
+  if (from.aoallowpureoccluded() != 0) {
+    set_aoallowpureoccluded(from.aoallowpureoccluded());
+  }
+  if (from.directionstonemap() != 0) {
+    set_directionstonemap(from.directionstonemap());
   }
   if (from.prtrayspersample() != 0) {
     set_prtrayspersample(from.prtrayspersample());
@@ -12089,23 +11647,17 @@ void tGenerateMaps::MergeFrom(const tGenerateMaps& from) {
   if (from.directionsswizzlez() != 0) {
     set_directionsswizzlez(from.directionsswizzlez());
   }
-  if (from.aoallowpureoccluded() != 0) {
-    set_aoallowpureoccluded(from.aoallowpureoccluded());
-  }
-  if (from.aoignorebackfacehits() != 0) {
-    set_aoignorebackfacehits(from.aoignorebackfacehits());
-  }
   if (from.cavityrayspersample() != 0) {
     set_cavityrayspersample(from.cavityrayspersample());
   }
   if (from.aoattenconstant() != 0) {
     set_aoattenconstant(from.aoattenconstant());
   }
+  if (from.aoignorebackfacehits() != 0) {
+    set_aoignorebackfacehits(from.aoignorebackfacehits());
+  }
   if (from.cavityjitter() != 0) {
     set_cavityjitter(from.cavityjitter());
-  }
-  if (from.heighttonemapmax() != 0) {
-    set_heighttonemapmax(from.heighttonemapmax());
   }
   if (from.gendirections() != 0) {
     set_gendirections(from.gendirections());
@@ -12113,11 +11665,11 @@ void tGenerateMaps::MergeFrom(const tGenerateMaps& from) {
   if (from.radiositynormalslimitraydistance() != 0) {
     set_radiositynormalslimitraydistance(from.radiositynormalslimitraydistance());
   }
+  if (from.heighttonemapmax() != 0) {
+    set_heighttonemapmax(from.heighttonemapmax());
+  }
   if (from.heighttonemapmin() != 0) {
     set_heighttonemapmin(from.heighttonemapmin());
-  }
-  if (from.radiositynormalsjitter() != 0) {
-    set_radiositynormalsjitter(from.radiositynormalsjitter());
   }
   if (from.directionsswizzley() != 0) {
     set_directionsswizzley(from.directionsswizzley());
@@ -12125,26 +11677,29 @@ void tGenerateMaps::MergeFrom(const tGenerateMaps& from) {
   if (from.width() != 0) {
     set_width(from.width());
   }
+  if (from.radiositynormalsjitter() != 0) {
+    set_radiositynormalsjitter(from.radiositynormalsjitter());
+  }
   if (from.bakehighpolybasetexturedrawobjectidifnotexture() != 0) {
     set_bakehighpolybasetexturedrawobjectidifnotexture(from.bakehighpolybasetexturedrawobjectidifnotexture());
   }
   if (from.concavity() != 0) {
     set_concavity(from.concavity());
   }
-  if (from.directionsswizzlex() != 0) {
-    set_directionsswizzlex(from.directionsswizzlex());
-  }
   if (from.gennormals() != 0) {
     set_gennormals(from.gennormals());
+  }
+  if (from.directionsswizzlex() != 0) {
+    set_directionsswizzlex(from.directionsswizzlex());
   }
   if (from.proximityrayspersample() != 0) {
     set_proximityrayspersample(from.proximityrayspersample());
   }
-  if (from.genheights() != 0) {
-    set_genheights(from.genheights());
-  }
   if (from.radiositynormalsattenconstant() != 0) {
     set_radiositynormalsattenconstant(from.radiositynormalsattenconstant());
+  }
+  if (from.genheights() != 0) {
+    set_genheights(from.genheights());
   }
   if (from.genproximity() != 0) {
     set_genproximity(from.genproximity());
@@ -12152,23 +11707,20 @@ void tGenerateMaps::MergeFrom(const tGenerateMaps& from) {
   if (from.genprt() != 0) {
     set_genprt(from.genprt());
   }
+  if (from.translujitter() != 0) {
+    set_translujitter(from.translujitter());
+  }
   if (from.cavitycontrast() != 0) {
     set_cavitycontrast(from.cavitycontrast());
   }
   if (from.radiositynormalscoordsys() != 0) {
     set_radiositynormalscoordsys(from.radiositynormalscoordsys());
   }
-  if (from.translujitter() != 0) {
-    set_translujitter(from.translujitter());
-  }
   if (from.aorayspersample() != 0) {
     set_aorayspersample(from.aorayspersample());
   }
   if (from.bentbias() != 0) {
     set_bentbias(from.bentbias());
-  }
-  if (from.discardraybackfaceshits() != 0) {
-    set_discardraybackfaceshits(from.discardraybackfaceshits());
   }
   if (from.aoconeangle() != 0) {
     set_aoconeangle(from.aoconeangle());
@@ -12200,14 +11752,20 @@ void tGenerateMaps::MergeFrom(const tGenerateMaps& from) {
   if (from.transludist() != 0) {
     set_transludist(from.transludist());
   }
+  if (from.discardraybackfaceshits() != 0) {
+    set_discardraybackfaceshits(from.discardraybackfaceshits());
+  }
   if (from.aojitter() != 0) {
     set_aojitter(from.aojitter());
   }
-  if (from.curvbias() != 0) {
-    set_curvbias(from.curvbias());
-  }
   if (from.genwirerays() != 0) {
     set_genwirerays(from.genwirerays());
+  }
+  if (from.proximitylimitraydistance() != 0) {
+    set_proximitylimitraydistance(from.proximitylimitraydistance());
+  }
+  if (from.curvbias() != 0) {
+    set_curvbias(from.curvbias());
   }
   if (from.curvalgorithm() != 0) {
     set_curvalgorithm(from.curvalgorithm());
@@ -12218,17 +11776,14 @@ void tGenerateMaps::MergeFrom(const tGenerateMaps& from) {
   if (from.aoattenlinear() != 0) {
     set_aoattenlinear(from.aoattenlinear());
   }
-  if (from.proximitylimitraydistance() != 0) {
-    set_proximitylimitraydistance(from.proximitylimitraydistance());
-  }
-  if (from.genradiositynormals() != 0) {
-    set_genradiositynormals(from.genradiositynormals());
-  }
   if (from.proximityconeangle() != 0) {
     set_proximityconeangle(from.proximityconeangle());
   }
   if (from.heighttonemap() != 0) {
     set_heighttonemap(from.heighttonemap());
+  }
+  if (from.genradiositynormals() != 0) {
+    set_genradiositynormals(from.genradiositynormals());
   }
   if (from.gencavity() != 0) {
     set_gencavity(from.gencavity());
@@ -12253,7 +11808,6 @@ void tGenerateMaps::CopyFrom(const tGenerateMaps& from) {
 }
 
 bool tGenerateMaps::IsInitialized() const {
-
   return true;
 }
 
@@ -12262,6 +11816,7 @@ void tGenerateMaps::Swap(tGenerateMaps* other) {
   InternalSwap(other);
 }
 void tGenerateMaps::InternalSwap(tGenerateMaps* other) {
+  file_.Swap(&other->file_);
   std::swap(nmbackgroundcolor_, other->nmbackgroundcolor_);
   std::swap(hmbackgroundcolor_, other->hmbackgroundcolor_);
   std::swap(bakehighpolybasetexturenotexcol_, other->bakehighpolybasetexturenotexcol_);
@@ -12286,90 +11841,88 @@ void tGenerateMaps::InternalSwap(tGenerateMaps* other) {
   std::swap(derivnmbackgroundcolor_, other->derivnmbackgroundcolor_);
   std::swap(translubackgroundcolor_, other->translubackgroundcolor_);
   std::swap(bakehighpolyvcolsbackgroundcol_, other->bakehighpolyvcolsbackgroundcol_);
-  std::swap(closestiffails_, other->closestiffails_);
   std::swap(directionstonemapmax_, other->directionstonemapmax_);
+  std::swap(closestiffails_, other->closestiffails_);
   std::swap(curvmonocrome_, other->curvmonocrome_);
-  std::swap(aobias_, other->aobias_);
   std::swap(benttangentspace_, other->benttangentspace_);
   std::swap(gentranslu_, other->gentranslu_);
+  std::swap(aobias_, other->aobias_);
   std::swap(aodistribution_, other->aodistribution_);
   std::swap(prtthreshold_, other->prtthreshold_);
   std::swap(directionstonemapmin_, other->directionstonemapmin_);
   std::swap(curvdistribution_, other->curvdistribution_);
-  std::swap(bentjitter_, other->bentjitter_);
   std::swap(bentdistribution_, other->bentdistribution_);
+  std::swap(bentjitter_, other->bentjitter_);
   std::swap(bakehighpolybasetexture_, other->bakehighpolybasetexture_);
   std::swap(genconvexity_, other->genconvexity_);
+  std::swap(prtlimitraydistance_, other->prtlimitraydistance_);
   std::swap(radiositynormalsattenlinear_, other->radiositynormalsattenlinear_);
   std::swap(translurayspersample_, other->translurayspersample_);
   std::swap(curvsearchdistance_, other->curvsearchdistance_);
   std::swap(swizzlez_, other->swizzlez_);
   std::swap(translubias_, other->translubias_);
-  std::swap(prtlimitraydistance_, other->prtlimitraydistance_);
-  std::swap(genbent_, other->genbent_);
-  std::swap(aolimitraydistance_, other->aolimitraydistance_);
   std::swap(curvrayspersample_, other->curvrayspersample_);
   std::swap(radiositynormalsdistribution_, other->radiositynormalsdistribution_);
-  std::swap(radiositynormalsrayspersample_, other->radiositynormalsrayspersample_);
+  std::swap(genbent_, other->genbent_);
+  std::swap(aolimitraydistance_, other->aolimitraydistance_);
   std::swap(curvjitter_, other->curvjitter_);
   std::swap(tangentspace_, other->tangentspace_);
-  std::swap(radiositynormalsallowpureocclusion_, other->radiositynormalsallowpureocclusion_);
+  std::swap(radiositynormalsrayspersample_, other->radiositynormalsrayspersample_);
   std::swap(bentswizzlex_, other->bentswizzlex_);
   std::swap(swizzley_, other->swizzley_);
+  std::swap(radiositynormalsallowpureocclusion_, other->radiositynormalsallowpureocclusion_);
   std::swap(gencurv_, other->gencurv_);
   std::swap(prtjitter_, other->prtjitter_);
+  std::swap(renderrayfails_, other->renderrayfails_);
   std::swap(aoattencuadratic_, other->aoattencuadratic_);
   std::swap(bentconeangle_, other->bentconeangle_);
   std::swap(swizzlex_, other->swizzlex_);
-  std::swap(renderrayfails_, other->renderrayfails_);
   std::swap(cavitysearchradius_, other->cavitysearchradius_);
-  std::swap(radiositynormalsencodeao_, other->radiositynormalsencodeao_);
   std::swap(transluconeangle_, other->transluconeangle_);
   std::swap(bentrayspersample_, other->bentrayspersample_);
   std::swap(convexityscale_, other->convexityscale_);
   std::swap(radiositynormalsconeangle_, other->radiositynormalsconeangle_);
-  file_.Swap(&other->file_);
+  std::swap(radiositynormalsencodeao_, other->radiositynormalsencodeao_);
   std::swap(genderivnm_, other->genderivnm_);
   std::swap(bentlimitraydistance_, other->bentlimitraydistance_);
-  std::swap(prtbias_, other->prtbias_);
   std::swap(renderwireframe_, other->renderwireframe_);
-  std::swap(prtnormalize_, other->prtnormalize_);
-  std::swap(genao_, other->genao_);
+  std::swap(prtbias_, other->prtbias_);
   std::swap(prtconeangle_, other->prtconeangle_);
   std::swap(height_, other->height_);
   std::swap(radiositynormalsattencuadratic_, other->radiositynormalsattencuadratic_);
-  std::swap(directionstonemap_, other->directionstonemap_);
+  std::swap(prtnormalize_, other->prtnormalize_);
+  std::swap(genao_, other->genao_);
   std::swap(directionsts_, other->directionsts_);
+  std::swap(aoallowpureoccluded_, other->aoallowpureoccluded_);
+  std::swap(directionstonemap_, other->directionstonemap_);
   std::swap(prtrayspersample_, other->prtrayspersample_);
   std::swap(edgepadding_, other->edgepadding_);
   std::swap(directionsswizzlez_, other->directionsswizzlez_);
-  std::swap(aoallowpureoccluded_, other->aoallowpureoccluded_);
-  std::swap(aoignorebackfacehits_, other->aoignorebackfacehits_);
   std::swap(cavityrayspersample_, other->cavityrayspersample_);
   std::swap(aoattenconstant_, other->aoattenconstant_);
+  std::swap(aoignorebackfacehits_, other->aoignorebackfacehits_);
   std::swap(cavityjitter_, other->cavityjitter_);
-  std::swap(heighttonemapmax_, other->heighttonemapmax_);
   std::swap(gendirections_, other->gendirections_);
   std::swap(radiositynormalslimitraydistance_, other->radiositynormalslimitraydistance_);
+  std::swap(heighttonemapmax_, other->heighttonemapmax_);
   std::swap(heighttonemapmin_, other->heighttonemapmin_);
-  std::swap(radiositynormalsjitter_, other->radiositynormalsjitter_);
   std::swap(directionsswizzley_, other->directionsswizzley_);
   std::swap(width_, other->width_);
+  std::swap(radiositynormalsjitter_, other->radiositynormalsjitter_);
   std::swap(bakehighpolybasetexturedrawobjectidifnotexture_, other->bakehighpolybasetexturedrawobjectidifnotexture_);
   std::swap(concavity_, other->concavity_);
-  std::swap(directionsswizzlex_, other->directionsswizzlex_);
   std::swap(gennormals_, other->gennormals_);
+  std::swap(directionsswizzlex_, other->directionsswizzlex_);
   std::swap(proximityrayspersample_, other->proximityrayspersample_);
-  std::swap(genheights_, other->genheights_);
   std::swap(radiositynormalsattenconstant_, other->radiositynormalsattenconstant_);
+  std::swap(genheights_, other->genheights_);
   std::swap(genproximity_, other->genproximity_);
   std::swap(genprt_, other->genprt_);
+  std::swap(translujitter_, other->translujitter_);
   std::swap(cavitycontrast_, other->cavitycontrast_);
   std::swap(radiositynormalscoordsys_, other->radiositynormalscoordsys_);
-  std::swap(translujitter_, other->translujitter_);
   std::swap(aorayspersample_, other->aorayspersample_);
   std::swap(bentbias_, other->bentbias_);
-  std::swap(discardraybackfaceshits_, other->discardraybackfaceshits_);
   std::swap(aoconeangle_, other->aoconeangle_);
   std::swap(bentswizzley_, other->bentswizzley_);
   std::swap(radiositynormalsbias_, other->radiositynormalsbias_);
@@ -12380,36 +11933,33 @@ void tGenerateMaps::InternalSwap(tGenerateMaps* other) {
   std::swap(bucketsize_, other->bucketsize_);
   std::swap(curvconeangle_, other->curvconeangle_);
   std::swap(transludist_, other->transludist_);
+  std::swap(discardraybackfaceshits_, other->discardraybackfaceshits_);
   std::swap(aojitter_, other->aojitter_);
-  std::swap(curvbias_, other->curvbias_);
   std::swap(genwirerays_, other->genwirerays_);
+  std::swap(proximitylimitraydistance_, other->proximitylimitraydistance_);
+  std::swap(curvbias_, other->curvbias_);
   std::swap(curvalgorithm_, other->curvalgorithm_);
   std::swap(transludistribution_, other->transludistribution_);
   std::swap(aoattenlinear_, other->aoattenlinear_);
-  std::swap(proximitylimitraydistance_, other->proximitylimitraydistance_);
-  std::swap(genradiositynormals_, other->genradiositynormals_);
   std::swap(proximityconeangle_, other->proximityconeangle_);
   std::swap(heighttonemap_, other->heighttonemap_);
+  std::swap(genradiositynormals_, other->genradiositynormals_);
   std::swap(gencavity_, other->gencavity_);
   std::swap(bakehighpolyvcols_, other->bakehighpolyvcols_);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
 
 ::google::protobuf::Metadata tGenerateMaps::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = tGenerateMaps_descriptor_;
-  metadata.reflection = tGenerateMaps_reflection_;
-  return metadata;
+  protobuf_xnormal_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_xnormal_2eproto::file_level_metadata[7];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // tGenerateMaps
 
-// optional .xnormal.tRGB8 NMBackgroundColor = 1;
+// .xnormal.tRGB8 NMBackgroundColor = 1;
 bool tGenerateMaps::has_nmbackgroundcolor() const {
-  return !_is_default_instance_ && nmbackgroundcolor_ != NULL;
+  return this != internal_default_instance() && nmbackgroundcolor_ != NULL;
 }
 void tGenerateMaps::clear_nmbackgroundcolor() {
   if (GetArenaNoVirtual() == NULL && nmbackgroundcolor_ != NULL) delete nmbackgroundcolor_;
@@ -12417,7 +11967,8 @@ void tGenerateMaps::clear_nmbackgroundcolor() {
 }
 const ::xnormal::tRGB8& tGenerateMaps::nmbackgroundcolor() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.NMBackgroundColor)
-  return nmbackgroundcolor_ != NULL ? *nmbackgroundcolor_ : *default_instance_->nmbackgroundcolor_;
+  return nmbackgroundcolor_ != NULL ? *nmbackgroundcolor_
+                         : *::xnormal::tRGB8::internal_default_instance();
 }
 ::xnormal::tRGB8* tGenerateMaps::mutable_nmbackgroundcolor() {
   
@@ -12445,9 +11996,9 @@ void tGenerateMaps::set_allocated_nmbackgroundcolor(::xnormal::tRGB8* nmbackgrou
   // @@protoc_insertion_point(field_set_allocated:xnormal.tGenerateMaps.NMBackgroundColor)
 }
 
-// optional .xnormal.tRGB8 HMBackgroundColor = 2;
+// .xnormal.tRGB8 HMBackgroundColor = 2;
 bool tGenerateMaps::has_hmbackgroundcolor() const {
-  return !_is_default_instance_ && hmbackgroundcolor_ != NULL;
+  return this != internal_default_instance() && hmbackgroundcolor_ != NULL;
 }
 void tGenerateMaps::clear_hmbackgroundcolor() {
   if (GetArenaNoVirtual() == NULL && hmbackgroundcolor_ != NULL) delete hmbackgroundcolor_;
@@ -12455,7 +12006,8 @@ void tGenerateMaps::clear_hmbackgroundcolor() {
 }
 const ::xnormal::tRGB8& tGenerateMaps::hmbackgroundcolor() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.HMBackgroundColor)
-  return hmbackgroundcolor_ != NULL ? *hmbackgroundcolor_ : *default_instance_->hmbackgroundcolor_;
+  return hmbackgroundcolor_ != NULL ? *hmbackgroundcolor_
+                         : *::xnormal::tRGB8::internal_default_instance();
 }
 ::xnormal::tRGB8* tGenerateMaps::mutable_hmbackgroundcolor() {
   
@@ -12483,9 +12035,9 @@ void tGenerateMaps::set_allocated_hmbackgroundcolor(::xnormal::tRGB8* hmbackgrou
   // @@protoc_insertion_point(field_set_allocated:xnormal.tGenerateMaps.HMBackgroundColor)
 }
 
-// optional .xnormal.tRGB8 BakeHighpolyBaseTextureNoTexCol = 3;
+// .xnormal.tRGB8 BakeHighpolyBaseTextureNoTexCol = 3;
 bool tGenerateMaps::has_bakehighpolybasetexturenotexcol() const {
-  return !_is_default_instance_ && bakehighpolybasetexturenotexcol_ != NULL;
+  return this != internal_default_instance() && bakehighpolybasetexturenotexcol_ != NULL;
 }
 void tGenerateMaps::clear_bakehighpolybasetexturenotexcol() {
   if (GetArenaNoVirtual() == NULL && bakehighpolybasetexturenotexcol_ != NULL) delete bakehighpolybasetexturenotexcol_;
@@ -12493,7 +12045,8 @@ void tGenerateMaps::clear_bakehighpolybasetexturenotexcol() {
 }
 const ::xnormal::tRGB8& tGenerateMaps::bakehighpolybasetexturenotexcol() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.BakeHighpolyBaseTextureNoTexCol)
-  return bakehighpolybasetexturenotexcol_ != NULL ? *bakehighpolybasetexturenotexcol_ : *default_instance_->bakehighpolybasetexturenotexcol_;
+  return bakehighpolybasetexturenotexcol_ != NULL ? *bakehighpolybasetexturenotexcol_
+                         : *::xnormal::tRGB8::internal_default_instance();
 }
 ::xnormal::tRGB8* tGenerateMaps::mutable_bakehighpolybasetexturenotexcol() {
   
@@ -12521,9 +12074,9 @@ void tGenerateMaps::set_allocated_bakehighpolybasetexturenotexcol(::xnormal::tRG
   // @@protoc_insertion_point(field_set_allocated:xnormal.tGenerateMaps.BakeHighpolyBaseTextureNoTexCol)
 }
 
-// optional .xnormal.tRGB8 BakeHighpolyBaseTextureBackgroundColor = 4;
+// .xnormal.tRGB8 BakeHighpolyBaseTextureBackgroundColor = 4;
 bool tGenerateMaps::has_bakehighpolybasetexturebackgroundcolor() const {
-  return !_is_default_instance_ && bakehighpolybasetexturebackgroundcolor_ != NULL;
+  return this != internal_default_instance() && bakehighpolybasetexturebackgroundcolor_ != NULL;
 }
 void tGenerateMaps::clear_bakehighpolybasetexturebackgroundcolor() {
   if (GetArenaNoVirtual() == NULL && bakehighpolybasetexturebackgroundcolor_ != NULL) delete bakehighpolybasetexturebackgroundcolor_;
@@ -12531,7 +12084,8 @@ void tGenerateMaps::clear_bakehighpolybasetexturebackgroundcolor() {
 }
 const ::xnormal::tRGB8& tGenerateMaps::bakehighpolybasetexturebackgroundcolor() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.BakeHighpolyBaseTextureBackgroundColor)
-  return bakehighpolybasetexturebackgroundcolor_ != NULL ? *bakehighpolybasetexturebackgroundcolor_ : *default_instance_->bakehighpolybasetexturebackgroundcolor_;
+  return bakehighpolybasetexturebackgroundcolor_ != NULL ? *bakehighpolybasetexturebackgroundcolor_
+                         : *::xnormal::tRGB8::internal_default_instance();
 }
 ::xnormal::tRGB8* tGenerateMaps::mutable_bakehighpolybasetexturebackgroundcolor() {
   
@@ -12559,9 +12113,9 @@ void tGenerateMaps::set_allocated_bakehighpolybasetexturebackgroundcolor(::xnorm
   // @@protoc_insertion_point(field_set_allocated:xnormal.tGenerateMaps.BakeHighpolyBaseTextureBackgroundColor)
 }
 
-// optional .xnormal.tRGB8 RenderWireframeBackgroundColor = 5;
+// .xnormal.tRGB8 RenderWireframeBackgroundColor = 5;
 bool tGenerateMaps::has_renderwireframebackgroundcolor() const {
-  return !_is_default_instance_ && renderwireframebackgroundcolor_ != NULL;
+  return this != internal_default_instance() && renderwireframebackgroundcolor_ != NULL;
 }
 void tGenerateMaps::clear_renderwireframebackgroundcolor() {
   if (GetArenaNoVirtual() == NULL && renderwireframebackgroundcolor_ != NULL) delete renderwireframebackgroundcolor_;
@@ -12569,7 +12123,8 @@ void tGenerateMaps::clear_renderwireframebackgroundcolor() {
 }
 const ::xnormal::tRGB8& tGenerateMaps::renderwireframebackgroundcolor() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.RenderWireframeBackgroundColor)
-  return renderwireframebackgroundcolor_ != NULL ? *renderwireframebackgroundcolor_ : *default_instance_->renderwireframebackgroundcolor_;
+  return renderwireframebackgroundcolor_ != NULL ? *renderwireframebackgroundcolor_
+                         : *::xnormal::tRGB8::internal_default_instance();
 }
 ::xnormal::tRGB8* tGenerateMaps::mutable_renderwireframebackgroundcolor() {
   
@@ -12597,9 +12152,9 @@ void tGenerateMaps::set_allocated_renderwireframebackgroundcolor(::xnormal::tRGB
   // @@protoc_insertion_point(field_set_allocated:xnormal.tGenerateMaps.RenderWireframeBackgroundColor)
 }
 
-// optional .xnormal.tRGB8 RenderWireframeCol = 6;
+// .xnormal.tRGB8 RenderWireframeCol = 6;
 bool tGenerateMaps::has_renderwireframecol() const {
-  return !_is_default_instance_ && renderwireframecol_ != NULL;
+  return this != internal_default_instance() && renderwireframecol_ != NULL;
 }
 void tGenerateMaps::clear_renderwireframecol() {
   if (GetArenaNoVirtual() == NULL && renderwireframecol_ != NULL) delete renderwireframecol_;
@@ -12607,7 +12162,8 @@ void tGenerateMaps::clear_renderwireframecol() {
 }
 const ::xnormal::tRGB8& tGenerateMaps::renderwireframecol() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.RenderWireframeCol)
-  return renderwireframecol_ != NULL ? *renderwireframecol_ : *default_instance_->renderwireframecol_;
+  return renderwireframecol_ != NULL ? *renderwireframecol_
+                         : *::xnormal::tRGB8::internal_default_instance();
 }
 ::xnormal::tRGB8* tGenerateMaps::mutable_renderwireframecol() {
   
@@ -12635,9 +12191,9 @@ void tGenerateMaps::set_allocated_renderwireframecol(::xnormal::tRGB8* renderwir
   // @@protoc_insertion_point(field_set_allocated:xnormal.tGenerateMaps.RenderWireframeCol)
 }
 
-// optional .xnormal.tRGB8 RenderCWCol = 7;
+// .xnormal.tRGB8 RenderCWCol = 7;
 bool tGenerateMaps::has_rendercwcol() const {
-  return !_is_default_instance_ && rendercwcol_ != NULL;
+  return this != internal_default_instance() && rendercwcol_ != NULL;
 }
 void tGenerateMaps::clear_rendercwcol() {
   if (GetArenaNoVirtual() == NULL && rendercwcol_ != NULL) delete rendercwcol_;
@@ -12645,7 +12201,8 @@ void tGenerateMaps::clear_rendercwcol() {
 }
 const ::xnormal::tRGB8& tGenerateMaps::rendercwcol() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.RenderCWCol)
-  return rendercwcol_ != NULL ? *rendercwcol_ : *default_instance_->rendercwcol_;
+  return rendercwcol_ != NULL ? *rendercwcol_
+                         : *::xnormal::tRGB8::internal_default_instance();
 }
 ::xnormal::tRGB8* tGenerateMaps::mutable_rendercwcol() {
   
@@ -12673,9 +12230,9 @@ void tGenerateMaps::set_allocated_rendercwcol(::xnormal::tRGB8* rendercwcol) {
   // @@protoc_insertion_point(field_set_allocated:xnormal.tGenerateMaps.RenderCWCol)
 }
 
-// optional .xnormal.tRGB8 RenderSeamCol = 8;
+// .xnormal.tRGB8 RenderSeamCol = 8;
 bool tGenerateMaps::has_renderseamcol() const {
-  return !_is_default_instance_ && renderseamcol_ != NULL;
+  return this != internal_default_instance() && renderseamcol_ != NULL;
 }
 void tGenerateMaps::clear_renderseamcol() {
   if (GetArenaNoVirtual() == NULL && renderseamcol_ != NULL) delete renderseamcol_;
@@ -12683,7 +12240,8 @@ void tGenerateMaps::clear_renderseamcol() {
 }
 const ::xnormal::tRGB8& tGenerateMaps::renderseamcol() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.RenderSeamCol)
-  return renderseamcol_ != NULL ? *renderseamcol_ : *default_instance_->renderseamcol_;
+  return renderseamcol_ != NULL ? *renderseamcol_
+                         : *::xnormal::tRGB8::internal_default_instance();
 }
 ::xnormal::tRGB8* tGenerateMaps::mutable_renderseamcol() {
   
@@ -12711,9 +12269,9 @@ void tGenerateMaps::set_allocated_renderseamcol(::xnormal::tRGB8* renderseamcol)
   // @@protoc_insertion_point(field_set_allocated:xnormal.tGenerateMaps.RenderSeamCol)
 }
 
-// optional .xnormal.tRGB8 RenderRayFailsCol = 9;
+// .xnormal.tRGB8 RenderRayFailsCol = 9;
 bool tGenerateMaps::has_renderrayfailscol() const {
-  return !_is_default_instance_ && renderrayfailscol_ != NULL;
+  return this != internal_default_instance() && renderrayfailscol_ != NULL;
 }
 void tGenerateMaps::clear_renderrayfailscol() {
   if (GetArenaNoVirtual() == NULL && renderrayfailscol_ != NULL) delete renderrayfailscol_;
@@ -12721,7 +12279,8 @@ void tGenerateMaps::clear_renderrayfailscol() {
 }
 const ::xnormal::tRGB8& tGenerateMaps::renderrayfailscol() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.RenderRayFailsCol)
-  return renderrayfailscol_ != NULL ? *renderrayfailscol_ : *default_instance_->renderrayfailscol_;
+  return renderrayfailscol_ != NULL ? *renderrayfailscol_
+                         : *::xnormal::tRGB8::internal_default_instance();
 }
 ::xnormal::tRGB8* tGenerateMaps::mutable_renderrayfailscol() {
   
@@ -12749,9 +12308,9 @@ void tGenerateMaps::set_allocated_renderrayfailscol(::xnormal::tRGB8* renderrayf
   // @@protoc_insertion_point(field_set_allocated:xnormal.tGenerateMaps.RenderRayFailsCol)
 }
 
-// optional .xnormal.tRGB8 AOOccludedColor = 10;
+// .xnormal.tRGB8 AOOccludedColor = 10;
 bool tGenerateMaps::has_aooccludedcolor() const {
-  return !_is_default_instance_ && aooccludedcolor_ != NULL;
+  return this != internal_default_instance() && aooccludedcolor_ != NULL;
 }
 void tGenerateMaps::clear_aooccludedcolor() {
   if (GetArenaNoVirtual() == NULL && aooccludedcolor_ != NULL) delete aooccludedcolor_;
@@ -12759,7 +12318,8 @@ void tGenerateMaps::clear_aooccludedcolor() {
 }
 const ::xnormal::tRGB8& tGenerateMaps::aooccludedcolor() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.AOOccludedColor)
-  return aooccludedcolor_ != NULL ? *aooccludedcolor_ : *default_instance_->aooccludedcolor_;
+  return aooccludedcolor_ != NULL ? *aooccludedcolor_
+                         : *::xnormal::tRGB8::internal_default_instance();
 }
 ::xnormal::tRGB8* tGenerateMaps::mutable_aooccludedcolor() {
   
@@ -12787,9 +12347,9 @@ void tGenerateMaps::set_allocated_aooccludedcolor(::xnormal::tRGB8* aooccludedco
   // @@protoc_insertion_point(field_set_allocated:xnormal.tGenerateMaps.AOOccludedColor)
 }
 
-// optional .xnormal.tRGB8 AOUnoccludedColor = 11;
+// .xnormal.tRGB8 AOUnoccludedColor = 11;
 bool tGenerateMaps::has_aounoccludedcolor() const {
-  return !_is_default_instance_ && aounoccludedcolor_ != NULL;
+  return this != internal_default_instance() && aounoccludedcolor_ != NULL;
 }
 void tGenerateMaps::clear_aounoccludedcolor() {
   if (GetArenaNoVirtual() == NULL && aounoccludedcolor_ != NULL) delete aounoccludedcolor_;
@@ -12797,7 +12357,8 @@ void tGenerateMaps::clear_aounoccludedcolor() {
 }
 const ::xnormal::tRGB8& tGenerateMaps::aounoccludedcolor() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.AOUnoccludedColor)
-  return aounoccludedcolor_ != NULL ? *aounoccludedcolor_ : *default_instance_->aounoccludedcolor_;
+  return aounoccludedcolor_ != NULL ? *aounoccludedcolor_
+                         : *::xnormal::tRGB8::internal_default_instance();
 }
 ::xnormal::tRGB8* tGenerateMaps::mutable_aounoccludedcolor() {
   
@@ -12825,9 +12386,9 @@ void tGenerateMaps::set_allocated_aounoccludedcolor(::xnormal::tRGB8* aounocclud
   // @@protoc_insertion_point(field_set_allocated:xnormal.tGenerateMaps.AOUnoccludedColor)
 }
 
-// optional .xnormal.tRGB8 AOBackgroundColor = 12;
+// .xnormal.tRGB8 AOBackgroundColor = 12;
 bool tGenerateMaps::has_aobackgroundcolor() const {
-  return !_is_default_instance_ && aobackgroundcolor_ != NULL;
+  return this != internal_default_instance() && aobackgroundcolor_ != NULL;
 }
 void tGenerateMaps::clear_aobackgroundcolor() {
   if (GetArenaNoVirtual() == NULL && aobackgroundcolor_ != NULL) delete aobackgroundcolor_;
@@ -12835,7 +12396,8 @@ void tGenerateMaps::clear_aobackgroundcolor() {
 }
 const ::xnormal::tRGB8& tGenerateMaps::aobackgroundcolor() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.AOBackgroundColor)
-  return aobackgroundcolor_ != NULL ? *aobackgroundcolor_ : *default_instance_->aobackgroundcolor_;
+  return aobackgroundcolor_ != NULL ? *aobackgroundcolor_
+                         : *::xnormal::tRGB8::internal_default_instance();
 }
 ::xnormal::tRGB8* tGenerateMaps::mutable_aobackgroundcolor() {
   
@@ -12863,9 +12425,9 @@ void tGenerateMaps::set_allocated_aobackgroundcolor(::xnormal::tRGB8* aobackgrou
   // @@protoc_insertion_point(field_set_allocated:xnormal.tGenerateMaps.AOBackgroundColor)
 }
 
-// optional .xnormal.tRGB8 BentBackgroundColor = 13;
+// .xnormal.tRGB8 BentBackgroundColor = 13;
 bool tGenerateMaps::has_bentbackgroundcolor() const {
-  return !_is_default_instance_ && bentbackgroundcolor_ != NULL;
+  return this != internal_default_instance() && bentbackgroundcolor_ != NULL;
 }
 void tGenerateMaps::clear_bentbackgroundcolor() {
   if (GetArenaNoVirtual() == NULL && bentbackgroundcolor_ != NULL) delete bentbackgroundcolor_;
@@ -12873,7 +12435,8 @@ void tGenerateMaps::clear_bentbackgroundcolor() {
 }
 const ::xnormal::tRGB8& tGenerateMaps::bentbackgroundcolor() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.BentBackgroundColor)
-  return bentbackgroundcolor_ != NULL ? *bentbackgroundcolor_ : *default_instance_->bentbackgroundcolor_;
+  return bentbackgroundcolor_ != NULL ? *bentbackgroundcolor_
+                         : *::xnormal::tRGB8::internal_default_instance();
 }
 ::xnormal::tRGB8* tGenerateMaps::mutable_bentbackgroundcolor() {
   
@@ -12901,9 +12464,9 @@ void tGenerateMaps::set_allocated_bentbackgroundcolor(::xnormal::tRGB8* bentback
   // @@protoc_insertion_point(field_set_allocated:xnormal.tGenerateMaps.BentBackgroundColor)
 }
 
-// optional .xnormal.tRGB8 PRTBackgroundColor = 14;
+// .xnormal.tRGB8 PRTBackgroundColor = 14;
 bool tGenerateMaps::has_prtbackgroundcolor() const {
-  return !_is_default_instance_ && prtbackgroundcolor_ != NULL;
+  return this != internal_default_instance() && prtbackgroundcolor_ != NULL;
 }
 void tGenerateMaps::clear_prtbackgroundcolor() {
   if (GetArenaNoVirtual() == NULL && prtbackgroundcolor_ != NULL) delete prtbackgroundcolor_;
@@ -12911,7 +12474,8 @@ void tGenerateMaps::clear_prtbackgroundcolor() {
 }
 const ::xnormal::tRGB8& tGenerateMaps::prtbackgroundcolor() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.PRTBackgroundColor)
-  return prtbackgroundcolor_ != NULL ? *prtbackgroundcolor_ : *default_instance_->prtbackgroundcolor_;
+  return prtbackgroundcolor_ != NULL ? *prtbackgroundcolor_
+                         : *::xnormal::tRGB8::internal_default_instance();
 }
 ::xnormal::tRGB8* tGenerateMaps::mutable_prtbackgroundcolor() {
   
@@ -12939,9 +12503,9 @@ void tGenerateMaps::set_allocated_prtbackgroundcolor(::xnormal::tRGB8* prtbackgr
   // @@protoc_insertion_point(field_set_allocated:xnormal.tGenerateMaps.PRTBackgroundColor)
 }
 
-// optional .xnormal.tRGB8 ConvexityBackgroundColor = 15;
+// .xnormal.tRGB8 ConvexityBackgroundColor = 15;
 bool tGenerateMaps::has_convexitybackgroundcolor() const {
-  return !_is_default_instance_ && convexitybackgroundcolor_ != NULL;
+  return this != internal_default_instance() && convexitybackgroundcolor_ != NULL;
 }
 void tGenerateMaps::clear_convexitybackgroundcolor() {
   if (GetArenaNoVirtual() == NULL && convexitybackgroundcolor_ != NULL) delete convexitybackgroundcolor_;
@@ -12949,7 +12513,8 @@ void tGenerateMaps::clear_convexitybackgroundcolor() {
 }
 const ::xnormal::tRGB8& tGenerateMaps::convexitybackgroundcolor() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.ConvexityBackgroundColor)
-  return convexitybackgroundcolor_ != NULL ? *convexitybackgroundcolor_ : *default_instance_->convexitybackgroundcolor_;
+  return convexitybackgroundcolor_ != NULL ? *convexitybackgroundcolor_
+                         : *::xnormal::tRGB8::internal_default_instance();
 }
 ::xnormal::tRGB8* tGenerateMaps::mutable_convexitybackgroundcolor() {
   
@@ -12977,9 +12542,9 @@ void tGenerateMaps::set_allocated_convexitybackgroundcolor(::xnormal::tRGB8* con
   // @@protoc_insertion_point(field_set_allocated:xnormal.tGenerateMaps.ConvexityBackgroundColor)
 }
 
-// optional .xnormal.tRGB8 ThicknessBackgroundColor = 16;
+// .xnormal.tRGB8 ThicknessBackgroundColor = 16;
 bool tGenerateMaps::has_thicknessbackgroundcolor() const {
-  return !_is_default_instance_ && thicknessbackgroundcolor_ != NULL;
+  return this != internal_default_instance() && thicknessbackgroundcolor_ != NULL;
 }
 void tGenerateMaps::clear_thicknessbackgroundcolor() {
   if (GetArenaNoVirtual() == NULL && thicknessbackgroundcolor_ != NULL) delete thicknessbackgroundcolor_;
@@ -12987,7 +12552,8 @@ void tGenerateMaps::clear_thicknessbackgroundcolor() {
 }
 const ::xnormal::tRGB8& tGenerateMaps::thicknessbackgroundcolor() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.ThicknessBackgroundColor)
-  return thicknessbackgroundcolor_ != NULL ? *thicknessbackgroundcolor_ : *default_instance_->thicknessbackgroundcolor_;
+  return thicknessbackgroundcolor_ != NULL ? *thicknessbackgroundcolor_
+                         : *::xnormal::tRGB8::internal_default_instance();
 }
 ::xnormal::tRGB8* tGenerateMaps::mutable_thicknessbackgroundcolor() {
   
@@ -13015,9 +12581,9 @@ void tGenerateMaps::set_allocated_thicknessbackgroundcolor(::xnormal::tRGB8* thi
   // @@protoc_insertion_point(field_set_allocated:xnormal.tGenerateMaps.ThicknessBackgroundColor)
 }
 
-// optional .xnormal.tRGB8 ProximityBackgroundColor = 17;
+// .xnormal.tRGB8 ProximityBackgroundColor = 17;
 bool tGenerateMaps::has_proximitybackgroundcolor() const {
-  return !_is_default_instance_ && proximitybackgroundcolor_ != NULL;
+  return this != internal_default_instance() && proximitybackgroundcolor_ != NULL;
 }
 void tGenerateMaps::clear_proximitybackgroundcolor() {
   if (GetArenaNoVirtual() == NULL && proximitybackgroundcolor_ != NULL) delete proximitybackgroundcolor_;
@@ -13025,7 +12591,8 @@ void tGenerateMaps::clear_proximitybackgroundcolor() {
 }
 const ::xnormal::tRGB8& tGenerateMaps::proximitybackgroundcolor() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.ProximityBackgroundColor)
-  return proximitybackgroundcolor_ != NULL ? *proximitybackgroundcolor_ : *default_instance_->proximitybackgroundcolor_;
+  return proximitybackgroundcolor_ != NULL ? *proximitybackgroundcolor_
+                         : *::xnormal::tRGB8::internal_default_instance();
 }
 ::xnormal::tRGB8* tGenerateMaps::mutable_proximitybackgroundcolor() {
   
@@ -13053,9 +12620,9 @@ void tGenerateMaps::set_allocated_proximitybackgroundcolor(::xnormal::tRGB8* pro
   // @@protoc_insertion_point(field_set_allocated:xnormal.tGenerateMaps.ProximityBackgroundColor)
 }
 
-// optional .xnormal.tRGB8 CavityBackgroundColor = 18;
+// .xnormal.tRGB8 CavityBackgroundColor = 18;
 bool tGenerateMaps::has_cavitybackgroundcolor() const {
-  return !_is_default_instance_ && cavitybackgroundcolor_ != NULL;
+  return this != internal_default_instance() && cavitybackgroundcolor_ != NULL;
 }
 void tGenerateMaps::clear_cavitybackgroundcolor() {
   if (GetArenaNoVirtual() == NULL && cavitybackgroundcolor_ != NULL) delete cavitybackgroundcolor_;
@@ -13063,7 +12630,8 @@ void tGenerateMaps::clear_cavitybackgroundcolor() {
 }
 const ::xnormal::tRGB8& tGenerateMaps::cavitybackgroundcolor() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.CavityBackgroundColor)
-  return cavitybackgroundcolor_ != NULL ? *cavitybackgroundcolor_ : *default_instance_->cavitybackgroundcolor_;
+  return cavitybackgroundcolor_ != NULL ? *cavitybackgroundcolor_
+                         : *::xnormal::tRGB8::internal_default_instance();
 }
 ::xnormal::tRGB8* tGenerateMaps::mutable_cavitybackgroundcolor() {
   
@@ -13091,9 +12659,9 @@ void tGenerateMaps::set_allocated_cavitybackgroundcolor(::xnormal::tRGB8* cavity
   // @@protoc_insertion_point(field_set_allocated:xnormal.tGenerateMaps.CavityBackgroundColor)
 }
 
-// optional .xnormal.tRGB8 VDMBackgroundColor = 19;
+// .xnormal.tRGB8 VDMBackgroundColor = 19;
 bool tGenerateMaps::has_vdmbackgroundcolor() const {
-  return !_is_default_instance_ && vdmbackgroundcolor_ != NULL;
+  return this != internal_default_instance() && vdmbackgroundcolor_ != NULL;
 }
 void tGenerateMaps::clear_vdmbackgroundcolor() {
   if (GetArenaNoVirtual() == NULL && vdmbackgroundcolor_ != NULL) delete vdmbackgroundcolor_;
@@ -13101,7 +12669,8 @@ void tGenerateMaps::clear_vdmbackgroundcolor() {
 }
 const ::xnormal::tRGB8& tGenerateMaps::vdmbackgroundcolor() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.VDMBackgroundColor)
-  return vdmbackgroundcolor_ != NULL ? *vdmbackgroundcolor_ : *default_instance_->vdmbackgroundcolor_;
+  return vdmbackgroundcolor_ != NULL ? *vdmbackgroundcolor_
+                         : *::xnormal::tRGB8::internal_default_instance();
 }
 ::xnormal::tRGB8* tGenerateMaps::mutable_vdmbackgroundcolor() {
   
@@ -13129,9 +12698,9 @@ void tGenerateMaps::set_allocated_vdmbackgroundcolor(::xnormal::tRGB8* vdmbackgr
   // @@protoc_insertion_point(field_set_allocated:xnormal.tGenerateMaps.VDMBackgroundColor)
 }
 
-// optional .xnormal.tRGB8 RadNMBackgroundColor = 20;
+// .xnormal.tRGB8 RadNMBackgroundColor = 20;
 bool tGenerateMaps::has_radnmbackgroundcolor() const {
-  return !_is_default_instance_ && radnmbackgroundcolor_ != NULL;
+  return this != internal_default_instance() && radnmbackgroundcolor_ != NULL;
 }
 void tGenerateMaps::clear_radnmbackgroundcolor() {
   if (GetArenaNoVirtual() == NULL && radnmbackgroundcolor_ != NULL) delete radnmbackgroundcolor_;
@@ -13139,7 +12708,8 @@ void tGenerateMaps::clear_radnmbackgroundcolor() {
 }
 const ::xnormal::tRGB8& tGenerateMaps::radnmbackgroundcolor() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.RadNMBackgroundColor)
-  return radnmbackgroundcolor_ != NULL ? *radnmbackgroundcolor_ : *default_instance_->radnmbackgroundcolor_;
+  return radnmbackgroundcolor_ != NULL ? *radnmbackgroundcolor_
+                         : *::xnormal::tRGB8::internal_default_instance();
 }
 ::xnormal::tRGB8* tGenerateMaps::mutable_radnmbackgroundcolor() {
   
@@ -13167,9 +12737,9 @@ void tGenerateMaps::set_allocated_radnmbackgroundcolor(::xnormal::tRGB8* radnmba
   // @@protoc_insertion_point(field_set_allocated:xnormal.tGenerateMaps.RadNMBackgroundColor)
 }
 
-// optional .xnormal.tRGB8 CurvBackgroundColor = 21;
+// .xnormal.tRGB8 CurvBackgroundColor = 21;
 bool tGenerateMaps::has_curvbackgroundcolor() const {
-  return !_is_default_instance_ && curvbackgroundcolor_ != NULL;
+  return this != internal_default_instance() && curvbackgroundcolor_ != NULL;
 }
 void tGenerateMaps::clear_curvbackgroundcolor() {
   if (GetArenaNoVirtual() == NULL && curvbackgroundcolor_ != NULL) delete curvbackgroundcolor_;
@@ -13177,7 +12747,8 @@ void tGenerateMaps::clear_curvbackgroundcolor() {
 }
 const ::xnormal::tRGB8& tGenerateMaps::curvbackgroundcolor() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.CurvBackgroundColor)
-  return curvbackgroundcolor_ != NULL ? *curvbackgroundcolor_ : *default_instance_->curvbackgroundcolor_;
+  return curvbackgroundcolor_ != NULL ? *curvbackgroundcolor_
+                         : *::xnormal::tRGB8::internal_default_instance();
 }
 ::xnormal::tRGB8* tGenerateMaps::mutable_curvbackgroundcolor() {
   
@@ -13205,9 +12776,9 @@ void tGenerateMaps::set_allocated_curvbackgroundcolor(::xnormal::tRGB8* curvback
   // @@protoc_insertion_point(field_set_allocated:xnormal.tGenerateMaps.CurvBackgroundColor)
 }
 
-// optional .xnormal.tRGB8 DerivNMBackgroundColor = 22;
+// .xnormal.tRGB8 DerivNMBackgroundColor = 22;
 bool tGenerateMaps::has_derivnmbackgroundcolor() const {
-  return !_is_default_instance_ && derivnmbackgroundcolor_ != NULL;
+  return this != internal_default_instance() && derivnmbackgroundcolor_ != NULL;
 }
 void tGenerateMaps::clear_derivnmbackgroundcolor() {
   if (GetArenaNoVirtual() == NULL && derivnmbackgroundcolor_ != NULL) delete derivnmbackgroundcolor_;
@@ -13215,7 +12786,8 @@ void tGenerateMaps::clear_derivnmbackgroundcolor() {
 }
 const ::xnormal::tRGB8& tGenerateMaps::derivnmbackgroundcolor() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.DerivNMBackgroundColor)
-  return derivnmbackgroundcolor_ != NULL ? *derivnmbackgroundcolor_ : *default_instance_->derivnmbackgroundcolor_;
+  return derivnmbackgroundcolor_ != NULL ? *derivnmbackgroundcolor_
+                         : *::xnormal::tRGB8::internal_default_instance();
 }
 ::xnormal::tRGB8* tGenerateMaps::mutable_derivnmbackgroundcolor() {
   
@@ -13243,9 +12815,9 @@ void tGenerateMaps::set_allocated_derivnmbackgroundcolor(::xnormal::tRGB8* deriv
   // @@protoc_insertion_point(field_set_allocated:xnormal.tGenerateMaps.DerivNMBackgroundColor)
 }
 
-// optional .xnormal.tRGB8 TransluBackgroundColor = 23;
+// .xnormal.tRGB8 TransluBackgroundColor = 23;
 bool tGenerateMaps::has_translubackgroundcolor() const {
-  return !_is_default_instance_ && translubackgroundcolor_ != NULL;
+  return this != internal_default_instance() && translubackgroundcolor_ != NULL;
 }
 void tGenerateMaps::clear_translubackgroundcolor() {
   if (GetArenaNoVirtual() == NULL && translubackgroundcolor_ != NULL) delete translubackgroundcolor_;
@@ -13253,7 +12825,8 @@ void tGenerateMaps::clear_translubackgroundcolor() {
 }
 const ::xnormal::tRGB8& tGenerateMaps::translubackgroundcolor() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.TransluBackgroundColor)
-  return translubackgroundcolor_ != NULL ? *translubackgroundcolor_ : *default_instance_->translubackgroundcolor_;
+  return translubackgroundcolor_ != NULL ? *translubackgroundcolor_
+                         : *::xnormal::tRGB8::internal_default_instance();
 }
 ::xnormal::tRGB8* tGenerateMaps::mutable_translubackgroundcolor() {
   
@@ -13281,9 +12854,9 @@ void tGenerateMaps::set_allocated_translubackgroundcolor(::xnormal::tRGB8* trans
   // @@protoc_insertion_point(field_set_allocated:xnormal.tGenerateMaps.TransluBackgroundColor)
 }
 
-// optional .xnormal.tRGB8 BakeHighpolyVColsBackgroundCol = 24;
+// .xnormal.tRGB8 BakeHighpolyVColsBackgroundCol = 24;
 bool tGenerateMaps::has_bakehighpolyvcolsbackgroundcol() const {
-  return !_is_default_instance_ && bakehighpolyvcolsbackgroundcol_ != NULL;
+  return this != internal_default_instance() && bakehighpolyvcolsbackgroundcol_ != NULL;
 }
 void tGenerateMaps::clear_bakehighpolyvcolsbackgroundcol() {
   if (GetArenaNoVirtual() == NULL && bakehighpolyvcolsbackgroundcol_ != NULL) delete bakehighpolyvcolsbackgroundcol_;
@@ -13291,7 +12864,8 @@ void tGenerateMaps::clear_bakehighpolyvcolsbackgroundcol() {
 }
 const ::xnormal::tRGB8& tGenerateMaps::bakehighpolyvcolsbackgroundcol() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.BakeHighpolyVColsBackgroundCol)
-  return bakehighpolyvcolsbackgroundcol_ != NULL ? *bakehighpolyvcolsbackgroundcol_ : *default_instance_->bakehighpolyvcolsbackgroundcol_;
+  return bakehighpolyvcolsbackgroundcol_ != NULL ? *bakehighpolyvcolsbackgroundcol_
+                         : *::xnormal::tRGB8::internal_default_instance();
 }
 ::xnormal::tRGB8* tGenerateMaps::mutable_bakehighpolyvcolsbackgroundcol() {
   
@@ -13319,629 +12893,637 @@ void tGenerateMaps::set_allocated_bakehighpolyvcolsbackgroundcol(::xnormal::tRGB
   // @@protoc_insertion_point(field_set_allocated:xnormal.tGenerateMaps.BakeHighpolyVColsBackgroundCol)
 }
 
-// optional bool ClosestIfFails = 25;
+// bool ClosestIfFails = 25;
 void tGenerateMaps::clear_closestiffails() {
   closestiffails_ = false;
 }
- bool tGenerateMaps::closestiffails() const {
+bool tGenerateMaps::closestiffails() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.ClosestIfFails)
   return closestiffails_;
 }
- void tGenerateMaps::set_closestiffails(bool value) {
+void tGenerateMaps::set_closestiffails(bool value) {
   
   closestiffails_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.ClosestIfFails)
 }
 
-// optional float DirectionsTonemapMax = 26;
+// float DirectionsTonemapMax = 26;
 void tGenerateMaps::clear_directionstonemapmax() {
   directionstonemapmax_ = 0;
 }
- float tGenerateMaps::directionstonemapmax() const {
+float tGenerateMaps::directionstonemapmax() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.DirectionsTonemapMax)
   return directionstonemapmax_;
 }
- void tGenerateMaps::set_directionstonemapmax(float value) {
+void tGenerateMaps::set_directionstonemapmax(float value) {
   
   directionstonemapmax_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.DirectionsTonemapMax)
 }
 
-// optional bool CurvMonocrome = 27;
+// bool CurvMonocrome = 27;
 void tGenerateMaps::clear_curvmonocrome() {
   curvmonocrome_ = false;
 }
- bool tGenerateMaps::curvmonocrome() const {
+bool tGenerateMaps::curvmonocrome() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.CurvMonocrome)
   return curvmonocrome_;
 }
- void tGenerateMaps::set_curvmonocrome(bool value) {
+void tGenerateMaps::set_curvmonocrome(bool value) {
   
   curvmonocrome_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.CurvMonocrome)
 }
 
-// optional float AOBias = 28;
+// float AOBias = 28;
 void tGenerateMaps::clear_aobias() {
   aobias_ = 0;
 }
- float tGenerateMaps::aobias() const {
+float tGenerateMaps::aobias() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.AOBias)
   return aobias_;
 }
- void tGenerateMaps::set_aobias(float value) {
+void tGenerateMaps::set_aobias(float value) {
   
   aobias_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.AOBias)
 }
 
-// optional bool BentTangentSpace = 29;
+// bool BentTangentSpace = 29;
 void tGenerateMaps::clear_benttangentspace() {
   benttangentspace_ = false;
 }
- bool tGenerateMaps::benttangentspace() const {
+bool tGenerateMaps::benttangentspace() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.BentTangentSpace)
   return benttangentspace_;
 }
- void tGenerateMaps::set_benttangentspace(bool value) {
+void tGenerateMaps::set_benttangentspace(bool value) {
   
   benttangentspace_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.BentTangentSpace)
 }
 
-// optional bool GenTranslu = 30;
+// bool GenTranslu = 30;
 void tGenerateMaps::clear_gentranslu() {
   gentranslu_ = false;
 }
- bool tGenerateMaps::gentranslu() const {
+bool tGenerateMaps::gentranslu() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.GenTranslu)
   return gentranslu_;
 }
- void tGenerateMaps::set_gentranslu(bool value) {
+void tGenerateMaps::set_gentranslu(bool value) {
   
   gentranslu_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.GenTranslu)
 }
 
-// optional .xnormal.tGenerateMaps.eAODistribution AODistribution = 31;
+// .xnormal.tGenerateMaps.eAODistribution AODistribution = 31;
 void tGenerateMaps::clear_aodistribution() {
   aodistribution_ = 0;
 }
- ::xnormal::tGenerateMaps_eAODistribution tGenerateMaps::aodistribution() const {
+::xnormal::tGenerateMaps_eAODistribution tGenerateMaps::aodistribution() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.AODistribution)
   return static_cast< ::xnormal::tGenerateMaps_eAODistribution >(aodistribution_);
 }
- void tGenerateMaps::set_aodistribution(::xnormal::tGenerateMaps_eAODistribution value) {
+void tGenerateMaps::set_aodistribution(::xnormal::tGenerateMaps_eAODistribution value) {
   
   aodistribution_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.AODistribution)
 }
 
-// optional float PRTThreshold = 32;
+// float PRTThreshold = 32;
 void tGenerateMaps::clear_prtthreshold() {
   prtthreshold_ = 0;
 }
- float tGenerateMaps::prtthreshold() const {
+float tGenerateMaps::prtthreshold() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.PRTThreshold)
   return prtthreshold_;
 }
- void tGenerateMaps::set_prtthreshold(float value) {
+void tGenerateMaps::set_prtthreshold(float value) {
   
   prtthreshold_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.PRTThreshold)
 }
 
-// optional float DirectionsTonemapMin = 33;
+// float DirectionsTonemapMin = 33;
 void tGenerateMaps::clear_directionstonemapmin() {
   directionstonemapmin_ = 0;
 }
- float tGenerateMaps::directionstonemapmin() const {
+float tGenerateMaps::directionstonemapmin() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.DirectionsTonemapMin)
   return directionstonemapmin_;
 }
- void tGenerateMaps::set_directionstonemapmin(float value) {
+void tGenerateMaps::set_directionstonemapmin(float value) {
   
   directionstonemapmin_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.DirectionsTonemapMin)
 }
 
-// optional .xnormal.tGenerateMaps.eAODistribution CurvDistribution = 34;
+// .xnormal.tGenerateMaps.eAODistribution CurvDistribution = 34;
 void tGenerateMaps::clear_curvdistribution() {
   curvdistribution_ = 0;
 }
- ::xnormal::tGenerateMaps_eAODistribution tGenerateMaps::curvdistribution() const {
+::xnormal::tGenerateMaps_eAODistribution tGenerateMaps::curvdistribution() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.CurvDistribution)
   return static_cast< ::xnormal::tGenerateMaps_eAODistribution >(curvdistribution_);
 }
- void tGenerateMaps::set_curvdistribution(::xnormal::tGenerateMaps_eAODistribution value) {
+void tGenerateMaps::set_curvdistribution(::xnormal::tGenerateMaps_eAODistribution value) {
   
   curvdistribution_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.CurvDistribution)
 }
 
-// optional bool BentJitter = 35;
+// bool BentJitter = 35;
 void tGenerateMaps::clear_bentjitter() {
   bentjitter_ = false;
 }
- bool tGenerateMaps::bentjitter() const {
+bool tGenerateMaps::bentjitter() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.BentJitter)
   return bentjitter_;
 }
- void tGenerateMaps::set_bentjitter(bool value) {
+void tGenerateMaps::set_bentjitter(bool value) {
   
   bentjitter_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.BentJitter)
 }
 
-// optional .xnormal.tGenerateMaps.eAODistribution BentDistribution = 36;
+// .xnormal.tGenerateMaps.eAODistribution BentDistribution = 36;
 void tGenerateMaps::clear_bentdistribution() {
   bentdistribution_ = 0;
 }
- ::xnormal::tGenerateMaps_eAODistribution tGenerateMaps::bentdistribution() const {
+::xnormal::tGenerateMaps_eAODistribution tGenerateMaps::bentdistribution() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.BentDistribution)
   return static_cast< ::xnormal::tGenerateMaps_eAODistribution >(bentdistribution_);
 }
- void tGenerateMaps::set_bentdistribution(::xnormal::tGenerateMaps_eAODistribution value) {
+void tGenerateMaps::set_bentdistribution(::xnormal::tGenerateMaps_eAODistribution value) {
   
   bentdistribution_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.BentDistribution)
 }
 
-// optional bool BakeHighpolyBaseTexture = 37;
+// bool BakeHighpolyBaseTexture = 37;
 void tGenerateMaps::clear_bakehighpolybasetexture() {
   bakehighpolybasetexture_ = false;
 }
- bool tGenerateMaps::bakehighpolybasetexture() const {
+bool tGenerateMaps::bakehighpolybasetexture() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.BakeHighpolyBaseTexture)
   return bakehighpolybasetexture_;
 }
- void tGenerateMaps::set_bakehighpolybasetexture(bool value) {
+void tGenerateMaps::set_bakehighpolybasetexture(bool value) {
   
   bakehighpolybasetexture_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.BakeHighpolyBaseTexture)
 }
 
-// optional bool GenConvexity = 38;
+// bool GenConvexity = 38;
 void tGenerateMaps::clear_genconvexity() {
   genconvexity_ = false;
 }
- bool tGenerateMaps::genconvexity() const {
+bool tGenerateMaps::genconvexity() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.GenConvexity)
   return genconvexity_;
 }
- void tGenerateMaps::set_genconvexity(bool value) {
+void tGenerateMaps::set_genconvexity(bool value) {
   
   genconvexity_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.GenConvexity)
 }
 
-// optional float RadiosityNormalsAttenLinear = 39;
+// float RadiosityNormalsAttenLinear = 39;
 void tGenerateMaps::clear_radiositynormalsattenlinear() {
   radiositynormalsattenlinear_ = 0;
 }
- float tGenerateMaps::radiositynormalsattenlinear() const {
+float tGenerateMaps::radiositynormalsattenlinear() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.RadiosityNormalsAttenLinear)
   return radiositynormalsattenlinear_;
 }
- void tGenerateMaps::set_radiositynormalsattenlinear(float value) {
+void tGenerateMaps::set_radiositynormalsattenlinear(float value) {
   
   radiositynormalsattenlinear_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.RadiosityNormalsAttenLinear)
 }
 
-// optional uint32 TransluRaysPerSample = 40;
+// uint32 TransluRaysPerSample = 40;
 void tGenerateMaps::clear_translurayspersample() {
   translurayspersample_ = 0u;
 }
- ::google::protobuf::uint32 tGenerateMaps::translurayspersample() const {
+::google::protobuf::uint32 tGenerateMaps::translurayspersample() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.TransluRaysPerSample)
   return translurayspersample_;
 }
- void tGenerateMaps::set_translurayspersample(::google::protobuf::uint32 value) {
+void tGenerateMaps::set_translurayspersample(::google::protobuf::uint32 value) {
   
   translurayspersample_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.TransluRaysPerSample)
 }
 
-// optional float CurvSearchDistance = 41;
+// float CurvSearchDistance = 41;
 void tGenerateMaps::clear_curvsearchdistance() {
   curvsearchdistance_ = 0;
 }
- float tGenerateMaps::curvsearchdistance() const {
+float tGenerateMaps::curvsearchdistance() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.CurvSearchDistance)
   return curvsearchdistance_;
 }
- void tGenerateMaps::set_curvsearchdistance(float value) {
+void tGenerateMaps::set_curvsearchdistance(float value) {
   
   curvsearchdistance_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.CurvSearchDistance)
 }
 
-// optional .xnormal.tGenerateMaps.eSwizzleComponent SwizzleZ = 42;
+// .xnormal.tGenerateMaps.eSwizzleComponent SwizzleZ = 42;
 void tGenerateMaps::clear_swizzlez() {
   swizzlez_ = 0;
 }
- ::xnormal::tGenerateMaps_eSwizzleComponent tGenerateMaps::swizzlez() const {
+::xnormal::tGenerateMaps_eSwizzleComponent tGenerateMaps::swizzlez() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.SwizzleZ)
   return static_cast< ::xnormal::tGenerateMaps_eSwizzleComponent >(swizzlez_);
 }
- void tGenerateMaps::set_swizzlez(::xnormal::tGenerateMaps_eSwizzleComponent value) {
+void tGenerateMaps::set_swizzlez(::xnormal::tGenerateMaps_eSwizzleComponent value) {
   
   swizzlez_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.SwizzleZ)
 }
 
-// optional float TransluBias = 43;
+// float TransluBias = 43;
 void tGenerateMaps::clear_translubias() {
   translubias_ = 0;
 }
- float tGenerateMaps::translubias() const {
+float tGenerateMaps::translubias() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.TransluBias)
   return translubias_;
 }
- void tGenerateMaps::set_translubias(float value) {
+void tGenerateMaps::set_translubias(float value) {
   
   translubias_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.TransluBias)
 }
 
-// optional bool PRTLimitRayDistance = 44;
+// bool PRTLimitRayDistance = 44;
 void tGenerateMaps::clear_prtlimitraydistance() {
   prtlimitraydistance_ = false;
 }
- bool tGenerateMaps::prtlimitraydistance() const {
+bool tGenerateMaps::prtlimitraydistance() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.PRTLimitRayDistance)
   return prtlimitraydistance_;
 }
- void tGenerateMaps::set_prtlimitraydistance(bool value) {
+void tGenerateMaps::set_prtlimitraydistance(bool value) {
   
   prtlimitraydistance_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.PRTLimitRayDistance)
 }
 
-// optional bool GenBent = 45;
+// bool GenBent = 45;
 void tGenerateMaps::clear_genbent() {
   genbent_ = false;
 }
- bool tGenerateMaps::genbent() const {
+bool tGenerateMaps::genbent() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.GenBent)
   return genbent_;
 }
- void tGenerateMaps::set_genbent(bool value) {
+void tGenerateMaps::set_genbent(bool value) {
   
   genbent_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.GenBent)
 }
 
-// optional bool AOLimitRayDistance = 46;
+// bool AOLimitRayDistance = 46;
 void tGenerateMaps::clear_aolimitraydistance() {
   aolimitraydistance_ = false;
 }
- bool tGenerateMaps::aolimitraydistance() const {
+bool tGenerateMaps::aolimitraydistance() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.AOLimitRayDistance)
   return aolimitraydistance_;
 }
- void tGenerateMaps::set_aolimitraydistance(bool value) {
+void tGenerateMaps::set_aolimitraydistance(bool value) {
   
   aolimitraydistance_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.AOLimitRayDistance)
 }
 
-// optional uint32 CurvRaysPerSample = 47;
+// uint32 CurvRaysPerSample = 47;
 void tGenerateMaps::clear_curvrayspersample() {
   curvrayspersample_ = 0u;
 }
- ::google::protobuf::uint32 tGenerateMaps::curvrayspersample() const {
+::google::protobuf::uint32 tGenerateMaps::curvrayspersample() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.CurvRaysPerSample)
   return curvrayspersample_;
 }
- void tGenerateMaps::set_curvrayspersample(::google::protobuf::uint32 value) {
+void tGenerateMaps::set_curvrayspersample(::google::protobuf::uint32 value) {
   
   curvrayspersample_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.CurvRaysPerSample)
 }
 
-// optional .xnormal.tGenerateMaps.eAODistribution RadiosityNormalsDistribution = 48;
+// .xnormal.tGenerateMaps.eAODistribution RadiosityNormalsDistribution = 48;
 void tGenerateMaps::clear_radiositynormalsdistribution() {
   radiositynormalsdistribution_ = 0;
 }
- ::xnormal::tGenerateMaps_eAODistribution tGenerateMaps::radiositynormalsdistribution() const {
+::xnormal::tGenerateMaps_eAODistribution tGenerateMaps::radiositynormalsdistribution() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.RadiosityNormalsDistribution)
   return static_cast< ::xnormal::tGenerateMaps_eAODistribution >(radiositynormalsdistribution_);
 }
- void tGenerateMaps::set_radiositynormalsdistribution(::xnormal::tGenerateMaps_eAODistribution value) {
+void tGenerateMaps::set_radiositynormalsdistribution(::xnormal::tGenerateMaps_eAODistribution value) {
   
   radiositynormalsdistribution_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.RadiosityNormalsDistribution)
 }
 
-// optional uint32 RadiosityNormalsRaysPerSample = 49;
+// uint32 RadiosityNormalsRaysPerSample = 49;
 void tGenerateMaps::clear_radiositynormalsrayspersample() {
   radiositynormalsrayspersample_ = 0u;
 }
- ::google::protobuf::uint32 tGenerateMaps::radiositynormalsrayspersample() const {
+::google::protobuf::uint32 tGenerateMaps::radiositynormalsrayspersample() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.RadiosityNormalsRaysPerSample)
   return radiositynormalsrayspersample_;
 }
- void tGenerateMaps::set_radiositynormalsrayspersample(::google::protobuf::uint32 value) {
+void tGenerateMaps::set_radiositynormalsrayspersample(::google::protobuf::uint32 value) {
   
   radiositynormalsrayspersample_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.RadiosityNormalsRaysPerSample)
 }
 
-// optional bool CurvJitter = 50;
+// bool CurvJitter = 50;
 void tGenerateMaps::clear_curvjitter() {
   curvjitter_ = false;
 }
- bool tGenerateMaps::curvjitter() const {
+bool tGenerateMaps::curvjitter() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.CurvJitter)
   return curvjitter_;
 }
- void tGenerateMaps::set_curvjitter(bool value) {
+void tGenerateMaps::set_curvjitter(bool value) {
   
   curvjitter_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.CurvJitter)
 }
 
-// optional bool TangentSpace = 51;
+// bool TangentSpace = 51;
 void tGenerateMaps::clear_tangentspace() {
   tangentspace_ = false;
 }
- bool tGenerateMaps::tangentspace() const {
+bool tGenerateMaps::tangentspace() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.TangentSpace)
   return tangentspace_;
 }
- void tGenerateMaps::set_tangentspace(bool value) {
+void tGenerateMaps::set_tangentspace(bool value) {
   
   tangentspace_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.TangentSpace)
 }
 
-// optional bool RadiosityNormalsAllowPureOcclusion = 52;
+// bool RadiosityNormalsAllowPureOcclusion = 52;
 void tGenerateMaps::clear_radiositynormalsallowpureocclusion() {
   radiositynormalsallowpureocclusion_ = false;
 }
- bool tGenerateMaps::radiositynormalsallowpureocclusion() const {
+bool tGenerateMaps::radiositynormalsallowpureocclusion() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.RadiosityNormalsAllowPureOcclusion)
   return radiositynormalsallowpureocclusion_;
 }
- void tGenerateMaps::set_radiositynormalsallowpureocclusion(bool value) {
+void tGenerateMaps::set_radiositynormalsallowpureocclusion(bool value) {
   
   radiositynormalsallowpureocclusion_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.RadiosityNormalsAllowPureOcclusion)
 }
 
-// optional .xnormal.tGenerateMaps.eSwizzleComponent BentSwizzleX = 53;
+// .xnormal.tGenerateMaps.eSwizzleComponent BentSwizzleX = 53;
 void tGenerateMaps::clear_bentswizzlex() {
   bentswizzlex_ = 0;
 }
- ::xnormal::tGenerateMaps_eSwizzleComponent tGenerateMaps::bentswizzlex() const {
+::xnormal::tGenerateMaps_eSwizzleComponent tGenerateMaps::bentswizzlex() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.BentSwizzleX)
   return static_cast< ::xnormal::tGenerateMaps_eSwizzleComponent >(bentswizzlex_);
 }
- void tGenerateMaps::set_bentswizzlex(::xnormal::tGenerateMaps_eSwizzleComponent value) {
+void tGenerateMaps::set_bentswizzlex(::xnormal::tGenerateMaps_eSwizzleComponent value) {
   
   bentswizzlex_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.BentSwizzleX)
 }
 
-// optional .xnormal.tGenerateMaps.eSwizzleComponent SwizzleY = 54;
+// .xnormal.tGenerateMaps.eSwizzleComponent SwizzleY = 54;
 void tGenerateMaps::clear_swizzley() {
   swizzley_ = 0;
 }
- ::xnormal::tGenerateMaps_eSwizzleComponent tGenerateMaps::swizzley() const {
+::xnormal::tGenerateMaps_eSwizzleComponent tGenerateMaps::swizzley() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.SwizzleY)
   return static_cast< ::xnormal::tGenerateMaps_eSwizzleComponent >(swizzley_);
 }
- void tGenerateMaps::set_swizzley(::xnormal::tGenerateMaps_eSwizzleComponent value) {
+void tGenerateMaps::set_swizzley(::xnormal::tGenerateMaps_eSwizzleComponent value) {
   
   swizzley_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.SwizzleY)
 }
 
-// optional bool GenCurv = 55;
+// bool GenCurv = 55;
 void tGenerateMaps::clear_gencurv() {
   gencurv_ = false;
 }
- bool tGenerateMaps::gencurv() const {
+bool tGenerateMaps::gencurv() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.GenCurv)
   return gencurv_;
 }
- void tGenerateMaps::set_gencurv(bool value) {
+void tGenerateMaps::set_gencurv(bool value) {
   
   gencurv_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.GenCurv)
 }
 
-// optional bool PRTJitter = 56;
+// bool PRTJitter = 56;
 void tGenerateMaps::clear_prtjitter() {
   prtjitter_ = false;
 }
- bool tGenerateMaps::prtjitter() const {
+bool tGenerateMaps::prtjitter() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.PRTJitter)
   return prtjitter_;
 }
- void tGenerateMaps::set_prtjitter(bool value) {
+void tGenerateMaps::set_prtjitter(bool value) {
   
   prtjitter_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.PRTJitter)
 }
 
-// optional float AOAttenCuadratic = 57;
+// float AOAttenCuadratic = 57;
 void tGenerateMaps::clear_aoattencuadratic() {
   aoattencuadratic_ = 0;
 }
- float tGenerateMaps::aoattencuadratic() const {
+float tGenerateMaps::aoattencuadratic() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.AOAttenCuadratic)
   return aoattencuadratic_;
 }
- void tGenerateMaps::set_aoattencuadratic(float value) {
+void tGenerateMaps::set_aoattencuadratic(float value) {
   
   aoattencuadratic_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.AOAttenCuadratic)
 }
 
-// optional float BentConeAngle = 58;
+// float BentConeAngle = 58;
 void tGenerateMaps::clear_bentconeangle() {
   bentconeangle_ = 0;
 }
- float tGenerateMaps::bentconeangle() const {
+float tGenerateMaps::bentconeangle() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.BentConeAngle)
   return bentconeangle_;
 }
- void tGenerateMaps::set_bentconeangle(float value) {
+void tGenerateMaps::set_bentconeangle(float value) {
   
   bentconeangle_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.BentConeAngle)
 }
 
-// optional .xnormal.tGenerateMaps.eSwizzleComponent SwizzleX = 59;
+// .xnormal.tGenerateMaps.eSwizzleComponent SwizzleX = 59;
 void tGenerateMaps::clear_swizzlex() {
   swizzlex_ = 0;
 }
- ::xnormal::tGenerateMaps_eSwizzleComponent tGenerateMaps::swizzlex() const {
+::xnormal::tGenerateMaps_eSwizzleComponent tGenerateMaps::swizzlex() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.SwizzleX)
   return static_cast< ::xnormal::tGenerateMaps_eSwizzleComponent >(swizzlex_);
 }
- void tGenerateMaps::set_swizzlex(::xnormal::tGenerateMaps_eSwizzleComponent value) {
+void tGenerateMaps::set_swizzlex(::xnormal::tGenerateMaps_eSwizzleComponent value) {
   
   swizzlex_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.SwizzleX)
 }
 
-// optional bool RenderRayFails = 60;
+// bool RenderRayFails = 60;
 void tGenerateMaps::clear_renderrayfails() {
   renderrayfails_ = false;
 }
- bool tGenerateMaps::renderrayfails() const {
+bool tGenerateMaps::renderrayfails() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.RenderRayFails)
   return renderrayfails_;
 }
- void tGenerateMaps::set_renderrayfails(bool value) {
+void tGenerateMaps::set_renderrayfails(bool value) {
   
   renderrayfails_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.RenderRayFails)
 }
 
-// optional float CavitySearchRadius = 61;
+// float CavitySearchRadius = 61;
 void tGenerateMaps::clear_cavitysearchradius() {
   cavitysearchradius_ = 0;
 }
- float tGenerateMaps::cavitysearchradius() const {
+float tGenerateMaps::cavitysearchradius() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.CavitySearchRadius)
   return cavitysearchradius_;
 }
- void tGenerateMaps::set_cavitysearchradius(float value) {
+void tGenerateMaps::set_cavitysearchradius(float value) {
   
   cavitysearchradius_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.CavitySearchRadius)
 }
 
-// optional bool RadiosityNormalsEncodeAO = 62;
+// bool RadiosityNormalsEncodeAO = 62;
 void tGenerateMaps::clear_radiositynormalsencodeao() {
   radiositynormalsencodeao_ = false;
 }
- bool tGenerateMaps::radiositynormalsencodeao() const {
+bool tGenerateMaps::radiositynormalsencodeao() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.RadiosityNormalsEncodeAO)
   return radiositynormalsencodeao_;
 }
- void tGenerateMaps::set_radiositynormalsencodeao(bool value) {
+void tGenerateMaps::set_radiositynormalsencodeao(bool value) {
   
   radiositynormalsencodeao_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.RadiosityNormalsEncodeAO)
 }
 
-// optional float TransluConeAngle = 63;
+// float TransluConeAngle = 63;
 void tGenerateMaps::clear_transluconeangle() {
   transluconeangle_ = 0;
 }
- float tGenerateMaps::transluconeangle() const {
+float tGenerateMaps::transluconeangle() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.TransluConeAngle)
   return transluconeangle_;
 }
- void tGenerateMaps::set_transluconeangle(float value) {
+void tGenerateMaps::set_transluconeangle(float value) {
   
   transluconeangle_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.TransluConeAngle)
 }
 
-// optional uint32 BentRaysPerSample = 64;
+// uint32 BentRaysPerSample = 64;
 void tGenerateMaps::clear_bentrayspersample() {
   bentrayspersample_ = 0u;
 }
- ::google::protobuf::uint32 tGenerateMaps::bentrayspersample() const {
+::google::protobuf::uint32 tGenerateMaps::bentrayspersample() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.BentRaysPerSample)
   return bentrayspersample_;
 }
- void tGenerateMaps::set_bentrayspersample(::google::protobuf::uint32 value) {
+void tGenerateMaps::set_bentrayspersample(::google::protobuf::uint32 value) {
   
   bentrayspersample_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.BentRaysPerSample)
 }
 
-// optional float ConvexityScale = 65;
+// float ConvexityScale = 65;
 void tGenerateMaps::clear_convexityscale() {
   convexityscale_ = 0;
 }
- float tGenerateMaps::convexityscale() const {
+float tGenerateMaps::convexityscale() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.ConvexityScale)
   return convexityscale_;
 }
- void tGenerateMaps::set_convexityscale(float value) {
+void tGenerateMaps::set_convexityscale(float value) {
   
   convexityscale_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.ConvexityScale)
 }
 
-// optional float RadiosityNormalsConeAngle = 66;
+// float RadiosityNormalsConeAngle = 66;
 void tGenerateMaps::clear_radiositynormalsconeangle() {
   radiositynormalsconeangle_ = 0;
 }
- float tGenerateMaps::radiositynormalsconeangle() const {
+float tGenerateMaps::radiositynormalsconeangle() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.RadiosityNormalsConeAngle)
   return radiositynormalsconeangle_;
 }
- void tGenerateMaps::set_radiositynormalsconeangle(float value) {
+void tGenerateMaps::set_radiositynormalsconeangle(float value) {
   
   radiositynormalsconeangle_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.RadiosityNormalsConeAngle)
 }
 
-// optional string File = 67;
+// string File = 67;
 void tGenerateMaps::clear_file() {
   file_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- const ::std::string& tGenerateMaps::file() const {
+const ::std::string& tGenerateMaps::file() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.File)
-  return file_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return file_.GetNoArena();
 }
- void tGenerateMaps::set_file(const ::std::string& value) {
+void tGenerateMaps::set_file(const ::std::string& value) {
   
   file_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.File)
 }
- void tGenerateMaps::set_file(const char* value) {
+#if LANG_CXX11
+void tGenerateMaps::set_file(::std::string&& value) {
+  
+  file_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:xnormal.tGenerateMaps.File)
+}
+#endif
+void tGenerateMaps::set_file(const char* value) {
   
   file_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:xnormal.tGenerateMaps.File)
 }
- void tGenerateMaps::set_file(const char* value, size_t size) {
+void tGenerateMaps::set_file(const char* value, size_t size) {
   
   file_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:xnormal.tGenerateMaps.File)
 }
- ::std::string* tGenerateMaps::mutable_file() {
+::std::string* tGenerateMaps::mutable_file() {
   
   // @@protoc_insertion_point(field_mutable:xnormal.tGenerateMaps.File)
   return file_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* tGenerateMaps::release_file() {
+::std::string* tGenerateMaps::release_file() {
   // @@protoc_insertion_point(field_release:xnormal.tGenerateMaps.File)
   
   return file_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void tGenerateMaps::set_allocated_file(::std::string* file) {
+void tGenerateMaps::set_allocated_file(::std::string* file) {
   if (file != NULL) {
     
   } else {
@@ -13951,883 +13533,883 @@ void tGenerateMaps::clear_file() {
   // @@protoc_insertion_point(field_set_allocated:xnormal.tGenerateMaps.File)
 }
 
-// optional bool GenDerivNM = 68;
+// bool GenDerivNM = 68;
 void tGenerateMaps::clear_genderivnm() {
   genderivnm_ = false;
 }
- bool tGenerateMaps::genderivnm() const {
+bool tGenerateMaps::genderivnm() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.GenDerivNM)
   return genderivnm_;
 }
- void tGenerateMaps::set_genderivnm(bool value) {
+void tGenerateMaps::set_genderivnm(bool value) {
   
   genderivnm_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.GenDerivNM)
 }
 
-// optional bool BentLimitRayDistance = 69;
+// bool BentLimitRayDistance = 69;
 void tGenerateMaps::clear_bentlimitraydistance() {
   bentlimitraydistance_ = false;
 }
- bool tGenerateMaps::bentlimitraydistance() const {
+bool tGenerateMaps::bentlimitraydistance() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.BentLimitRayDistance)
   return bentlimitraydistance_;
 }
- void tGenerateMaps::set_bentlimitraydistance(bool value) {
+void tGenerateMaps::set_bentlimitraydistance(bool value) {
   
   bentlimitraydistance_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.BentLimitRayDistance)
 }
 
-// optional float PRTBias = 70;
+// float PRTBias = 70;
 void tGenerateMaps::clear_prtbias() {
   prtbias_ = 0;
 }
- float tGenerateMaps::prtbias() const {
+float tGenerateMaps::prtbias() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.PRTBias)
   return prtbias_;
 }
- void tGenerateMaps::set_prtbias(float value) {
+void tGenerateMaps::set_prtbias(float value) {
   
   prtbias_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.PRTBias)
 }
 
-// optional bool RenderWireframe = 71;
+// bool RenderWireframe = 71;
 void tGenerateMaps::clear_renderwireframe() {
   renderwireframe_ = false;
 }
- bool tGenerateMaps::renderwireframe() const {
+bool tGenerateMaps::renderwireframe() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.RenderWireframe)
   return renderwireframe_;
 }
- void tGenerateMaps::set_renderwireframe(bool value) {
+void tGenerateMaps::set_renderwireframe(bool value) {
   
   renderwireframe_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.RenderWireframe)
 }
 
-// optional bool PRTNormalize = 72;
+// bool PRTNormalize = 72;
 void tGenerateMaps::clear_prtnormalize() {
   prtnormalize_ = false;
 }
- bool tGenerateMaps::prtnormalize() const {
+bool tGenerateMaps::prtnormalize() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.PRTNormalize)
   return prtnormalize_;
 }
- void tGenerateMaps::set_prtnormalize(bool value) {
+void tGenerateMaps::set_prtnormalize(bool value) {
   
   prtnormalize_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.PRTNormalize)
 }
 
-// optional bool GenAO = 73;
+// bool GenAO = 73;
 void tGenerateMaps::clear_genao() {
   genao_ = false;
 }
- bool tGenerateMaps::genao() const {
+bool tGenerateMaps::genao() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.GenAO)
   return genao_;
 }
- void tGenerateMaps::set_genao(bool value) {
+void tGenerateMaps::set_genao(bool value) {
   
   genao_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.GenAO)
 }
 
-// optional float PRTConeAngle = 74;
+// float PRTConeAngle = 74;
 void tGenerateMaps::clear_prtconeangle() {
   prtconeangle_ = 0;
 }
- float tGenerateMaps::prtconeangle() const {
+float tGenerateMaps::prtconeangle() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.PRTConeAngle)
   return prtconeangle_;
 }
- void tGenerateMaps::set_prtconeangle(float value) {
+void tGenerateMaps::set_prtconeangle(float value) {
   
   prtconeangle_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.PRTConeAngle)
 }
 
-// optional uint32 Height = 75;
+// uint32 Height = 75;
 void tGenerateMaps::clear_height() {
   height_ = 0u;
 }
- ::google::protobuf::uint32 tGenerateMaps::height() const {
+::google::protobuf::uint32 tGenerateMaps::height() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.Height)
   return height_;
 }
- void tGenerateMaps::set_height(::google::protobuf::uint32 value) {
+void tGenerateMaps::set_height(::google::protobuf::uint32 value) {
   
   height_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.Height)
 }
 
-// optional float RadiosityNormalsAttenCuadratic = 76;
+// float RadiosityNormalsAttenCuadratic = 76;
 void tGenerateMaps::clear_radiositynormalsattencuadratic() {
   radiositynormalsattencuadratic_ = 0;
 }
- float tGenerateMaps::radiositynormalsattencuadratic() const {
+float tGenerateMaps::radiositynormalsattencuadratic() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.RadiosityNormalsAttenCuadratic)
   return radiositynormalsattencuadratic_;
 }
- void tGenerateMaps::set_radiositynormalsattencuadratic(float value) {
+void tGenerateMaps::set_radiositynormalsattencuadratic(float value) {
   
   radiositynormalsattencuadratic_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.RadiosityNormalsAttenCuadratic)
 }
 
-// optional .xnormal.tGenerateMaps.eHMNormalization DirectionsTonemap = 77;
+// .xnormal.tGenerateMaps.eHMNormalization DirectionsTonemap = 77;
 void tGenerateMaps::clear_directionstonemap() {
   directionstonemap_ = 0;
 }
- ::xnormal::tGenerateMaps_eHMNormalization tGenerateMaps::directionstonemap() const {
+::xnormal::tGenerateMaps_eHMNormalization tGenerateMaps::directionstonemap() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.DirectionsTonemap)
   return static_cast< ::xnormal::tGenerateMaps_eHMNormalization >(directionstonemap_);
 }
- void tGenerateMaps::set_directionstonemap(::xnormal::tGenerateMaps_eHMNormalization value) {
+void tGenerateMaps::set_directionstonemap(::xnormal::tGenerateMaps_eHMNormalization value) {
   
   directionstonemap_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.DirectionsTonemap)
 }
 
-// optional bool DirectionsTS = 78;
+// bool DirectionsTS = 78;
 void tGenerateMaps::clear_directionsts() {
   directionsts_ = false;
 }
- bool tGenerateMaps::directionsts() const {
+bool tGenerateMaps::directionsts() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.DirectionsTS)
   return directionsts_;
 }
- void tGenerateMaps::set_directionsts(bool value) {
+void tGenerateMaps::set_directionsts(bool value) {
   
   directionsts_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.DirectionsTS)
 }
 
-// optional uint32 PRTRaysPerSample = 79;
+// uint32 PRTRaysPerSample = 79;
 void tGenerateMaps::clear_prtrayspersample() {
   prtrayspersample_ = 0u;
 }
- ::google::protobuf::uint32 tGenerateMaps::prtrayspersample() const {
+::google::protobuf::uint32 tGenerateMaps::prtrayspersample() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.PRTRaysPerSample)
   return prtrayspersample_;
 }
- void tGenerateMaps::set_prtrayspersample(::google::protobuf::uint32 value) {
+void tGenerateMaps::set_prtrayspersample(::google::protobuf::uint32 value) {
   
   prtrayspersample_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.PRTRaysPerSample)
 }
 
-// optional uint32 EdgePadding = 80;
+// uint32 EdgePadding = 80;
 void tGenerateMaps::clear_edgepadding() {
   edgepadding_ = 0u;
 }
- ::google::protobuf::uint32 tGenerateMaps::edgepadding() const {
+::google::protobuf::uint32 tGenerateMaps::edgepadding() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.EdgePadding)
   return edgepadding_;
 }
- void tGenerateMaps::set_edgepadding(::google::protobuf::uint32 value) {
+void tGenerateMaps::set_edgepadding(::google::protobuf::uint32 value) {
   
   edgepadding_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.EdgePadding)
 }
 
-// optional .xnormal.tGenerateMaps.eSwizzleComponent DirectionsSwizzleZ = 81;
+// .xnormal.tGenerateMaps.eSwizzleComponent DirectionsSwizzleZ = 81;
 void tGenerateMaps::clear_directionsswizzlez() {
   directionsswizzlez_ = 0;
 }
- ::xnormal::tGenerateMaps_eSwizzleComponent tGenerateMaps::directionsswizzlez() const {
+::xnormal::tGenerateMaps_eSwizzleComponent tGenerateMaps::directionsswizzlez() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.DirectionsSwizzleZ)
   return static_cast< ::xnormal::tGenerateMaps_eSwizzleComponent >(directionsswizzlez_);
 }
- void tGenerateMaps::set_directionsswizzlez(::xnormal::tGenerateMaps_eSwizzleComponent value) {
+void tGenerateMaps::set_directionsswizzlez(::xnormal::tGenerateMaps_eSwizzleComponent value) {
   
   directionsswizzlez_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.DirectionsSwizzleZ)
 }
 
-// optional bool AOAllowPureOccluded = 82;
+// bool AOAllowPureOccluded = 82;
 void tGenerateMaps::clear_aoallowpureoccluded() {
   aoallowpureoccluded_ = false;
 }
- bool tGenerateMaps::aoallowpureoccluded() const {
+bool tGenerateMaps::aoallowpureoccluded() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.AOAllowPureOccluded)
   return aoallowpureoccluded_;
 }
- void tGenerateMaps::set_aoallowpureoccluded(bool value) {
+void tGenerateMaps::set_aoallowpureoccluded(bool value) {
   
   aoallowpureoccluded_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.AOAllowPureOccluded)
 }
 
-// optional bool AOIgnoreBackfaceHits = 83;
+// bool AOIgnoreBackfaceHits = 83;
 void tGenerateMaps::clear_aoignorebackfacehits() {
   aoignorebackfacehits_ = false;
 }
- bool tGenerateMaps::aoignorebackfacehits() const {
+bool tGenerateMaps::aoignorebackfacehits() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.AOIgnoreBackfaceHits)
   return aoignorebackfacehits_;
 }
- void tGenerateMaps::set_aoignorebackfacehits(bool value) {
+void tGenerateMaps::set_aoignorebackfacehits(bool value) {
   
   aoignorebackfacehits_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.AOIgnoreBackfaceHits)
 }
 
-// optional uint32 CavityRaysPerSample = 84;
+// uint32 CavityRaysPerSample = 84;
 void tGenerateMaps::clear_cavityrayspersample() {
   cavityrayspersample_ = 0u;
 }
- ::google::protobuf::uint32 tGenerateMaps::cavityrayspersample() const {
+::google::protobuf::uint32 tGenerateMaps::cavityrayspersample() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.CavityRaysPerSample)
   return cavityrayspersample_;
 }
- void tGenerateMaps::set_cavityrayspersample(::google::protobuf::uint32 value) {
+void tGenerateMaps::set_cavityrayspersample(::google::protobuf::uint32 value) {
   
   cavityrayspersample_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.CavityRaysPerSample)
 }
 
-// optional float AOAttenConstant = 85;
+// float AOAttenConstant = 85;
 void tGenerateMaps::clear_aoattenconstant() {
   aoattenconstant_ = 0;
 }
- float tGenerateMaps::aoattenconstant() const {
+float tGenerateMaps::aoattenconstant() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.AOAttenConstant)
   return aoattenconstant_;
 }
- void tGenerateMaps::set_aoattenconstant(float value) {
+void tGenerateMaps::set_aoattenconstant(float value) {
   
   aoattenconstant_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.AOAttenConstant)
 }
 
-// optional bool CavityJitter = 86;
+// bool CavityJitter = 86;
 void tGenerateMaps::clear_cavityjitter() {
   cavityjitter_ = false;
 }
- bool tGenerateMaps::cavityjitter() const {
+bool tGenerateMaps::cavityjitter() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.CavityJitter)
   return cavityjitter_;
 }
- void tGenerateMaps::set_cavityjitter(bool value) {
+void tGenerateMaps::set_cavityjitter(bool value) {
   
   cavityjitter_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.CavityJitter)
 }
 
-// optional float HeightTonemapMax = 87;
+// float HeightTonemapMax = 87;
 void tGenerateMaps::clear_heighttonemapmax() {
   heighttonemapmax_ = 0;
 }
- float tGenerateMaps::heighttonemapmax() const {
+float tGenerateMaps::heighttonemapmax() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.HeightTonemapMax)
   return heighttonemapmax_;
 }
- void tGenerateMaps::set_heighttonemapmax(float value) {
+void tGenerateMaps::set_heighttonemapmax(float value) {
   
   heighttonemapmax_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.HeightTonemapMax)
 }
 
-// optional bool GenDirections = 88;
+// bool GenDirections = 88;
 void tGenerateMaps::clear_gendirections() {
   gendirections_ = false;
 }
- bool tGenerateMaps::gendirections() const {
+bool tGenerateMaps::gendirections() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.GenDirections)
   return gendirections_;
 }
- void tGenerateMaps::set_gendirections(bool value) {
+void tGenerateMaps::set_gendirections(bool value) {
   
   gendirections_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.GenDirections)
 }
 
-// optional bool RadiosityNormalsLimitRayDistance = 89;
+// bool RadiosityNormalsLimitRayDistance = 89;
 void tGenerateMaps::clear_radiositynormalslimitraydistance() {
   radiositynormalslimitraydistance_ = false;
 }
- bool tGenerateMaps::radiositynormalslimitraydistance() const {
+bool tGenerateMaps::radiositynormalslimitraydistance() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.RadiosityNormalsLimitRayDistance)
   return radiositynormalslimitraydistance_;
 }
- void tGenerateMaps::set_radiositynormalslimitraydistance(bool value) {
+void tGenerateMaps::set_radiositynormalslimitraydistance(bool value) {
   
   radiositynormalslimitraydistance_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.RadiosityNormalsLimitRayDistance)
 }
 
-// optional float HeightTonemapMin = 90;
+// float HeightTonemapMin = 90;
 void tGenerateMaps::clear_heighttonemapmin() {
   heighttonemapmin_ = 0;
 }
- float tGenerateMaps::heighttonemapmin() const {
+float tGenerateMaps::heighttonemapmin() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.HeightTonemapMin)
   return heighttonemapmin_;
 }
- void tGenerateMaps::set_heighttonemapmin(float value) {
+void tGenerateMaps::set_heighttonemapmin(float value) {
   
   heighttonemapmin_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.HeightTonemapMin)
 }
 
-// optional bool RadiosityNormalsJitter = 91;
+// bool RadiosityNormalsJitter = 91;
 void tGenerateMaps::clear_radiositynormalsjitter() {
   radiositynormalsjitter_ = false;
 }
- bool tGenerateMaps::radiositynormalsjitter() const {
+bool tGenerateMaps::radiositynormalsjitter() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.RadiosityNormalsJitter)
   return radiositynormalsjitter_;
 }
- void tGenerateMaps::set_radiositynormalsjitter(bool value) {
+void tGenerateMaps::set_radiositynormalsjitter(bool value) {
   
   radiositynormalsjitter_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.RadiosityNormalsJitter)
 }
 
-// optional .xnormal.tGenerateMaps.eSwizzleComponent DirectionsSwizzleY = 92;
+// .xnormal.tGenerateMaps.eSwizzleComponent DirectionsSwizzleY = 92;
 void tGenerateMaps::clear_directionsswizzley() {
   directionsswizzley_ = 0;
 }
- ::xnormal::tGenerateMaps_eSwizzleComponent tGenerateMaps::directionsswizzley() const {
+::xnormal::tGenerateMaps_eSwizzleComponent tGenerateMaps::directionsswizzley() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.DirectionsSwizzleY)
   return static_cast< ::xnormal::tGenerateMaps_eSwizzleComponent >(directionsswizzley_);
 }
- void tGenerateMaps::set_directionsswizzley(::xnormal::tGenerateMaps_eSwizzleComponent value) {
+void tGenerateMaps::set_directionsswizzley(::xnormal::tGenerateMaps_eSwizzleComponent value) {
   
   directionsswizzley_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.DirectionsSwizzleY)
 }
 
-// optional uint32 Width = 93;
+// uint32 Width = 93;
 void tGenerateMaps::clear_width() {
   width_ = 0u;
 }
- ::google::protobuf::uint32 tGenerateMaps::width() const {
+::google::protobuf::uint32 tGenerateMaps::width() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.Width)
   return width_;
 }
- void tGenerateMaps::set_width(::google::protobuf::uint32 value) {
+void tGenerateMaps::set_width(::google::protobuf::uint32 value) {
   
   width_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.Width)
 }
 
-// optional bool BakeHighpolyBaseTextureDrawObjectIDIfNoTexture = 94;
+// bool BakeHighpolyBaseTextureDrawObjectIDIfNoTexture = 94;
 void tGenerateMaps::clear_bakehighpolybasetexturedrawobjectidifnotexture() {
   bakehighpolybasetexturedrawobjectidifnotexture_ = false;
 }
- bool tGenerateMaps::bakehighpolybasetexturedrawobjectidifnotexture() const {
+bool tGenerateMaps::bakehighpolybasetexturedrawobjectidifnotexture() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.BakeHighpolyBaseTextureDrawObjectIDIfNoTexture)
   return bakehighpolybasetexturedrawobjectidifnotexture_;
 }
- void tGenerateMaps::set_bakehighpolybasetexturedrawobjectidifnotexture(bool value) {
+void tGenerateMaps::set_bakehighpolybasetexturedrawobjectidifnotexture(bool value) {
   
   bakehighpolybasetexturedrawobjectidifnotexture_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.BakeHighpolyBaseTextureDrawObjectIDIfNoTexture)
 }
 
-// optional bool Concavity = 95;
+// bool Concavity = 95;
 void tGenerateMaps::clear_concavity() {
   concavity_ = false;
 }
- bool tGenerateMaps::concavity() const {
+bool tGenerateMaps::concavity() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.Concavity)
   return concavity_;
 }
- void tGenerateMaps::set_concavity(bool value) {
+void tGenerateMaps::set_concavity(bool value) {
   
   concavity_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.Concavity)
 }
 
-// optional .xnormal.tGenerateMaps.eSwizzleComponent DirectionsSwizzleX = 96;
+// .xnormal.tGenerateMaps.eSwizzleComponent DirectionsSwizzleX = 96;
 void tGenerateMaps::clear_directionsswizzlex() {
   directionsswizzlex_ = 0;
 }
- ::xnormal::tGenerateMaps_eSwizzleComponent tGenerateMaps::directionsswizzlex() const {
+::xnormal::tGenerateMaps_eSwizzleComponent tGenerateMaps::directionsswizzlex() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.DirectionsSwizzleX)
   return static_cast< ::xnormal::tGenerateMaps_eSwizzleComponent >(directionsswizzlex_);
 }
- void tGenerateMaps::set_directionsswizzlex(::xnormal::tGenerateMaps_eSwizzleComponent value) {
+void tGenerateMaps::set_directionsswizzlex(::xnormal::tGenerateMaps_eSwizzleComponent value) {
   
   directionsswizzlex_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.DirectionsSwizzleX)
 }
 
-// optional bool GenNormals = 97;
+// bool GenNormals = 97;
 void tGenerateMaps::clear_gennormals() {
   gennormals_ = false;
 }
- bool tGenerateMaps::gennormals() const {
+bool tGenerateMaps::gennormals() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.GenNormals)
   return gennormals_;
 }
- void tGenerateMaps::set_gennormals(bool value) {
+void tGenerateMaps::set_gennormals(bool value) {
   
   gennormals_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.GenNormals)
 }
 
-// optional uint32 ProximityRaysPerSample = 98;
+// uint32 ProximityRaysPerSample = 98;
 void tGenerateMaps::clear_proximityrayspersample() {
   proximityrayspersample_ = 0u;
 }
- ::google::protobuf::uint32 tGenerateMaps::proximityrayspersample() const {
+::google::protobuf::uint32 tGenerateMaps::proximityrayspersample() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.ProximityRaysPerSample)
   return proximityrayspersample_;
 }
- void tGenerateMaps::set_proximityrayspersample(::google::protobuf::uint32 value) {
+void tGenerateMaps::set_proximityrayspersample(::google::protobuf::uint32 value) {
   
   proximityrayspersample_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.ProximityRaysPerSample)
 }
 
-// optional bool GenHeights = 99;
+// bool GenHeights = 99;
 void tGenerateMaps::clear_genheights() {
   genheights_ = false;
 }
- bool tGenerateMaps::genheights() const {
+bool tGenerateMaps::genheights() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.GenHeights)
   return genheights_;
 }
- void tGenerateMaps::set_genheights(bool value) {
+void tGenerateMaps::set_genheights(bool value) {
   
   genheights_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.GenHeights)
 }
 
-// optional float RadiosityNormalsAttenConstant = 100;
+// float RadiosityNormalsAttenConstant = 100;
 void tGenerateMaps::clear_radiositynormalsattenconstant() {
   radiositynormalsattenconstant_ = 0;
 }
- float tGenerateMaps::radiositynormalsattenconstant() const {
+float tGenerateMaps::radiositynormalsattenconstant() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.RadiosityNormalsAttenConstant)
   return radiositynormalsattenconstant_;
 }
- void tGenerateMaps::set_radiositynormalsattenconstant(float value) {
+void tGenerateMaps::set_radiositynormalsattenconstant(float value) {
   
   radiositynormalsattenconstant_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.RadiosityNormalsAttenConstant)
 }
 
-// optional bool GenProximity = 101;
+// bool GenProximity = 101;
 void tGenerateMaps::clear_genproximity() {
   genproximity_ = false;
 }
- bool tGenerateMaps::genproximity() const {
+bool tGenerateMaps::genproximity() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.GenProximity)
   return genproximity_;
 }
- void tGenerateMaps::set_genproximity(bool value) {
+void tGenerateMaps::set_genproximity(bool value) {
   
   genproximity_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.GenProximity)
 }
 
-// optional bool GenPRT = 102;
+// bool GenPRT = 102;
 void tGenerateMaps::clear_genprt() {
   genprt_ = false;
 }
- bool tGenerateMaps::genprt() const {
+bool tGenerateMaps::genprt() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.GenPRT)
   return genprt_;
 }
- void tGenerateMaps::set_genprt(bool value) {
+void tGenerateMaps::set_genprt(bool value) {
   
   genprt_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.GenPRT)
 }
 
-// optional float CavityContrast = 103;
+// float CavityContrast = 103;
 void tGenerateMaps::clear_cavitycontrast() {
   cavitycontrast_ = 0;
 }
- float tGenerateMaps::cavitycontrast() const {
+float tGenerateMaps::cavitycontrast() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.CavityContrast)
   return cavitycontrast_;
 }
- void tGenerateMaps::set_cavitycontrast(float value) {
+void tGenerateMaps::set_cavitycontrast(float value) {
   
   cavitycontrast_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.CavityContrast)
 }
 
-// optional .xnormal.tGenerateMaps.eRNMCoordSys RadiosityNormalsCoordSys = 104;
+// .xnormal.tGenerateMaps.eRNMCoordSys RadiosityNormalsCoordSys = 104;
 void tGenerateMaps::clear_radiositynormalscoordsys() {
   radiositynormalscoordsys_ = 0;
 }
- ::xnormal::tGenerateMaps_eRNMCoordSys tGenerateMaps::radiositynormalscoordsys() const {
+::xnormal::tGenerateMaps_eRNMCoordSys tGenerateMaps::radiositynormalscoordsys() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.RadiosityNormalsCoordSys)
   return static_cast< ::xnormal::tGenerateMaps_eRNMCoordSys >(radiositynormalscoordsys_);
 }
- void tGenerateMaps::set_radiositynormalscoordsys(::xnormal::tGenerateMaps_eRNMCoordSys value) {
+void tGenerateMaps::set_radiositynormalscoordsys(::xnormal::tGenerateMaps_eRNMCoordSys value) {
   
   radiositynormalscoordsys_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.RadiosityNormalsCoordSys)
 }
 
-// optional bool TransluJitter = 105;
+// bool TransluJitter = 105;
 void tGenerateMaps::clear_translujitter() {
   translujitter_ = false;
 }
- bool tGenerateMaps::translujitter() const {
+bool tGenerateMaps::translujitter() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.TransluJitter)
   return translujitter_;
 }
- void tGenerateMaps::set_translujitter(bool value) {
+void tGenerateMaps::set_translujitter(bool value) {
   
   translujitter_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.TransluJitter)
 }
 
-// optional uint32 AORaysPerSample = 106;
+// uint32 AORaysPerSample = 106;
 void tGenerateMaps::clear_aorayspersample() {
   aorayspersample_ = 0u;
 }
- ::google::protobuf::uint32 tGenerateMaps::aorayspersample() const {
+::google::protobuf::uint32 tGenerateMaps::aorayspersample() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.AORaysPerSample)
   return aorayspersample_;
 }
- void tGenerateMaps::set_aorayspersample(::google::protobuf::uint32 value) {
+void tGenerateMaps::set_aorayspersample(::google::protobuf::uint32 value) {
   
   aorayspersample_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.AORaysPerSample)
 }
 
-// optional float BentBias = 107;
+// float BentBias = 107;
 void tGenerateMaps::clear_bentbias() {
   bentbias_ = 0;
 }
- float tGenerateMaps::bentbias() const {
+float tGenerateMaps::bentbias() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.BentBias)
   return bentbias_;
 }
- void tGenerateMaps::set_bentbias(float value) {
+void tGenerateMaps::set_bentbias(float value) {
   
   bentbias_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.BentBias)
 }
 
-// optional bool DiscardRayBackFacesHits = 108;
+// bool DiscardRayBackFacesHits = 108;
 void tGenerateMaps::clear_discardraybackfaceshits() {
   discardraybackfaceshits_ = false;
 }
- bool tGenerateMaps::discardraybackfaceshits() const {
+bool tGenerateMaps::discardraybackfaceshits() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.DiscardRayBackFacesHits)
   return discardraybackfaceshits_;
 }
- void tGenerateMaps::set_discardraybackfaceshits(bool value) {
+void tGenerateMaps::set_discardraybackfaceshits(bool value) {
   
   discardraybackfaceshits_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.DiscardRayBackFacesHits)
 }
 
-// optional float AOConeAngle = 109;
+// float AOConeAngle = 109;
 void tGenerateMaps::clear_aoconeangle() {
   aoconeangle_ = 0;
 }
- float tGenerateMaps::aoconeangle() const {
+float tGenerateMaps::aoconeangle() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.AOConeAngle)
   return aoconeangle_;
 }
- void tGenerateMaps::set_aoconeangle(float value) {
+void tGenerateMaps::set_aoconeangle(float value) {
   
   aoconeangle_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.AOConeAngle)
 }
 
-// optional .xnormal.tGenerateMaps.eSwizzleComponent BentSwizzleY = 110;
+// .xnormal.tGenerateMaps.eSwizzleComponent BentSwizzleY = 110;
 void tGenerateMaps::clear_bentswizzley() {
   bentswizzley_ = 0;
 }
- ::xnormal::tGenerateMaps_eSwizzleComponent tGenerateMaps::bentswizzley() const {
+::xnormal::tGenerateMaps_eSwizzleComponent tGenerateMaps::bentswizzley() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.BentSwizzleY)
   return static_cast< ::xnormal::tGenerateMaps_eSwizzleComponent >(bentswizzley_);
 }
- void tGenerateMaps::set_bentswizzley(::xnormal::tGenerateMaps_eSwizzleComponent value) {
+void tGenerateMaps::set_bentswizzley(::xnormal::tGenerateMaps_eSwizzleComponent value) {
   
   bentswizzley_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.BentSwizzleY)
 }
 
-// optional float RadiosityNormalsBias = 111;
+// float RadiosityNormalsBias = 111;
 void tGenerateMaps::clear_radiositynormalsbias() {
   radiositynormalsbias_ = 0;
 }
- float tGenerateMaps::radiositynormalsbias() const {
+float tGenerateMaps::radiositynormalsbias() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.RadiosityNormalsBias)
   return radiositynormalsbias_;
 }
- void tGenerateMaps::set_radiositynormalsbias(float value) {
+void tGenerateMaps::set_radiositynormalsbias(float value) {
   
   radiositynormalsbias_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.RadiosityNormalsBias)
 }
 
-// optional float RadiosityNormalsContrast = 112;
+// float RadiosityNormalsContrast = 112;
 void tGenerateMaps::clear_radiositynormalscontrast() {
   radiositynormalscontrast_ = 0;
 }
- float tGenerateMaps::radiositynormalscontrast() const {
+float tGenerateMaps::radiositynormalscontrast() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.RadiosityNormalsContrast)
   return radiositynormalscontrast_;
 }
- void tGenerateMaps::set_radiositynormalscontrast(float value) {
+void tGenerateMaps::set_radiositynormalscontrast(float value) {
   
   radiositynormalscontrast_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.RadiosityNormalsContrast)
 }
 
-// optional uint32 CavitySteps = 113;
+// uint32 CavitySteps = 113;
 void tGenerateMaps::clear_cavitysteps() {
   cavitysteps_ = 0u;
 }
- ::google::protobuf::uint32 tGenerateMaps::cavitysteps() const {
+::google::protobuf::uint32 tGenerateMaps::cavitysteps() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.CavitySteps)
   return cavitysteps_;
 }
- void tGenerateMaps::set_cavitysteps(::google::protobuf::uint32 value) {
+void tGenerateMaps::set_cavitysteps(::google::protobuf::uint32 value) {
   
   cavitysteps_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.CavitySteps)
 }
 
-// optional .xnormal.tGenerateMaps.eAntialiasing AA = 114;
+// .xnormal.tGenerateMaps.eAntialiasing AA = 114;
 void tGenerateMaps::clear_aa() {
   aa_ = 0;
 }
- ::xnormal::tGenerateMaps_eAntialiasing tGenerateMaps::aa() const {
+::xnormal::tGenerateMaps_eAntialiasing tGenerateMaps::aa() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.AA)
   return static_cast< ::xnormal::tGenerateMaps_eAntialiasing >(aa_);
 }
- void tGenerateMaps::set_aa(::xnormal::tGenerateMaps_eAntialiasing value) {
+void tGenerateMaps::set_aa(::xnormal::tGenerateMaps_eAntialiasing value) {
   
   aa_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.AA)
 }
 
-// optional .xnormal.tGenerateMaps.eSwizzleComponent BentSwizzleZ = 115;
+// .xnormal.tGenerateMaps.eSwizzleComponent BentSwizzleZ = 115;
 void tGenerateMaps::clear_bentswizzlez() {
   bentswizzlez_ = 0;
 }
- ::xnormal::tGenerateMaps_eSwizzleComponent tGenerateMaps::bentswizzlez() const {
+::xnormal::tGenerateMaps_eSwizzleComponent tGenerateMaps::bentswizzlez() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.BentSwizzleZ)
   return static_cast< ::xnormal::tGenerateMaps_eSwizzleComponent >(bentswizzlez_);
 }
- void tGenerateMaps::set_bentswizzlez(::xnormal::tGenerateMaps_eSwizzleComponent value) {
+void tGenerateMaps::set_bentswizzlez(::xnormal::tGenerateMaps_eSwizzleComponent value) {
   
   bentswizzlez_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.BentSwizzleZ)
 }
 
-// optional uint32 BucketSize = 116;
+// uint32 BucketSize = 116;
 void tGenerateMaps::clear_bucketsize() {
   bucketsize_ = 0u;
 }
- ::google::protobuf::uint32 tGenerateMaps::bucketsize() const {
+::google::protobuf::uint32 tGenerateMaps::bucketsize() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.BucketSize)
   return bucketsize_;
 }
- void tGenerateMaps::set_bucketsize(::google::protobuf::uint32 value) {
+void tGenerateMaps::set_bucketsize(::google::protobuf::uint32 value) {
   
   bucketsize_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.BucketSize)
 }
 
-// optional float CurvConeAngle = 117;
+// float CurvConeAngle = 117;
 void tGenerateMaps::clear_curvconeangle() {
   curvconeangle_ = 0;
 }
- float tGenerateMaps::curvconeangle() const {
+float tGenerateMaps::curvconeangle() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.CurvConeAngle)
   return curvconeangle_;
 }
- void tGenerateMaps::set_curvconeangle(float value) {
+void tGenerateMaps::set_curvconeangle(float value) {
   
   curvconeangle_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.CurvConeAngle)
 }
 
-// optional float TransluDist = 118;
+// float TransluDist = 118;
 void tGenerateMaps::clear_transludist() {
   transludist_ = 0;
 }
- float tGenerateMaps::transludist() const {
+float tGenerateMaps::transludist() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.TransluDist)
   return transludist_;
 }
- void tGenerateMaps::set_transludist(float value) {
+void tGenerateMaps::set_transludist(float value) {
   
   transludist_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.TransluDist)
 }
 
-// optional bool AOJitter = 119;
+// bool AOJitter = 119;
 void tGenerateMaps::clear_aojitter() {
   aojitter_ = false;
 }
- bool tGenerateMaps::aojitter() const {
+bool tGenerateMaps::aojitter() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.AOJitter)
   return aojitter_;
 }
- void tGenerateMaps::set_aojitter(bool value) {
+void tGenerateMaps::set_aojitter(bool value) {
   
   aojitter_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.AOJitter)
 }
 
-// optional float CurvBias = 120;
+// float CurvBias = 120;
 void tGenerateMaps::clear_curvbias() {
   curvbias_ = 0;
 }
- float tGenerateMaps::curvbias() const {
+float tGenerateMaps::curvbias() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.CurvBias)
   return curvbias_;
 }
- void tGenerateMaps::set_curvbias(float value) {
+void tGenerateMaps::set_curvbias(float value) {
   
   curvbias_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.CurvBias)
 }
 
-// optional bool GenWireRays = 121;
+// bool GenWireRays = 121;
 void tGenerateMaps::clear_genwirerays() {
   genwirerays_ = false;
 }
- bool tGenerateMaps::genwirerays() const {
+bool tGenerateMaps::genwirerays() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.GenWireRays)
   return genwirerays_;
 }
- void tGenerateMaps::set_genwirerays(bool value) {
+void tGenerateMaps::set_genwirerays(bool value) {
   
   genwirerays_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.GenWireRays)
 }
 
-// optional .xnormal.tGenerateMaps.eCurvAlgorithm CurvAlgorithm = 122;
+// .xnormal.tGenerateMaps.eCurvAlgorithm CurvAlgorithm = 122;
 void tGenerateMaps::clear_curvalgorithm() {
   curvalgorithm_ = 0;
 }
- ::xnormal::tGenerateMaps_eCurvAlgorithm tGenerateMaps::curvalgorithm() const {
+::xnormal::tGenerateMaps_eCurvAlgorithm tGenerateMaps::curvalgorithm() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.CurvAlgorithm)
   return static_cast< ::xnormal::tGenerateMaps_eCurvAlgorithm >(curvalgorithm_);
 }
- void tGenerateMaps::set_curvalgorithm(::xnormal::tGenerateMaps_eCurvAlgorithm value) {
+void tGenerateMaps::set_curvalgorithm(::xnormal::tGenerateMaps_eCurvAlgorithm value) {
   
   curvalgorithm_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.CurvAlgorithm)
 }
 
-// optional .xnormal.tGenerateMaps.eAODistribution TransluDistribution = 123;
+// .xnormal.tGenerateMaps.eAODistribution TransluDistribution = 123;
 void tGenerateMaps::clear_transludistribution() {
   transludistribution_ = 0;
 }
- ::xnormal::tGenerateMaps_eAODistribution tGenerateMaps::transludistribution() const {
+::xnormal::tGenerateMaps_eAODistribution tGenerateMaps::transludistribution() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.TransluDistribution)
   return static_cast< ::xnormal::tGenerateMaps_eAODistribution >(transludistribution_);
 }
- void tGenerateMaps::set_transludistribution(::xnormal::tGenerateMaps_eAODistribution value) {
+void tGenerateMaps::set_transludistribution(::xnormal::tGenerateMaps_eAODistribution value) {
   
   transludistribution_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.TransluDistribution)
 }
 
-// optional float AOAttenLinear = 124;
+// float AOAttenLinear = 124;
 void tGenerateMaps::clear_aoattenlinear() {
   aoattenlinear_ = 0;
 }
- float tGenerateMaps::aoattenlinear() const {
+float tGenerateMaps::aoattenlinear() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.AOAttenLinear)
   return aoattenlinear_;
 }
- void tGenerateMaps::set_aoattenlinear(float value) {
+void tGenerateMaps::set_aoattenlinear(float value) {
   
   aoattenlinear_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.AOAttenLinear)
 }
 
-// optional bool ProximityLimitRayDistance = 125;
+// bool ProximityLimitRayDistance = 125;
 void tGenerateMaps::clear_proximitylimitraydistance() {
   proximitylimitraydistance_ = false;
 }
- bool tGenerateMaps::proximitylimitraydistance() const {
+bool tGenerateMaps::proximitylimitraydistance() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.ProximityLimitRayDistance)
   return proximitylimitraydistance_;
 }
- void tGenerateMaps::set_proximitylimitraydistance(bool value) {
+void tGenerateMaps::set_proximitylimitraydistance(bool value) {
   
   proximitylimitraydistance_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.ProximityLimitRayDistance)
 }
 
-// optional bool GenRadiosityNormals = 126;
+// bool GenRadiosityNormals = 126;
 void tGenerateMaps::clear_genradiositynormals() {
   genradiositynormals_ = false;
 }
- bool tGenerateMaps::genradiositynormals() const {
+bool tGenerateMaps::genradiositynormals() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.GenRadiosityNormals)
   return genradiositynormals_;
 }
- void tGenerateMaps::set_genradiositynormals(bool value) {
+void tGenerateMaps::set_genradiositynormals(bool value) {
   
   genradiositynormals_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.GenRadiosityNormals)
 }
 
-// optional float ProximityConeAngle = 127;
+// float ProximityConeAngle = 127;
 void tGenerateMaps::clear_proximityconeangle() {
   proximityconeangle_ = 0;
 }
- float tGenerateMaps::proximityconeangle() const {
+float tGenerateMaps::proximityconeangle() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.ProximityConeAngle)
   return proximityconeangle_;
 }
- void tGenerateMaps::set_proximityconeangle(float value) {
+void tGenerateMaps::set_proximityconeangle(float value) {
   
   proximityconeangle_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.ProximityConeAngle)
 }
 
-// optional .xnormal.tGenerateMaps.eHMNormalization HeightTonemap = 128;
+// .xnormal.tGenerateMaps.eHMNormalization HeightTonemap = 128;
 void tGenerateMaps::clear_heighttonemap() {
   heighttonemap_ = 0;
 }
- ::xnormal::tGenerateMaps_eHMNormalization tGenerateMaps::heighttonemap() const {
+::xnormal::tGenerateMaps_eHMNormalization tGenerateMaps::heighttonemap() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.HeightTonemap)
   return static_cast< ::xnormal::tGenerateMaps_eHMNormalization >(heighttonemap_);
 }
- void tGenerateMaps::set_heighttonemap(::xnormal::tGenerateMaps_eHMNormalization value) {
+void tGenerateMaps::set_heighttonemap(::xnormal::tGenerateMaps_eHMNormalization value) {
   
   heighttonemap_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.HeightTonemap)
 }
 
-// optional bool GenCavity = 129;
+// bool GenCavity = 129;
 void tGenerateMaps::clear_gencavity() {
   gencavity_ = false;
 }
- bool tGenerateMaps::gencavity() const {
+bool tGenerateMaps::gencavity() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.GenCavity)
   return gencavity_;
 }
- void tGenerateMaps::set_gencavity(bool value) {
+void tGenerateMaps::set_gencavity(bool value) {
   
   gencavity_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.GenCavity)
 }
 
-// optional bool BakeHighpolyVCols = 130;
+// bool BakeHighpolyVCols = 130;
 void tGenerateMaps::clear_bakehighpolyvcols() {
   bakehighpolyvcols_ = false;
 }
- bool tGenerateMaps::bakehighpolyvcols() const {
+bool tGenerateMaps::bakehighpolyvcols() const {
   // @@protoc_insertion_point(field_get:xnormal.tGenerateMaps.BakeHighpolyVCols)
   return bakehighpolyvcols_;
 }
- void tGenerateMaps::set_bakehighpolyvcols(bool value) {
+void tGenerateMaps::set_bakehighpolyvcols(bool value) {
   
   bakehighpolyvcols_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tGenerateMaps.BakeHighpolyVCols)
@@ -14845,28 +14427,30 @@ const int tHighPolyModel::kDefaultMeshScaleFieldNumber;
 
 tHighPolyModel::tHighPolyModel()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_xnormal_2eproto::InitDefaults();
+  }
   SharedCtor();
   // @@protoc_insertion_point(constructor:xnormal.tHighPolyModel)
 }
-
-void tHighPolyModel::InitAsDefaultInstance() {
-  _is_default_instance_ = true;
-}
-
 tHighPolyModel::tHighPolyModel(const tHighPolyModel& from)
   : ::google::protobuf::Message(),
-    _internal_metadata_(NULL) {
-  SharedCtor();
-  MergeFrom(from);
+      _internal_metadata_(NULL),
+      mesh_(from.mesh_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  basetex_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.basetex().size() > 0) {
+    basetex_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.basetex_);
+  }
+  defaultmeshscale_ = from.defaultmeshscale_;
   // @@protoc_insertion_point(copy_constructor:xnormal.tHighPolyModel)
 }
 
 void tHighPolyModel::SharedCtor() {
-    _is_default_instance_ = false;
-  ::google::protobuf::internal::GetEmptyString();
-  _cached_size_ = 0;
   basetex_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   defaultmeshscale_ = 0;
+  _cached_size_ = 0;
 }
 
 tHighPolyModel::~tHighPolyModel() {
@@ -14876,8 +14460,6 @@ tHighPolyModel::~tHighPolyModel() {
 
 void tHighPolyModel::SharedDtor() {
   basetex_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (this != default_instance_) {
-  }
 }
 
 void tHighPolyModel::SetCachedSize(int size) const {
@@ -14886,16 +14468,14 @@ void tHighPolyModel::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
 const ::google::protobuf::Descriptor* tHighPolyModel::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return tHighPolyModel_descriptor_;
+  protobuf_xnormal_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_xnormal_2eproto::file_level_metadata[8].descriptor;
 }
 
 const tHighPolyModel& tHighPolyModel::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_xnormal_2eproto();
-  return *default_instance_;
+  protobuf_xnormal_2eproto::InitDefaults();
+  return *internal_default_instance();
 }
-
-tHighPolyModel* tHighPolyModel::default_instance_ = NULL;
 
 tHighPolyModel* tHighPolyModel::New(::google::protobuf::Arena* arena) const {
   tHighPolyModel* n = new tHighPolyModel;
@@ -14907,9 +14487,9 @@ tHighPolyModel* tHighPolyModel::New(::google::protobuf::Arena* arena) const {
 
 void tHighPolyModel::Clear() {
 // @@protoc_insertion_point(message_clear_start:xnormal.tHighPolyModel)
+  mesh_.Clear();
   basetex_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   defaultmeshscale_ = 0;
-  mesh_.Clear();
 }
 
 bool tHighPolyModel::MergePartialFromCodedStream(
@@ -14918,30 +14498,26 @@ bool tHighPolyModel::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:xnormal.tHighPolyModel)
   for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
       // repeated .xnormal.tHighPolyMesh Mesh = 1;
       case 1: {
-        if (tag == 10) {
+        if (tag == 10u) {
           DO_(input->IncrementRecursionDepth());
-         parse_loop_Mesh:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtualNoRecursionDepth(
                 input, add_mesh()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(10)) goto parse_loop_Mesh;
         input->UnsafeDecrementRecursionDepth();
-        if (input->ExpectTag(18)) goto parse_BaseTex;
         break;
       }
 
-      // optional string BaseTex = 2;
+      // string BaseTex = 2;
       case 2: {
-        if (tag == 18) {
-         parse_BaseTex:
+        if (tag == 18u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_basetex()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -14951,22 +14527,19 @@ bool tHighPolyModel::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(29)) goto parse_DefaultMeshScale;
         break;
       }
 
-      // optional float DefaultMeshScale = 3;
+      // float DefaultMeshScale = 3;
       case 3: {
-        if (tag == 29) {
-         parse_DefaultMeshScale:
+        if (tag == 29u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &defaultmeshscale_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectAtEnd()) goto success;
         break;
       }
 
@@ -15000,7 +14573,7 @@ void tHighPolyModel::SerializeWithCachedSizes(
       1, this->mesh(i), output);
   }
 
-  // optional string BaseTex = 2;
+  // string BaseTex = 2;
   if (this->basetex().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->basetex().data(), this->basetex().length(),
@@ -15010,7 +14583,7 @@ void tHighPolyModel::SerializeWithCachedSizes(
       2, this->basetex(), output);
   }
 
-  // optional float DefaultMeshScale = 3;
+  // float DefaultMeshScale = 3;
   if (this->defaultmeshscale() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(3, this->defaultmeshscale(), output);
   }
@@ -15020,7 +14593,7 @@ void tHighPolyModel::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* tHighPolyModel::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
+  (void)deterministic;  // Unused
   // @@protoc_insertion_point(serialize_to_array_start:xnormal.tHighPolyModel)
   // repeated .xnormal.tHighPolyMesh Mesh = 1;
   for (unsigned int i = 0, n = this->mesh_size(); i < n; i++) {
@@ -15029,7 +14602,7 @@ void tHighPolyModel::SerializeWithCachedSizes(
         1, this->mesh(i), false, target);
   }
 
-  // optional string BaseTex = 2;
+  // string BaseTex = 2;
   if (this->basetex().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->basetex().data(), this->basetex().length(),
@@ -15040,7 +14613,7 @@ void tHighPolyModel::SerializeWithCachedSizes(
         2, this->basetex(), target);
   }
 
-  // optional float DefaultMeshScale = 3;
+  // float DefaultMeshScale = 3;
   if (this->defaultmeshscale() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(3, this->defaultmeshscale(), target);
   }
@@ -15049,42 +14622,44 @@ void tHighPolyModel::SerializeWithCachedSizes(
   return target;
 }
 
-int tHighPolyModel::ByteSize() const {
+size_t tHighPolyModel::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:xnormal.tHighPolyModel)
-  int total_size = 0;
+  size_t total_size = 0;
 
-  // optional string BaseTex = 2;
+  // repeated .xnormal.tHighPolyMesh Mesh = 1;
+  {
+    unsigned int count = this->mesh_size();
+    total_size += 1UL * count;
+    for (unsigned int i = 0; i < count; i++) {
+      total_size +=
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->mesh(i));
+    }
+  }
+
+  // string BaseTex = 2;
   if (this->basetex().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->basetex());
   }
 
-  // optional float DefaultMeshScale = 3;
+  // float DefaultMeshScale = 3;
   if (this->defaultmeshscale() != 0) {
     total_size += 1 + 4;
   }
 
-  // repeated .xnormal.tHighPolyMesh Mesh = 1;
-  total_size += 1 * this->mesh_size();
-  for (int i = 0; i < this->mesh_size(); i++) {
-    total_size +=
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->mesh(i));
-  }
-
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
+  _cached_size_ = cached_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void tHighPolyModel::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:xnormal.tHighPolyModel)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
-  const tHighPolyModel* source = 
+  GOOGLE_DCHECK_NE(&from, this);
+  const tHighPolyModel* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const tHighPolyModel>(
           &from);
   if (source == NULL) {
@@ -15098,9 +14673,8 @@ void tHighPolyModel::MergeFrom(const ::google::protobuf::Message& from) {
 
 void tHighPolyModel::MergeFrom(const tHighPolyModel& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:xnormal.tHighPolyModel)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
   mesh_.MergeFrom(from.mesh_);
   if (from.basetex().size() > 0) {
 
@@ -15126,7 +14700,6 @@ void tHighPolyModel::CopyFrom(const tHighPolyModel& from) {
 }
 
 bool tHighPolyModel::IsInitialized() const {
-
   return true;
 }
 
@@ -15138,16 +14711,12 @@ void tHighPolyModel::InternalSwap(tHighPolyModel* other) {
   mesh_.UnsafeArenaSwap(&other->mesh_);
   basetex_.Swap(&other->basetex_);
   std::swap(defaultmeshscale_, other->defaultmeshscale_);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
 
 ::google::protobuf::Metadata tHighPolyModel::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = tHighPolyModel_descriptor_;
-  metadata.reflection = tHighPolyModel_reflection_;
-  return metadata;
+  protobuf_xnormal_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_xnormal_2eproto::file_level_metadata[8];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -15183,41 +14752,49 @@ tHighPolyModel::mesh() const {
   return mesh_;
 }
 
-// optional string BaseTex = 2;
+// string BaseTex = 2;
 void tHighPolyModel::clear_basetex() {
   basetex_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- const ::std::string& tHighPolyModel::basetex() const {
+const ::std::string& tHighPolyModel::basetex() const {
   // @@protoc_insertion_point(field_get:xnormal.tHighPolyModel.BaseTex)
-  return basetex_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return basetex_.GetNoArena();
 }
- void tHighPolyModel::set_basetex(const ::std::string& value) {
+void tHighPolyModel::set_basetex(const ::std::string& value) {
   
   basetex_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:xnormal.tHighPolyModel.BaseTex)
 }
- void tHighPolyModel::set_basetex(const char* value) {
+#if LANG_CXX11
+void tHighPolyModel::set_basetex(::std::string&& value) {
+  
+  basetex_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:xnormal.tHighPolyModel.BaseTex)
+}
+#endif
+void tHighPolyModel::set_basetex(const char* value) {
   
   basetex_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:xnormal.tHighPolyModel.BaseTex)
 }
- void tHighPolyModel::set_basetex(const char* value, size_t size) {
+void tHighPolyModel::set_basetex(const char* value, size_t size) {
   
   basetex_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:xnormal.tHighPolyModel.BaseTex)
 }
- ::std::string* tHighPolyModel::mutable_basetex() {
+::std::string* tHighPolyModel::mutable_basetex() {
   
   // @@protoc_insertion_point(field_mutable:xnormal.tHighPolyModel.BaseTex)
   return basetex_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* tHighPolyModel::release_basetex() {
+::std::string* tHighPolyModel::release_basetex() {
   // @@protoc_insertion_point(field_release:xnormal.tHighPolyModel.BaseTex)
   
   return basetex_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void tHighPolyModel::set_allocated_basetex(::std::string* basetex) {
+void tHighPolyModel::set_allocated_basetex(::std::string* basetex) {
   if (basetex != NULL) {
     
   } else {
@@ -15227,15 +14804,15 @@ void tHighPolyModel::clear_basetex() {
   // @@protoc_insertion_point(field_set_allocated:xnormal.tHighPolyModel.BaseTex)
 }
 
-// optional float DefaultMeshScale = 3;
+// float DefaultMeshScale = 3;
 void tHighPolyModel::clear_defaultmeshscale() {
   defaultmeshscale_ = 0;
 }
- float tHighPolyModel::defaultmeshscale() const {
+float tHighPolyModel::defaultmeshscale() const {
   // @@protoc_insertion_point(field_get:xnormal.tHighPolyModel.DefaultMeshScale)
   return defaultmeshscale_;
 }
- void tHighPolyModel::set_defaultmeshscale(float value) {
+void tHighPolyModel::set_defaultmeshscale(float value) {
   
   defaultmeshscale_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tHighPolyModel.DefaultMeshScale)
@@ -15252,26 +14829,25 @@ const int tLowPolyModel::kDefaultMeshScaleFieldNumber;
 
 tLowPolyModel::tLowPolyModel()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_xnormal_2eproto::InitDefaults();
+  }
   SharedCtor();
   // @@protoc_insertion_point(constructor:xnormal.tLowPolyModel)
 }
-
-void tLowPolyModel::InitAsDefaultInstance() {
-  _is_default_instance_ = true;
-}
-
 tLowPolyModel::tLowPolyModel(const tLowPolyModel& from)
   : ::google::protobuf::Message(),
-    _internal_metadata_(NULL) {
-  SharedCtor();
-  MergeFrom(from);
+      _internal_metadata_(NULL),
+      mesh_(from.mesh_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  defaultmeshscale_ = from.defaultmeshscale_;
   // @@protoc_insertion_point(copy_constructor:xnormal.tLowPolyModel)
 }
 
 void tLowPolyModel::SharedCtor() {
-    _is_default_instance_ = false;
-  _cached_size_ = 0;
   defaultmeshscale_ = 0;
+  _cached_size_ = 0;
 }
 
 tLowPolyModel::~tLowPolyModel() {
@@ -15280,8 +14856,6 @@ tLowPolyModel::~tLowPolyModel() {
 }
 
 void tLowPolyModel::SharedDtor() {
-  if (this != default_instance_) {
-  }
 }
 
 void tLowPolyModel::SetCachedSize(int size) const {
@@ -15290,16 +14864,14 @@ void tLowPolyModel::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
 const ::google::protobuf::Descriptor* tLowPolyModel::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return tLowPolyModel_descriptor_;
+  protobuf_xnormal_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_xnormal_2eproto::file_level_metadata[9].descriptor;
 }
 
 const tLowPolyModel& tLowPolyModel::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_xnormal_2eproto();
-  return *default_instance_;
+  protobuf_xnormal_2eproto::InitDefaults();
+  return *internal_default_instance();
 }
-
-tLowPolyModel* tLowPolyModel::default_instance_ = NULL;
 
 tLowPolyModel* tLowPolyModel::New(::google::protobuf::Arena* arena) const {
   tLowPolyModel* n = new tLowPolyModel;
@@ -15311,8 +14883,8 @@ tLowPolyModel* tLowPolyModel::New(::google::protobuf::Arena* arena) const {
 
 void tLowPolyModel::Clear() {
 // @@protoc_insertion_point(message_clear_start:xnormal.tLowPolyModel)
-  defaultmeshscale_ = 0;
   mesh_.Clear();
+  defaultmeshscale_ = 0;
 }
 
 bool tLowPolyModel::MergePartialFromCodedStream(
@@ -15321,38 +14893,33 @@ bool tLowPolyModel::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:xnormal.tLowPolyModel)
   for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
       // repeated .xnormal.tLowPolyMesh Mesh = 1;
       case 1: {
-        if (tag == 10) {
+        if (tag == 10u) {
           DO_(input->IncrementRecursionDepth());
-         parse_loop_Mesh:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtualNoRecursionDepth(
                 input, add_mesh()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(10)) goto parse_loop_Mesh;
         input->UnsafeDecrementRecursionDepth();
-        if (input->ExpectTag(21)) goto parse_DefaultMeshScale;
         break;
       }
 
-      // optional float DefaultMeshScale = 2;
+      // float DefaultMeshScale = 2;
       case 2: {
-        if (tag == 21) {
-         parse_DefaultMeshScale:
+        if (tag == 21u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &defaultmeshscale_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectAtEnd()) goto success;
         break;
       }
 
@@ -15386,7 +14953,7 @@ void tLowPolyModel::SerializeWithCachedSizes(
       1, this->mesh(i), output);
   }
 
-  // optional float DefaultMeshScale = 2;
+  // float DefaultMeshScale = 2;
   if (this->defaultmeshscale() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(2, this->defaultmeshscale(), output);
   }
@@ -15396,7 +14963,7 @@ void tLowPolyModel::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* tLowPolyModel::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
+  (void)deterministic;  // Unused
   // @@protoc_insertion_point(serialize_to_array_start:xnormal.tLowPolyModel)
   // repeated .xnormal.tLowPolyMesh Mesh = 1;
   for (unsigned int i = 0, n = this->mesh_size(); i < n; i++) {
@@ -15405,7 +14972,7 @@ void tLowPolyModel::SerializeWithCachedSizes(
         1, this->mesh(i), false, target);
   }
 
-  // optional float DefaultMeshScale = 2;
+  // float DefaultMeshScale = 2;
   if (this->defaultmeshscale() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(2, this->defaultmeshscale(), target);
   }
@@ -15414,35 +14981,37 @@ void tLowPolyModel::SerializeWithCachedSizes(
   return target;
 }
 
-int tLowPolyModel::ByteSize() const {
+size_t tLowPolyModel::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:xnormal.tLowPolyModel)
-  int total_size = 0;
+  size_t total_size = 0;
 
-  // optional float DefaultMeshScale = 2;
+  // repeated .xnormal.tLowPolyMesh Mesh = 1;
+  {
+    unsigned int count = this->mesh_size();
+    total_size += 1UL * count;
+    for (unsigned int i = 0; i < count; i++) {
+      total_size +=
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->mesh(i));
+    }
+  }
+
+  // float DefaultMeshScale = 2;
   if (this->defaultmeshscale() != 0) {
     total_size += 1 + 4;
   }
 
-  // repeated .xnormal.tLowPolyMesh Mesh = 1;
-  total_size += 1 * this->mesh_size();
-  for (int i = 0; i < this->mesh_size(); i++) {
-    total_size +=
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->mesh(i));
-  }
-
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
+  _cached_size_ = cached_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void tLowPolyModel::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:xnormal.tLowPolyModel)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
-  const tLowPolyModel* source = 
+  GOOGLE_DCHECK_NE(&from, this);
+  const tLowPolyModel* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const tLowPolyModel>(
           &from);
   if (source == NULL) {
@@ -15456,9 +15025,8 @@ void tLowPolyModel::MergeFrom(const ::google::protobuf::Message& from) {
 
 void tLowPolyModel::MergeFrom(const tLowPolyModel& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:xnormal.tLowPolyModel)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
   mesh_.MergeFrom(from.mesh_);
   if (from.defaultmeshscale() != 0) {
     set_defaultmeshscale(from.defaultmeshscale());
@@ -15480,7 +15048,6 @@ void tLowPolyModel::CopyFrom(const tLowPolyModel& from) {
 }
 
 bool tLowPolyModel::IsInitialized() const {
-
   return true;
 }
 
@@ -15491,16 +15058,12 @@ void tLowPolyModel::Swap(tLowPolyModel* other) {
 void tLowPolyModel::InternalSwap(tLowPolyModel* other) {
   mesh_.UnsafeArenaSwap(&other->mesh_);
   std::swap(defaultmeshscale_, other->defaultmeshscale_);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
 
 ::google::protobuf::Metadata tLowPolyModel::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = tLowPolyModel_descriptor_;
-  metadata.reflection = tLowPolyModel_reflection_;
-  return metadata;
+  protobuf_xnormal_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_xnormal_2eproto::file_level_metadata[9];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -15536,15 +15099,15 @@ tLowPolyModel::mesh() const {
   return mesh_;
 }
 
-// optional float DefaultMeshScale = 2;
+// float DefaultMeshScale = 2;
 void tLowPolyModel::clear_defaultmeshscale() {
   defaultmeshscale_ = 0;
 }
- float tLowPolyModel::defaultmeshscale() const {
+float tLowPolyModel::defaultmeshscale() const {
   // @@protoc_insertion_point(field_get:xnormal.tLowPolyModel.DefaultMeshScale)
   return defaultmeshscale_;
 }
- void tLowPolyModel::set_defaultmeshscale(float value) {
+void tLowPolyModel::set_defaultmeshscale(float value) {
   
   defaultmeshscale_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tLowPolyModel.DefaultMeshScale)
@@ -15601,78 +15164,82 @@ const int tViewer3D::kGlowIntensityFieldNumber;
 
 tViewer3D::tViewer3D()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_xnormal_2eproto::InitDefaults();
+  }
   SharedCtor();
   // @@protoc_insertion_point(constructor:xnormal.tViewer3D)
 }
-
-void tViewer3D::InitAsDefaultInstance() {
-  _is_default_instance_ = true;
-  lightambientcolor_ = const_cast< ::xnormal::tRGB8*>(&::xnormal::tRGB8::default_instance());
-  lightdiffusecolor_ = const_cast< ::xnormal::tRGB8*>(&::xnormal::tRGB8::default_instance());
-  lightspecularcolor_ = const_cast< ::xnormal::tRGB8*>(&::xnormal::tRGB8::default_instance());
-  lightsecondarycolor_ = const_cast< ::xnormal::tRGB8*>(&::xnormal::tRGB8::default_instance());
-  lighttertiarycolor_ = const_cast< ::xnormal::tRGB8*>(&::xnormal::tRGB8::default_instance());
-  backgroundcolor_ = const_cast< ::xnormal::tRGB8*>(&::xnormal::tRGB8::default_instance());
-  gridcolor_ = const_cast< ::xnormal::tRGB8*>(&::xnormal::tRGB8::default_instance());
-  cagecolor_ = const_cast< ::xnormal::tRGB8*>(&::xnormal::tRGB8::default_instance());
-  camerarotation_ = const_cast< ::xnormal::tMatrix*>(&::xnormal::tMatrix::default_instance());
-  cameraposition_ = const_cast< ::xnormal::tVector3*>(&::xnormal::tVector3::default_instance());
-  lightposition_ = const_cast< ::xnormal::tVector3*>(&::xnormal::tVector3::default_instance());
-}
-
 tViewer3D::tViewer3D(const tViewer3D& from)
   : ::google::protobuf::Message(),
-    _internal_metadata_(NULL) {
-  SharedCtor();
-  MergeFrom(from);
+      _internal_metadata_(NULL),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  if (from.has_lightambientcolor()) {
+    lightambientcolor_ = new ::xnormal::tRGB8(*from.lightambientcolor_);
+  } else {
+    lightambientcolor_ = NULL;
+  }
+  if (from.has_lightdiffusecolor()) {
+    lightdiffusecolor_ = new ::xnormal::tRGB8(*from.lightdiffusecolor_);
+  } else {
+    lightdiffusecolor_ = NULL;
+  }
+  if (from.has_lightspecularcolor()) {
+    lightspecularcolor_ = new ::xnormal::tRGB8(*from.lightspecularcolor_);
+  } else {
+    lightspecularcolor_ = NULL;
+  }
+  if (from.has_lightsecondarycolor()) {
+    lightsecondarycolor_ = new ::xnormal::tRGB8(*from.lightsecondarycolor_);
+  } else {
+    lightsecondarycolor_ = NULL;
+  }
+  if (from.has_lighttertiarycolor()) {
+    lighttertiarycolor_ = new ::xnormal::tRGB8(*from.lighttertiarycolor_);
+  } else {
+    lighttertiarycolor_ = NULL;
+  }
+  if (from.has_backgroundcolor()) {
+    backgroundcolor_ = new ::xnormal::tRGB8(*from.backgroundcolor_);
+  } else {
+    backgroundcolor_ = NULL;
+  }
+  if (from.has_gridcolor()) {
+    gridcolor_ = new ::xnormal::tRGB8(*from.gridcolor_);
+  } else {
+    gridcolor_ = NULL;
+  }
+  if (from.has_cagecolor()) {
+    cagecolor_ = new ::xnormal::tRGB8(*from.cagecolor_);
+  } else {
+    cagecolor_ = NULL;
+  }
+  if (from.has_camerarotation()) {
+    camerarotation_ = new ::xnormal::tMatrix(*from.camerarotation_);
+  } else {
+    camerarotation_ = NULL;
+  }
+  if (from.has_cameraposition()) {
+    cameraposition_ = new ::xnormal::tVector3(*from.cameraposition_);
+  } else {
+    cameraposition_ = NULL;
+  }
+  if (from.has_lightposition()) {
+    lightposition_ = new ::xnormal::tVector3(*from.lightposition_);
+  } else {
+    lightposition_ = NULL;
+  }
+  ::memcpy(&axisscl_, &from.axisscl_,
+    reinterpret_cast<char*>(&glowintensity_) -
+    reinterpret_cast<char*>(&axisscl_) + sizeof(glowintensity_));
   // @@protoc_insertion_point(copy_constructor:xnormal.tViewer3D)
 }
 
 void tViewer3D::SharedCtor() {
-    _is_default_instance_ = false;
+  ::memset(&lightambientcolor_, 0, reinterpret_cast<char*>(&glowintensity_) -
+    reinterpret_cast<char*>(&lightambientcolor_) + sizeof(glowintensity_));
   _cached_size_ = 0;
-  lightambientcolor_ = NULL;
-  lightdiffusecolor_ = NULL;
-  lightspecularcolor_ = NULL;
-  lightsecondarycolor_ = NULL;
-  lighttertiarycolor_ = NULL;
-  backgroundcolor_ = NULL;
-  gridcolor_ = NULL;
-  cagecolor_ = NULL;
-  camerarotation_ = NULL;
-  cameraposition_ = NULL;
-  lightposition_ = NULL;
-  axisscl_ = 0;
-  xemakosexample_ = false;
-  showwireframe_ = false;
-  cageopacity_ = 0;
-  diffusegiintensity_ = 0;
-  showao_ = false;
-  ssaocontrast_ = 0;
-  shadowarea_ = 0;
-  lightindiretintensity_ = 0;
-  showhighpolys_ = false;
-  showstarfield_ = false;
-  showblockers_ = false;
-  hdrthreshold_ = 0;
-  ssaobright_ = 0;
-  ssaoblurradius_ = 0;
-  showgrid_ = false;
-  parallaxstrength_ = 0;
-  ssaoatten_ = 0;
-  cameraorbitdistance_ = 0;
-  useglow_ = false;
-  ssaoenabled_ = false;
-  shadowbias_ = 0;
-  ssaoradius_ = 0;
-  lightintensity_ = 0;
-  exposure_ = 0;
-  cameraorbitautocenter_ = false;
-  castshadows_ = false;
-  shownormals_ = false;
-  maxtessellationlevel_ = GOOGLE_LONGLONG(0);
-  showtangents_ = false;
-  glowintensity_ = 0;
 }
 
 tViewer3D::~tViewer3D() {
@@ -15681,17 +15248,37 @@ tViewer3D::~tViewer3D() {
 }
 
 void tViewer3D::SharedDtor() {
-  if (this != default_instance_) {
+  if (this != internal_default_instance()) {
     delete lightambientcolor_;
+  }
+  if (this != internal_default_instance()) {
     delete lightdiffusecolor_;
+  }
+  if (this != internal_default_instance()) {
     delete lightspecularcolor_;
+  }
+  if (this != internal_default_instance()) {
     delete lightsecondarycolor_;
+  }
+  if (this != internal_default_instance()) {
     delete lighttertiarycolor_;
+  }
+  if (this != internal_default_instance()) {
     delete backgroundcolor_;
+  }
+  if (this != internal_default_instance()) {
     delete gridcolor_;
+  }
+  if (this != internal_default_instance()) {
     delete cagecolor_;
+  }
+  if (this != internal_default_instance()) {
     delete camerarotation_;
+  }
+  if (this != internal_default_instance()) {
     delete cameraposition_;
+  }
+  if (this != internal_default_instance()) {
     delete lightposition_;
   }
 }
@@ -15702,16 +15289,14 @@ void tViewer3D::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
 const ::google::protobuf::Descriptor* tViewer3D::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return tViewer3D_descriptor_;
+  protobuf_xnormal_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_xnormal_2eproto::file_level_metadata[10].descriptor;
 }
 
 const tViewer3D& tViewer3D::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_xnormal_2eproto();
-  return *default_instance_;
+  protobuf_xnormal_2eproto::InitDefaults();
+  return *internal_default_instance();
 }
-
-tViewer3D* tViewer3D::default_instance_ = NULL;
 
 tViewer3D* tViewer3D::New(::google::protobuf::Arena* arena) const {
   tViewer3D* n = new tViewer3D;
@@ -15723,59 +15308,52 @@ tViewer3D* tViewer3D::New(::google::protobuf::Arena* arena) const {
 
 void tViewer3D::Clear() {
 // @@protoc_insertion_point(message_clear_start:xnormal.tViewer3D)
-#if defined(__clang__)
-#define ZR_HELPER_(f) \
-  _Pragma("clang diagnostic push") \
-  _Pragma("clang diagnostic ignored \"-Winvalid-offsetof\"") \
-  __builtin_offsetof(tViewer3D, f) \
-  _Pragma("clang diagnostic pop")
-#else
-#define ZR_HELPER_(f) reinterpret_cast<char*>(\
-  &reinterpret_cast<tViewer3D*>(16)->f)
-#endif
-
-#define ZR_(first, last) do {\
-  ::memset(&first, 0,\
-           ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
-} while (0)
-
-  if (GetArenaNoVirtual() == NULL && lightambientcolor_ != NULL) delete lightambientcolor_;
+  if (GetArenaNoVirtual() == NULL && lightambientcolor_ != NULL) {
+    delete lightambientcolor_;
+  }
   lightambientcolor_ = NULL;
-  if (GetArenaNoVirtual() == NULL && lightdiffusecolor_ != NULL) delete lightdiffusecolor_;
+  if (GetArenaNoVirtual() == NULL && lightdiffusecolor_ != NULL) {
+    delete lightdiffusecolor_;
+  }
   lightdiffusecolor_ = NULL;
-  if (GetArenaNoVirtual() == NULL && lightspecularcolor_ != NULL) delete lightspecularcolor_;
+  if (GetArenaNoVirtual() == NULL && lightspecularcolor_ != NULL) {
+    delete lightspecularcolor_;
+  }
   lightspecularcolor_ = NULL;
-  if (GetArenaNoVirtual() == NULL && lightsecondarycolor_ != NULL) delete lightsecondarycolor_;
+  if (GetArenaNoVirtual() == NULL && lightsecondarycolor_ != NULL) {
+    delete lightsecondarycolor_;
+  }
   lightsecondarycolor_ = NULL;
-  if (GetArenaNoVirtual() == NULL && lighttertiarycolor_ != NULL) delete lighttertiarycolor_;
+  if (GetArenaNoVirtual() == NULL && lighttertiarycolor_ != NULL) {
+    delete lighttertiarycolor_;
+  }
   lighttertiarycolor_ = NULL;
-  if (GetArenaNoVirtual() == NULL && backgroundcolor_ != NULL) delete backgroundcolor_;
+  if (GetArenaNoVirtual() == NULL && backgroundcolor_ != NULL) {
+    delete backgroundcolor_;
+  }
   backgroundcolor_ = NULL;
-  if (GetArenaNoVirtual() == NULL && gridcolor_ != NULL) delete gridcolor_;
+  if (GetArenaNoVirtual() == NULL && gridcolor_ != NULL) {
+    delete gridcolor_;
+  }
   gridcolor_ = NULL;
-  if (GetArenaNoVirtual() == NULL && cagecolor_ != NULL) delete cagecolor_;
+  if (GetArenaNoVirtual() == NULL && cagecolor_ != NULL) {
+    delete cagecolor_;
+  }
   cagecolor_ = NULL;
-  ZR_(axisscl_, showwireframe_);
-  if (GetArenaNoVirtual() == NULL && camerarotation_ != NULL) delete camerarotation_;
+  if (GetArenaNoVirtual() == NULL && camerarotation_ != NULL) {
+    delete camerarotation_;
+  }
   camerarotation_ = NULL;
-  if (GetArenaNoVirtual() == NULL && cameraposition_ != NULL) delete cameraposition_;
+  if (GetArenaNoVirtual() == NULL && cameraposition_ != NULL) {
+    delete cameraposition_;
+  }
   cameraposition_ = NULL;
-  if (GetArenaNoVirtual() == NULL && lightposition_ != NULL) delete lightposition_;
+  if (GetArenaNoVirtual() == NULL && lightposition_ != NULL) {
+    delete lightposition_;
+  }
   lightposition_ = NULL;
-  ZR_(showao_, hdrthreshold_);
-  ZR_(showstarfield_, showblockers_);
-  ZR_(showgrid_, cameraorbitdistance_);
-  ssaobright_ = 0;
-  ssaoenabled_ = false;
-  ZR_(shadowbias_, exposure_);
-  ZR_(cameraorbitautocenter_, shownormals_);
-  maxtessellationlevel_ = GOOGLE_LONGLONG(0);
-  showtangents_ = false;
-  glowintensity_ = 0;
-
-#undef ZR_HELPER_
-#undef ZR_
-
+  ::memset(&axisscl_, 0, reinterpret_cast<char*>(&glowintensity_) -
+    reinterpret_cast<char*>(&axisscl_) + sizeof(glowintensity_));
 }
 
 bool tViewer3D::MergePartialFromCodedStream(
@@ -15784,614 +15362,531 @@ bool tViewer3D::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:xnormal.tViewer3D)
   for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(16383);
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(16383u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional .xnormal.tRGB8 LightAmbientColor = 1;
+      // .xnormal.tRGB8 LightAmbientColor = 1;
       case 1: {
-        if (tag == 10) {
+        if (tag == 10u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_lightambientcolor()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(18)) goto parse_LightDiffuseColor;
         break;
       }
 
-      // optional .xnormal.tRGB8 LightDiffuseColor = 2;
+      // .xnormal.tRGB8 LightDiffuseColor = 2;
       case 2: {
-        if (tag == 18) {
-         parse_LightDiffuseColor:
+        if (tag == 18u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_lightdiffusecolor()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(26)) goto parse_LightSpecularColor;
         break;
       }
 
-      // optional .xnormal.tRGB8 LightSpecularColor = 3;
+      // .xnormal.tRGB8 LightSpecularColor = 3;
       case 3: {
-        if (tag == 26) {
-         parse_LightSpecularColor:
+        if (tag == 26u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_lightspecularcolor()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(34)) goto parse_LightSecondaryColor;
         break;
       }
 
-      // optional .xnormal.tRGB8 LightSecondaryColor = 4;
+      // .xnormal.tRGB8 LightSecondaryColor = 4;
       case 4: {
-        if (tag == 34) {
-         parse_LightSecondaryColor:
+        if (tag == 34u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_lightsecondarycolor()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(42)) goto parse_LightTertiaryColor;
         break;
       }
 
-      // optional .xnormal.tRGB8 LightTertiaryColor = 5;
+      // .xnormal.tRGB8 LightTertiaryColor = 5;
       case 5: {
-        if (tag == 42) {
-         parse_LightTertiaryColor:
+        if (tag == 42u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_lighttertiarycolor()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(50)) goto parse_BackgroundColor;
         break;
       }
 
-      // optional .xnormal.tRGB8 BackgroundColor = 6;
+      // .xnormal.tRGB8 BackgroundColor = 6;
       case 6: {
-        if (tag == 50) {
-         parse_BackgroundColor:
+        if (tag == 50u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_backgroundcolor()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(58)) goto parse_GridColor;
         break;
       }
 
-      // optional .xnormal.tRGB8 GridColor = 7;
+      // .xnormal.tRGB8 GridColor = 7;
       case 7: {
-        if (tag == 58) {
-         parse_GridColor:
+        if (tag == 58u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_gridcolor()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(66)) goto parse_CageColor;
         break;
       }
 
-      // optional .xnormal.tRGB8 CageColor = 8;
+      // .xnormal.tRGB8 CageColor = 8;
       case 8: {
-        if (tag == 66) {
-         parse_CageColor:
+        if (tag == 66u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_cagecolor()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(74)) goto parse_CameraRotation;
         break;
       }
 
-      // optional .xnormal.tMatrix CameraRotation = 9;
+      // .xnormal.tMatrix CameraRotation = 9;
       case 9: {
-        if (tag == 74) {
-         parse_CameraRotation:
+        if (tag == 74u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_camerarotation()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(82)) goto parse_CameraPosition;
         break;
       }
 
-      // optional .xnormal.tVector3 CameraPosition = 10;
+      // .xnormal.tVector3 CameraPosition = 10;
       case 10: {
-        if (tag == 82) {
-         parse_CameraPosition:
+        if (tag == 82u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_cameraposition()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(90)) goto parse_LightPosition;
         break;
       }
 
-      // optional .xnormal.tVector3 LightPosition = 11;
+      // .xnormal.tVector3 LightPosition = 11;
       case 11: {
-        if (tag == 90) {
-         parse_LightPosition:
+        if (tag == 90u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_lightposition()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(101)) goto parse_AxisScl;
         break;
       }
 
-      // optional float AxisScl = 12;
+      // float AxisScl = 12;
       case 12: {
-        if (tag == 101) {
-         parse_AxisScl:
+        if (tag == 101u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &axisscl_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(104)) goto parse_XemakosExample;
         break;
       }
 
-      // optional bool XemakosExample = 13;
+      // bool XemakosExample = 13;
       case 13: {
-        if (tag == 104) {
-         parse_XemakosExample:
+        if (tag == 104u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &xemakosexample_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(112)) goto parse_ShowWireframe;
         break;
       }
 
-      // optional bool ShowWireframe = 14;
+      // bool ShowWireframe = 14;
       case 14: {
-        if (tag == 112) {
-         parse_ShowWireframe:
+        if (tag == 112u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &showwireframe_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(125)) goto parse_CageOpacity;
         break;
       }
 
-      // optional float CageOpacity = 15;
+      // float CageOpacity = 15;
       case 15: {
-        if (tag == 125) {
-         parse_CageOpacity:
+        if (tag == 125u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &cageopacity_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(133)) goto parse_DiffuseGIIntensity;
         break;
       }
 
-      // optional float DiffuseGIIntensity = 16;
+      // float DiffuseGIIntensity = 16;
       case 16: {
-        if (tag == 133) {
-         parse_DiffuseGIIntensity:
+        if (tag == 133u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &diffusegiintensity_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(136)) goto parse_ShowAO;
         break;
       }
 
-      // optional bool ShowAO = 17;
+      // bool ShowAO = 17;
       case 17: {
-        if (tag == 136) {
-         parse_ShowAO:
+        if (tag == 136u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &showao_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(149)) goto parse_SSAOContrast;
         break;
       }
 
-      // optional float SSAOContrast = 18;
+      // float SSAOContrast = 18;
       case 18: {
-        if (tag == 149) {
-         parse_SSAOContrast:
+        if (tag == 149u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &ssaocontrast_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(157)) goto parse_ShadowArea;
         break;
       }
 
-      // optional float ShadowArea = 19;
+      // float ShadowArea = 19;
       case 19: {
-        if (tag == 157) {
-         parse_ShadowArea:
+        if (tag == 157u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &shadowarea_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(165)) goto parse_LightIndiretIntensity;
         break;
       }
 
-      // optional float LightIndiretIntensity = 20;
+      // float LightIndiretIntensity = 20;
       case 20: {
-        if (tag == 165) {
-         parse_LightIndiretIntensity:
+        if (tag == 165u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &lightindiretintensity_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(168)) goto parse_ShowHighpolys;
         break;
       }
 
-      // optional bool ShowHighpolys = 21;
+      // bool ShowHighpolys = 21;
       case 21: {
-        if (tag == 168) {
-         parse_ShowHighpolys:
+        if (tag == 168u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &showhighpolys_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(176)) goto parse_ShowStarfield;
         break;
       }
 
-      // optional bool ShowStarfield = 22;
+      // bool ShowStarfield = 22;
       case 22: {
-        if (tag == 176) {
-         parse_ShowStarfield:
+        if (tag == 176u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &showstarfield_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(184)) goto parse_ShowBlockers;
         break;
       }
 
-      // optional bool ShowBlockers = 23;
+      // bool ShowBlockers = 23;
       case 23: {
-        if (tag == 184) {
-         parse_ShowBlockers:
+        if (tag == 184u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &showblockers_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(197)) goto parse_HDRThreshold;
         break;
       }
 
-      // optional float HDRThreshold = 24;
+      // float HDRThreshold = 24;
       case 24: {
-        if (tag == 197) {
-         parse_HDRThreshold:
+        if (tag == 197u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &hdrthreshold_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(205)) goto parse_SSAOBright;
         break;
       }
 
-      // optional float SSAOBright = 25;
+      // float SSAOBright = 25;
       case 25: {
-        if (tag == 205) {
-         parse_SSAOBright:
+        if (tag == 205u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &ssaobright_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(213)) goto parse_SSAOBlurRadius;
         break;
       }
 
-      // optional float SSAOBlurRadius = 26;
+      // float SSAOBlurRadius = 26;
       case 26: {
-        if (tag == 213) {
-         parse_SSAOBlurRadius:
+        if (tag == 213u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &ssaoblurradius_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(216)) goto parse_ShowGrid;
         break;
       }
 
-      // optional bool ShowGrid = 27;
+      // bool ShowGrid = 27;
       case 27: {
-        if (tag == 216) {
-         parse_ShowGrid:
+        if (tag == 216u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &showgrid_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(229)) goto parse_ParallaxStrength;
         break;
       }
 
-      // optional float ParallaxStrength = 28;
+      // float ParallaxStrength = 28;
       case 28: {
-        if (tag == 229) {
-         parse_ParallaxStrength:
+        if (tag == 229u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &parallaxstrength_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(237)) goto parse_SSAOAtten;
         break;
       }
 
-      // optional float SSAOAtten = 29;
+      // float SSAOAtten = 29;
       case 29: {
-        if (tag == 237) {
-         parse_SSAOAtten:
+        if (tag == 237u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &ssaoatten_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(245)) goto parse_CameraOrbitDistance;
         break;
       }
 
-      // optional float CameraOrbitDistance = 30;
+      // float CameraOrbitDistance = 30;
       case 30: {
-        if (tag == 245) {
-         parse_CameraOrbitDistance:
+        if (tag == 245u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &cameraorbitdistance_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(248)) goto parse_UseGlow;
         break;
       }
 
-      // optional bool UseGlow = 31;
+      // bool UseGlow = 31;
       case 31: {
-        if (tag == 248) {
-         parse_UseGlow:
+        if (tag == 248u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &useglow_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(256)) goto parse_SSAOEnabled;
         break;
       }
 
-      // optional bool SSAOEnabled = 32;
+      // bool SSAOEnabled = 32;
       case 32: {
-        if (tag == 256) {
-         parse_SSAOEnabled:
+        if (tag == 256u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &ssaoenabled_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(269)) goto parse_ShadowBias;
         break;
       }
 
-      // optional float ShadowBias = 33;
+      // float ShadowBias = 33;
       case 33: {
-        if (tag == 269) {
-         parse_ShadowBias:
+        if (tag == 269u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &shadowbias_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(277)) goto parse_SSAORadius;
         break;
       }
 
-      // optional float SSAORadius = 34;
+      // float SSAORadius = 34;
       case 34: {
-        if (tag == 277) {
-         parse_SSAORadius:
+        if (tag == 277u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &ssaoradius_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(285)) goto parse_LightIntensity;
         break;
       }
 
-      // optional float LightIntensity = 35;
+      // float LightIntensity = 35;
       case 35: {
-        if (tag == 285) {
-         parse_LightIntensity:
+        if (tag == 285u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &lightintensity_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(293)) goto parse_Exposure;
         break;
       }
 
-      // optional float Exposure = 36;
+      // float Exposure = 36;
       case 36: {
-        if (tag == 293) {
-         parse_Exposure:
+        if (tag == 293u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &exposure_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(296)) goto parse_CameraOrbitAutoCenter;
         break;
       }
 
-      // optional bool CameraOrbitAutoCenter = 37;
+      // bool CameraOrbitAutoCenter = 37;
       case 37: {
-        if (tag == 296) {
-         parse_CameraOrbitAutoCenter:
+        if (tag == 296u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &cameraorbitautocenter_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(304)) goto parse_CastShadows;
         break;
       }
 
-      // optional bool CastShadows = 38;
+      // bool CastShadows = 38;
       case 38: {
-        if (tag == 304) {
-         parse_CastShadows:
+        if (tag == 304u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &castshadows_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(312)) goto parse_ShowNormals;
         break;
       }
 
-      // optional bool ShowNormals = 39;
+      // bool ShowNormals = 39;
       case 39: {
-        if (tag == 312) {
-         parse_ShowNormals:
+        if (tag == 312u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &shownormals_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(320)) goto parse_MaxTessellationLevel;
         break;
       }
 
-      // optional int64 MaxTessellationLevel = 40;
+      // int64 MaxTessellationLevel = 40;
       case 40: {
-        if (tag == 320) {
-         parse_MaxTessellationLevel:
+        if (tag == 320u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &maxtessellationlevel_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(328)) goto parse_ShowTangents;
         break;
       }
 
-      // optional bool ShowTangents = 41;
+      // bool ShowTangents = 41;
       case 41: {
-        if (tag == 328) {
-         parse_ShowTangents:
+        if (tag == 328u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &showtangents_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(341)) goto parse_GlowIntensity;
         break;
       }
 
-      // optional float GlowIntensity = 42;
+      // float GlowIntensity = 42;
       case 42: {
-        if (tag == 341) {
-         parse_GlowIntensity:
+        if (tag == 341u) {
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &glowintensity_)));
-
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectAtEnd()) goto success;
         break;
       }
 
@@ -16419,223 +15914,223 @@ failure:
 void tViewer3D::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:xnormal.tViewer3D)
-  // optional .xnormal.tRGB8 LightAmbientColor = 1;
+  // .xnormal.tRGB8 LightAmbientColor = 1;
   if (this->has_lightambientcolor()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       1, *this->lightambientcolor_, output);
   }
 
-  // optional .xnormal.tRGB8 LightDiffuseColor = 2;
+  // .xnormal.tRGB8 LightDiffuseColor = 2;
   if (this->has_lightdiffusecolor()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       2, *this->lightdiffusecolor_, output);
   }
 
-  // optional .xnormal.tRGB8 LightSpecularColor = 3;
+  // .xnormal.tRGB8 LightSpecularColor = 3;
   if (this->has_lightspecularcolor()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       3, *this->lightspecularcolor_, output);
   }
 
-  // optional .xnormal.tRGB8 LightSecondaryColor = 4;
+  // .xnormal.tRGB8 LightSecondaryColor = 4;
   if (this->has_lightsecondarycolor()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       4, *this->lightsecondarycolor_, output);
   }
 
-  // optional .xnormal.tRGB8 LightTertiaryColor = 5;
+  // .xnormal.tRGB8 LightTertiaryColor = 5;
   if (this->has_lighttertiarycolor()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       5, *this->lighttertiarycolor_, output);
   }
 
-  // optional .xnormal.tRGB8 BackgroundColor = 6;
+  // .xnormal.tRGB8 BackgroundColor = 6;
   if (this->has_backgroundcolor()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       6, *this->backgroundcolor_, output);
   }
 
-  // optional .xnormal.tRGB8 GridColor = 7;
+  // .xnormal.tRGB8 GridColor = 7;
   if (this->has_gridcolor()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       7, *this->gridcolor_, output);
   }
 
-  // optional .xnormal.tRGB8 CageColor = 8;
+  // .xnormal.tRGB8 CageColor = 8;
   if (this->has_cagecolor()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       8, *this->cagecolor_, output);
   }
 
-  // optional .xnormal.tMatrix CameraRotation = 9;
+  // .xnormal.tMatrix CameraRotation = 9;
   if (this->has_camerarotation()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       9, *this->camerarotation_, output);
   }
 
-  // optional .xnormal.tVector3 CameraPosition = 10;
+  // .xnormal.tVector3 CameraPosition = 10;
   if (this->has_cameraposition()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       10, *this->cameraposition_, output);
   }
 
-  // optional .xnormal.tVector3 LightPosition = 11;
+  // .xnormal.tVector3 LightPosition = 11;
   if (this->has_lightposition()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       11, *this->lightposition_, output);
   }
 
-  // optional float AxisScl = 12;
+  // float AxisScl = 12;
   if (this->axisscl() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(12, this->axisscl(), output);
   }
 
-  // optional bool XemakosExample = 13;
+  // bool XemakosExample = 13;
   if (this->xemakosexample() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(13, this->xemakosexample(), output);
   }
 
-  // optional bool ShowWireframe = 14;
+  // bool ShowWireframe = 14;
   if (this->showwireframe() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(14, this->showwireframe(), output);
   }
 
-  // optional float CageOpacity = 15;
+  // float CageOpacity = 15;
   if (this->cageopacity() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(15, this->cageopacity(), output);
   }
 
-  // optional float DiffuseGIIntensity = 16;
+  // float DiffuseGIIntensity = 16;
   if (this->diffusegiintensity() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(16, this->diffusegiintensity(), output);
   }
 
-  // optional bool ShowAO = 17;
+  // bool ShowAO = 17;
   if (this->showao() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(17, this->showao(), output);
   }
 
-  // optional float SSAOContrast = 18;
+  // float SSAOContrast = 18;
   if (this->ssaocontrast() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(18, this->ssaocontrast(), output);
   }
 
-  // optional float ShadowArea = 19;
+  // float ShadowArea = 19;
   if (this->shadowarea() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(19, this->shadowarea(), output);
   }
 
-  // optional float LightIndiretIntensity = 20;
+  // float LightIndiretIntensity = 20;
   if (this->lightindiretintensity() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(20, this->lightindiretintensity(), output);
   }
 
-  // optional bool ShowHighpolys = 21;
+  // bool ShowHighpolys = 21;
   if (this->showhighpolys() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(21, this->showhighpolys(), output);
   }
 
-  // optional bool ShowStarfield = 22;
+  // bool ShowStarfield = 22;
   if (this->showstarfield() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(22, this->showstarfield(), output);
   }
 
-  // optional bool ShowBlockers = 23;
+  // bool ShowBlockers = 23;
   if (this->showblockers() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(23, this->showblockers(), output);
   }
 
-  // optional float HDRThreshold = 24;
+  // float HDRThreshold = 24;
   if (this->hdrthreshold() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(24, this->hdrthreshold(), output);
   }
 
-  // optional float SSAOBright = 25;
+  // float SSAOBright = 25;
   if (this->ssaobright() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(25, this->ssaobright(), output);
   }
 
-  // optional float SSAOBlurRadius = 26;
+  // float SSAOBlurRadius = 26;
   if (this->ssaoblurradius() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(26, this->ssaoblurradius(), output);
   }
 
-  // optional bool ShowGrid = 27;
+  // bool ShowGrid = 27;
   if (this->showgrid() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(27, this->showgrid(), output);
   }
 
-  // optional float ParallaxStrength = 28;
+  // float ParallaxStrength = 28;
   if (this->parallaxstrength() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(28, this->parallaxstrength(), output);
   }
 
-  // optional float SSAOAtten = 29;
+  // float SSAOAtten = 29;
   if (this->ssaoatten() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(29, this->ssaoatten(), output);
   }
 
-  // optional float CameraOrbitDistance = 30;
+  // float CameraOrbitDistance = 30;
   if (this->cameraorbitdistance() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(30, this->cameraorbitdistance(), output);
   }
 
-  // optional bool UseGlow = 31;
+  // bool UseGlow = 31;
   if (this->useglow() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(31, this->useglow(), output);
   }
 
-  // optional bool SSAOEnabled = 32;
+  // bool SSAOEnabled = 32;
   if (this->ssaoenabled() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(32, this->ssaoenabled(), output);
   }
 
-  // optional float ShadowBias = 33;
+  // float ShadowBias = 33;
   if (this->shadowbias() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(33, this->shadowbias(), output);
   }
 
-  // optional float SSAORadius = 34;
+  // float SSAORadius = 34;
   if (this->ssaoradius() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(34, this->ssaoradius(), output);
   }
 
-  // optional float LightIntensity = 35;
+  // float LightIntensity = 35;
   if (this->lightintensity() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(35, this->lightintensity(), output);
   }
 
-  // optional float Exposure = 36;
+  // float Exposure = 36;
   if (this->exposure() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(36, this->exposure(), output);
   }
 
-  // optional bool CameraOrbitAutoCenter = 37;
+  // bool CameraOrbitAutoCenter = 37;
   if (this->cameraorbitautocenter() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(37, this->cameraorbitautocenter(), output);
   }
 
-  // optional bool CastShadows = 38;
+  // bool CastShadows = 38;
   if (this->castshadows() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(38, this->castshadows(), output);
   }
 
-  // optional bool ShowNormals = 39;
+  // bool ShowNormals = 39;
   if (this->shownormals() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(39, this->shownormals(), output);
   }
 
-  // optional int64 MaxTessellationLevel = 40;
+  // int64 MaxTessellationLevel = 40;
   if (this->maxtessellationlevel() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(40, this->maxtessellationlevel(), output);
   }
 
-  // optional bool ShowTangents = 41;
+  // bool ShowTangents = 41;
   if (this->showtangents() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(41, this->showtangents(), output);
   }
 
-  // optional float GlowIntensity = 42;
+  // float GlowIntensity = 42;
   if (this->glowintensity() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(42, this->glowintensity(), output);
   }
@@ -16645,236 +16140,236 @@ void tViewer3D::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* tViewer3D::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
+  (void)deterministic;  // Unused
   // @@protoc_insertion_point(serialize_to_array_start:xnormal.tViewer3D)
-  // optional .xnormal.tRGB8 LightAmbientColor = 1;
+  // .xnormal.tRGB8 LightAmbientColor = 1;
   if (this->has_lightambientcolor()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
         1, *this->lightambientcolor_, false, target);
   }
 
-  // optional .xnormal.tRGB8 LightDiffuseColor = 2;
+  // .xnormal.tRGB8 LightDiffuseColor = 2;
   if (this->has_lightdiffusecolor()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
         2, *this->lightdiffusecolor_, false, target);
   }
 
-  // optional .xnormal.tRGB8 LightSpecularColor = 3;
+  // .xnormal.tRGB8 LightSpecularColor = 3;
   if (this->has_lightspecularcolor()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
         3, *this->lightspecularcolor_, false, target);
   }
 
-  // optional .xnormal.tRGB8 LightSecondaryColor = 4;
+  // .xnormal.tRGB8 LightSecondaryColor = 4;
   if (this->has_lightsecondarycolor()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
         4, *this->lightsecondarycolor_, false, target);
   }
 
-  // optional .xnormal.tRGB8 LightTertiaryColor = 5;
+  // .xnormal.tRGB8 LightTertiaryColor = 5;
   if (this->has_lighttertiarycolor()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
         5, *this->lighttertiarycolor_, false, target);
   }
 
-  // optional .xnormal.tRGB8 BackgroundColor = 6;
+  // .xnormal.tRGB8 BackgroundColor = 6;
   if (this->has_backgroundcolor()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
         6, *this->backgroundcolor_, false, target);
   }
 
-  // optional .xnormal.tRGB8 GridColor = 7;
+  // .xnormal.tRGB8 GridColor = 7;
   if (this->has_gridcolor()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
         7, *this->gridcolor_, false, target);
   }
 
-  // optional .xnormal.tRGB8 CageColor = 8;
+  // .xnormal.tRGB8 CageColor = 8;
   if (this->has_cagecolor()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
         8, *this->cagecolor_, false, target);
   }
 
-  // optional .xnormal.tMatrix CameraRotation = 9;
+  // .xnormal.tMatrix CameraRotation = 9;
   if (this->has_camerarotation()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
         9, *this->camerarotation_, false, target);
   }
 
-  // optional .xnormal.tVector3 CameraPosition = 10;
+  // .xnormal.tVector3 CameraPosition = 10;
   if (this->has_cameraposition()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
         10, *this->cameraposition_, false, target);
   }
 
-  // optional .xnormal.tVector3 LightPosition = 11;
+  // .xnormal.tVector3 LightPosition = 11;
   if (this->has_lightposition()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
         11, *this->lightposition_, false, target);
   }
 
-  // optional float AxisScl = 12;
+  // float AxisScl = 12;
   if (this->axisscl() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(12, this->axisscl(), target);
   }
 
-  // optional bool XemakosExample = 13;
+  // bool XemakosExample = 13;
   if (this->xemakosexample() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(13, this->xemakosexample(), target);
   }
 
-  // optional bool ShowWireframe = 14;
+  // bool ShowWireframe = 14;
   if (this->showwireframe() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(14, this->showwireframe(), target);
   }
 
-  // optional float CageOpacity = 15;
+  // float CageOpacity = 15;
   if (this->cageopacity() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(15, this->cageopacity(), target);
   }
 
-  // optional float DiffuseGIIntensity = 16;
+  // float DiffuseGIIntensity = 16;
   if (this->diffusegiintensity() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(16, this->diffusegiintensity(), target);
   }
 
-  // optional bool ShowAO = 17;
+  // bool ShowAO = 17;
   if (this->showao() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(17, this->showao(), target);
   }
 
-  // optional float SSAOContrast = 18;
+  // float SSAOContrast = 18;
   if (this->ssaocontrast() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(18, this->ssaocontrast(), target);
   }
 
-  // optional float ShadowArea = 19;
+  // float ShadowArea = 19;
   if (this->shadowarea() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(19, this->shadowarea(), target);
   }
 
-  // optional float LightIndiretIntensity = 20;
+  // float LightIndiretIntensity = 20;
   if (this->lightindiretintensity() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(20, this->lightindiretintensity(), target);
   }
 
-  // optional bool ShowHighpolys = 21;
+  // bool ShowHighpolys = 21;
   if (this->showhighpolys() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(21, this->showhighpolys(), target);
   }
 
-  // optional bool ShowStarfield = 22;
+  // bool ShowStarfield = 22;
   if (this->showstarfield() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(22, this->showstarfield(), target);
   }
 
-  // optional bool ShowBlockers = 23;
+  // bool ShowBlockers = 23;
   if (this->showblockers() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(23, this->showblockers(), target);
   }
 
-  // optional float HDRThreshold = 24;
+  // float HDRThreshold = 24;
   if (this->hdrthreshold() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(24, this->hdrthreshold(), target);
   }
 
-  // optional float SSAOBright = 25;
+  // float SSAOBright = 25;
   if (this->ssaobright() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(25, this->ssaobright(), target);
   }
 
-  // optional float SSAOBlurRadius = 26;
+  // float SSAOBlurRadius = 26;
   if (this->ssaoblurradius() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(26, this->ssaoblurradius(), target);
   }
 
-  // optional bool ShowGrid = 27;
+  // bool ShowGrid = 27;
   if (this->showgrid() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(27, this->showgrid(), target);
   }
 
-  // optional float ParallaxStrength = 28;
+  // float ParallaxStrength = 28;
   if (this->parallaxstrength() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(28, this->parallaxstrength(), target);
   }
 
-  // optional float SSAOAtten = 29;
+  // float SSAOAtten = 29;
   if (this->ssaoatten() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(29, this->ssaoatten(), target);
   }
 
-  // optional float CameraOrbitDistance = 30;
+  // float CameraOrbitDistance = 30;
   if (this->cameraorbitdistance() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(30, this->cameraorbitdistance(), target);
   }
 
-  // optional bool UseGlow = 31;
+  // bool UseGlow = 31;
   if (this->useglow() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(31, this->useglow(), target);
   }
 
-  // optional bool SSAOEnabled = 32;
+  // bool SSAOEnabled = 32;
   if (this->ssaoenabled() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(32, this->ssaoenabled(), target);
   }
 
-  // optional float ShadowBias = 33;
+  // float ShadowBias = 33;
   if (this->shadowbias() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(33, this->shadowbias(), target);
   }
 
-  // optional float SSAORadius = 34;
+  // float SSAORadius = 34;
   if (this->ssaoradius() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(34, this->ssaoradius(), target);
   }
 
-  // optional float LightIntensity = 35;
+  // float LightIntensity = 35;
   if (this->lightintensity() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(35, this->lightintensity(), target);
   }
 
-  // optional float Exposure = 36;
+  // float Exposure = 36;
   if (this->exposure() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(36, this->exposure(), target);
   }
 
-  // optional bool CameraOrbitAutoCenter = 37;
+  // bool CameraOrbitAutoCenter = 37;
   if (this->cameraorbitautocenter() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(37, this->cameraorbitautocenter(), target);
   }
 
-  // optional bool CastShadows = 38;
+  // bool CastShadows = 38;
   if (this->castshadows() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(38, this->castshadows(), target);
   }
 
-  // optional bool ShowNormals = 39;
+  // bool ShowNormals = 39;
   if (this->shownormals() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(39, this->shownormals(), target);
   }
 
-  // optional int64 MaxTessellationLevel = 40;
+  // int64 MaxTessellationLevel = 40;
   if (this->maxtessellationlevel() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(40, this->maxtessellationlevel(), target);
   }
 
-  // optional bool ShowTangents = 41;
+  // bool ShowTangents = 41;
   if (this->showtangents() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(41, this->showtangents(), target);
   }
 
-  // optional float GlowIntensity = 42;
+  // float GlowIntensity = 42;
   if (this->glowintensity() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(42, this->glowintensity(), target);
   }
@@ -16883,256 +16378,255 @@ void tViewer3D::SerializeWithCachedSizes(
   return target;
 }
 
-int tViewer3D::ByteSize() const {
+size_t tViewer3D::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:xnormal.tViewer3D)
-  int total_size = 0;
+  size_t total_size = 0;
 
-  // optional .xnormal.tRGB8 LightAmbientColor = 1;
+  // .xnormal.tRGB8 LightAmbientColor = 1;
   if (this->has_lightambientcolor()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->lightambientcolor_);
   }
 
-  // optional .xnormal.tRGB8 LightDiffuseColor = 2;
+  // .xnormal.tRGB8 LightDiffuseColor = 2;
   if (this->has_lightdiffusecolor()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->lightdiffusecolor_);
   }
 
-  // optional .xnormal.tRGB8 LightSpecularColor = 3;
+  // .xnormal.tRGB8 LightSpecularColor = 3;
   if (this->has_lightspecularcolor()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->lightspecularcolor_);
   }
 
-  // optional .xnormal.tRGB8 LightSecondaryColor = 4;
+  // .xnormal.tRGB8 LightSecondaryColor = 4;
   if (this->has_lightsecondarycolor()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->lightsecondarycolor_);
   }
 
-  // optional .xnormal.tRGB8 LightTertiaryColor = 5;
+  // .xnormal.tRGB8 LightTertiaryColor = 5;
   if (this->has_lighttertiarycolor()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->lighttertiarycolor_);
   }
 
-  // optional .xnormal.tRGB8 BackgroundColor = 6;
+  // .xnormal.tRGB8 BackgroundColor = 6;
   if (this->has_backgroundcolor()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->backgroundcolor_);
   }
 
-  // optional .xnormal.tRGB8 GridColor = 7;
+  // .xnormal.tRGB8 GridColor = 7;
   if (this->has_gridcolor()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->gridcolor_);
   }
 
-  // optional .xnormal.tRGB8 CageColor = 8;
+  // .xnormal.tRGB8 CageColor = 8;
   if (this->has_cagecolor()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->cagecolor_);
   }
 
-  // optional .xnormal.tMatrix CameraRotation = 9;
+  // .xnormal.tMatrix CameraRotation = 9;
   if (this->has_camerarotation()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->camerarotation_);
   }
 
-  // optional .xnormal.tVector3 CameraPosition = 10;
+  // .xnormal.tVector3 CameraPosition = 10;
   if (this->has_cameraposition()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->cameraposition_);
   }
 
-  // optional .xnormal.tVector3 LightPosition = 11;
+  // .xnormal.tVector3 LightPosition = 11;
   if (this->has_lightposition()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->lightposition_);
   }
 
-  // optional float AxisScl = 12;
+  // float AxisScl = 12;
   if (this->axisscl() != 0) {
     total_size += 1 + 4;
   }
 
-  // optional bool XemakosExample = 13;
-  if (this->xemakosexample() != 0) {
-    total_size += 1 + 1;
-  }
-
-  // optional bool ShowWireframe = 14;
-  if (this->showwireframe() != 0) {
-    total_size += 1 + 1;
-  }
-
-  // optional float CageOpacity = 15;
+  // float CageOpacity = 15;
   if (this->cageopacity() != 0) {
     total_size += 1 + 4;
   }
 
-  // optional float DiffuseGIIntensity = 16;
+  // float DiffuseGIIntensity = 16;
   if (this->diffusegiintensity() != 0) {
     total_size += 2 + 4;
   }
 
-  // optional bool ShowAO = 17;
+  // bool XemakosExample = 13;
+  if (this->xemakosexample() != 0) {
+    total_size += 1 + 1;
+  }
+
+  // bool ShowWireframe = 14;
+  if (this->showwireframe() != 0) {
+    total_size += 1 + 1;
+  }
+
+  // bool ShowAO = 17;
   if (this->showao() != 0) {
     total_size += 2 + 1;
   }
 
-  // optional float SSAOContrast = 18;
-  if (this->ssaocontrast() != 0) {
-    total_size += 2 + 4;
-  }
-
-  // optional float ShadowArea = 19;
-  if (this->shadowarea() != 0) {
-    total_size += 2 + 4;
-  }
-
-  // optional float LightIndiretIntensity = 20;
-  if (this->lightindiretintensity() != 0) {
-    total_size += 2 + 4;
-  }
-
-  // optional bool ShowHighpolys = 21;
+  // bool ShowHighpolys = 21;
   if (this->showhighpolys() != 0) {
     total_size += 2 + 1;
   }
 
-  // optional bool ShowStarfield = 22;
-  if (this->showstarfield() != 0) {
-    total_size += 2 + 1;
+  // float SSAOContrast = 18;
+  if (this->ssaocontrast() != 0) {
+    total_size += 2 + 4;
   }
 
-  // optional bool ShowBlockers = 23;
-  if (this->showblockers() != 0) {
-    total_size += 2 + 1;
+  // float ShadowArea = 19;
+  if (this->shadowarea() != 0) {
+    total_size += 2 + 4;
   }
 
-  // optional float HDRThreshold = 24;
+  // float LightIndiretIntensity = 20;
+  if (this->lightindiretintensity() != 0) {
+    total_size += 2 + 4;
+  }
+
+  // float HDRThreshold = 24;
   if (this->hdrthreshold() != 0) {
     total_size += 2 + 4;
   }
 
-  // optional float SSAOBright = 25;
+  // float SSAOBright = 25;
   if (this->ssaobright() != 0) {
     total_size += 2 + 4;
   }
 
-  // optional float SSAOBlurRadius = 26;
-  if (this->ssaoblurradius() != 0) {
-    total_size += 2 + 4;
+  // bool ShowStarfield = 22;
+  if (this->showstarfield() != 0) {
+    total_size += 2 + 1;
   }
 
-  // optional bool ShowGrid = 27;
+  // bool ShowBlockers = 23;
+  if (this->showblockers() != 0) {
+    total_size += 2 + 1;
+  }
+
+  // bool ShowGrid = 27;
   if (this->showgrid() != 0) {
     total_size += 2 + 1;
   }
 
-  // optional float ParallaxStrength = 28;
-  if (this->parallaxstrength() != 0) {
-    total_size += 2 + 4;
-  }
-
-  // optional float SSAOAtten = 29;
-  if (this->ssaoatten() != 0) {
-    total_size += 2 + 4;
-  }
-
-  // optional float CameraOrbitDistance = 30;
-  if (this->cameraorbitdistance() != 0) {
-    total_size += 2 + 4;
-  }
-
-  // optional bool UseGlow = 31;
+  // bool UseGlow = 31;
   if (this->useglow() != 0) {
     total_size += 2 + 1;
   }
 
-  // optional bool SSAOEnabled = 32;
-  if (this->ssaoenabled() != 0) {
-    total_size += 2 + 1;
+  // float SSAOBlurRadius = 26;
+  if (this->ssaoblurradius() != 0) {
+    total_size += 2 + 4;
   }
 
-  // optional float ShadowBias = 33;
+  // float ParallaxStrength = 28;
+  if (this->parallaxstrength() != 0) {
+    total_size += 2 + 4;
+  }
+
+  // float SSAOAtten = 29;
+  if (this->ssaoatten() != 0) {
+    total_size += 2 + 4;
+  }
+
+  // float CameraOrbitDistance = 30;
+  if (this->cameraorbitdistance() != 0) {
+    total_size += 2 + 4;
+  }
+
+  // float ShadowBias = 33;
   if (this->shadowbias() != 0) {
     total_size += 2 + 4;
   }
 
-  // optional float SSAORadius = 34;
+  // float SSAORadius = 34;
   if (this->ssaoradius() != 0) {
     total_size += 2 + 4;
   }
 
-  // optional float LightIntensity = 35;
+  // float LightIntensity = 35;
   if (this->lightintensity() != 0) {
     total_size += 2 + 4;
   }
 
-  // optional float Exposure = 36;
+  // float Exposure = 36;
   if (this->exposure() != 0) {
     total_size += 2 + 4;
   }
 
-  // optional bool CameraOrbitAutoCenter = 37;
+  // bool SSAOEnabled = 32;
+  if (this->ssaoenabled() != 0) {
+    total_size += 2 + 1;
+  }
+
+  // bool CameraOrbitAutoCenter = 37;
   if (this->cameraorbitautocenter() != 0) {
     total_size += 2 + 1;
   }
 
-  // optional bool CastShadows = 38;
+  // bool CastShadows = 38;
   if (this->castshadows() != 0) {
     total_size += 2 + 1;
   }
 
-  // optional bool ShowNormals = 39;
+  // bool ShowNormals = 39;
   if (this->shownormals() != 0) {
     total_size += 2 + 1;
   }
 
-  // optional int64 MaxTessellationLevel = 40;
+  // bool ShowTangents = 41;
+  if (this->showtangents() != 0) {
+    total_size += 2 + 1;
+  }
+
+  // int64 MaxTessellationLevel = 40;
   if (this->maxtessellationlevel() != 0) {
     total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::Int64Size(
         this->maxtessellationlevel());
   }
 
-  // optional bool ShowTangents = 41;
-  if (this->showtangents() != 0) {
-    total_size += 2 + 1;
-  }
-
-  // optional float GlowIntensity = 42;
+  // float GlowIntensity = 42;
   if (this->glowintensity() != 0) {
     total_size += 2 + 4;
   }
 
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
+  _cached_size_ = cached_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void tViewer3D::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:xnormal.tViewer3D)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
-  const tViewer3D* source = 
+  GOOGLE_DCHECK_NE(&from, this);
+  const tViewer3D* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const tViewer3D>(
           &from);
   if (source == NULL) {
@@ -17146,9 +16640,8 @@ void tViewer3D::MergeFrom(const ::google::protobuf::Message& from) {
 
 void tViewer3D::MergeFrom(const tViewer3D& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:xnormal.tViewer3D)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
   if (from.has_lightambientcolor()) {
     mutable_lightambientcolor()->::xnormal::tRGB8::MergeFrom(from.lightambientcolor());
   }
@@ -17185,20 +16678,23 @@ void tViewer3D::MergeFrom(const tViewer3D& from) {
   if (from.axisscl() != 0) {
     set_axisscl(from.axisscl());
   }
-  if (from.xemakosexample() != 0) {
-    set_xemakosexample(from.xemakosexample());
-  }
-  if (from.showwireframe() != 0) {
-    set_showwireframe(from.showwireframe());
-  }
   if (from.cageopacity() != 0) {
     set_cageopacity(from.cageopacity());
   }
   if (from.diffusegiintensity() != 0) {
     set_diffusegiintensity(from.diffusegiintensity());
   }
+  if (from.xemakosexample() != 0) {
+    set_xemakosexample(from.xemakosexample());
+  }
+  if (from.showwireframe() != 0) {
+    set_showwireframe(from.showwireframe());
+  }
   if (from.showao() != 0) {
     set_showao(from.showao());
+  }
+  if (from.showhighpolys() != 0) {
+    set_showhighpolys(from.showhighpolys());
   }
   if (from.ssaocontrast() != 0) {
     set_ssaocontrast(from.ssaocontrast());
@@ -17209,8 +16705,11 @@ void tViewer3D::MergeFrom(const tViewer3D& from) {
   if (from.lightindiretintensity() != 0) {
     set_lightindiretintensity(from.lightindiretintensity());
   }
-  if (from.showhighpolys() != 0) {
-    set_showhighpolys(from.showhighpolys());
+  if (from.hdrthreshold() != 0) {
+    set_hdrthreshold(from.hdrthreshold());
+  }
+  if (from.ssaobright() != 0) {
+    set_ssaobright(from.ssaobright());
   }
   if (from.showstarfield() != 0) {
     set_showstarfield(from.showstarfield());
@@ -17218,17 +16717,14 @@ void tViewer3D::MergeFrom(const tViewer3D& from) {
   if (from.showblockers() != 0) {
     set_showblockers(from.showblockers());
   }
-  if (from.hdrthreshold() != 0) {
-    set_hdrthreshold(from.hdrthreshold());
+  if (from.showgrid() != 0) {
+    set_showgrid(from.showgrid());
   }
-  if (from.ssaobright() != 0) {
-    set_ssaobright(from.ssaobright());
+  if (from.useglow() != 0) {
+    set_useglow(from.useglow());
   }
   if (from.ssaoblurradius() != 0) {
     set_ssaoblurradius(from.ssaoblurradius());
-  }
-  if (from.showgrid() != 0) {
-    set_showgrid(from.showgrid());
   }
   if (from.parallaxstrength() != 0) {
     set_parallaxstrength(from.parallaxstrength());
@@ -17238,12 +16734,6 @@ void tViewer3D::MergeFrom(const tViewer3D& from) {
   }
   if (from.cameraorbitdistance() != 0) {
     set_cameraorbitdistance(from.cameraorbitdistance());
-  }
-  if (from.useglow() != 0) {
-    set_useglow(from.useglow());
-  }
-  if (from.ssaoenabled() != 0) {
-    set_ssaoenabled(from.ssaoenabled());
   }
   if (from.shadowbias() != 0) {
     set_shadowbias(from.shadowbias());
@@ -17257,6 +16747,9 @@ void tViewer3D::MergeFrom(const tViewer3D& from) {
   if (from.exposure() != 0) {
     set_exposure(from.exposure());
   }
+  if (from.ssaoenabled() != 0) {
+    set_ssaoenabled(from.ssaoenabled());
+  }
   if (from.cameraorbitautocenter() != 0) {
     set_cameraorbitautocenter(from.cameraorbitautocenter());
   }
@@ -17266,11 +16759,11 @@ void tViewer3D::MergeFrom(const tViewer3D& from) {
   if (from.shownormals() != 0) {
     set_shownormals(from.shownormals());
   }
-  if (from.maxtessellationlevel() != 0) {
-    set_maxtessellationlevel(from.maxtessellationlevel());
-  }
   if (from.showtangents() != 0) {
     set_showtangents(from.showtangents());
+  }
+  if (from.maxtessellationlevel() != 0) {
+    set_maxtessellationlevel(from.maxtessellationlevel());
   }
   if (from.glowintensity() != 0) {
     set_glowintensity(from.glowintensity());
@@ -17292,7 +16785,6 @@ void tViewer3D::CopyFrom(const tViewer3D& from) {
 }
 
 bool tViewer3D::IsInitialized() const {
-
   return true;
 }
 
@@ -17313,54 +16805,50 @@ void tViewer3D::InternalSwap(tViewer3D* other) {
   std::swap(cameraposition_, other->cameraposition_);
   std::swap(lightposition_, other->lightposition_);
   std::swap(axisscl_, other->axisscl_);
-  std::swap(xemakosexample_, other->xemakosexample_);
-  std::swap(showwireframe_, other->showwireframe_);
   std::swap(cageopacity_, other->cageopacity_);
   std::swap(diffusegiintensity_, other->diffusegiintensity_);
+  std::swap(xemakosexample_, other->xemakosexample_);
+  std::swap(showwireframe_, other->showwireframe_);
   std::swap(showao_, other->showao_);
+  std::swap(showhighpolys_, other->showhighpolys_);
   std::swap(ssaocontrast_, other->ssaocontrast_);
   std::swap(shadowarea_, other->shadowarea_);
   std::swap(lightindiretintensity_, other->lightindiretintensity_);
-  std::swap(showhighpolys_, other->showhighpolys_);
-  std::swap(showstarfield_, other->showstarfield_);
-  std::swap(showblockers_, other->showblockers_);
   std::swap(hdrthreshold_, other->hdrthreshold_);
   std::swap(ssaobright_, other->ssaobright_);
-  std::swap(ssaoblurradius_, other->ssaoblurradius_);
+  std::swap(showstarfield_, other->showstarfield_);
+  std::swap(showblockers_, other->showblockers_);
   std::swap(showgrid_, other->showgrid_);
+  std::swap(useglow_, other->useglow_);
+  std::swap(ssaoblurradius_, other->ssaoblurradius_);
   std::swap(parallaxstrength_, other->parallaxstrength_);
   std::swap(ssaoatten_, other->ssaoatten_);
   std::swap(cameraorbitdistance_, other->cameraorbitdistance_);
-  std::swap(useglow_, other->useglow_);
-  std::swap(ssaoenabled_, other->ssaoenabled_);
   std::swap(shadowbias_, other->shadowbias_);
   std::swap(ssaoradius_, other->ssaoradius_);
   std::swap(lightintensity_, other->lightintensity_);
   std::swap(exposure_, other->exposure_);
+  std::swap(ssaoenabled_, other->ssaoenabled_);
   std::swap(cameraorbitautocenter_, other->cameraorbitautocenter_);
   std::swap(castshadows_, other->castshadows_);
   std::swap(shownormals_, other->shownormals_);
-  std::swap(maxtessellationlevel_, other->maxtessellationlevel_);
   std::swap(showtangents_, other->showtangents_);
+  std::swap(maxtessellationlevel_, other->maxtessellationlevel_);
   std::swap(glowintensity_, other->glowintensity_);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
 
 ::google::protobuf::Metadata tViewer3D::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = tViewer3D_descriptor_;
-  metadata.reflection = tViewer3D_reflection_;
-  return metadata;
+  protobuf_xnormal_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_xnormal_2eproto::file_level_metadata[10];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // tViewer3D
 
-// optional .xnormal.tRGB8 LightAmbientColor = 1;
+// .xnormal.tRGB8 LightAmbientColor = 1;
 bool tViewer3D::has_lightambientcolor() const {
-  return !_is_default_instance_ && lightambientcolor_ != NULL;
+  return this != internal_default_instance() && lightambientcolor_ != NULL;
 }
 void tViewer3D::clear_lightambientcolor() {
   if (GetArenaNoVirtual() == NULL && lightambientcolor_ != NULL) delete lightambientcolor_;
@@ -17368,7 +16856,8 @@ void tViewer3D::clear_lightambientcolor() {
 }
 const ::xnormal::tRGB8& tViewer3D::lightambientcolor() const {
   // @@protoc_insertion_point(field_get:xnormal.tViewer3D.LightAmbientColor)
-  return lightambientcolor_ != NULL ? *lightambientcolor_ : *default_instance_->lightambientcolor_;
+  return lightambientcolor_ != NULL ? *lightambientcolor_
+                         : *::xnormal::tRGB8::internal_default_instance();
 }
 ::xnormal::tRGB8* tViewer3D::mutable_lightambientcolor() {
   
@@ -17396,9 +16885,9 @@ void tViewer3D::set_allocated_lightambientcolor(::xnormal::tRGB8* lightambientco
   // @@protoc_insertion_point(field_set_allocated:xnormal.tViewer3D.LightAmbientColor)
 }
 
-// optional .xnormal.tRGB8 LightDiffuseColor = 2;
+// .xnormal.tRGB8 LightDiffuseColor = 2;
 bool tViewer3D::has_lightdiffusecolor() const {
-  return !_is_default_instance_ && lightdiffusecolor_ != NULL;
+  return this != internal_default_instance() && lightdiffusecolor_ != NULL;
 }
 void tViewer3D::clear_lightdiffusecolor() {
   if (GetArenaNoVirtual() == NULL && lightdiffusecolor_ != NULL) delete lightdiffusecolor_;
@@ -17406,7 +16895,8 @@ void tViewer3D::clear_lightdiffusecolor() {
 }
 const ::xnormal::tRGB8& tViewer3D::lightdiffusecolor() const {
   // @@protoc_insertion_point(field_get:xnormal.tViewer3D.LightDiffuseColor)
-  return lightdiffusecolor_ != NULL ? *lightdiffusecolor_ : *default_instance_->lightdiffusecolor_;
+  return lightdiffusecolor_ != NULL ? *lightdiffusecolor_
+                         : *::xnormal::tRGB8::internal_default_instance();
 }
 ::xnormal::tRGB8* tViewer3D::mutable_lightdiffusecolor() {
   
@@ -17434,9 +16924,9 @@ void tViewer3D::set_allocated_lightdiffusecolor(::xnormal::tRGB8* lightdiffuseco
   // @@protoc_insertion_point(field_set_allocated:xnormal.tViewer3D.LightDiffuseColor)
 }
 
-// optional .xnormal.tRGB8 LightSpecularColor = 3;
+// .xnormal.tRGB8 LightSpecularColor = 3;
 bool tViewer3D::has_lightspecularcolor() const {
-  return !_is_default_instance_ && lightspecularcolor_ != NULL;
+  return this != internal_default_instance() && lightspecularcolor_ != NULL;
 }
 void tViewer3D::clear_lightspecularcolor() {
   if (GetArenaNoVirtual() == NULL && lightspecularcolor_ != NULL) delete lightspecularcolor_;
@@ -17444,7 +16934,8 @@ void tViewer3D::clear_lightspecularcolor() {
 }
 const ::xnormal::tRGB8& tViewer3D::lightspecularcolor() const {
   // @@protoc_insertion_point(field_get:xnormal.tViewer3D.LightSpecularColor)
-  return lightspecularcolor_ != NULL ? *lightspecularcolor_ : *default_instance_->lightspecularcolor_;
+  return lightspecularcolor_ != NULL ? *lightspecularcolor_
+                         : *::xnormal::tRGB8::internal_default_instance();
 }
 ::xnormal::tRGB8* tViewer3D::mutable_lightspecularcolor() {
   
@@ -17472,9 +16963,9 @@ void tViewer3D::set_allocated_lightspecularcolor(::xnormal::tRGB8* lightspecular
   // @@protoc_insertion_point(field_set_allocated:xnormal.tViewer3D.LightSpecularColor)
 }
 
-// optional .xnormal.tRGB8 LightSecondaryColor = 4;
+// .xnormal.tRGB8 LightSecondaryColor = 4;
 bool tViewer3D::has_lightsecondarycolor() const {
-  return !_is_default_instance_ && lightsecondarycolor_ != NULL;
+  return this != internal_default_instance() && lightsecondarycolor_ != NULL;
 }
 void tViewer3D::clear_lightsecondarycolor() {
   if (GetArenaNoVirtual() == NULL && lightsecondarycolor_ != NULL) delete lightsecondarycolor_;
@@ -17482,7 +16973,8 @@ void tViewer3D::clear_lightsecondarycolor() {
 }
 const ::xnormal::tRGB8& tViewer3D::lightsecondarycolor() const {
   // @@protoc_insertion_point(field_get:xnormal.tViewer3D.LightSecondaryColor)
-  return lightsecondarycolor_ != NULL ? *lightsecondarycolor_ : *default_instance_->lightsecondarycolor_;
+  return lightsecondarycolor_ != NULL ? *lightsecondarycolor_
+                         : *::xnormal::tRGB8::internal_default_instance();
 }
 ::xnormal::tRGB8* tViewer3D::mutable_lightsecondarycolor() {
   
@@ -17510,9 +17002,9 @@ void tViewer3D::set_allocated_lightsecondarycolor(::xnormal::tRGB8* lightseconda
   // @@protoc_insertion_point(field_set_allocated:xnormal.tViewer3D.LightSecondaryColor)
 }
 
-// optional .xnormal.tRGB8 LightTertiaryColor = 5;
+// .xnormal.tRGB8 LightTertiaryColor = 5;
 bool tViewer3D::has_lighttertiarycolor() const {
-  return !_is_default_instance_ && lighttertiarycolor_ != NULL;
+  return this != internal_default_instance() && lighttertiarycolor_ != NULL;
 }
 void tViewer3D::clear_lighttertiarycolor() {
   if (GetArenaNoVirtual() == NULL && lighttertiarycolor_ != NULL) delete lighttertiarycolor_;
@@ -17520,7 +17012,8 @@ void tViewer3D::clear_lighttertiarycolor() {
 }
 const ::xnormal::tRGB8& tViewer3D::lighttertiarycolor() const {
   // @@protoc_insertion_point(field_get:xnormal.tViewer3D.LightTertiaryColor)
-  return lighttertiarycolor_ != NULL ? *lighttertiarycolor_ : *default_instance_->lighttertiarycolor_;
+  return lighttertiarycolor_ != NULL ? *lighttertiarycolor_
+                         : *::xnormal::tRGB8::internal_default_instance();
 }
 ::xnormal::tRGB8* tViewer3D::mutable_lighttertiarycolor() {
   
@@ -17548,9 +17041,9 @@ void tViewer3D::set_allocated_lighttertiarycolor(::xnormal::tRGB8* lighttertiary
   // @@protoc_insertion_point(field_set_allocated:xnormal.tViewer3D.LightTertiaryColor)
 }
 
-// optional .xnormal.tRGB8 BackgroundColor = 6;
+// .xnormal.tRGB8 BackgroundColor = 6;
 bool tViewer3D::has_backgroundcolor() const {
-  return !_is_default_instance_ && backgroundcolor_ != NULL;
+  return this != internal_default_instance() && backgroundcolor_ != NULL;
 }
 void tViewer3D::clear_backgroundcolor() {
   if (GetArenaNoVirtual() == NULL && backgroundcolor_ != NULL) delete backgroundcolor_;
@@ -17558,7 +17051,8 @@ void tViewer3D::clear_backgroundcolor() {
 }
 const ::xnormal::tRGB8& tViewer3D::backgroundcolor() const {
   // @@protoc_insertion_point(field_get:xnormal.tViewer3D.BackgroundColor)
-  return backgroundcolor_ != NULL ? *backgroundcolor_ : *default_instance_->backgroundcolor_;
+  return backgroundcolor_ != NULL ? *backgroundcolor_
+                         : *::xnormal::tRGB8::internal_default_instance();
 }
 ::xnormal::tRGB8* tViewer3D::mutable_backgroundcolor() {
   
@@ -17586,9 +17080,9 @@ void tViewer3D::set_allocated_backgroundcolor(::xnormal::tRGB8* backgroundcolor)
   // @@protoc_insertion_point(field_set_allocated:xnormal.tViewer3D.BackgroundColor)
 }
 
-// optional .xnormal.tRGB8 GridColor = 7;
+// .xnormal.tRGB8 GridColor = 7;
 bool tViewer3D::has_gridcolor() const {
-  return !_is_default_instance_ && gridcolor_ != NULL;
+  return this != internal_default_instance() && gridcolor_ != NULL;
 }
 void tViewer3D::clear_gridcolor() {
   if (GetArenaNoVirtual() == NULL && gridcolor_ != NULL) delete gridcolor_;
@@ -17596,7 +17090,8 @@ void tViewer3D::clear_gridcolor() {
 }
 const ::xnormal::tRGB8& tViewer3D::gridcolor() const {
   // @@protoc_insertion_point(field_get:xnormal.tViewer3D.GridColor)
-  return gridcolor_ != NULL ? *gridcolor_ : *default_instance_->gridcolor_;
+  return gridcolor_ != NULL ? *gridcolor_
+                         : *::xnormal::tRGB8::internal_default_instance();
 }
 ::xnormal::tRGB8* tViewer3D::mutable_gridcolor() {
   
@@ -17624,9 +17119,9 @@ void tViewer3D::set_allocated_gridcolor(::xnormal::tRGB8* gridcolor) {
   // @@protoc_insertion_point(field_set_allocated:xnormal.tViewer3D.GridColor)
 }
 
-// optional .xnormal.tRGB8 CageColor = 8;
+// .xnormal.tRGB8 CageColor = 8;
 bool tViewer3D::has_cagecolor() const {
-  return !_is_default_instance_ && cagecolor_ != NULL;
+  return this != internal_default_instance() && cagecolor_ != NULL;
 }
 void tViewer3D::clear_cagecolor() {
   if (GetArenaNoVirtual() == NULL && cagecolor_ != NULL) delete cagecolor_;
@@ -17634,7 +17129,8 @@ void tViewer3D::clear_cagecolor() {
 }
 const ::xnormal::tRGB8& tViewer3D::cagecolor() const {
   // @@protoc_insertion_point(field_get:xnormal.tViewer3D.CageColor)
-  return cagecolor_ != NULL ? *cagecolor_ : *default_instance_->cagecolor_;
+  return cagecolor_ != NULL ? *cagecolor_
+                         : *::xnormal::tRGB8::internal_default_instance();
 }
 ::xnormal::tRGB8* tViewer3D::mutable_cagecolor() {
   
@@ -17662,9 +17158,9 @@ void tViewer3D::set_allocated_cagecolor(::xnormal::tRGB8* cagecolor) {
   // @@protoc_insertion_point(field_set_allocated:xnormal.tViewer3D.CageColor)
 }
 
-// optional .xnormal.tMatrix CameraRotation = 9;
+// .xnormal.tMatrix CameraRotation = 9;
 bool tViewer3D::has_camerarotation() const {
-  return !_is_default_instance_ && camerarotation_ != NULL;
+  return this != internal_default_instance() && camerarotation_ != NULL;
 }
 void tViewer3D::clear_camerarotation() {
   if (GetArenaNoVirtual() == NULL && camerarotation_ != NULL) delete camerarotation_;
@@ -17672,7 +17168,8 @@ void tViewer3D::clear_camerarotation() {
 }
 const ::xnormal::tMatrix& tViewer3D::camerarotation() const {
   // @@protoc_insertion_point(field_get:xnormal.tViewer3D.CameraRotation)
-  return camerarotation_ != NULL ? *camerarotation_ : *default_instance_->camerarotation_;
+  return camerarotation_ != NULL ? *camerarotation_
+                         : *::xnormal::tMatrix::internal_default_instance();
 }
 ::xnormal::tMatrix* tViewer3D::mutable_camerarotation() {
   
@@ -17700,9 +17197,9 @@ void tViewer3D::set_allocated_camerarotation(::xnormal::tMatrix* camerarotation)
   // @@protoc_insertion_point(field_set_allocated:xnormal.tViewer3D.CameraRotation)
 }
 
-// optional .xnormal.tVector3 CameraPosition = 10;
+// .xnormal.tVector3 CameraPosition = 10;
 bool tViewer3D::has_cameraposition() const {
-  return !_is_default_instance_ && cameraposition_ != NULL;
+  return this != internal_default_instance() && cameraposition_ != NULL;
 }
 void tViewer3D::clear_cameraposition() {
   if (GetArenaNoVirtual() == NULL && cameraposition_ != NULL) delete cameraposition_;
@@ -17710,7 +17207,8 @@ void tViewer3D::clear_cameraposition() {
 }
 const ::xnormal::tVector3& tViewer3D::cameraposition() const {
   // @@protoc_insertion_point(field_get:xnormal.tViewer3D.CameraPosition)
-  return cameraposition_ != NULL ? *cameraposition_ : *default_instance_->cameraposition_;
+  return cameraposition_ != NULL ? *cameraposition_
+                         : *::xnormal::tVector3::internal_default_instance();
 }
 ::xnormal::tVector3* tViewer3D::mutable_cameraposition() {
   
@@ -17738,9 +17236,9 @@ void tViewer3D::set_allocated_cameraposition(::xnormal::tVector3* cameraposition
   // @@protoc_insertion_point(field_set_allocated:xnormal.tViewer3D.CameraPosition)
 }
 
-// optional .xnormal.tVector3 LightPosition = 11;
+// .xnormal.tVector3 LightPosition = 11;
 bool tViewer3D::has_lightposition() const {
-  return !_is_default_instance_ && lightposition_ != NULL;
+  return this != internal_default_instance() && lightposition_ != NULL;
 }
 void tViewer3D::clear_lightposition() {
   if (GetArenaNoVirtual() == NULL && lightposition_ != NULL) delete lightposition_;
@@ -17748,7 +17246,8 @@ void tViewer3D::clear_lightposition() {
 }
 const ::xnormal::tVector3& tViewer3D::lightposition() const {
   // @@protoc_insertion_point(field_get:xnormal.tViewer3D.LightPosition)
-  return lightposition_ != NULL ? *lightposition_ : *default_instance_->lightposition_;
+  return lightposition_ != NULL ? *lightposition_
+                         : *::xnormal::tVector3::internal_default_instance();
 }
 ::xnormal::tVector3* tViewer3D::mutable_lightposition() {
   
@@ -17776,435 +17275,435 @@ void tViewer3D::set_allocated_lightposition(::xnormal::tVector3* lightposition) 
   // @@protoc_insertion_point(field_set_allocated:xnormal.tViewer3D.LightPosition)
 }
 
-// optional float AxisScl = 12;
+// float AxisScl = 12;
 void tViewer3D::clear_axisscl() {
   axisscl_ = 0;
 }
- float tViewer3D::axisscl() const {
+float tViewer3D::axisscl() const {
   // @@protoc_insertion_point(field_get:xnormal.tViewer3D.AxisScl)
   return axisscl_;
 }
- void tViewer3D::set_axisscl(float value) {
+void tViewer3D::set_axisscl(float value) {
   
   axisscl_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tViewer3D.AxisScl)
 }
 
-// optional bool XemakosExample = 13;
+// bool XemakosExample = 13;
 void tViewer3D::clear_xemakosexample() {
   xemakosexample_ = false;
 }
- bool tViewer3D::xemakosexample() const {
+bool tViewer3D::xemakosexample() const {
   // @@protoc_insertion_point(field_get:xnormal.tViewer3D.XemakosExample)
   return xemakosexample_;
 }
- void tViewer3D::set_xemakosexample(bool value) {
+void tViewer3D::set_xemakosexample(bool value) {
   
   xemakosexample_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tViewer3D.XemakosExample)
 }
 
-// optional bool ShowWireframe = 14;
+// bool ShowWireframe = 14;
 void tViewer3D::clear_showwireframe() {
   showwireframe_ = false;
 }
- bool tViewer3D::showwireframe() const {
+bool tViewer3D::showwireframe() const {
   // @@protoc_insertion_point(field_get:xnormal.tViewer3D.ShowWireframe)
   return showwireframe_;
 }
- void tViewer3D::set_showwireframe(bool value) {
+void tViewer3D::set_showwireframe(bool value) {
   
   showwireframe_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tViewer3D.ShowWireframe)
 }
 
-// optional float CageOpacity = 15;
+// float CageOpacity = 15;
 void tViewer3D::clear_cageopacity() {
   cageopacity_ = 0;
 }
- float tViewer3D::cageopacity() const {
+float tViewer3D::cageopacity() const {
   // @@protoc_insertion_point(field_get:xnormal.tViewer3D.CageOpacity)
   return cageopacity_;
 }
- void tViewer3D::set_cageopacity(float value) {
+void tViewer3D::set_cageopacity(float value) {
   
   cageopacity_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tViewer3D.CageOpacity)
 }
 
-// optional float DiffuseGIIntensity = 16;
+// float DiffuseGIIntensity = 16;
 void tViewer3D::clear_diffusegiintensity() {
   diffusegiintensity_ = 0;
 }
- float tViewer3D::diffusegiintensity() const {
+float tViewer3D::diffusegiintensity() const {
   // @@protoc_insertion_point(field_get:xnormal.tViewer3D.DiffuseGIIntensity)
   return diffusegiintensity_;
 }
- void tViewer3D::set_diffusegiintensity(float value) {
+void tViewer3D::set_diffusegiintensity(float value) {
   
   diffusegiintensity_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tViewer3D.DiffuseGIIntensity)
 }
 
-// optional bool ShowAO = 17;
+// bool ShowAO = 17;
 void tViewer3D::clear_showao() {
   showao_ = false;
 }
- bool tViewer3D::showao() const {
+bool tViewer3D::showao() const {
   // @@protoc_insertion_point(field_get:xnormal.tViewer3D.ShowAO)
   return showao_;
 }
- void tViewer3D::set_showao(bool value) {
+void tViewer3D::set_showao(bool value) {
   
   showao_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tViewer3D.ShowAO)
 }
 
-// optional float SSAOContrast = 18;
+// float SSAOContrast = 18;
 void tViewer3D::clear_ssaocontrast() {
   ssaocontrast_ = 0;
 }
- float tViewer3D::ssaocontrast() const {
+float tViewer3D::ssaocontrast() const {
   // @@protoc_insertion_point(field_get:xnormal.tViewer3D.SSAOContrast)
   return ssaocontrast_;
 }
- void tViewer3D::set_ssaocontrast(float value) {
+void tViewer3D::set_ssaocontrast(float value) {
   
   ssaocontrast_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tViewer3D.SSAOContrast)
 }
 
-// optional float ShadowArea = 19;
+// float ShadowArea = 19;
 void tViewer3D::clear_shadowarea() {
   shadowarea_ = 0;
 }
- float tViewer3D::shadowarea() const {
+float tViewer3D::shadowarea() const {
   // @@protoc_insertion_point(field_get:xnormal.tViewer3D.ShadowArea)
   return shadowarea_;
 }
- void tViewer3D::set_shadowarea(float value) {
+void tViewer3D::set_shadowarea(float value) {
   
   shadowarea_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tViewer3D.ShadowArea)
 }
 
-// optional float LightIndiretIntensity = 20;
+// float LightIndiretIntensity = 20;
 void tViewer3D::clear_lightindiretintensity() {
   lightindiretintensity_ = 0;
 }
- float tViewer3D::lightindiretintensity() const {
+float tViewer3D::lightindiretintensity() const {
   // @@protoc_insertion_point(field_get:xnormal.tViewer3D.LightIndiretIntensity)
   return lightindiretintensity_;
 }
- void tViewer3D::set_lightindiretintensity(float value) {
+void tViewer3D::set_lightindiretintensity(float value) {
   
   lightindiretintensity_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tViewer3D.LightIndiretIntensity)
 }
 
-// optional bool ShowHighpolys = 21;
+// bool ShowHighpolys = 21;
 void tViewer3D::clear_showhighpolys() {
   showhighpolys_ = false;
 }
- bool tViewer3D::showhighpolys() const {
+bool tViewer3D::showhighpolys() const {
   // @@protoc_insertion_point(field_get:xnormal.tViewer3D.ShowHighpolys)
   return showhighpolys_;
 }
- void tViewer3D::set_showhighpolys(bool value) {
+void tViewer3D::set_showhighpolys(bool value) {
   
   showhighpolys_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tViewer3D.ShowHighpolys)
 }
 
-// optional bool ShowStarfield = 22;
+// bool ShowStarfield = 22;
 void tViewer3D::clear_showstarfield() {
   showstarfield_ = false;
 }
- bool tViewer3D::showstarfield() const {
+bool tViewer3D::showstarfield() const {
   // @@protoc_insertion_point(field_get:xnormal.tViewer3D.ShowStarfield)
   return showstarfield_;
 }
- void tViewer3D::set_showstarfield(bool value) {
+void tViewer3D::set_showstarfield(bool value) {
   
   showstarfield_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tViewer3D.ShowStarfield)
 }
 
-// optional bool ShowBlockers = 23;
+// bool ShowBlockers = 23;
 void tViewer3D::clear_showblockers() {
   showblockers_ = false;
 }
- bool tViewer3D::showblockers() const {
+bool tViewer3D::showblockers() const {
   // @@protoc_insertion_point(field_get:xnormal.tViewer3D.ShowBlockers)
   return showblockers_;
 }
- void tViewer3D::set_showblockers(bool value) {
+void tViewer3D::set_showblockers(bool value) {
   
   showblockers_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tViewer3D.ShowBlockers)
 }
 
-// optional float HDRThreshold = 24;
+// float HDRThreshold = 24;
 void tViewer3D::clear_hdrthreshold() {
   hdrthreshold_ = 0;
 }
- float tViewer3D::hdrthreshold() const {
+float tViewer3D::hdrthreshold() const {
   // @@protoc_insertion_point(field_get:xnormal.tViewer3D.HDRThreshold)
   return hdrthreshold_;
 }
- void tViewer3D::set_hdrthreshold(float value) {
+void tViewer3D::set_hdrthreshold(float value) {
   
   hdrthreshold_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tViewer3D.HDRThreshold)
 }
 
-// optional float SSAOBright = 25;
+// float SSAOBright = 25;
 void tViewer3D::clear_ssaobright() {
   ssaobright_ = 0;
 }
- float tViewer3D::ssaobright() const {
+float tViewer3D::ssaobright() const {
   // @@protoc_insertion_point(field_get:xnormal.tViewer3D.SSAOBright)
   return ssaobright_;
 }
- void tViewer3D::set_ssaobright(float value) {
+void tViewer3D::set_ssaobright(float value) {
   
   ssaobright_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tViewer3D.SSAOBright)
 }
 
-// optional float SSAOBlurRadius = 26;
+// float SSAOBlurRadius = 26;
 void tViewer3D::clear_ssaoblurradius() {
   ssaoblurradius_ = 0;
 }
- float tViewer3D::ssaoblurradius() const {
+float tViewer3D::ssaoblurradius() const {
   // @@protoc_insertion_point(field_get:xnormal.tViewer3D.SSAOBlurRadius)
   return ssaoblurradius_;
 }
- void tViewer3D::set_ssaoblurradius(float value) {
+void tViewer3D::set_ssaoblurradius(float value) {
   
   ssaoblurradius_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tViewer3D.SSAOBlurRadius)
 }
 
-// optional bool ShowGrid = 27;
+// bool ShowGrid = 27;
 void tViewer3D::clear_showgrid() {
   showgrid_ = false;
 }
- bool tViewer3D::showgrid() const {
+bool tViewer3D::showgrid() const {
   // @@protoc_insertion_point(field_get:xnormal.tViewer3D.ShowGrid)
   return showgrid_;
 }
- void tViewer3D::set_showgrid(bool value) {
+void tViewer3D::set_showgrid(bool value) {
   
   showgrid_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tViewer3D.ShowGrid)
 }
 
-// optional float ParallaxStrength = 28;
+// float ParallaxStrength = 28;
 void tViewer3D::clear_parallaxstrength() {
   parallaxstrength_ = 0;
 }
- float tViewer3D::parallaxstrength() const {
+float tViewer3D::parallaxstrength() const {
   // @@protoc_insertion_point(field_get:xnormal.tViewer3D.ParallaxStrength)
   return parallaxstrength_;
 }
- void tViewer3D::set_parallaxstrength(float value) {
+void tViewer3D::set_parallaxstrength(float value) {
   
   parallaxstrength_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tViewer3D.ParallaxStrength)
 }
 
-// optional float SSAOAtten = 29;
+// float SSAOAtten = 29;
 void tViewer3D::clear_ssaoatten() {
   ssaoatten_ = 0;
 }
- float tViewer3D::ssaoatten() const {
+float tViewer3D::ssaoatten() const {
   // @@protoc_insertion_point(field_get:xnormal.tViewer3D.SSAOAtten)
   return ssaoatten_;
 }
- void tViewer3D::set_ssaoatten(float value) {
+void tViewer3D::set_ssaoatten(float value) {
   
   ssaoatten_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tViewer3D.SSAOAtten)
 }
 
-// optional float CameraOrbitDistance = 30;
+// float CameraOrbitDistance = 30;
 void tViewer3D::clear_cameraorbitdistance() {
   cameraorbitdistance_ = 0;
 }
- float tViewer3D::cameraorbitdistance() const {
+float tViewer3D::cameraorbitdistance() const {
   // @@protoc_insertion_point(field_get:xnormal.tViewer3D.CameraOrbitDistance)
   return cameraorbitdistance_;
 }
- void tViewer3D::set_cameraorbitdistance(float value) {
+void tViewer3D::set_cameraorbitdistance(float value) {
   
   cameraorbitdistance_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tViewer3D.CameraOrbitDistance)
 }
 
-// optional bool UseGlow = 31;
+// bool UseGlow = 31;
 void tViewer3D::clear_useglow() {
   useglow_ = false;
 }
- bool tViewer3D::useglow() const {
+bool tViewer3D::useglow() const {
   // @@protoc_insertion_point(field_get:xnormal.tViewer3D.UseGlow)
   return useglow_;
 }
- void tViewer3D::set_useglow(bool value) {
+void tViewer3D::set_useglow(bool value) {
   
   useglow_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tViewer3D.UseGlow)
 }
 
-// optional bool SSAOEnabled = 32;
+// bool SSAOEnabled = 32;
 void tViewer3D::clear_ssaoenabled() {
   ssaoenabled_ = false;
 }
- bool tViewer3D::ssaoenabled() const {
+bool tViewer3D::ssaoenabled() const {
   // @@protoc_insertion_point(field_get:xnormal.tViewer3D.SSAOEnabled)
   return ssaoenabled_;
 }
- void tViewer3D::set_ssaoenabled(bool value) {
+void tViewer3D::set_ssaoenabled(bool value) {
   
   ssaoenabled_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tViewer3D.SSAOEnabled)
 }
 
-// optional float ShadowBias = 33;
+// float ShadowBias = 33;
 void tViewer3D::clear_shadowbias() {
   shadowbias_ = 0;
 }
- float tViewer3D::shadowbias() const {
+float tViewer3D::shadowbias() const {
   // @@protoc_insertion_point(field_get:xnormal.tViewer3D.ShadowBias)
   return shadowbias_;
 }
- void tViewer3D::set_shadowbias(float value) {
+void tViewer3D::set_shadowbias(float value) {
   
   shadowbias_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tViewer3D.ShadowBias)
 }
 
-// optional float SSAORadius = 34;
+// float SSAORadius = 34;
 void tViewer3D::clear_ssaoradius() {
   ssaoradius_ = 0;
 }
- float tViewer3D::ssaoradius() const {
+float tViewer3D::ssaoradius() const {
   // @@protoc_insertion_point(field_get:xnormal.tViewer3D.SSAORadius)
   return ssaoradius_;
 }
- void tViewer3D::set_ssaoradius(float value) {
+void tViewer3D::set_ssaoradius(float value) {
   
   ssaoradius_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tViewer3D.SSAORadius)
 }
 
-// optional float LightIntensity = 35;
+// float LightIntensity = 35;
 void tViewer3D::clear_lightintensity() {
   lightintensity_ = 0;
 }
- float tViewer3D::lightintensity() const {
+float tViewer3D::lightintensity() const {
   // @@protoc_insertion_point(field_get:xnormal.tViewer3D.LightIntensity)
   return lightintensity_;
 }
- void tViewer3D::set_lightintensity(float value) {
+void tViewer3D::set_lightintensity(float value) {
   
   lightintensity_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tViewer3D.LightIntensity)
 }
 
-// optional float Exposure = 36;
+// float Exposure = 36;
 void tViewer3D::clear_exposure() {
   exposure_ = 0;
 }
- float tViewer3D::exposure() const {
+float tViewer3D::exposure() const {
   // @@protoc_insertion_point(field_get:xnormal.tViewer3D.Exposure)
   return exposure_;
 }
- void tViewer3D::set_exposure(float value) {
+void tViewer3D::set_exposure(float value) {
   
   exposure_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tViewer3D.Exposure)
 }
 
-// optional bool CameraOrbitAutoCenter = 37;
+// bool CameraOrbitAutoCenter = 37;
 void tViewer3D::clear_cameraorbitautocenter() {
   cameraorbitautocenter_ = false;
 }
- bool tViewer3D::cameraorbitautocenter() const {
+bool tViewer3D::cameraorbitautocenter() const {
   // @@protoc_insertion_point(field_get:xnormal.tViewer3D.CameraOrbitAutoCenter)
   return cameraorbitautocenter_;
 }
- void tViewer3D::set_cameraorbitautocenter(bool value) {
+void tViewer3D::set_cameraorbitautocenter(bool value) {
   
   cameraorbitautocenter_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tViewer3D.CameraOrbitAutoCenter)
 }
 
-// optional bool CastShadows = 38;
+// bool CastShadows = 38;
 void tViewer3D::clear_castshadows() {
   castshadows_ = false;
 }
- bool tViewer3D::castshadows() const {
+bool tViewer3D::castshadows() const {
   // @@protoc_insertion_point(field_get:xnormal.tViewer3D.CastShadows)
   return castshadows_;
 }
- void tViewer3D::set_castshadows(bool value) {
+void tViewer3D::set_castshadows(bool value) {
   
   castshadows_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tViewer3D.CastShadows)
 }
 
-// optional bool ShowNormals = 39;
+// bool ShowNormals = 39;
 void tViewer3D::clear_shownormals() {
   shownormals_ = false;
 }
- bool tViewer3D::shownormals() const {
+bool tViewer3D::shownormals() const {
   // @@protoc_insertion_point(field_get:xnormal.tViewer3D.ShowNormals)
   return shownormals_;
 }
- void tViewer3D::set_shownormals(bool value) {
+void tViewer3D::set_shownormals(bool value) {
   
   shownormals_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tViewer3D.ShowNormals)
 }
 
-// optional int64 MaxTessellationLevel = 40;
+// int64 MaxTessellationLevel = 40;
 void tViewer3D::clear_maxtessellationlevel() {
   maxtessellationlevel_ = GOOGLE_LONGLONG(0);
 }
- ::google::protobuf::int64 tViewer3D::maxtessellationlevel() const {
+::google::protobuf::int64 tViewer3D::maxtessellationlevel() const {
   // @@protoc_insertion_point(field_get:xnormal.tViewer3D.MaxTessellationLevel)
   return maxtessellationlevel_;
 }
- void tViewer3D::set_maxtessellationlevel(::google::protobuf::int64 value) {
+void tViewer3D::set_maxtessellationlevel(::google::protobuf::int64 value) {
   
   maxtessellationlevel_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tViewer3D.MaxTessellationLevel)
 }
 
-// optional bool ShowTangents = 41;
+// bool ShowTangents = 41;
 void tViewer3D::clear_showtangents() {
   showtangents_ = false;
 }
- bool tViewer3D::showtangents() const {
+bool tViewer3D::showtangents() const {
   // @@protoc_insertion_point(field_get:xnormal.tViewer3D.ShowTangents)
   return showtangents_;
 }
- void tViewer3D::set_showtangents(bool value) {
+void tViewer3D::set_showtangents(bool value) {
   
   showtangents_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tViewer3D.ShowTangents)
 }
 
-// optional float GlowIntensity = 42;
+// float GlowIntensity = 42;
 void tViewer3D::clear_glowintensity() {
   glowintensity_ = 0;
 }
- float tViewer3D::glowintensity() const {
+float tViewer3D::glowintensity() const {
   // @@protoc_insertion_point(field_get:xnormal.tViewer3D.GlowIntensity)
   return glowintensity_;
 }
- void tViewer3D::set_glowintensity(float value) {
+void tViewer3D::set_glowintensity(float value) {
   
   glowintensity_ = value;
   // @@protoc_insertion_point(field_set:xnormal.tViewer3D.GlowIntensity)
@@ -18225,37 +17724,54 @@ const int Settings::kVersionFieldNumber;
 
 Settings::Settings()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_xnormal_2eproto::InitDefaults();
+  }
   SharedCtor();
   // @@protoc_insertion_point(constructor:xnormal.Settings)
 }
-
-void Settings::InitAsDefaultInstance() {
-  _is_default_instance_ = true;
-  highpolymodel_ = const_cast< ::xnormal::tHighPolyModel*>(&::xnormal::tHighPolyModel::default_instance());
-  lowpolymodel_ = const_cast< ::xnormal::tLowPolyModel*>(&::xnormal::tLowPolyModel::default_instance());
-  generatemaps_ = const_cast< ::xnormal::tGenerateMaps*>(&::xnormal::tGenerateMaps::default_instance());
-  detail_ = const_cast< ::xnormal::tDetail*>(&::xnormal::tDetail::default_instance());
-  viewer3d_ = const_cast< ::xnormal::tViewer3D*>(&::xnormal::tViewer3D::default_instance());
-}
-
 Settings::Settings(const Settings& from)
   : ::google::protobuf::Message(),
-    _internal_metadata_(NULL) {
-  SharedCtor();
-  MergeFrom(from);
+      _internal_metadata_(NULL),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  version_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.version().size() > 0) {
+    version_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.version_);
+  }
+  if (from.has_highpolymodel()) {
+    highpolymodel_ = new ::xnormal::tHighPolyModel(*from.highpolymodel_);
+  } else {
+    highpolymodel_ = NULL;
+  }
+  if (from.has_lowpolymodel()) {
+    lowpolymodel_ = new ::xnormal::tLowPolyModel(*from.lowpolymodel_);
+  } else {
+    lowpolymodel_ = NULL;
+  }
+  if (from.has_generatemaps()) {
+    generatemaps_ = new ::xnormal::tGenerateMaps(*from.generatemaps_);
+  } else {
+    generatemaps_ = NULL;
+  }
+  if (from.has_detail()) {
+    detail_ = new ::xnormal::tDetail(*from.detail_);
+  } else {
+    detail_ = NULL;
+  }
+  if (from.has_viewer3d()) {
+    viewer3d_ = new ::xnormal::tViewer3D(*from.viewer3d_);
+  } else {
+    viewer3d_ = NULL;
+  }
   // @@protoc_insertion_point(copy_constructor:xnormal.Settings)
 }
 
 void Settings::SharedCtor() {
-    _is_default_instance_ = false;
-  ::google::protobuf::internal::GetEmptyString();
-  _cached_size_ = 0;
-  highpolymodel_ = NULL;
-  lowpolymodel_ = NULL;
-  generatemaps_ = NULL;
-  detail_ = NULL;
-  viewer3d_ = NULL;
   version_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(&highpolymodel_, 0, reinterpret_cast<char*>(&viewer3d_) -
+    reinterpret_cast<char*>(&highpolymodel_) + sizeof(viewer3d_));
+  _cached_size_ = 0;
 }
 
 Settings::~Settings() {
@@ -18265,11 +17781,19 @@ Settings::~Settings() {
 
 void Settings::SharedDtor() {
   version_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (this != default_instance_) {
+  if (this != internal_default_instance()) {
     delete highpolymodel_;
+  }
+  if (this != internal_default_instance()) {
     delete lowpolymodel_;
+  }
+  if (this != internal_default_instance()) {
     delete generatemaps_;
+  }
+  if (this != internal_default_instance()) {
     delete detail_;
+  }
+  if (this != internal_default_instance()) {
     delete viewer3d_;
   }
 }
@@ -18280,16 +17804,14 @@ void Settings::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
 const ::google::protobuf::Descriptor* Settings::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return Settings_descriptor_;
+  protobuf_xnormal_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_xnormal_2eproto::file_level_metadata[11].descriptor;
 }
 
 const Settings& Settings::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_xnormal_2eproto();
-  return *default_instance_;
+  protobuf_xnormal_2eproto::InitDefaults();
+  return *internal_default_instance();
 }
-
-Settings* Settings::default_instance_ = NULL;
 
 Settings* Settings::New(::google::protobuf::Arena* arena) const {
   Settings* n = new Settings;
@@ -18301,17 +17823,27 @@ Settings* Settings::New(::google::protobuf::Arena* arena) const {
 
 void Settings::Clear() {
 // @@protoc_insertion_point(message_clear_start:xnormal.Settings)
-  if (GetArenaNoVirtual() == NULL && highpolymodel_ != NULL) delete highpolymodel_;
-  highpolymodel_ = NULL;
-  if (GetArenaNoVirtual() == NULL && lowpolymodel_ != NULL) delete lowpolymodel_;
-  lowpolymodel_ = NULL;
-  if (GetArenaNoVirtual() == NULL && generatemaps_ != NULL) delete generatemaps_;
-  generatemaps_ = NULL;
-  if (GetArenaNoVirtual() == NULL && detail_ != NULL) delete detail_;
-  detail_ = NULL;
-  if (GetArenaNoVirtual() == NULL && viewer3d_ != NULL) delete viewer3d_;
-  viewer3d_ = NULL;
   version_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (GetArenaNoVirtual() == NULL && highpolymodel_ != NULL) {
+    delete highpolymodel_;
+  }
+  highpolymodel_ = NULL;
+  if (GetArenaNoVirtual() == NULL && lowpolymodel_ != NULL) {
+    delete lowpolymodel_;
+  }
+  lowpolymodel_ = NULL;
+  if (GetArenaNoVirtual() == NULL && generatemaps_ != NULL) {
+    delete generatemaps_;
+  }
+  generatemaps_ = NULL;
+  if (GetArenaNoVirtual() == NULL && detail_ != NULL) {
+    delete detail_;
+  }
+  detail_ = NULL;
+  if (GetArenaNoVirtual() == NULL && viewer3d_ != NULL) {
+    delete viewer3d_;
+  }
+  viewer3d_ = NULL;
 }
 
 bool Settings::MergePartialFromCodedStream(
@@ -18320,78 +17852,68 @@ bool Settings::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:xnormal.Settings)
   for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional .xnormal.tHighPolyModel HighPolyModel = 1;
+      // .xnormal.tHighPolyModel HighPolyModel = 1;
       case 1: {
-        if (tag == 10) {
+        if (tag == 10u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_highpolymodel()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(18)) goto parse_LowPolyModel;
         break;
       }
 
-      // optional .xnormal.tLowPolyModel LowPolyModel = 2;
+      // .xnormal.tLowPolyModel LowPolyModel = 2;
       case 2: {
-        if (tag == 18) {
-         parse_LowPolyModel:
+        if (tag == 18u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_lowpolymodel()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(26)) goto parse_GenerateMaps;
         break;
       }
 
-      // optional .xnormal.tGenerateMaps GenerateMaps = 3;
+      // .xnormal.tGenerateMaps GenerateMaps = 3;
       case 3: {
-        if (tag == 26) {
-         parse_GenerateMaps:
+        if (tag == 26u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_generatemaps()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(34)) goto parse_Detail;
         break;
       }
 
-      // optional .xnormal.tDetail Detail = 4;
+      // .xnormal.tDetail Detail = 4;
       case 4: {
-        if (tag == 34) {
-         parse_Detail:
+        if (tag == 34u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_detail()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(42)) goto parse_Viewer3D;
         break;
       }
 
-      // optional .xnormal.tViewer3D Viewer3D = 5;
+      // .xnormal.tViewer3D Viewer3D = 5;
       case 5: {
-        if (tag == 42) {
-         parse_Viewer3D:
+        if (tag == 42u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_viewer3d()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(50)) goto parse_Version;
         break;
       }
 
-      // optional string Version = 6;
+      // string Version = 6;
       case 6: {
-        if (tag == 50) {
-         parse_Version:
+        if (tag == 50u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_version()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -18401,7 +17923,6 @@ bool Settings::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectAtEnd()) goto success;
         break;
       }
 
@@ -18429,37 +17950,37 @@ failure:
 void Settings::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:xnormal.Settings)
-  // optional .xnormal.tHighPolyModel HighPolyModel = 1;
+  // .xnormal.tHighPolyModel HighPolyModel = 1;
   if (this->has_highpolymodel()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       1, *this->highpolymodel_, output);
   }
 
-  // optional .xnormal.tLowPolyModel LowPolyModel = 2;
+  // .xnormal.tLowPolyModel LowPolyModel = 2;
   if (this->has_lowpolymodel()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       2, *this->lowpolymodel_, output);
   }
 
-  // optional .xnormal.tGenerateMaps GenerateMaps = 3;
+  // .xnormal.tGenerateMaps GenerateMaps = 3;
   if (this->has_generatemaps()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       3, *this->generatemaps_, output);
   }
 
-  // optional .xnormal.tDetail Detail = 4;
+  // .xnormal.tDetail Detail = 4;
   if (this->has_detail()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       4, *this->detail_, output);
   }
 
-  // optional .xnormal.tViewer3D Viewer3D = 5;
+  // .xnormal.tViewer3D Viewer3D = 5;
   if (this->has_viewer3d()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       5, *this->viewer3d_, output);
   }
 
-  // optional string Version = 6;
+  // string Version = 6;
   if (this->version().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->version().data(), this->version().length(),
@@ -18474,44 +17995,44 @@ void Settings::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* Settings::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
+  (void)deterministic;  // Unused
   // @@protoc_insertion_point(serialize_to_array_start:xnormal.Settings)
-  // optional .xnormal.tHighPolyModel HighPolyModel = 1;
+  // .xnormal.tHighPolyModel HighPolyModel = 1;
   if (this->has_highpolymodel()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
         1, *this->highpolymodel_, false, target);
   }
 
-  // optional .xnormal.tLowPolyModel LowPolyModel = 2;
+  // .xnormal.tLowPolyModel LowPolyModel = 2;
   if (this->has_lowpolymodel()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
         2, *this->lowpolymodel_, false, target);
   }
 
-  // optional .xnormal.tGenerateMaps GenerateMaps = 3;
+  // .xnormal.tGenerateMaps GenerateMaps = 3;
   if (this->has_generatemaps()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
         3, *this->generatemaps_, false, target);
   }
 
-  // optional .xnormal.tDetail Detail = 4;
+  // .xnormal.tDetail Detail = 4;
   if (this->has_detail()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
         4, *this->detail_, false, target);
   }
 
-  // optional .xnormal.tViewer3D Viewer3D = 5;
+  // .xnormal.tViewer3D Viewer3D = 5;
   if (this->has_viewer3d()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
         5, *this->viewer3d_, false, target);
   }
 
-  // optional string Version = 6;
+  // string Version = 6;
   if (this->version().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->version().data(), this->version().length(),
@@ -18526,64 +18047,63 @@ void Settings::SerializeWithCachedSizes(
   return target;
 }
 
-int Settings::ByteSize() const {
+size_t Settings::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:xnormal.Settings)
-  int total_size = 0;
+  size_t total_size = 0;
 
-  // optional .xnormal.tHighPolyModel HighPolyModel = 1;
-  if (this->has_highpolymodel()) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        *this->highpolymodel_);
-  }
-
-  // optional .xnormal.tLowPolyModel LowPolyModel = 2;
-  if (this->has_lowpolymodel()) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        *this->lowpolymodel_);
-  }
-
-  // optional .xnormal.tGenerateMaps GenerateMaps = 3;
-  if (this->has_generatemaps()) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        *this->generatemaps_);
-  }
-
-  // optional .xnormal.tDetail Detail = 4;
-  if (this->has_detail()) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        *this->detail_);
-  }
-
-  // optional .xnormal.tViewer3D Viewer3D = 5;
-  if (this->has_viewer3d()) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        *this->viewer3d_);
-  }
-
-  // optional string Version = 6;
+  // string Version = 6;
   if (this->version().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->version());
   }
 
+  // .xnormal.tHighPolyModel HighPolyModel = 1;
+  if (this->has_highpolymodel()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->highpolymodel_);
+  }
+
+  // .xnormal.tLowPolyModel LowPolyModel = 2;
+  if (this->has_lowpolymodel()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->lowpolymodel_);
+  }
+
+  // .xnormal.tGenerateMaps GenerateMaps = 3;
+  if (this->has_generatemaps()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->generatemaps_);
+  }
+
+  // .xnormal.tDetail Detail = 4;
+  if (this->has_detail()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->detail_);
+  }
+
+  // .xnormal.tViewer3D Viewer3D = 5;
+  if (this->has_viewer3d()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->viewer3d_);
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
+  _cached_size_ = cached_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void Settings::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:xnormal.Settings)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
-  const Settings* source = 
+  GOOGLE_DCHECK_NE(&from, this);
+  const Settings* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const Settings>(
           &from);
   if (source == NULL) {
@@ -18597,8 +18117,11 @@ void Settings::MergeFrom(const ::google::protobuf::Message& from) {
 
 void Settings::MergeFrom(const Settings& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:xnormal.Settings)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  if (from.version().size() > 0) {
+
+    version_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.version_);
   }
   if (from.has_highpolymodel()) {
     mutable_highpolymodel()->::xnormal::tHighPolyModel::MergeFrom(from.highpolymodel());
@@ -18614,10 +18137,6 @@ void Settings::MergeFrom(const Settings& from) {
   }
   if (from.has_viewer3d()) {
     mutable_viewer3d()->::xnormal::tViewer3D::MergeFrom(from.viewer3d());
-  }
-  if (from.version().size() > 0) {
-
-    version_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.version_);
   }
 }
 
@@ -18636,7 +18155,6 @@ void Settings::CopyFrom(const Settings& from) {
 }
 
 bool Settings::IsInitialized() const {
-
   return true;
 }
 
@@ -18645,30 +18163,26 @@ void Settings::Swap(Settings* other) {
   InternalSwap(other);
 }
 void Settings::InternalSwap(Settings* other) {
+  version_.Swap(&other->version_);
   std::swap(highpolymodel_, other->highpolymodel_);
   std::swap(lowpolymodel_, other->lowpolymodel_);
   std::swap(generatemaps_, other->generatemaps_);
   std::swap(detail_, other->detail_);
   std::swap(viewer3d_, other->viewer3d_);
-  version_.Swap(&other->version_);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
 
 ::google::protobuf::Metadata Settings::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = Settings_descriptor_;
-  metadata.reflection = Settings_reflection_;
-  return metadata;
+  protobuf_xnormal_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_xnormal_2eproto::file_level_metadata[11];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // Settings
 
-// optional .xnormal.tHighPolyModel HighPolyModel = 1;
+// .xnormal.tHighPolyModel HighPolyModel = 1;
 bool Settings::has_highpolymodel() const {
-  return !_is_default_instance_ && highpolymodel_ != NULL;
+  return this != internal_default_instance() && highpolymodel_ != NULL;
 }
 void Settings::clear_highpolymodel() {
   if (GetArenaNoVirtual() == NULL && highpolymodel_ != NULL) delete highpolymodel_;
@@ -18676,7 +18190,8 @@ void Settings::clear_highpolymodel() {
 }
 const ::xnormal::tHighPolyModel& Settings::highpolymodel() const {
   // @@protoc_insertion_point(field_get:xnormal.Settings.HighPolyModel)
-  return highpolymodel_ != NULL ? *highpolymodel_ : *default_instance_->highpolymodel_;
+  return highpolymodel_ != NULL ? *highpolymodel_
+                         : *::xnormal::tHighPolyModel::internal_default_instance();
 }
 ::xnormal::tHighPolyModel* Settings::mutable_highpolymodel() {
   
@@ -18704,9 +18219,9 @@ void Settings::set_allocated_highpolymodel(::xnormal::tHighPolyModel* highpolymo
   // @@protoc_insertion_point(field_set_allocated:xnormal.Settings.HighPolyModel)
 }
 
-// optional .xnormal.tLowPolyModel LowPolyModel = 2;
+// .xnormal.tLowPolyModel LowPolyModel = 2;
 bool Settings::has_lowpolymodel() const {
-  return !_is_default_instance_ && lowpolymodel_ != NULL;
+  return this != internal_default_instance() && lowpolymodel_ != NULL;
 }
 void Settings::clear_lowpolymodel() {
   if (GetArenaNoVirtual() == NULL && lowpolymodel_ != NULL) delete lowpolymodel_;
@@ -18714,7 +18229,8 @@ void Settings::clear_lowpolymodel() {
 }
 const ::xnormal::tLowPolyModel& Settings::lowpolymodel() const {
   // @@protoc_insertion_point(field_get:xnormal.Settings.LowPolyModel)
-  return lowpolymodel_ != NULL ? *lowpolymodel_ : *default_instance_->lowpolymodel_;
+  return lowpolymodel_ != NULL ? *lowpolymodel_
+                         : *::xnormal::tLowPolyModel::internal_default_instance();
 }
 ::xnormal::tLowPolyModel* Settings::mutable_lowpolymodel() {
   
@@ -18742,9 +18258,9 @@ void Settings::set_allocated_lowpolymodel(::xnormal::tLowPolyModel* lowpolymodel
   // @@protoc_insertion_point(field_set_allocated:xnormal.Settings.LowPolyModel)
 }
 
-// optional .xnormal.tGenerateMaps GenerateMaps = 3;
+// .xnormal.tGenerateMaps GenerateMaps = 3;
 bool Settings::has_generatemaps() const {
-  return !_is_default_instance_ && generatemaps_ != NULL;
+  return this != internal_default_instance() && generatemaps_ != NULL;
 }
 void Settings::clear_generatemaps() {
   if (GetArenaNoVirtual() == NULL && generatemaps_ != NULL) delete generatemaps_;
@@ -18752,7 +18268,8 @@ void Settings::clear_generatemaps() {
 }
 const ::xnormal::tGenerateMaps& Settings::generatemaps() const {
   // @@protoc_insertion_point(field_get:xnormal.Settings.GenerateMaps)
-  return generatemaps_ != NULL ? *generatemaps_ : *default_instance_->generatemaps_;
+  return generatemaps_ != NULL ? *generatemaps_
+                         : *::xnormal::tGenerateMaps::internal_default_instance();
 }
 ::xnormal::tGenerateMaps* Settings::mutable_generatemaps() {
   
@@ -18780,9 +18297,9 @@ void Settings::set_allocated_generatemaps(::xnormal::tGenerateMaps* generatemaps
   // @@protoc_insertion_point(field_set_allocated:xnormal.Settings.GenerateMaps)
 }
 
-// optional .xnormal.tDetail Detail = 4;
+// .xnormal.tDetail Detail = 4;
 bool Settings::has_detail() const {
-  return !_is_default_instance_ && detail_ != NULL;
+  return this != internal_default_instance() && detail_ != NULL;
 }
 void Settings::clear_detail() {
   if (GetArenaNoVirtual() == NULL && detail_ != NULL) delete detail_;
@@ -18790,7 +18307,8 @@ void Settings::clear_detail() {
 }
 const ::xnormal::tDetail& Settings::detail() const {
   // @@protoc_insertion_point(field_get:xnormal.Settings.Detail)
-  return detail_ != NULL ? *detail_ : *default_instance_->detail_;
+  return detail_ != NULL ? *detail_
+                         : *::xnormal::tDetail::internal_default_instance();
 }
 ::xnormal::tDetail* Settings::mutable_detail() {
   
@@ -18818,9 +18336,9 @@ void Settings::set_allocated_detail(::xnormal::tDetail* detail) {
   // @@protoc_insertion_point(field_set_allocated:xnormal.Settings.Detail)
 }
 
-// optional .xnormal.tViewer3D Viewer3D = 5;
+// .xnormal.tViewer3D Viewer3D = 5;
 bool Settings::has_viewer3d() const {
-  return !_is_default_instance_ && viewer3d_ != NULL;
+  return this != internal_default_instance() && viewer3d_ != NULL;
 }
 void Settings::clear_viewer3d() {
   if (GetArenaNoVirtual() == NULL && viewer3d_ != NULL) delete viewer3d_;
@@ -18828,7 +18346,8 @@ void Settings::clear_viewer3d() {
 }
 const ::xnormal::tViewer3D& Settings::viewer3d() const {
   // @@protoc_insertion_point(field_get:xnormal.Settings.Viewer3D)
-  return viewer3d_ != NULL ? *viewer3d_ : *default_instance_->viewer3d_;
+  return viewer3d_ != NULL ? *viewer3d_
+                         : *::xnormal::tViewer3D::internal_default_instance();
 }
 ::xnormal::tViewer3D* Settings::mutable_viewer3d() {
   
@@ -18856,41 +18375,49 @@ void Settings::set_allocated_viewer3d(::xnormal::tViewer3D* viewer3d) {
   // @@protoc_insertion_point(field_set_allocated:xnormal.Settings.Viewer3D)
 }
 
-// optional string Version = 6;
+// string Version = 6;
 void Settings::clear_version() {
   version_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- const ::std::string& Settings::version() const {
+const ::std::string& Settings::version() const {
   // @@protoc_insertion_point(field_get:xnormal.Settings.Version)
-  return version_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return version_.GetNoArena();
 }
- void Settings::set_version(const ::std::string& value) {
+void Settings::set_version(const ::std::string& value) {
   
   version_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:xnormal.Settings.Version)
 }
- void Settings::set_version(const char* value) {
+#if LANG_CXX11
+void Settings::set_version(::std::string&& value) {
+  
+  version_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:xnormal.Settings.Version)
+}
+#endif
+void Settings::set_version(const char* value) {
   
   version_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:xnormal.Settings.Version)
 }
- void Settings::set_version(const char* value, size_t size) {
+void Settings::set_version(const char* value, size_t size) {
   
   version_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:xnormal.Settings.Version)
 }
- ::std::string* Settings::mutable_version() {
+::std::string* Settings::mutable_version() {
   
   // @@protoc_insertion_point(field_mutable:xnormal.Settings.Version)
   return version_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* Settings::release_version() {
+::std::string* Settings::release_version() {
   // @@protoc_insertion_point(field_release:xnormal.Settings.Version)
   
   return version_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void Settings::set_allocated_version(::std::string* version) {
+void Settings::set_allocated_version(::std::string* version) {
   if (version != NULL) {
     
   } else {
