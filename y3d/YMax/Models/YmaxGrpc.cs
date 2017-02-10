@@ -39,7 +39,7 @@ using Grpc.Core;
 
 namespace yproto {
   /// <summary>
-  ///  The greeting service definition.
+  /// The greeting service definition.
   /// </summary>
   public static partial class YPrepare
   {
@@ -65,8 +65,11 @@ namespace yproto {
     public abstract partial class YPrepareBase
     {
       /// <summary>
-      ///  Sends a greeting
+      /// Sends a greeting
       /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>The response to send back to the client (wrapped by a task).</returns>
       public virtual global::System.Threading.Tasks.Task<global::yproto.ObjList> MakeBox(global::yproto.NumFaceRange request, ServerCallContext context)
       {
         throw new RpcException(new Status(StatusCode.Unimplemented, ""));
@@ -98,29 +101,45 @@ namespace yproto {
       }
 
       /// <summary>
-      ///  Sends a greeting
+      /// Sends a greeting
       /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The response received from the server.</returns>
       public virtual global::yproto.ObjList MakeBox(global::yproto.NumFaceRange request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
         return MakeBox(request, new CallOptions(headers, deadline, cancellationToken));
       }
       /// <summary>
-      ///  Sends a greeting
+      /// Sends a greeting
       /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The response received from the server.</returns>
       public virtual global::yproto.ObjList MakeBox(global::yproto.NumFaceRange request, CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_MakeBox, null, options, request);
       }
       /// <summary>
-      ///  Sends a greeting
+      /// Sends a greeting
       /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
       public virtual AsyncUnaryCall<global::yproto.ObjList> MakeBoxAsync(global::yproto.NumFaceRange request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
         return MakeBoxAsync(request, new CallOptions(headers, deadline, cancellationToken));
       }
       /// <summary>
-      ///  Sends a greeting
+      /// Sends a greeting
       /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
       public virtual AsyncUnaryCall<global::yproto.ObjList> MakeBoxAsync(global::yproto.NumFaceRange request, CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_MakeBox, null, options, request);
@@ -133,6 +152,7 @@ namespace yproto {
     }
 
     /// <summary>Creates service definition that can be registered with a server</summary>
+    /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
     public static ServerServiceDefinition BindService(YPrepareBase serviceImpl)
     {
       return ServerServiceDefinition.CreateBuilder()

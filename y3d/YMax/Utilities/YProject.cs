@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Autodesk.Max;
 using System.Runtime.InteropServices;
-using Utils;
 using System.Windows.Forms;
 using System.IO;
 using Google.Protobuf;
@@ -85,7 +84,7 @@ namespace YMax.Utilities
 
             foreach (var pp in sysSetting.Projects)
             {
-                if (pp.Path == path)
+                if (pp.ProjectPath == path)
                 {
                     // override
                     pp.Ts.Seconds = t.Seconds;
@@ -95,7 +94,7 @@ namespace YMax.Utilities
             }
             ProjectInfo p = new ProjectInfo();
             p.Pname = pname;
-            p.Path = path;
+            p.ProjectPath = path;
             p.Ts = t;
             sysSetting.Projects.Add(p);
             using (Stream output = File.OpenWrite(System.IO.Path.Combine(setting_path, "y3d")))
@@ -198,8 +197,8 @@ namespace YMax.Utilities
 
             //var DLL = Assembly.LoadFile(@"C:\Program Files\Autodesk\3ds Max 2015\bin\assemblies\ycpp.gup");
             System.Windows.Forms.MessageBox.Show("Sending ... : " + info.ToString());
-            MyEventHandler handler = new MyEventHandler();
-            handler.handle(obj, info.NativePointer);
+            //MyEventHandler handler = new MyEventHandler();
+            //handler.handle(obj, info.NativePointer);
         }
 
         /*public static void zz1(IntPtr obj, IntPtr info)

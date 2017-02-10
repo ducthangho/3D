@@ -48,6 +48,28 @@ namespace YMax.rpc
 
         [DllImport("kernel32.dll", EntryPoint = "FreeLibrary")]
         public static extern bool FreeLibrary(int hModule);
+
+        [DllImport("kernel32.dll")]
+        private static extern int FormatMessage(int dwFlags, IntPtr lpSource, int dwMessageId, int dwLanguageId, out string lpBuffer, int nSize, IntPtr pArguments);
+
+        public static string GetErrorMessage(int errorCode)
+        {
+            const int FORMAT_MESSAGE_ALLOCATE_BUFFER = 0x00000100;
+            const int FORMAT_MESSAGE_IGNORE_INSERTS = 0x00000200;
+            const int FORMAT_MESSAGE_FROM_SYSTEM = 0x00001000;
+
+            string lpMsgBuf;
+            int dwFlags = FORMAT_MESSAGE_ALLOCATE_BUFFER
+                | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS;
+
+            int retVal = FormatMessage(dwFlags, IntPtr.Zero, errorCode, 0,
+                                        out lpMsgBuf, 0, IntPtr.Zero);
+            if (0 == retVal)
+            {
+                return null;
+            }
+            return lpMsgBuf;
+        }
     }
 
 
@@ -58,7 +80,7 @@ namespace YMax.rpc
         {            
         }
 
-        public const string SERVICE_DLL_PATH = @"C:\Program Files\Autodesk\3ds Max 2017\Plugins\Service.dll";
+        public const string SERVICE_DLL_PATH = @"C:\Program Files\Autodesk\3ds Max 2017\Service.dll";
 
         [UnmanagedFunctionPointer(CallingConvention.Winapi)]
         private delegate void StartService(string dllname = "ServiceImpl.dll");
@@ -66,33 +88,21 @@ namespace YMax.rpc
         [UnmanagedFunctionPointer(CallingConvention.Winapi)]
         private delegate void StopService();
 
-        public void init()
+        public string handleError(String msg,int error_code)
         {
-            if (pDll == 0)
-                pDll = NativeMethods.LoadLibrary(SERVICE_DLL_PATH);
-            //oh dear, error handling here
-            //if (pDll == IntPtr.Zero)
-
-            if (pDll == 0)
+            string s = "";
+            if (error_code != 0)
             {
-                MessageBox.Show("Failed to load plugin " + SERVICE_DLL_PATH);              
-                return;
-            };
+                s = msg + "\nError no: " + error_code + " - " + NativeMethods.GetErrorMessage(error_code);
+                MessageBox.Show(s);
+            }
+            return s;
+        }
 
-
-            IntPtr pAddressOfFunctionToCall = NativeMethods.GetProcAddress(pDll, "startService");
-            //oh dear, error handling here
-            if (pAddressOfFunctionToCall == IntPtr.Zero)
-            {
-                MessageBox.Show("Failed to load function startService");               
-                return;
-            };
-
-
-            StartService startService = (StartService)Marshal.GetDelegateForFunctionPointer(
-                                                                                    pAddressOfFunctionToCall,
-                                                                                    typeof(StartService));
-            if (startService != null) startService();
+        public string handleError(String msg)
+        {            
+            var error_code = Marshal.GetLastWin32Error();            
+            return handleError(msg,error_code);
         }
 
         public override global::System.Threading.Tasks.Task<global::Y3D.ResultType> Shutdown(global::Y3D.LibInfo request, ServerCallContext context)
@@ -104,7 +114,7 @@ namespace YMax.rpc
             //oh dear, error handling here
             if(pAddressOfFunctionToCall == IntPtr.Zero)
             {
-                MessageBox.Show("Failed to load function stopService");
+                rs.Message = handleError("Failed to get address of function stopService().");
                 NativeMethods.FreeLibrary(pDll);
                 rs.Error = true;
                 return Task.FromResult(rs);
@@ -118,8 +128,8 @@ namespace YMax.rpc
             pDll = 0;
             if (!result)
             {
-                MessageBox.Show("Failed to unload plugin");               
-                rs.Error = true;
+                rs.Message = handleError("Failed to unload plugin.");               
+                rs.Error = true;                
                 return Task.FromResult(rs);
             };
 
@@ -137,7 +147,7 @@ namespace YMax.rpc
             //if (pDll == IntPtr.Zero)
 
             if (pDll == 0) {
-                MessageBox.Show("Failed to load plugin " + SERVICE_DLL_PATH);
+                rs.Message = handleError("Failed to load library "+ SERVICE_DLL_PATH + ".");
                 rs.Error = true;
                 return Task.FromResult(rs);
             };
@@ -146,8 +156,8 @@ namespace YMax.rpc
             IntPtr pAddressOfFunctionToCall = NativeMethods.GetProcAddress(pDll, "startService");
             //oh dear, error handling here
             if(pAddressOfFunctionToCall == IntPtr.Zero)
-            {
-                MessageBox.Show("Failed to load function startService");
+            {                
+                rs.Message = handleError("Failed to load function startService.");
                 rs.Error = true;
                 return Task.FromResult(rs);
             };
@@ -155,12 +165,13 @@ namespace YMax.rpc
 
             StartService startService = (StartService)Marshal.GetDelegateForFunctionPointer(
                                                                                     pAddressOfFunctionToCall,
-                                                                                    typeof(StartService));
+                                                                                    typeof(StartService));            
             if (startService != null) startService();
             
             return Task.FromResult(rs);
         }
 
+       
         private int pDll = 0;
     }
 

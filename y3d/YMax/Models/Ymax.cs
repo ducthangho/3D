@@ -10,7 +10,6 @@ using scg = global::System.Collections.Generic;
 namespace yproto {
 
   /// <summary>Holder for reflection information generated from ymax.proto</summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
   public static partial class YmaxReflection {
 
     #region Descriptor
@@ -50,31 +49,36 @@ namespace yproto {
   }
   #region Messages
   /// <summary>
-  ///  The request message containing the user's name.
+  /// The request message containing the user's name.
   /// </summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
   public sealed partial class NumFaceRange : pb::IMessage<NumFaceRange> {
     private static readonly pb::MessageParser<NumFaceRange> _parser = new pb::MessageParser<NumFaceRange>(() => new NumFaceRange());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pb::MessageParser<NumFaceRange> Parser { get { return _parser; } }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
       get { return global::yproto.YmaxReflection.Descriptor.MessageTypes[0]; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public NumFaceRange() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public NumFaceRange(NumFaceRange other) : this() {
       f_ = other.f_.Clone();
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public NumFaceRange Clone() {
       return new NumFaceRange(this);
     }
@@ -84,14 +88,17 @@ namespace yproto {
     private static readonly pb::FieldCodec<int> _repeated_f_codec
         = pb::FieldCodec.ForInt32(10);
     private readonly pbc::RepeatedField<int> f_ = new pbc::RepeatedField<int>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<int> F {
       get { return f_; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as NumFaceRange);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public bool Equals(NumFaceRange other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -103,26 +110,31 @@ namespace yproto {
       return true;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
       hash ^= f_.GetHashCode();
       return hash;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
       f_.WriteTo(output, _repeated_f_codec);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
       size += f_.CalculateSize(_repeated_f_codec);
       return size;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(NumFaceRange other) {
       if (other == null) {
         return;
@@ -130,6 +142,7 @@ namespace yproto {
       f_.Add(other.f_);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
@@ -148,31 +161,36 @@ namespace yproto {
 
   }
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
   public sealed partial class Point3 : pb::IMessage<Point3> {
     private static readonly pb::MessageParser<Point3> _parser = new pb::MessageParser<Point3>(() => new Point3());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pb::MessageParser<Point3> Parser { get { return _parser; } }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
       get { return global::yproto.YmaxReflection.Descriptor.MessageTypes[1]; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public Point3() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public Point3(Point3 other) : this() {
       x_ = other.x_;
       y_ = other.y_;
       z_ = other.z_;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public Point3 Clone() {
       return new Point3(this);
     }
@@ -180,6 +198,7 @@ namespace yproto {
     /// <summary>Field number for the "x" field.</summary>
     public const int XFieldNumber = 1;
     private float x_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public float X {
       get { return x_; }
       set {
@@ -190,6 +209,7 @@ namespace yproto {
     /// <summary>Field number for the "y" field.</summary>
     public const int YFieldNumber = 2;
     private float y_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public float Y {
       get { return y_; }
       set {
@@ -200,6 +220,7 @@ namespace yproto {
     /// <summary>Field number for the "z" field.</summary>
     public const int ZFieldNumber = 3;
     private float z_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public float Z {
       get { return z_; }
       set {
@@ -207,10 +228,12 @@ namespace yproto {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as Point3);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public bool Equals(Point3 other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -224,6 +247,7 @@ namespace yproto {
       return true;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
       if (X != 0F) hash ^= X.GetHashCode();
@@ -232,10 +256,12 @@ namespace yproto {
       return hash;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
       if (X != 0F) {
         output.WriteRawTag(13);
@@ -251,6 +277,7 @@ namespace yproto {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
       if (X != 0F) {
@@ -265,6 +292,7 @@ namespace yproto {
       return size;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(Point3 other) {
       if (other == null) {
         return;
@@ -280,6 +308,7 @@ namespace yproto {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
@@ -305,30 +334,35 @@ namespace yproto {
 
   }
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
   public sealed partial class Box3 : pb::IMessage<Box3> {
     private static readonly pb::MessageParser<Box3> _parser = new pb::MessageParser<Box3>(() => new Box3());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pb::MessageParser<Box3> Parser { get { return _parser; } }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
       get { return global::yproto.YmaxReflection.Descriptor.MessageTypes[2]; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public Box3() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public Box3(Box3 other) : this() {
       Pmin = other.pmin_ != null ? other.Pmin.Clone() : null;
       Pmax = other.pmax_ != null ? other.Pmax.Clone() : null;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public Box3 Clone() {
       return new Box3(this);
     }
@@ -336,6 +370,7 @@ namespace yproto {
     /// <summary>Field number for the "pmin" field.</summary>
     public const int PminFieldNumber = 1;
     private global::yproto.Point3 pmin_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::yproto.Point3 Pmin {
       get { return pmin_; }
       set {
@@ -346,6 +381,7 @@ namespace yproto {
     /// <summary>Field number for the "pmax" field.</summary>
     public const int PmaxFieldNumber = 2;
     private global::yproto.Point3 pmax_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::yproto.Point3 Pmax {
       get { return pmax_; }
       set {
@@ -353,10 +389,12 @@ namespace yproto {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as Box3);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public bool Equals(Box3 other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -369,6 +407,7 @@ namespace yproto {
       return true;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
       if (pmin_ != null) hash ^= Pmin.GetHashCode();
@@ -376,10 +415,12 @@ namespace yproto {
       return hash;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
       if (pmin_ != null) {
         output.WriteRawTag(10);
@@ -391,6 +432,7 @@ namespace yproto {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
       if (pmin_ != null) {
@@ -402,6 +444,7 @@ namespace yproto {
       return size;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(Box3 other) {
       if (other == null) {
         return;
@@ -420,6 +463,7 @@ namespace yproto {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
@@ -447,31 +491,36 @@ namespace yproto {
 
   }
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
   public sealed partial class MNMap : pb::IMessage<MNMap> {
     private static readonly pb::MessageParser<MNMap> _parser = new pb::MessageParser<MNMap>(() => new MNMap());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pb::MessageParser<MNMap> Parser { get { return _parser; } }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
       get { return global::yproto.YmaxReflection.Descriptor.MessageTypes[3]; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public MNMap() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public MNMap(MNMap other) : this() {
       f_ = other.f_.Clone();
       v_ = other.v_.Clone();
       channel_ = other.channel_;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public MNMap Clone() {
       return new MNMap(this);
     }
@@ -481,6 +530,7 @@ namespace yproto {
     private static readonly pb::FieldCodec<int> _repeated_f_codec
         = pb::FieldCodec.ForInt32(10);
     private readonly pbc::RepeatedField<int> f_ = new pbc::RepeatedField<int>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<int> F {
       get { return f_; }
     }
@@ -490,6 +540,7 @@ namespace yproto {
     private static readonly pb::FieldCodec<global::yproto.Point3> _repeated_v_codec
         = pb::FieldCodec.ForMessage(18, global::yproto.Point3.Parser);
     private readonly pbc::RepeatedField<global::yproto.Point3> v_ = new pbc::RepeatedField<global::yproto.Point3>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<global::yproto.Point3> V {
       get { return v_; }
     }
@@ -497,6 +548,7 @@ namespace yproto {
     /// <summary>Field number for the "channel" field.</summary>
     public const int ChannelFieldNumber = 3;
     private int channel_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int Channel {
       get { return channel_; }
       set {
@@ -504,10 +556,12 @@ namespace yproto {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as MNMap);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public bool Equals(MNMap other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -521,6 +575,7 @@ namespace yproto {
       return true;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
       hash ^= f_.GetHashCode();
@@ -529,10 +584,12 @@ namespace yproto {
       return hash;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
       f_.WriteTo(output, _repeated_f_codec);
       v_.WriteTo(output, _repeated_v_codec);
@@ -542,6 +599,7 @@ namespace yproto {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
       size += f_.CalculateSize(_repeated_f_codec);
@@ -552,6 +610,7 @@ namespace yproto {
       return size;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(MNMap other) {
       if (other == null) {
         return;
@@ -563,6 +622,7 @@ namespace yproto {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
@@ -589,25 +649,29 @@ namespace yproto {
 
   }
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
   public sealed partial class ObjItem : pb::IMessage<ObjItem> {
     private static readonly pb::MessageParser<ObjItem> _parser = new pb::MessageParser<ObjItem>(() => new ObjItem());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pb::MessageParser<ObjItem> Parser { get { return _parser; } }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
       get { return global::yproto.YmaxReflection.Descriptor.MessageTypes[4]; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public ObjItem() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public ObjItem(ObjItem other) : this() {
       oname_ = other.oname_;
       idx_ = other.idx_;
@@ -617,6 +681,7 @@ namespace yproto {
       xref_ = other.xref_.Clone();
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public ObjItem Clone() {
       return new ObjItem(this);
     }
@@ -624,6 +689,7 @@ namespace yproto {
     /// <summary>Field number for the "oname" field.</summary>
     public const int OnameFieldNumber = 1;
     private string oname_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Oname {
       get { return oname_; }
       set {
@@ -634,6 +700,7 @@ namespace yproto {
     /// <summary>Field number for the "idx" field.</summary>
     public const int IdxFieldNumber = 2;
     private uint idx_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public uint Idx {
       get { return idx_; }
       set {
@@ -644,6 +711,7 @@ namespace yproto {
     /// <summary>Field number for the "num_faces" field.</summary>
     public const int NumFacesFieldNumber = 3;
     private int numFaces_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int NumFaces {
       get { return numFaces_; }
       set {
@@ -654,6 +722,7 @@ namespace yproto {
     /// <summary>Field number for the "pos" field.</summary>
     public const int PosFieldNumber = 4;
     private global::yproto.Point3 pos_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::yproto.Point3 Pos {
       get { return pos_; }
       set {
@@ -664,6 +733,7 @@ namespace yproto {
     /// <summary>Field number for the "bbox" field.</summary>
     public const int BboxFieldNumber = 5;
     private global::yproto.Box3 bbox_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::yproto.Box3 Bbox {
       get { return bbox_; }
       set {
@@ -676,14 +746,17 @@ namespace yproto {
     private static readonly pb::FieldCodec<int> _repeated_xref_codec
         = pb::FieldCodec.ForInt32(50);
     private readonly pbc::RepeatedField<int> xref_ = new pbc::RepeatedField<int>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<int> Xref {
       get { return xref_; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as ObjItem);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public bool Equals(ObjItem other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -700,6 +773,7 @@ namespace yproto {
       return true;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
       if (Oname.Length != 0) hash ^= Oname.GetHashCode();
@@ -711,10 +785,12 @@ namespace yproto {
       return hash;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
       if (Oname.Length != 0) {
         output.WriteRawTag(10);
@@ -739,6 +815,7 @@ namespace yproto {
       xref_.WriteTo(output, _repeated_xref_codec);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
       if (Oname.Length != 0) {
@@ -760,6 +837,7 @@ namespace yproto {
       return size;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(ObjItem other) {
       if (other == null) {
         return;
@@ -788,6 +866,7 @@ namespace yproto {
       xref_.Add(other.xref_);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
@@ -832,29 +911,34 @@ namespace yproto {
 
   }
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
   public sealed partial class ObjList : pb::IMessage<ObjList> {
     private static readonly pb::MessageParser<ObjList> _parser = new pb::MessageParser<ObjList>(() => new ObjList());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pb::MessageParser<ObjList> Parser { get { return _parser; } }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
       get { return global::yproto.YmaxReflection.Descriptor.MessageTypes[5]; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public ObjList() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public ObjList(ObjList other) : this() {
       objs_ = other.objs_.Clone();
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public ObjList Clone() {
       return new ObjList(this);
     }
@@ -864,14 +948,17 @@ namespace yproto {
     private static readonly pb::FieldCodec<global::yproto.ObjItem> _repeated_objs_codec
         = pb::FieldCodec.ForMessage(10, global::yproto.ObjItem.Parser);
     private readonly pbc::RepeatedField<global::yproto.ObjItem> objs_ = new pbc::RepeatedField<global::yproto.ObjItem>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<global::yproto.ObjItem> Objs {
       get { return objs_; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as ObjList);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public bool Equals(ObjList other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -883,26 +970,31 @@ namespace yproto {
       return true;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
       hash ^= objs_.GetHashCode();
       return hash;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
       objs_.WriteTo(output, _repeated_objs_codec);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
       size += objs_.CalculateSize(_repeated_objs_codec);
       return size;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(ObjList other) {
       if (other == null) {
         return;
@@ -910,6 +1002,7 @@ namespace yproto {
       objs_.Add(other.objs_);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
