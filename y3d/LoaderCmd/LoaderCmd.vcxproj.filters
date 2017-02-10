@@ -50,6 +50,9 @@
     <ClCompile Include="..\ServiceImpl\xnormal.pb.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\ServiceImpl\ymat.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

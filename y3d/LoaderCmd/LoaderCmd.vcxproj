@@ -168,6 +168,7 @@
     <ClCompile Include="..\ServiceImpl\y3d.pb.cc" />
     <ClCompile Include="..\ServiceImpl\yloader.grpc.pb.cc" />
     <ClCompile Include="..\ServiceImpl\yloader.pb.cc" />
+    <ClCompile Include="..\ServiceImpl\ymat.pb.cc" />
     <ClCompile Include="..\ServiceImpl\yservice.grpc.pb.cc" />
     <ClCompile Include="..\ServiceImpl\yservice.pb.cc" />
     <ClCompile Include="..\Service\grpc\src\cpp\util\status.cc" />
