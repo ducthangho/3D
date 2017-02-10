@@ -48,7 +48,7 @@
   </ImportGroup>
   <PropertyGroup>
     <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Platform)'=='x64'">C:\Program Files\Autodesk\3ds Max 2017\Plugins\</OutDir>
+    <OutDir Condition="'$(Platform)'=='x64'">C:\Program Files\Autodesk\3ds Max 2017\</OutDir>
     <IntDir>$(ProjectDir)\obj\$(MaxPlatform)\$(MaxConfiguration)\</IntDir>
     <TargetName>ServiceImpl</TargetName>
     <TargetExt>.dll</TargetExt>
@@ -86,23 +86,40 @@
       <ModuleDefinitionFile>
       </ModuleDefinitionFile>
       <LinkTimeCodeGeneration Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
-      <LinkTimeCodeGeneration Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+      <LinkTimeCodeGeneration Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Default</LinkTimeCodeGeneration>
       <LinkTimeCodeGeneration Condition="'$(Configuration)|$(Platform)'=='Release|x64'">UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
       <GenerateDebugInformation Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">DebugFastLink</GenerateDebugInformation>
-      <GenerateDebugInformation Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">DebugFastLink</GenerateDebugInformation>
+      <GenerateDebugInformation Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateDebugInformation>
       <GenerateDebugInformation Condition="'$(Configuration)|$(Platform)'=='Release|x64'">DebugFastLink</GenerateDebugInformation>
       <OutputFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
       <EntryPointSymbol Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">
       </EntryPointSymbol>
       <DataExecutionPrevention Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">false</DataExecutionPrevention>
-      <OutputFile Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">$(ADSK_3DSMAX_x64_2017)$(TargetName)$(TargetExt)</OutputFile>
-      <ProgramDatabaseFile Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">$(ADSK_3DSMAX_x64_2017)$(TargetName).pdb</ProgramDatabaseFile>
+      <OutputFile Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+      <ProgramDatabaseFile Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">$(OutDir)$(TargetName).pdb</ProgramDatabaseFile>
+      <OutputFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+      <ProgramDatabaseFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(OutDir)$(TargetName).pdb</ProgramDatabaseFile>
+      <ProgramDatabaseFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)$(TargetName).pdb</ProgramDatabaseFile>
     </Link>
     <PostBuildEvent>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">xcopy /Y "$(OutDir)ServiceImpl.*" "$(ADSK_3DSMAX_x64_2017)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">
+      </Command>
     </PostBuildEvent>
     <PreLinkEvent>
       <Command Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">"$(ProjectDir)..\bin\LoaderCmd.exe" -l 0</Command>
+    </PreLinkEvent>
+    <PostBuildEvent>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" />
+    </PostBuildEvent>
+    <PreLinkEvent>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(ProjectDir)..\bin\LoaderCmd.exe" -l 0</Command>
+    </PreLinkEvent>
+    <PreLinkEvent>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(ProjectDir)..\bin\LoaderCmd.exe" -l 0</Command>
     </PreLinkEvent>
   </ItemDefinitionGroup>
   <ItemGroup>

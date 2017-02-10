@@ -32,7 +32,7 @@ namespace YTest.rpc
             StringParam s = new StringParam();
             s.Str = "My Project 1";
             var reply = YTools.NewProject(new NewProjectParam());
-            MessageBox.Show(reply.PInfo.Path);
+            MessageBox.Show(reply.PInfo.ProjectPath);
         }
     }
 }

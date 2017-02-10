@@ -261,7 +261,7 @@ Status YServiceImpl::CloneObject(::grpc::ServerContext* context, const ::y3d::Em
 		}
 		mprintf(L"Hello world\n");
 	});
-	response->set_message("Xin chao ngay mai");
+	response->set_message("Xin chao ngay mai. Haha, Ve Nghe An thoi");
 	return Status::OK;
 }
 
