@@ -95,6 +95,8 @@
       <EntryPointSymbol Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">
       </EntryPointSymbol>
       <DataExecutionPrevention Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">false</DataExecutionPrevention>
+      <OutputFile Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">$(ADSK_3DSMAX_x64_2017)$(TargetName)$(TargetExt)</OutputFile>
+      <ProgramDatabaseFile Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">$(ADSK_3DSMAX_x64_2017)$(TargetName).pdb</ProgramDatabaseFile>
     </Link>
     <PostBuildEvent>
       <Command Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">xcopy /Y "$(OutDir)ServiceImpl.*" "$(ADSK_3DSMAX_x64_2017)"</Command>
