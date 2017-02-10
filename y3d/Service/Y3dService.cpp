@@ -72,19 +72,18 @@ DLLAPI void APIENTRY startService(const char* dllname /*= "ServiceImpl.dll"*/)
 			HMODULE dllHandle = 0;
 			try {				
 					std::unique_lock<std::mutex> lk(loading_requested);
-					dll = LoadLibraryA(dll_path.c_str());
-					if (!dll) {
-						LOG("Failed to load exporter: {0}\n", dll_path);
+					SYSTEM_CALL(dll = LoadLibraryA(dll_path.c_str()));
+					if (!dll) {						
 						isLoading = false;
 						return;
 					}
 				
 					dllHandle = dll;
-					GetServiceImplFunc getServiceImpl = (GetServiceImplFunc)GetProcAddress(dll, "getServiceImpl");
-					ReleaseObjectFunc releaseObject = (ReleaseObjectFunc)GetProcAddress(dll, "releaseObject");
+					SYSTEM_CALL(GetServiceImplFunc getServiceImpl = (GetServiceImplFunc)GetProcAddress(dll, "getServiceImpl"));
+					SYSTEM_CALL(ReleaseObjectFunc releaseObject = (ReleaseObjectFunc)GetProcAddress(dll, "releaseObject"));
 					if (!getServiceImpl || !releaseObject) {
 						dll = nullptr;
-						if (dllHandle) FreeLibraryAndExitThread(dllHandle,0);
+						if (dllHandle) SYSTEM_CALL(FreeLibraryAndExitThread(dllHandle,0));
 					
 						return;
 					}

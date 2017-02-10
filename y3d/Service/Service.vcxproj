@@ -93,6 +93,8 @@
       <LinkTimeCodeGeneration Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">Default</LinkTimeCodeGeneration>
       <LinkTimeCodeGeneration Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
       <LinkTimeCodeGeneration Condition="'$(Configuration)|$(Platform)'=='Release|x64'">UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+      <OutputFile Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">$(ADSK_3DSMAX_x64_2017)$(TargetName)$(TargetExt)</OutputFile>
+      <ProgramDatabaseFile Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">$(ADSK_3DSMAX_x64_2017)$(TargetName).pdb</ProgramDatabaseFile>
     </Link>
     <PostBuildEvent />
     <PostBuildEvent />
