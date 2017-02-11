@@ -134,7 +134,7 @@ template <typename... Args>
 inline void log(std::string& format_str, const Args ... args) {
 #ifdef YCDEBUG 	
 	fmt::MemoryWriter w;
-	w.write(format_str, args);
+	w.write(format_str, args...);
 	std::wstring wstr = s2ws(w.c_str()); // returns a C string (const char*)
 	mprintf(wstr.c_str());
 #else
