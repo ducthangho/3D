@@ -122,7 +122,7 @@
     <Error Condition="!Exists('..\packages\Grpc.Core.1.0.1\build\net45\Grpc.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Grpc.Core.1.0.1\build\net45\Grpc.Core.targets'))" />
   </Target>
   <PropertyGroup>
-    <PreBuildEvent>call "delete_service.cmd"</PreBuildEvent>
+    <PreBuildEvent>call "$(SolutionDir)..\..\y3d\bin\delete_service.cmd"</PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
     <PostBuildEvent>"C:\Windows\Microsoft.NET\Framework64\v4.0.30319\InstallUtil.exe" "$(ProjectDir)\bin\Release\YMasterService.exe"
