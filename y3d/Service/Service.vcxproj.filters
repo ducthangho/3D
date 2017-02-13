@@ -265,15 +265,12 @@
     <ClCompile Include="grpc\src\cpp\common\core_codegen.cc" />
     <ClCompile Include="grpc\src\cpp\common\resource_quota_cc.cc" />
     <ClCompile Include="grpc\src\cpp\common\rpc_method.cc" />
-    <ClCompile Include="grpc\src\cpp\common\secure_auth_context.cc" />
     <ClCompile Include="grpc\src\cpp\common\secure_channel_arguments.cc" />
-    <ClCompile Include="grpc\src\cpp\common\secure_create_auth_context.cc" />
     <ClCompile Include="grpc\src\cpp\common\version_cc.cc" />
     <ClCompile Include="grpc\src\cpp\server\async_generic_service.cc" />
     <ClCompile Include="grpc\src\cpp\server\create_default_thread_pool.cc" />
     <ClCompile Include="grpc\src\cpp\server\dynamic_thread_pool.cc" />
     <ClCompile Include="grpc\src\cpp\server\insecure_server_credentials.cc" />
-    <ClCompile Include="grpc\src\cpp\server\secure_server_credentials.cc" />
     <ClCompile Include="grpc\src\cpp\server\server_builder.cc" />
     <ClCompile Include="grpc\src\cpp\server\server_cc.cc" />
     <ClCompile Include="grpc\src\cpp\server\server_context.cc" />
@@ -290,6 +287,10 @@
     <ClCompile Include="grpc\third_party\nanopb\pb_encode.c" />
     <ClCompile Include="Y3dService.cpp" />
     <ClCompile Include="DllEntry.cpp" />
+    <ClCompile Include="grpc\src\core\lib\channel\handshaker_registry.c" />
+    <ClCompile Include="grpc\src\core\lib\channel\handshaker_factory.c" />
+    <ClCompile Include="grpc\src\cpp\common\insecure_create_auth_context.cc" />
+    <ClCompile Include="grpc\src\cpp\common\secure_auth_context.cc" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\ServiceImpl.h" />
@@ -482,7 +483,6 @@
     <ClInclude Include="grpc\src\cpp\client\create_channel_internal.h" />
     <ClInclude Include="grpc\src\cpp\client\secure_credentials.h" />
     <ClInclude Include="grpc\src\cpp\common\channel_filter.h" />
-    <ClInclude Include="grpc\src\cpp\common\secure_auth_context.h" />
     <ClInclude Include="grpc\src\cpp\server\dynamic_thread_pool.h" />
     <ClInclude Include="grpc\src\cpp\server\secure_server_credentials.h" />
     <ClInclude Include="grpc\src\cpp\server\thread_pool_interface.h" />
