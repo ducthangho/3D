@@ -16,7 +16,7 @@ namespace YMaxServer
 
         public override void Stop()
         {
-            rpc.YServer.Stop();
+            rpc.YLoaderServer.Stop();
             //try
             //{
             //    if (actionTable != null)
@@ -49,13 +49,14 @@ namespace YMaxServer
         {
             get
             {
-                Loader.Global.RegisterNotification(Utils.YProject.fileOpenHandle, null, SystemNotificationCode.FilePostOpen);
+                //Loader.Global.RegisterNotification(Utils.YProject.fileOpenHandle, null, SystemNotificationCode.FilePostOpen);
                 //Loader.Global.RegisterNotification(Utilities.YProject.zun1, null, SystemNotificationCode.Custom1);
-                Loader.Global.ISceneEventManager.RegisterCallback(Utils.YProject.ycommand, false, 50, true);
+                //Loader.Global.ISceneEventManager.RegisterCallback(Utils.YProject.ycommand, false, 50, true);
 
                 //Loader.Global.RegisterNotification(Utils.YProject.thang_test1, null, SystemNotificationCode.Custom7); // gan vao custom7
-                Actions.YExitCommand a = new Actions.YExitCommand();
-                Loader.Core.RegisterExitMAXCallback(a);
+
+                //Actions.YExitCommand a = new Actions.YExitCommand();
+                //Loader.Core.RegisterExitMAXCallback(a);
 
                 //Utils.YProject.initSystem();
                 //Loader.Core.DisableSceneRedraw();
@@ -63,7 +64,7 @@ namespace YMaxServer
                 //Loader.Global.BroadcastNotification(SystemNotificationCode.FilePreSave);
                 //Loader.Core.regi
 
-                rpc.YServer.Start();
+                rpc.YLoaderServer.Start();
                 return 0;
             }
         }

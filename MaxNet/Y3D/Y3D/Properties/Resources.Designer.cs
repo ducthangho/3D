@@ -63,9 +63,29 @@ namespace Y3D.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _new {
+        internal static System.Drawing.Bitmap buffer24_off {
             get {
-                object obj = ResourceManager.GetObject("new", resourceCulture);
+                object obj = ResourceManager.GetObject("buffer24_off", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap buffer24_on {
+            get {
+                object obj = ResourceManager.GetObject("buffer24_on", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap net {
+            get {
+                object obj = ResourceManager.GetObject("net", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -76,6 +96,26 @@ namespace Y3D.Properties {
         internal static System.Drawing.Bitmap new2 {
             get {
                 object obj = ResourceManager.GetObject("new2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap omana_off {
+            get {
+                object obj = ResourceManager.GetObject("omana_off", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap omana_on {
+            get {
+                object obj = ResourceManager.GetObject("omana_on", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,36 +143,6 @@ namespace Y3D.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap shape2 {
-            get {
-                object obj = ResourceManager.GetObject("shape2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap shape21 {
-            get {
-                object obj = ResourceManager.GetObject("shape21", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap stack {
-            get {
-                object obj = ResourceManager.GetObject("stack", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap start {
             get {
                 object obj = ResourceManager.GetObject("start", resourceCulture);
@@ -153,9 +163,29 @@ namespace Y3D.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap test1 {
+        internal static System.Drawing.Bitmap tag16 {
             get {
-                object obj = ResourceManager.GetObject("test1", resourceCulture);
+                object obj = ResourceManager.GetObject("tag16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap test_off {
+            get {
+                object obj = ResourceManager.GetObject("test_off", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap test_on {
+            get {
+                object obj = ResourceManager.GetObject("test_on", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -176,16 +206,6 @@ namespace Y3D.Properties {
         internal static System.Drawing.Bitmap wave {
             get {
                 object obj = ResourceManager.GetObject("wave", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap wave1 {
-            get {
-                object obj = ResourceManager.GetObject("wave1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

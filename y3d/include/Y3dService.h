@@ -35,7 +35,7 @@ extern HINSTANCE hInstance;
 #define DLLAPI __declspec( dllimport )   
 #endif
 
-typedef void(APIENTRY *StartServiceFunc)(std::string);
+typedef void(APIENTRY *StartServiceFunc)(std::string,std::string);
 typedef void(APIENTRY *StopServiceFunc)();
 
 #ifndef _USE_DYNAMIC_LOADED_DLL_
@@ -48,7 +48,7 @@ extern "C" {
 	DLLAPI extern std::atomic<bool> isShuttingdown;
 	DLLAPI extern std::condition_variable shutdown_cv;
 	DLLAPI extern std::condition_variable ready_cv;
-	DLLAPI void APIENTRY startService(const char* dllname = "ServiceImpl.dll");	
+	DLLAPI void APIENTRY startService(const char* dllname = "ServiceImpl.dll", const char* ip_address="0.0.0.0.38001");
 	DLLAPI void APIENTRY stopService();
 #ifdef __cplusplus
 }

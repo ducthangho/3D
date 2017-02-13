@@ -13,4 +13,5 @@ rem xcopy %1..\lib\tbb\tbbmalloc.pdb %2 /D /Y
 rem xcopy %1..\lib\tbb\*.pdb %2 /D /Y
 rem echo %ERRORLEVEL%
 rem echo %1\..\bin\LoaderCmd.exe -l 1
-%1\..\bin\LoaderCmd.exe -l 1
+
+rem %1\..\bin\LoaderCmd.exe -l 1

@@ -25,8 +25,7 @@
 #include "YCServer.h"
 
 #define Service_CLASS_ID	Class_ID(0x768455e0, 0x74aca221)
-const std::string LOADER_IP = "0.0.0.0:50050";
-const std::string SERVER_IP = "0.0.0.0:50051";
+const std::string MASTER_IP = "0.0.0.0:38000";
 
 HMODULE dll = nullptr;
 std::promise<void> exit_requested;
@@ -38,8 +37,9 @@ std::condition_variable shutdown_cv;
 
 
 
-DLLAPI void APIENTRY startService(const char* dllname /*= "ServiceImpl.dll"*/)
+DLLAPI void APIENTRY startService(const char* dllname, const char* ip_address)
 {
+	
 	std::unique_lock<std::mutex> lk(loading_requested);
 	if (isLoading) ready_cv.wait(lk, []() {return !isLoading; });
 //	LOG.clear();
@@ -50,7 +50,8 @@ DLLAPI void APIENTRY startService(const char* dllname /*= "ServiceImpl.dll"*/)
 	if (!dll) {		
 		//lk.unlock(); //Now release lock
 		if (!isLoading.compare_exchange_strong(notDone, true) || isShuttingdown) return;
-		std::thread t([dllname]() {
+		std::thread t([dllname, ip_address]() {
+			
 			//std::unique_lock<std::mutex> lock(loading_requested);
 			if (dll) {
 				isLoading = false;
@@ -65,11 +66,11 @@ DLLAPI void APIENTRY startService(const char* dllname /*= "ServiceImpl.dll"*/)
 			else {
 				dll_path = dllname;
 			}
-
-					LOG("DLL path is {0}\n", dll_path);
+			//LOG("DLL path is {0}\n", dll_path);
+			//LOG("Xin chao");
 					// load plugin and grab all the functions we need		
-			
 			HMODULE dllHandle = 0;
+			
 			try {				
 					std::unique_lock<std::mutex> lk(loading_requested);
 					SYSTEM_CALL(dll = LoadLibraryA(dll_path.c_str()));
@@ -87,15 +88,14 @@ DLLAPI void APIENTRY startService(const char* dllname /*= "ServiceImpl.dll"*/)
 					
 						return;
 					}
-
+					
 				/*initSystem();
 				registerCB();*/
 				//MessageBox(NULL, _T("Open the message box "), _T("message"), MB_OK | MB_SYSTEMMODAL);		
 				/*if (grpc::g_core_codegen_interface == nullptr) {
 				grpc::g_core_codegen_interface = &grpc::internal::g_core_codegen;
 				}*/
-			
-				std::string server_address(SERVER_IP);
+				std::string server_address(ip_address);
 				//ServicePtr service = getServiceImpl();			
 				std::shared_ptr<AbstractService> servicePtr(getServiceImpl(), releaseObject);
 				servicePtr->Initialize(grpc::g_core_codegen_interface, grpc::g_glip);//This is a must have function, used to initialize static global function of grpc
@@ -111,7 +111,6 @@ DLLAPI void APIENTRY startService(const char* dllname /*= "ServiceImpl.dll"*/)
 				// wait for the server to shutdown. note that some other thread must be
 				// responsible for shutting down the server for this call to ever return.
 				//do {
-
 			
 				//service->Helloworld();
 				//server->Wait();

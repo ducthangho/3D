@@ -35,10 +35,11 @@ namespace Y3D.Forms
                 }
                 return "c_yellow";
             };
-
-            Utils.Tools.YWList = rpc.YClient.CWClient.AllWorkers(new EmptyParam());
-            Utils.Tools.YWList.Workers.Insert(0, Utils.Tools.YWList.Master);
-            dlvWorker.SetObjects(Utils.Tools.YWList.Workers);
+            //Utils.Tools.YWList = rpc.YClient.CWClient.AllWorkers(new EmptyParam());
+            //Utils.Tools.YWList.Workers.Insert(0, Utils.Tools.YWList.Master);
+            var allWorkers = rpc.YClient.MasterClient.AllWorkers(new EmptyParam());
+            if (allWorkers.Workers.Count>0)
+                dlvWorker.SetObjects(allWorkers.Workers);
         }
     }
 }

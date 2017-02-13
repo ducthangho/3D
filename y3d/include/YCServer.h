@@ -29,14 +29,9 @@ public:
 	virtual Status BakeNormal(ServerContext* context, const ENormal* enm, ResultReply* reply) = 0;
 	virtual Status BatchOptimize(ServerContext* context, const BatchOptimizeParam* bp, ResultReply* reply) = 0;
 	virtual Status GetObjectFromMax(ServerContext* context, const EmptyParam* ep, YAreaList* yal) = 0;
-	virtual Status NewProject(ServerContext* context, const NewProjectParam* np, ResponseNProject* rnp) = 0;
-	virtual Status LoadProject(ServerContext* context, const ProjectInfo* pi, ResponseNProject* rnp) = 0;
-	virtual Status DeleteProject(ServerContext* context, const ProjectInfo* pi, ResponseNProject* rnp) = 0;
 	virtual Status DoAction(ServerContext* context, grpc::ServerReaderWriter<YEvent, YEvent>* stream) = 0;
 	virtual Status DoStreamClient(ServerContext* context, grpc::ServerReader<YEvent>* stream, ResponseEvent* re) = 0;
 	virtual Status DoEvent(ServerContext* context, const YEvent* ye, ResponseEvent* re) = 0;
-	virtual Status LoadSystem(ServerContext* context, const EmptyParam* ep, YSystem* ys) = 0;
-	virtual Status SaveSystem(ServerContext* context, const YSystem* ys, ResultReply* reply) = 0;
 	virtual Status CloneObject(::grpc::ServerContext* context, const ::y3d::EmptyParam* request, ::y3d::ResultReply* response) = 0;
 	virtual ::grpc::Status Shutdown(::grpc::ServerContext* context, const ::y3d::EmptyParam* request, ::y3d::ResultReply* response) = 0;
 
@@ -51,14 +46,9 @@ public:
 	Status BakeNormal(ServerContext* context, const ENormal* enm, ResultReply* reply) override;
 	Status BatchOptimize(ServerContext* context, const BatchOptimizeParam* bp, ResultReply* reply) override;
 	Status GetObjectFromMax(ServerContext* context, const EmptyParam* ep, YAreaList* yal) override;
-	Status NewProject(ServerContext* context, const NewProjectParam* np, ResponseNProject* rnp) override;
-	Status LoadProject(ServerContext* context, const ProjectInfo* pi, ResponseNProject* rnp);
-	Status DeleteProject(ServerContext* context, const ProjectInfo* pi, ResponseNProject* rnp) override;
 	Status DoAction(ServerContext* context, grpc::ServerReaderWriter<YEvent, YEvent>* stream) override;
 	Status DoStreamClient(ServerContext* context, grpc::ServerReader<YEvent>* stream, ResponseEvent* re) override;
 	Status DoEvent(ServerContext* context, const YEvent* ye, ResponseEvent* re) override;
-	Status LoadSystem(ServerContext* context, const EmptyParam* ep, YSystem* ys) override;
-	Status SaveSystem(ServerContext* context, const YSystem* ys, ResultReply* reply) override;
 	Status CloneObject(::grpc::ServerContext* context, const ::y3d::EmptyParam* request, ::y3d::ResultReply* response) override;	
 	virtual ::grpc::Status Shutdown(::grpc::ServerContext* context, const ::y3d::EmptyParam* request, ::y3d::ResultReply* response) override;
 	void Helloworld() override;

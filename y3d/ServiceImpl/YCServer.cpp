@@ -141,52 +141,52 @@ Status YServiceImpl::GetObjectFromMax(ServerContext* context, const EmptyParam* 
 	});
 	return Status::OK;
 }
-
-Status YServiceImpl::NewProject(ServerContext* context, const NewProjectParam* np, ResponseNProject* rnp)
-{
-	Invoke([np, rnp]() -> void {
-		bool noProject = true;
-		for (int i = 0; i < YSys.projects_size(); i++)
-		{
-			auto pi = YSys.projects(i);
-			if ((pi.pname() == np->fname()) && (pi.project_path() == np->folder())) {
-				rnp->mutable_pinfo()->CopyFrom(pi);
-				LoadNProject(rnp);
-				//MessageBoxW(NULL, L"Load project cu....(chua lam)", L"Oh", MB_OK);
-				noProject = false;
-				break;
-			}
-		}
-		if (noProject) {
-			rnp->mutable_pinfo()->set_project_path(np->folder());
-			rnp->mutable_pinfo()->set_pname(np->fname());
-			NewYProject(np, rnp);
-		}
-
-	});
-	return Status::OK;
-}
-
-Status YServiceImpl::LoadProject(ServerContext* context, const ProjectInfo* pi, ResponseNProject* rnp)
-{
-	Invoke([pi, rnp]() -> void {
-		//rnp->mutable_pinfo = pi;
-		rnp->mutable_pinfo()->CopyFrom(*pi);
-		//rnp->mutable_pinfo()->set_path(np->folder());
-		//rnp->mutable_pinfo()->set_pname(np->fname());
-		LoadNProject(rnp);
-	});
-	return Status::OK;
-}
-
-Status YServiceImpl::DeleteProject(ServerContext* context, const ProjectInfo* pi, ResponseNProject* rnp)
-{
-	Invoke([pi, rnp]() -> void {
-		rnp->mutable_pinfo()->CopyFrom(*pi);
-		DeleteYProject(rnp);
-	});
-	return Status::OK;
-}
+//
+//Status YServiceImpl::NewProject(ServerContext* context, const NewProjectParam* np, ResponseNProject* rnp)
+//{
+//	Invoke([np, rnp]() -> void {
+//		bool noProject = true;
+//		for (int i = 0; i < YSys.projects_size(); i++)
+//		{
+//			auto pi = YSys.projects(i);
+//			if ((pi.pname() == np->fname()) && (pi.project_path() == np->folder())) {
+//				rnp->mutable_pinfo()->CopyFrom(pi);
+//				LoadNProject(rnp);
+//				//MessageBoxW(NULL, L"Load project cu....(chua lam)", L"Oh", MB_OK);
+//				noProject = false;
+//				break;
+//			}
+//		}
+//		if (noProject) {
+//			rnp->mutable_pinfo()->set_project_path(np->folder());
+//			rnp->mutable_pinfo()->set_pname(np->fname());
+//			NewYProject(np, rnp);
+//		}
+//
+//	});
+//	return Status::OK;
+//}
+//
+//Status YServiceImpl::LoadProject(ServerContext* context, const ProjectInfo* pi, ResponseNProject* rnp)
+//{
+//	Invoke([pi, rnp]() -> void {
+//		//rnp->mutable_pinfo = pi;
+//		rnp->mutable_pinfo()->CopyFrom(*pi);
+//		//rnp->mutable_pinfo()->set_path(np->folder());
+//		//rnp->mutable_pinfo()->set_pname(np->fname());
+//		LoadNProject(rnp);
+//	});
+//	return Status::OK;
+//}
+//
+//Status YServiceImpl::DeleteProject(ServerContext* context, const ProjectInfo* pi, ResponseNProject* rnp)
+//{
+//	Invoke([pi, rnp]() -> void {
+//		rnp->mutable_pinfo()->CopyFrom(*pi);
+//		DeleteYProject(rnp);
+//	});
+//	return Status::OK;
+//}
 
 Status YServiceImpl::DoAction(ServerContext* context, grpc::ServerReaderWriter<YEvent, YEvent>* stream)
 {
@@ -226,21 +226,21 @@ Status YServiceImpl::DoEvent(ServerContext* context, const YEvent* ye, ResponseE
 	return Status::OK;
 }
 
-Status YServiceImpl::LoadSystem(ServerContext* context, const EmptyParam* ep, YSystem* ys)
-{
-	Invoke([ys]() -> void {
-		ys->CopyFrom(YSys);
-	});
-	return Status::OK;
-}
-
-Status YServiceImpl::SaveSystem(ServerContext* context, const YSystem* ys, ResultReply* reply)
-{
-	Invoke([ys]() -> void {
-		YSys.CopyFrom(*ys);
-	});
-	return Status::OK;
-}
+//Status YServiceImpl::LoadSystem(ServerContext* context, const EmptyParam* ep, YSystem* ys)
+//{
+//	Invoke([ys]() -> void {
+//		ys->CopyFrom(YSys);
+//	});
+//	return Status::OK;
+//}
+//
+//Status YServiceImpl::SaveSystem(ServerContext* context, const YSystem* ys, ResultReply* reply)
+//{
+//	Invoke([ys]() -> void {
+//		YSys.CopyFrom(*ys);
+//	});
+//	return Status::OK;
+//}
 
 Status YServiceImpl::CloneObject(::grpc::ServerContext* context, const ::y3d::EmptyParam* request, ::y3d::ResultReply* response)
 {
@@ -296,8 +296,7 @@ void YServiceImpl::Initialize(void* codegen, void* gli)
 {
 	grpc::g_core_codegen_interface = (grpc::CoreCodegenInterface*)codegen;
 	grpc::g_glip = (grpc::GrpcLibraryInterface*)gli;
-	initSystem();
-	registerCB();
+	//registerCB();
 }
 
 ::grpc::Status YServiceImpl::Shutdown(::grpc::ServerContext* context, const ::y3d::EmptyParam* request, ::y3d::ResultReply* response)

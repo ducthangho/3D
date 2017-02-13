@@ -32,12 +32,19 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ObjectsControl));
             this.tabNavLeft = new System.Windows.Forms.TabControl();
             this.tabArea = new System.Windows.Forms.TabPage();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.gtreeListView = new BrightIdeasSoftware.TreeListView();
             this.olvColumnName = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.imageListGroup = new System.Windows.Forms.ImageList(this.components);
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.miniToolStrip = new System.Windows.Forms.ToolStrip();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.btnAddJob = new System.Windows.Forms.Button();
+            this.btnAddTest = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.checkBoxInGroup = new System.Windows.Forms.CheckBox();
             this.checkBoxIsolate = new System.Windows.Forms.CheckBox();
@@ -48,21 +55,14 @@
             this.olvColTypeO = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnAddTest = new System.Windows.Forms.Button();
-            this.btnAddJob = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
             this.tabNavLeft.SuspendLayout();
             this.tabArea.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gtreeListView)).BeginInit();
             this.panel1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.objectListCtrl)).BeginInit();
             this.toolStrip1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabNavLeft
@@ -87,6 +87,24 @@
             this.tabArea.Size = new System.Drawing.Size(188, 518);
             this.tabArea.TabIndex = 0;
             this.tabArea.Text = "Area";
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(61, 313);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(54, 23);
+            this.button5.TabIndex = 2;
+            this.button5.Text = "+ Group";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(7, 313);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(48, 23);
+            this.button4.TabIndex = 1;
+            this.button4.Text = "+ Area";
+            this.button4.UseVisualStyleBackColor = true;
             // 
             // gtreeListView
             // 
@@ -160,6 +178,55 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(354, 544);
             this.panel1.TabIndex = 1;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Location = new System.Drawing.Point(3, 440);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(348, 100);
+            this.groupBox3.TabIndex = 5;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Object";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.button3);
+            this.groupBox2.Controls.Add(this.btnAddJob);
+            this.groupBox2.Controls.Add(this.btnAddTest);
+            this.groupBox2.Location = new System.Drawing.Point(3, 379);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(348, 55);
+            this.groupBox2.TabIndex = 4;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Actions";
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(110, 20);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(79, 23);
+            this.button3.TabIndex = 2;
+            this.button3.Text = "Load Version";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // btnAddJob
+            // 
+            this.btnAddJob.Location = new System.Drawing.Point(60, 20);
+            this.btnAddJob.Name = "btnAddJob";
+            this.btnAddJob.Size = new System.Drawing.Size(44, 23);
+            this.btnAddJob.TabIndex = 1;
+            this.btnAddJob.Text = "+ Job";
+            this.btnAddJob.UseVisualStyleBackColor = true;
+            // 
+            // btnAddTest
+            // 
+            this.btnAddTest.Location = new System.Drawing.Point(7, 20);
+            this.btnAddTest.Name = "btnAddTest";
+            this.btnAddTest.Size = new System.Drawing.Size(47, 23);
+            this.btnAddTest.TabIndex = 0;
+            this.btnAddTest.Text = "+ Test";
+            this.btnAddTest.UseVisualStyleBackColor = true;
+            this.btnAddTest.Click += new System.EventHandler(this.btnAddTest_Click);
             // 
             // groupBox1
             // 
@@ -261,78 +328,12 @@
             // toolStripButton1
             // 
             this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.Image = global::Y3D.Properties.Resources.tag16;
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton1.Text = "toolStripButton1";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.button3);
-            this.groupBox2.Controls.Add(this.btnAddJob);
-            this.groupBox2.Controls.Add(this.btnAddTest);
-            this.groupBox2.Location = new System.Drawing.Point(3, 379);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(348, 55);
-            this.groupBox2.TabIndex = 4;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Actions";
-            // 
-            // btnAddTest
-            // 
-            this.btnAddTest.Location = new System.Drawing.Point(7, 20);
-            this.btnAddTest.Name = "btnAddTest";
-            this.btnAddTest.Size = new System.Drawing.Size(47, 23);
-            this.btnAddTest.TabIndex = 0;
-            this.btnAddTest.Text = "+ Test";
-            this.btnAddTest.UseVisualStyleBackColor = true;
-            this.btnAddTest.Click += new System.EventHandler(this.btnAddTest_Click);
-            // 
-            // btnAddJob
-            // 
-            this.btnAddJob.Location = new System.Drawing.Point(60, 20);
-            this.btnAddJob.Name = "btnAddJob";
-            this.btnAddJob.Size = new System.Drawing.Size(44, 23);
-            this.btnAddJob.TabIndex = 1;
-            this.btnAddJob.Text = "+ Job";
-            this.btnAddJob.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(110, 20);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(79, 23);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Load Version";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Location = new System.Drawing.Point(3, 440);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(348, 100);
-            this.groupBox3.TabIndex = 5;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Object";
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(7, 313);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(48, 23);
-            this.button4.TabIndex = 1;
-            this.button4.Text = "+ Area";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(61, 313);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(54, 23);
-            this.button5.TabIndex = 2;
-            this.button5.Text = "+ Group";
-            this.button5.UseVisualStyleBackColor = true;
+            this.toolStripButton1.ToolTipText = "Tags";
             // 
             // ObjectsControl
             // 
@@ -348,12 +349,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.gtreeListView)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.objectListCtrl)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

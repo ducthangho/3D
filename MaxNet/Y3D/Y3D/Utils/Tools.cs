@@ -29,23 +29,37 @@ namespace Y3D.Utils
             return false;
         }
 
+        public static void startMasterClient()
+        {
+
+        }
+
+        public static void doWhenWorkerDisconnect(YWorker yw)
+        {
+
+        }
+
         public static void InitSystem()
         {
-            if (!IsProcessOpen("3dsmax"))
-            {
-                Process maxProc = new Process();
-                maxProc.StartInfo.FileName = "C:\\Program Files\\Autodesk\\3ds Max 2017\\3dsmax.exe";
-                maxProc.Start();
-            }
-            if (rpc.YClient.CChannel.State != Grpc.Core.ChannelState.Ready)
-            {
-                while (!rpc.YClient.CChannel.ConnectAsync().IsCompleted)
-                {
-                    System.Threading.Thread.Sleep(5000);
-                }
-                //rpc.YClient.CChannel.WaitForStateChangedAsync(Grpc.Core.ChannelState.Ready);
-            }
-            YSys = rpc.YClient.CClient.LoadSystem(new EmptyParam());
+            //rpc.YClient.CSMClient = new y3d.s.Tools.ToolsClient
+            //rpc.YMasterServer.InitSystem();
+            //rpc.YMasterServer.Start();
+
+            //if (!IsProcessOpen("3dsmax"))
+            //{
+            //    Process maxProc = new Process();
+            //    maxProc.StartInfo.FileName = "C:\\Program Files\\Autodesk\\3ds Max 2017\\3dsmax.exe";
+            //    maxProc.Start();
+            //}
+            //if (rpc.YClient.CChannel.State != Grpc.Core.ChannelState.Ready)
+            //{
+            //    while (!rpc.YClient.CChannel.ConnectAsync().IsCompleted)
+            //    {
+            //        System.Threading.Thread.Sleep(5000);
+            //    }
+            //    //rpc.YClient.CChannel.WaitForStateChangedAsync(Grpc.Core.ChannelState.Ready);
+            //}
+            //YSys = rpc.YClient.CClient.LoadSystem(new EmptyParam());
             //MessageBox.Show(YSys.DefaultSetting.MaxRecent.ToString());
         }
 
@@ -55,7 +69,6 @@ namespace Y3D.Utils
             if (rnp.Yal != null)
             {
                 CurrentYAL = rnp.Yal;
-                YSys = rnp.Sys;
                 return true;
             }
             else
@@ -63,5 +76,7 @@ namespace Y3D.Utils
                 return false;
             }
         }
+
+
     }
 }

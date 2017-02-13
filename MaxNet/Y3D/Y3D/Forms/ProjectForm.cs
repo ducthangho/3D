@@ -25,7 +25,7 @@ namespace Y3D.Forms
             {
                 //YMesh t = (YMesh)x;
                 ProjectInfo t = (ProjectInfo)x;
-                return t.Path + "\\" + t.Pname+".max";
+                return t.OriginalPath + "\\" + t.Pname+".max";
             };
 
             this.dlvListProject.SetObjects(Utils.Tools.YSys.Projects);
@@ -61,17 +61,17 @@ namespace Y3D.Forms
         private void btnDelP_Click(object sender, EventArgs e)
         {
 
-            DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete?", "Oh", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
-            {
-                ProjectInfo pi = (ProjectInfo)this.dlvListProject.SelectedObject;
-                var ret = rpc.YClient.CClient.DeleteProject(pi);
-                if (ret.Err.Length==0)
-                {
-                    Utils.Tools.YSys = ret.Sys;
-                    dlvListProject.SetObjects(Utils.Tools.YSys.Projects);
-                }
-            }
+            //DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete?", "Oh", MessageBoxButtons.YesNo);
+            //if (dialogResult == DialogResult.Yes)
+            //{
+            //    ProjectInfo pi = (ProjectInfo)this.dlvListProject.SelectedObject;
+            //    var ret = rpc.YClient.CClient.DeleteProject(pi);
+            //    if (ret.Err.Length==0)
+            //    {
+            //        Utils.Tools.YSys = ret.Sys;
+            //        dlvListProject.SetObjects(Utils.Tools.YSys.Projects);
+            //    }
+            //}
 
         }
     }

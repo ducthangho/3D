@@ -58,6 +58,7 @@ namespace YMaxServer.Actions
     {
         public override bool Exit(IntPtr hWnd)
         {
+
             //Utilities.YProject.closeAllForm();
             return true;
         }

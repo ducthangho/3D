@@ -443,22 +443,42 @@ message YJob {
   repeated TestObject tests=7;
 }
 
+message YJobList {
+  repeated YJob jobs=1;
+}
+
 message YWorker {
   int32 wid=1;
   string wname=2;
   string ip_address =3;
-  string asset_folder=4;
+  
   enum ServingStatus {
     UNKNOWN = 0;
     SERVING = 1;
     NOT_SERVING = 2;
+    NOT_CONNECT_MASTER=3;
+    NO_PROJECT=4;
   }
   ServingStatus status = 5;
 }
 
+message YSubWorker {
+  int32 sid = 1;
+  string sname =2;
+  string asset_folder=3;
+  YWorker worker = 4;
+}
+
+message YMainWorker {
+  YSubWorker main_worker = 1;
+  repeated YSubWorker workers = 2;
+  string working_project = 3;
+}
+
+
 message YWorkerList {
-  YWorker master = 1;
-  repeated YWorker workers=2;
+  // YWorker master = 1;
+  repeated YWorker workers=1;
 }
 
 message YWorkerRequest {
@@ -474,9 +494,9 @@ message WorkerApp {
 }
 
 message YWorkerResponse {
-  YWorkerList wlist = 1;
-  YWorker new_worker=2;
-  string error=3;
+  // YWorkerList wlist = 1;
+  YWorker new_worker=1;
+  string error=2;
 }
 
 message YMasterServer {
@@ -484,5 +504,5 @@ message YMasterServer {
   string address =2;
   int32 port=5;
   string shared_folder = 3;
-  repeated YWorker main_workers = 4;
+  repeated YMainWorker main_workers = 4;
 }

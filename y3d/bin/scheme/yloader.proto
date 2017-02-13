@@ -2,6 +2,7 @@ syntax = "proto3";
 //import "y3d.proto";
 //import "google/protobuf/any.proto";
 package y3d;
+option csharp_namespace = "y3d.s";
 
 message LibInfo {
 	int32 id = 1;
@@ -15,4 +16,10 @@ message ResultType {
 service Loader{
 	rpc Shutdown (LibInfo) returns (ResultType) {};
 	rpc LoadDll (LibInfo) returns (ResultType) {};
+}
+
+service YServiceMaxLoader{ // server run in 3dsmax order to control Tool service
+	rpc Shutdown (LibInfo) returns (ResultType) {};
+	rpc LoadDll (LibInfo) returns (ResultType) {};
+	rpc CloseApp (LibInfo) returns (ResultType) {};
 }
