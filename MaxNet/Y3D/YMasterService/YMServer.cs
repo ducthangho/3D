@@ -22,7 +22,7 @@ namespace YMasterService
             ret.NewWorker.Wid = YMServer.LastIndex;
             ret.NewWorker.IpAddress = String.Format("127.0.0.1:{0}", ret.NewWorker.Wid + 38000);
             ret.NewWorker.Wname = "Worker " + ret.NewWorker.Wid;
-            ret.NewWorker.Status = YWorker.Types.ServingStatus.Unknown;
+            ret.NewWorker.Status = YWorker.Types.ServingStatus.NotServing;
             YMServer.all_workers.Workers.Add(ret.NewWorker);
             //YMServer.Workers.Add(ret.NewWorker);
             if (!req.CallInApp)
@@ -39,9 +39,27 @@ namespace YMasterService
             return Task.FromResult(ret);
         }
 
-        public override Task<YWorkerList> AllWorkers(EmptyParam request, ServerCallContext context)
+        public override Task<YWorkerList> AllWorkers(AllWorkerParam request, ServerCallContext context)
         {
             return Task.FromResult(YMServer.all_workers);
+        }
+
+        public override Task<ResultReply> StartWorker(StartWorkerParam request, ServerCallContext context)
+        {
+            foreach (YWorker yw in YMServer.all_workers.Workers)
+            {
+                if ((yw.Wid == request.Wid) || (yw.Wname == request.Wname))
+                {
+                    Channel channel = new Channel(yw.IpAddress, ChannelCredentials.Insecure);
+                    y3d.s.YServiceMaxLoader.YServiceMaxLoaderClient loaderClient = new y3d.s.YServiceMaxLoader.YServiceMaxLoaderClient(channel);
+                    LibInfo req = new LibInfo();
+                    req.Id = yw.Wid;
+                    loaderClient.LoadDll(req);
+                    yw.Status = y3d.e.YWorker.Types.ServingStatus.Serving;
+                    return Task.FromResult(new ResultReply());
+                }
+            }
+            return base.StartWorker(request, context);
         }
 
         //public override Task<YWorkerList> AllWorkers(EmptyParam request, ServerCallContext context)

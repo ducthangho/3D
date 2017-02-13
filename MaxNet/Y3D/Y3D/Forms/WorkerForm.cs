@@ -35,11 +35,36 @@ namespace Y3D.Forms
                 }
                 return "c_yellow";
             };
-            //Utils.Tools.YWList = rpc.YClient.CWClient.AllWorkers(new EmptyParam());
-            //Utils.Tools.YWList.Workers.Insert(0, Utils.Tools.YWList.Master);
-            var allWorkers = rpc.YClient.MasterClient.AllWorkers(new EmptyParam());
-            if (allWorkers.Workers.Count>0)
+
+            AllWorkerParam req = new AllWorkerParam();
+            req.Status = 2;
+            var allWorkers = rpc.YClient.MasterClient.AllWorkers(req);
+            if (allWorkers.Workers.Count > 0)
                 dlvWorker.SetObjects(allWorkers.Workers);
+        }
+
+        private void btnStart_Click(object sender, EventArgs e)
+        {
+            YWorker yw = (YWorker)this.dlvWorker.SelectedObject;
+            StartWorkerParam req = new StartWorkerParam();
+            req.Wid = yw.Wid;
+            //req.Wname = yw.Wname;
+            var rep = rpc.YClient.MasterClient.StartWorker(req);
+            if (!rep.Error)
+            {
+                MessageBox.Show("Start thanh cong..");
+                yw.Status = y3d.e.YWorker.Types.ServingStatus.Serving;
+                //AllWorkerParam rr = new AllWorkerParam();
+                //rr.Status = 2;
+                //var allWorkers = rpc.YClient.MasterClient.AllWorkers(rr);
+                //if (allWorkers.Workers.Count > 0)
+                //    dlvWorker.SetObjects(allWorkers.Workers);
+            }
+        }
+
+        private void btnStop_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

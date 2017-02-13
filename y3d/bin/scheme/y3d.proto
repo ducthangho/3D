@@ -221,6 +221,14 @@ message TestParam {
   google.protobuf.Any anything=2;
 }
 
+message StartWorkerParam {
+  int32 wid=1;
+  string wname = 2;
+}
+
+message AllWorkerParam {
+  int32 status=1;
+}
 
 // ------------------------------ Event
 message YEvent {

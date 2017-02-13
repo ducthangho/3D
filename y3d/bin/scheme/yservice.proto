@@ -36,10 +36,11 @@ service Tools {
 }
 
 service YServiceMaster {
-  rpc AllWorkers(EmptyParam) returns (YWorkerList) {}
+  rpc AllWorkers(AllWorkerParam) returns (YWorkerList) {}
   rpc StopAllWorkers(EmptyParam) returns (ResultReply) {}
   rpc AddWorker(YWorkerRequest) returns (YWorkerResponse) {}
   rpc StopWorker(EmptyParam) returns (ResultReply) {}
+  rpc StartWorker(StartWorkerParam) returns (ResultReply) {}
   rpc ShowJobInMachine(YWorker) returns (YJobList) {}
   rpc CheckHealth(EmptyParam) returns (ResultReply) {}
   rpc UpdateWorkerStatus(YWorker) returns (ResultReply) {}

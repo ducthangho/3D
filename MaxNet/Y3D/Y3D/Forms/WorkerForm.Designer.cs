@@ -34,8 +34,8 @@
             this.olvColumnName = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.olvColumnAddr = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.olvColumnStatus = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
-            this.btnNew = new System.Windows.Forms.Button();
             this.workerimglist = new System.Windows.Forms.ImageList(this.components);
+            this.btnNew = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnDel = new System.Windows.Forms.Button();
             this.btnStop = new System.Windows.Forms.Button();
@@ -84,16 +84,6 @@
             this.olvColumnStatus.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.olvColumnStatus.Width = 50;
             // 
-            // btnNew
-            // 
-            this.btnNew.Location = new System.Drawing.Point(12, 187);
-            this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(75, 32);
-            this.btnNew.TabIndex = 1;
-            this.btnNew.Text = "New Worker";
-            this.btnNew.UseVisualStyleBackColor = true;
-            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
-            // 
             // workerimglist
             // 
             this.workerimglist.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("workerimglist.ImageStream")));
@@ -103,6 +93,16 @@
             this.workerimglist.Images.SetKeyName(2, "c_yellow");
             this.workerimglist.Images.SetKeyName(3, "start");
             this.workerimglist.Images.SetKeyName(4, "stop");
+            // 
+            // btnNew
+            // 
+            this.btnNew.Location = new System.Drawing.Point(12, 187);
+            this.btnNew.Name = "btnNew";
+            this.btnNew.Size = new System.Drawing.Size(75, 32);
+            this.btnNew.TabIndex = 1;
+            this.btnNew.Text = "New Worker";
+            this.btnNew.UseVisualStyleBackColor = true;
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
             // button1
             // 
@@ -130,6 +130,7 @@
             this.btnStop.Size = new System.Drawing.Size(39, 32);
             this.btnStop.TabIndex = 3;
             this.btnStop.UseVisualStyleBackColor = true;
+            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
             // 
             // btnStart
             // 
@@ -139,6 +140,7 @@
             this.btnStart.Size = new System.Drawing.Size(39, 32);
             this.btnStart.TabIndex = 2;
             this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
             // WorkerForm
             // 
