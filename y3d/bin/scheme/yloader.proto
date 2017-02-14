@@ -11,12 +11,14 @@ message LibInfo {
 message ResultType {
   bool error = 1;
   string message = 2;
+  int32 process_id = 3;
 }
 
 service Loader{
 	rpc Shutdown (LibInfo) returns (ResultType) {};
 	rpc LoadDll (LibInfo) returns (ResultType) {};
 }
+
 
 service YServiceMaxLoader{ // server run in 3dsmax order to control Tool service
 	rpc Shutdown (LibInfo) returns (ResultType) {};

@@ -142,6 +142,15 @@ namespace YMaxServer.rpc
                 return Task.FromResult(rs);
             }
 
+        public override Task<ResultType> CloseApp(LibInfo request, ServerCallContext context)
+        {
+            //Loader.Global.
+            var p = System.Diagnostics.Process.GetCurrentProcess();
+            p.Close();
+            return base.CloseApp(request, context);
+        }
+
+
         //void myworker(StartService startService)
         //{
         //    if (startService != null) startService();
@@ -151,6 +160,7 @@ namespace YMaxServer.rpc
         public override Task<ResultType> LoadDll(LibInfo request, ServerCallContext context)
         {
             var rs = new ResultType();
+            rs.ProcessId = System.Diagnostics.Process.GetCurrentProcess().Id;
             rs.Error = false;
             
             if (pDll == 0)
@@ -183,7 +193,6 @@ namespace YMaxServer.rpc
             //MessageBox.Show(pAddressOfFunctionToCall.ToString());
             var ip_addr = String.Format("0.0.0.0:{0}", 39000 + YLoaderServer.worker_id);
             if (startService != null) startService("ServiceImpl.dll", ip_addr);
-
             return Task.FromResult(rs);
 
         }

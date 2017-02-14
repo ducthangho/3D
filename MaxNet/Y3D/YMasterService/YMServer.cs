@@ -44,7 +44,7 @@ namespace YMasterService
             return Task.FromResult(YMServer.all_workers);
         }
 
-        public override Task<ResultReply> StartWorker(StartWorkerParam request, ServerCallContext context)
+        public override Task<YWorker> StartWorker(WorkerParam request, ServerCallContext context)
         {
             foreach (YWorker yw in YMServer.all_workers.Workers)
             {
@@ -54,12 +54,74 @@ namespace YMasterService
                     y3d.s.YServiceMaxLoader.YServiceMaxLoaderClient loaderClient = new y3d.s.YServiceMaxLoader.YServiceMaxLoaderClient(channel);
                     LibInfo req = new LibInfo();
                     req.Id = yw.Wid;
-                    loaderClient.LoadDll(req);
+                    var retDll = loaderClient.LoadDll(req);
                     yw.Status = y3d.e.YWorker.Types.ServingStatus.Serving;
-                    return Task.FromResult(new ResultReply());
+                    yw.ProcessId = retDll.ProcessId;
+                    return Task.FromResult(yw);
                 }
             }
             return base.StartWorker(request, context);
+        }
+
+        public override Task<ResultReply> CloseWorkerApp(WorkerParam request, ServerCallContext context)
+        {
+            //Console.WriteLine("botay");
+            //YSystem.("id:%d", yw.ProcessId);
+            ResultReply rep = new ResultReply();
+            rep.Error = true;
+            //new System.Threading.Thread(() =>
+            //{
+            //    var yw = YMServer.GetWorker(request);
+
+            //    if (yw != null)
+            //    {
+
+            //        var p = System.Diagnostics.Process.GetProcessById(yw.ProcessId);
+            //        //System.Windows.Forms.MessageBox.Show(p.Id.ToString());
+            //        try
+            //        {
+            //            p.CloseMainWindow();
+            //            p.Close();
+            //            p.Kill();
+            //        }
+            //        catch (System.Exception ex)
+            //        {
+            //            //System.Windows.Forms.MessageBox.Show(ex.Message);
+            //        }
+            //        //if (p != null) p.Kill();
+            //        //Channel channel = new Channel(yw.IpAddress, ChannelCredentials.Insecure);
+            //        //y3d.s.YServiceMaxLoader.YServiceMaxLoaderClient loaderClient = new y3d.s.YServiceMaxLoader.YServiceMaxLoaderClient(channel);
+            //        //loaderClient.CloseApp(new LibInfo());
+            //        rep.Error = false;
+            //        //return Task.FromResult(rep);
+            //    }
+            //    //Thread.CurrentThread.IsBackground = true;
+            //    /* run your code here */
+            //    //Console.WriteLine("Hello, world");
+            //}).Start();
+
+            var yw = YMServer.GetWorker(request);
+
+            if (yw != null)
+            {
+
+                var p = System.Diagnostics.Process.GetProcessById(yw.ProcessId);
+                //System.Windows.Forms.MessageBox.Show(p.Id.ToString());
+                try
+                {
+                    p.CloseMainWindow();
+                    p.Close();
+                    p.Kill();
+                }
+                catch (System.Exception ex)
+                {
+                    //System.Windows.Forms.MessageBox.Show(ex.Message);
+                }
+                //if (p != null) p.Kill();
+                rep.Error = false;
+                return Task.FromResult(rep);
+            }
+            return Task.FromResult(rep);
         }
 
         //public override Task<YWorkerList> AllWorkers(EmptyParam request, ServerCallContext context)
@@ -115,6 +177,27 @@ namespace YMasterService
                 if ((YSys.Projects[i].OriginalPath == folder) && (YSys.Projects[i].Pname == fname))
                 {
                     return YSys.Projects[i];
+                }
+            }
+            return null;
+        }
+
+        public static YWorker GetWorker(WorkerParam wp)
+        {
+            YWorker ret = new YWorker();
+            for (int i = 0; i < all_workers.Workers.Count; i++)
+            {
+                if ((wp.WtypeCase==WorkerParam.WtypeOneofCase.Wid))
+                {
+                    if (wp.Wid == all_workers.Workers[i].Wid) return all_workers.Workers[i];
+                }
+                if ((wp.WtypeCase == WorkerParam.WtypeOneofCase.Wname))
+                {
+                    if (wp.Wname == all_workers.Workers[i].Wname) return all_workers.Workers[i];
+                }
+                if ((wp.WtypeCase == WorkerParam.WtypeOneofCase.Worker))
+                {
+                    if (wp.Worker.Wid == all_workers.Workers[i].Wid) return all_workers.Workers[i];
                 }
             }
             return null;

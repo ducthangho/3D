@@ -27,7 +27,6 @@ int loadDll(int32_t id = 0) {
 }
 
 int show_all_workers(int32_t stat = 2) {
-	printf("binhtin");
 	auto channel = grpc::CreateChannel(master_ip, grpc::InsecureChannelCredentials());
 	auto client = y3d::YServiceMaster::NewStub(channel);
 	y3d::YWorkerList ywl;
@@ -46,7 +45,7 @@ int show_all_workers(int32_t stat = 2) {
 int start_worker(int32_t id) {
 	auto channel = grpc::CreateChannel(master_ip, grpc::InsecureChannelCredentials());
 	auto client = y3d::YServiceMaster::NewStub(channel);
-	y3d::StartWorkerParam req;
+	y3d::WorkerParam req;
 	req.set_wid(id);
 	y3d::ResultReply resp;
 	grpc::ClientContext context;
@@ -57,7 +56,7 @@ int start_worker(int32_t id) {
 int start_worker(std::string wnamed) {
 	auto channel = grpc::CreateChannel(master_ip, grpc::InsecureChannelCredentials());
 	auto client = y3d::YServiceMaster::NewStub(channel);
-	y3d::StartWorkerParam req;
+	y3d::WorkerParam req;
 	req.set_wname(wnamed.c_str());
 	y3d::ResultReply resp;
 	grpc::ClientContext context;

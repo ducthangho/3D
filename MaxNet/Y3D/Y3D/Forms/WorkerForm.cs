@@ -46,14 +46,16 @@ namespace Y3D.Forms
         private void btnStart_Click(object sender, EventArgs e)
         {
             YWorker yw = (YWorker)this.dlvWorker.SelectedObject;
-            StartWorkerParam req = new StartWorkerParam();
+            WorkerParam req = new WorkerParam();
             req.Wid = yw.Wid;
             //req.Wname = yw.Wname;
             var rep = rpc.YClient.MasterClient.StartWorker(req);
-            if (!rep.Error)
-            {
+            if (rep!=null) { 
+                yw.ProcessId = rep.ProcessId;
+                yw.Status = rep.Status;
                 MessageBox.Show("Start thanh cong..");
-                yw.Status = y3d.e.YWorker.Types.ServingStatus.Serving;
+                
+                //yw.Status = y3d.e.YWorker.Types.ServingStatus.Serving;
                 //AllWorkerParam rr = new AllWorkerParam();
                 //rr.Status = 2;
                 //var allWorkers = rpc.YClient.MasterClient.AllWorkers(rr);
@@ -64,7 +66,11 @@ namespace Y3D.Forms
 
         private void btnStop_Click(object sender, EventArgs e)
         {
-
+            YWorker yw = (YWorker)this.dlvWorker.SelectedObject;
+            WorkerParam wp = new WorkerParam();
+            wp.Wid = yw.Wid;
+            //MessageBox.Show(yw.ProcessId.ToString());
+            rpc.YClient.MasterClient.CloseWorkerApp(wp);
         }
     }
 }
