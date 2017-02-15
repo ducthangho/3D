@@ -508,9 +508,10 @@ message WorkerApp {
 }
 
 message YWorkerResponse {
-  // YWorkerList wlist = 1;
-  YWorker new_worker=1;
-  string error=2;
+  YWorkerList wlist = 1;
+  YWorker worker=2;
+  bool error=3;
+  string message = 4;
 }
 
 message YMasterServer {

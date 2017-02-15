@@ -7,7 +7,7 @@ package y3d;
 // [START csharp_declaration]
 option csharp_namespace = "y3d.s";
 // [END csharp_declaration]
-service Tools {
+service YServiceMaxTools {
   rpc RenameObject (RenameParam) returns (ResultReply) {}
   rpc SaveProject(ProjectInfo) returns (ResponseEvent) {}
   rpc NewProject(NewProjectParam) returns (ResponseNProject) {}
@@ -41,20 +41,19 @@ service YServiceTest {
 }
 
 service YServiceMaster {
-  rpc AllWorkers(AllWorkerParam) returns (YWorkerList) {}
+  rpc AllWorkers(AllWorkerParam) returns (YWorkerResponse) {}
   rpc StopAllWorkers(EmptyParam) returns (ResultReply) {}
   rpc AddWorker(YWorkerRequest) returns (YWorkerResponse) {}
-  rpc StopWorker(WorkerParam) returns (ResultReply) {}
   rpc CloseWorkerApp(WorkerParam) returns (ResultReply) {}
+  rpc StartWorker(WorkerParam) returns (YWorkerResponse) {}
+  rpc StopWorker(WorkerParam) returns (YWorkerResponse) {}
   rpc AppExitCallback(WorkerParam) returns (ResultReply) {}
-  rpc StartWorker(WorkerParam) returns (YWorker) {}
   rpc ShowJobInMachine(YWorker) returns (YJobList) {}
   rpc CheckHealth(EmptyParam) returns (ResultReply) {}
   rpc UpdateWorkerStatus(YWorker) returns (ResultReply) {}
   rpc LoadSystem(EmptyParam) returns (YSystem) {}
   rpc SaveSystem(YSystem) returns (ResultReply) {}
   rpc GiveMeAWorker(EmptyParam) returns (YWorker) {}
-
 }
 
 service YServiceMainWorker { // server for 3dsmax send actions request, run in mainworker app

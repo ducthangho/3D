@@ -11,9 +11,6 @@ using System.Runtime.InteropServices;
 
 namespace YMaxServer.rpc
 {
-
-
-
     static class NativeMethods
     {
         [DllImport("kernel32.dll", EntryPoint = "LoadLibrary")]
@@ -212,19 +209,15 @@ namespace YMaxServer.rpc
         public static Server server;
         public static void Start()
         {
-            Channel channel = new Channel(MASTER_IP, ChannelCredentials.Insecure);
-            y3d.s.YServiceMaster.YServiceMasterClient MasterClient = new y3d.s.YServiceMaster.YServiceMasterClient(channel);
+            var MasterClient = new y3d.s.YServiceMaster.YServiceMasterClient(new Channel(MASTER_IP, ChannelCredentials.Insecure));
             YWorkerRequest req = new YWorkerRequest();
             req.CallInApp = true;
             var rep = MasterClient.AddWorker(req);
-            worker_id = rep.NewWorker.Wid;
-            //public static y3d.s.Tools.ToolsClient CClient = new y3d.s.Tools.ToolsClient(CChannel);
-
+            worker_id = rep.Worker.Wid;
             server = new Server
             {
-                //Services = { Greeter.BindService(new GreeterImpl()), YAction.BindService(new YActionImpl()) },            
                 Services = { YServiceMaxLoader.BindService(new YServiceMaxLoaderImpl()) },
-                Ports = { new ServerPort("localhost", rep.NewWorker.Wid + 38000, ServerCredentials.Insecure) }
+                Ports = { new ServerPort("localhost", rep.Worker.Wid + 38000, ServerCredentials.Insecure) }
             };
             server.Start();
         }

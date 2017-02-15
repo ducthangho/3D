@@ -16,7 +16,7 @@ namespace Y3D.Utils
         public Channel CSChannel;
         public Channel MasterChannel;
 
-        public y3d.s.Tools.ToolsClient CClient;
+        public y3d.s.YServiceMaxTools.YServiceMaxToolsClient CClient;
         public y3d.s.YServiceMaster.YServiceMasterClient CWClient;
         //public y3d.s.YMainWorker CSMClient;
 

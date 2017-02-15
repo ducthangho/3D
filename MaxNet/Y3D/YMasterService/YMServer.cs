@@ -14,35 +14,23 @@ namespace YMasterService
     class YServiceMasterImpl : y3d.s.YServiceMaster.YServiceMasterBase
     {
         public static System.Threading.Mutex mtx = new System.Threading.Mutex();
-        public static void AddElem(YWorker yw)
-        {
-            if (mtx.WaitOne())
-            {
-                YMServer.all_workers.Workers.Add(yw);
-            }
-        }
-
-        //public static void RemoveElem(WorkerParam request)
-        //{
-        //    if (mtx.WaitOne())
-        //    {
-        //        var yw = YMServer.GetWorker(request);
-        //        YMServer.all_workers.Workers.Remove(yw);
-        //    }
-        //}
-
 
         public override Task<YWorkerResponse> AddWorker(YWorkerRequest req, ServerCallContext context)
         {
             YWorkerResponse ret = new YWorkerResponse();
-            ret.NewWorker = new YWorker();
+            ret.Worker = new YWorker();
             //ret.NewWorker.Wid = YMServer.YSys.MasterServer.MainWorkers.Count + 1;
             YMServer.LastIndex++;
-            ret.NewWorker.Wid = YMServer.LastIndex;
-            ret.NewWorker.IpAddress = String.Format("127.0.0.1:{0}", ret.NewWorker.Wid + 38000);
-            ret.NewWorker.Wname = "Worker " + ret.NewWorker.Wid;
-            ret.NewWorker.Status = YWorker.Types.ServingStatus.NotServing;
-            YMServer.all_workers.Workers.Add(ret.NewWorker);
+            ret.Worker.Wid = YMServer.LastIndex;
+            ret.Worker.IpAddress = String.Format("127.0.0.1:{0}", ret.Worker.Wid + 38000);
+            ret.Worker.Wname = "Worker " + ret.Worker.Wid;
+            ret.Worker.Status = YWorker.Types.ServingStatus.NotServing;
+            //if (mtx.WaitOne())
+            //{
+                YMServer.all_workers.Workers.Add(ret.Worker);
+            //}
+            ret.Wlist = YMServer.all_workers;
+            //YMServer.all_workers.Workers.Add(ret.NewWorker);
             //AddElem(ret.NewWorker);
             //YMServer.Workers.Add(ret.NewWorker);
             if (!req.CallInApp)
@@ -59,12 +47,15 @@ namespace YMasterService
             return Task.FromResult(ret);
         }
 
-        public override Task<YWorkerList> AllWorkers(AllWorkerParam request, ServerCallContext context)
+        public override Task<YWorkerResponse> AllWorkers(AllWorkerParam request, ServerCallContext context)
         {
-            return Task.FromResult(YMServer.all_workers);
+            YWorkerResponse rep = new YWorkerResponse();
+            rep.Wlist = YMServer.all_workers;
+            rep.Error = false;
+            return Task.FromResult(rep);
         }
 
-        public override Task<YWorker> StartWorker(WorkerParam request, ServerCallContext context)
+        public override Task<YWorkerResponse> StartWorker(WorkerParam request, ServerCallContext context)
         {
             foreach (YWorker yw in YMServer.all_workers.Workers)
             {
@@ -77,7 +68,35 @@ namespace YMasterService
                     var retDll = loaderClient.LoadDll(req);
                     yw.Status = y3d.e.YWorker.Types.ServingStatus.Serving;
                     yw.ProcessId = retDll.ProcessId;
-                    return Task.FromResult(yw);
+
+                    YWorkerResponse rep = new YWorkerResponse();
+                    rep.Worker = yw;
+                    rep.Wlist = YMServer.all_workers;
+                    rep.Error = false;
+                    return Task.FromResult(rep);
+                }
+            }
+            return base.StartWorker(request, context);
+        }
+
+        public override Task<YWorkerResponse> StopWorker(WorkerParam request, ServerCallContext context)
+        {
+            foreach (YWorker yw in YMServer.all_workers.Workers)
+            {
+                if ((yw.Wid == request.Wid) || (yw.Wname == request.Wname))
+                {
+                    Channel channel = new Channel(yw.IpAddress, ChannelCredentials.Insecure);
+                    y3d.s.YServiceMaxLoader.YServiceMaxLoaderClient loaderClient = new y3d.s.YServiceMaxLoader.YServiceMaxLoaderClient(channel);
+                    LibInfo req = new LibInfo();
+                    req.Id = yw.Wid;
+                    var retDll = loaderClient.Shutdown(req);
+                    yw.Status = y3d.e.YWorker.Types.ServingStatus.NotServing;
+
+                    YWorkerResponse rep = new YWorkerResponse();
+                    rep.Worker = yw;
+                    rep.Wlist = YMServer.all_workers;
+                    rep.Error = false;
+                    return Task.FromResult(rep);
                 }
             }
             return base.StartWorker(request, context);
@@ -89,15 +108,12 @@ namespace YMasterService
             rep.Error = true;
             YWorker yw;
             String s = "";
-            if (mtx.WaitOne())
-            {
+            //if (mtx.WaitOne())
+            //{
                 yw = YMServer.GetWorker(request);
                 s = String.Format("127.0.0.1:{0}", yw.Wid + 39000);
-            }
-            //System.Diagnostics.EventLog e = new System.Diagnostics.EventLog();
-            //e.WriteEntry(s);
-            Channel channel = new Channel(s, ChannelCredentials.Insecure);
-            y3d.s.Tools.ToolsClient toolClient = new y3d.s.Tools.ToolsClient(channel);
+            //}
+            var toolClient = new y3d.s.YServiceMaxTools.YServiceMaxToolsClient(new Channel(s, ChannelCredentials.Insecure));
             toolClient.Shutdown(new EmptyParam());
             //YMServer.all_workers.Workers.Remove(yw);
             rep.Error = false;
@@ -162,13 +178,13 @@ namespace YMasterService
         {
             ResultReply rep = new ResultReply();
             rep.Error = true;
-            if (YServiceMasterImpl.mtx.WaitOne())
-            {
+            //if (YServiceMasterImpl.mtx.WaitOne())
+            //{
                 var yw = YMServer.GetWorker(request);
                 if (yw!=null)
                     YMServer.all_workers.Workers.Remove(yw);
                 rep.Error = false;
-            }
+            //}
             return Task.FromResult(rep);
         }
 
@@ -356,48 +372,29 @@ namespace YMasterService
         public static void forceStopWorker(YWorker yw)
         {
             var s = String.Format("127.0.0.1:{0}", yw.Wid + 39000);
-            //System.Diagnostics.EventLog e = new System.Diagnostics.EventLog();
-            //e.WriteEntry(s);
             Channel channel = new Channel(s, ChannelCredentials.Insecure);
-            y3d.s.Tools.ToolsClient toolClient = new y3d.s.Tools.ToolsClient(channel);
+            var toolClient = new y3d.s.YServiceMaxTools.YServiceMaxToolsClient(channel);
             toolClient.ShutdownAsync(new EmptyParam());
         }
 
         public static void StopWorker(YWorker yw, bool stopServerOnly=true)
         {
-            Channel channel = new Channel(yw.IpAddress, ChannelCredentials.Insecure);
-            y3d.s.YServiceMaxLoader.YServiceMaxLoaderClient client = new YServiceMaxLoader.YServiceMaxLoaderClient(channel);
+            var client = new YServiceMaxLoader.YServiceMaxLoaderClient(new Channel(yw.IpAddress, ChannelCredentials.Insecure));
             if (stopServerOnly)
             {
                 client.Shutdown(new LibInfo());
+                yw.Status = YWorker.Types.ServingStatus.NotServing;
             } else
             {
                 client.CloseApp(new LibInfo());
             }
         }
 
-
-
         public static void StopAllWorker()
         {
-            //do
-            //{
-            //    YWorker w = null;
-            //    if (YServiceMasterImpl.mtx.WaitOne())
-            //    {
-            //        w = (all_workers.Workers.Count > 0) ? all_workers.Workers[0] : null;
-            //    }
-            //    if (w != null)
-            //        forceStopWorker(w);
-            //    else break;
-            //} while (true);
-
-            if (YServiceMasterImpl.mtx.WaitOne())
+            foreach (YWorker w in all_workers.Workers)
             {
-                foreach (YWorker w in all_workers.Workers)
-                {
-                    forceStopWorker(w);
-                }
+                StopWorker(w);
             }
 
         }
@@ -410,7 +407,6 @@ namespace YMasterService
             };
             server.Start();
         }
-
         public static void Stop()
         {
             server.ShutdownAsync().Wait();

@@ -21,7 +21,7 @@ using namespace y3d;
 // Somewhere in the global scope :/
 
 
-class AbstractService : public Tools::Service {
+class AbstractService : public YServiceMaxTools::Service {
 public:
 	virtual void Initialize(void* codegen, void* gli) = 0;//This function used initialize static variable needed to run grpc in dll mode. See Service.cpp for an example
 	virtual Status MakeNode4Edit(ServerContext* context, const Make4TestParam* request, ResultReply* reply) = 0;

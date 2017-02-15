@@ -22,10 +22,7 @@ namespace Y3D.Forms
         {
             Channel channel = new Channel("127.0.0.1:39001", ChannelCredentials.Insecure);
             var testClient = new y3d.s.YServiceTest.YServiceTestClient(channel);
-
             testClient.MTest1(new y3d.e.EmptyParam());
-            //rpc.YClient.test1();
-
         }
 
         private void btnTest2_Click(object sender, EventArgs e)

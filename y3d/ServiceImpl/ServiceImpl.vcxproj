@@ -116,8 +116,7 @@
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" />
     </PostBuildEvent>
     <PreLinkEvent>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      </Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(ProjectDir)..\bin\LoaderCmd.exe" -w stopall</Command>
     </PreLinkEvent>
     <PreLinkEvent>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(ProjectDir)..\bin\LoaderCmd.exe" -l 0</Command>
@@ -131,6 +130,7 @@
     <ClCompile Include="xnormal.pb.cc" />
     <ClCompile Include="y3d.pb.cc" />
     <ClCompile Include="YCServer.cpp" />
+    <ClCompile Include="YCTestServer.cpp" />
     <ClCompile Include="ymat.pb.cc" />
     <ClCompile Include="ymax.grpc.pb.cc" />
     <ClCompile Include="ymax.pb.cc" />
@@ -141,6 +141,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\YCServer.h" />
+    <ClInclude Include="..\include\YCTestServer.h" />
     <ClInclude Include="..\include\YLibs.h" />
     <ClInclude Include="resource.h" />
   </ItemGroup>

@@ -94,6 +94,7 @@
             this.workerimglist.Images.SetKeyName(2, "c_yellow");
             this.workerimglist.Images.SetKeyName(3, "start");
             this.workerimglist.Images.SetKeyName(4, "stop");
+            this.workerimglist.Images.SetKeyName(5, "c_red");
             // 
             // btnNew
             // 

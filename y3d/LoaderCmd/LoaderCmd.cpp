@@ -11,31 +11,17 @@
 #include "tclap/CmdLine.h"
 
 std::string master_ip = "127.0.0.1:38000";
-std::string ip = "localhost:50050";
-std::string service_ip = "localhost:50051";
-
-
-int loadDll(int32_t id = 0) {
-	auto client = y3d::YServiceMaxLoader::NewStub(grpc::CreateChannel(ip, grpc::InsecureChannelCredentials()));
-	grpc::ClientContext context;
-	y3d::LibInfo request;
-	request.set_id(id);
-	y3d::ResultType resp;
-	auto status = client->LoadDll(&context, request, &resp);
-	return resp.error();
-	//printf("Execution result = %d\n", status.error_code());
-}
 
 int show_all_workers(int32_t stat = 2) {
 	auto client = y3d::YServiceMaster::NewStub(grpc::CreateChannel(master_ip, grpc::InsecureChannelCredentials()));
-	y3d::YWorkerList ywl;
+	y3d::YWorkerResponse rep;
 	y3d::AllWorkerParam request;
 	grpc::ClientContext context;
 	request.set_status(stat);
-	auto status = client->AllWorkers(&context, request, &ywl);
-	for (int i = 0; i < ywl.workers_size(); i++)
+	auto status = client->AllWorkers(&context, request, &rep);
+	for (int i = 0; i < rep.wlist().workers_size(); i++)
 	{
-		auto yw = ywl.workers(i);
+		auto yw = rep.wlist().workers(i);
 		printf("\n%d. %s  (ip:%s)", (i + 1), yw.wname(), yw.ip_address());
 	}
 	return status.error_code();
@@ -45,9 +31,9 @@ int start_worker(int32_t id) {
 	auto client = y3d::YServiceMaster::NewStub(grpc::CreateChannel(master_ip, grpc::InsecureChannelCredentials()));
 	y3d::WorkerParam req;
 	req.set_wid(id);
-	y3d::YWorker resp;
+	y3d::YWorkerResponse rep;
 	grpc::ClientContext context;
-	auto status = client->StartWorker(&context, req, &resp);
+	auto status = client->StartWorker(&context, req, &rep);
 	return 0;
 }
 
@@ -55,35 +41,65 @@ int start_worker(std::string wnamed) {
 	auto client = y3d::YServiceMaster::NewStub(grpc::CreateChannel(master_ip, grpc::InsecureChannelCredentials()));
 	y3d::WorkerParam req;
 	req.set_wname(wnamed.c_str());
-	y3d::YWorker resp;
+	y3d::YWorkerResponse rep;
 	grpc::ClientContext context;
-	auto status = client->StartWorker(&context, req, &resp);
+	auto status = client->StartWorker(&context, req, &rep);
 	return 0;
 }
 
-int shutdownService() {
-	auto channel = grpc::CreateChannel(service_ip, grpc::InsecureChannelCredentials());
-	auto client = y3d::Tools::NewStub(channel);
+
+int stop_worker(int32_t id) {
+	auto client = y3d::YServiceMaster::NewStub(grpc::CreateChannel(master_ip, grpc::InsecureChannelCredentials()));
+	y3d::WorkerParam req;
+	req.set_wid(id);
+	y3d::YWorkerResponse rep;
 	grpc::ClientContext context;
-	y3d::EmptyParam request;	
-	y3d::ResultReply resp;
-	auto status = client->Shutdown(&context, request, &resp);
-	printf("Shutdown service %d\n", status.error_code());
-	return status.error_code();
+	auto status = client->StopWorker(&context, req, &rep);
+	return 0;
 }
 
-int shutdown(int32_t id = 0) {
-	shutdownService();
-	auto channel = grpc::CreateChannel(ip, grpc::InsecureChannelCredentials());
-	auto client = y3d::YServiceMaxLoader::NewStub(channel);
+int stop_worker(std::string wnamed) {
+	auto client = y3d::YServiceMaster::NewStub(grpc::CreateChannel(master_ip, grpc::InsecureChannelCredentials()));
+	y3d::WorkerParam req;
+	req.set_wname(wnamed.c_str());
+	y3d::YWorkerResponse rep;
 	grpc::ClientContext context;
-	y3d::LibInfo request;
-	request.set_id(id);
-	y3d::ResultType resp;
-	auto status = client->Shutdown(&context, request, &resp);
+	auto status = client->StopWorker(&context, req, &rep);
+	return 0;
+}
 
+int stop_all_worker() {
+	auto client = y3d::YServiceMaster::NewStub(grpc::CreateChannel(master_ip, grpc::InsecureChannelCredentials()));
+	grpc::ClientContext context;
+	y3d::EmptyParam request;
+	y3d::ResultReply resp;
+	auto status = client->StopAllWorkers(&context, request, &resp);
 	return resp.error();
 }
+
+
+//int shutdownService() {
+//	auto client = y3d::Tools::NewStub(grpc::CreateChannel(service_ip, grpc::InsecureChannelCredentials()));
+//	grpc::ClientContext context;
+//	y3d::EmptyParam request;	
+//	y3d::ResultReply resp;
+//	auto status = client->Shutdown(&context, request, &resp);
+//	printf("Shutdown service %d\n", status.error_code());
+//	return status.error_code();
+//}
+
+//int shutdown(int32_t id = 0) {
+//	shutdownService();
+//	auto channel = grpc::CreateChannel(ip, grpc::InsecureChannelCredentials());
+//	auto client = y3d::YServiceMaxLoader::NewStub(channel);
+//	grpc::ClientContext context;
+//	y3d::LibInfo request;
+//	request.set_id(id);
+//	y3d::ResultType resp;
+//	auto status = client->Shutdown(&context, request, &resp);
+//
+//	return resp.error();
+//}
 
 //class LoaderClient
 
@@ -110,7 +126,7 @@ int main(int argc, char** argv)
 		TCLAP::ValueArg<std::string> wnameArg("n", "wname", "Worker name", false, "", "string");
 		cmd.add(wnameArg);
 
-		TCLAP::ValueArg<std::string> workerArg("w", "worker", "stop = stop worker service; start = start worker service", false, "start", "string");
+		TCLAP::ValueArg<std::string> workerArg("w", "worker", "stop = stop worker service; start = start worker service; stopall = stop all worker services", false, "start", "string");
 		cmd.add(workerArg);
 
 		TCLAP::ValueArg<int> lsArg("l", "list", "0 = inactive; 1 = ready; 2 = all", false, 2, "integer");
@@ -125,16 +141,24 @@ int main(int argc, char** argv)
 		}
 		else if (workerArg.isSet()) {
 			auto worker = workerArg.getValue();
-			if (widArg.isSet()) {
+			if (worker == "stopall") {
+				stop_all_worker();
+			}else if (widArg.isSet()) {
 				auto wid = widArg.getValue();
 				if (worker == "start") {
 					start_worker(wid);
+				}
+				else if (worker == "stop") {
+					stop_worker(wid);
 				}
 			}
 			else if (wnameArg.isSet()) {
 				auto wname = wnameArg.getValue();
 				if (worker == "start") {
 					start_worker(wname);
+				} 
+				else if (worker == "stop") {
+					stop_worker(wname);
 				}
 			}
 		}

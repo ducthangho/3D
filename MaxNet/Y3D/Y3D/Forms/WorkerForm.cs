@@ -30,7 +30,7 @@ namespace Y3D.Forms
                 {
                     YWorker yw = (YWorker)x;
                     if (yw.Status == YWorker.Types.ServingStatus.NotServing)
-                        return "c_gray";
+                        return "c_red";
                     if (yw.Status == YWorker.Types.ServingStatus.Serving)
                         return "c_green";
                 }
@@ -39,9 +39,9 @@ namespace Y3D.Forms
 
             AllWorkerParam req = new AllWorkerParam();
             req.Status = 2;
-            var allWorkers = rpc.YClient.MasterClient.AllWorkers(req);
-            if (allWorkers.Workers.Count > 0)
-                dlvWorker.SetObjects(allWorkers.Workers);
+            var rep = rpc.YClient.MasterClient.AllWorkers(req);
+            if (!rep.Error)
+                dlvWorker.SetObjects(rep.Wlist.Workers);
         }
 
         private void btnStart_Click(object sender, EventArgs e)
@@ -51,18 +51,10 @@ namespace Y3D.Forms
             req.Wid = yw.Wid;
             //req.Wname = yw.Wname;
             var rep = rpc.YClient.MasterClient.StartWorker(req);
-            if (rep!=null) { 
-                yw.ProcessId = rep.ProcessId;
-                yw.Status = rep.Status;
-                dlvWorker.RefreshObject(yw);
+            if (!rep.Error)
+            {
+                dlvWorker.SetObjects(rep.Wlist.Workers);
                 MessageBox.Show("Start thanh cong..");
-                
-                //yw.Status = y3d.e.YWorker.Types.ServingStatus.Serving;
-                //AllWorkerParam rr = new AllWorkerParam();
-                //rr.Status = 2;
-                //var allWorkers = rpc.YClient.MasterClient.AllWorkers(rr);
-                //if (allWorkers.Workers.Count > 0)
-                //    dlvWorker.SetObjects(allWorkers.Workers);
             }
         }
 
@@ -71,8 +63,12 @@ namespace Y3D.Forms
             YWorker yw = (YWorker)this.dlvWorker.SelectedObject;
             WorkerParam wp = new WorkerParam();
             wp.Wid = yw.Wid;
-            //MessageBox.Show(yw.ProcessId.ToString());
-            rpc.YClient.MasterClient.CloseWorkerApp(wp);
+            var rep = rpc.YClient.MasterClient.StopWorker(wp);
+            if (!rep.Error)
+            {
+                dlvWorker.SetObjects(rep.Wlist.Workers);
+                MessageBox.Show("Stop thanh cong..");
+            }
         }
 
         private void btnDel_Click(object sender, EventArgs e)
@@ -88,8 +84,7 @@ namespace Y3D.Forms
             WorkerParam wp = new WorkerParam();
             wp.Wid = yw.Wid;
             //MessageBox.Show(yw.ProcessId.ToString());
-            rpc.YClient.MasterClient.CloseWorkerApp(wp);
-
+            var rep = rpc.YClient.MasterClient.CloseWorkerApp(wp);
         }
     }
 }

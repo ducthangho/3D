@@ -133,12 +133,15 @@
       <Command Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">"$(ProjectDir)..\bin\LoaderCmd.exe" -l 0</Command>
     </PreLinkEvent>
     <PreLinkEvent>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      </Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(ProjectDir)..\bin\LoaderCmd.exe" -w stopall</Command>
     </PreLinkEvent>
     <PreLinkEvent>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(ProjectDir)..\bin\LoaderCmd.exe" -l 0</Command>
     </PreLinkEvent>
+    <PreBuildEvent>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="grpc\src\compiler\cpp_generator.cc" />
