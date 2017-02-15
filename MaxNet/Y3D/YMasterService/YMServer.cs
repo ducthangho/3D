@@ -13,6 +13,25 @@ namespace YMasterService
 
     class YServiceMasterImpl : y3d.s.YServiceMaster.YServiceMasterBase
     {
+        static System.Threading.Mutex mtx = new System.Threading.Mutex();
+        public static void AddElem(YWorker yw)
+        {
+            if (mtx.WaitOne())
+            {
+                YMServer.all_workers.Workers.Add(yw);
+            }
+        }
+
+        //public static void RemoveElem(WorkerParam request)
+        //{
+        //    if (mtx.WaitOne())
+        //    {
+        //        var yw = YMServer.GetWorker(request);
+        //        YMServer.all_workers.Workers.Remove(yw);
+        //    }
+        //}
+
+
         public override Task<YWorkerResponse> AddWorker(YWorkerRequest req, ServerCallContext context)
         {
             YWorkerResponse ret = new YWorkerResponse();
@@ -23,7 +42,8 @@ namespace YMasterService
             ret.NewWorker.IpAddress = String.Format("127.0.0.1:{0}", ret.NewWorker.Wid + 38000);
             ret.NewWorker.Wname = "Worker " + ret.NewWorker.Wid;
             ret.NewWorker.Status = YWorker.Types.ServingStatus.NotServing;
-            YMServer.all_workers.Workers.Add(ret.NewWorker);
+            //YMServer.all_workers.Workers.Add(ret.NewWorker);
+            AddElem(ret.NewWorker);
             //YMServer.Workers.Add(ret.NewWorker);
             if (!req.CallInApp)
             {
@@ -65,10 +85,21 @@ namespace YMasterService
 
         public override Task<ResultReply> CloseWorkerApp(WorkerParam request, ServerCallContext context)
         {
-            //Console.WriteLine("botay");
-            //YSystem.("id:%d", yw.ProcessId);
             ResultReply rep = new ResultReply();
-            rep.Error = true;
+            if (mtx.WaitOne())
+            {
+                var yw = YMServer.GetWorker(request);
+                var s = String.Format("127.0.0.1:{0}", yw.Wid + 39000);
+                Console.WriteLine(s);
+                //System.Diagnostics.EventLog e = new System.Diagnostics.EventLog();
+                //e.WriteEntry(s);
+                Channel channel = new Channel(s, ChannelCredentials.Insecure);
+                y3d.s.Tools.ToolsClient toolClient = new y3d.s.Tools.ToolsClient(channel);
+                toolClient.Shutdown(new EmptyParam());
+                YMServer.all_workers.Workers.Remove(yw);
+                rep.Error = true;
+            }
+
             //new System.Threading.Thread(() =>
             //{
             //    var yw = YMServer.GetWorker(request);
@@ -100,27 +131,27 @@ namespace YMasterService
             //    //Console.WriteLine("Hello, world");
             //}).Start();
 
-            var yw = YMServer.GetWorker(request);
+            //var yw = YMServer.GetWorker(request);
 
-            if (yw != null)
-            {
+            //if (yw != null)
+            //{
 
-                var p = System.Diagnostics.Process.GetProcessById(yw.ProcessId);
-                //System.Windows.Forms.MessageBox.Show(p.Id.ToString());
-                try
-                {
-                    p.CloseMainWindow();
-                    p.Close();
-                    p.Kill();
-                }
-                catch (System.Exception ex)
-                {
-                    //System.Windows.Forms.MessageBox.Show(ex.Message);
-                }
-                //if (p != null) p.Kill();
-                rep.Error = false;
-                return Task.FromResult(rep);
-            }
+            //    var p = System.Diagnostics.Process.GetProcessById(yw.ProcessId);
+            //    //System.Windows.Forms.MessageBox.Show(p.Id.ToString());
+            //    try
+            //    {
+            //        p.CloseMainWindow();
+            //        p.Close();
+            //        p.Kill();
+            //    }
+            //    catch (System.Exception ex)
+            //    {
+            //        //System.Windows.Forms.MessageBox.Show(ex.Message);
+            //    }
+            //    //if (p != null) p.Kill();
+            //    rep.Error = false;
+            //    return Task.FromResult(rep);
+            //}
             return Task.FromResult(rep);
         }
 

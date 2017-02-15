@@ -55,6 +55,7 @@
             this.olvColumnStatus});
             this.dlvWorker.Cursor = System.Windows.Forms.Cursors.Default;
             this.dlvWorker.DataSource = null;
+            this.dlvWorker.FullRowSelect = true;
             this.dlvWorker.Location = new System.Drawing.Point(12, 12);
             this.dlvWorker.Name = "dlvWorker";
             this.dlvWorker.ShowGroups = false;
@@ -121,6 +122,7 @@
             this.btnDel.Size = new System.Drawing.Size(39, 32);
             this.btnDel.TabIndex = 4;
             this.btnDel.UseVisualStyleBackColor = true;
+            this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
             // 
             // btnStop
             // 
@@ -164,8 +166,6 @@
         }
 
         #endregion
-
-        private BrightIdeasSoftware.DataListView dlvWorker;
         private BrightIdeasSoftware.OLVColumn olvColumnName;
         private BrightIdeasSoftware.OLVColumn olvColumnAddr;
         private BrightIdeasSoftware.OLVColumn olvColumnStatus;
@@ -175,5 +175,6 @@
         private System.Windows.Forms.Button btnStop;
         private System.Windows.Forms.Button btnDel;
         private System.Windows.Forms.Button button1;
+        private BrightIdeasSoftware.DataListView dlvWorker;
     }
 }

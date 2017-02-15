@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Grpc.Core;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -53,6 +54,7 @@ namespace Y3D.Forms
             if (rep!=null) { 
                 yw.ProcessId = rep.ProcessId;
                 yw.Status = rep.Status;
+                dlvWorker.RefreshObject(yw);
                 MessageBox.Show("Start thanh cong..");
                 
                 //yw.Status = y3d.e.YWorker.Types.ServingStatus.Serving;
@@ -71,6 +73,17 @@ namespace Y3D.Forms
             wp.Wid = yw.Wid;
             //MessageBox.Show(yw.ProcessId.ToString());
             rpc.YClient.MasterClient.CloseWorkerApp(wp);
+        }
+
+        private void btnDel_Click(object sender, EventArgs e)
+        {
+            Channel channel = new Channel("127.0.0.1:39001", ChannelCredentials.Insecure);
+            var toolClient = new y3d.s.Tools.ToolsClient(channel);
+
+            var re = toolClient.CloneObject(new EmptyParam());
+            MessageBox.Show(re.Message);
+
+            //MessageBox.Show(re.Message);
         }
     }
 }

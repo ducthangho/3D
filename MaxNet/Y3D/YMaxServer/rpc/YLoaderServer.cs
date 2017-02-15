@@ -63,7 +63,7 @@ namespace YMaxServer.rpc
         public const string SERVICE_DLL_PATH = @"C:\Program Files\Autodesk\3ds Max 2017\Service.dll";
 
         [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-        private delegate void StartService(string dllname = "ServiceImpl.dll", string ip_address="0.0.0.0:38001");
+        private delegate void StartService(string dllname = "ServiceImpl.dll", string ip_address="127.0.0.1:39001");
 
         [UnmanagedFunctionPointer(CallingConvention.Winapi)]
         private delegate void StopService();
@@ -191,8 +191,13 @@ namespace YMaxServer.rpc
                                                                                     pAddressOfFunctionToCall,
                                                                                     typeof(StartService));
             //MessageBox.Show(pAddressOfFunctionToCall.ToString());
-            var ip_addr = String.Format("0.0.0.0:{0}", 39000 + YLoaderServer.worker_id);
+            var ip_addr = String.Format("127.0.0.1:{0}", 39000 + YLoaderServer.worker_id);
             if (startService != null) startService("ServiceImpl.dll", ip_addr);
+
+            //Channel channel = new Channel("0.0.0.0:39001", ChannelCredentials.Insecure);
+            //y3d.s.Tools.ToolsClient toolClient = new y3d.s.Tools.ToolsClient(channel);
+            //var re = toolClient.CloneObject(new EmptyParam());
+
             return Task.FromResult(rs);
 
         }

@@ -25,7 +25,7 @@
 #include "YCServer.h"
 
 #define Service_CLASS_ID	Class_ID(0x768455e0, 0x74aca221)
-const std::string MASTER_IP = "0.0.0.0:38000";
+const std::string MASTER_IP = "127.0.0.1:38000";
 
 HMODULE dll = nullptr;
 std::promise<void> exit_requested;

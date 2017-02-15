@@ -14,9 +14,9 @@ std::string master_ip = "127.0.0.1:38000";
 std::string ip = "localhost:50050";
 std::string service_ip = "localhost:50051";
 
+
 int loadDll(int32_t id = 0) {
-	auto channel = grpc::CreateChannel(ip, grpc::InsecureChannelCredentials());
-	auto client = y3d::YServiceMaxLoader::NewStub(channel);
+	auto client = y3d::YServiceMaxLoader::NewStub(grpc::CreateChannel(ip, grpc::InsecureChannelCredentials()));
 	grpc::ClientContext context;
 	y3d::LibInfo request;
 	request.set_id(id);
@@ -27,8 +27,7 @@ int loadDll(int32_t id = 0) {
 }
 
 int show_all_workers(int32_t stat = 2) {
-	auto channel = grpc::CreateChannel(master_ip, grpc::InsecureChannelCredentials());
-	auto client = y3d::YServiceMaster::NewStub(channel);
+	auto client = y3d::YServiceMaster::NewStub(grpc::CreateChannel(master_ip, grpc::InsecureChannelCredentials()));
 	y3d::YWorkerList ywl;
 	y3d::AllWorkerParam request;
 	grpc::ClientContext context;
@@ -43,8 +42,7 @@ int show_all_workers(int32_t stat = 2) {
 }
 
 int start_worker(int32_t id) {
-	auto channel = grpc::CreateChannel(master_ip, grpc::InsecureChannelCredentials());
-	auto client = y3d::YServiceMaster::NewStub(channel);
+	auto client = y3d::YServiceMaster::NewStub(grpc::CreateChannel(master_ip, grpc::InsecureChannelCredentials()));
 	y3d::WorkerParam req;
 	req.set_wid(id);
 	y3d::ResultReply resp;
@@ -54,8 +52,7 @@ int start_worker(int32_t id) {
 }
 
 int start_worker(std::string wnamed) {
-	auto channel = grpc::CreateChannel(master_ip, grpc::InsecureChannelCredentials());
-	auto client = y3d::YServiceMaster::NewStub(channel);
+	auto client = y3d::YServiceMaster::NewStub(grpc::CreateChannel(master_ip, grpc::InsecureChannelCredentials()));
 	y3d::WorkerParam req;
 	req.set_wname(wnamed.c_str());
 	y3d::ResultReply resp;

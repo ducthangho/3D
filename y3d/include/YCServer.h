@@ -32,8 +32,8 @@ public:
 	virtual Status DoAction(ServerContext* context, grpc::ServerReaderWriter<YEvent, YEvent>* stream) = 0;
 	virtual Status DoStreamClient(ServerContext* context, grpc::ServerReader<YEvent>* stream, ResponseEvent* re) = 0;
 	virtual Status DoEvent(ServerContext* context, const YEvent* ye, ResponseEvent* re) = 0;
-	virtual Status CloneObject(::grpc::ServerContext* context, const ::y3d::EmptyParam* request, ::y3d::ResultReply* response) = 0;
-	virtual ::grpc::Status Shutdown(::grpc::ServerContext* context, const ::y3d::EmptyParam* request, ::y3d::ResultReply* response) = 0;
+	virtual Status CloneObject(ServerContext* context, const ::y3d::EmptyParam* request, ::y3d::ResultReply* response) = 0;
+	virtual Status Shutdown(ServerContext* context, const ::y3d::EmptyParam* request, ::y3d::ResultReply* response) = 0;
 
 	virtual void Helloworld() = 0;
 };
@@ -50,7 +50,7 @@ public:
 	Status DoStreamClient(ServerContext* context, grpc::ServerReader<YEvent>* stream, ResponseEvent* re) override;
 	Status DoEvent(ServerContext* context, const YEvent* ye, ResponseEvent* re) override;
 	Status CloneObject(::grpc::ServerContext* context, const ::y3d::EmptyParam* request, ::y3d::ResultReply* response) override;	
-	virtual ::grpc::Status Shutdown(::grpc::ServerContext* context, const ::y3d::EmptyParam* request, ::y3d::ResultReply* response) override;
+	Status Shutdown(::grpc::ServerContext* context, const ::y3d::EmptyParam* request, ::y3d::ResultReply* response) override;
 	void Helloworld() override;
 	
 	~YServiceImpl() override;

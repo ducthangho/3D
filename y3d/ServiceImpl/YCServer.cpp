@@ -244,7 +244,6 @@ Status YServiceImpl::DoEvent(ServerContext* context, const YEvent* ye, ResponseE
 
 Status YServiceImpl::CloneObject(::grpc::ServerContext* context, const ::y3d::EmptyParam* request, ::y3d::ResultReply* response)
 {
-
 	Invoke([]() {
 		auto* ip = GetCOREInterface();
 		INodeTab inodes;
@@ -262,6 +261,7 @@ Status YServiceImpl::CloneObject(::grpc::ServerContext* context, const ::y3d::Em
 		mprintf(L"Hello world\n");
 	});
 	response->set_message("Xin chao ngay mai. Haha, Ve Nghe An thoi");
+
 	return Status::OK;
 }
 
@@ -299,7 +299,12 @@ void YServiceImpl::Initialize(void* codegen, void* gli)
 	//registerCB();
 }
 
-::grpc::Status YServiceImpl::Shutdown(::grpc::ServerContext* context, const ::y3d::EmptyParam* request, ::y3d::ResultReply* response)
+Status YServiceImpl::Shutdown(::grpc::ServerContext* context, const ::y3d::EmptyParam* request, ::y3d::ResultReply* response)
 {	
+	//MessageBoxW(NULL, L"sac sac", L"Oh", MB_OK);
+	Invoke([]() {
+		mprintf(L"SHUTDOWN.\n");
+		ExecuteMAXScriptScript(L"quitMAX #noPrompt");
+	});
 	return Status::OK;
 }
