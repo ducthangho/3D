@@ -13,7 +13,7 @@ namespace YMasterService
 
     class YServiceMasterImpl : y3d.s.YServiceMaster.YServiceMasterBase
     {
-        static System.Threading.Mutex mtx = new System.Threading.Mutex();
+        public static System.Threading.Mutex mtx = new System.Threading.Mutex();
         public static void AddElem(YWorker yw)
         {
             if (mtx.WaitOne())
@@ -87,11 +87,13 @@ namespace YMasterService
         {
             ResultReply rep = new ResultReply();
             rep.Error = true;
-            //if (mtx.WaitOne())
-            //{
-            var yw = YMServer.GetWorker(request);
-            var s = String.Format("127.0.0.1:{0}", yw.Wid + 39000);
-            Console.WriteLine(s);
+            YWorker yw;
+            String s = "";
+            if (mtx.WaitOne())
+            {
+                yw = YMServer.GetWorker(request);
+                s = String.Format("127.0.0.1:{0}", yw.Wid + 39000);
+            }
             //System.Diagnostics.EventLog e = new System.Diagnostics.EventLog();
             //e.WriteEntry(s);
             Channel channel = new Channel(s, ChannelCredentials.Insecure);
@@ -160,13 +162,20 @@ namespace YMasterService
         {
             ResultReply rep = new ResultReply();
             rep.Error = true;
-            //if (mtx.WaitOne())
-            //{
-            var yw = YMServer.GetWorker(request);
-            YMServer.all_workers.Workers.Remove(yw);
-            rep.Error = false;
-            //}
+            if (YServiceMasterImpl.mtx.WaitOne())
+            {
+                var yw = YMServer.GetWorker(request);
+                if (yw!=null)
+                    YMServer.all_workers.Workers.Remove(yw);
+                rep.Error = false;
+            }
             return Task.FromResult(rep);
+        }
+
+        public override Task<ResultReply> StopAllWorkers(EmptyParam request, ServerCallContext context)
+        {
+            YMServer.StopAllWorker();
+            return Task.FromResult(new ResultReply());
         }
 
         //public override Task<YWorkerList> AllWorkers(EmptyParam request, ServerCallContext context)
@@ -204,6 +213,7 @@ namespace YMasterService
         public static int LastIndex = 0;
         const string MASTER_IP_DEFAULT = "127.0.0.1";
         public static Server server;
+        //public static bool not
         //public static List<YWorker> Workers = new List<YWorker>();
         public static YWorkerList all_workers = new YWorkerList();
 
@@ -229,7 +239,6 @@ namespace YMasterService
 
         public static YWorker GetWorker(WorkerParam wp)
         {
-            YWorker ret = new YWorker();
             for (int i = 0; i < all_workers.Workers.Count; i++)
             {
                 if ((wp.WtypeCase==WorkerParam.WtypeOneofCase.Wid))
@@ -344,6 +353,16 @@ namespace YMasterService
             }
         }
         
+        public static void forceStopWorker(YWorker yw)
+        {
+            var s = String.Format("127.0.0.1:{0}", yw.Wid + 39000);
+            //System.Diagnostics.EventLog e = new System.Diagnostics.EventLog();
+            //e.WriteEntry(s);
+            Channel channel = new Channel(s, ChannelCredentials.Insecure);
+            y3d.s.Tools.ToolsClient toolClient = new y3d.s.Tools.ToolsClient(channel);
+            toolClient.ShutdownAsync(new EmptyParam());
+        }
+
         public static void StopWorker(YWorker yw, bool stopServerOnly=true)
         {
             Channel channel = new Channel(yw.IpAddress, ChannelCredentials.Insecure);
@@ -357,14 +376,31 @@ namespace YMasterService
             }
         }
 
+
+
         public static void StopAllWorker()
         {
-            foreach (YWorker w in all_workers.Workers)
-            {
-                StopWorker(w);
-            }
-        }
+            //do
+            //{
+            //    YWorker w = null;
+            //    if (YServiceMasterImpl.mtx.WaitOne())
+            //    {
+            //        w = (all_workers.Workers.Count > 0) ? all_workers.Workers[0] : null;
+            //    }
+            //    if (w != null)
+            //        forceStopWorker(w);
+            //    else break;
+            //} while (true);
 
+            if (YServiceMasterImpl.mtx.WaitOne())
+            {
+                foreach (YWorker w in all_workers.Workers)
+                {
+                    forceStopWorker(w);
+                }
+            }
+
+        }
         public static void Start()
         {
             server = new Server

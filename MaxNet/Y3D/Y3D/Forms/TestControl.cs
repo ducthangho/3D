@@ -30,6 +30,7 @@ namespace Y3D.Forms
 
         private void btnTest2_Click(object sender, EventArgs e)
         {
+            rpc.YClient.MasterClient.StopAllWorkers(new y3d.e.EmptyParam());
             //rpc.YClient.test2();
         }
 
