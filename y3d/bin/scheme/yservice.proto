@@ -35,12 +35,18 @@ service Tools {
   rpc ApplyTestObject(TestOParam) returns (ResultReply);
 }
 
+service YServiceTest {
+  rpc MTest1(EmptyParam) returns (EmptyParam) {}
+  rpc MTest2(EmptyParam) returns (EmptyParam) {}
+}
+
 service YServiceMaster {
   rpc AllWorkers(AllWorkerParam) returns (YWorkerList) {}
   rpc StopAllWorkers(EmptyParam) returns (ResultReply) {}
   rpc AddWorker(YWorkerRequest) returns (YWorkerResponse) {}
   rpc StopWorker(WorkerParam) returns (ResultReply) {}
   rpc CloseWorkerApp(WorkerParam) returns (ResultReply) {}
+  rpc AppExitCallback(WorkerParam) returns (ResultReply) {}
   rpc StartWorker(WorkerParam) returns (YWorker) {}
   rpc ShowJobInMachine(YWorker) returns (YJobList) {}
   rpc CheckHealth(EmptyParam) returns (ResultReply) {}

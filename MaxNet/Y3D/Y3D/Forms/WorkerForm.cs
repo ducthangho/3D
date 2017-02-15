@@ -77,13 +77,19 @@ namespace Y3D.Forms
 
         private void btnDel_Click(object sender, EventArgs e)
         {
-            Channel channel = new Channel("127.0.0.1:39001", ChannelCredentials.Insecure);
-            var toolClient = new y3d.s.Tools.ToolsClient(channel);
+            //Channel channel = new Channel("127.0.0.1:39001", ChannelCredentials.Insecure);
+            //var toolClient = new y3d.s.Tools.ToolsClient(channel);
 
-            var re = toolClient.CloneObject(new EmptyParam());
-            MessageBox.Show(re.Message);
+            //var re = toolClient.CloneObject(new EmptyParam());
+            //MessageBox.Show(re.Message);
 
             //MessageBox.Show(re.Message);
+            YWorker yw = (YWorker)this.dlvWorker.SelectedObject;
+            WorkerParam wp = new WorkerParam();
+            wp.Wid = yw.Wid;
+            //MessageBox.Show(yw.ProcessId.ToString());
+            rpc.YClient.MasterClient.CloseWorkerApp(wp);
+
         }
     }
 }

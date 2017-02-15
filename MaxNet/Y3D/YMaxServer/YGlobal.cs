@@ -63,7 +63,7 @@ namespace YMaxServer
 
                 //Loader.Global.BroadcastNotification(SystemNotificationCode.FilePreSave);
                 //Loader.Core.regi
-
+                Loader.Core.RegisterExitMAXCallback(new Actions.YExitCommand());
                 rpc.YLoaderServer.Start();
                 return 0;
             }

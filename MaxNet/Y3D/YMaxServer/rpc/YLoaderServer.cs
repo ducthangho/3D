@@ -207,13 +207,13 @@ namespace YMaxServer.rpc
 
     class YLoaderServer
     {
+        public const string MASTER_IP = "127.0.0.1:38000";
         public static int worker_id = 0;
         public static Server server;
         public static void Start()
         {
-            Channel CChannel = new Channel("127.0.0.1:38000", ChannelCredentials.Insecure);
-            y3d.s.YServiceMaster.YServiceMasterClient MasterClient = new y3d.s.YServiceMaster.YServiceMasterClient(CChannel);
-
+            Channel channel = new Channel(MASTER_IP, ChannelCredentials.Insecure);
+            y3d.s.YServiceMaster.YServiceMasterClient MasterClient = new y3d.s.YServiceMaster.YServiceMasterClient(channel);
             YWorkerRequest req = new YWorkerRequest();
             req.CallInApp = true;
             var rep = MasterClient.AddWorker(req);

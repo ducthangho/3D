@@ -23,6 +23,7 @@
 #include <grpc++/impl/codegen/proto_utils.h>
 
 #include "YCServer.h"
+#include "YCTestServer.h"
 
 #define Service_CLASS_ID	Class_ID(0x768455e0, 0x74aca221)
 const std::string MASTER_IP = "127.0.0.1:38000";
@@ -82,13 +83,15 @@ DLLAPI void APIENTRY startService(const char* dllname, const char* ip_address)
 					dllHandle = dll;
 					SYSTEM_CALL(GetServiceImplFunc getServiceImpl = (GetServiceImplFunc)GetProcAddress(dll, "getServiceImpl"));
 					SYSTEM_CALL(ReleaseObjectFunc releaseObject = (ReleaseObjectFunc)GetProcAddress(dll, "releaseObject"));
-					if (!getServiceImpl || !releaseObject) {
-						dll = nullptr;
-						if (dllHandle) SYSTEM_CALL(FreeLibraryAndExitThread(dllHandle,0));
 					
+					SYSTEM_CALL(GetServiceTestImplFunc getServiceTestImpl = (GetServiceTestImplFunc)GetProcAddress(dll, "getServiceTestImpl"));
+					SYSTEM_CALL(ReleaseObjectTestFunc releaseObjectTest = (ReleaseObjectTestFunc)GetProcAddress(dll, "releaseObjectTest"));
+
+					if (!getServiceImpl || !releaseObject || !getServiceTestImpl || !releaseObjectTest) {
+						dll = nullptr;
+						if (dllHandle) SYSTEM_CALL(FreeLibraryAndExitThread(dllHandle, 0));
 						return;
 					}
-					
 				/*initSystem();
 				registerCB();*/
 				//MessageBox(NULL, _T("Open the message box "), _T("message"), MB_OK | MB_SYSTEMMODAL);		
@@ -98,12 +101,15 @@ DLLAPI void APIENTRY startService(const char* dllname, const char* ip_address)
 				std::string server_address(ip_address);
 				//ServicePtr service = getServiceImpl();			
 				std::shared_ptr<AbstractService> servicePtr(getServiceImpl(), releaseObject);
+				std::shared_ptr<AbstractTestService> serviceTestPtr(getServiceTestImpl(), releaseObjectTest);
+
 				servicePtr->Initialize(grpc::g_core_codegen_interface, grpc::g_glip);//This is a must have function, used to initialize static global function of grpc
 				grpc::ServerBuilder builder;
 				builder.AddListeningPort(server_address, grpc::InsecureServerCredentials());
 				// register "service" as the instance through which we'll communicate with
 				// clients. in this case it corresponds to an *synchronous* service.
-				builder.RegisterService(servicePtr.get() );
+				builder.RegisterService(servicePtr.get());
+				builder.RegisterService(serviceTestPtr.get());
 				// finally assemble the server.
 				std::unique_ptr<Server> server(builder.BuildAndStart());
 

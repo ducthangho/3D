@@ -58,7 +58,11 @@ namespace YMaxServer.Actions
     {
         public override bool Exit(IntPtr hWnd)
         {
-
+            Grpc.Core.Channel channel = new Grpc.Core.Channel(rpc.YLoaderServer.MASTER_IP, Grpc.Core.ChannelCredentials.Insecure);
+            y3d.s.YServiceMaster.YServiceMasterClient MasterClient = new y3d.s.YServiceMaster.YServiceMasterClient(channel);
+            y3d.e.WorkerParam wp = new y3d.e.WorkerParam();
+            wp.Wid = rpc.YLoaderServer.worker_id;
+            var ret = MasterClient.AppExitCallbackAsync(wp);
             //Utilities.YProject.closeAllForm();
             return true;
         }

@@ -42,8 +42,8 @@ namespace YMasterService
             ret.NewWorker.IpAddress = String.Format("127.0.0.1:{0}", ret.NewWorker.Wid + 38000);
             ret.NewWorker.Wname = "Worker " + ret.NewWorker.Wid;
             ret.NewWorker.Status = YWorker.Types.ServingStatus.NotServing;
-            //YMServer.all_workers.Workers.Add(ret.NewWorker);
-            AddElem(ret.NewWorker);
+            YMServer.all_workers.Workers.Add(ret.NewWorker);
+            //AddElem(ret.NewWorker);
             //YMServer.Workers.Add(ret.NewWorker);
             if (!req.CallInApp)
             {
@@ -86,19 +86,20 @@ namespace YMasterService
         public override Task<ResultReply> CloseWorkerApp(WorkerParam request, ServerCallContext context)
         {
             ResultReply rep = new ResultReply();
-            if (mtx.WaitOne())
-            {
-                var yw = YMServer.GetWorker(request);
-                var s = String.Format("127.0.0.1:{0}", yw.Wid + 39000);
-                Console.WriteLine(s);
-                //System.Diagnostics.EventLog e = new System.Diagnostics.EventLog();
-                //e.WriteEntry(s);
-                Channel channel = new Channel(s, ChannelCredentials.Insecure);
-                y3d.s.Tools.ToolsClient toolClient = new y3d.s.Tools.ToolsClient(channel);
-                toolClient.Shutdown(new EmptyParam());
-                YMServer.all_workers.Workers.Remove(yw);
-                rep.Error = true;
-            }
+            rep.Error = true;
+            //if (mtx.WaitOne())
+            //{
+            var yw = YMServer.GetWorker(request);
+            var s = String.Format("127.0.0.1:{0}", yw.Wid + 39000);
+            Console.WriteLine(s);
+            //System.Diagnostics.EventLog e = new System.Diagnostics.EventLog();
+            //e.WriteEntry(s);
+            Channel channel = new Channel(s, ChannelCredentials.Insecure);
+            y3d.s.Tools.ToolsClient toolClient = new y3d.s.Tools.ToolsClient(channel);
+            toolClient.Shutdown(new EmptyParam());
+            //YMServer.all_workers.Workers.Remove(yw);
+            rep.Error = false;
+            //}
 
             //new System.Threading.Thread(() =>
             //{
@@ -151,6 +152,19 @@ namespace YMasterService
             //    //if (p != null) p.Kill();
             //    rep.Error = false;
             //    return Task.FromResult(rep);
+            //}
+            return Task.FromResult(rep);
+        }
+
+        public override Task<ResultReply> AppExitCallback(WorkerParam request, ServerCallContext context)
+        {
+            ResultReply rep = new ResultReply();
+            rep.Error = true;
+            //if (mtx.WaitOne())
+            //{
+            var yw = YMServer.GetWorker(request);
+            YMServer.all_workers.Workers.Remove(yw);
+            rep.Error = false;
             //}
             return Task.FromResult(rep);
         }

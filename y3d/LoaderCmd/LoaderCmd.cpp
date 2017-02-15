@@ -45,20 +45,20 @@ int start_worker(int32_t id) {
 	auto client = y3d::YServiceMaster::NewStub(grpc::CreateChannel(master_ip, grpc::InsecureChannelCredentials()));
 	y3d::WorkerParam req;
 	req.set_wid(id);
-	y3d::ResultReply resp;
+	y3d::YWorker resp;
 	grpc::ClientContext context;
 	auto status = client->StartWorker(&context, req, &resp);
-	return resp.error();
+	return 0;
 }
 
 int start_worker(std::string wnamed) {
 	auto client = y3d::YServiceMaster::NewStub(grpc::CreateChannel(master_ip, grpc::InsecureChannelCredentials()));
 	y3d::WorkerParam req;
 	req.set_wname(wnamed.c_str());
-	y3d::ResultReply resp;
+	y3d::YWorker resp;
 	grpc::ClientContext context;
 	auto status = client->StartWorker(&context, req, &resp);
-	return resp.error();
+	return 0;
 }
 
 int shutdownService() {
