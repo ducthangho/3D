@@ -9,7 +9,6 @@
 #include "yservice.grpc.pb.h"
 #include "grpc++/grpc++.h"
 #include "tclap/CmdLine.h"
-
 std::string master_ip = "127.0.0.1:38000";
 
 int show_all_workers(int32_t stat = 2) {
@@ -77,6 +76,16 @@ int stop_all_worker() {
 	return resp.error();
 }
 
+int test1() {
+	auto client = y3d::YServiceMaster::NewStub(grpc::CreateChannel(master_ip, grpc::InsecureChannelCredentials()));
+	grpc::ClientContext context;
+	y3d::YWorkerRequest req;
+	req.set_call_in_app(false);
+	req.set_slient(true);
+	y3d::YWorkerResponse rep;
+	auto status = client->AddWorker(&context, req, &rep);
+	return 0;
+}
 
 //int shutdownService() {
 //	auto client = y3d::Tools::NewStub(grpc::CreateChannel(service_ip, grpc::InsecureChannelCredentials()));
@@ -132,6 +141,10 @@ int main(int argc, char** argv)
 		TCLAP::ValueArg<int> lsArg("l", "list", "0 = inactive; 1 = ready; 2 = all", false, 2, "integer");
 		cmd.add(lsArg);
 
+
+		TCLAP::ValueArg<int> testArg("t", "test", "1 = test1; 2 = test2; 3 = test3", false, 2, "integer");
+		cmd.add(testArg);
+
 		// Parse the argv array.
 		cmd.parse(argc, argv);
 
@@ -160,6 +173,12 @@ int main(int argc, char** argv)
 				else if (worker == "stop") {
 					stop_worker(wname);
 				}
+			}
+		}
+		else if (testArg.isSet()) {
+			auto t = testArg.getValue();
+			if (t == 1) {
+				test1();
 			}
 		}
 	}

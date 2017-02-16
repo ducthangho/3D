@@ -10,6 +10,9 @@ namespace YMasterServer
     {
         static void Main(string[] args)
         {
+            YMServer.InitSystem();
+            YMServer.Start();
+            Console.ReadLine();
         }
     }
 }
