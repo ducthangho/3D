@@ -102,6 +102,7 @@ inline void log(std::string& str) {
 #ifdef YCDEBUG 
 	std::wstring wstr = s2ws(str);
 	mprintf(wstr.c_str());
+	mflush();
 #else
 #endif
 }
@@ -118,6 +119,7 @@ inline void log(char* str) {
 inline void log(std::wstring& str) {
 #ifdef YCDEBUG 	
 	mprintf(str.c_str());
+	mflush();
 #else
 #endif
 }
@@ -125,6 +127,7 @@ inline void log(std::wstring& str) {
 inline void log(wchar_t* str) {
 #ifdef YCDEBUG 	
 	mprintf(str);
+	mflush();
 #else
 #endif
 }
@@ -137,6 +140,7 @@ inline void log(std::string& format_str, const Args ... args) {
 	w.write(format_str, args...);
 	std::wstring wstr = s2ws(w.c_str()); // returns a C string (const char*)
 	mprintf(wstr.c_str());
+	mflush();
 #else
 #endif
 }
@@ -148,6 +152,7 @@ inline void log(char* format_str, const Args& ... args) {
 	w.write(format_str, args...);
 	std::wstring wstr = s2ws(w.c_str()); // returns a C string (const char*)
 	mprintf(wstr.c_str());
+	mflush();
 #else
 #endif
 }
@@ -159,6 +164,7 @@ inline void log(std::wstring& format_str, const Args&  ... args) {
 	fmt::MemoryWriter w;
 	w.write(format_str, args...);
 	mprintf(w.c_str());
+	mflush();
 #else
 #endif
 }
@@ -168,6 +174,7 @@ inline void log(wchar_t* format_str, const Args & ... args) {
 #ifdef YCDEBUG 	
 	std::wstring s = fmt::format(format_str, args...);
 	mprintf(s.c_str());
+	mflush();
 #else
 #endif
 }
