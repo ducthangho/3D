@@ -9,6 +9,15 @@ Status YServiceTestImpl::MTest1(ServerContext* context, const EmptyParam* reques
 {
 	Invoke([]() {
 		mprintf(L"Test M1.\n");
+		auto* ip = GetCOREInterface();
+		INodeTab inodes;
+		getSelNodeTab(inodes);
+		std::string s(std::to_string(inodes.Count()));
+		mprintf(s2ws(s).c_str());
+		mflush();
+		mprintf(L"Test M1.\n");
+		log("here is test: ", inodes.Count());
+		mflush();
 	});
 	return Status::OK;
 }
