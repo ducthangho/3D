@@ -213,17 +213,26 @@ namespace YMasterServer
         //    return Task.FromResult(rep);
         //}
 
-        public override async Task<YWorkerResponse> GiveMeAWorker(EmptyParam request, ServerCallContext context)
-        {
-            YWorkerResponse rep = new YWorkerResponse();
-            rep.Error = true;
-            var yw =  await YMServer.GiveMeAFreeWorker();
-            if (yw != null)
+        public override Task<YWorkerResponse> GiveMeAWorker(EmptyParam request, ServerCallContext context)
+        {            
+            var yw =  YMServer.GiveMeAFreeWorker();
+            var t = yw.ContinueWith<YWorkerResponse>(  (task) =>
             {
-                rep.Error = false;
-                rep.Worker = yw;
-            }
-            return rep;
+                YWorkerResponse result = new YWorkerResponse();
+                if (task.IsCompleted)
+                {
+                    Console.WriteLine("Done");
+                    result.Error = false;
+                    result.Worker = task.Result;
+                } else if (task.IsFaulted || task.IsCanceled)
+                {
+                    result.Error = true;
+                    result.Worker = null;
+                    result.Message = task.Exception.Message;
+                }
+                return result;
+            });            
+            return t;
             //return Task.FromResult(rep);
         }
 
@@ -312,39 +321,15 @@ namespace YMasterServer
             //}
             return null;
         }
+       
 
-        public static async YWorker Processing(int index)
-        {
-            var channel = new Channel(String.Format("127.0.0.1:{0}", index + 38000), ChannelCredentials.Insecure);
-
-            if (channel.State != Grpc.Core.ChannelState.Ready)
-            {
-                while (!channel.ConnectAsync().IsCompleted)
-                {
-                    System.Threading.Thread.Sleep(5000);
-                    //channel = new Channel(String.Format("127.0.0.1:{0}", index + 38000), ChannelCredentials.Insecure);
-                }
-                //var client = new YServiceMaxLoader.YServiceMaxLoaderClient(channel);
-                //client.LoadDll(new LibInfo());
-
-                //rpc.YClient.CChannel.WaitForStateChangedAsync(Grpc.Core.ChannelState.Ready);
-            }
-            Console.WriteLine("Da tao");
-            YWorker ret;
-            if (workers.TryGetValue(index, out ret))
-            {
-                return ret;
-            }
-            return null;
-        }
-
-        public static Task<YWorker> GiveMeAFreeWorker()
+        public static async Task<YWorker> GiveMeAFreeWorker()
         {
             foreach (var w in workers.Values)
             {
                 if (w.Wtype == YWorker.Types.WorkerType.Free)
                 {
-                    return Task.FromResult(w);
+                    return w;
                 }
             }
             // not found any free worker
@@ -352,39 +337,28 @@ namespace YMasterServer
             Console.WriteLine(String.Format("id:{0}", index));
             if (StartApp("MAX3D"))
             {
-                YWorker ret;
-                Task rs = new Task( () => 
+                               
+                var channel = new Channel(String.Format("127.0.0.1:{0}", index + 38000), ChannelCredentials.Insecure);
+
+                if (channel.State != Grpc.Core.ChannelState.Ready)
                 {
-                    var channel = new Channel(String.Format("127.0.0.1:{0}", index + 38000), ChannelCredentials.Insecure);
 
-                    if (channel.State != Grpc.Core.ChannelState.Ready)
-                    {
-                        while (!channel.ConnectAsync().IsCompleted)
-                        {
-                            System.Threading.Thread.Sleep(5000);
-                            //channel = new Channel(String.Format("127.0.0.1:{0}", index + 38000), ChannelCredentials.Insecure);
-                        }
-                        //var client = new YServiceMaxLoader.YServiceMaxLoaderClient(channel);
-                        //client.LoadDll(new LibInfo());
+                   while (await channel.ConnectAsync(deadline: DateTime.UtcNow.AddMilliseconds(5000)).ContinueWith<bool>( (t) => t.IsCanceled || t.IsFaulted) )
+                   {
+                        Console.WriteLine("5s. Retry");                        
 
-                        //rpc.YClient.CChannel.WaitForStateChangedAsync(Grpc.Core.ChannelState.Ready);
-                    }
-                    Console.WriteLine("Da tao");
+                    }//*/                   
+                    Console.WriteLine("Connected!!!");
+                };
+                YWorker rt;
+                if (workers.TryGetValue(index, out rt))
+                    return rt;
 
-
-                    workers.TryGetValue(index, out ret);                    
-                });
-                //return Task
-                //(new System.Threading.Thread(() => void
-                //{
-                   
-                //})).Start();
-
-               
 
             }
             return null;
         }
+
         public static bool CheckCurrentWorker()
         {
             if (CurrentWorker == null)

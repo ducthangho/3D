@@ -108,7 +108,7 @@
       </Command>
     </PostBuildEvent>
     <PreLinkEvent>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">"$(ProjectDir)..\bin\LoaderCmd.exe" -w stopall</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">call "$(ProjectDir)..\bin\stop_workers.cmd"</Command>
     </PreLinkEvent>
     <PostBuildEvent>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -118,10 +118,10 @@
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" />
     </PostBuildEvent>
     <PreLinkEvent>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(ProjectDir)..\bin\LoaderCmd.exe" -w stopall</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">call "$(ProjectDir)..\bin\stop_workers.cmd"</Command>
     </PreLinkEvent>
     <PreLinkEvent>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(ProjectDir)..\bin\LoaderCmd.exe" -w stopall</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">call "$(ProjectDir)..\bin\stop_workers.cmd"</Command>
     </PreLinkEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
