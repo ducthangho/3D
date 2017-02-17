@@ -29,7 +29,7 @@
     <PlatformTarget>x64</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>..\..\..\y3d\bin\mserver\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -79,7 +79,7 @@
     <PostBuildEvent>rem xcopy /Y "$(TargetPath)" "$(SolutionDir)..\..\y3d\bin"</PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PreBuildEvent>$(SolutionDir)..\..\y3d\bin\stop_server.cmd $(TargetName)$(TargetExt)</PreBuildEvent>
+    <PreBuildEvent>call $(SolutionDir)..\..\y3d\bin\stop_server.cmd $(TargetName)$(TargetExt)</PreBuildEvent>
   </PropertyGroup>
   <Import Project="..\packages\Grpc.Core.1.1.0\build\net45\Grpc.Core.targets" Condition="Exists('..\packages\Grpc.Core.1.1.0\build\net45\Grpc.Core.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
