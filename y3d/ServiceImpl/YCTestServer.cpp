@@ -1,9 +1,15 @@
-#ifndef Y3D_EXPORT_MACRO
-#define Y3D_EXPORT_MACRO
+#ifdef _DEBUG
+#pragma comment(lib, "libprotobufd.lib")
+#pragma comment(lib, "libprotocd.lib")
+#else
+#pragma comment(lib, "libprotobuf.lib")
+#pragma comment(lib, "libprotoc.lib")
 #endif
+
+#include "YCTestServer.h"
 #include "common.h"
 #include "YLibs.h"
-#include "YCTestServer.h"
+
 
 Status YServiceTestImpl::MTest1(ServerContext* context, const EmptyParam* request, EmptyParam* reply)
 {

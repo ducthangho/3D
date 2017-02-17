@@ -37,6 +37,9 @@ Y3D_EXPORT_MACRO extern AnyDefaultTypeInternal _Any_default_instance_;
 }  // namespace protobuf
 }  // namespace google
 namespace y3d {
+class AllWorkerParam;
+class AllWorkerParamDefaultTypeInternal;
+Y3D_EXPORT_MACRO extern AllWorkerParamDefaultTypeInternal _AllWorkerParam_default_instance_;
 class BatchOptimizeParam;
 class BatchOptimizeParamDefaultTypeInternal;
 Y3D_EXPORT_MACRO extern BatchOptimizeParamDefaultTypeInternal _BatchOptimizeParam_default_instance_;
@@ -85,6 +88,9 @@ Y3D_EXPORT_MACRO extern FRangeItemDefaultTypeInternal _FRangeItem_default_instan
 class FilterView;
 class FilterViewDefaultTypeInternal;
 Y3D_EXPORT_MACRO extern FilterViewDefaultTypeInternal _FilterView_default_instance_;
+class IntParam;
+class IntParamDefaultTypeInternal;
+Y3D_EXPORT_MACRO extern IntParamDefaultTypeInternal _IntParam_default_instance_;
 class LPoly3DMax;
 class LPoly3DMaxDefaultTypeInternal;
 Y3D_EXPORT_MACRO extern LPoly3DMaxDefaultTypeInternal _LPoly3DMax_default_instance_;
@@ -154,6 +160,9 @@ Y3D_EXPORT_MACRO extern TestParamDefaultTypeInternal _TestParam_default_instance
 class WorkerApp;
 class WorkerAppDefaultTypeInternal;
 Y3D_EXPORT_MACRO extern WorkerAppDefaultTypeInternal _WorkerApp_default_instance_;
+class WorkerParam;
+class WorkerParamDefaultTypeInternal;
+Y3D_EXPORT_MACRO extern WorkerParamDefaultTypeInternal _WorkerParam_default_instance_;
 class YArea;
 class YAreaDefaultTypeInternal;
 Y3D_EXPORT_MACRO extern YAreaDefaultTypeInternal _YArea_default_instance_;
@@ -184,12 +193,18 @@ Y3D_EXPORT_MACRO extern YJobDefaultTypeInternal _YJob_default_instance_;
 class YJobAction;
 class YJobActionDefaultTypeInternal;
 Y3D_EXPORT_MACRO extern YJobActionDefaultTypeInternal _YJobAction_default_instance_;
+class YJobList;
+class YJobListDefaultTypeInternal;
+Y3D_EXPORT_MACRO extern YJobListDefaultTypeInternal _YJobList_default_instance_;
 class YLayer;
 class YLayerDefaultTypeInternal;
 Y3D_EXPORT_MACRO extern YLayerDefaultTypeInternal _YLayer_default_instance_;
 class YLight;
 class YLightDefaultTypeInternal;
 Y3D_EXPORT_MACRO extern YLightDefaultTypeInternal _YLight_default_instance_;
+class YMainWorker;
+class YMainWorkerDefaultTypeInternal;
+Y3D_EXPORT_MACRO extern YMainWorkerDefaultTypeInternal _YMainWorker_default_instance_;
 class YMasterServer;
 class YMasterServerDefaultTypeInternal;
 Y3D_EXPORT_MACRO extern YMasterServerDefaultTypeInternal _YMasterServer_default_instance_;
@@ -205,6 +220,9 @@ Y3D_EXPORT_MACRO extern YPoint3DefaultTypeInternal _YPoint3_default_instance_;
 class YResource;
 class YResourceDefaultTypeInternal;
 Y3D_EXPORT_MACRO extern YResourceDefaultTypeInternal _YResource_default_instance_;
+class YSubWorker;
+class YSubWorkerDefaultTypeInternal;
+Y3D_EXPORT_MACRO extern YSubWorkerDefaultTypeInternal _YSubWorker_default_instance_;
 class YSystem;
 class YSystemDefaultTypeInternal;
 Y3D_EXPORT_MACRO extern YSystemDefaultTypeInternal _YSystem_default_instance_;

@@ -28,7 +28,8 @@ class ServerContext;
 
 namespace y3d {
 
-class Tools final {
+// [END csharp_declaration]
+class YServiceMaxTools final {
  public:
   class StubInterface {
    public:
@@ -131,6 +132,14 @@ class Tools final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::y3d::ResultReply>> AsyncShutdown(::grpc::ClientContext* context, const ::y3d::EmptyParam& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::y3d::ResultReply>>(AsyncShutdownRaw(context, request, cq));
     }
+    virtual ::grpc::Status AddTestObject(::grpc::ClientContext* context, const ::y3d::TestOParam& request, ::y3d::ResultReply* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::y3d::ResultReply>> AsyncAddTestObject(::grpc::ClientContext* context, const ::y3d::TestOParam& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::y3d::ResultReply>>(AsyncAddTestObjectRaw(context, request, cq));
+    }
+    virtual ::grpc::Status ApplyTestObject(::grpc::ClientContext* context, const ::y3d::TestOParam& request, ::y3d::ResultReply* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::y3d::ResultReply>> AsyncApplyTestObject(::grpc::ClientContext* context, const ::y3d::TestOParam& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::y3d::ResultReply>>(AsyncApplyTestObjectRaw(context, request, cq));
+    }
   private:
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::y3d::ResultReply>* AsyncRenameObjectRaw(::grpc::ClientContext* context, const ::y3d::RenameParam& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::y3d::ResponseEvent>* AsyncSaveProjectRaw(::grpc::ClientContext* context, const ::y3d::ProjectInfo& request, ::grpc::CompletionQueue* cq) = 0;
@@ -158,6 +167,8 @@ class Tools final {
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::y3d::ResponseEvent>* AsyncDoEventRaw(::grpc::ClientContext* context, const ::y3d::YEvent& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::y3d::ResponseEvent>* AsyncDoUnwrapRaw(::grpc::ClientContext* context, const ::y3d::EUnwrap& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::y3d::ResultReply>* AsyncShutdownRaw(::grpc::ClientContext* context, const ::y3d::EmptyParam& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::y3d::ResultReply>* AsyncAddTestObjectRaw(::grpc::ClientContext* context, const ::y3d::TestOParam& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::y3d::ResultReply>* AsyncApplyTestObjectRaw(::grpc::ClientContext* context, const ::y3d::TestOParam& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
@@ -260,6 +271,14 @@ class Tools final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>> AsyncShutdown(::grpc::ClientContext* context, const ::y3d::EmptyParam& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>>(AsyncShutdownRaw(context, request, cq));
     }
+    ::grpc::Status AddTestObject(::grpc::ClientContext* context, const ::y3d::TestOParam& request, ::y3d::ResultReply* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>> AsyncAddTestObject(::grpc::ClientContext* context, const ::y3d::TestOParam& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>>(AsyncAddTestObjectRaw(context, request, cq));
+    }
+    ::grpc::Status ApplyTestObject(::grpc::ClientContext* context, const ::y3d::TestOParam& request, ::y3d::ResultReply* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>> AsyncApplyTestObject(::grpc::ClientContext* context, const ::y3d::TestOParam& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>>(AsyncApplyTestObjectRaw(context, request, cq));
+    }
 
    private:
     std::shared_ptr< ::grpc::ChannelInterface> channel_;
@@ -289,6 +308,8 @@ class Tools final {
     ::grpc::ClientAsyncResponseReader< ::y3d::ResponseEvent>* AsyncDoEventRaw(::grpc::ClientContext* context, const ::y3d::YEvent& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::y3d::ResponseEvent>* AsyncDoUnwrapRaw(::grpc::ClientContext* context, const ::y3d::EUnwrap& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>* AsyncShutdownRaw(::grpc::ClientContext* context, const ::y3d::EmptyParam& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>* AsyncAddTestObjectRaw(::grpc::ClientContext* context, const ::y3d::TestOParam& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>* AsyncApplyTestObjectRaw(::grpc::ClientContext* context, const ::y3d::TestOParam& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::RpcMethod rpcmethod_RenameObject_;
     const ::grpc::RpcMethod rpcmethod_SaveProject_;
     const ::grpc::RpcMethod rpcmethod_NewProject_;
@@ -312,6 +333,8 @@ class Tools final {
     const ::grpc::RpcMethod rpcmethod_DoEvent_;
     const ::grpc::RpcMethod rpcmethod_DoUnwrap_;
     const ::grpc::RpcMethod rpcmethod_Shutdown_;
+    const ::grpc::RpcMethod rpcmethod_AddTestObject_;
+    const ::grpc::RpcMethod rpcmethod_ApplyTestObject_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -342,6 +365,8 @@ class Tools final {
     virtual ::grpc::Status DoEvent(::grpc::ServerContext* context, const ::y3d::YEvent* request, ::y3d::ResponseEvent* response);
     virtual ::grpc::Status DoUnwrap(::grpc::ServerContext* context, const ::y3d::EUnwrap* request, ::y3d::ResponseEvent* response);
     virtual ::grpc::Status Shutdown(::grpc::ServerContext* context, const ::y3d::EmptyParam* request, ::y3d::ResultReply* response);
+    virtual ::grpc::Status AddTestObject(::grpc::ServerContext* context, const ::y3d::TestOParam* request, ::y3d::ResultReply* response);
+    virtual ::grpc::Status ApplyTestObject(::grpc::ServerContext* context, const ::y3d::TestOParam* request, ::y3d::ResultReply* response);
   };
   template <class BaseClass>
   class WithAsyncMethod_RenameObject : public BaseClass {
@@ -803,7 +828,47 @@ class Tools final {
       ::grpc::Service::RequestAsyncUnary(22, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_RenameObject<WithAsyncMethod_SaveProject<WithAsyncMethod_NewProject<WithAsyncMethod_LoadProject<WithAsyncMethod_DeleteProject<WithAsyncMethod_Unwrap<WithAsyncMethod_Packing<WithAsyncMethod_LowPoly<WithAsyncMethod_LoadSystem<WithAsyncMethod_SaveSystem<WithAsyncMethod_BakeNormal<WithAsyncMethod_BakeNormalMax<WithAsyncMethod_MakeNode4Edit<WithAsyncMethod_BatchOptimize<WithAsyncMethod_TestTest<WithAsyncMethod_GetObjectFromMax<WithAsyncMethod_CloneObject<WithAsyncMethod_DoStreamClient<WithAsyncMethod_DoStreamServer<WithAsyncMethod_DoAction<WithAsyncMethod_DoEvent<WithAsyncMethod_DoUnwrap<WithAsyncMethod_Shutdown<Service > > > > > > > > > > > > > > > > > > > > > > > AsyncService;
+  template <class BaseClass>
+  class WithAsyncMethod_AddTestObject : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithAsyncMethod_AddTestObject() {
+      ::grpc::Service::MarkMethodAsync(23);
+    }
+    ~WithAsyncMethod_AddTestObject() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status AddTestObject(::grpc::ServerContext* context, const ::y3d::TestOParam* request, ::y3d::ResultReply* response) final override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestAddTestObject(::grpc::ServerContext* context, ::y3d::TestOParam* request, ::grpc::ServerAsyncResponseWriter< ::y3d::ResultReply>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(23, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_ApplyTestObject : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithAsyncMethod_ApplyTestObject() {
+      ::grpc::Service::MarkMethodAsync(24);
+    }
+    ~WithAsyncMethod_ApplyTestObject() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ApplyTestObject(::grpc::ServerContext* context, const ::y3d::TestOParam* request, ::y3d::ResultReply* response) final override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestApplyTestObject(::grpc::ServerContext* context, ::y3d::TestOParam* request, ::grpc::ServerAsyncResponseWriter< ::y3d::ResultReply>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(24, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  typedef WithAsyncMethod_RenameObject<WithAsyncMethod_SaveProject<WithAsyncMethod_NewProject<WithAsyncMethod_LoadProject<WithAsyncMethod_DeleteProject<WithAsyncMethod_Unwrap<WithAsyncMethod_Packing<WithAsyncMethod_LowPoly<WithAsyncMethod_LoadSystem<WithAsyncMethod_SaveSystem<WithAsyncMethod_BakeNormal<WithAsyncMethod_BakeNormalMax<WithAsyncMethod_MakeNode4Edit<WithAsyncMethod_BatchOptimize<WithAsyncMethod_TestTest<WithAsyncMethod_GetObjectFromMax<WithAsyncMethod_CloneObject<WithAsyncMethod_DoStreamClient<WithAsyncMethod_DoStreamServer<WithAsyncMethod_DoAction<WithAsyncMethod_DoEvent<WithAsyncMethod_DoUnwrap<WithAsyncMethod_Shutdown<WithAsyncMethod_AddTestObject<WithAsyncMethod_ApplyTestObject<Service > > > > > > > > > > > > > > > > > > > > > > > > > AsyncService;
   template <class BaseClass>
   class WithGenericMethod_RenameObject : public BaseClass {
    private:
@@ -1191,6 +1256,40 @@ class Tools final {
     }
     // disable synchronous version of this method
     ::grpc::Status Shutdown(::grpc::ServerContext* context, const ::y3d::EmptyParam* request, ::y3d::ResultReply* response) final override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_AddTestObject : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithGenericMethod_AddTestObject() {
+      ::grpc::Service::MarkMethodGeneric(23);
+    }
+    ~WithGenericMethod_AddTestObject() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status AddTestObject(::grpc::ServerContext* context, const ::y3d::TestOParam* request, ::y3d::ResultReply* response) final override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_ApplyTestObject : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithGenericMethod_ApplyTestObject() {
+      ::grpc::Service::MarkMethodGeneric(24);
+    }
+    ~WithGenericMethod_ApplyTestObject() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ApplyTestObject(::grpc::ServerContext* context, const ::y3d::TestOParam* request, ::y3d::ResultReply* response) final override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1595,7 +1694,47 @@ class Tools final {
     // replace default version of method with streamed unary
     virtual ::grpc::Status StreamedShutdown(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::y3d::EmptyParam,::y3d::ResultReply>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_RenameObject<WithStreamedUnaryMethod_SaveProject<WithStreamedUnaryMethod_NewProject<WithStreamedUnaryMethod_LoadProject<WithStreamedUnaryMethod_DeleteProject<WithStreamedUnaryMethod_Unwrap<WithStreamedUnaryMethod_Packing<WithStreamedUnaryMethod_LowPoly<WithStreamedUnaryMethod_LoadSystem<WithStreamedUnaryMethod_SaveSystem<WithStreamedUnaryMethod_BakeNormal<WithStreamedUnaryMethod_BakeNormalMax<WithStreamedUnaryMethod_MakeNode4Edit<WithStreamedUnaryMethod_BatchOptimize<WithStreamedUnaryMethod_TestTest<WithStreamedUnaryMethod_GetObjectFromMax<WithStreamedUnaryMethod_CloneObject<WithStreamedUnaryMethod_DoEvent<WithStreamedUnaryMethod_DoUnwrap<WithStreamedUnaryMethod_Shutdown<Service > > > > > > > > > > > > > > > > > > > > StreamedUnaryService;
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_AddTestObject : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithStreamedUnaryMethod_AddTestObject() {
+      ::grpc::Service::MarkMethodStreamed(23,
+        new ::grpc::StreamedUnaryHandler< ::y3d::TestOParam, ::y3d::ResultReply>(std::bind(&WithStreamedUnaryMethod_AddTestObject<BaseClass>::StreamedAddTestObject, this, std::placeholders::_1, std::placeholders::_2)));
+    }
+    ~WithStreamedUnaryMethod_AddTestObject() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status AddTestObject(::grpc::ServerContext* context, const ::y3d::TestOParam* request, ::y3d::ResultReply* response) final override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedAddTestObject(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::y3d::TestOParam,::y3d::ResultReply>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_ApplyTestObject : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithStreamedUnaryMethod_ApplyTestObject() {
+      ::grpc::Service::MarkMethodStreamed(24,
+        new ::grpc::StreamedUnaryHandler< ::y3d::TestOParam, ::y3d::ResultReply>(std::bind(&WithStreamedUnaryMethod_ApplyTestObject<BaseClass>::StreamedApplyTestObject, this, std::placeholders::_1, std::placeholders::_2)));
+    }
+    ~WithStreamedUnaryMethod_ApplyTestObject() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status ApplyTestObject(::grpc::ServerContext* context, const ::y3d::TestOParam* request, ::y3d::ResultReply* response) final override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedApplyTestObject(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::y3d::TestOParam,::y3d::ResultReply>* server_unary_streamer) = 0;
+  };
+  typedef WithStreamedUnaryMethod_RenameObject<WithStreamedUnaryMethod_SaveProject<WithStreamedUnaryMethod_NewProject<WithStreamedUnaryMethod_LoadProject<WithStreamedUnaryMethod_DeleteProject<WithStreamedUnaryMethod_Unwrap<WithStreamedUnaryMethod_Packing<WithStreamedUnaryMethod_LowPoly<WithStreamedUnaryMethod_LoadSystem<WithStreamedUnaryMethod_SaveSystem<WithStreamedUnaryMethod_BakeNormal<WithStreamedUnaryMethod_BakeNormalMax<WithStreamedUnaryMethod_MakeNode4Edit<WithStreamedUnaryMethod_BatchOptimize<WithStreamedUnaryMethod_TestTest<WithStreamedUnaryMethod_GetObjectFromMax<WithStreamedUnaryMethod_CloneObject<WithStreamedUnaryMethod_DoEvent<WithStreamedUnaryMethod_DoUnwrap<WithStreamedUnaryMethod_Shutdown<WithStreamedUnaryMethod_AddTestObject<WithStreamedUnaryMethod_ApplyTestObject<Service > > > > > > > > > > > > > > > > > > > > > > StreamedUnaryService;
   template <class BaseClass>
   class WithSplitStreamingMethod_DoStreamServer : public BaseClass {
    private:
@@ -1617,8 +1756,1263 @@ class Tools final {
     virtual ::grpc::Status StreamedDoStreamServer(::grpc::ServerContext* context, ::grpc::ServerSplitStreamer< ::y3d::EmptyParam,::y3d::YEvent>* server_split_streamer) = 0;
   };
   typedef WithSplitStreamingMethod_DoStreamServer<Service > SplitStreamedService;
-  typedef WithStreamedUnaryMethod_RenameObject<WithStreamedUnaryMethod_SaveProject<WithStreamedUnaryMethod_NewProject<WithStreamedUnaryMethod_LoadProject<WithStreamedUnaryMethod_DeleteProject<WithStreamedUnaryMethod_Unwrap<WithStreamedUnaryMethod_Packing<WithStreamedUnaryMethod_LowPoly<WithStreamedUnaryMethod_LoadSystem<WithStreamedUnaryMethod_SaveSystem<WithStreamedUnaryMethod_BakeNormal<WithStreamedUnaryMethod_BakeNormalMax<WithStreamedUnaryMethod_MakeNode4Edit<WithStreamedUnaryMethod_BatchOptimize<WithStreamedUnaryMethod_TestTest<WithStreamedUnaryMethod_GetObjectFromMax<WithStreamedUnaryMethod_CloneObject<WithSplitStreamingMethod_DoStreamServer<WithStreamedUnaryMethod_DoEvent<WithStreamedUnaryMethod_DoUnwrap<WithStreamedUnaryMethod_Shutdown<Service > > > > > > > > > > > > > > > > > > > > > StreamedService;
+  typedef WithStreamedUnaryMethod_RenameObject<WithStreamedUnaryMethod_SaveProject<WithStreamedUnaryMethod_NewProject<WithStreamedUnaryMethod_LoadProject<WithStreamedUnaryMethod_DeleteProject<WithStreamedUnaryMethod_Unwrap<WithStreamedUnaryMethod_Packing<WithStreamedUnaryMethod_LowPoly<WithStreamedUnaryMethod_LoadSystem<WithStreamedUnaryMethod_SaveSystem<WithStreamedUnaryMethod_BakeNormal<WithStreamedUnaryMethod_BakeNormalMax<WithStreamedUnaryMethod_MakeNode4Edit<WithStreamedUnaryMethod_BatchOptimize<WithStreamedUnaryMethod_TestTest<WithStreamedUnaryMethod_GetObjectFromMax<WithStreamedUnaryMethod_CloneObject<WithSplitStreamingMethod_DoStreamServer<WithStreamedUnaryMethod_DoEvent<WithStreamedUnaryMethod_DoUnwrap<WithStreamedUnaryMethod_Shutdown<WithStreamedUnaryMethod_AddTestObject<WithStreamedUnaryMethod_ApplyTestObject<Service > > > > > > > > > > > > > > > > > > > > > > > StreamedService;
 };
+
+class YServiceTest final {
+ public:
+  class StubInterface {
+   public:
+    virtual ~StubInterface() {}
+    virtual ::grpc::Status MTest1(::grpc::ClientContext* context, const ::y3d::EmptyParam& request, ::y3d::EmptyParam* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::y3d::EmptyParam>> AsyncMTest1(::grpc::ClientContext* context, const ::y3d::EmptyParam& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::y3d::EmptyParam>>(AsyncMTest1Raw(context, request, cq));
+    }
+    virtual ::grpc::Status MTest2(::grpc::ClientContext* context, const ::y3d::EmptyParam& request, ::y3d::EmptyParam* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::y3d::EmptyParam>> AsyncMTest2(::grpc::ClientContext* context, const ::y3d::EmptyParam& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::y3d::EmptyParam>>(AsyncMTest2Raw(context, request, cq));
+    }
+  private:
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::y3d::EmptyParam>* AsyncMTest1Raw(::grpc::ClientContext* context, const ::y3d::EmptyParam& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::y3d::EmptyParam>* AsyncMTest2Raw(::grpc::ClientContext* context, const ::y3d::EmptyParam& request, ::grpc::CompletionQueue* cq) = 0;
+  };
+  class Stub final : public StubInterface {
+   public:
+    Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel);
+    ::grpc::Status MTest1(::grpc::ClientContext* context, const ::y3d::EmptyParam& request, ::y3d::EmptyParam* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::y3d::EmptyParam>> AsyncMTest1(::grpc::ClientContext* context, const ::y3d::EmptyParam& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::y3d::EmptyParam>>(AsyncMTest1Raw(context, request, cq));
+    }
+    ::grpc::Status MTest2(::grpc::ClientContext* context, const ::y3d::EmptyParam& request, ::y3d::EmptyParam* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::y3d::EmptyParam>> AsyncMTest2(::grpc::ClientContext* context, const ::y3d::EmptyParam& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::y3d::EmptyParam>>(AsyncMTest2Raw(context, request, cq));
+    }
+
+   private:
+    std::shared_ptr< ::grpc::ChannelInterface> channel_;
+    ::grpc::ClientAsyncResponseReader< ::y3d::EmptyParam>* AsyncMTest1Raw(::grpc::ClientContext* context, const ::y3d::EmptyParam& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::y3d::EmptyParam>* AsyncMTest2Raw(::grpc::ClientContext* context, const ::y3d::EmptyParam& request, ::grpc::CompletionQueue* cq) override;
+    const ::grpc::RpcMethod rpcmethod_MTest1_;
+    const ::grpc::RpcMethod rpcmethod_MTest2_;
+  };
+  static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
+
+  class Service : public ::grpc::Service {
+   public:
+    Service();
+    virtual ~Service();
+    virtual ::grpc::Status MTest1(::grpc::ServerContext* context, const ::y3d::EmptyParam* request, ::y3d::EmptyParam* response);
+    virtual ::grpc::Status MTest2(::grpc::ServerContext* context, const ::y3d::EmptyParam* request, ::y3d::EmptyParam* response);
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_MTest1 : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithAsyncMethod_MTest1() {
+      ::grpc::Service::MarkMethodAsync(0);
+    }
+    ~WithAsyncMethod_MTest1() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status MTest1(::grpc::ServerContext* context, const ::y3d::EmptyParam* request, ::y3d::EmptyParam* response) final override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestMTest1(::grpc::ServerContext* context, ::y3d::EmptyParam* request, ::grpc::ServerAsyncResponseWriter< ::y3d::EmptyParam>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_MTest2 : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithAsyncMethod_MTest2() {
+      ::grpc::Service::MarkMethodAsync(1);
+    }
+    ~WithAsyncMethod_MTest2() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status MTest2(::grpc::ServerContext* context, const ::y3d::EmptyParam* request, ::y3d::EmptyParam* response) final override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestMTest2(::grpc::ServerContext* context, ::y3d::EmptyParam* request, ::grpc::ServerAsyncResponseWriter< ::y3d::EmptyParam>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  typedef WithAsyncMethod_MTest1<WithAsyncMethod_MTest2<Service > > AsyncService;
+  template <class BaseClass>
+  class WithGenericMethod_MTest1 : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithGenericMethod_MTest1() {
+      ::grpc::Service::MarkMethodGeneric(0);
+    }
+    ~WithGenericMethod_MTest1() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status MTest1(::grpc::ServerContext* context, const ::y3d::EmptyParam* request, ::y3d::EmptyParam* response) final override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_MTest2 : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithGenericMethod_MTest2() {
+      ::grpc::Service::MarkMethodGeneric(1);
+    }
+    ~WithGenericMethod_MTest2() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status MTest2(::grpc::ServerContext* context, const ::y3d::EmptyParam* request, ::y3d::EmptyParam* response) final override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_MTest1 : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithStreamedUnaryMethod_MTest1() {
+      ::grpc::Service::MarkMethodStreamed(0,
+        new ::grpc::StreamedUnaryHandler< ::y3d::EmptyParam, ::y3d::EmptyParam>(std::bind(&WithStreamedUnaryMethod_MTest1<BaseClass>::StreamedMTest1, this, std::placeholders::_1, std::placeholders::_2)));
+    }
+    ~WithStreamedUnaryMethod_MTest1() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status MTest1(::grpc::ServerContext* context, const ::y3d::EmptyParam* request, ::y3d::EmptyParam* response) final override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedMTest1(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::y3d::EmptyParam,::y3d::EmptyParam>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_MTest2 : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithStreamedUnaryMethod_MTest2() {
+      ::grpc::Service::MarkMethodStreamed(1,
+        new ::grpc::StreamedUnaryHandler< ::y3d::EmptyParam, ::y3d::EmptyParam>(std::bind(&WithStreamedUnaryMethod_MTest2<BaseClass>::StreamedMTest2, this, std::placeholders::_1, std::placeholders::_2)));
+    }
+    ~WithStreamedUnaryMethod_MTest2() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status MTest2(::grpc::ServerContext* context, const ::y3d::EmptyParam* request, ::y3d::EmptyParam* response) final override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedMTest2(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::y3d::EmptyParam,::y3d::EmptyParam>* server_unary_streamer) = 0;
+  };
+  typedef WithStreamedUnaryMethod_MTest1<WithStreamedUnaryMethod_MTest2<Service > > StreamedUnaryService;
+  typedef Service SplitStreamedService;
+  typedef WithStreamedUnaryMethod_MTest1<WithStreamedUnaryMethod_MTest2<Service > > StreamedService;
+};
+
+class YServiceMaster final {
+ public:
+  class StubInterface {
+   public:
+    virtual ~StubInterface() {}
+    virtual ::grpc::Status AllWorkers(::grpc::ClientContext* context, const ::y3d::AllWorkerParam& request, ::y3d::YWorkerResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::y3d::YWorkerResponse>> AsyncAllWorkers(::grpc::ClientContext* context, const ::y3d::AllWorkerParam& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::y3d::YWorkerResponse>>(AsyncAllWorkersRaw(context, request, cq));
+    }
+    virtual ::grpc::Status StopAllWorkers(::grpc::ClientContext* context, const ::y3d::EmptyParam& request, ::y3d::ResultReply* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::y3d::ResultReply>> AsyncStopAllWorkers(::grpc::ClientContext* context, const ::y3d::EmptyParam& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::y3d::ResultReply>>(AsyncStopAllWorkersRaw(context, request, cq));
+    }
+    virtual ::grpc::Status AddWorker(::grpc::ClientContext* context, const ::y3d::YWorkerRequest& request, ::y3d::YWorkerResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::y3d::YWorkerResponse>> AsyncAddWorker(::grpc::ClientContext* context, const ::y3d::YWorkerRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::y3d::YWorkerResponse>>(AsyncAddWorkerRaw(context, request, cq));
+    }
+    virtual ::grpc::Status CloseWorkerApp(::grpc::ClientContext* context, const ::y3d::WorkerParam& request, ::y3d::ResultReply* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::y3d::ResultReply>> AsyncCloseWorkerApp(::grpc::ClientContext* context, const ::y3d::WorkerParam& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::y3d::ResultReply>>(AsyncCloseWorkerAppRaw(context, request, cq));
+    }
+    virtual ::grpc::Status StartWorker(::grpc::ClientContext* context, const ::y3d::WorkerParam& request, ::y3d::YWorkerResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::y3d::YWorkerResponse>> AsyncStartWorker(::grpc::ClientContext* context, const ::y3d::WorkerParam& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::y3d::YWorkerResponse>>(AsyncStartWorkerRaw(context, request, cq));
+    }
+    virtual ::grpc::Status StopWorker(::grpc::ClientContext* context, const ::y3d::WorkerParam& request, ::y3d::YWorkerResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::y3d::YWorkerResponse>> AsyncStopWorker(::grpc::ClientContext* context, const ::y3d::WorkerParam& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::y3d::YWorkerResponse>>(AsyncStopWorkerRaw(context, request, cq));
+    }
+    virtual ::grpc::Status AppExitCallback(::grpc::ClientContext* context, const ::y3d::WorkerParam& request, ::y3d::ResultReply* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::y3d::ResultReply>> AsyncAppExitCallback(::grpc::ClientContext* context, const ::y3d::WorkerParam& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::y3d::ResultReply>>(AsyncAppExitCallbackRaw(context, request, cq));
+    }
+    virtual ::grpc::Status ShowJobInMachine(::grpc::ClientContext* context, const ::y3d::YWorker& request, ::y3d::YJobList* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::y3d::YJobList>> AsyncShowJobInMachine(::grpc::ClientContext* context, const ::y3d::YWorker& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::y3d::YJobList>>(AsyncShowJobInMachineRaw(context, request, cq));
+    }
+    virtual ::grpc::Status CheckHealth(::grpc::ClientContext* context, const ::y3d::EmptyParam& request, ::y3d::ResultReply* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::y3d::ResultReply>> AsyncCheckHealth(::grpc::ClientContext* context, const ::y3d::EmptyParam& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::y3d::ResultReply>>(AsyncCheckHealthRaw(context, request, cq));
+    }
+    virtual ::grpc::Status UpdateWorkerStatus(::grpc::ClientContext* context, const ::y3d::YWorker& request, ::y3d::ResultReply* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::y3d::ResultReply>> AsyncUpdateWorkerStatus(::grpc::ClientContext* context, const ::y3d::YWorker& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::y3d::ResultReply>>(AsyncUpdateWorkerStatusRaw(context, request, cq));
+    }
+    virtual ::grpc::Status LoadSystem(::grpc::ClientContext* context, const ::y3d::EmptyParam& request, ::y3d::YSystem* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::y3d::YSystem>> AsyncLoadSystem(::grpc::ClientContext* context, const ::y3d::EmptyParam& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::y3d::YSystem>>(AsyncLoadSystemRaw(context, request, cq));
+    }
+    virtual ::grpc::Status SaveSystem(::grpc::ClientContext* context, const ::y3d::YSystem& request, ::y3d::ResultReply* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::y3d::ResultReply>> AsyncSaveSystem(::grpc::ClientContext* context, const ::y3d::YSystem& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::y3d::ResultReply>>(AsyncSaveSystemRaw(context, request, cq));
+    }
+    virtual ::grpc::Status GiveMeAWorker(::grpc::ClientContext* context, const ::y3d::EmptyParam& request, ::y3d::YWorker* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::y3d::YWorker>> AsyncGiveMeAWorker(::grpc::ClientContext* context, const ::y3d::EmptyParam& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::y3d::YWorker>>(AsyncGiveMeAWorkerRaw(context, request, cq));
+    }
+  private:
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::y3d::YWorkerResponse>* AsyncAllWorkersRaw(::grpc::ClientContext* context, const ::y3d::AllWorkerParam& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::y3d::ResultReply>* AsyncStopAllWorkersRaw(::grpc::ClientContext* context, const ::y3d::EmptyParam& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::y3d::YWorkerResponse>* AsyncAddWorkerRaw(::grpc::ClientContext* context, const ::y3d::YWorkerRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::y3d::ResultReply>* AsyncCloseWorkerAppRaw(::grpc::ClientContext* context, const ::y3d::WorkerParam& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::y3d::YWorkerResponse>* AsyncStartWorkerRaw(::grpc::ClientContext* context, const ::y3d::WorkerParam& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::y3d::YWorkerResponse>* AsyncStopWorkerRaw(::grpc::ClientContext* context, const ::y3d::WorkerParam& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::y3d::ResultReply>* AsyncAppExitCallbackRaw(::grpc::ClientContext* context, const ::y3d::WorkerParam& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::y3d::YJobList>* AsyncShowJobInMachineRaw(::grpc::ClientContext* context, const ::y3d::YWorker& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::y3d::ResultReply>* AsyncCheckHealthRaw(::grpc::ClientContext* context, const ::y3d::EmptyParam& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::y3d::ResultReply>* AsyncUpdateWorkerStatusRaw(::grpc::ClientContext* context, const ::y3d::YWorker& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::y3d::YSystem>* AsyncLoadSystemRaw(::grpc::ClientContext* context, const ::y3d::EmptyParam& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::y3d::ResultReply>* AsyncSaveSystemRaw(::grpc::ClientContext* context, const ::y3d::YSystem& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::y3d::YWorker>* AsyncGiveMeAWorkerRaw(::grpc::ClientContext* context, const ::y3d::EmptyParam& request, ::grpc::CompletionQueue* cq) = 0;
+  };
+  class Stub final : public StubInterface {
+   public:
+    Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel);
+    ::grpc::Status AllWorkers(::grpc::ClientContext* context, const ::y3d::AllWorkerParam& request, ::y3d::YWorkerResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::y3d::YWorkerResponse>> AsyncAllWorkers(::grpc::ClientContext* context, const ::y3d::AllWorkerParam& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::y3d::YWorkerResponse>>(AsyncAllWorkersRaw(context, request, cq));
+    }
+    ::grpc::Status StopAllWorkers(::grpc::ClientContext* context, const ::y3d::EmptyParam& request, ::y3d::ResultReply* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>> AsyncStopAllWorkers(::grpc::ClientContext* context, const ::y3d::EmptyParam& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>>(AsyncStopAllWorkersRaw(context, request, cq));
+    }
+    ::grpc::Status AddWorker(::grpc::ClientContext* context, const ::y3d::YWorkerRequest& request, ::y3d::YWorkerResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::y3d::YWorkerResponse>> AsyncAddWorker(::grpc::ClientContext* context, const ::y3d::YWorkerRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::y3d::YWorkerResponse>>(AsyncAddWorkerRaw(context, request, cq));
+    }
+    ::grpc::Status CloseWorkerApp(::grpc::ClientContext* context, const ::y3d::WorkerParam& request, ::y3d::ResultReply* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>> AsyncCloseWorkerApp(::grpc::ClientContext* context, const ::y3d::WorkerParam& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>>(AsyncCloseWorkerAppRaw(context, request, cq));
+    }
+    ::grpc::Status StartWorker(::grpc::ClientContext* context, const ::y3d::WorkerParam& request, ::y3d::YWorkerResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::y3d::YWorkerResponse>> AsyncStartWorker(::grpc::ClientContext* context, const ::y3d::WorkerParam& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::y3d::YWorkerResponse>>(AsyncStartWorkerRaw(context, request, cq));
+    }
+    ::grpc::Status StopWorker(::grpc::ClientContext* context, const ::y3d::WorkerParam& request, ::y3d::YWorkerResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::y3d::YWorkerResponse>> AsyncStopWorker(::grpc::ClientContext* context, const ::y3d::WorkerParam& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::y3d::YWorkerResponse>>(AsyncStopWorkerRaw(context, request, cq));
+    }
+    ::grpc::Status AppExitCallback(::grpc::ClientContext* context, const ::y3d::WorkerParam& request, ::y3d::ResultReply* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>> AsyncAppExitCallback(::grpc::ClientContext* context, const ::y3d::WorkerParam& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>>(AsyncAppExitCallbackRaw(context, request, cq));
+    }
+    ::grpc::Status ShowJobInMachine(::grpc::ClientContext* context, const ::y3d::YWorker& request, ::y3d::YJobList* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::y3d::YJobList>> AsyncShowJobInMachine(::grpc::ClientContext* context, const ::y3d::YWorker& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::y3d::YJobList>>(AsyncShowJobInMachineRaw(context, request, cq));
+    }
+    ::grpc::Status CheckHealth(::grpc::ClientContext* context, const ::y3d::EmptyParam& request, ::y3d::ResultReply* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>> AsyncCheckHealth(::grpc::ClientContext* context, const ::y3d::EmptyParam& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>>(AsyncCheckHealthRaw(context, request, cq));
+    }
+    ::grpc::Status UpdateWorkerStatus(::grpc::ClientContext* context, const ::y3d::YWorker& request, ::y3d::ResultReply* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>> AsyncUpdateWorkerStatus(::grpc::ClientContext* context, const ::y3d::YWorker& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>>(AsyncUpdateWorkerStatusRaw(context, request, cq));
+    }
+    ::grpc::Status LoadSystem(::grpc::ClientContext* context, const ::y3d::EmptyParam& request, ::y3d::YSystem* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::y3d::YSystem>> AsyncLoadSystem(::grpc::ClientContext* context, const ::y3d::EmptyParam& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::y3d::YSystem>>(AsyncLoadSystemRaw(context, request, cq));
+    }
+    ::grpc::Status SaveSystem(::grpc::ClientContext* context, const ::y3d::YSystem& request, ::y3d::ResultReply* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>> AsyncSaveSystem(::grpc::ClientContext* context, const ::y3d::YSystem& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>>(AsyncSaveSystemRaw(context, request, cq));
+    }
+    ::grpc::Status GiveMeAWorker(::grpc::ClientContext* context, const ::y3d::EmptyParam& request, ::y3d::YWorker* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::y3d::YWorker>> AsyncGiveMeAWorker(::grpc::ClientContext* context, const ::y3d::EmptyParam& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::y3d::YWorker>>(AsyncGiveMeAWorkerRaw(context, request, cq));
+    }
+
+   private:
+    std::shared_ptr< ::grpc::ChannelInterface> channel_;
+    ::grpc::ClientAsyncResponseReader< ::y3d::YWorkerResponse>* AsyncAllWorkersRaw(::grpc::ClientContext* context, const ::y3d::AllWorkerParam& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>* AsyncStopAllWorkersRaw(::grpc::ClientContext* context, const ::y3d::EmptyParam& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::y3d::YWorkerResponse>* AsyncAddWorkerRaw(::grpc::ClientContext* context, const ::y3d::YWorkerRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>* AsyncCloseWorkerAppRaw(::grpc::ClientContext* context, const ::y3d::WorkerParam& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::y3d::YWorkerResponse>* AsyncStartWorkerRaw(::grpc::ClientContext* context, const ::y3d::WorkerParam& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::y3d::YWorkerResponse>* AsyncStopWorkerRaw(::grpc::ClientContext* context, const ::y3d::WorkerParam& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>* AsyncAppExitCallbackRaw(::grpc::ClientContext* context, const ::y3d::WorkerParam& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::y3d::YJobList>* AsyncShowJobInMachineRaw(::grpc::ClientContext* context, const ::y3d::YWorker& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>* AsyncCheckHealthRaw(::grpc::ClientContext* context, const ::y3d::EmptyParam& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>* AsyncUpdateWorkerStatusRaw(::grpc::ClientContext* context, const ::y3d::YWorker& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::y3d::YSystem>* AsyncLoadSystemRaw(::grpc::ClientContext* context, const ::y3d::EmptyParam& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>* AsyncSaveSystemRaw(::grpc::ClientContext* context, const ::y3d::YSystem& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::y3d::YWorker>* AsyncGiveMeAWorkerRaw(::grpc::ClientContext* context, const ::y3d::EmptyParam& request, ::grpc::CompletionQueue* cq) override;
+    const ::grpc::RpcMethod rpcmethod_AllWorkers_;
+    const ::grpc::RpcMethod rpcmethod_StopAllWorkers_;
+    const ::grpc::RpcMethod rpcmethod_AddWorker_;
+    const ::grpc::RpcMethod rpcmethod_CloseWorkerApp_;
+    const ::grpc::RpcMethod rpcmethod_StartWorker_;
+    const ::grpc::RpcMethod rpcmethod_StopWorker_;
+    const ::grpc::RpcMethod rpcmethod_AppExitCallback_;
+    const ::grpc::RpcMethod rpcmethod_ShowJobInMachine_;
+    const ::grpc::RpcMethod rpcmethod_CheckHealth_;
+    const ::grpc::RpcMethod rpcmethod_UpdateWorkerStatus_;
+    const ::grpc::RpcMethod rpcmethod_LoadSystem_;
+    const ::grpc::RpcMethod rpcmethod_SaveSystem_;
+    const ::grpc::RpcMethod rpcmethod_GiveMeAWorker_;
+  };
+  static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
+
+  class Service : public ::grpc::Service {
+   public:
+    Service();
+    virtual ~Service();
+    virtual ::grpc::Status AllWorkers(::grpc::ServerContext* context, const ::y3d::AllWorkerParam* request, ::y3d::YWorkerResponse* response);
+    virtual ::grpc::Status StopAllWorkers(::grpc::ServerContext* context, const ::y3d::EmptyParam* request, ::y3d::ResultReply* response);
+    virtual ::grpc::Status AddWorker(::grpc::ServerContext* context, const ::y3d::YWorkerRequest* request, ::y3d::YWorkerResponse* response);
+    virtual ::grpc::Status CloseWorkerApp(::grpc::ServerContext* context, const ::y3d::WorkerParam* request, ::y3d::ResultReply* response);
+    virtual ::grpc::Status StartWorker(::grpc::ServerContext* context, const ::y3d::WorkerParam* request, ::y3d::YWorkerResponse* response);
+    virtual ::grpc::Status StopWorker(::grpc::ServerContext* context, const ::y3d::WorkerParam* request, ::y3d::YWorkerResponse* response);
+    virtual ::grpc::Status AppExitCallback(::grpc::ServerContext* context, const ::y3d::WorkerParam* request, ::y3d::ResultReply* response);
+    virtual ::grpc::Status ShowJobInMachine(::grpc::ServerContext* context, const ::y3d::YWorker* request, ::y3d::YJobList* response);
+    virtual ::grpc::Status CheckHealth(::grpc::ServerContext* context, const ::y3d::EmptyParam* request, ::y3d::ResultReply* response);
+    virtual ::grpc::Status UpdateWorkerStatus(::grpc::ServerContext* context, const ::y3d::YWorker* request, ::y3d::ResultReply* response);
+    virtual ::grpc::Status LoadSystem(::grpc::ServerContext* context, const ::y3d::EmptyParam* request, ::y3d::YSystem* response);
+    virtual ::grpc::Status SaveSystem(::grpc::ServerContext* context, const ::y3d::YSystem* request, ::y3d::ResultReply* response);
+    virtual ::grpc::Status GiveMeAWorker(::grpc::ServerContext* context, const ::y3d::EmptyParam* request, ::y3d::YWorker* response);
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_AllWorkers : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithAsyncMethod_AllWorkers() {
+      ::grpc::Service::MarkMethodAsync(0);
+    }
+    ~WithAsyncMethod_AllWorkers() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status AllWorkers(::grpc::ServerContext* context, const ::y3d::AllWorkerParam* request, ::y3d::YWorkerResponse* response) final override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestAllWorkers(::grpc::ServerContext* context, ::y3d::AllWorkerParam* request, ::grpc::ServerAsyncResponseWriter< ::y3d::YWorkerResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_StopAllWorkers : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithAsyncMethod_StopAllWorkers() {
+      ::grpc::Service::MarkMethodAsync(1);
+    }
+    ~WithAsyncMethod_StopAllWorkers() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status StopAllWorkers(::grpc::ServerContext* context, const ::y3d::EmptyParam* request, ::y3d::ResultReply* response) final override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestStopAllWorkers(::grpc::ServerContext* context, ::y3d::EmptyParam* request, ::grpc::ServerAsyncResponseWriter< ::y3d::ResultReply>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_AddWorker : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithAsyncMethod_AddWorker() {
+      ::grpc::Service::MarkMethodAsync(2);
+    }
+    ~WithAsyncMethod_AddWorker() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status AddWorker(::grpc::ServerContext* context, const ::y3d::YWorkerRequest* request, ::y3d::YWorkerResponse* response) final override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestAddWorker(::grpc::ServerContext* context, ::y3d::YWorkerRequest* request, ::grpc::ServerAsyncResponseWriter< ::y3d::YWorkerResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(2, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_CloseWorkerApp : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithAsyncMethod_CloseWorkerApp() {
+      ::grpc::Service::MarkMethodAsync(3);
+    }
+    ~WithAsyncMethod_CloseWorkerApp() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status CloseWorkerApp(::grpc::ServerContext* context, const ::y3d::WorkerParam* request, ::y3d::ResultReply* response) final override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestCloseWorkerApp(::grpc::ServerContext* context, ::y3d::WorkerParam* request, ::grpc::ServerAsyncResponseWriter< ::y3d::ResultReply>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_StartWorker : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithAsyncMethod_StartWorker() {
+      ::grpc::Service::MarkMethodAsync(4);
+    }
+    ~WithAsyncMethod_StartWorker() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status StartWorker(::grpc::ServerContext* context, const ::y3d::WorkerParam* request, ::y3d::YWorkerResponse* response) final override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestStartWorker(::grpc::ServerContext* context, ::y3d::WorkerParam* request, ::grpc::ServerAsyncResponseWriter< ::y3d::YWorkerResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_StopWorker : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithAsyncMethod_StopWorker() {
+      ::grpc::Service::MarkMethodAsync(5);
+    }
+    ~WithAsyncMethod_StopWorker() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status StopWorker(::grpc::ServerContext* context, const ::y3d::WorkerParam* request, ::y3d::YWorkerResponse* response) final override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestStopWorker(::grpc::ServerContext* context, ::y3d::WorkerParam* request, ::grpc::ServerAsyncResponseWriter< ::y3d::YWorkerResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_AppExitCallback : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithAsyncMethod_AppExitCallback() {
+      ::grpc::Service::MarkMethodAsync(6);
+    }
+    ~WithAsyncMethod_AppExitCallback() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status AppExitCallback(::grpc::ServerContext* context, const ::y3d::WorkerParam* request, ::y3d::ResultReply* response) final override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestAppExitCallback(::grpc::ServerContext* context, ::y3d::WorkerParam* request, ::grpc::ServerAsyncResponseWriter< ::y3d::ResultReply>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(6, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_ShowJobInMachine : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithAsyncMethod_ShowJobInMachine() {
+      ::grpc::Service::MarkMethodAsync(7);
+    }
+    ~WithAsyncMethod_ShowJobInMachine() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ShowJobInMachine(::grpc::ServerContext* context, const ::y3d::YWorker* request, ::y3d::YJobList* response) final override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestShowJobInMachine(::grpc::ServerContext* context, ::y3d::YWorker* request, ::grpc::ServerAsyncResponseWriter< ::y3d::YJobList>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(7, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_CheckHealth : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithAsyncMethod_CheckHealth() {
+      ::grpc::Service::MarkMethodAsync(8);
+    }
+    ~WithAsyncMethod_CheckHealth() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status CheckHealth(::grpc::ServerContext* context, const ::y3d::EmptyParam* request, ::y3d::ResultReply* response) final override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestCheckHealth(::grpc::ServerContext* context, ::y3d::EmptyParam* request, ::grpc::ServerAsyncResponseWriter< ::y3d::ResultReply>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(8, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_UpdateWorkerStatus : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithAsyncMethod_UpdateWorkerStatus() {
+      ::grpc::Service::MarkMethodAsync(9);
+    }
+    ~WithAsyncMethod_UpdateWorkerStatus() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status UpdateWorkerStatus(::grpc::ServerContext* context, const ::y3d::YWorker* request, ::y3d::ResultReply* response) final override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestUpdateWorkerStatus(::grpc::ServerContext* context, ::y3d::YWorker* request, ::grpc::ServerAsyncResponseWriter< ::y3d::ResultReply>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(9, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_LoadSystem : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithAsyncMethod_LoadSystem() {
+      ::grpc::Service::MarkMethodAsync(10);
+    }
+    ~WithAsyncMethod_LoadSystem() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status LoadSystem(::grpc::ServerContext* context, const ::y3d::EmptyParam* request, ::y3d::YSystem* response) final override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestLoadSystem(::grpc::ServerContext* context, ::y3d::EmptyParam* request, ::grpc::ServerAsyncResponseWriter< ::y3d::YSystem>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(10, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_SaveSystem : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithAsyncMethod_SaveSystem() {
+      ::grpc::Service::MarkMethodAsync(11);
+    }
+    ~WithAsyncMethod_SaveSystem() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SaveSystem(::grpc::ServerContext* context, const ::y3d::YSystem* request, ::y3d::ResultReply* response) final override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestSaveSystem(::grpc::ServerContext* context, ::y3d::YSystem* request, ::grpc::ServerAsyncResponseWriter< ::y3d::ResultReply>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(11, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_GiveMeAWorker : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithAsyncMethod_GiveMeAWorker() {
+      ::grpc::Service::MarkMethodAsync(12);
+    }
+    ~WithAsyncMethod_GiveMeAWorker() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status GiveMeAWorker(::grpc::ServerContext* context, const ::y3d::EmptyParam* request, ::y3d::YWorker* response) final override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestGiveMeAWorker(::grpc::ServerContext* context, ::y3d::EmptyParam* request, ::grpc::ServerAsyncResponseWriter< ::y3d::YWorker>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(12, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  typedef WithAsyncMethod_AllWorkers<WithAsyncMethod_StopAllWorkers<WithAsyncMethod_AddWorker<WithAsyncMethod_CloseWorkerApp<WithAsyncMethod_StartWorker<WithAsyncMethod_StopWorker<WithAsyncMethod_AppExitCallback<WithAsyncMethod_ShowJobInMachine<WithAsyncMethod_CheckHealth<WithAsyncMethod_UpdateWorkerStatus<WithAsyncMethod_LoadSystem<WithAsyncMethod_SaveSystem<WithAsyncMethod_GiveMeAWorker<Service > > > > > > > > > > > > > AsyncService;
+  template <class BaseClass>
+  class WithGenericMethod_AllWorkers : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithGenericMethod_AllWorkers() {
+      ::grpc::Service::MarkMethodGeneric(0);
+    }
+    ~WithGenericMethod_AllWorkers() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status AllWorkers(::grpc::ServerContext* context, const ::y3d::AllWorkerParam* request, ::y3d::YWorkerResponse* response) final override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_StopAllWorkers : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithGenericMethod_StopAllWorkers() {
+      ::grpc::Service::MarkMethodGeneric(1);
+    }
+    ~WithGenericMethod_StopAllWorkers() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status StopAllWorkers(::grpc::ServerContext* context, const ::y3d::EmptyParam* request, ::y3d::ResultReply* response) final override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_AddWorker : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithGenericMethod_AddWorker() {
+      ::grpc::Service::MarkMethodGeneric(2);
+    }
+    ~WithGenericMethod_AddWorker() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status AddWorker(::grpc::ServerContext* context, const ::y3d::YWorkerRequest* request, ::y3d::YWorkerResponse* response) final override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_CloseWorkerApp : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithGenericMethod_CloseWorkerApp() {
+      ::grpc::Service::MarkMethodGeneric(3);
+    }
+    ~WithGenericMethod_CloseWorkerApp() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status CloseWorkerApp(::grpc::ServerContext* context, const ::y3d::WorkerParam* request, ::y3d::ResultReply* response) final override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_StartWorker : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithGenericMethod_StartWorker() {
+      ::grpc::Service::MarkMethodGeneric(4);
+    }
+    ~WithGenericMethod_StartWorker() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status StartWorker(::grpc::ServerContext* context, const ::y3d::WorkerParam* request, ::y3d::YWorkerResponse* response) final override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_StopWorker : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithGenericMethod_StopWorker() {
+      ::grpc::Service::MarkMethodGeneric(5);
+    }
+    ~WithGenericMethod_StopWorker() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status StopWorker(::grpc::ServerContext* context, const ::y3d::WorkerParam* request, ::y3d::YWorkerResponse* response) final override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_AppExitCallback : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithGenericMethod_AppExitCallback() {
+      ::grpc::Service::MarkMethodGeneric(6);
+    }
+    ~WithGenericMethod_AppExitCallback() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status AppExitCallback(::grpc::ServerContext* context, const ::y3d::WorkerParam* request, ::y3d::ResultReply* response) final override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_ShowJobInMachine : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithGenericMethod_ShowJobInMachine() {
+      ::grpc::Service::MarkMethodGeneric(7);
+    }
+    ~WithGenericMethod_ShowJobInMachine() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ShowJobInMachine(::grpc::ServerContext* context, const ::y3d::YWorker* request, ::y3d::YJobList* response) final override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_CheckHealth : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithGenericMethod_CheckHealth() {
+      ::grpc::Service::MarkMethodGeneric(8);
+    }
+    ~WithGenericMethod_CheckHealth() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status CheckHealth(::grpc::ServerContext* context, const ::y3d::EmptyParam* request, ::y3d::ResultReply* response) final override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_UpdateWorkerStatus : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithGenericMethod_UpdateWorkerStatus() {
+      ::grpc::Service::MarkMethodGeneric(9);
+    }
+    ~WithGenericMethod_UpdateWorkerStatus() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status UpdateWorkerStatus(::grpc::ServerContext* context, const ::y3d::YWorker* request, ::y3d::ResultReply* response) final override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_LoadSystem : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithGenericMethod_LoadSystem() {
+      ::grpc::Service::MarkMethodGeneric(10);
+    }
+    ~WithGenericMethod_LoadSystem() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status LoadSystem(::grpc::ServerContext* context, const ::y3d::EmptyParam* request, ::y3d::YSystem* response) final override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_SaveSystem : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithGenericMethod_SaveSystem() {
+      ::grpc::Service::MarkMethodGeneric(11);
+    }
+    ~WithGenericMethod_SaveSystem() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SaveSystem(::grpc::ServerContext* context, const ::y3d::YSystem* request, ::y3d::ResultReply* response) final override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_GiveMeAWorker : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithGenericMethod_GiveMeAWorker() {
+      ::grpc::Service::MarkMethodGeneric(12);
+    }
+    ~WithGenericMethod_GiveMeAWorker() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status GiveMeAWorker(::grpc::ServerContext* context, const ::y3d::EmptyParam* request, ::y3d::YWorker* response) final override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_AllWorkers : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithStreamedUnaryMethod_AllWorkers() {
+      ::grpc::Service::MarkMethodStreamed(0,
+        new ::grpc::StreamedUnaryHandler< ::y3d::AllWorkerParam, ::y3d::YWorkerResponse>(std::bind(&WithStreamedUnaryMethod_AllWorkers<BaseClass>::StreamedAllWorkers, this, std::placeholders::_1, std::placeholders::_2)));
+    }
+    ~WithStreamedUnaryMethod_AllWorkers() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status AllWorkers(::grpc::ServerContext* context, const ::y3d::AllWorkerParam* request, ::y3d::YWorkerResponse* response) final override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedAllWorkers(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::y3d::AllWorkerParam,::y3d::YWorkerResponse>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_StopAllWorkers : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithStreamedUnaryMethod_StopAllWorkers() {
+      ::grpc::Service::MarkMethodStreamed(1,
+        new ::grpc::StreamedUnaryHandler< ::y3d::EmptyParam, ::y3d::ResultReply>(std::bind(&WithStreamedUnaryMethod_StopAllWorkers<BaseClass>::StreamedStopAllWorkers, this, std::placeholders::_1, std::placeholders::_2)));
+    }
+    ~WithStreamedUnaryMethod_StopAllWorkers() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status StopAllWorkers(::grpc::ServerContext* context, const ::y3d::EmptyParam* request, ::y3d::ResultReply* response) final override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedStopAllWorkers(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::y3d::EmptyParam,::y3d::ResultReply>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_AddWorker : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithStreamedUnaryMethod_AddWorker() {
+      ::grpc::Service::MarkMethodStreamed(2,
+        new ::grpc::StreamedUnaryHandler< ::y3d::YWorkerRequest, ::y3d::YWorkerResponse>(std::bind(&WithStreamedUnaryMethod_AddWorker<BaseClass>::StreamedAddWorker, this, std::placeholders::_1, std::placeholders::_2)));
+    }
+    ~WithStreamedUnaryMethod_AddWorker() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status AddWorker(::grpc::ServerContext* context, const ::y3d::YWorkerRequest* request, ::y3d::YWorkerResponse* response) final override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedAddWorker(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::y3d::YWorkerRequest,::y3d::YWorkerResponse>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_CloseWorkerApp : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithStreamedUnaryMethod_CloseWorkerApp() {
+      ::grpc::Service::MarkMethodStreamed(3,
+        new ::grpc::StreamedUnaryHandler< ::y3d::WorkerParam, ::y3d::ResultReply>(std::bind(&WithStreamedUnaryMethod_CloseWorkerApp<BaseClass>::StreamedCloseWorkerApp, this, std::placeholders::_1, std::placeholders::_2)));
+    }
+    ~WithStreamedUnaryMethod_CloseWorkerApp() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status CloseWorkerApp(::grpc::ServerContext* context, const ::y3d::WorkerParam* request, ::y3d::ResultReply* response) final override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedCloseWorkerApp(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::y3d::WorkerParam,::y3d::ResultReply>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_StartWorker : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithStreamedUnaryMethod_StartWorker() {
+      ::grpc::Service::MarkMethodStreamed(4,
+        new ::grpc::StreamedUnaryHandler< ::y3d::WorkerParam, ::y3d::YWorkerResponse>(std::bind(&WithStreamedUnaryMethod_StartWorker<BaseClass>::StreamedStartWorker, this, std::placeholders::_1, std::placeholders::_2)));
+    }
+    ~WithStreamedUnaryMethod_StartWorker() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status StartWorker(::grpc::ServerContext* context, const ::y3d::WorkerParam* request, ::y3d::YWorkerResponse* response) final override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedStartWorker(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::y3d::WorkerParam,::y3d::YWorkerResponse>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_StopWorker : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithStreamedUnaryMethod_StopWorker() {
+      ::grpc::Service::MarkMethodStreamed(5,
+        new ::grpc::StreamedUnaryHandler< ::y3d::WorkerParam, ::y3d::YWorkerResponse>(std::bind(&WithStreamedUnaryMethod_StopWorker<BaseClass>::StreamedStopWorker, this, std::placeholders::_1, std::placeholders::_2)));
+    }
+    ~WithStreamedUnaryMethod_StopWorker() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status StopWorker(::grpc::ServerContext* context, const ::y3d::WorkerParam* request, ::y3d::YWorkerResponse* response) final override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedStopWorker(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::y3d::WorkerParam,::y3d::YWorkerResponse>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_AppExitCallback : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithStreamedUnaryMethod_AppExitCallback() {
+      ::grpc::Service::MarkMethodStreamed(6,
+        new ::grpc::StreamedUnaryHandler< ::y3d::WorkerParam, ::y3d::ResultReply>(std::bind(&WithStreamedUnaryMethod_AppExitCallback<BaseClass>::StreamedAppExitCallback, this, std::placeholders::_1, std::placeholders::_2)));
+    }
+    ~WithStreamedUnaryMethod_AppExitCallback() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status AppExitCallback(::grpc::ServerContext* context, const ::y3d::WorkerParam* request, ::y3d::ResultReply* response) final override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedAppExitCallback(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::y3d::WorkerParam,::y3d::ResultReply>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_ShowJobInMachine : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithStreamedUnaryMethod_ShowJobInMachine() {
+      ::grpc::Service::MarkMethodStreamed(7,
+        new ::grpc::StreamedUnaryHandler< ::y3d::YWorker, ::y3d::YJobList>(std::bind(&WithStreamedUnaryMethod_ShowJobInMachine<BaseClass>::StreamedShowJobInMachine, this, std::placeholders::_1, std::placeholders::_2)));
+    }
+    ~WithStreamedUnaryMethod_ShowJobInMachine() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status ShowJobInMachine(::grpc::ServerContext* context, const ::y3d::YWorker* request, ::y3d::YJobList* response) final override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedShowJobInMachine(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::y3d::YWorker,::y3d::YJobList>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_CheckHealth : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithStreamedUnaryMethod_CheckHealth() {
+      ::grpc::Service::MarkMethodStreamed(8,
+        new ::grpc::StreamedUnaryHandler< ::y3d::EmptyParam, ::y3d::ResultReply>(std::bind(&WithStreamedUnaryMethod_CheckHealth<BaseClass>::StreamedCheckHealth, this, std::placeholders::_1, std::placeholders::_2)));
+    }
+    ~WithStreamedUnaryMethod_CheckHealth() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status CheckHealth(::grpc::ServerContext* context, const ::y3d::EmptyParam* request, ::y3d::ResultReply* response) final override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedCheckHealth(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::y3d::EmptyParam,::y3d::ResultReply>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_UpdateWorkerStatus : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithStreamedUnaryMethod_UpdateWorkerStatus() {
+      ::grpc::Service::MarkMethodStreamed(9,
+        new ::grpc::StreamedUnaryHandler< ::y3d::YWorker, ::y3d::ResultReply>(std::bind(&WithStreamedUnaryMethod_UpdateWorkerStatus<BaseClass>::StreamedUpdateWorkerStatus, this, std::placeholders::_1, std::placeholders::_2)));
+    }
+    ~WithStreamedUnaryMethod_UpdateWorkerStatus() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status UpdateWorkerStatus(::grpc::ServerContext* context, const ::y3d::YWorker* request, ::y3d::ResultReply* response) final override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedUpdateWorkerStatus(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::y3d::YWorker,::y3d::ResultReply>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_LoadSystem : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithStreamedUnaryMethod_LoadSystem() {
+      ::grpc::Service::MarkMethodStreamed(10,
+        new ::grpc::StreamedUnaryHandler< ::y3d::EmptyParam, ::y3d::YSystem>(std::bind(&WithStreamedUnaryMethod_LoadSystem<BaseClass>::StreamedLoadSystem, this, std::placeholders::_1, std::placeholders::_2)));
+    }
+    ~WithStreamedUnaryMethod_LoadSystem() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status LoadSystem(::grpc::ServerContext* context, const ::y3d::EmptyParam* request, ::y3d::YSystem* response) final override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedLoadSystem(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::y3d::EmptyParam,::y3d::YSystem>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_SaveSystem : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithStreamedUnaryMethod_SaveSystem() {
+      ::grpc::Service::MarkMethodStreamed(11,
+        new ::grpc::StreamedUnaryHandler< ::y3d::YSystem, ::y3d::ResultReply>(std::bind(&WithStreamedUnaryMethod_SaveSystem<BaseClass>::StreamedSaveSystem, this, std::placeholders::_1, std::placeholders::_2)));
+    }
+    ~WithStreamedUnaryMethod_SaveSystem() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status SaveSystem(::grpc::ServerContext* context, const ::y3d::YSystem* request, ::y3d::ResultReply* response) final override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedSaveSystem(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::y3d::YSystem,::y3d::ResultReply>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_GiveMeAWorker : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithStreamedUnaryMethod_GiveMeAWorker() {
+      ::grpc::Service::MarkMethodStreamed(12,
+        new ::grpc::StreamedUnaryHandler< ::y3d::EmptyParam, ::y3d::YWorker>(std::bind(&WithStreamedUnaryMethod_GiveMeAWorker<BaseClass>::StreamedGiveMeAWorker, this, std::placeholders::_1, std::placeholders::_2)));
+    }
+    ~WithStreamedUnaryMethod_GiveMeAWorker() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status GiveMeAWorker(::grpc::ServerContext* context, const ::y3d::EmptyParam* request, ::y3d::YWorker* response) final override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedGiveMeAWorker(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::y3d::EmptyParam,::y3d::YWorker>* server_unary_streamer) = 0;
+  };
+  typedef WithStreamedUnaryMethod_AllWorkers<WithStreamedUnaryMethod_StopAllWorkers<WithStreamedUnaryMethod_AddWorker<WithStreamedUnaryMethod_CloseWorkerApp<WithStreamedUnaryMethod_StartWorker<WithStreamedUnaryMethod_StopWorker<WithStreamedUnaryMethod_AppExitCallback<WithStreamedUnaryMethod_ShowJobInMachine<WithStreamedUnaryMethod_CheckHealth<WithStreamedUnaryMethod_UpdateWorkerStatus<WithStreamedUnaryMethod_LoadSystem<WithStreamedUnaryMethod_SaveSystem<WithStreamedUnaryMethod_GiveMeAWorker<Service > > > > > > > > > > > > > StreamedUnaryService;
+  typedef Service SplitStreamedService;
+  typedef WithStreamedUnaryMethod_AllWorkers<WithStreamedUnaryMethod_StopAllWorkers<WithStreamedUnaryMethod_AddWorker<WithStreamedUnaryMethod_CloseWorkerApp<WithStreamedUnaryMethod_StartWorker<WithStreamedUnaryMethod_StopWorker<WithStreamedUnaryMethod_AppExitCallback<WithStreamedUnaryMethod_ShowJobInMachine<WithStreamedUnaryMethod_CheckHealth<WithStreamedUnaryMethod_UpdateWorkerStatus<WithStreamedUnaryMethod_LoadSystem<WithStreamedUnaryMethod_SaveSystem<WithStreamedUnaryMethod_GiveMeAWorker<Service > > > > > > > > > > > > > StreamedService;
+};
+
+class YServiceMainWorker final {
+ public:
+  class StubInterface {
+   public:
+    virtual ~StubInterface() {}
+    virtual ::grpc::Status DoEvent(::grpc::ClientContext* context, const ::y3d::YEvent& request, ::y3d::ResponseEvent* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::y3d::ResponseEvent>> AsyncDoEvent(::grpc::ClientContext* context, const ::y3d::YEvent& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::y3d::ResponseEvent>>(AsyncDoEventRaw(context, request, cq));
+    }
+    virtual ::grpc::Status CloseWorkerApp(::grpc::ClientContext* context, const ::y3d::YEvent& request, ::y3d::ResponseEvent* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::y3d::ResponseEvent>> AsyncCloseWorkerApp(::grpc::ClientContext* context, const ::y3d::YEvent& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::y3d::ResponseEvent>>(AsyncCloseWorkerAppRaw(context, request, cq));
+    }
+  private:
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::y3d::ResponseEvent>* AsyncDoEventRaw(::grpc::ClientContext* context, const ::y3d::YEvent& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::y3d::ResponseEvent>* AsyncCloseWorkerAppRaw(::grpc::ClientContext* context, const ::y3d::YEvent& request, ::grpc::CompletionQueue* cq) = 0;
+  };
+  class Stub final : public StubInterface {
+   public:
+    Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel);
+    ::grpc::Status DoEvent(::grpc::ClientContext* context, const ::y3d::YEvent& request, ::y3d::ResponseEvent* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::y3d::ResponseEvent>> AsyncDoEvent(::grpc::ClientContext* context, const ::y3d::YEvent& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::y3d::ResponseEvent>>(AsyncDoEventRaw(context, request, cq));
+    }
+    ::grpc::Status CloseWorkerApp(::grpc::ClientContext* context, const ::y3d::YEvent& request, ::y3d::ResponseEvent* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::y3d::ResponseEvent>> AsyncCloseWorkerApp(::grpc::ClientContext* context, const ::y3d::YEvent& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::y3d::ResponseEvent>>(AsyncCloseWorkerAppRaw(context, request, cq));
+    }
+
+   private:
+    std::shared_ptr< ::grpc::ChannelInterface> channel_;
+    ::grpc::ClientAsyncResponseReader< ::y3d::ResponseEvent>* AsyncDoEventRaw(::grpc::ClientContext* context, const ::y3d::YEvent& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::y3d::ResponseEvent>* AsyncCloseWorkerAppRaw(::grpc::ClientContext* context, const ::y3d::YEvent& request, ::grpc::CompletionQueue* cq) override;
+    const ::grpc::RpcMethod rpcmethod_DoEvent_;
+    const ::grpc::RpcMethod rpcmethod_CloseWorkerApp_;
+  };
+  static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
+
+  class Service : public ::grpc::Service {
+   public:
+    Service();
+    virtual ~Service();
+    virtual ::grpc::Status DoEvent(::grpc::ServerContext* context, const ::y3d::YEvent* request, ::y3d::ResponseEvent* response);
+    virtual ::grpc::Status CloseWorkerApp(::grpc::ServerContext* context, const ::y3d::YEvent* request, ::y3d::ResponseEvent* response);
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_DoEvent : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithAsyncMethod_DoEvent() {
+      ::grpc::Service::MarkMethodAsync(0);
+    }
+    ~WithAsyncMethod_DoEvent() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status DoEvent(::grpc::ServerContext* context, const ::y3d::YEvent* request, ::y3d::ResponseEvent* response) final override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestDoEvent(::grpc::ServerContext* context, ::y3d::YEvent* request, ::grpc::ServerAsyncResponseWriter< ::y3d::ResponseEvent>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_CloseWorkerApp : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithAsyncMethod_CloseWorkerApp() {
+      ::grpc::Service::MarkMethodAsync(1);
+    }
+    ~WithAsyncMethod_CloseWorkerApp() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status CloseWorkerApp(::grpc::ServerContext* context, const ::y3d::YEvent* request, ::y3d::ResponseEvent* response) final override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestCloseWorkerApp(::grpc::ServerContext* context, ::y3d::YEvent* request, ::grpc::ServerAsyncResponseWriter< ::y3d::ResponseEvent>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  typedef WithAsyncMethod_DoEvent<WithAsyncMethod_CloseWorkerApp<Service > > AsyncService;
+  template <class BaseClass>
+  class WithGenericMethod_DoEvent : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithGenericMethod_DoEvent() {
+      ::grpc::Service::MarkMethodGeneric(0);
+    }
+    ~WithGenericMethod_DoEvent() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status DoEvent(::grpc::ServerContext* context, const ::y3d::YEvent* request, ::y3d::ResponseEvent* response) final override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_CloseWorkerApp : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithGenericMethod_CloseWorkerApp() {
+      ::grpc::Service::MarkMethodGeneric(1);
+    }
+    ~WithGenericMethod_CloseWorkerApp() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status CloseWorkerApp(::grpc::ServerContext* context, const ::y3d::YEvent* request, ::y3d::ResponseEvent* response) final override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_DoEvent : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithStreamedUnaryMethod_DoEvent() {
+      ::grpc::Service::MarkMethodStreamed(0,
+        new ::grpc::StreamedUnaryHandler< ::y3d::YEvent, ::y3d::ResponseEvent>(std::bind(&WithStreamedUnaryMethod_DoEvent<BaseClass>::StreamedDoEvent, this, std::placeholders::_1, std::placeholders::_2)));
+    }
+    ~WithStreamedUnaryMethod_DoEvent() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status DoEvent(::grpc::ServerContext* context, const ::y3d::YEvent* request, ::y3d::ResponseEvent* response) final override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedDoEvent(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::y3d::YEvent,::y3d::ResponseEvent>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_CloseWorkerApp : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithStreamedUnaryMethod_CloseWorkerApp() {
+      ::grpc::Service::MarkMethodStreamed(1,
+        new ::grpc::StreamedUnaryHandler< ::y3d::YEvent, ::y3d::ResponseEvent>(std::bind(&WithStreamedUnaryMethod_CloseWorkerApp<BaseClass>::StreamedCloseWorkerApp, this, std::placeholders::_1, std::placeholders::_2)));
+    }
+    ~WithStreamedUnaryMethod_CloseWorkerApp() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status CloseWorkerApp(::grpc::ServerContext* context, const ::y3d::YEvent* request, ::y3d::ResponseEvent* response) final override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedCloseWorkerApp(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::y3d::YEvent,::y3d::ResponseEvent>* server_unary_streamer) = 0;
+  };
+  typedef WithStreamedUnaryMethod_DoEvent<WithStreamedUnaryMethod_CloseWorkerApp<Service > > StreamedUnaryService;
+  typedef Service SplitStreamedService;
+  typedef WithStreamedUnaryMethod_DoEvent<WithStreamedUnaryMethod_CloseWorkerApp<Service > > StreamedService;
+};
+// server for 3dsmax send actions request, run in mainworker app
 
 }  // namespace y3d
 

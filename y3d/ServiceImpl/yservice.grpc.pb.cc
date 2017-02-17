@@ -15,522 +15,994 @@
 #include <grpc++/impl/codegen/sync_stream.h>
 namespace y3d {
 
-static const char* Tools_method_names[] = {
-  "/y3d.Tools/RenameObject",
-  "/y3d.Tools/SaveProject",
-  "/y3d.Tools/NewProject",
-  "/y3d.Tools/LoadProject",
-  "/y3d.Tools/DeleteProject",
-  "/y3d.Tools/Unwrap",
-  "/y3d.Tools/Packing",
-  "/y3d.Tools/LowPoly",
-  "/y3d.Tools/LoadSystem",
-  "/y3d.Tools/SaveSystem",
-  "/y3d.Tools/BakeNormal",
-  "/y3d.Tools/BakeNormalMax",
-  "/y3d.Tools/MakeNode4Edit",
-  "/y3d.Tools/BatchOptimize",
-  "/y3d.Tools/TestTest",
-  "/y3d.Tools/GetObjectFromMax",
-  "/y3d.Tools/CloneObject",
-  "/y3d.Tools/DoStreamClient",
-  "/y3d.Tools/DoStreamServer",
-  "/y3d.Tools/DoAction",
-  "/y3d.Tools/DoEvent",
-  "/y3d.Tools/DoUnwrap",
-  "/y3d.Tools/Shutdown",
+static const char* YServiceMaxTools_method_names[] = {
+  "/y3d.YServiceMaxTools/RenameObject",
+  "/y3d.YServiceMaxTools/SaveProject",
+  "/y3d.YServiceMaxTools/NewProject",
+  "/y3d.YServiceMaxTools/LoadProject",
+  "/y3d.YServiceMaxTools/DeleteProject",
+  "/y3d.YServiceMaxTools/Unwrap",
+  "/y3d.YServiceMaxTools/Packing",
+  "/y3d.YServiceMaxTools/LowPoly",
+  "/y3d.YServiceMaxTools/LoadSystem",
+  "/y3d.YServiceMaxTools/SaveSystem",
+  "/y3d.YServiceMaxTools/BakeNormal",
+  "/y3d.YServiceMaxTools/BakeNormalMax",
+  "/y3d.YServiceMaxTools/MakeNode4Edit",
+  "/y3d.YServiceMaxTools/BatchOptimize",
+  "/y3d.YServiceMaxTools/TestTest",
+  "/y3d.YServiceMaxTools/GetObjectFromMax",
+  "/y3d.YServiceMaxTools/CloneObject",
+  "/y3d.YServiceMaxTools/DoStreamClient",
+  "/y3d.YServiceMaxTools/DoStreamServer",
+  "/y3d.YServiceMaxTools/DoAction",
+  "/y3d.YServiceMaxTools/DoEvent",
+  "/y3d.YServiceMaxTools/DoUnwrap",
+  "/y3d.YServiceMaxTools/Shutdown",
+  "/y3d.YServiceMaxTools/AddTestObject",
+  "/y3d.YServiceMaxTools/ApplyTestObject",
 };
 
-std::unique_ptr< Tools::Stub> Tools::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
-  std::unique_ptr< Tools::Stub> stub(new Tools::Stub(channel));
+std::unique_ptr< YServiceMaxTools::Stub> YServiceMaxTools::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
+  std::unique_ptr< YServiceMaxTools::Stub> stub(new YServiceMaxTools::Stub(channel));
   return stub;
 }
 
-Tools::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
-  : channel_(channel), rpcmethod_RenameObject_(Tools_method_names[0], ::grpc::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_SaveProject_(Tools_method_names[1], ::grpc::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_NewProject_(Tools_method_names[2], ::grpc::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_LoadProject_(Tools_method_names[3], ::grpc::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_DeleteProject_(Tools_method_names[4], ::grpc::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_Unwrap_(Tools_method_names[5], ::grpc::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_Packing_(Tools_method_names[6], ::grpc::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_LowPoly_(Tools_method_names[7], ::grpc::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_LoadSystem_(Tools_method_names[8], ::grpc::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_SaveSystem_(Tools_method_names[9], ::grpc::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_BakeNormal_(Tools_method_names[10], ::grpc::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_BakeNormalMax_(Tools_method_names[11], ::grpc::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_MakeNode4Edit_(Tools_method_names[12], ::grpc::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_BatchOptimize_(Tools_method_names[13], ::grpc::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_TestTest_(Tools_method_names[14], ::grpc::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_GetObjectFromMax_(Tools_method_names[15], ::grpc::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_CloneObject_(Tools_method_names[16], ::grpc::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_DoStreamClient_(Tools_method_names[17], ::grpc::RpcMethod::CLIENT_STREAMING, channel)
-  , rpcmethod_DoStreamServer_(Tools_method_names[18], ::grpc::RpcMethod::SERVER_STREAMING, channel)
-  , rpcmethod_DoAction_(Tools_method_names[19], ::grpc::RpcMethod::BIDI_STREAMING, channel)
-  , rpcmethod_DoEvent_(Tools_method_names[20], ::grpc::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_DoUnwrap_(Tools_method_names[21], ::grpc::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_Shutdown_(Tools_method_names[22], ::grpc::RpcMethod::NORMAL_RPC, channel)
+YServiceMaxTools::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
+  : channel_(channel), rpcmethod_RenameObject_(YServiceMaxTools_method_names[0], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_SaveProject_(YServiceMaxTools_method_names[1], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_NewProject_(YServiceMaxTools_method_names[2], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_LoadProject_(YServiceMaxTools_method_names[3], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_DeleteProject_(YServiceMaxTools_method_names[4], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_Unwrap_(YServiceMaxTools_method_names[5], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_Packing_(YServiceMaxTools_method_names[6], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_LowPoly_(YServiceMaxTools_method_names[7], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_LoadSystem_(YServiceMaxTools_method_names[8], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_SaveSystem_(YServiceMaxTools_method_names[9], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_BakeNormal_(YServiceMaxTools_method_names[10], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_BakeNormalMax_(YServiceMaxTools_method_names[11], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_MakeNode4Edit_(YServiceMaxTools_method_names[12], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_BatchOptimize_(YServiceMaxTools_method_names[13], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_TestTest_(YServiceMaxTools_method_names[14], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_GetObjectFromMax_(YServiceMaxTools_method_names[15], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_CloneObject_(YServiceMaxTools_method_names[16], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_DoStreamClient_(YServiceMaxTools_method_names[17], ::grpc::RpcMethod::CLIENT_STREAMING, channel)
+  , rpcmethod_DoStreamServer_(YServiceMaxTools_method_names[18], ::grpc::RpcMethod::SERVER_STREAMING, channel)
+  , rpcmethod_DoAction_(YServiceMaxTools_method_names[19], ::grpc::RpcMethod::BIDI_STREAMING, channel)
+  , rpcmethod_DoEvent_(YServiceMaxTools_method_names[20], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_DoUnwrap_(YServiceMaxTools_method_names[21], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_Shutdown_(YServiceMaxTools_method_names[22], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_AddTestObject_(YServiceMaxTools_method_names[23], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_ApplyTestObject_(YServiceMaxTools_method_names[24], ::grpc::RpcMethod::NORMAL_RPC, channel)
   {}
 
-::grpc::Status Tools::Stub::RenameObject(::grpc::ClientContext* context, const ::y3d::RenameParam& request, ::y3d::ResultReply* response) {
+::grpc::Status YServiceMaxTools::Stub::RenameObject(::grpc::ClientContext* context, const ::y3d::RenameParam& request, ::y3d::ResultReply* response) {
   return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_RenameObject_, context, request, response);
 }
 
-::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>* Tools::Stub::AsyncRenameObjectRaw(::grpc::ClientContext* context, const ::y3d::RenameParam& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>* YServiceMaxTools::Stub::AsyncRenameObjectRaw(::grpc::ClientContext* context, const ::y3d::RenameParam& request, ::grpc::CompletionQueue* cq) {
   return new ::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>(channel_.get(), cq, rpcmethod_RenameObject_, context, request);
 }
 
-::grpc::Status Tools::Stub::SaveProject(::grpc::ClientContext* context, const ::y3d::ProjectInfo& request, ::y3d::ResponseEvent* response) {
+::grpc::Status YServiceMaxTools::Stub::SaveProject(::grpc::ClientContext* context, const ::y3d::ProjectInfo& request, ::y3d::ResponseEvent* response) {
   return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_SaveProject_, context, request, response);
 }
 
-::grpc::ClientAsyncResponseReader< ::y3d::ResponseEvent>* Tools::Stub::AsyncSaveProjectRaw(::grpc::ClientContext* context, const ::y3d::ProjectInfo& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::y3d::ResponseEvent>* YServiceMaxTools::Stub::AsyncSaveProjectRaw(::grpc::ClientContext* context, const ::y3d::ProjectInfo& request, ::grpc::CompletionQueue* cq) {
   return new ::grpc::ClientAsyncResponseReader< ::y3d::ResponseEvent>(channel_.get(), cq, rpcmethod_SaveProject_, context, request);
 }
 
-::grpc::Status Tools::Stub::NewProject(::grpc::ClientContext* context, const ::y3d::NewProjectParam& request, ::y3d::ResponseNProject* response) {
+::grpc::Status YServiceMaxTools::Stub::NewProject(::grpc::ClientContext* context, const ::y3d::NewProjectParam& request, ::y3d::ResponseNProject* response) {
   return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_NewProject_, context, request, response);
 }
 
-::grpc::ClientAsyncResponseReader< ::y3d::ResponseNProject>* Tools::Stub::AsyncNewProjectRaw(::grpc::ClientContext* context, const ::y3d::NewProjectParam& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::y3d::ResponseNProject>* YServiceMaxTools::Stub::AsyncNewProjectRaw(::grpc::ClientContext* context, const ::y3d::NewProjectParam& request, ::grpc::CompletionQueue* cq) {
   return new ::grpc::ClientAsyncResponseReader< ::y3d::ResponseNProject>(channel_.get(), cq, rpcmethod_NewProject_, context, request);
 }
 
-::grpc::Status Tools::Stub::LoadProject(::grpc::ClientContext* context, const ::y3d::ProjectInfo& request, ::y3d::ResponseNProject* response) {
+::grpc::Status YServiceMaxTools::Stub::LoadProject(::grpc::ClientContext* context, const ::y3d::ProjectInfo& request, ::y3d::ResponseNProject* response) {
   return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_LoadProject_, context, request, response);
 }
 
-::grpc::ClientAsyncResponseReader< ::y3d::ResponseNProject>* Tools::Stub::AsyncLoadProjectRaw(::grpc::ClientContext* context, const ::y3d::ProjectInfo& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::y3d::ResponseNProject>* YServiceMaxTools::Stub::AsyncLoadProjectRaw(::grpc::ClientContext* context, const ::y3d::ProjectInfo& request, ::grpc::CompletionQueue* cq) {
   return new ::grpc::ClientAsyncResponseReader< ::y3d::ResponseNProject>(channel_.get(), cq, rpcmethod_LoadProject_, context, request);
 }
 
-::grpc::Status Tools::Stub::DeleteProject(::grpc::ClientContext* context, const ::y3d::ProjectInfo& request, ::y3d::ResponseNProject* response) {
+::grpc::Status YServiceMaxTools::Stub::DeleteProject(::grpc::ClientContext* context, const ::y3d::ProjectInfo& request, ::y3d::ResponseNProject* response) {
   return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_DeleteProject_, context, request, response);
 }
 
-::grpc::ClientAsyncResponseReader< ::y3d::ResponseNProject>* Tools::Stub::AsyncDeleteProjectRaw(::grpc::ClientContext* context, const ::y3d::ProjectInfo& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::y3d::ResponseNProject>* YServiceMaxTools::Stub::AsyncDeleteProjectRaw(::grpc::ClientContext* context, const ::y3d::ProjectInfo& request, ::grpc::CompletionQueue* cq) {
   return new ::grpc::ClientAsyncResponseReader< ::y3d::ResponseNProject>(channel_.get(), cq, rpcmethod_DeleteProject_, context, request);
 }
 
-::grpc::Status Tools::Stub::Unwrap(::grpc::ClientContext* context, const ::y3d::EUnwrap& request, ::y3d::ResultReply* response) {
+::grpc::Status YServiceMaxTools::Stub::Unwrap(::grpc::ClientContext* context, const ::y3d::EUnwrap& request, ::y3d::ResultReply* response) {
   return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_Unwrap_, context, request, response);
 }
 
-::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>* Tools::Stub::AsyncUnwrapRaw(::grpc::ClientContext* context, const ::y3d::EUnwrap& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>* YServiceMaxTools::Stub::AsyncUnwrapRaw(::grpc::ClientContext* context, const ::y3d::EUnwrap& request, ::grpc::CompletionQueue* cq) {
   return new ::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>(channel_.get(), cq, rpcmethod_Unwrap_, context, request);
 }
 
-::grpc::Status Tools::Stub::Packing(::grpc::ClientContext* context, const ::y3d::EPacking& request, ::y3d::ResultReply* response) {
+::grpc::Status YServiceMaxTools::Stub::Packing(::grpc::ClientContext* context, const ::y3d::EPacking& request, ::y3d::ResultReply* response) {
   return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_Packing_, context, request, response);
 }
 
-::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>* Tools::Stub::AsyncPackingRaw(::grpc::ClientContext* context, const ::y3d::EPacking& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>* YServiceMaxTools::Stub::AsyncPackingRaw(::grpc::ClientContext* context, const ::y3d::EPacking& request, ::grpc::CompletionQueue* cq) {
   return new ::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>(channel_.get(), cq, rpcmethod_Packing_, context, request);
 }
 
-::grpc::Status Tools::Stub::LowPoly(::grpc::ClientContext* context, const ::y3d::ELowpoly& request, ::y3d::ResultReply* response) {
+::grpc::Status YServiceMaxTools::Stub::LowPoly(::grpc::ClientContext* context, const ::y3d::ELowpoly& request, ::y3d::ResultReply* response) {
   return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_LowPoly_, context, request, response);
 }
 
-::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>* Tools::Stub::AsyncLowPolyRaw(::grpc::ClientContext* context, const ::y3d::ELowpoly& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>* YServiceMaxTools::Stub::AsyncLowPolyRaw(::grpc::ClientContext* context, const ::y3d::ELowpoly& request, ::grpc::CompletionQueue* cq) {
   return new ::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>(channel_.get(), cq, rpcmethod_LowPoly_, context, request);
 }
 
-::grpc::Status Tools::Stub::LoadSystem(::grpc::ClientContext* context, const ::y3d::EmptyParam& request, ::y3d::YSystem* response) {
+::grpc::Status YServiceMaxTools::Stub::LoadSystem(::grpc::ClientContext* context, const ::y3d::EmptyParam& request, ::y3d::YSystem* response) {
   return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_LoadSystem_, context, request, response);
 }
 
-::grpc::ClientAsyncResponseReader< ::y3d::YSystem>* Tools::Stub::AsyncLoadSystemRaw(::grpc::ClientContext* context, const ::y3d::EmptyParam& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::y3d::YSystem>* YServiceMaxTools::Stub::AsyncLoadSystemRaw(::grpc::ClientContext* context, const ::y3d::EmptyParam& request, ::grpc::CompletionQueue* cq) {
   return new ::grpc::ClientAsyncResponseReader< ::y3d::YSystem>(channel_.get(), cq, rpcmethod_LoadSystem_, context, request);
 }
 
-::grpc::Status Tools::Stub::SaveSystem(::grpc::ClientContext* context, const ::y3d::YSystem& request, ::y3d::ResultReply* response) {
+::grpc::Status YServiceMaxTools::Stub::SaveSystem(::grpc::ClientContext* context, const ::y3d::YSystem& request, ::y3d::ResultReply* response) {
   return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_SaveSystem_, context, request, response);
 }
 
-::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>* Tools::Stub::AsyncSaveSystemRaw(::grpc::ClientContext* context, const ::y3d::YSystem& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>* YServiceMaxTools::Stub::AsyncSaveSystemRaw(::grpc::ClientContext* context, const ::y3d::YSystem& request, ::grpc::CompletionQueue* cq) {
   return new ::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>(channel_.get(), cq, rpcmethod_SaveSystem_, context, request);
 }
 
-::grpc::Status Tools::Stub::BakeNormal(::grpc::ClientContext* context, const ::y3d::ENormal& request, ::y3d::ResultReply* response) {
+::grpc::Status YServiceMaxTools::Stub::BakeNormal(::grpc::ClientContext* context, const ::y3d::ENormal& request, ::y3d::ResultReply* response) {
   return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_BakeNormal_, context, request, response);
 }
 
-::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>* Tools::Stub::AsyncBakeNormalRaw(::grpc::ClientContext* context, const ::y3d::ENormal& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>* YServiceMaxTools::Stub::AsyncBakeNormalRaw(::grpc::ClientContext* context, const ::y3d::ENormal& request, ::grpc::CompletionQueue* cq) {
   return new ::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>(channel_.get(), cq, rpcmethod_BakeNormal_, context, request);
 }
 
-::grpc::Status Tools::Stub::BakeNormalMax(::grpc::ClientContext* context, const ::y3d::ENormal& request, ::y3d::ResultReply* response) {
+::grpc::Status YServiceMaxTools::Stub::BakeNormalMax(::grpc::ClientContext* context, const ::y3d::ENormal& request, ::y3d::ResultReply* response) {
   return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_BakeNormalMax_, context, request, response);
 }
 
-::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>* Tools::Stub::AsyncBakeNormalMaxRaw(::grpc::ClientContext* context, const ::y3d::ENormal& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>* YServiceMaxTools::Stub::AsyncBakeNormalMaxRaw(::grpc::ClientContext* context, const ::y3d::ENormal& request, ::grpc::CompletionQueue* cq) {
   return new ::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>(channel_.get(), cq, rpcmethod_BakeNormalMax_, context, request);
 }
 
-::grpc::Status Tools::Stub::MakeNode4Edit(::grpc::ClientContext* context, const ::y3d::Make4TestParam& request, ::y3d::ResultReply* response) {
+::grpc::Status YServiceMaxTools::Stub::MakeNode4Edit(::grpc::ClientContext* context, const ::y3d::Make4TestParam& request, ::y3d::ResultReply* response) {
   return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_MakeNode4Edit_, context, request, response);
 }
 
-::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>* Tools::Stub::AsyncMakeNode4EditRaw(::grpc::ClientContext* context, const ::y3d::Make4TestParam& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>* YServiceMaxTools::Stub::AsyncMakeNode4EditRaw(::grpc::ClientContext* context, const ::y3d::Make4TestParam& request, ::grpc::CompletionQueue* cq) {
   return new ::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>(channel_.get(), cq, rpcmethod_MakeNode4Edit_, context, request);
 }
 
-::grpc::Status Tools::Stub::BatchOptimize(::grpc::ClientContext* context, const ::y3d::BatchOptimizeParam& request, ::y3d::ResultReply* response) {
+::grpc::Status YServiceMaxTools::Stub::BatchOptimize(::grpc::ClientContext* context, const ::y3d::BatchOptimizeParam& request, ::y3d::ResultReply* response) {
   return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_BatchOptimize_, context, request, response);
 }
 
-::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>* Tools::Stub::AsyncBatchOptimizeRaw(::grpc::ClientContext* context, const ::y3d::BatchOptimizeParam& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>* YServiceMaxTools::Stub::AsyncBatchOptimizeRaw(::grpc::ClientContext* context, const ::y3d::BatchOptimizeParam& request, ::grpc::CompletionQueue* cq) {
   return new ::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>(channel_.get(), cq, rpcmethod_BatchOptimize_, context, request);
 }
 
-::grpc::Status Tools::Stub::TestTest(::grpc::ClientContext* context, const ::y3d::TestParam& request, ::y3d::ResultReply* response) {
+::grpc::Status YServiceMaxTools::Stub::TestTest(::grpc::ClientContext* context, const ::y3d::TestParam& request, ::y3d::ResultReply* response) {
   return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_TestTest_, context, request, response);
 }
 
-::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>* Tools::Stub::AsyncTestTestRaw(::grpc::ClientContext* context, const ::y3d::TestParam& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>* YServiceMaxTools::Stub::AsyncTestTestRaw(::grpc::ClientContext* context, const ::y3d::TestParam& request, ::grpc::CompletionQueue* cq) {
   return new ::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>(channel_.get(), cq, rpcmethod_TestTest_, context, request);
 }
 
-::grpc::Status Tools::Stub::GetObjectFromMax(::grpc::ClientContext* context, const ::y3d::EmptyParam& request, ::y3d::YAreaList* response) {
+::grpc::Status YServiceMaxTools::Stub::GetObjectFromMax(::grpc::ClientContext* context, const ::y3d::EmptyParam& request, ::y3d::YAreaList* response) {
   return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_GetObjectFromMax_, context, request, response);
 }
 
-::grpc::ClientAsyncResponseReader< ::y3d::YAreaList>* Tools::Stub::AsyncGetObjectFromMaxRaw(::grpc::ClientContext* context, const ::y3d::EmptyParam& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::y3d::YAreaList>* YServiceMaxTools::Stub::AsyncGetObjectFromMaxRaw(::grpc::ClientContext* context, const ::y3d::EmptyParam& request, ::grpc::CompletionQueue* cq) {
   return new ::grpc::ClientAsyncResponseReader< ::y3d::YAreaList>(channel_.get(), cq, rpcmethod_GetObjectFromMax_, context, request);
 }
 
-::grpc::Status Tools::Stub::CloneObject(::grpc::ClientContext* context, const ::y3d::EmptyParam& request, ::y3d::ResultReply* response) {
+::grpc::Status YServiceMaxTools::Stub::CloneObject(::grpc::ClientContext* context, const ::y3d::EmptyParam& request, ::y3d::ResultReply* response) {
   return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_CloneObject_, context, request, response);
 }
 
-::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>* Tools::Stub::AsyncCloneObjectRaw(::grpc::ClientContext* context, const ::y3d::EmptyParam& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>* YServiceMaxTools::Stub::AsyncCloneObjectRaw(::grpc::ClientContext* context, const ::y3d::EmptyParam& request, ::grpc::CompletionQueue* cq) {
   return new ::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>(channel_.get(), cq, rpcmethod_CloneObject_, context, request);
 }
 
-::grpc::ClientWriter< ::y3d::YEvent>* Tools::Stub::DoStreamClientRaw(::grpc::ClientContext* context, ::y3d::ResponseEvent* response) {
+::grpc::ClientWriter< ::y3d::YEvent>* YServiceMaxTools::Stub::DoStreamClientRaw(::grpc::ClientContext* context, ::y3d::ResponseEvent* response) {
   return new ::grpc::ClientWriter< ::y3d::YEvent>(channel_.get(), rpcmethod_DoStreamClient_, context, response);
 }
 
-::grpc::ClientAsyncWriter< ::y3d::YEvent>* Tools::Stub::AsyncDoStreamClientRaw(::grpc::ClientContext* context, ::y3d::ResponseEvent* response, ::grpc::CompletionQueue* cq, void* tag) {
+::grpc::ClientAsyncWriter< ::y3d::YEvent>* YServiceMaxTools::Stub::AsyncDoStreamClientRaw(::grpc::ClientContext* context, ::y3d::ResponseEvent* response, ::grpc::CompletionQueue* cq, void* tag) {
   return new ::grpc::ClientAsyncWriter< ::y3d::YEvent>(channel_.get(), cq, rpcmethod_DoStreamClient_, context, response, tag);
 }
 
-::grpc::ClientReader< ::y3d::YEvent>* Tools::Stub::DoStreamServerRaw(::grpc::ClientContext* context, const ::y3d::EmptyParam& request) {
+::grpc::ClientReader< ::y3d::YEvent>* YServiceMaxTools::Stub::DoStreamServerRaw(::grpc::ClientContext* context, const ::y3d::EmptyParam& request) {
   return new ::grpc::ClientReader< ::y3d::YEvent>(channel_.get(), rpcmethod_DoStreamServer_, context, request);
 }
 
-::grpc::ClientAsyncReader< ::y3d::YEvent>* Tools::Stub::AsyncDoStreamServerRaw(::grpc::ClientContext* context, const ::y3d::EmptyParam& request, ::grpc::CompletionQueue* cq, void* tag) {
+::grpc::ClientAsyncReader< ::y3d::YEvent>* YServiceMaxTools::Stub::AsyncDoStreamServerRaw(::grpc::ClientContext* context, const ::y3d::EmptyParam& request, ::grpc::CompletionQueue* cq, void* tag) {
   return new ::grpc::ClientAsyncReader< ::y3d::YEvent>(channel_.get(), cq, rpcmethod_DoStreamServer_, context, request, tag);
 }
 
-::grpc::ClientReaderWriter< ::y3d::YEvent, ::y3d::YEvent>* Tools::Stub::DoActionRaw(::grpc::ClientContext* context) {
+::grpc::ClientReaderWriter< ::y3d::YEvent, ::y3d::YEvent>* YServiceMaxTools::Stub::DoActionRaw(::grpc::ClientContext* context) {
   return new ::grpc::ClientReaderWriter< ::y3d::YEvent, ::y3d::YEvent>(channel_.get(), rpcmethod_DoAction_, context);
 }
 
-::grpc::ClientAsyncReaderWriter< ::y3d::YEvent, ::y3d::YEvent>* Tools::Stub::AsyncDoActionRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) {
+::grpc::ClientAsyncReaderWriter< ::y3d::YEvent, ::y3d::YEvent>* YServiceMaxTools::Stub::AsyncDoActionRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) {
   return new ::grpc::ClientAsyncReaderWriter< ::y3d::YEvent, ::y3d::YEvent>(channel_.get(), cq, rpcmethod_DoAction_, context, tag);
 }
 
-::grpc::Status Tools::Stub::DoEvent(::grpc::ClientContext* context, const ::y3d::YEvent& request, ::y3d::ResponseEvent* response) {
+::grpc::Status YServiceMaxTools::Stub::DoEvent(::grpc::ClientContext* context, const ::y3d::YEvent& request, ::y3d::ResponseEvent* response) {
   return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_DoEvent_, context, request, response);
 }
 
-::grpc::ClientAsyncResponseReader< ::y3d::ResponseEvent>* Tools::Stub::AsyncDoEventRaw(::grpc::ClientContext* context, const ::y3d::YEvent& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::y3d::ResponseEvent>* YServiceMaxTools::Stub::AsyncDoEventRaw(::grpc::ClientContext* context, const ::y3d::YEvent& request, ::grpc::CompletionQueue* cq) {
   return new ::grpc::ClientAsyncResponseReader< ::y3d::ResponseEvent>(channel_.get(), cq, rpcmethod_DoEvent_, context, request);
 }
 
-::grpc::Status Tools::Stub::DoUnwrap(::grpc::ClientContext* context, const ::y3d::EUnwrap& request, ::y3d::ResponseEvent* response) {
+::grpc::Status YServiceMaxTools::Stub::DoUnwrap(::grpc::ClientContext* context, const ::y3d::EUnwrap& request, ::y3d::ResponseEvent* response) {
   return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_DoUnwrap_, context, request, response);
 }
 
-::grpc::ClientAsyncResponseReader< ::y3d::ResponseEvent>* Tools::Stub::AsyncDoUnwrapRaw(::grpc::ClientContext* context, const ::y3d::EUnwrap& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::y3d::ResponseEvent>* YServiceMaxTools::Stub::AsyncDoUnwrapRaw(::grpc::ClientContext* context, const ::y3d::EUnwrap& request, ::grpc::CompletionQueue* cq) {
   return new ::grpc::ClientAsyncResponseReader< ::y3d::ResponseEvent>(channel_.get(), cq, rpcmethod_DoUnwrap_, context, request);
 }
 
-::grpc::Status Tools::Stub::Shutdown(::grpc::ClientContext* context, const ::y3d::EmptyParam& request, ::y3d::ResultReply* response) {
+::grpc::Status YServiceMaxTools::Stub::Shutdown(::grpc::ClientContext* context, const ::y3d::EmptyParam& request, ::y3d::ResultReply* response) {
   return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_Shutdown_, context, request, response);
 }
 
-::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>* Tools::Stub::AsyncShutdownRaw(::grpc::ClientContext* context, const ::y3d::EmptyParam& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>* YServiceMaxTools::Stub::AsyncShutdownRaw(::grpc::ClientContext* context, const ::y3d::EmptyParam& request, ::grpc::CompletionQueue* cq) {
   return new ::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>(channel_.get(), cq, rpcmethod_Shutdown_, context, request);
 }
 
-Tools::Service::Service() {
+::grpc::Status YServiceMaxTools::Stub::AddTestObject(::grpc::ClientContext* context, const ::y3d::TestOParam& request, ::y3d::ResultReply* response) {
+  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_AddTestObject_, context, request, response);
+}
+
+::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>* YServiceMaxTools::Stub::AsyncAddTestObjectRaw(::grpc::ClientContext* context, const ::y3d::TestOParam& request, ::grpc::CompletionQueue* cq) {
+  return new ::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>(channel_.get(), cq, rpcmethod_AddTestObject_, context, request);
+}
+
+::grpc::Status YServiceMaxTools::Stub::ApplyTestObject(::grpc::ClientContext* context, const ::y3d::TestOParam& request, ::y3d::ResultReply* response) {
+  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_ApplyTestObject_, context, request, response);
+}
+
+::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>* YServiceMaxTools::Stub::AsyncApplyTestObjectRaw(::grpc::ClientContext* context, const ::y3d::TestOParam& request, ::grpc::CompletionQueue* cq) {
+  return new ::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>(channel_.get(), cq, rpcmethod_ApplyTestObject_, context, request);
+}
+
+YServiceMaxTools::Service::Service() {
   AddMethod(new ::grpc::RpcServiceMethod(
-      Tools_method_names[0],
+      YServiceMaxTools_method_names[0],
       ::grpc::RpcMethod::NORMAL_RPC,
-      new ::grpc::RpcMethodHandler< Tools::Service, ::y3d::RenameParam, ::y3d::ResultReply>(
-          std::mem_fn(&Tools::Service::RenameObject), this)));
+      new ::grpc::RpcMethodHandler< YServiceMaxTools::Service, ::y3d::RenameParam, ::y3d::ResultReply>(
+          std::mem_fn(&YServiceMaxTools::Service::RenameObject), this)));
   AddMethod(new ::grpc::RpcServiceMethod(
-      Tools_method_names[1],
+      YServiceMaxTools_method_names[1],
       ::grpc::RpcMethod::NORMAL_RPC,
-      new ::grpc::RpcMethodHandler< Tools::Service, ::y3d::ProjectInfo, ::y3d::ResponseEvent>(
-          std::mem_fn(&Tools::Service::SaveProject), this)));
+      new ::grpc::RpcMethodHandler< YServiceMaxTools::Service, ::y3d::ProjectInfo, ::y3d::ResponseEvent>(
+          std::mem_fn(&YServiceMaxTools::Service::SaveProject), this)));
   AddMethod(new ::grpc::RpcServiceMethod(
-      Tools_method_names[2],
+      YServiceMaxTools_method_names[2],
       ::grpc::RpcMethod::NORMAL_RPC,
-      new ::grpc::RpcMethodHandler< Tools::Service, ::y3d::NewProjectParam, ::y3d::ResponseNProject>(
-          std::mem_fn(&Tools::Service::NewProject), this)));
+      new ::grpc::RpcMethodHandler< YServiceMaxTools::Service, ::y3d::NewProjectParam, ::y3d::ResponseNProject>(
+          std::mem_fn(&YServiceMaxTools::Service::NewProject), this)));
   AddMethod(new ::grpc::RpcServiceMethod(
-      Tools_method_names[3],
+      YServiceMaxTools_method_names[3],
       ::grpc::RpcMethod::NORMAL_RPC,
-      new ::grpc::RpcMethodHandler< Tools::Service, ::y3d::ProjectInfo, ::y3d::ResponseNProject>(
-          std::mem_fn(&Tools::Service::LoadProject), this)));
+      new ::grpc::RpcMethodHandler< YServiceMaxTools::Service, ::y3d::ProjectInfo, ::y3d::ResponseNProject>(
+          std::mem_fn(&YServiceMaxTools::Service::LoadProject), this)));
   AddMethod(new ::grpc::RpcServiceMethod(
-      Tools_method_names[4],
+      YServiceMaxTools_method_names[4],
       ::grpc::RpcMethod::NORMAL_RPC,
-      new ::grpc::RpcMethodHandler< Tools::Service, ::y3d::ProjectInfo, ::y3d::ResponseNProject>(
-          std::mem_fn(&Tools::Service::DeleteProject), this)));
+      new ::grpc::RpcMethodHandler< YServiceMaxTools::Service, ::y3d::ProjectInfo, ::y3d::ResponseNProject>(
+          std::mem_fn(&YServiceMaxTools::Service::DeleteProject), this)));
   AddMethod(new ::grpc::RpcServiceMethod(
-      Tools_method_names[5],
+      YServiceMaxTools_method_names[5],
       ::grpc::RpcMethod::NORMAL_RPC,
-      new ::grpc::RpcMethodHandler< Tools::Service, ::y3d::EUnwrap, ::y3d::ResultReply>(
-          std::mem_fn(&Tools::Service::Unwrap), this)));
+      new ::grpc::RpcMethodHandler< YServiceMaxTools::Service, ::y3d::EUnwrap, ::y3d::ResultReply>(
+          std::mem_fn(&YServiceMaxTools::Service::Unwrap), this)));
   AddMethod(new ::grpc::RpcServiceMethod(
-      Tools_method_names[6],
+      YServiceMaxTools_method_names[6],
       ::grpc::RpcMethod::NORMAL_RPC,
-      new ::grpc::RpcMethodHandler< Tools::Service, ::y3d::EPacking, ::y3d::ResultReply>(
-          std::mem_fn(&Tools::Service::Packing), this)));
+      new ::grpc::RpcMethodHandler< YServiceMaxTools::Service, ::y3d::EPacking, ::y3d::ResultReply>(
+          std::mem_fn(&YServiceMaxTools::Service::Packing), this)));
   AddMethod(new ::grpc::RpcServiceMethod(
-      Tools_method_names[7],
+      YServiceMaxTools_method_names[7],
       ::grpc::RpcMethod::NORMAL_RPC,
-      new ::grpc::RpcMethodHandler< Tools::Service, ::y3d::ELowpoly, ::y3d::ResultReply>(
-          std::mem_fn(&Tools::Service::LowPoly), this)));
+      new ::grpc::RpcMethodHandler< YServiceMaxTools::Service, ::y3d::ELowpoly, ::y3d::ResultReply>(
+          std::mem_fn(&YServiceMaxTools::Service::LowPoly), this)));
   AddMethod(new ::grpc::RpcServiceMethod(
-      Tools_method_names[8],
+      YServiceMaxTools_method_names[8],
       ::grpc::RpcMethod::NORMAL_RPC,
-      new ::grpc::RpcMethodHandler< Tools::Service, ::y3d::EmptyParam, ::y3d::YSystem>(
-          std::mem_fn(&Tools::Service::LoadSystem), this)));
+      new ::grpc::RpcMethodHandler< YServiceMaxTools::Service, ::y3d::EmptyParam, ::y3d::YSystem>(
+          std::mem_fn(&YServiceMaxTools::Service::LoadSystem), this)));
   AddMethod(new ::grpc::RpcServiceMethod(
-      Tools_method_names[9],
+      YServiceMaxTools_method_names[9],
       ::grpc::RpcMethod::NORMAL_RPC,
-      new ::grpc::RpcMethodHandler< Tools::Service, ::y3d::YSystem, ::y3d::ResultReply>(
-          std::mem_fn(&Tools::Service::SaveSystem), this)));
+      new ::grpc::RpcMethodHandler< YServiceMaxTools::Service, ::y3d::YSystem, ::y3d::ResultReply>(
+          std::mem_fn(&YServiceMaxTools::Service::SaveSystem), this)));
   AddMethod(new ::grpc::RpcServiceMethod(
-      Tools_method_names[10],
+      YServiceMaxTools_method_names[10],
       ::grpc::RpcMethod::NORMAL_RPC,
-      new ::grpc::RpcMethodHandler< Tools::Service, ::y3d::ENormal, ::y3d::ResultReply>(
-          std::mem_fn(&Tools::Service::BakeNormal), this)));
+      new ::grpc::RpcMethodHandler< YServiceMaxTools::Service, ::y3d::ENormal, ::y3d::ResultReply>(
+          std::mem_fn(&YServiceMaxTools::Service::BakeNormal), this)));
   AddMethod(new ::grpc::RpcServiceMethod(
-      Tools_method_names[11],
+      YServiceMaxTools_method_names[11],
       ::grpc::RpcMethod::NORMAL_RPC,
-      new ::grpc::RpcMethodHandler< Tools::Service, ::y3d::ENormal, ::y3d::ResultReply>(
-          std::mem_fn(&Tools::Service::BakeNormalMax), this)));
+      new ::grpc::RpcMethodHandler< YServiceMaxTools::Service, ::y3d::ENormal, ::y3d::ResultReply>(
+          std::mem_fn(&YServiceMaxTools::Service::BakeNormalMax), this)));
   AddMethod(new ::grpc::RpcServiceMethod(
-      Tools_method_names[12],
+      YServiceMaxTools_method_names[12],
       ::grpc::RpcMethod::NORMAL_RPC,
-      new ::grpc::RpcMethodHandler< Tools::Service, ::y3d::Make4TestParam, ::y3d::ResultReply>(
-          std::mem_fn(&Tools::Service::MakeNode4Edit), this)));
+      new ::grpc::RpcMethodHandler< YServiceMaxTools::Service, ::y3d::Make4TestParam, ::y3d::ResultReply>(
+          std::mem_fn(&YServiceMaxTools::Service::MakeNode4Edit), this)));
   AddMethod(new ::grpc::RpcServiceMethod(
-      Tools_method_names[13],
+      YServiceMaxTools_method_names[13],
       ::grpc::RpcMethod::NORMAL_RPC,
-      new ::grpc::RpcMethodHandler< Tools::Service, ::y3d::BatchOptimizeParam, ::y3d::ResultReply>(
-          std::mem_fn(&Tools::Service::BatchOptimize), this)));
+      new ::grpc::RpcMethodHandler< YServiceMaxTools::Service, ::y3d::BatchOptimizeParam, ::y3d::ResultReply>(
+          std::mem_fn(&YServiceMaxTools::Service::BatchOptimize), this)));
   AddMethod(new ::grpc::RpcServiceMethod(
-      Tools_method_names[14],
+      YServiceMaxTools_method_names[14],
       ::grpc::RpcMethod::NORMAL_RPC,
-      new ::grpc::RpcMethodHandler< Tools::Service, ::y3d::TestParam, ::y3d::ResultReply>(
-          std::mem_fn(&Tools::Service::TestTest), this)));
+      new ::grpc::RpcMethodHandler< YServiceMaxTools::Service, ::y3d::TestParam, ::y3d::ResultReply>(
+          std::mem_fn(&YServiceMaxTools::Service::TestTest), this)));
   AddMethod(new ::grpc::RpcServiceMethod(
-      Tools_method_names[15],
+      YServiceMaxTools_method_names[15],
       ::grpc::RpcMethod::NORMAL_RPC,
-      new ::grpc::RpcMethodHandler< Tools::Service, ::y3d::EmptyParam, ::y3d::YAreaList>(
-          std::mem_fn(&Tools::Service::GetObjectFromMax), this)));
+      new ::grpc::RpcMethodHandler< YServiceMaxTools::Service, ::y3d::EmptyParam, ::y3d::YAreaList>(
+          std::mem_fn(&YServiceMaxTools::Service::GetObjectFromMax), this)));
   AddMethod(new ::grpc::RpcServiceMethod(
-      Tools_method_names[16],
+      YServiceMaxTools_method_names[16],
       ::grpc::RpcMethod::NORMAL_RPC,
-      new ::grpc::RpcMethodHandler< Tools::Service, ::y3d::EmptyParam, ::y3d::ResultReply>(
-          std::mem_fn(&Tools::Service::CloneObject), this)));
+      new ::grpc::RpcMethodHandler< YServiceMaxTools::Service, ::y3d::EmptyParam, ::y3d::ResultReply>(
+          std::mem_fn(&YServiceMaxTools::Service::CloneObject), this)));
   AddMethod(new ::grpc::RpcServiceMethod(
-      Tools_method_names[17],
+      YServiceMaxTools_method_names[17],
       ::grpc::RpcMethod::CLIENT_STREAMING,
-      new ::grpc::ClientStreamingHandler< Tools::Service, ::y3d::YEvent, ::y3d::ResponseEvent>(
-          std::mem_fn(&Tools::Service::DoStreamClient), this)));
+      new ::grpc::ClientStreamingHandler< YServiceMaxTools::Service, ::y3d::YEvent, ::y3d::ResponseEvent>(
+          std::mem_fn(&YServiceMaxTools::Service::DoStreamClient), this)));
   AddMethod(new ::grpc::RpcServiceMethod(
-      Tools_method_names[18],
+      YServiceMaxTools_method_names[18],
       ::grpc::RpcMethod::SERVER_STREAMING,
-      new ::grpc::ServerStreamingHandler< Tools::Service, ::y3d::EmptyParam, ::y3d::YEvent>(
-          std::mem_fn(&Tools::Service::DoStreamServer), this)));
+      new ::grpc::ServerStreamingHandler< YServiceMaxTools::Service, ::y3d::EmptyParam, ::y3d::YEvent>(
+          std::mem_fn(&YServiceMaxTools::Service::DoStreamServer), this)));
   AddMethod(new ::grpc::RpcServiceMethod(
-      Tools_method_names[19],
+      YServiceMaxTools_method_names[19],
       ::grpc::RpcMethod::BIDI_STREAMING,
-      new ::grpc::BidiStreamingHandler< Tools::Service, ::y3d::YEvent, ::y3d::YEvent>(
-          std::mem_fn(&Tools::Service::DoAction), this)));
+      new ::grpc::BidiStreamingHandler< YServiceMaxTools::Service, ::y3d::YEvent, ::y3d::YEvent>(
+          std::mem_fn(&YServiceMaxTools::Service::DoAction), this)));
   AddMethod(new ::grpc::RpcServiceMethod(
-      Tools_method_names[20],
+      YServiceMaxTools_method_names[20],
       ::grpc::RpcMethod::NORMAL_RPC,
-      new ::grpc::RpcMethodHandler< Tools::Service, ::y3d::YEvent, ::y3d::ResponseEvent>(
-          std::mem_fn(&Tools::Service::DoEvent), this)));
+      new ::grpc::RpcMethodHandler< YServiceMaxTools::Service, ::y3d::YEvent, ::y3d::ResponseEvent>(
+          std::mem_fn(&YServiceMaxTools::Service::DoEvent), this)));
   AddMethod(new ::grpc::RpcServiceMethod(
-      Tools_method_names[21],
+      YServiceMaxTools_method_names[21],
       ::grpc::RpcMethod::NORMAL_RPC,
-      new ::grpc::RpcMethodHandler< Tools::Service, ::y3d::EUnwrap, ::y3d::ResponseEvent>(
-          std::mem_fn(&Tools::Service::DoUnwrap), this)));
+      new ::grpc::RpcMethodHandler< YServiceMaxTools::Service, ::y3d::EUnwrap, ::y3d::ResponseEvent>(
+          std::mem_fn(&YServiceMaxTools::Service::DoUnwrap), this)));
   AddMethod(new ::grpc::RpcServiceMethod(
-      Tools_method_names[22],
+      YServiceMaxTools_method_names[22],
       ::grpc::RpcMethod::NORMAL_RPC,
-      new ::grpc::RpcMethodHandler< Tools::Service, ::y3d::EmptyParam, ::y3d::ResultReply>(
-          std::mem_fn(&Tools::Service::Shutdown), this)));
+      new ::grpc::RpcMethodHandler< YServiceMaxTools::Service, ::y3d::EmptyParam, ::y3d::ResultReply>(
+          std::mem_fn(&YServiceMaxTools::Service::Shutdown), this)));
+  AddMethod(new ::grpc::RpcServiceMethod(
+      YServiceMaxTools_method_names[23],
+      ::grpc::RpcMethod::NORMAL_RPC,
+      new ::grpc::RpcMethodHandler< YServiceMaxTools::Service, ::y3d::TestOParam, ::y3d::ResultReply>(
+          std::mem_fn(&YServiceMaxTools::Service::AddTestObject), this)));
+  AddMethod(new ::grpc::RpcServiceMethod(
+      YServiceMaxTools_method_names[24],
+      ::grpc::RpcMethod::NORMAL_RPC,
+      new ::grpc::RpcMethodHandler< YServiceMaxTools::Service, ::y3d::TestOParam, ::y3d::ResultReply>(
+          std::mem_fn(&YServiceMaxTools::Service::ApplyTestObject), this)));
 }
 
-Tools::Service::~Service() {
+YServiceMaxTools::Service::~Service() {
 }
 
-::grpc::Status Tools::Service::RenameObject(::grpc::ServerContext* context, const ::y3d::RenameParam* request, ::y3d::ResultReply* response) {
+::grpc::Status YServiceMaxTools::Service::RenameObject(::grpc::ServerContext* context, const ::y3d::RenameParam* request, ::y3d::ResultReply* response) {
   (void) context;
   (void) request;
   (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status Tools::Service::SaveProject(::grpc::ServerContext* context, const ::y3d::ProjectInfo* request, ::y3d::ResponseEvent* response) {
+::grpc::Status YServiceMaxTools::Service::SaveProject(::grpc::ServerContext* context, const ::y3d::ProjectInfo* request, ::y3d::ResponseEvent* response) {
   (void) context;
   (void) request;
   (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status Tools::Service::NewProject(::grpc::ServerContext* context, const ::y3d::NewProjectParam* request, ::y3d::ResponseNProject* response) {
+::grpc::Status YServiceMaxTools::Service::NewProject(::grpc::ServerContext* context, const ::y3d::NewProjectParam* request, ::y3d::ResponseNProject* response) {
   (void) context;
   (void) request;
   (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status Tools::Service::LoadProject(::grpc::ServerContext* context, const ::y3d::ProjectInfo* request, ::y3d::ResponseNProject* response) {
+::grpc::Status YServiceMaxTools::Service::LoadProject(::grpc::ServerContext* context, const ::y3d::ProjectInfo* request, ::y3d::ResponseNProject* response) {
   (void) context;
   (void) request;
   (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status Tools::Service::DeleteProject(::grpc::ServerContext* context, const ::y3d::ProjectInfo* request, ::y3d::ResponseNProject* response) {
+::grpc::Status YServiceMaxTools::Service::DeleteProject(::grpc::ServerContext* context, const ::y3d::ProjectInfo* request, ::y3d::ResponseNProject* response) {
   (void) context;
   (void) request;
   (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status Tools::Service::Unwrap(::grpc::ServerContext* context, const ::y3d::EUnwrap* request, ::y3d::ResultReply* response) {
+::grpc::Status YServiceMaxTools::Service::Unwrap(::grpc::ServerContext* context, const ::y3d::EUnwrap* request, ::y3d::ResultReply* response) {
   (void) context;
   (void) request;
   (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status Tools::Service::Packing(::grpc::ServerContext* context, const ::y3d::EPacking* request, ::y3d::ResultReply* response) {
+::grpc::Status YServiceMaxTools::Service::Packing(::grpc::ServerContext* context, const ::y3d::EPacking* request, ::y3d::ResultReply* response) {
   (void) context;
   (void) request;
   (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status Tools::Service::LowPoly(::grpc::ServerContext* context, const ::y3d::ELowpoly* request, ::y3d::ResultReply* response) {
+::grpc::Status YServiceMaxTools::Service::LowPoly(::grpc::ServerContext* context, const ::y3d::ELowpoly* request, ::y3d::ResultReply* response) {
   (void) context;
   (void) request;
   (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status Tools::Service::LoadSystem(::grpc::ServerContext* context, const ::y3d::EmptyParam* request, ::y3d::YSystem* response) {
+::grpc::Status YServiceMaxTools::Service::LoadSystem(::grpc::ServerContext* context, const ::y3d::EmptyParam* request, ::y3d::YSystem* response) {
   (void) context;
   (void) request;
   (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status Tools::Service::SaveSystem(::grpc::ServerContext* context, const ::y3d::YSystem* request, ::y3d::ResultReply* response) {
+::grpc::Status YServiceMaxTools::Service::SaveSystem(::grpc::ServerContext* context, const ::y3d::YSystem* request, ::y3d::ResultReply* response) {
   (void) context;
   (void) request;
   (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status Tools::Service::BakeNormal(::grpc::ServerContext* context, const ::y3d::ENormal* request, ::y3d::ResultReply* response) {
+::grpc::Status YServiceMaxTools::Service::BakeNormal(::grpc::ServerContext* context, const ::y3d::ENormal* request, ::y3d::ResultReply* response) {
   (void) context;
   (void) request;
   (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status Tools::Service::BakeNormalMax(::grpc::ServerContext* context, const ::y3d::ENormal* request, ::y3d::ResultReply* response) {
+::grpc::Status YServiceMaxTools::Service::BakeNormalMax(::grpc::ServerContext* context, const ::y3d::ENormal* request, ::y3d::ResultReply* response) {
   (void) context;
   (void) request;
   (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status Tools::Service::MakeNode4Edit(::grpc::ServerContext* context, const ::y3d::Make4TestParam* request, ::y3d::ResultReply* response) {
+::grpc::Status YServiceMaxTools::Service::MakeNode4Edit(::grpc::ServerContext* context, const ::y3d::Make4TestParam* request, ::y3d::ResultReply* response) {
   (void) context;
   (void) request;
   (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status Tools::Service::BatchOptimize(::grpc::ServerContext* context, const ::y3d::BatchOptimizeParam* request, ::y3d::ResultReply* response) {
+::grpc::Status YServiceMaxTools::Service::BatchOptimize(::grpc::ServerContext* context, const ::y3d::BatchOptimizeParam* request, ::y3d::ResultReply* response) {
   (void) context;
   (void) request;
   (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status Tools::Service::TestTest(::grpc::ServerContext* context, const ::y3d::TestParam* request, ::y3d::ResultReply* response) {
+::grpc::Status YServiceMaxTools::Service::TestTest(::grpc::ServerContext* context, const ::y3d::TestParam* request, ::y3d::ResultReply* response) {
   (void) context;
   (void) request;
   (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status Tools::Service::GetObjectFromMax(::grpc::ServerContext* context, const ::y3d::EmptyParam* request, ::y3d::YAreaList* response) {
+::grpc::Status YServiceMaxTools::Service::GetObjectFromMax(::grpc::ServerContext* context, const ::y3d::EmptyParam* request, ::y3d::YAreaList* response) {
   (void) context;
   (void) request;
   (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status Tools::Service::CloneObject(::grpc::ServerContext* context, const ::y3d::EmptyParam* request, ::y3d::ResultReply* response) {
+::grpc::Status YServiceMaxTools::Service::CloneObject(::grpc::ServerContext* context, const ::y3d::EmptyParam* request, ::y3d::ResultReply* response) {
   (void) context;
   (void) request;
   (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status Tools::Service::DoStreamClient(::grpc::ServerContext* context, ::grpc::ServerReader< ::y3d::YEvent>* reader, ::y3d::ResponseEvent* response) {
+::grpc::Status YServiceMaxTools::Service::DoStreamClient(::grpc::ServerContext* context, ::grpc::ServerReader< ::y3d::YEvent>* reader, ::y3d::ResponseEvent* response) {
   (void) context;
   (void) reader;
   (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status Tools::Service::DoStreamServer(::grpc::ServerContext* context, const ::y3d::EmptyParam* request, ::grpc::ServerWriter< ::y3d::YEvent>* writer) {
+::grpc::Status YServiceMaxTools::Service::DoStreamServer(::grpc::ServerContext* context, const ::y3d::EmptyParam* request, ::grpc::ServerWriter< ::y3d::YEvent>* writer) {
   (void) context;
   (void) request;
   (void) writer;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status Tools::Service::DoAction(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::y3d::YEvent, ::y3d::YEvent>* stream) {
+::grpc::Status YServiceMaxTools::Service::DoAction(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::y3d::YEvent, ::y3d::YEvent>* stream) {
   (void) context;
   (void) stream;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status Tools::Service::DoEvent(::grpc::ServerContext* context, const ::y3d::YEvent* request, ::y3d::ResponseEvent* response) {
+::grpc::Status YServiceMaxTools::Service::DoEvent(::grpc::ServerContext* context, const ::y3d::YEvent* request, ::y3d::ResponseEvent* response) {
   (void) context;
   (void) request;
   (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status Tools::Service::DoUnwrap(::grpc::ServerContext* context, const ::y3d::EUnwrap* request, ::y3d::ResponseEvent* response) {
+::grpc::Status YServiceMaxTools::Service::DoUnwrap(::grpc::ServerContext* context, const ::y3d::EUnwrap* request, ::y3d::ResponseEvent* response) {
   (void) context;
   (void) request;
   (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status Tools::Service::Shutdown(::grpc::ServerContext* context, const ::y3d::EmptyParam* request, ::y3d::ResultReply* response) {
+::grpc::Status YServiceMaxTools::Service::Shutdown(::grpc::ServerContext* context, const ::y3d::EmptyParam* request, ::y3d::ResultReply* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status YServiceMaxTools::Service::AddTestObject(::grpc::ServerContext* context, const ::y3d::TestOParam* request, ::y3d::ResultReply* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status YServiceMaxTools::Service::ApplyTestObject(::grpc::ServerContext* context, const ::y3d::TestOParam* request, ::y3d::ResultReply* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+
+static const char* YServiceTest_method_names[] = {
+  "/y3d.YServiceTest/MTest1",
+  "/y3d.YServiceTest/MTest2",
+};
+
+std::unique_ptr< YServiceTest::Stub> YServiceTest::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
+  std::unique_ptr< YServiceTest::Stub> stub(new YServiceTest::Stub(channel));
+  return stub;
+}
+
+YServiceTest::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
+  : channel_(channel), rpcmethod_MTest1_(YServiceTest_method_names[0], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_MTest2_(YServiceTest_method_names[1], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  {}
+
+::grpc::Status YServiceTest::Stub::MTest1(::grpc::ClientContext* context, const ::y3d::EmptyParam& request, ::y3d::EmptyParam* response) {
+  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_MTest1_, context, request, response);
+}
+
+::grpc::ClientAsyncResponseReader< ::y3d::EmptyParam>* YServiceTest::Stub::AsyncMTest1Raw(::grpc::ClientContext* context, const ::y3d::EmptyParam& request, ::grpc::CompletionQueue* cq) {
+  return new ::grpc::ClientAsyncResponseReader< ::y3d::EmptyParam>(channel_.get(), cq, rpcmethod_MTest1_, context, request);
+}
+
+::grpc::Status YServiceTest::Stub::MTest2(::grpc::ClientContext* context, const ::y3d::EmptyParam& request, ::y3d::EmptyParam* response) {
+  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_MTest2_, context, request, response);
+}
+
+::grpc::ClientAsyncResponseReader< ::y3d::EmptyParam>* YServiceTest::Stub::AsyncMTest2Raw(::grpc::ClientContext* context, const ::y3d::EmptyParam& request, ::grpc::CompletionQueue* cq) {
+  return new ::grpc::ClientAsyncResponseReader< ::y3d::EmptyParam>(channel_.get(), cq, rpcmethod_MTest2_, context, request);
+}
+
+YServiceTest::Service::Service() {
+  AddMethod(new ::grpc::RpcServiceMethod(
+      YServiceTest_method_names[0],
+      ::grpc::RpcMethod::NORMAL_RPC,
+      new ::grpc::RpcMethodHandler< YServiceTest::Service, ::y3d::EmptyParam, ::y3d::EmptyParam>(
+          std::mem_fn(&YServiceTest::Service::MTest1), this)));
+  AddMethod(new ::grpc::RpcServiceMethod(
+      YServiceTest_method_names[1],
+      ::grpc::RpcMethod::NORMAL_RPC,
+      new ::grpc::RpcMethodHandler< YServiceTest::Service, ::y3d::EmptyParam, ::y3d::EmptyParam>(
+          std::mem_fn(&YServiceTest::Service::MTest2), this)));
+}
+
+YServiceTest::Service::~Service() {
+}
+
+::grpc::Status YServiceTest::Service::MTest1(::grpc::ServerContext* context, const ::y3d::EmptyParam* request, ::y3d::EmptyParam* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status YServiceTest::Service::MTest2(::grpc::ServerContext* context, const ::y3d::EmptyParam* request, ::y3d::EmptyParam* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+
+static const char* YServiceMaster_method_names[] = {
+  "/y3d.YServiceMaster/AllWorkers",
+  "/y3d.YServiceMaster/StopAllWorkers",
+  "/y3d.YServiceMaster/AddWorker",
+  "/y3d.YServiceMaster/CloseWorkerApp",
+  "/y3d.YServiceMaster/StartWorker",
+  "/y3d.YServiceMaster/StopWorker",
+  "/y3d.YServiceMaster/AppExitCallback",
+  "/y3d.YServiceMaster/ShowJobInMachine",
+  "/y3d.YServiceMaster/CheckHealth",
+  "/y3d.YServiceMaster/UpdateWorkerStatus",
+  "/y3d.YServiceMaster/LoadSystem",
+  "/y3d.YServiceMaster/SaveSystem",
+  "/y3d.YServiceMaster/GiveMeAWorker",
+};
+
+std::unique_ptr< YServiceMaster::Stub> YServiceMaster::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
+  std::unique_ptr< YServiceMaster::Stub> stub(new YServiceMaster::Stub(channel));
+  return stub;
+}
+
+YServiceMaster::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
+  : channel_(channel), rpcmethod_AllWorkers_(YServiceMaster_method_names[0], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_StopAllWorkers_(YServiceMaster_method_names[1], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_AddWorker_(YServiceMaster_method_names[2], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_CloseWorkerApp_(YServiceMaster_method_names[3], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_StartWorker_(YServiceMaster_method_names[4], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_StopWorker_(YServiceMaster_method_names[5], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_AppExitCallback_(YServiceMaster_method_names[6], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_ShowJobInMachine_(YServiceMaster_method_names[7], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_CheckHealth_(YServiceMaster_method_names[8], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_UpdateWorkerStatus_(YServiceMaster_method_names[9], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_LoadSystem_(YServiceMaster_method_names[10], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_SaveSystem_(YServiceMaster_method_names[11], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_GiveMeAWorker_(YServiceMaster_method_names[12], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  {}
+
+::grpc::Status YServiceMaster::Stub::AllWorkers(::grpc::ClientContext* context, const ::y3d::AllWorkerParam& request, ::y3d::YWorkerResponse* response) {
+  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_AllWorkers_, context, request, response);
+}
+
+::grpc::ClientAsyncResponseReader< ::y3d::YWorkerResponse>* YServiceMaster::Stub::AsyncAllWorkersRaw(::grpc::ClientContext* context, const ::y3d::AllWorkerParam& request, ::grpc::CompletionQueue* cq) {
+  return new ::grpc::ClientAsyncResponseReader< ::y3d::YWorkerResponse>(channel_.get(), cq, rpcmethod_AllWorkers_, context, request);
+}
+
+::grpc::Status YServiceMaster::Stub::StopAllWorkers(::grpc::ClientContext* context, const ::y3d::EmptyParam& request, ::y3d::ResultReply* response) {
+  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_StopAllWorkers_, context, request, response);
+}
+
+::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>* YServiceMaster::Stub::AsyncStopAllWorkersRaw(::grpc::ClientContext* context, const ::y3d::EmptyParam& request, ::grpc::CompletionQueue* cq) {
+  return new ::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>(channel_.get(), cq, rpcmethod_StopAllWorkers_, context, request);
+}
+
+::grpc::Status YServiceMaster::Stub::AddWorker(::grpc::ClientContext* context, const ::y3d::YWorkerRequest& request, ::y3d::YWorkerResponse* response) {
+  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_AddWorker_, context, request, response);
+}
+
+::grpc::ClientAsyncResponseReader< ::y3d::YWorkerResponse>* YServiceMaster::Stub::AsyncAddWorkerRaw(::grpc::ClientContext* context, const ::y3d::YWorkerRequest& request, ::grpc::CompletionQueue* cq) {
+  return new ::grpc::ClientAsyncResponseReader< ::y3d::YWorkerResponse>(channel_.get(), cq, rpcmethod_AddWorker_, context, request);
+}
+
+::grpc::Status YServiceMaster::Stub::CloseWorkerApp(::grpc::ClientContext* context, const ::y3d::WorkerParam& request, ::y3d::ResultReply* response) {
+  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_CloseWorkerApp_, context, request, response);
+}
+
+::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>* YServiceMaster::Stub::AsyncCloseWorkerAppRaw(::grpc::ClientContext* context, const ::y3d::WorkerParam& request, ::grpc::CompletionQueue* cq) {
+  return new ::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>(channel_.get(), cq, rpcmethod_CloseWorkerApp_, context, request);
+}
+
+::grpc::Status YServiceMaster::Stub::StartWorker(::grpc::ClientContext* context, const ::y3d::WorkerParam& request, ::y3d::YWorkerResponse* response) {
+  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_StartWorker_, context, request, response);
+}
+
+::grpc::ClientAsyncResponseReader< ::y3d::YWorkerResponse>* YServiceMaster::Stub::AsyncStartWorkerRaw(::grpc::ClientContext* context, const ::y3d::WorkerParam& request, ::grpc::CompletionQueue* cq) {
+  return new ::grpc::ClientAsyncResponseReader< ::y3d::YWorkerResponse>(channel_.get(), cq, rpcmethod_StartWorker_, context, request);
+}
+
+::grpc::Status YServiceMaster::Stub::StopWorker(::grpc::ClientContext* context, const ::y3d::WorkerParam& request, ::y3d::YWorkerResponse* response) {
+  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_StopWorker_, context, request, response);
+}
+
+::grpc::ClientAsyncResponseReader< ::y3d::YWorkerResponse>* YServiceMaster::Stub::AsyncStopWorkerRaw(::grpc::ClientContext* context, const ::y3d::WorkerParam& request, ::grpc::CompletionQueue* cq) {
+  return new ::grpc::ClientAsyncResponseReader< ::y3d::YWorkerResponse>(channel_.get(), cq, rpcmethod_StopWorker_, context, request);
+}
+
+::grpc::Status YServiceMaster::Stub::AppExitCallback(::grpc::ClientContext* context, const ::y3d::WorkerParam& request, ::y3d::ResultReply* response) {
+  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_AppExitCallback_, context, request, response);
+}
+
+::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>* YServiceMaster::Stub::AsyncAppExitCallbackRaw(::grpc::ClientContext* context, const ::y3d::WorkerParam& request, ::grpc::CompletionQueue* cq) {
+  return new ::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>(channel_.get(), cq, rpcmethod_AppExitCallback_, context, request);
+}
+
+::grpc::Status YServiceMaster::Stub::ShowJobInMachine(::grpc::ClientContext* context, const ::y3d::YWorker& request, ::y3d::YJobList* response) {
+  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_ShowJobInMachine_, context, request, response);
+}
+
+::grpc::ClientAsyncResponseReader< ::y3d::YJobList>* YServiceMaster::Stub::AsyncShowJobInMachineRaw(::grpc::ClientContext* context, const ::y3d::YWorker& request, ::grpc::CompletionQueue* cq) {
+  return new ::grpc::ClientAsyncResponseReader< ::y3d::YJobList>(channel_.get(), cq, rpcmethod_ShowJobInMachine_, context, request);
+}
+
+::grpc::Status YServiceMaster::Stub::CheckHealth(::grpc::ClientContext* context, const ::y3d::EmptyParam& request, ::y3d::ResultReply* response) {
+  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_CheckHealth_, context, request, response);
+}
+
+::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>* YServiceMaster::Stub::AsyncCheckHealthRaw(::grpc::ClientContext* context, const ::y3d::EmptyParam& request, ::grpc::CompletionQueue* cq) {
+  return new ::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>(channel_.get(), cq, rpcmethod_CheckHealth_, context, request);
+}
+
+::grpc::Status YServiceMaster::Stub::UpdateWorkerStatus(::grpc::ClientContext* context, const ::y3d::YWorker& request, ::y3d::ResultReply* response) {
+  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_UpdateWorkerStatus_, context, request, response);
+}
+
+::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>* YServiceMaster::Stub::AsyncUpdateWorkerStatusRaw(::grpc::ClientContext* context, const ::y3d::YWorker& request, ::grpc::CompletionQueue* cq) {
+  return new ::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>(channel_.get(), cq, rpcmethod_UpdateWorkerStatus_, context, request);
+}
+
+::grpc::Status YServiceMaster::Stub::LoadSystem(::grpc::ClientContext* context, const ::y3d::EmptyParam& request, ::y3d::YSystem* response) {
+  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_LoadSystem_, context, request, response);
+}
+
+::grpc::ClientAsyncResponseReader< ::y3d::YSystem>* YServiceMaster::Stub::AsyncLoadSystemRaw(::grpc::ClientContext* context, const ::y3d::EmptyParam& request, ::grpc::CompletionQueue* cq) {
+  return new ::grpc::ClientAsyncResponseReader< ::y3d::YSystem>(channel_.get(), cq, rpcmethod_LoadSystem_, context, request);
+}
+
+::grpc::Status YServiceMaster::Stub::SaveSystem(::grpc::ClientContext* context, const ::y3d::YSystem& request, ::y3d::ResultReply* response) {
+  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_SaveSystem_, context, request, response);
+}
+
+::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>* YServiceMaster::Stub::AsyncSaveSystemRaw(::grpc::ClientContext* context, const ::y3d::YSystem& request, ::grpc::CompletionQueue* cq) {
+  return new ::grpc::ClientAsyncResponseReader< ::y3d::ResultReply>(channel_.get(), cq, rpcmethod_SaveSystem_, context, request);
+}
+
+::grpc::Status YServiceMaster::Stub::GiveMeAWorker(::grpc::ClientContext* context, const ::y3d::EmptyParam& request, ::y3d::YWorker* response) {
+  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_GiveMeAWorker_, context, request, response);
+}
+
+::grpc::ClientAsyncResponseReader< ::y3d::YWorker>* YServiceMaster::Stub::AsyncGiveMeAWorkerRaw(::grpc::ClientContext* context, const ::y3d::EmptyParam& request, ::grpc::CompletionQueue* cq) {
+  return new ::grpc::ClientAsyncResponseReader< ::y3d::YWorker>(channel_.get(), cq, rpcmethod_GiveMeAWorker_, context, request);
+}
+
+YServiceMaster::Service::Service() {
+  AddMethod(new ::grpc::RpcServiceMethod(
+      YServiceMaster_method_names[0],
+      ::grpc::RpcMethod::NORMAL_RPC,
+      new ::grpc::RpcMethodHandler< YServiceMaster::Service, ::y3d::AllWorkerParam, ::y3d::YWorkerResponse>(
+          std::mem_fn(&YServiceMaster::Service::AllWorkers), this)));
+  AddMethod(new ::grpc::RpcServiceMethod(
+      YServiceMaster_method_names[1],
+      ::grpc::RpcMethod::NORMAL_RPC,
+      new ::grpc::RpcMethodHandler< YServiceMaster::Service, ::y3d::EmptyParam, ::y3d::ResultReply>(
+          std::mem_fn(&YServiceMaster::Service::StopAllWorkers), this)));
+  AddMethod(new ::grpc::RpcServiceMethod(
+      YServiceMaster_method_names[2],
+      ::grpc::RpcMethod::NORMAL_RPC,
+      new ::grpc::RpcMethodHandler< YServiceMaster::Service, ::y3d::YWorkerRequest, ::y3d::YWorkerResponse>(
+          std::mem_fn(&YServiceMaster::Service::AddWorker), this)));
+  AddMethod(new ::grpc::RpcServiceMethod(
+      YServiceMaster_method_names[3],
+      ::grpc::RpcMethod::NORMAL_RPC,
+      new ::grpc::RpcMethodHandler< YServiceMaster::Service, ::y3d::WorkerParam, ::y3d::ResultReply>(
+          std::mem_fn(&YServiceMaster::Service::CloseWorkerApp), this)));
+  AddMethod(new ::grpc::RpcServiceMethod(
+      YServiceMaster_method_names[4],
+      ::grpc::RpcMethod::NORMAL_RPC,
+      new ::grpc::RpcMethodHandler< YServiceMaster::Service, ::y3d::WorkerParam, ::y3d::YWorkerResponse>(
+          std::mem_fn(&YServiceMaster::Service::StartWorker), this)));
+  AddMethod(new ::grpc::RpcServiceMethod(
+      YServiceMaster_method_names[5],
+      ::grpc::RpcMethod::NORMAL_RPC,
+      new ::grpc::RpcMethodHandler< YServiceMaster::Service, ::y3d::WorkerParam, ::y3d::YWorkerResponse>(
+          std::mem_fn(&YServiceMaster::Service::StopWorker), this)));
+  AddMethod(new ::grpc::RpcServiceMethod(
+      YServiceMaster_method_names[6],
+      ::grpc::RpcMethod::NORMAL_RPC,
+      new ::grpc::RpcMethodHandler< YServiceMaster::Service, ::y3d::WorkerParam, ::y3d::ResultReply>(
+          std::mem_fn(&YServiceMaster::Service::AppExitCallback), this)));
+  AddMethod(new ::grpc::RpcServiceMethod(
+      YServiceMaster_method_names[7],
+      ::grpc::RpcMethod::NORMAL_RPC,
+      new ::grpc::RpcMethodHandler< YServiceMaster::Service, ::y3d::YWorker, ::y3d::YJobList>(
+          std::mem_fn(&YServiceMaster::Service::ShowJobInMachine), this)));
+  AddMethod(new ::grpc::RpcServiceMethod(
+      YServiceMaster_method_names[8],
+      ::grpc::RpcMethod::NORMAL_RPC,
+      new ::grpc::RpcMethodHandler< YServiceMaster::Service, ::y3d::EmptyParam, ::y3d::ResultReply>(
+          std::mem_fn(&YServiceMaster::Service::CheckHealth), this)));
+  AddMethod(new ::grpc::RpcServiceMethod(
+      YServiceMaster_method_names[9],
+      ::grpc::RpcMethod::NORMAL_RPC,
+      new ::grpc::RpcMethodHandler< YServiceMaster::Service, ::y3d::YWorker, ::y3d::ResultReply>(
+          std::mem_fn(&YServiceMaster::Service::UpdateWorkerStatus), this)));
+  AddMethod(new ::grpc::RpcServiceMethod(
+      YServiceMaster_method_names[10],
+      ::grpc::RpcMethod::NORMAL_RPC,
+      new ::grpc::RpcMethodHandler< YServiceMaster::Service, ::y3d::EmptyParam, ::y3d::YSystem>(
+          std::mem_fn(&YServiceMaster::Service::LoadSystem), this)));
+  AddMethod(new ::grpc::RpcServiceMethod(
+      YServiceMaster_method_names[11],
+      ::grpc::RpcMethod::NORMAL_RPC,
+      new ::grpc::RpcMethodHandler< YServiceMaster::Service, ::y3d::YSystem, ::y3d::ResultReply>(
+          std::mem_fn(&YServiceMaster::Service::SaveSystem), this)));
+  AddMethod(new ::grpc::RpcServiceMethod(
+      YServiceMaster_method_names[12],
+      ::grpc::RpcMethod::NORMAL_RPC,
+      new ::grpc::RpcMethodHandler< YServiceMaster::Service, ::y3d::EmptyParam, ::y3d::YWorker>(
+          std::mem_fn(&YServiceMaster::Service::GiveMeAWorker), this)));
+}
+
+YServiceMaster::Service::~Service() {
+}
+
+::grpc::Status YServiceMaster::Service::AllWorkers(::grpc::ServerContext* context, const ::y3d::AllWorkerParam* request, ::y3d::YWorkerResponse* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status YServiceMaster::Service::StopAllWorkers(::grpc::ServerContext* context, const ::y3d::EmptyParam* request, ::y3d::ResultReply* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status YServiceMaster::Service::AddWorker(::grpc::ServerContext* context, const ::y3d::YWorkerRequest* request, ::y3d::YWorkerResponse* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status YServiceMaster::Service::CloseWorkerApp(::grpc::ServerContext* context, const ::y3d::WorkerParam* request, ::y3d::ResultReply* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status YServiceMaster::Service::StartWorker(::grpc::ServerContext* context, const ::y3d::WorkerParam* request, ::y3d::YWorkerResponse* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status YServiceMaster::Service::StopWorker(::grpc::ServerContext* context, const ::y3d::WorkerParam* request, ::y3d::YWorkerResponse* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status YServiceMaster::Service::AppExitCallback(::grpc::ServerContext* context, const ::y3d::WorkerParam* request, ::y3d::ResultReply* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status YServiceMaster::Service::ShowJobInMachine(::grpc::ServerContext* context, const ::y3d::YWorker* request, ::y3d::YJobList* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status YServiceMaster::Service::CheckHealth(::grpc::ServerContext* context, const ::y3d::EmptyParam* request, ::y3d::ResultReply* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status YServiceMaster::Service::UpdateWorkerStatus(::grpc::ServerContext* context, const ::y3d::YWorker* request, ::y3d::ResultReply* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status YServiceMaster::Service::LoadSystem(::grpc::ServerContext* context, const ::y3d::EmptyParam* request, ::y3d::YSystem* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status YServiceMaster::Service::SaveSystem(::grpc::ServerContext* context, const ::y3d::YSystem* request, ::y3d::ResultReply* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status YServiceMaster::Service::GiveMeAWorker(::grpc::ServerContext* context, const ::y3d::EmptyParam* request, ::y3d::YWorker* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+
+static const char* YServiceMainWorker_method_names[] = {
+  "/y3d.YServiceMainWorker/DoEvent",
+  "/y3d.YServiceMainWorker/CloseWorkerApp",
+};
+
+std::unique_ptr< YServiceMainWorker::Stub> YServiceMainWorker::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
+  std::unique_ptr< YServiceMainWorker::Stub> stub(new YServiceMainWorker::Stub(channel));
+  return stub;
+}
+
+YServiceMainWorker::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
+  : channel_(channel), rpcmethod_DoEvent_(YServiceMainWorker_method_names[0], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_CloseWorkerApp_(YServiceMainWorker_method_names[1], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  {}
+
+::grpc::Status YServiceMainWorker::Stub::DoEvent(::grpc::ClientContext* context, const ::y3d::YEvent& request, ::y3d::ResponseEvent* response) {
+  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_DoEvent_, context, request, response);
+}
+
+::grpc::ClientAsyncResponseReader< ::y3d::ResponseEvent>* YServiceMainWorker::Stub::AsyncDoEventRaw(::grpc::ClientContext* context, const ::y3d::YEvent& request, ::grpc::CompletionQueue* cq) {
+  return new ::grpc::ClientAsyncResponseReader< ::y3d::ResponseEvent>(channel_.get(), cq, rpcmethod_DoEvent_, context, request);
+}
+
+::grpc::Status YServiceMainWorker::Stub::CloseWorkerApp(::grpc::ClientContext* context, const ::y3d::YEvent& request, ::y3d::ResponseEvent* response) {
+  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_CloseWorkerApp_, context, request, response);
+}
+
+::grpc::ClientAsyncResponseReader< ::y3d::ResponseEvent>* YServiceMainWorker::Stub::AsyncCloseWorkerAppRaw(::grpc::ClientContext* context, const ::y3d::YEvent& request, ::grpc::CompletionQueue* cq) {
+  return new ::grpc::ClientAsyncResponseReader< ::y3d::ResponseEvent>(channel_.get(), cq, rpcmethod_CloseWorkerApp_, context, request);
+}
+
+YServiceMainWorker::Service::Service() {
+  AddMethod(new ::grpc::RpcServiceMethod(
+      YServiceMainWorker_method_names[0],
+      ::grpc::RpcMethod::NORMAL_RPC,
+      new ::grpc::RpcMethodHandler< YServiceMainWorker::Service, ::y3d::YEvent, ::y3d::ResponseEvent>(
+          std::mem_fn(&YServiceMainWorker::Service::DoEvent), this)));
+  AddMethod(new ::grpc::RpcServiceMethod(
+      YServiceMainWorker_method_names[1],
+      ::grpc::RpcMethod::NORMAL_RPC,
+      new ::grpc::RpcMethodHandler< YServiceMainWorker::Service, ::y3d::YEvent, ::y3d::ResponseEvent>(
+          std::mem_fn(&YServiceMainWorker::Service::CloseWorkerApp), this)));
+}
+
+YServiceMainWorker::Service::~Service() {
+}
+
+::grpc::Status YServiceMainWorker::Service::DoEvent(::grpc::ServerContext* context, const ::y3d::YEvent* request, ::y3d::ResponseEvent* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status YServiceMainWorker::Service::CloseWorkerApp(::grpc::ServerContext* context, const ::y3d::YEvent* request, ::y3d::ResponseEvent* response) {
   (void) context;
   (void) request;
   (void) response;

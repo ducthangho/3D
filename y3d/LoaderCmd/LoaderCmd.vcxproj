@@ -74,6 +74,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -103,13 +104,15 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>NOMINMAX;PROTOBUF_USE_DLLS;_CRT_SECURE_NO_WARNINGS;WIN32_LEAN_AND_MEAN;_ADESK_3DSMAX_WINDOWS_;WINVER=0x0A00;_WIN32_WINNT=0x0A00;_WIN32_WINDOWS=0x0A00;_WIN32_IE=0x0800;_WINDOWS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_DEPRECATE;_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1;_CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES=1;ISOLATION_AWARE_ENABLED=1;SECURE_SCL=0;WIN64;_UNICODE;UNICODE;_USRDLL;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(MsBuildProjectDirectory)\..\include;$(MsBuildProjectDirectory)\..\Service\grpc\;$(MsBuildProjectDirectory)\..\Service\grpc\include;$(MsBuildProjectDirectory)\..\Service\grpc\third_party\protobuf\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(MsBuildProjectDirectory)\..\include;$(MsBuildProjectDirectory)\..\Service\grpc\;$(MsBuildProjectDirectory)\..\Service\grpc\include;$(MsBuildProjectDirectory)\..\Service\grpc\third_party\protobuf\src;$(MsBuildProjectDirectory)\..\packages\tclap.1.2.1\build\native\include\tclap;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(MSBuildProjectDirectory)\..\include\ignore.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(MsBuildProjectDirectory)\..\lib\tbb;$(MsBuildProjectDirectory)\..\lib;$(MsBuildProjectDirectory)\..\lib\grpc;$(MsBuildProjectDirectory)\..\lib\protobuf;$(MsBuildProjectDirectory)\..\ServiceImpl\obj\x64\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>libprotobuf.lib;tbb.lib;tbbmalloc.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(MsBuildProjectDirectory)\..\lib\tbb;$(MsBuildProjectDirectory)\..\lib;$(MsBuildProjectDirectory)\..\lib\grpc\$(Configuration);$(MsBuildProjectDirectory)\..\lib\protobuf\$(Configuration);$(MsBuildProjectDirectory)\..\ServiceImpl\obj\x64\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>gpr.lib;grpc_unsecure.lib;grpc++.lib;tbb.lib;tbbmalloc.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -138,7 +141,7 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>NOMINMAX;PROTOBUF_USE_DLLS;_CRT_SECURE_NO_WARNINGS;WIN32_LEAN_AND_MEAN;_ADESK_3DSMAX_WINDOWS_;WINVER=0x0A00;_WIN32_WINNT=0x0A00;_WIN32_WINDOWS=0x0A00;_WIN32_IE=0x0800;_WINDOWS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_DEPRECATE;_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1;_CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES=1;ISOLATION_AWARE_ENABLED=1;SECURE_SCL=0;WIN64;_UNICODE;UNICODE;_USRDLL;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_ITERATOR_DEBUG_LEVEL=0;NOMINMAX;PROTOBUF_USE_DLLS;_CRT_SECURE_NO_WARNINGS;WIN32_LEAN_AND_MEAN;_ADESK_3DSMAX_WINDOWS_;WINVER=0x0A00;_WIN32_WINNT=0x0A00;_WIN32_WINDOWS=0x0A00;_WIN32_IE=0x0800;_WINDOWS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_DEPRECATE;_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1;_CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES=1;ISOLATION_AWARE_ENABLED=1;SECURE_SCL=0;WIN64;_UNICODE;UNICODE;_USRDLL;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>$(MsBuildProjectDirectory)\..\include;$(MsBuildProjectDirectory)\..\Service\grpc\;$(MsBuildProjectDirectory)\..\Service\grpc\include;$(MsBuildProjectDirectory)\..\Service\grpc\third_party\protobuf\src;$(MsBuildProjectDirectory)\..\packages\tclap.1.2.1\build\native\include\tclap;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(MSBuildProjectDirectory)\..\include\ignore.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
@@ -149,8 +152,8 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(MsBuildProjectDirectory)\..\lib\tbb;$(MsBuildProjectDirectory)\..\lib;$(MsBuildProjectDirectory)\..\lib\grpc;$(MsBuildProjectDirectory)\..\lib\protobuf;$(MsBuildProjectDirectory)\..\ServiceImpl\obj\x64\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>gpr.lib;grpc_unsecure.lib;grpc++.lib;libprotoc.lib;libprotobuf.lib;tbb.lib;tbbmalloc.lib;ws2_32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(MsBuildProjectDirectory)\..\lib\tbb;$(MsBuildProjectDirectory)\..\lib;$(MsBuildProjectDirectory)\..\lib\grpc\$(Configuration);$(MsBuildProjectDirectory)\..\lib\protobuf\$(Configuration);$(MsBuildProjectDirectory)\..\ServiceImpl\obj\x64\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>gpr.lib;grpc_unsecure.lib;grpc++.lib;tbb.lib;tbbmalloc.lib;ws2_32.lib</AdditionalDependencies>
       <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
     </Link>
     <PostBuildEvent>

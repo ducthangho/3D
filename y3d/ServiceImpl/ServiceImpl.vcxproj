@@ -26,7 +26,7 @@
     <WholeProgramOptimization>true</WholeProgramOptimization>
   </PropertyGroup>
   <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
   </PropertyGroup>
   <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -36,6 +36,7 @@
   <ImportGroup Label="PropertySheets">
     <Import Project="$(MaxSDK)\ProjectSettings\PropertySheets\3dsmax.cpp.props" />
     <Import Project="..\packages\fmt.greedy.3.0.0.1\build\native\fmt.greedy.targets" Condition="Exists('..\packages\fmt.greedy.3.0.0.1\build\native\fmt.greedy.targets')" />
+    <Import Project="..\..\MaxNet\Y3D\packages\fmt.greedy.3.0.0.1\build\native\fmt.greedy.targets" Condition="Exists('..\..\MaxNet\Y3D\packages\fmt.greedy.3.0.0.1\build\native\fmt.greedy.targets')" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Import Project="y3d.props" />
@@ -57,7 +58,7 @@
     <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+    <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
@@ -69,8 +70,8 @@
       <AdditionalIncludeDirectories>$(MaxSdkInc);$(MsBuildProjectDirectory)\..\include;$(MsBuildProjectDirectory)\..\Service\grpc\;$(MsBuildProjectDirectory)\..\Service\grpc\include;$(MsBuildProjectDirectory)\..\Service\grpc\third_party\protobuf\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <WarningLevel>Level2</WarningLevel>
       <Optimization Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">Disabled</Optimization>
-      <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">MaxSpeed</Optimization>
-      <RuntimeLibrary Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">MultiThreadedDLL</RuntimeLibrary>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Disabled</Optimization>
+      <RuntimeLibrary Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(RuntimeLibrary)</RuntimeLibrary>
       <InlineFunctionExpansion Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Default</InlineFunctionExpansion>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
       <PreprocessToFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</PreprocessToFile>
@@ -79,10 +80,11 @@
       <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">false</TreatWarningAsError>
       <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">4706;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">/GR /we4002 /we4390 /we4557 /we4546 /we4545 /we4295 /we4310 /we4130 /we4611 /we4213 /we4121 /we4715 /we4701 /w34265 /wd4244 /wd4018 /wd4819 /wd4456 /wd4457 /wd4458 /wd4459 /wd4589 /wd4702 </AdditionalOptions>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(MSBuildProjectDirectory)\..\include\export_dll.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(MaxSdkLib);$(MsBuildProjectDirectory)\..\lib\tbb;$(MsBuildProjectDirectory)\..\lib;$(MsBuildProjectDirectory)\..\lib\grpc;$(MsBuildProjectDirectory)\..\lib\protobuf;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>libprotobuf.lib;libprotoc.lib;tbb.lib;tbbmalloc.lib;core.lib;geom.lib;gfx.lib;mesh.lib;maxutil.lib;maxscrpt.lib;gup.lib;paramblk2.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(MaxSdkLib)..\Release;$(MsBuildProjectDirectory)\..\lib\tbb;$(MsBuildProjectDirectory)\..\lib;$(MsBuildProjectDirectory)\..\lib\grpc\$(Configuration);$(MsBuildProjectDirectory)\..\lib\protobuf\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>tbb.lib;tbbmalloc.lib;core.lib;geom.lib;gfx.lib;mesh.lib;maxutil.lib;maxscrpt.lib;gup.lib;paramblk2.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ModuleDefinitionFile>
       </ModuleDefinitionFile>
       <LinkTimeCodeGeneration Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
@@ -157,5 +159,6 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\fmt.greedy.3.0.0.1\build\native\fmt.greedy.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\fmt.greedy.3.0.0.1\build\native\fmt.greedy.targets'))" />
+    <Error Condition="!Exists('..\..\MaxNet\Y3D\packages\fmt.greedy.3.0.0.1\build\native\fmt.greedy.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\MaxNet\Y3D\packages\fmt.greedy.3.0.0.1\build\native\fmt.greedy.targets'))" />
   </Target>
 </Project>

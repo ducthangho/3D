@@ -498,6 +498,5 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="Service.def" />
   </ItemGroup>
 </Project>

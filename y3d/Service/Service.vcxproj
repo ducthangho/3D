@@ -25,6 +25,7 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <CLRSupport>false</CLRSupport>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
   </PropertyGroup>
   <Import Project="$(MaxSDK)\ProjectSettings\PropertySheets\3dsmax.general.project.settings.props" />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
@@ -51,14 +52,14 @@
     <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+    <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
   </PropertyGroup>
   <ItemDefinitionGroup>
     <ClCompile>
-      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
       <PreprocessorDefinitions>_USE_DYNAMIC_LOADED_DLL;Y3DSERVICE_EXPORT;NOMINMAX;PROTOBUF_USE_DLLS;_CRT_SECURE_NO_WARNINGS;WIN32_LEAN_AND_MEAN;_ADESK_3DSMAX_WINDOWS_;WINVER=0x0A00;_WIN32_WINNT=0x0A00;_WIN32_WINDOWS=0x0A00;_WIN32_IE=0x0800;_WINDOWS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_DEPRECATE;_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1;_CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES=1;ISOLATION_AWARE_ENABLED=1;SECURE_SCL=0;WIN64;_UNICODE;UNICODE;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(MsBuildProjectDirectory)\..\include;$(MaxSdkInc);$(MsBuildProjectDirectory)\grpc\;$(MsBuildProjectDirectory)\grpc\include;$(MsBuildProjectDirectory)\grpc\third_party\protobuf\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <WarningLevel>Level2</WarningLevel>
@@ -73,20 +74,21 @@
       <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</TreatWarningAsError>
       <Optimization Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">Disabled</Optimization>
       <InlineFunctionExpansion Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">AnySuitable</InlineFunctionExpansion>
-      <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">MaxSpeed</Optimization>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Disabled</Optimization>
       <InlineFunctionExpansion Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">AnySuitable</InlineFunctionExpansion>
       <MinimalRebuild Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">false</MinimalRebuild>
       <MinimalRebuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</MinimalRebuild>
       <MinimalRebuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</MinimalRebuild>
-      <RuntimeLibrary Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeLibrary Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">MultiThreadedDebugDLL</RuntimeLibrary>
       <DebugInformationFormat Condition="'$(Configuration)|$(Platform)'=='Release|x64'">ProgramDatabase</DebugInformationFormat>
       <OmitDefaultLibName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</OmitDefaultLibName>
       <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(MSBuildProjectDirectory)\..\include\import_dll.h</ForcedIncludeFiles>
       <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">$(MSBuildProjectDirectory)\..\include\import_dll.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(MSBuildProjectDirectory)\..\include\import_dll.h</ForcedIncludeFiles>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(MsBuildProjectDirectory)\..\lib\tbb;$(MsBuildProjectDirectory)\..\lib;$(MsBuildProjectDirectory)\..\lib\grpc;$(MsBuildProjectDirectory)\..\lib\protobuf;$(MsBuildProjectDirectory)\..\ServiceImpl\obj\x64\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>grpc_dll.lib;ws2_32.lib;libprotobuf.lib;libprotoc.lib;tbb.lib;tbbmalloc.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(MsBuildProjectDirectory)\..\lib\tbb;$(MsBuildProjectDirectory)\..\lib;$(MsBuildProjectDirectory)\..\lib\grpc\$(Configuration);$(MsBuildProjectDirectory)\..\lib\protobuf\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>grpc_dll.lib;ws2_32.lib;tbb.lib;tbbmalloc.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ModuleDefinitionFile>
       </ModuleDefinitionFile>
       <LinkTimeCodeGeneration Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
@@ -437,7 +439,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="Service.def" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\common.h" />

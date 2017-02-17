@@ -1,7 +1,5 @@
 // LoaderCmd.cpp : Defines the entry point for the console application.
 //
-
-
 #include "yloader.pb.h"
 #include "yloader.grpc.pb.h"
 #include "y3d.pb.h"

@@ -44,6 +44,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] = {
   ~0u,  // no _oneof_case_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ResultType, error_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ResultType, message_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ResultType, process_id_),
 };
 
 static const ::google::protobuf::internal::MigrationSchema schemas[] = {
@@ -102,13 +103,18 @@ void AddDescriptorsImpl() {
   InitDefaults();
   static const char descriptor[] = {
       "\n\ryloader.proto\022\003y3d\"\025\n\007LibInfo\022\n\n\002id\030\001 "
-      "\001(\005\",\n\nResultType\022\r\n\005error\030\001 \001(\010\022\017\n\007mess"
-      "age\030\002 \001(\t2a\n\006Loader\022+\n\010Shutdown\022\014.y3d.Li"
-      "bInfo\032\017.y3d.ResultType\"\000\022*\n\007LoadDll\022\014.y3"
-      "d.LibInfo\032\017.y3d.ResultType\"\000b\006proto3"
+      "\001(\005\"@\n\nResultType\022\r\n\005error\030\001 \001(\010\022\017\n\007mess"
+      "age\030\002 \001(\t\022\022\n\nprocess_id\030\003 \001(\0052a\n\006Loader\022"
+      "+\n\010Shutdown\022\014.y3d.LibInfo\032\017.y3d.ResultTy"
+      "pe\"\000\022*\n\007LoadDll\022\014.y3d.LibInfo\032\017.y3d.Resu"
+      "ltType\"\0002\231\001\n\021YServiceMaxLoader\022+\n\010Shutdo"
+      "wn\022\014.y3d.LibInfo\032\017.y3d.ResultType\"\000\022*\n\007L"
+      "oadDll\022\014.y3d.LibInfo\032\017.y3d.ResultType\"\000\022"
+      "+\n\010CloseApp\022\014.y3d.LibInfo\032\017.y3d.ResultTy"
+      "pe\"\000B\010\252\002\005y3d.sb\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 196);
+      descriptor, 382);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "yloader.proto", &protobuf_RegisterTypes);
   ::google::protobuf::internal::OnShutdown(&TableStruct::Shutdown);
@@ -358,6 +364,7 @@ void LibInfo::set_id(::google::protobuf::int32 value) {
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int ResultType::kErrorFieldNumber;
 const int ResultType::kMessageFieldNumber;
+const int ResultType::kProcessIdFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 ResultType::ResultType()
@@ -377,13 +384,16 @@ ResultType::ResultType(const ResultType& from)
   if (from.message().size() > 0) {
     message_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.message_);
   }
-  error_ = from.error_;
+  ::memcpy(&error_, &from.error_,
+    reinterpret_cast<char*>(&process_id_) -
+    reinterpret_cast<char*>(&error_) + sizeof(process_id_));
   // @@protoc_insertion_point(copy_constructor:y3d.ResultType)
 }
 
 void ResultType::SharedCtor() {
   message_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  error_ = false;
+  ::memset(&error_, 0, reinterpret_cast<char*>(&process_id_) -
+    reinterpret_cast<char*>(&error_) + sizeof(process_id_));
   _cached_size_ = 0;
 }
 
@@ -422,7 +432,8 @@ ResultType* ResultType::New(::google::protobuf::Arena* arena) const {
 void ResultType::Clear() {
 // @@protoc_insertion_point(message_clear_start:y3d.ResultType)
   message_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  error_ = false;
+  ::memset(&error_, 0, reinterpret_cast<char*>(&process_id_) -
+    reinterpret_cast<char*>(&error_) + sizeof(process_id_));
 }
 
 bool ResultType::MergePartialFromCodedStream(
@@ -457,6 +468,19 @@ bool ResultType::MergePartialFromCodedStream(
             this->message().data(), this->message().length(),
             ::google::protobuf::internal::WireFormatLite::PARSE,
             "y3d.ResultType.message"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // int32 process_id = 3;
+      case 3: {
+        if (tag == 24u) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &process_id_)));
         } else {
           goto handle_unusual;
         }
@@ -502,6 +526,11 @@ void ResultType::SerializeWithCachedSizes(
       2, this->message(), output);
   }
 
+  // int32 process_id = 3;
+  if (this->process_id() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->process_id(), output);
+  }
+
   // @@protoc_insertion_point(serialize_end:y3d.ResultType)
 }
 
@@ -525,6 +554,11 @@ void ResultType::SerializeWithCachedSizes(
         2, this->message(), target);
   }
 
+  // int32 process_id = 3;
+  if (this->process_id() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->process_id(), target);
+  }
+
   // @@protoc_insertion_point(serialize_to_array_end:y3d.ResultType)
   return target;
 }
@@ -543,6 +577,13 @@ size_t ResultType::ByteSizeLong() const {
   // bool error = 1;
   if (this->error() != 0) {
     total_size += 1 + 1;
+  }
+
+  // int32 process_id = 3;
+  if (this->process_id() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->process_id());
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -578,6 +619,9 @@ void ResultType::MergeFrom(const ResultType& from) {
   if (from.error() != 0) {
     set_error(from.error());
   }
+  if (from.process_id() != 0) {
+    set_process_id(from.process_id());
+  }
 }
 
 void ResultType::CopyFrom(const ::google::protobuf::Message& from) {
@@ -605,6 +649,7 @@ void ResultType::Swap(ResultType* other) {
 void ResultType::InternalSwap(ResultType* other) {
   message_.Swap(&other->message_);
   std::swap(error_, other->error_);
+  std::swap(process_id_, other->process_id_);
   std::swap(_cached_size_, other->_cached_size_);
 }
 
@@ -680,6 +725,20 @@ void ResultType::set_allocated_message(::std::string* message) {
   }
   message_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), message);
   // @@protoc_insertion_point(field_set_allocated:y3d.ResultType.message)
+}
+
+// int32 process_id = 3;
+void ResultType::clear_process_id() {
+  process_id_ = 0;
+}
+::google::protobuf::int32 ResultType::process_id() const {
+  // @@protoc_insertion_point(field_get:y3d.ResultType.process_id)
+  return process_id_;
+}
+void ResultType::set_process_id(::google::protobuf::int32 value) {
+  
+  process_id_ = value;
+  // @@protoc_insertion_point(field_set:y3d.ResultType.process_id)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS

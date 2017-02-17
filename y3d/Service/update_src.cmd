@@ -11,8 +11,7 @@ git checkout tags/v1.1.2
 REM xcopy .gitmodules grpc/ /D /Y
 xcopy .gitignore grpc /Y
 cd grpc
-git submodule update --init --recursive
-git submodule update --remote
+git submodule update --init --remote --merge --recursive
 REM git config core.sparseCheckout true
 REM echo src/* >> .git/info/sparse-checkout
 REM echo include/* >> .git/info/sparse-checkout

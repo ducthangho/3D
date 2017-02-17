@@ -11,9 +11,9 @@ mkdir grpc\bin\zlib\release
 
 cd grpc\third_party\zlib
 mkdir build & cd build
-rem mkdir debug & cd debug
-rem cmake -G "NMake Makefiles" -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=../../../../bin/zlib/debug ../..
-rem nmake & nmake install
+mkdir debug & cd debug
+cmake -G "NMake Makefiles" -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=../../../../bin/zlib/debug ../..
+nmake & nmake install
 
 rem cd ..
 mkdir release & cd release
@@ -31,18 +31,20 @@ cd grpc\third_party\protobuf\cmake
 
 del /Q CMakeCache.txt
 cmake -G "Visual Studio 14 2015 Win64" -Dprotobuf_BUILD_TESTS=OFF -Dprotobuf_WITH_ZLIB=ON
-rem devenv.com protobuf.sln /build "Debug|x64" /project ALL_BUILD
-rem if not %ERRORLEVEL% == 0 goto Finish
-rem robocopy /mir .\Debug ..\..\..\bin\protobuf\debug
-rem robocopy /mir .\Release build\solution\Debug
+devenv.com protobuf.sln /build "Debug|x64" /project ALL_BUILD
+if not %ERRORLEVEL% == 0 goto Finish
+robocopy /mir .\Debug ..\..\..\bin\protobuf\debug
+robocopy /mir .\Debug ..\..\..\..\..\lib\protobuf\Debug
+robocopy /mir .\Debug build\solution\Debug
+
 
 devenv.com protobuf.sln /build "Release|x64" /project ALL_BUILD
 rem msbuild /m /p:Configuration=Release protobuf.sln
 if not %ERRORLEVEL% == 0 goto Finish
-robocopy /mir .\Release ..\..\..\bin\protobuf\release
-robocopy /mir .\Release ..\..\..\..\..\lib\protobuf
+robocopy /mir .\Release ..\..\..\bin\protobuf\Release
+robocopy /mir .\Release ..\..\..\..\..\lib\protobuf\Release
 robocopy /mir .\Release build\solution\Release
-rem devenv.com protobuf.sln /clean "Debug|x64"
+devenv.com protobuf.sln /clean "Debug|x64"
 rem msbuild protobuf.sln /t:Clean
 devenv.com protobuf.sln /clean "Release|x64"
 
@@ -69,15 +71,23 @@ copy /Y "..\..\grpc++_unsecure.vcxproj" "vcxproj\grpc++_unsecure\"
 copy /Y "..\..\grpc++.vcxproj" "vcxproj\grpc++\"
 rem devenv.com grpc.sln /build "Release|x64" /project grpc_dll
 msbuild /m /p:Configuration=Release /p:Platform=x64 /p:WarningLevel=0 /p:TreatWarningAsErrors=false grpc.sln /t:grpc_dll
+msbuild /m /p:Configuration=Debug /p:Platform=x64 /p:WarningLevel=0 /p:TreatWarningAsErrors=false grpc.sln /t:grpc_dll
+
 rem devenv.com grpc.sln /build "Release|x64" /project grpc++
 msbuild /m /p:Configuration=Release /p:Platform=x64 /p:WarningLevel=0 /p:TreatWarningAsErrors=false grpc.sln /t:grpc++
+msbuild /m /p:Configuration=Debug /p:Platform=x64 /p:WarningLevel=0 /p:TreatWarningAsErrors=false grpc.sln /t:grpc++
 rem devenv.com grpc.sln /build "Release|x64" /project grpc++_unsecure
 msbuild /m /p:Configuration=Release /p:Platform=x64 /p:WarningLevel=0 /p:TreatWarningAsError=false grpc.sln /t:grpc++_unsecure
+msbuild /m /p:Configuration=Debug /p:Platform=x64 /p:WarningLevel=0 /p:TreatWarningAsError=false grpc.sln /t:grpc++_unsecure
 rem devenv.com grpc_csharp_ext.sln /build "Release|x64" /project grpc_csharp_ext
 msbuild /m /p:Configuration=Release /p:Platform=x64 /p:WarningLevel=0 /p:TreatWarningsAsErrors=false grpc_csharp_ext.sln /t:grpc_csharp_ext
+msbuild /m /p:Configuration=Debug /p:Platform=x64 /p:WarningLevel=0 /p:TreatWarningsAsErrors=false grpc_csharp_ext.sln /t:grpc_csharp_ext
 if not %ERRORLEVEL% == 0 goto Finish
 robocopy /mir .\x64\Release ..\bin\grpc\release /XF *grpc_cpp_plugin*
-robocopy /mir .\x64\Release ..\..\..\lib\grpc /XF *grpc_cpp_plugin*
+robocopy /mir .\x64\Release ..\..\..\lib\grpc\Release /XF *grpc_cpp_plugin*
+robocopy /mir .\x64\Debug ..\bin\grpc\Debug /XF *grpc_cpp_plugin*
+robocopy /mir .\x64\Debug ..\..\..\lib\grpc\Debug /XF *grpc_cpp_plugin*
+
 
 rem devenv.com grpc.sln /clean "Debug"
 msbuild grpc.sln /t:Clean /p:Configuration=Debug
@@ -103,8 +113,11 @@ cd build
 del /Q CMakeCache.txt
 cmake -G "Visual Studio 14 2015 Win64" -Dprotobuf_BUILD_SHARED_LIBS=ON -Dprotobuf_BUILD_TESTS=OFF -Dprotobuf_MSVC_STATIC_RUNTIME=OFF -Dprotobuf_WITH_ZLIB=OFF ..
 msbuild /m /p:Configuration=Release protobuf.sln
-xcopy "Release\*.*" "..\..\..\..\..\..\bin\" /Y
-xcopy "Release\*.*" "..\..\..\..\..\..\lib\protobuf\" /Y
+msbuild /m /p:Configuration=Debug protobuf.sln
+xcopy "Release\*.*" "..\..\..\..\..\..\bin\Release" /Y
+xcopy "Release\*.*" "..\..\..\..\..\..\lib\protobuf\Release" /Y
+xcopy "Debug\*.*" "..\..\..\..\..\..\bin\Debug" /Y
+xcopy "Debug\*.*" "..\..\..\..\..\..\lib\protobuf\Debug" /Y
 msbuild protobuf.sln /t:Clean
 cd ..\..\..\..\..
 call ..\bin\ygen.cmd

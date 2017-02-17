@@ -25,9 +25,9 @@ namespace Y3D.rpc
         //public static Channel CChannel;
         //public static Channel CSChannel;
         //public static Channel CSChannelMaster;
-        public static Channel CChannel = new Channel("127.0.0.1:8001", ChannelCredentials.Insecure);
-        public static Channel CSChannel = new Channel("127.0.0.1:1983", ChannelCredentials.Insecure);
-        public static Channel CSChannelMaster = new Channel("127.0.0.1:8000", ChannelCredentials.Insecure);
+        //public static Channel CChannel = new Channel("127.0.0.1:8001", ChannelCredentials.Insecure);
+        //public static Channel CSChannel = new Channel("127.0.0.1:1983", ChannelCredentials.Insecure);
+        //public static Channel CSChannelMaster = new Channel("127.0.0.1:8000", ChannelCredentials.Insecure);
 
         public static y3d.s.YServiceMaxTools.YServiceMaxToolsClient CClient;
         //public static y3d.s.YSWorkers.YSWorkersClient CWClient;

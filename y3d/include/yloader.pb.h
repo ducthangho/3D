@@ -223,12 +223,19 @@ class Y3D_EXPORT_MACRO ResultType : public ::google::protobuf::Message /* @@prot
   bool error() const;
   void set_error(bool value);
 
+  // int32 process_id = 3;
+  void clear_process_id();
+  static const int kProcessIdFieldNumber = 3;
+  ::google::protobuf::int32 process_id() const;
+  void set_process_id(::google::protobuf::int32 value);
+
   // @@protoc_insertion_point(class_scope:y3d.ResultType)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::ArenaStringPtr message_;
   bool error_;
+  ::google::protobuf::int32 process_id_;
   mutable int _cached_size_;
   friend struct Y3D_EXPORT_MACRO protobuf_yloader_2eproto::TableStruct;
 };
@@ -322,6 +329,20 @@ inline void ResultType::set_allocated_message(::std::string* message) {
   }
   message_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), message);
   // @@protoc_insertion_point(field_set_allocated:y3d.ResultType.message)
+}
+
+// int32 process_id = 3;
+inline void ResultType::clear_process_id() {
+  process_id_ = 0;
+}
+inline ::google::protobuf::int32 ResultType::process_id() const {
+  // @@protoc_insertion_point(field_get:y3d.ResultType.process_id)
+  return process_id_;
+}
+inline void ResultType::set_process_id(::google::protobuf::int32 value) {
+  
+  process_id_ = value;
+  // @@protoc_insertion_point(field_set:y3d.ResultType.process_id)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS

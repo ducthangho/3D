@@ -68,8 +68,18 @@ class BatchOptimizeParamDefaultTypeInternal : public ::google::protobuf::interna
 } _BatchOptimizeParam_default_instance_;
 class StringParamDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<StringParam> {
 } _StringParam_default_instance_;
+class IntParamDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<IntParam> {
+} _IntParam_default_instance_;
 class TestParamDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<TestParam> {
 } _TestParam_default_instance_;
+class WorkerParamDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<WorkerParam> {
+  public:
+  ::google::protobuf::int32 wid_;
+  ::google::protobuf::internal::ArenaStringPtr wname_;
+  const ::y3d::YWorker* worker_;
+} _WorkerParam_default_instance_;
+class AllWorkerParamDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<AllWorkerParam> {
+} _AllWorkerParam_default_instance_;
 class YEventDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<YEvent> {
   public:
   const ::y3d::ENone* noevent_;
@@ -158,8 +168,14 @@ class TestObjectDefaultTypeInternal : public ::google::protobuf::internal::Expli
 } _TestObject_default_instance_;
 class YJobDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<YJob> {
 } _YJob_default_instance_;
+class YJobListDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<YJobList> {
+} _YJobList_default_instance_;
 class YWorkerDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<YWorker> {
 } _YWorker_default_instance_;
+class YSubWorkerDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<YSubWorker> {
+} _YSubWorker_default_instance_;
+class YMainWorkerDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<YMainWorker> {
+} _YMainWorker_default_instance_;
 class YWorkerListDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<YWorkerList> {
 } _YWorkerList_default_instance_;
 class YWorkerRequestDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<YWorkerRequest> {
@@ -176,7 +192,7 @@ namespace protobuf_y3d_2eproto {
 
 namespace {
 
-::google::protobuf::Metadata file_level_metadata[65];
+::google::protobuf::Metadata file_level_metadata[71];
 const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[8];
 
 }  // namespace
@@ -352,11 +368,29 @@ const ::google::protobuf::uint32 TableStruct::offsets[] = {
   ~0u,  // no _oneof_case_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(StringParam, str_),
   ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(IntParam, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(IntParam, int_value_),
+  ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TestParam, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TestParam, test_name_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TestParam, anything_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WorkerParam, _internal_metadata_),
+  ~0u,  // no _extensions_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WorkerParam, _oneof_case_[0]),
+  PROTO2_GENERATED_DEFAULT_ONEOF_FIELD_OFFSET((&_WorkerParam_default_instance_), wid_),
+  PROTO2_GENERATED_DEFAULT_ONEOF_FIELD_OFFSET((&_WorkerParam_default_instance_), wname_),
+  PROTO2_GENERATED_DEFAULT_ONEOF_FIELD_OFFSET((&_WorkerParam_default_instance_), worker_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WorkerParam, wtype_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AllWorkerParam, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AllWorkerParam, status_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YEvent, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -587,19 +621,38 @@ const ::google::protobuf::uint32 TableStruct::offsets[] = {
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YJob, out_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YJob, tests_),
   ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YJobList, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YJobList, jobs_),
+  ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YWorker, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YWorker, wid_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YWorker, wname_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YWorker, ip_address_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YWorker, asset_folder_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YWorker, process_id_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YWorker, status_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YSubWorker, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YSubWorker, sid_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YSubWorker, sname_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YSubWorker, asset_folder_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YSubWorker, worker_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YMainWorker, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YMainWorker, main_worker_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YMainWorker, workers_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YMainWorker, working_project_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YWorkerList, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YWorkerList, master_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YWorkerList, workers_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YWorkerRequest, _internal_metadata_),
@@ -620,8 +673,9 @@ const ::google::protobuf::uint32 TableStruct::offsets[] = {
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YWorkerResponse, wlist_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YWorkerResponse, new_worker_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YWorkerResponse, worker_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YWorkerResponse, error_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YWorkerResponse, message_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(YMasterServer, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -657,44 +711,50 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] = {
   { 152, -1, sizeof(OptimizeParam)},
   { 157, -1, sizeof(BatchOptimizeParam)},
   { 164, -1, sizeof(StringParam)},
-  { 169, -1, sizeof(TestParam)},
-  { 175, -1, sizeof(YEvent)},
-  { 187, -1, sizeof(ENone)},
-  { 191, -1, sizeof(ESelect)},
-  { 197, -1, sizeof(ESelectMany)},
-  { 203, -1, sizeof(EMove)},
-  { 208, -1, sizeof(ERotate)},
-  { 213, -1, sizeof(EDelete)},
-  { 218, -1, sizeof(EIsolate)},
-  { 224, -1, sizeof(ResponseEvent)},
-  { 230, -1, sizeof(EUnwrap)},
-  { 239, -1, sizeof(BlenderUnwrap)},
-  { 243, -1, sizeof(MaxUnwrap)},
-  { 249, -1, sizeof(EPacking)},
-  { 259, -1, sizeof(PackRect)},
-  { 265, -1, sizeof(Pack3DMax)},
-  { 274, -1, sizeof(ELowpoly)},
-  { 283, -1, sizeof(LPoly3DMax)},
-  { 294, -1, sizeof(LPolyBlender)},
-  { 299, -1, sizeof(LPolyMeshlab)},
-  { 303, -1, sizeof(ENormal)},
-  { 315, -1, sizeof(Normal3DMax)},
-  { 319, -1, sizeof(ProjectInfo)},
-  { 331, -1, sizeof(SettingData)},
-  { 337, -1, sizeof(PSetting)},
-  { 343, -1, sizeof(YSystem)},
-  { 353, -1, sizeof(NewProjectParam)},
-  { 360, -1, sizeof(ResponseNProject)},
-  { 367, -1, sizeof(YJobAction)},
-  { 376, -1, sizeof(YItemMesh)},
-  { 384, -1, sizeof(TestObject)},
-  { 394, -1, sizeof(YJob)},
-  { 404, -1, sizeof(YWorker)},
-  { 413, -1, sizeof(YWorkerList)},
-  { 419, -1, sizeof(YWorkerRequest)},
-  { 426, -1, sizeof(WorkerApp)},
-  { 433, -1, sizeof(YWorkerResponse)},
-  { 440, -1, sizeof(YMasterServer)},
+  { 169, -1, sizeof(IntParam)},
+  { 174, -1, sizeof(TestParam)},
+  { 180, -1, sizeof(WorkerParam)},
+  { 188, -1, sizeof(AllWorkerParam)},
+  { 193, -1, sizeof(YEvent)},
+  { 205, -1, sizeof(ENone)},
+  { 209, -1, sizeof(ESelect)},
+  { 215, -1, sizeof(ESelectMany)},
+  { 221, -1, sizeof(EMove)},
+  { 226, -1, sizeof(ERotate)},
+  { 231, -1, sizeof(EDelete)},
+  { 236, -1, sizeof(EIsolate)},
+  { 242, -1, sizeof(ResponseEvent)},
+  { 248, -1, sizeof(EUnwrap)},
+  { 257, -1, sizeof(BlenderUnwrap)},
+  { 261, -1, sizeof(MaxUnwrap)},
+  { 267, -1, sizeof(EPacking)},
+  { 277, -1, sizeof(PackRect)},
+  { 283, -1, sizeof(Pack3DMax)},
+  { 292, -1, sizeof(ELowpoly)},
+  { 301, -1, sizeof(LPoly3DMax)},
+  { 312, -1, sizeof(LPolyBlender)},
+  { 317, -1, sizeof(LPolyMeshlab)},
+  { 321, -1, sizeof(ENormal)},
+  { 333, -1, sizeof(Normal3DMax)},
+  { 337, -1, sizeof(ProjectInfo)},
+  { 349, -1, sizeof(SettingData)},
+  { 355, -1, sizeof(PSetting)},
+  { 361, -1, sizeof(YSystem)},
+  { 371, -1, sizeof(NewProjectParam)},
+  { 378, -1, sizeof(ResponseNProject)},
+  { 385, -1, sizeof(YJobAction)},
+  { 394, -1, sizeof(YItemMesh)},
+  { 402, -1, sizeof(TestObject)},
+  { 412, -1, sizeof(YJob)},
+  { 422, -1, sizeof(YJobList)},
+  { 427, -1, sizeof(YWorker)},
+  { 436, -1, sizeof(YSubWorker)},
+  { 444, -1, sizeof(YMainWorker)},
+  { 451, -1, sizeof(YWorkerList)},
+  { 456, -1, sizeof(YWorkerRequest)},
+  { 463, -1, sizeof(WorkerApp)},
+  { 470, -1, sizeof(YWorkerResponse)},
+  { 478, -1, sizeof(YMasterServer)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -721,7 +781,10 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&_OptimizeParam_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_BatchOptimizeParam_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_StringParam_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_IntParam_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_TestParam_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_WorkerParam_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_AllWorkerParam_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_YEvent_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_ENone_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_ESelect_default_instance_),
@@ -753,7 +816,10 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&_YItemMesh_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_TestObject_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_YJob_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_YJobList_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_YWorker_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_YSubWorker_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_YMainWorker_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_YWorkerList_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_YWorkerRequest_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_WorkerApp_default_instance_),
@@ -779,7 +845,7 @@ void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) GOOGLE_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 65);
+  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 71);
   const ::google::protobuf::Descriptor* YObject_ExtraEntry_descriptor = protobuf_y3d_2eproto::file_level_metadata[6].descriptor;
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
         YObject_ExtraEntry_descriptor,
@@ -800,7 +866,7 @@ void protobuf_RegisterTypes(const ::std::string&) {
             ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE,
             0>::CreateDefaultInstance(
                 YArea_GversEntry_descriptor));
-  const ::google::protobuf::Descriptor* SettingData_DataEntry_descriptor = protobuf_y3d_2eproto::file_level_metadata[48].descriptor;
+  const ::google::protobuf::Descriptor* SettingData_DataEntry_descriptor = protobuf_y3d_2eproto::file_level_metadata[51].descriptor;
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
         SettingData_DataEntry_descriptor,
         ::google::protobuf::internal::MapEntry<
@@ -810,7 +876,7 @@ void protobuf_RegisterTypes(const ::std::string&) {
             ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE,
             0>::CreateDefaultInstance(
                 SettingData_DataEntry_descriptor));
-  const ::google::protobuf::Descriptor* YSystem_AppsEntry_descriptor = protobuf_y3d_2eproto::file_level_metadata[51].descriptor;
+  const ::google::protobuf::Descriptor* YSystem_AppsEntry_descriptor = protobuf_y3d_2eproto::file_level_metadata[54].descriptor;
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
         YSystem_AppsEntry_descriptor,
         ::google::protobuf::internal::MapEntry<
@@ -871,82 +937,94 @@ void TableStruct::Shutdown() {
   delete file_level_metadata[23].reflection;
   _StringParam_default_instance_.Shutdown();
   delete file_level_metadata[24].reflection;
-  _TestParam_default_instance_.Shutdown();
+  _IntParam_default_instance_.Shutdown();
   delete file_level_metadata[25].reflection;
-  _YEvent_default_instance_.Shutdown();
+  _TestParam_default_instance_.Shutdown();
   delete file_level_metadata[26].reflection;
-  _ENone_default_instance_.Shutdown();
+  _WorkerParam_default_instance_.Shutdown();
   delete file_level_metadata[27].reflection;
-  _ESelect_default_instance_.Shutdown();
+  _AllWorkerParam_default_instance_.Shutdown();
   delete file_level_metadata[28].reflection;
-  _ESelectMany_default_instance_.Shutdown();
+  _YEvent_default_instance_.Shutdown();
   delete file_level_metadata[29].reflection;
-  _EMove_default_instance_.Shutdown();
+  _ENone_default_instance_.Shutdown();
   delete file_level_metadata[30].reflection;
-  _ERotate_default_instance_.Shutdown();
+  _ESelect_default_instance_.Shutdown();
   delete file_level_metadata[31].reflection;
-  _EDelete_default_instance_.Shutdown();
+  _ESelectMany_default_instance_.Shutdown();
   delete file_level_metadata[32].reflection;
-  _EIsolate_default_instance_.Shutdown();
+  _EMove_default_instance_.Shutdown();
   delete file_level_metadata[33].reflection;
-  _ResponseEvent_default_instance_.Shutdown();
+  _ERotate_default_instance_.Shutdown();
   delete file_level_metadata[34].reflection;
-  _EUnwrap_default_instance_.Shutdown();
+  _EDelete_default_instance_.Shutdown();
   delete file_level_metadata[35].reflection;
-  _BlenderUnwrap_default_instance_.Shutdown();
+  _EIsolate_default_instance_.Shutdown();
   delete file_level_metadata[36].reflection;
-  _MaxUnwrap_default_instance_.Shutdown();
+  _ResponseEvent_default_instance_.Shutdown();
   delete file_level_metadata[37].reflection;
-  _EPacking_default_instance_.Shutdown();
+  _EUnwrap_default_instance_.Shutdown();
   delete file_level_metadata[38].reflection;
-  _PackRect_default_instance_.Shutdown();
+  _BlenderUnwrap_default_instance_.Shutdown();
   delete file_level_metadata[39].reflection;
-  _Pack3DMax_default_instance_.Shutdown();
+  _MaxUnwrap_default_instance_.Shutdown();
   delete file_level_metadata[40].reflection;
-  _ELowpoly_default_instance_.Shutdown();
+  _EPacking_default_instance_.Shutdown();
   delete file_level_metadata[41].reflection;
-  _LPoly3DMax_default_instance_.Shutdown();
+  _PackRect_default_instance_.Shutdown();
   delete file_level_metadata[42].reflection;
-  _LPolyBlender_default_instance_.Shutdown();
+  _Pack3DMax_default_instance_.Shutdown();
   delete file_level_metadata[43].reflection;
-  _LPolyMeshlab_default_instance_.Shutdown();
+  _ELowpoly_default_instance_.Shutdown();
   delete file_level_metadata[44].reflection;
-  _ENormal_default_instance_.Shutdown();
+  _LPoly3DMax_default_instance_.Shutdown();
   delete file_level_metadata[45].reflection;
-  _Normal3DMax_default_instance_.Shutdown();
+  _LPolyBlender_default_instance_.Shutdown();
   delete file_level_metadata[46].reflection;
-  _ProjectInfo_default_instance_.Shutdown();
+  _LPolyMeshlab_default_instance_.Shutdown();
   delete file_level_metadata[47].reflection;
-  _SettingData_default_instance_.Shutdown();
+  _ENormal_default_instance_.Shutdown();
+  delete file_level_metadata[48].reflection;
+  _Normal3DMax_default_instance_.Shutdown();
   delete file_level_metadata[49].reflection;
-  _PSetting_default_instance_.Shutdown();
+  _ProjectInfo_default_instance_.Shutdown();
   delete file_level_metadata[50].reflection;
-  _YSystem_default_instance_.Shutdown();
+  _SettingData_default_instance_.Shutdown();
   delete file_level_metadata[52].reflection;
-  _NewProjectParam_default_instance_.Shutdown();
+  _PSetting_default_instance_.Shutdown();
   delete file_level_metadata[53].reflection;
-  _ResponseNProject_default_instance_.Shutdown();
-  delete file_level_metadata[54].reflection;
-  _YJobAction_default_instance_.Shutdown();
+  _YSystem_default_instance_.Shutdown();
   delete file_level_metadata[55].reflection;
-  _YItemMesh_default_instance_.Shutdown();
+  _NewProjectParam_default_instance_.Shutdown();
   delete file_level_metadata[56].reflection;
-  _TestObject_default_instance_.Shutdown();
+  _ResponseNProject_default_instance_.Shutdown();
   delete file_level_metadata[57].reflection;
-  _YJob_default_instance_.Shutdown();
+  _YJobAction_default_instance_.Shutdown();
   delete file_level_metadata[58].reflection;
-  _YWorker_default_instance_.Shutdown();
+  _YItemMesh_default_instance_.Shutdown();
   delete file_level_metadata[59].reflection;
-  _YWorkerList_default_instance_.Shutdown();
+  _TestObject_default_instance_.Shutdown();
   delete file_level_metadata[60].reflection;
-  _YWorkerRequest_default_instance_.Shutdown();
+  _YJob_default_instance_.Shutdown();
   delete file_level_metadata[61].reflection;
-  _WorkerApp_default_instance_.Shutdown();
+  _YJobList_default_instance_.Shutdown();
   delete file_level_metadata[62].reflection;
-  _YWorkerResponse_default_instance_.Shutdown();
+  _YWorker_default_instance_.Shutdown();
   delete file_level_metadata[63].reflection;
-  _YMasterServer_default_instance_.Shutdown();
+  _YSubWorker_default_instance_.Shutdown();
   delete file_level_metadata[64].reflection;
+  _YMainWorker_default_instance_.Shutdown();
+  delete file_level_metadata[65].reflection;
+  _YWorkerList_default_instance_.Shutdown();
+  delete file_level_metadata[66].reflection;
+  _YWorkerRequest_default_instance_.Shutdown();
+  delete file_level_metadata[67].reflection;
+  _WorkerApp_default_instance_.Shutdown();
+  delete file_level_metadata[68].reflection;
+  _YWorkerResponse_default_instance_.Shutdown();
+  delete file_level_metadata[69].reflection;
+  _YMasterServer_default_instance_.Shutdown();
+  delete file_level_metadata[70].reflection;
 }
 
 void TableStruct::InitDefaultsImpl() {
@@ -980,7 +1058,10 @@ void TableStruct::InitDefaultsImpl() {
   _OptimizeParam_default_instance_.DefaultConstruct();
   _BatchOptimizeParam_default_instance_.DefaultConstruct();
   _StringParam_default_instance_.DefaultConstruct();
+  _IntParam_default_instance_.DefaultConstruct();
   _TestParam_default_instance_.DefaultConstruct();
+  _WorkerParam_default_instance_.DefaultConstruct();
+  _AllWorkerParam_default_instance_.DefaultConstruct();
   _YEvent_default_instance_.DefaultConstruct();
   _ENone_default_instance_.DefaultConstruct();
   _ESelect_default_instance_.DefaultConstruct();
@@ -1012,7 +1093,10 @@ void TableStruct::InitDefaultsImpl() {
   _YItemMesh_default_instance_.DefaultConstruct();
   _TestObject_default_instance_.DefaultConstruct();
   _YJob_default_instance_.DefaultConstruct();
+  _YJobList_default_instance_.DefaultConstruct();
   _YWorker_default_instance_.DefaultConstruct();
+  _YSubWorker_default_instance_.DefaultConstruct();
+  _YMainWorker_default_instance_.DefaultConstruct();
   _YWorkerList_default_instance_.DefaultConstruct();
   _YWorkerRequest_default_instance_.DefaultConstruct();
   _WorkerApp_default_instance_.DefaultConstruct();
@@ -1042,6 +1126,11 @@ void TableStruct::InitDefaultsImpl() {
       ::y3d::YColor::internal_default_instance());
   _TestParam_default_instance_.get_mutable()->anything_ = const_cast< ::google::protobuf::Any*>(
       ::google::protobuf::Any::internal_default_instance());
+  _WorkerParam_default_instance_.wid_ = 0;
+  _WorkerParam_default_instance_.wname_.UnsafeSetDefault(
+      &::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  _WorkerParam_default_instance_.worker_ = const_cast< ::y3d::YWorker*>(
+      ::y3d::YWorker::internal_default_instance());
   _YEvent_default_instance_.noevent_ = const_cast< ::y3d::ENone*>(
       ::y3d::ENone::internal_default_instance());
   _YEvent_default_instance_.select_ = const_cast< ::y3d::ESelect*>(
@@ -1112,13 +1201,15 @@ void TableStruct::InitDefaultsImpl() {
       ::y3d::YObject::internal_default_instance());
   _YJob_default_instance_.get_mutable()->out_ = const_cast< ::y3d::YItemMesh*>(
       ::y3d::YItemMesh::internal_default_instance());
-  _YWorkerList_default_instance_.get_mutable()->master_ = const_cast< ::y3d::YWorker*>(
+  _YSubWorker_default_instance_.get_mutable()->worker_ = const_cast< ::y3d::YWorker*>(
       ::y3d::YWorker::internal_default_instance());
+  _YMainWorker_default_instance_.get_mutable()->main_worker_ = const_cast< ::y3d::YSubWorker*>(
+      ::y3d::YSubWorker::internal_default_instance());
   _YWorkerRequest_default_instance_.get_mutable()->app_ = const_cast< ::y3d::WorkerApp*>(
       ::y3d::WorkerApp::internal_default_instance());
   _YWorkerResponse_default_instance_.get_mutable()->wlist_ = const_cast< ::y3d::YWorkerList*>(
       ::y3d::YWorkerList::internal_default_instance());
-  _YWorkerResponse_default_instance_.get_mutable()->new_worker_ = const_cast< ::y3d::YWorker*>(
+  _YWorkerResponse_default_instance_.get_mutable()->worker_ = const_cast< ::y3d::YWorker*>(
       ::y3d::YWorker::internal_default_instance());
 }
 
@@ -1193,115 +1284,125 @@ void AddDescriptorsImpl() {
       "\021\n\tlow_ratio\030\003 \001(\002\"\036\n\rOptimizeParam\022\r\n\005r"
       "atio\030\001 \001(\002\"E\n\022BatchOptimizeParam\022\r\n\005rati"
       "o\030\001 \001(\002\022\016\n\006folder\030\002 \001(\t\022\020\n\010filename\030\003 \001("
-      "\t\"\032\n\013StringParam\022\013\n\003str\030\001 \001(\t\"F\n\tTestPar"
-      "am\022\021\n\ttest_name\030\001 \001(\t\022&\n\010anything\030\002 \001(\0132"
-      "\024.google.protobuf.Any\"\364\001\n\006YEvent\022\035\n\007noev"
-      "ent\030\001 \001(\0132\n.y3d.ENoneH\000\022\036\n\006select\030\002 \001(\0132"
-      "\014.y3d.ESelectH\000\022\032\n\004move\030\003 \001(\0132\n.y3d.EMov"
-      "eH\000\022\036\n\006rotate\030\004 \001(\0132\014.y3d.ERotateH\000\022\033\n\003d"
-      "el\030\005 \001(\0132\014.y3d.EDeleteH\000\022\'\n\013select_many\030"
-      "\006 \001(\0132\020.y3d.ESelectManyH\000\022 \n\007isolate\030\007 \001"
-      "(\0132\r.y3d.EIsolateH\000B\007\n\005event\"\007\n\005ENone\"(\n"
-      "\007ESelect\022\014\n\004name\030\001 \001(\t\022\017\n\007isolate\030\002 \001(\010\""
-      ",\n\013ESelectMany\022\014\n\004name\030\001 \003(\t\022\017\n\007isolate\030"
-      "\002 \001(\010\"\026\n\005EMove\022\r\n\005point\030\001 \003(\002\"\031\n\007ERotate"
-      "\022\016\n\006rotate\030\001 \003(\002\"\027\n\007EDelete\022\014\n\004name\030\001 \001("
-      "\t\",\n\010EIsolate\022\014\n\004name\030\001 \001(\t\022\022\n\nendIsolat"
-      "e\030\002 \001(\010\"+\n\rResponseEvent\022\r\n\005error\030\001 \001(\010\022"
-      "\013\n\003msg\030\002 \001(\t\"|\n\007EUnwrap\022\r\n\005oname\030\001 \001(\t\022\017"
-      "\n\007channel\030\002 \001(\005\022\037\n\005max3d\030\003 \001(\0132\016.y3d.Max"
-      "UnwrapH\000\022%\n\007blender\030\004 \001(\0132\022.y3d.BlenderU"
-      "nwrapH\000B\t\n\007setting\"\017\n\rBlenderUnwrap\"+\n\tM"
-      "axUnwrap\022\r\n\005angle\030\001 \001(\002\022\017\n\007spacing\030\002 \001(\002"
-      "\"\212\001\n\010EPacking\022\r\n\005oname\030\001 \001(\t\022\016\n\006uvname\030\002"
-      " \001(\t\022\021\n\ttile_Size\030\003 \001(\005\022!\n\007packmax\030\004 \001(\013"
-      "2\016.y3d.Pack3DMaxH\000\022!\n\010packrect\030\005 \001(\0132\r.y"
-      "3d.PackRectH\000B\006\n\004pack\",\n\010PackRect\022\017\n\007den"
-      "sity\030\001 \001(\005\022\017\n\007padding\030\002 \001(\002\"m\n\tPack3DMax"
-      "\022\017\n\007numTile\030\001 \001(\005\022\021\n\tnormalize\030\002 \001(\010\022\027\n\017"
-      "rotate_clusters\030\003 \001(\010\022\022\n\nfill_holes\030\004 \001("
-      "\010\022\017\n\007padding\030\005 \001(\010\"\233\001\n\010ELowpoly\022\r\n\005oname"
-      "\030\001 \001(\t\022#\n\010lp_3dmax\030\002 \001(\0132\017.y3d.LPoly3DMa"
-      "xH\000\022\'\n\nlp_blender\030\003 \001(\0132\021.y3d.LPolyBlend"
-      "erH\000\022\'\n\nlp_meshlab\030\004 \001(\0132\021.y3d.LPolyMesh"
-      "labH\000B\t\n\007lowtype\"\212\003\n\nLPoly3DMax\022\026\n\016verte"
-      "x_percent\030\001 \001(\002\022\024\n\014vertex_count\030\002 \001(\005\0221\n"
-      "\021optimization_mode\030\003 \001(\0162\026.y3d.LPoly3DMa"
-      "x.OpMode\022+\n\007normals\030\004 \001(\0162\032.y3d.LPoly3DM"
-      "ax.NormalMode\022\033\n\023favor_compact_faces\030\005 \001"
-      "(\010\022\037\n\027prevent_flipped_normals\030\006 \001(\010\022\034\n\024l"
-      "ock_vertex_position\030\007 \001(\010\"F\n\006OpMode\022\022\n\016C"
-      "RUNCH_BORDERS\020\000\022\023\n\017PROTECT_BORDERS\020\001\022\023\n\017"
-      "EXCLUDE_BORDERS\020\002\"J\n\nNormalMode\022\022\n\016CRUNC"
-      "H_NORMALS\020\000\022\023\n\017PROTECT_NORMALS\020\001\022\023\n\017EXCL"
-      "UDE_NORMALS\020\002\"\035\n\014LPolyBlender\022\r\n\005ratio\030\001"
-      " \001(\002\"\016\n\014LPolyMeshlab\"\276\001\n\007ENormal\022\r\n\005onam"
-      "e\030\001 \001(\t\022\017\n\007lowpoly\030\002 \001(\t\022\020\n\010highpoly\030\003 \001"
-      "(\t\022\020\n\010tex_size\030\004 \001(\r\022\017\n\007out_tex\030\005 \001(\t\022(\n"
-      "\014normal_3dmax\030\006 \001(\0132\020.y3d.Normal3DMaxH\000\022"
-      "+\n\016normal_xnormal\030\007 \001(\0132\021.xnormal.Settin"
-      "gsH\000B\007\n\005ntype\"\r\n\013Normal3DMax\"\364\001\n\013Project"
-      "Info\022\r\n\005pname\030\001 \001(\t\022\024\n\014project_path\030\002 \001("
-      "\t\022&\n\002ts\030\003 \001(\0132\032.google.protobuf.Timestam"
-      "p\022*\n\014optimize_ops\030\005 \001(\0132\024.y3d.OptimizeOp"
-      "tions\022\036\n\005fview\030\006 \003(\0132\017.y3d.FilterView\022\026\n"
-      "\016optimize_ratio\030\007 \001(\002\022\025\n\roriginal_path\030\010"
-      " \001(\t\022\035\n\007workers\030\t \003(\0132\014.y3d.YWorker\"\215\001\n\013"
-      "SettingData\022\021\n\taset_name\030\001 \001(\t\022(\n\004data\030\002"
-      " \003(\0132\032.y3d.SettingData.DataEntry\032A\n\tData"
-      "Entry\022\013\n\003key\030\001 \001(\t\022#\n\005value\030\002 \001(\0132\024.goog"
-      "le.protobuf.Any:\0028\001\"\?\n\010PSetting\022\037\n\005extra"
-      "\030\001 \001(\0132\020.y3d.SettingData\022\022\n\nmax_recent\030\002"
-      " \001(\005\"\243\002\n\007YSystem\022\026\n\016working_folder\030\001 \001(\t"
-      "\022&\n\014default_info\030\002 \001(\0132\020.y3d.ProjectInfo"
-      "\022&\n\017default_setting\030\003 \001(\0132\r.y3d.PSetting"
-      "\022\"\n\010projects\030\004 \003(\0132\020.y3d.ProjectInfo\022$\n\004"
-      "apps\030\005 \003(\0132\026.y3d.YSystem.AppsEntry\022)\n\rma"
-      "ster_server\030\006 \001(\0132\022.y3d.YMasterServer\032;\n"
-      "\tAppsEntry\022\013\n\003key\030\001 \001(\t\022\035\n\005value\030\002 \001(\0132\016"
-      ".y3d.WorkerApp:\0028\001\"F\n\017NewProjectParam\022\r\n"
-      "\005fname\030\001 \001(\t\022\016\n\006folder\030\002 \001(\t\022\024\n\014project_"
-      "path\030\003 \001(\t\"]\n\020ResponseNProject\022\037\n\005pInfo\030"
-      "\001 \001(\0132\020.y3d.ProjectInfo\022\033\n\003yal\030\002 \001(\0132\016.y"
-      "3d.YAreaList\022\013\n\003err\030\004 \001(\t\"\234\001\n\nYJobAction"
-      "\022\036\n\006unwrap\030\001 \001(\0132\014.y3d.EUnwrapH\000\022\035\n\004pack"
-      "\030\002 \001(\0132\r.y3d.EPackingH\000\022 \n\007lowpoly\030\003 \001(\013"
-      "2\r.y3d.ELowpolyH\000\022#\n\013bake_normal\030\004 \001(\0132\014"
-      ".y3d.ENormalH\000B\010\n\006action\"z\n\tYItemMesh\022\033\n"
-      "\010bake_mat\030\001 \001(\0132\t.y3d.YMat\022\032\n\003map\030\002 \001(\0132"
-      "\r.y3d.YBaseMap\022\030\n\004mesh\030\003 \001(\0132\n.y3d.YMesh"
-      "\022\032\n\006meshes\030\004 \003(\0132\n.y3d.YMesh\"\213\001\n\nTestObj"
-      "ect\022\016\n\006active\030\001 \001(\010\022\037\n\014original_mat\030\002 \001("
-      "\0132\t.y3d.YMat\022\r\n\005tname\030\003 \001(\t\022\r\n\005oname\030\004 \001"
-      "(\t\022\021\n\tsave_path\030\t \001(\t\022\033\n\003out\030\n \001(\0132\016.y3d"
-      ".YItemMesh\"\247\001\n\004YJob\022\r\n\005jname\030\001 \001(\t\022\034\n\003ac"
-      "t\030\002 \003(\0132\017.y3d.YJobAction\022\031\n\003obj\030\003 \001(\0132\014."
-      "y3d.YObject\022\032\n\004objs\030\004 \003(\0132\014.y3d.YObject\022"
-      "\033\n\003out\030\005 \001(\0132\016.y3d.YItemMesh\022\036\n\005tests\030\007 "
-      "\003(\0132\017.y3d.TestObject\"\267\001\n\007YWorker\022\013\n\003wid\030"
-      "\001 \001(\005\022\r\n\005wname\030\002 \001(\t\022\022\n\nip_address\030\003 \001(\t"
-      "\022\024\n\014asset_folder\030\004 \001(\t\022*\n\006status\030\005 \001(\0162\032"
-      ".y3d.YWorker.ServingStatus\":\n\rServingSta"
-      "tus\022\013\n\007UNKNOWN\020\000\022\013\n\007SERVING\020\001\022\017\n\013NOT_SER"
-      "VING\020\002\"J\n\013YWorkerList\022\034\n\006master\030\001 \001(\0132\014."
-      "y3d.YWorker\022\035\n\007workers\030\002 \003(\0132\014.y3d.YWork"
-      "er\"R\n\016YWorkerRequest\022\023\n\013call_in_app\030\001 \001("
-      "\010\022\016\n\006slient\030\002 \001(\010\022\033\n\003app\030\003 \001(\0132\016.y3d.Wor"
-      "kerApp\";\n\tWorkerApp\022\r\n\005wname\030\001 \001(\t\022\020\n\010pa"
-      "th_run\030\002 \001(\t\022\r\n\005extra\030\003 \001(\t\"c\n\017YWorkerRe"
-      "sponse\022\037\n\005wlist\030\001 \001(\0132\020.y3d.YWorkerList\022"
-      " \n\nnew_worker\030\002 \001(\0132\014.y3d.YWorker\022\r\n\005err"
-      "or\030\003 \001(\t\"x\n\rYMasterServer\022\r\n\005mname\030\001 \001(\t"
-      "\022\017\n\007address\030\002 \001(\t\022\014\n\004port\030\005 \001(\005\022\025\n\rshare"
-      "d_folder\030\003 \001(\t\022\"\n\014main_workers\030\004 \003(\0132\014.y"
-      "3d.YWorker*G\n\nObjectType\022\014\n\010GEOMETRY\020\000\022\t"
-      "\n\005LIGHT\020\001\022\n\n\006CAMERA\020\002\022\t\n\005SHAPE\020\003\022\t\n\005OTHE"
-      "R\020\004*\?\n\010GVerType\022\n\n\006NO_VER\020\000\022\014\n\010ORIGINAL\020"
-      "\001\022\013\n\007IN_BAKE\020\002\022\014\n\010STANDARD\020\003B\010\252\002\005y3d.eb\006"
-      "proto3"
+      "\t\"\032\n\013StringParam\022\013\n\003str\030\001 \001(\t\"\035\n\010IntPara"
+      "m\022\021\n\tint_value\030\001 \001(\005\"F\n\tTestParam\022\021\n\ttes"
+      "t_name\030\001 \001(\t\022&\n\010anything\030\002 \001(\0132\024.google."
+      "protobuf.Any\"V\n\013WorkerParam\022\r\n\003wid\030\001 \001(\005"
+      "H\000\022\017\n\005wname\030\002 \001(\tH\000\022\036\n\006worker\030\003 \001(\0132\014.y3"
+      "d.YWorkerH\000B\007\n\005wtype\" \n\016AllWorkerParam\022\016"
+      "\n\006status\030\001 \001(\005\"\364\001\n\006YEvent\022\035\n\007noevent\030\001 \001"
+      "(\0132\n.y3d.ENoneH\000\022\036\n\006select\030\002 \001(\0132\014.y3d.E"
+      "SelectH\000\022\032\n\004move\030\003 \001(\0132\n.y3d.EMoveH\000\022\036\n\006"
+      "rotate\030\004 \001(\0132\014.y3d.ERotateH\000\022\033\n\003del\030\005 \001("
+      "\0132\014.y3d.EDeleteH\000\022\'\n\013select_many\030\006 \001(\0132\020"
+      ".y3d.ESelectManyH\000\022 \n\007isolate\030\007 \001(\0132\r.y3"
+      "d.EIsolateH\000B\007\n\005event\"\007\n\005ENone\"(\n\007ESelec"
+      "t\022\014\n\004name\030\001 \001(\t\022\017\n\007isolate\030\002 \001(\010\",\n\013ESel"
+      "ectMany\022\014\n\004name\030\001 \003(\t\022\017\n\007isolate\030\002 \001(\010\"\026"
+      "\n\005EMove\022\r\n\005point\030\001 \003(\002\"\031\n\007ERotate\022\016\n\006rot"
+      "ate\030\001 \003(\002\"\027\n\007EDelete\022\014\n\004name\030\001 \001(\t\",\n\010EI"
+      "solate\022\014\n\004name\030\001 \001(\t\022\022\n\nendIsolate\030\002 \001(\010"
+      "\"+\n\rResponseEvent\022\r\n\005error\030\001 \001(\010\022\013\n\003msg\030"
+      "\002 \001(\t\"|\n\007EUnwrap\022\r\n\005oname\030\001 \001(\t\022\017\n\007chann"
+      "el\030\002 \001(\005\022\037\n\005max3d\030\003 \001(\0132\016.y3d.MaxUnwrapH"
+      "\000\022%\n\007blender\030\004 \001(\0132\022.y3d.BlenderUnwrapH\000"
+      "B\t\n\007setting\"\017\n\rBlenderUnwrap\"+\n\tMaxUnwra"
+      "p\022\r\n\005angle\030\001 \001(\002\022\017\n\007spacing\030\002 \001(\002\"\212\001\n\010EP"
+      "acking\022\r\n\005oname\030\001 \001(\t\022\016\n\006uvname\030\002 \001(\t\022\021\n"
+      "\ttile_Size\030\003 \001(\005\022!\n\007packmax\030\004 \001(\0132\016.y3d."
+      "Pack3DMaxH\000\022!\n\010packrect\030\005 \001(\0132\r.y3d.Pack"
+      "RectH\000B\006\n\004pack\",\n\010PackRect\022\017\n\007density\030\001 "
+      "\001(\005\022\017\n\007padding\030\002 \001(\002\"m\n\tPack3DMax\022\017\n\007num"
+      "Tile\030\001 \001(\005\022\021\n\tnormalize\030\002 \001(\010\022\027\n\017rotate_"
+      "clusters\030\003 \001(\010\022\022\n\nfill_holes\030\004 \001(\010\022\017\n\007pa"
+      "dding\030\005 \001(\010\"\233\001\n\010ELowpoly\022\r\n\005oname\030\001 \001(\t\022"
+      "#\n\010lp_3dmax\030\002 \001(\0132\017.y3d.LPoly3DMaxH\000\022\'\n\n"
+      "lp_blender\030\003 \001(\0132\021.y3d.LPolyBlenderH\000\022\'\n"
+      "\nlp_meshlab\030\004 \001(\0132\021.y3d.LPolyMeshlabH\000B\t"
+      "\n\007lowtype\"\212\003\n\nLPoly3DMax\022\026\n\016vertex_perce"
+      "nt\030\001 \001(\002\022\024\n\014vertex_count\030\002 \001(\005\0221\n\021optimi"
+      "zation_mode\030\003 \001(\0162\026.y3d.LPoly3DMax.OpMod"
+      "e\022+\n\007normals\030\004 \001(\0162\032.y3d.LPoly3DMax.Norm"
+      "alMode\022\033\n\023favor_compact_faces\030\005 \001(\010\022\037\n\027p"
+      "revent_flipped_normals\030\006 \001(\010\022\034\n\024lock_ver"
+      "tex_position\030\007 \001(\010\"F\n\006OpMode\022\022\n\016CRUNCH_B"
+      "ORDERS\020\000\022\023\n\017PROTECT_BORDERS\020\001\022\023\n\017EXCLUDE"
+      "_BORDERS\020\002\"J\n\nNormalMode\022\022\n\016CRUNCH_NORMA"
+      "LS\020\000\022\023\n\017PROTECT_NORMALS\020\001\022\023\n\017EXCLUDE_NOR"
+      "MALS\020\002\"\035\n\014LPolyBlender\022\r\n\005ratio\030\001 \001(\002\"\016\n"
+      "\014LPolyMeshlab\"\276\001\n\007ENormal\022\r\n\005oname\030\001 \001(\t"
+      "\022\017\n\007lowpoly\030\002 \001(\t\022\020\n\010highpoly\030\003 \001(\t\022\020\n\010t"
+      "ex_size\030\004 \001(\r\022\017\n\007out_tex\030\005 \001(\t\022(\n\014normal"
+      "_3dmax\030\006 \001(\0132\020.y3d.Normal3DMaxH\000\022+\n\016norm"
+      "al_xnormal\030\007 \001(\0132\021.xnormal.SettingsH\000B\007\n"
+      "\005ntype\"\r\n\013Normal3DMax\"\364\001\n\013ProjectInfo\022\r\n"
+      "\005pname\030\001 \001(\t\022\024\n\014project_path\030\002 \001(\t\022&\n\002ts"
+      "\030\003 \001(\0132\032.google.protobuf.Timestamp\022*\n\014op"
+      "timize_ops\030\005 \001(\0132\024.y3d.OptimizeOptions\022\036"
+      "\n\005fview\030\006 \003(\0132\017.y3d.FilterView\022\026\n\016optimi"
+      "ze_ratio\030\007 \001(\002\022\025\n\roriginal_path\030\010 \001(\t\022\035\n"
+      "\007workers\030\t \003(\0132\014.y3d.YWorker\"\215\001\n\013Setting"
+      "Data\022\021\n\taset_name\030\001 \001(\t\022(\n\004data\030\002 \003(\0132\032."
+      "y3d.SettingData.DataEntry\032A\n\tDataEntry\022\013"
+      "\n\003key\030\001 \001(\t\022#\n\005value\030\002 \001(\0132\024.google.prot"
+      "obuf.Any:\0028\001\"\?\n\010PSetting\022\037\n\005extra\030\001 \001(\0132"
+      "\020.y3d.SettingData\022\022\n\nmax_recent\030\002 \001(\005\"\243\002"
+      "\n\007YSystem\022\026\n\016working_folder\030\001 \001(\t\022&\n\014def"
+      "ault_info\030\002 \001(\0132\020.y3d.ProjectInfo\022&\n\017def"
+      "ault_setting\030\003 \001(\0132\r.y3d.PSetting\022\"\n\010pro"
+      "jects\030\004 \003(\0132\020.y3d.ProjectInfo\022$\n\004apps\030\005 "
+      "\003(\0132\026.y3d.YSystem.AppsEntry\022)\n\rmaster_se"
+      "rver\030\006 \001(\0132\022.y3d.YMasterServer\032;\n\tAppsEn"
+      "try\022\013\n\003key\030\001 \001(\t\022\035\n\005value\030\002 \001(\0132\016.y3d.Wo"
+      "rkerApp:\0028\001\"F\n\017NewProjectParam\022\r\n\005fname\030"
+      "\001 \001(\t\022\016\n\006folder\030\002 \001(\t\022\024\n\014project_path\030\003 "
+      "\001(\t\"]\n\020ResponseNProject\022\037\n\005pInfo\030\001 \001(\0132\020"
+      ".y3d.ProjectInfo\022\033\n\003yal\030\002 \001(\0132\016.y3d.YAre"
+      "aList\022\013\n\003err\030\004 \001(\t\"\234\001\n\nYJobAction\022\036\n\006unw"
+      "rap\030\001 \001(\0132\014.y3d.EUnwrapH\000\022\035\n\004pack\030\002 \001(\0132"
+      "\r.y3d.EPackingH\000\022 \n\007lowpoly\030\003 \001(\0132\r.y3d."
+      "ELowpolyH\000\022#\n\013bake_normal\030\004 \001(\0132\014.y3d.EN"
+      "ormalH\000B\010\n\006action\"z\n\tYItemMesh\022\033\n\010bake_m"
+      "at\030\001 \001(\0132\t.y3d.YMat\022\032\n\003map\030\002 \001(\0132\r.y3d.Y"
+      "BaseMap\022\030\n\004mesh\030\003 \001(\0132\n.y3d.YMesh\022\032\n\006mes"
+      "hes\030\004 \003(\0132\n.y3d.YMesh\"\213\001\n\nTestObject\022\016\n\006"
+      "active\030\001 \001(\010\022\037\n\014original_mat\030\002 \001(\0132\t.y3d"
+      ".YMat\022\r\n\005tname\030\003 \001(\t\022\r\n\005oname\030\004 \001(\t\022\021\n\ts"
+      "ave_path\030\t \001(\t\022\033\n\003out\030\n \001(\0132\016.y3d.YItemM"
+      "esh\"\247\001\n\004YJob\022\r\n\005jname\030\001 \001(\t\022\034\n\003act\030\002 \003(\013"
+      "2\017.y3d.YJobAction\022\031\n\003obj\030\003 \001(\0132\014.y3d.YOb"
+      "ject\022\032\n\004objs\030\004 \003(\0132\014.y3d.YObject\022\033\n\003out\030"
+      "\005 \001(\0132\016.y3d.YItemMesh\022\036\n\005tests\030\007 \003(\0132\017.y"
+      "3d.TestObject\"#\n\010YJobList\022\027\n\004jobs\030\001 \003(\0132"
+      "\t.y3d.YJob\"\335\001\n\007YWorker\022\013\n\003wid\030\001 \001(\005\022\r\n\005w"
+      "name\030\002 \001(\t\022\022\n\nip_address\030\003 \001(\t\022\022\n\nproces"
+      "s_id\030\004 \001(\005\022*\n\006status\030\005 \001(\0162\032.y3d.YWorker"
+      ".ServingStatus\"b\n\rServingStatus\022\013\n\007UNKNO"
+      "WN\020\000\022\013\n\007SERVING\020\001\022\017\n\013NOT_SERVING\020\002\022\026\n\022NO"
+      "T_CONNECT_MASTER\020\003\022\016\n\nNO_PROJECT\020\004\"\\\n\nYS"
+      "ubWorker\022\013\n\003sid\030\001 \001(\005\022\r\n\005sname\030\002 \001(\t\022\024\n\014"
+      "asset_folder\030\003 \001(\t\022\034\n\006worker\030\004 \001(\0132\014.y3d"
+      ".YWorker\"n\n\013YMainWorker\022$\n\013main_worker\030\001"
+      " \001(\0132\017.y3d.YSubWorker\022 \n\007workers\030\002 \003(\0132\017"
+      ".y3d.YSubWorker\022\027\n\017working_project\030\003 \001(\t"
+      "\",\n\013YWorkerList\022\035\n\007workers\030\001 \003(\0132\014.y3d.Y"
+      "Worker\"R\n\016YWorkerRequest\022\023\n\013call_in_app\030"
+      "\001 \001(\010\022\016\n\006slient\030\002 \001(\010\022\033\n\003app\030\003 \001(\0132\016.y3d"
+      ".WorkerApp\";\n\tWorkerApp\022\r\n\005wname\030\001 \001(\t\022\020"
+      "\n\010path_run\030\002 \001(\t\022\r\n\005extra\030\003 \001(\t\"p\n\017YWork"
+      "erResponse\022\037\n\005wlist\030\001 \001(\0132\020.y3d.YWorkerL"
+      "ist\022\034\n\006worker\030\002 \001(\0132\014.y3d.YWorker\022\r\n\005err"
+      "or\030\003 \001(\010\022\017\n\007message\030\004 \001(\t\"|\n\rYMasterServ"
+      "er\022\r\n\005mname\030\001 \001(\t\022\017\n\007address\030\002 \001(\t\022\014\n\004po"
+      "rt\030\005 \001(\005\022\025\n\rshared_folder\030\003 \001(\t\022&\n\014main_"
+      "workers\030\004 \003(\0132\020.y3d.YMainWorker*G\n\nObjec"
+      "tType\022\014\n\010GEOMETRY\020\000\022\t\n\005LIGHT\020\001\022\n\n\006CAMERA"
+      "\020\002\022\t\n\005SHAPE\020\003\022\t\n\005OTHER\020\004*\?\n\010GVerType\022\n\n\006"
+      "NO_VER\020\000\022\014\n\010ORIGINAL\020\001\022\013\n\007IN_BAKE\020\002\022\014\n\010S"
+      "TANDARD\020\003B\010\252\002\005y3d.eb\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 6766);
+      descriptor, 7187);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "y3d.proto", &protobuf_RegisterTypes);
   ::google::protobuf::protobuf_google_2fprotobuf_2fany_2eproto::AddDescriptors();
@@ -1482,6 +1583,8 @@ bool YWorker_ServingStatus_IsValid(int value) {
     case 0:
     case 1:
     case 2:
+    case 3:
+    case 4:
       return true;
     default:
       return false;
@@ -1492,6 +1595,8 @@ bool YWorker_ServingStatus_IsValid(int value) {
 const YWorker_ServingStatus YWorker::UNKNOWN;
 const YWorker_ServingStatus YWorker::SERVING;
 const YWorker_ServingStatus YWorker::NOT_SERVING;
+const YWorker_ServingStatus YWorker::NOT_CONNECT_MASTER;
+const YWorker_ServingStatus YWorker::NO_PROJECT;
 const YWorker_ServingStatus YWorker::ServingStatus_MIN;
 const YWorker_ServingStatus YWorker::ServingStatus_MAX;
 const int YWorker::ServingStatus_ARRAYSIZE;
@@ -11471,6 +11576,231 @@ void StringParam::set_allocated_str(::std::string* str) {
 // ===================================================================
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int IntParam::kIntValueFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+IntParam::IntParam()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_y3d_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:y3d.IntParam)
+}
+IntParam::IntParam(const IntParam& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  int_value_ = from.int_value_;
+  // @@protoc_insertion_point(copy_constructor:y3d.IntParam)
+}
+
+void IntParam::SharedCtor() {
+  int_value_ = 0;
+  _cached_size_ = 0;
+}
+
+IntParam::~IntParam() {
+  // @@protoc_insertion_point(destructor:y3d.IntParam)
+  SharedDtor();
+}
+
+void IntParam::SharedDtor() {
+}
+
+void IntParam::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* IntParam::descriptor() {
+  protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_y3d_2eproto::file_level_metadata[25].descriptor;
+}
+
+const IntParam& IntParam::default_instance() {
+  protobuf_y3d_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+IntParam* IntParam::New(::google::protobuf::Arena* arena) const {
+  IntParam* n = new IntParam;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void IntParam::Clear() {
+// @@protoc_insertion_point(message_clear_start:y3d.IntParam)
+  int_value_ = 0;
+}
+
+bool IntParam::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:y3d.IntParam)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // int32 int_value = 1;
+      case 1: {
+        if (tag == 8u) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &int_value_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:y3d.IntParam)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:y3d.IntParam)
+  return false;
+#undef DO_
+}
+
+void IntParam::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:y3d.IntParam)
+  // int32 int_value = 1;
+  if (this->int_value() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->int_value(), output);
+  }
+
+  // @@protoc_insertion_point(serialize_end:y3d.IntParam)
+}
+
+::google::protobuf::uint8* IntParam::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic;  // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:y3d.IntParam)
+  // int32 int_value = 1;
+  if (this->int_value() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->int_value(), target);
+  }
+
+  // @@protoc_insertion_point(serialize_to_array_end:y3d.IntParam)
+  return target;
+}
+
+size_t IntParam::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:y3d.IntParam)
+  size_t total_size = 0;
+
+  // int32 int_value = 1;
+  if (this->int_value() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->int_value());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void IntParam::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:y3d.IntParam)
+  GOOGLE_DCHECK_NE(&from, this);
+  const IntParam* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const IntParam>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:y3d.IntParam)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:y3d.IntParam)
+    MergeFrom(*source);
+  }
+}
+
+void IntParam::MergeFrom(const IntParam& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:y3d.IntParam)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  if (from.int_value() != 0) {
+    set_int_value(from.int_value());
+  }
+}
+
+void IntParam::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:y3d.IntParam)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void IntParam::CopyFrom(const IntParam& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:y3d.IntParam)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool IntParam::IsInitialized() const {
+  return true;
+}
+
+void IntParam::Swap(IntParam* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void IntParam::InternalSwap(IntParam* other) {
+  std::swap(int_value_, other->int_value_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata IntParam::GetMetadata() const {
+  protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_y3d_2eproto::file_level_metadata[25];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// IntParam
+
+// int32 int_value = 1;
+void IntParam::clear_int_value() {
+  int_value_ = 0;
+}
+::google::protobuf::int32 IntParam::int_value() const {
+  // @@protoc_insertion_point(field_get:y3d.IntParam.int_value)
+  return int_value_;
+}
+void IntParam::set_int_value(::google::protobuf::int32 value) {
+  
+  int_value_ = value;
+  // @@protoc_insertion_point(field_set:y3d.IntParam.int_value)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int TestParam::kTestNameFieldNumber;
 const int TestParam::kAnythingFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
@@ -11525,7 +11855,7 @@ void TestParam::SetCachedSize(int size) const {
 }
 const ::google::protobuf::Descriptor* TestParam::descriptor() {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[25].descriptor;
+  return protobuf_y3d_2eproto::file_level_metadata[26].descriptor;
 }
 
 const TestParam& TestParam::default_instance() {
@@ -11738,7 +12068,7 @@ void TestParam::InternalSwap(TestParam* other) {
 
 ::google::protobuf::Metadata TestParam::GetMetadata() const {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[25];
+  return protobuf_y3d_2eproto::file_level_metadata[26];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -11840,6 +12170,762 @@ void TestParam::set_allocated_anything(::google::protobuf::Any* anything) {
 // ===================================================================
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int WorkerParam::kWidFieldNumber;
+const int WorkerParam::kWnameFieldNumber;
+const int WorkerParam::kWorkerFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+WorkerParam::WorkerParam()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_y3d_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:y3d.WorkerParam)
+}
+WorkerParam::WorkerParam(const WorkerParam& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  clear_has_wtype();
+  switch (from.wtype_case()) {
+    case kWid: {
+      set_wid(from.wid());
+      break;
+    }
+    case kWname: {
+      set_wname(from.wname());
+      break;
+    }
+    case kWorker: {
+      mutable_worker()->::y3d::YWorker::MergeFrom(from.worker());
+      break;
+    }
+    case WTYPE_NOT_SET: {
+      break;
+    }
+  }
+  // @@protoc_insertion_point(copy_constructor:y3d.WorkerParam)
+}
+
+void WorkerParam::SharedCtor() {
+  clear_has_wtype();
+  _cached_size_ = 0;
+}
+
+WorkerParam::~WorkerParam() {
+  // @@protoc_insertion_point(destructor:y3d.WorkerParam)
+  SharedDtor();
+}
+
+void WorkerParam::SharedDtor() {
+  if (has_wtype()) {
+    clear_wtype();
+  }
+}
+
+void WorkerParam::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* WorkerParam::descriptor() {
+  protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_y3d_2eproto::file_level_metadata[27].descriptor;
+}
+
+const WorkerParam& WorkerParam::default_instance() {
+  protobuf_y3d_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+WorkerParam* WorkerParam::New(::google::protobuf::Arena* arena) const {
+  WorkerParam* n = new WorkerParam;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void WorkerParam::clear_wtype() {
+// @@protoc_insertion_point(one_of_clear_start:y3d.WorkerParam)
+  switch (wtype_case()) {
+    case kWid: {
+      // No need to clear
+      break;
+    }
+    case kWname: {
+      wtype_.wname_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+      break;
+    }
+    case kWorker: {
+      delete wtype_.worker_;
+      break;
+    }
+    case WTYPE_NOT_SET: {
+      break;
+    }
+  }
+  _oneof_case_[0] = WTYPE_NOT_SET;
+}
+
+
+void WorkerParam::Clear() {
+// @@protoc_insertion_point(message_clear_start:y3d.WorkerParam)
+  clear_wtype();
+}
+
+bool WorkerParam::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:y3d.WorkerParam)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // int32 wid = 1;
+      case 1: {
+        if (tag == 8u) {
+          clear_wtype();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &wtype_.wid_)));
+          set_has_wid();
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // string wname = 2;
+      case 2: {
+        if (tag == 18u) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_wname()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->wname().data(), this->wname().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "y3d.WorkerParam.wname"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // .y3d.YWorker worker = 3;
+      case 3: {
+        if (tag == 26u) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_worker()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:y3d.WorkerParam)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:y3d.WorkerParam)
+  return false;
+#undef DO_
+}
+
+void WorkerParam::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:y3d.WorkerParam)
+  // int32 wid = 1;
+  if (has_wid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->wid(), output);
+  }
+
+  // string wname = 2;
+  if (has_wname()) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->wname().data(), this->wname().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "y3d.WorkerParam.wname");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      2, this->wname(), output);
+  }
+
+  // .y3d.YWorker worker = 3;
+  if (has_worker()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      3, *wtype_.worker_, output);
+  }
+
+  // @@protoc_insertion_point(serialize_end:y3d.WorkerParam)
+}
+
+::google::protobuf::uint8* WorkerParam::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic;  // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:y3d.WorkerParam)
+  // int32 wid = 1;
+  if (has_wid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->wid(), target);
+  }
+
+  // string wname = 2;
+  if (has_wname()) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->wname().data(), this->wname().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "y3d.WorkerParam.wname");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->wname(), target);
+  }
+
+  // .y3d.YWorker worker = 3;
+  if (has_worker()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        3, *wtype_.worker_, false, target);
+  }
+
+  // @@protoc_insertion_point(serialize_to_array_end:y3d.WorkerParam)
+  return target;
+}
+
+size_t WorkerParam::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:y3d.WorkerParam)
+  size_t total_size = 0;
+
+  switch (wtype_case()) {
+    // int32 wid = 1;
+    case kWid: {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->wid());
+      break;
+    }
+    // string wname = 2;
+    case kWname: {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->wname());
+      break;
+    }
+    // .y3d.YWorker worker = 3;
+    case kWorker: {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          *wtype_.worker_);
+      break;
+    }
+    case WTYPE_NOT_SET: {
+      break;
+    }
+  }
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void WorkerParam::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:y3d.WorkerParam)
+  GOOGLE_DCHECK_NE(&from, this);
+  const WorkerParam* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const WorkerParam>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:y3d.WorkerParam)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:y3d.WorkerParam)
+    MergeFrom(*source);
+  }
+}
+
+void WorkerParam::MergeFrom(const WorkerParam& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:y3d.WorkerParam)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  switch (from.wtype_case()) {
+    case kWid: {
+      set_wid(from.wid());
+      break;
+    }
+    case kWname: {
+      set_wname(from.wname());
+      break;
+    }
+    case kWorker: {
+      mutable_worker()->::y3d::YWorker::MergeFrom(from.worker());
+      break;
+    }
+    case WTYPE_NOT_SET: {
+      break;
+    }
+  }
+}
+
+void WorkerParam::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:y3d.WorkerParam)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void WorkerParam::CopyFrom(const WorkerParam& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:y3d.WorkerParam)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool WorkerParam::IsInitialized() const {
+  return true;
+}
+
+void WorkerParam::Swap(WorkerParam* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void WorkerParam::InternalSwap(WorkerParam* other) {
+  std::swap(wtype_, other->wtype_);
+  std::swap(_oneof_case_[0], other->_oneof_case_[0]);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata WorkerParam::GetMetadata() const {
+  protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_y3d_2eproto::file_level_metadata[27];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// WorkerParam
+
+// int32 wid = 1;
+bool WorkerParam::has_wid() const {
+  return wtype_case() == kWid;
+}
+void WorkerParam::set_has_wid() {
+  _oneof_case_[0] = kWid;
+}
+void WorkerParam::clear_wid() {
+  if (has_wid()) {
+    wtype_.wid_ = 0;
+    clear_has_wtype();
+  }
+}
+::google::protobuf::int32 WorkerParam::wid() const {
+  // @@protoc_insertion_point(field_get:y3d.WorkerParam.wid)
+  if (has_wid()) {
+    return wtype_.wid_;
+  }
+  return 0;
+}
+void WorkerParam::set_wid(::google::protobuf::int32 value) {
+  if (!has_wid()) {
+    clear_wtype();
+    set_has_wid();
+  }
+  wtype_.wid_ = value;
+  // @@protoc_insertion_point(field_set:y3d.WorkerParam.wid)
+}
+
+// string wname = 2;
+bool WorkerParam::has_wname() const {
+  return wtype_case() == kWname;
+}
+void WorkerParam::set_has_wname() {
+  _oneof_case_[0] = kWname;
+}
+void WorkerParam::clear_wname() {
+  if (has_wname()) {
+    wtype_.wname_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    clear_has_wtype();
+  }
+}
+const ::std::string& WorkerParam::wname() const {
+  // @@protoc_insertion_point(field_get:y3d.WorkerParam.wname)
+  if (has_wname()) {
+    return wtype_.wname_.GetNoArena();
+  }
+  return *&::google::protobuf::internal::GetEmptyStringAlreadyInited();
+}
+void WorkerParam::set_wname(const ::std::string& value) {
+  // @@protoc_insertion_point(field_set:y3d.WorkerParam.wname)
+  if (!has_wname()) {
+    clear_wtype();
+    set_has_wname();
+    wtype_.wname_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  wtype_.wname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:y3d.WorkerParam.wname)
+}
+#if LANG_CXX11
+void WorkerParam::set_wname(::std::string&& value) {
+  // @@protoc_insertion_point(field_set:y3d.WorkerParam.wname)
+  if (!has_wname()) {
+    clear_wtype();
+    set_has_wname();
+    wtype_.wname_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  wtype_.wname_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:y3d.WorkerParam.wname)
+}
+#endif
+void WorkerParam::set_wname(const char* value) {
+  if (!has_wname()) {
+    clear_wtype();
+    set_has_wname();
+    wtype_.wname_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  wtype_.wname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:y3d.WorkerParam.wname)
+}
+void WorkerParam::set_wname(const char* value, size_t size) {
+  if (!has_wname()) {
+    clear_wtype();
+    set_has_wname();
+    wtype_.wname_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  wtype_.wname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(
+      reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:y3d.WorkerParam.wname)
+}
+::std::string* WorkerParam::mutable_wname() {
+  if (!has_wname()) {
+    clear_wtype();
+    set_has_wname();
+    wtype_.wname_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  // @@protoc_insertion_point(field_mutable:y3d.WorkerParam.wname)
+  return wtype_.wname_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* WorkerParam::release_wname() {
+  // @@protoc_insertion_point(field_release:y3d.WorkerParam.wname)
+  if (has_wname()) {
+    clear_has_wtype();
+    return wtype_.wname_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  } else {
+    return NULL;
+  }
+}
+void WorkerParam::set_allocated_wname(::std::string* wname) {
+  if (!has_wname()) {
+    wtype_.wname_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  clear_wtype();
+  if (wname != NULL) {
+    set_has_wname();
+    wtype_.wname_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+        wname);
+  }
+  // @@protoc_insertion_point(field_set_allocated:y3d.WorkerParam.wname)
+}
+
+// .y3d.YWorker worker = 3;
+bool WorkerParam::has_worker() const {
+  return wtype_case() == kWorker;
+}
+void WorkerParam::set_has_worker() {
+  _oneof_case_[0] = kWorker;
+}
+void WorkerParam::clear_worker() {
+  if (has_worker()) {
+    delete wtype_.worker_;
+    clear_has_wtype();
+  }
+}
+ const ::y3d::YWorker& WorkerParam::worker() const {
+  // @@protoc_insertion_point(field_get:y3d.WorkerParam.worker)
+  return has_worker()
+      ? *wtype_.worker_
+      : ::y3d::YWorker::default_instance();
+}
+::y3d::YWorker* WorkerParam::mutable_worker() {
+  if (!has_worker()) {
+    clear_wtype();
+    set_has_worker();
+    wtype_.worker_ = new ::y3d::YWorker;
+  }
+  // @@protoc_insertion_point(field_mutable:y3d.WorkerParam.worker)
+  return wtype_.worker_;
+}
+::y3d::YWorker* WorkerParam::release_worker() {
+  // @@protoc_insertion_point(field_release:y3d.WorkerParam.worker)
+  if (has_worker()) {
+    clear_has_wtype();
+    ::y3d::YWorker* temp = wtype_.worker_;
+    wtype_.worker_ = NULL;
+    return temp;
+  } else {
+    return NULL;
+  }
+}
+void WorkerParam::set_allocated_worker(::y3d::YWorker* worker) {
+  clear_wtype();
+  if (worker) {
+    set_has_worker();
+    wtype_.worker_ = worker;
+  }
+  // @@protoc_insertion_point(field_set_allocated:y3d.WorkerParam.worker)
+}
+
+bool WorkerParam::has_wtype() const {
+  return wtype_case() != WTYPE_NOT_SET;
+}
+void WorkerParam::clear_has_wtype() {
+  _oneof_case_[0] = WTYPE_NOT_SET;
+}
+WorkerParam::WtypeCase WorkerParam::wtype_case() const {
+  return WorkerParam::WtypeCase(_oneof_case_[0]);
+}
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int AllWorkerParam::kStatusFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+AllWorkerParam::AllWorkerParam()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_y3d_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:y3d.AllWorkerParam)
+}
+AllWorkerParam::AllWorkerParam(const AllWorkerParam& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  status_ = from.status_;
+  // @@protoc_insertion_point(copy_constructor:y3d.AllWorkerParam)
+}
+
+void AllWorkerParam::SharedCtor() {
+  status_ = 0;
+  _cached_size_ = 0;
+}
+
+AllWorkerParam::~AllWorkerParam() {
+  // @@protoc_insertion_point(destructor:y3d.AllWorkerParam)
+  SharedDtor();
+}
+
+void AllWorkerParam::SharedDtor() {
+}
+
+void AllWorkerParam::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* AllWorkerParam::descriptor() {
+  protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_y3d_2eproto::file_level_metadata[28].descriptor;
+}
+
+const AllWorkerParam& AllWorkerParam::default_instance() {
+  protobuf_y3d_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+AllWorkerParam* AllWorkerParam::New(::google::protobuf::Arena* arena) const {
+  AllWorkerParam* n = new AllWorkerParam;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void AllWorkerParam::Clear() {
+// @@protoc_insertion_point(message_clear_start:y3d.AllWorkerParam)
+  status_ = 0;
+}
+
+bool AllWorkerParam::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:y3d.AllWorkerParam)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // int32 status = 1;
+      case 1: {
+        if (tag == 8u) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &status_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:y3d.AllWorkerParam)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:y3d.AllWorkerParam)
+  return false;
+#undef DO_
+}
+
+void AllWorkerParam::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:y3d.AllWorkerParam)
+  // int32 status = 1;
+  if (this->status() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->status(), output);
+  }
+
+  // @@protoc_insertion_point(serialize_end:y3d.AllWorkerParam)
+}
+
+::google::protobuf::uint8* AllWorkerParam::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic;  // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:y3d.AllWorkerParam)
+  // int32 status = 1;
+  if (this->status() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->status(), target);
+  }
+
+  // @@protoc_insertion_point(serialize_to_array_end:y3d.AllWorkerParam)
+  return target;
+}
+
+size_t AllWorkerParam::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:y3d.AllWorkerParam)
+  size_t total_size = 0;
+
+  // int32 status = 1;
+  if (this->status() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->status());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void AllWorkerParam::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:y3d.AllWorkerParam)
+  GOOGLE_DCHECK_NE(&from, this);
+  const AllWorkerParam* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const AllWorkerParam>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:y3d.AllWorkerParam)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:y3d.AllWorkerParam)
+    MergeFrom(*source);
+  }
+}
+
+void AllWorkerParam::MergeFrom(const AllWorkerParam& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:y3d.AllWorkerParam)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  if (from.status() != 0) {
+    set_status(from.status());
+  }
+}
+
+void AllWorkerParam::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:y3d.AllWorkerParam)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void AllWorkerParam::CopyFrom(const AllWorkerParam& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:y3d.AllWorkerParam)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool AllWorkerParam::IsInitialized() const {
+  return true;
+}
+
+void AllWorkerParam::Swap(AllWorkerParam* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void AllWorkerParam::InternalSwap(AllWorkerParam* other) {
+  std::swap(status_, other->status_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata AllWorkerParam::GetMetadata() const {
+  protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_y3d_2eproto::file_level_metadata[28];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// AllWorkerParam
+
+// int32 status = 1;
+void AllWorkerParam::clear_status() {
+  status_ = 0;
+}
+::google::protobuf::int32 AllWorkerParam::status() const {
+  // @@protoc_insertion_point(field_get:y3d.AllWorkerParam.status)
+  return status_;
+}
+void AllWorkerParam::set_status(::google::protobuf::int32 value) {
+  
+  status_ = value;
+  // @@protoc_insertion_point(field_set:y3d.AllWorkerParam.status)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int YEvent::kNoeventFieldNumber;
 const int YEvent::kSelectFieldNumber;
 const int YEvent::kMoveFieldNumber;
@@ -11922,7 +13008,7 @@ void YEvent::SetCachedSize(int size) const {
 }
 const ::google::protobuf::Descriptor* YEvent::descriptor() {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[26].descriptor;
+  return protobuf_y3d_2eproto::file_level_metadata[29].descriptor;
 }
 
 const YEvent& YEvent::default_instance() {
@@ -12344,7 +13430,7 @@ void YEvent::InternalSwap(YEvent* other) {
 
 ::google::protobuf::Metadata YEvent::GetMetadata() const {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[26];
+  return protobuf_y3d_2eproto::file_level_metadata[29];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -12737,7 +13823,7 @@ void ENone::SetCachedSize(int size) const {
 }
 const ::google::protobuf::Descriptor* ENone::descriptor() {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[27].descriptor;
+  return protobuf_y3d_2eproto::file_level_metadata[30].descriptor;
 }
 
 const ENone& ENone::default_instance() {
@@ -12857,7 +13943,7 @@ void ENone::InternalSwap(ENone* other) {
 
 ::google::protobuf::Metadata ENone::GetMetadata() const {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[27];
+  return protobuf_y3d_2eproto::file_level_metadata[30];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -12915,7 +14001,7 @@ void ESelect::SetCachedSize(int size) const {
 }
 const ::google::protobuf::Descriptor* ESelect::descriptor() {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[28].descriptor;
+  return protobuf_y3d_2eproto::file_level_metadata[31].descriptor;
 }
 
 const ESelect& ESelect::default_instance() {
@@ -13122,7 +14208,7 @@ void ESelect::InternalSwap(ESelect* other) {
 
 ::google::protobuf::Metadata ESelect::GetMetadata() const {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[28];
+  return protobuf_y3d_2eproto::file_level_metadata[31];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -13241,7 +14327,7 @@ void ESelectMany::SetCachedSize(int size) const {
 }
 const ::google::protobuf::Descriptor* ESelectMany::descriptor() {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[29].descriptor;
+  return protobuf_y3d_2eproto::file_level_metadata[32].descriptor;
 }
 
 const ESelectMany& ESelectMany::default_instance() {
@@ -13446,7 +14532,7 @@ void ESelectMany::InternalSwap(ESelectMany* other) {
 
 ::google::protobuf::Metadata ESelectMany::GetMetadata() const {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[29];
+  return protobuf_y3d_2eproto::file_level_metadata[32];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -13565,7 +14651,7 @@ void EMove::SetCachedSize(int size) const {
 }
 const ::google::protobuf::Descriptor* EMove::descriptor() {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[30].descriptor;
+  return protobuf_y3d_2eproto::file_level_metadata[33].descriptor;
 }
 
 const EMove& EMove::default_instance() {
@@ -13746,7 +14832,7 @@ void EMove::InternalSwap(EMove* other) {
 
 ::google::protobuf::Metadata EMove::GetMetadata() const {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[30];
+  return protobuf_y3d_2eproto::file_level_metadata[33];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -13826,7 +14912,7 @@ void ERotate::SetCachedSize(int size) const {
 }
 const ::google::protobuf::Descriptor* ERotate::descriptor() {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[31].descriptor;
+  return protobuf_y3d_2eproto::file_level_metadata[34].descriptor;
 }
 
 const ERotate& ERotate::default_instance() {
@@ -14007,7 +15093,7 @@ void ERotate::InternalSwap(ERotate* other) {
 
 ::google::protobuf::Metadata ERotate::GetMetadata() const {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[31];
+  return protobuf_y3d_2eproto::file_level_metadata[34];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -14092,7 +15178,7 @@ void EDelete::SetCachedSize(int size) const {
 }
 const ::google::protobuf::Descriptor* EDelete::descriptor() {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[32].descriptor;
+  return protobuf_y3d_2eproto::file_level_metadata[35].descriptor;
 }
 
 const EDelete& EDelete::default_instance() {
@@ -14266,7 +15352,7 @@ void EDelete::InternalSwap(EDelete* other) {
 
 ::google::protobuf::Metadata EDelete::GetMetadata() const {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[32];
+  return protobuf_y3d_2eproto::file_level_metadata[35];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -14376,7 +15462,7 @@ void EIsolate::SetCachedSize(int size) const {
 }
 const ::google::protobuf::Descriptor* EIsolate::descriptor() {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[33].descriptor;
+  return protobuf_y3d_2eproto::file_level_metadata[36].descriptor;
 }
 
 const EIsolate& EIsolate::default_instance() {
@@ -14583,7 +15669,7 @@ void EIsolate::InternalSwap(EIsolate* other) {
 
 ::google::protobuf::Metadata EIsolate::GetMetadata() const {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[33];
+  return protobuf_y3d_2eproto::file_level_metadata[36];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -14707,7 +15793,7 @@ void ResponseEvent::SetCachedSize(int size) const {
 }
 const ::google::protobuf::Descriptor* ResponseEvent::descriptor() {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[34].descriptor;
+  return protobuf_y3d_2eproto::file_level_metadata[37].descriptor;
 }
 
 const ResponseEvent& ResponseEvent::default_instance() {
@@ -14914,7 +16000,7 @@ void ResponseEvent::InternalSwap(ResponseEvent* other) {
 
 ::google::protobuf::Metadata ResponseEvent::GetMetadata() const {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[34];
+  return protobuf_y3d_2eproto::file_level_metadata[37];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -15058,7 +16144,7 @@ void EUnwrap::SetCachedSize(int size) const {
 }
 const ::google::protobuf::Descriptor* EUnwrap::descriptor() {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[35].descriptor;
+  return protobuf_y3d_2eproto::file_level_metadata[38].descriptor;
 }
 
 const EUnwrap& EUnwrap::default_instance() {
@@ -15369,7 +16455,7 @@ void EUnwrap::InternalSwap(EUnwrap* other) {
 
 ::google::protobuf::Metadata EUnwrap::GetMetadata() const {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[35];
+  return protobuf_y3d_2eproto::file_level_metadata[38];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -15588,7 +16674,7 @@ void BlenderUnwrap::SetCachedSize(int size) const {
 }
 const ::google::protobuf::Descriptor* BlenderUnwrap::descriptor() {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[36].descriptor;
+  return protobuf_y3d_2eproto::file_level_metadata[39].descriptor;
 }
 
 const BlenderUnwrap& BlenderUnwrap::default_instance() {
@@ -15708,7 +16794,7 @@ void BlenderUnwrap::InternalSwap(BlenderUnwrap* other) {
 
 ::google::protobuf::Metadata BlenderUnwrap::GetMetadata() const {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[36];
+  return protobuf_y3d_2eproto::file_level_metadata[39];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -15763,7 +16849,7 @@ void MaxUnwrap::SetCachedSize(int size) const {
 }
 const ::google::protobuf::Descriptor* MaxUnwrap::descriptor() {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[37].descriptor;
+  return protobuf_y3d_2eproto::file_level_metadata[40].descriptor;
 }
 
 const MaxUnwrap& MaxUnwrap::default_instance() {
@@ -15954,7 +17040,7 @@ void MaxUnwrap::InternalSwap(MaxUnwrap* other) {
 
 ::google::protobuf::Metadata MaxUnwrap::GetMetadata() const {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[37];
+  return protobuf_y3d_2eproto::file_level_metadata[40];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -16067,7 +17153,7 @@ void EPacking::SetCachedSize(int size) const {
 }
 const ::google::protobuf::Descriptor* EPacking::descriptor() {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[38].descriptor;
+  return protobuf_y3d_2eproto::file_level_metadata[41].descriptor;
 }
 
 const EPacking& EPacking::default_instance() {
@@ -16427,7 +17513,7 @@ void EPacking::InternalSwap(EPacking* other) {
 
 ::google::protobuf::Metadata EPacking::GetMetadata() const {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[38];
+  return protobuf_y3d_2eproto::file_level_metadata[41];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -16705,7 +17791,7 @@ void PackRect::SetCachedSize(int size) const {
 }
 const ::google::protobuf::Descriptor* PackRect::descriptor() {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[39].descriptor;
+  return protobuf_y3d_2eproto::file_level_metadata[42].descriptor;
 }
 
 const PackRect& PackRect::default_instance() {
@@ -16898,7 +17984,7 @@ void PackRect::InternalSwap(PackRect* other) {
 
 ::google::protobuf::Metadata PackRect::GetMetadata() const {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[39];
+  return protobuf_y3d_2eproto::file_level_metadata[42];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -16984,7 +18070,7 @@ void Pack3DMax::SetCachedSize(int size) const {
 }
 const ::google::protobuf::Descriptor* Pack3DMax::descriptor() {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[40].descriptor;
+  return protobuf_y3d_2eproto::file_level_metadata[43].descriptor;
 }
 
 const Pack3DMax& Pack3DMax::default_instance() {
@@ -17273,7 +18359,7 @@ void Pack3DMax::InternalSwap(Pack3DMax* other) {
 
 ::google::protobuf::Metadata Pack3DMax::GetMetadata() const {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[40];
+  return protobuf_y3d_2eproto::file_level_metadata[43];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -17423,7 +18509,7 @@ void ELowpoly::SetCachedSize(int size) const {
 }
 const ::google::protobuf::Descriptor* ELowpoly::descriptor() {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[41].descriptor;
+  return protobuf_y3d_2eproto::file_level_metadata[44].descriptor;
 }
 
 const ELowpoly& ELowpoly::default_instance() {
@@ -17738,7 +18824,7 @@ void ELowpoly::InternalSwap(ELowpoly* other) {
 
 ::google::protobuf::Metadata ELowpoly::GetMetadata() const {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[41];
+  return protobuf_y3d_2eproto::file_level_metadata[44];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -18003,7 +19089,7 @@ void LPoly3DMax::SetCachedSize(int size) const {
 }
 const ::google::protobuf::Descriptor* LPoly3DMax::descriptor() {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[42].descriptor;
+  return protobuf_y3d_2eproto::file_level_metadata[45].descriptor;
 }
 
 const LPoly3DMax& LPoly3DMax::default_instance() {
@@ -18364,7 +19450,7 @@ void LPoly3DMax::InternalSwap(LPoly3DMax* other) {
 
 ::google::protobuf::Metadata LPoly3DMax::GetMetadata() const {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[42];
+  return protobuf_y3d_2eproto::file_level_metadata[45];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -18513,7 +19599,7 @@ void LPolyBlender::SetCachedSize(int size) const {
 }
 const ::google::protobuf::Descriptor* LPolyBlender::descriptor() {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[43].descriptor;
+  return protobuf_y3d_2eproto::file_level_metadata[46].descriptor;
 }
 
 const LPolyBlender& LPolyBlender::default_instance() {
@@ -18671,7 +19757,7 @@ void LPolyBlender::InternalSwap(LPolyBlender* other) {
 
 ::google::protobuf::Metadata LPolyBlender::GetMetadata() const {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[43];
+  return protobuf_y3d_2eproto::file_level_metadata[46];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -18733,7 +19819,7 @@ void LPolyMeshlab::SetCachedSize(int size) const {
 }
 const ::google::protobuf::Descriptor* LPolyMeshlab::descriptor() {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[44].descriptor;
+  return protobuf_y3d_2eproto::file_level_metadata[47].descriptor;
 }
 
 const LPolyMeshlab& LPolyMeshlab::default_instance() {
@@ -18853,7 +19939,7 @@ void LPolyMeshlab::InternalSwap(LPolyMeshlab* other) {
 
 ::google::protobuf::Metadata LPolyMeshlab::GetMetadata() const {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[44];
+  return protobuf_y3d_2eproto::file_level_metadata[47];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -18952,7 +20038,7 @@ void ENormal::SetCachedSize(int size) const {
 }
 const ::google::protobuf::Descriptor* ENormal::descriptor() {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[45].descriptor;
+  return protobuf_y3d_2eproto::file_level_metadata[48].descriptor;
 }
 
 const ENormal& ENormal::default_instance() {
@@ -19410,7 +20496,7 @@ void ENormal::InternalSwap(ENormal* other) {
 
 ::google::protobuf::Metadata ENormal::GetMetadata() const {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[45];
+  return protobuf_y3d_2eproto::file_level_metadata[48];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -19785,7 +20871,7 @@ void Normal3DMax::SetCachedSize(int size) const {
 }
 const ::google::protobuf::Descriptor* Normal3DMax::descriptor() {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[46].descriptor;
+  return protobuf_y3d_2eproto::file_level_metadata[49].descriptor;
 }
 
 const Normal3DMax& Normal3DMax::default_instance() {
@@ -19905,7 +20991,7 @@ void Normal3DMax::InternalSwap(Normal3DMax* other) {
 
 ::google::protobuf::Metadata Normal3DMax::GetMetadata() const {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[46];
+  return protobuf_y3d_2eproto::file_level_metadata[49];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -20000,7 +21086,7 @@ void ProjectInfo::SetCachedSize(int size) const {
 }
 const ::google::protobuf::Descriptor* ProjectInfo::descriptor() {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[47].descriptor;
+  return protobuf_y3d_2eproto::file_level_metadata[50].descriptor;
 }
 
 const ProjectInfo& ProjectInfo::default_instance() {
@@ -20463,7 +21549,7 @@ void ProjectInfo::InternalSwap(ProjectInfo* other) {
 
 ::google::protobuf::Metadata ProjectInfo::GetMetadata() const {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[47];
+  return protobuf_y3d_2eproto::file_level_metadata[50];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -20809,7 +21895,7 @@ SettingData::SettingData(const SettingData& from)
       _internal_metadata_(NULL),
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  const ::google::protobuf::Descriptor*& SettingData_DataEntry_descriptor = protobuf_y3d_2eproto::file_level_metadata[48].descriptor;
+  const ::google::protobuf::Descriptor*& SettingData_DataEntry_descriptor = protobuf_y3d_2eproto::file_level_metadata[51].descriptor;
   data_.SetAssignDescriptorCallback(
       protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce);
   data_.SetEntryDescriptor(
@@ -20823,7 +21909,7 @@ SettingData::SettingData(const SettingData& from)
 }
 
 void SettingData::SharedCtor() {
-  const ::google::protobuf::Descriptor*& SettingData_DataEntry_descriptor = protobuf_y3d_2eproto::file_level_metadata[48].descriptor;
+  const ::google::protobuf::Descriptor*& SettingData_DataEntry_descriptor = protobuf_y3d_2eproto::file_level_metadata[51].descriptor;
   data_.SetAssignDescriptorCallback(
       protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce);
   data_.SetEntryDescriptor(
@@ -20848,7 +21934,7 @@ void SettingData::SetCachedSize(int size) const {
 }
 const ::google::protobuf::Descriptor* SettingData::descriptor() {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[49].descriptor;
+  return protobuf_y3d_2eproto::file_level_metadata[52].descriptor;
 }
 
 const SettingData& SettingData::default_instance() {
@@ -21164,7 +22250,7 @@ void SettingData::InternalSwap(SettingData* other) {
 
 ::google::protobuf::Metadata SettingData::GetMetadata() const {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[49];
+  return protobuf_y3d_2eproto::file_level_metadata[52];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -21295,7 +22381,7 @@ void PSetting::SetCachedSize(int size) const {
 }
 const ::google::protobuf::Descriptor* PSetting::descriptor() {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[50].descriptor;
+  return protobuf_y3d_2eproto::file_level_metadata[53].descriptor;
 }
 
 const PSetting& PSetting::default_instance() {
@@ -21494,7 +22580,7 @@ void PSetting::InternalSwap(PSetting* other) {
 
 ::google::protobuf::Metadata PSetting::GetMetadata() const {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[50];
+  return protobuf_y3d_2eproto::file_level_metadata[53];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -21585,7 +22671,7 @@ YSystem::YSystem(const YSystem& from)
       projects_(from.projects_),
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  const ::google::protobuf::Descriptor*& YSystem_AppsEntry_descriptor = protobuf_y3d_2eproto::file_level_metadata[51].descriptor;
+  const ::google::protobuf::Descriptor*& YSystem_AppsEntry_descriptor = protobuf_y3d_2eproto::file_level_metadata[54].descriptor;
   apps_.SetAssignDescriptorCallback(
       protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce);
   apps_.SetEntryDescriptor(
@@ -21614,7 +22700,7 @@ YSystem::YSystem(const YSystem& from)
 }
 
 void YSystem::SharedCtor() {
-  const ::google::protobuf::Descriptor*& YSystem_AppsEntry_descriptor = protobuf_y3d_2eproto::file_level_metadata[51].descriptor;
+  const ::google::protobuf::Descriptor*& YSystem_AppsEntry_descriptor = protobuf_y3d_2eproto::file_level_metadata[54].descriptor;
   apps_.SetAssignDescriptorCallback(
       protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce);
   apps_.SetEntryDescriptor(
@@ -21650,7 +22736,7 @@ void YSystem::SetCachedSize(int size) const {
 }
 const ::google::protobuf::Descriptor* YSystem::descriptor() {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[52].descriptor;
+  return protobuf_y3d_2eproto::file_level_metadata[55].descriptor;
 }
 
 const YSystem& YSystem::default_instance() {
@@ -22123,7 +23209,7 @@ void YSystem::InternalSwap(YSystem* other) {
 
 ::google::protobuf::Metadata YSystem::GetMetadata() const {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[52];
+  return protobuf_y3d_2eproto::file_level_metadata[55];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -22409,7 +23495,7 @@ void NewProjectParam::SetCachedSize(int size) const {
 }
 const ::google::protobuf::Descriptor* NewProjectParam::descriptor() {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[53].descriptor;
+  return protobuf_y3d_2eproto::file_level_metadata[56].descriptor;
 }
 
 const NewProjectParam& NewProjectParam::default_instance() {
@@ -22681,7 +23767,7 @@ void NewProjectParam::InternalSwap(NewProjectParam* other) {
 
 ::google::protobuf::Metadata NewProjectParam::GetMetadata() const {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[53];
+  return protobuf_y3d_2eproto::file_level_metadata[56];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -22912,7 +23998,7 @@ void ResponseNProject::SetCachedSize(int size) const {
 }
 const ::google::protobuf::Descriptor* ResponseNProject::descriptor() {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[54].descriptor;
+  return protobuf_y3d_2eproto::file_level_metadata[57].descriptor;
 }
 
 const ResponseNProject& ResponseNProject::default_instance() {
@@ -23164,7 +24250,7 @@ void ResponseNProject::InternalSwap(ResponseNProject* other) {
 
 ::google::protobuf::Metadata ResponseNProject::GetMetadata() const {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[54];
+  return protobuf_y3d_2eproto::file_level_metadata[57];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -23372,7 +24458,7 @@ void YJobAction::SetCachedSize(int size) const {
 }
 const ::google::protobuf::Descriptor* YJobAction::descriptor() {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[55].descriptor;
+  return protobuf_y3d_2eproto::file_level_metadata[58].descriptor;
 }
 
 const YJobAction& YJobAction::default_instance() {
@@ -23677,7 +24763,7 @@ void YJobAction::InternalSwap(YJobAction* other) {
 
 ::google::protobuf::Metadata YJobAction::GetMetadata() const {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[55];
+  return protobuf_y3d_2eproto::file_level_metadata[58];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -23957,7 +25043,7 @@ void YItemMesh::SetCachedSize(int size) const {
 }
 const ::google::protobuf::Descriptor* YItemMesh::descriptor() {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[56].descriptor;
+  return protobuf_y3d_2eproto::file_level_metadata[59].descriptor;
 }
 
 const YItemMesh& YItemMesh::default_instance() {
@@ -24239,7 +25325,7 @@ void YItemMesh::InternalSwap(YItemMesh* other) {
 
 ::google::protobuf::Metadata YItemMesh::GetMetadata() const {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[56];
+  return protobuf_y3d_2eproto::file_level_metadata[59];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -24477,7 +25563,7 @@ void TestObject::SetCachedSize(int size) const {
 }
 const ::google::protobuf::Descriptor* TestObject::descriptor() {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[57].descriptor;
+  return protobuf_y3d_2eproto::file_level_metadata[60].descriptor;
 }
 
 const TestObject& TestObject::default_instance() {
@@ -24860,7 +25946,7 @@ void TestObject::InternalSwap(TestObject* other) {
 
 ::google::protobuf::Metadata TestObject::GetMetadata() const {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[57];
+  return protobuf_y3d_2eproto::file_level_metadata[60];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -25189,7 +26275,7 @@ void YJob::SetCachedSize(int size) const {
 }
 const ::google::protobuf::Descriptor* YJob::descriptor() {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[58].descriptor;
+  return protobuf_y3d_2eproto::file_level_metadata[61].descriptor;
 }
 
 const YJob& YJob::default_instance() {
@@ -25561,7 +26647,7 @@ void YJob::InternalSwap(YJob* other) {
 
 ::google::protobuf::Metadata YJob::GetMetadata() const {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[58];
+  return protobuf_y3d_2eproto::file_level_metadata[61];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -25792,10 +26878,255 @@ YJob::tests() const {
 // ===================================================================
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int YJobList::kJobsFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+YJobList::YJobList()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_y3d_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:y3d.YJobList)
+}
+YJobList::YJobList(const YJobList& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      jobs_(from.jobs_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:y3d.YJobList)
+}
+
+void YJobList::SharedCtor() {
+  _cached_size_ = 0;
+}
+
+YJobList::~YJobList() {
+  // @@protoc_insertion_point(destructor:y3d.YJobList)
+  SharedDtor();
+}
+
+void YJobList::SharedDtor() {
+}
+
+void YJobList::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* YJobList::descriptor() {
+  protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_y3d_2eproto::file_level_metadata[62].descriptor;
+}
+
+const YJobList& YJobList::default_instance() {
+  protobuf_y3d_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+YJobList* YJobList::New(::google::protobuf::Arena* arena) const {
+  YJobList* n = new YJobList;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void YJobList::Clear() {
+// @@protoc_insertion_point(message_clear_start:y3d.YJobList)
+  jobs_.Clear();
+}
+
+bool YJobList::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:y3d.YJobList)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated .y3d.YJob jobs = 1;
+      case 1: {
+        if (tag == 10u) {
+          DO_(input->IncrementRecursionDepth());
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtualNoRecursionDepth(
+                input, add_jobs()));
+        } else {
+          goto handle_unusual;
+        }
+        input->UnsafeDecrementRecursionDepth();
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:y3d.YJobList)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:y3d.YJobList)
+  return false;
+#undef DO_
+}
+
+void YJobList::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:y3d.YJobList)
+  // repeated .y3d.YJob jobs = 1;
+  for (unsigned int i = 0, n = this->jobs_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->jobs(i), output);
+  }
+
+  // @@protoc_insertion_point(serialize_end:y3d.YJobList)
+}
+
+::google::protobuf::uint8* YJobList::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic;  // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:y3d.YJobList)
+  // repeated .y3d.YJob jobs = 1;
+  for (unsigned int i = 0, n = this->jobs_size(); i < n; i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        1, this->jobs(i), false, target);
+  }
+
+  // @@protoc_insertion_point(serialize_to_array_end:y3d.YJobList)
+  return target;
+}
+
+size_t YJobList::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:y3d.YJobList)
+  size_t total_size = 0;
+
+  // repeated .y3d.YJob jobs = 1;
+  {
+    unsigned int count = this->jobs_size();
+    total_size += 1UL * count;
+    for (unsigned int i = 0; i < count; i++) {
+      total_size +=
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->jobs(i));
+    }
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void YJobList::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:y3d.YJobList)
+  GOOGLE_DCHECK_NE(&from, this);
+  const YJobList* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const YJobList>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:y3d.YJobList)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:y3d.YJobList)
+    MergeFrom(*source);
+  }
+}
+
+void YJobList::MergeFrom(const YJobList& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:y3d.YJobList)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  jobs_.MergeFrom(from.jobs_);
+}
+
+void YJobList::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:y3d.YJobList)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void YJobList::CopyFrom(const YJobList& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:y3d.YJobList)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool YJobList::IsInitialized() const {
+  return true;
+}
+
+void YJobList::Swap(YJobList* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void YJobList::InternalSwap(YJobList* other) {
+  jobs_.UnsafeArenaSwap(&other->jobs_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata YJobList::GetMetadata() const {
+  protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_y3d_2eproto::file_level_metadata[62];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// YJobList
+
+// repeated .y3d.YJob jobs = 1;
+int YJobList::jobs_size() const {
+  return jobs_.size();
+}
+void YJobList::clear_jobs() {
+  jobs_.Clear();
+}
+const ::y3d::YJob& YJobList::jobs(int index) const {
+  // @@protoc_insertion_point(field_get:y3d.YJobList.jobs)
+  return jobs_.Get(index);
+}
+::y3d::YJob* YJobList::mutable_jobs(int index) {
+  // @@protoc_insertion_point(field_mutable:y3d.YJobList.jobs)
+  return jobs_.Mutable(index);
+}
+::y3d::YJob* YJobList::add_jobs() {
+  // @@protoc_insertion_point(field_add:y3d.YJobList.jobs)
+  return jobs_.Add();
+}
+::google::protobuf::RepeatedPtrField< ::y3d::YJob >*
+YJobList::mutable_jobs() {
+  // @@protoc_insertion_point(field_mutable_list:y3d.YJobList.jobs)
+  return &jobs_;
+}
+const ::google::protobuf::RepeatedPtrField< ::y3d::YJob >&
+YJobList::jobs() const {
+  // @@protoc_insertion_point(field_list:y3d.YJobList.jobs)
+  return jobs_;
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int YWorker::kWidFieldNumber;
 const int YWorker::kWnameFieldNumber;
 const int YWorker::kIpAddressFieldNumber;
-const int YWorker::kAssetFolderFieldNumber;
+const int YWorker::kProcessIdFieldNumber;
 const int YWorker::kStatusFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
@@ -25820,10 +27151,6 @@ YWorker::YWorker(const YWorker& from)
   if (from.ip_address().size() > 0) {
     ip_address_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.ip_address_);
   }
-  asset_folder_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.asset_folder().size() > 0) {
-    asset_folder_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.asset_folder_);
-  }
   ::memcpy(&wid_, &from.wid_,
     reinterpret_cast<char*>(&status_) -
     reinterpret_cast<char*>(&wid_) + sizeof(status_));
@@ -25833,7 +27160,6 @@ YWorker::YWorker(const YWorker& from)
 void YWorker::SharedCtor() {
   wname_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ip_address_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  asset_folder_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(&wid_, 0, reinterpret_cast<char*>(&status_) -
     reinterpret_cast<char*>(&wid_) + sizeof(status_));
   _cached_size_ = 0;
@@ -25847,7 +27173,6 @@ YWorker::~YWorker() {
 void YWorker::SharedDtor() {
   wname_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ip_address_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  asset_folder_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 void YWorker::SetCachedSize(int size) const {
@@ -25857,7 +27182,7 @@ void YWorker::SetCachedSize(int size) const {
 }
 const ::google::protobuf::Descriptor* YWorker::descriptor() {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[59].descriptor;
+  return protobuf_y3d_2eproto::file_level_metadata[63].descriptor;
 }
 
 const YWorker& YWorker::default_instance() {
@@ -25877,7 +27202,6 @@ void YWorker::Clear() {
 // @@protoc_insertion_point(message_clear_start:y3d.YWorker)
   wname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ip_address_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  asset_folder_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(&wid_, 0, reinterpret_cast<char*>(&status_) -
     reinterpret_cast<char*>(&wid_) + sizeof(status_));
 }
@@ -25935,15 +27259,13 @@ bool YWorker::MergePartialFromCodedStream(
         break;
       }
 
-      // string asset_folder = 4;
+      // int32 process_id = 4;
       case 4: {
-        if (tag == 34u) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_asset_folder()));
-          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->asset_folder().data(), this->asset_folder().length(),
-            ::google::protobuf::internal::WireFormatLite::PARSE,
-            "y3d.YWorker.asset_folder"));
+        if (tag == 32u) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &process_id_)));
         } else {
           goto handle_unusual;
         }
@@ -26013,14 +27335,9 @@ void YWorker::SerializeWithCachedSizes(
       3, this->ip_address(), output);
   }
 
-  // string asset_folder = 4;
-  if (this->asset_folder().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->asset_folder().data(), this->asset_folder().length(),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "y3d.YWorker.asset_folder");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      4, this->asset_folder(), output);
+  // int32 process_id = 4;
+  if (this->process_id() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->process_id(), output);
   }
 
   // .y3d.YWorker.ServingStatus status = 5;
@@ -26063,15 +27380,9 @@ void YWorker::SerializeWithCachedSizes(
         3, this->ip_address(), target);
   }
 
-  // string asset_folder = 4;
-  if (this->asset_folder().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->asset_folder().data(), this->asset_folder().length(),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "y3d.YWorker.asset_folder");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        4, this->asset_folder(), target);
+  // int32 process_id = 4;
+  if (this->process_id() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->process_id(), target);
   }
 
   // .y3d.YWorker.ServingStatus status = 5;
@@ -26102,18 +27413,18 @@ size_t YWorker::ByteSizeLong() const {
         this->ip_address());
   }
 
-  // string asset_folder = 4;
-  if (this->asset_folder().size() > 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->asset_folder());
-  }
-
   // int32 wid = 1;
   if (this->wid() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->wid());
+  }
+
+  // int32 process_id = 4;
+  if (this->process_id() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->process_id());
   }
 
   // .y3d.YWorker.ServingStatus status = 5;
@@ -26156,12 +27467,11 @@ void YWorker::MergeFrom(const YWorker& from) {
 
     ip_address_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.ip_address_);
   }
-  if (from.asset_folder().size() > 0) {
-
-    asset_folder_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.asset_folder_);
-  }
   if (from.wid() != 0) {
     set_wid(from.wid());
+  }
+  if (from.process_id() != 0) {
+    set_process_id(from.process_id());
   }
   if (from.status() != 0) {
     set_status(from.status());
@@ -26193,15 +27503,15 @@ void YWorker::Swap(YWorker* other) {
 void YWorker::InternalSwap(YWorker* other) {
   wname_.Swap(&other->wname_);
   ip_address_.Swap(&other->ip_address_);
-  asset_folder_.Swap(&other->asset_folder_);
   std::swap(wid_, other->wid_);
+  std::swap(process_id_, other->process_id_);
   std::swap(status_, other->status_);
   std::swap(_cached_size_, other->_cached_size_);
 }
 
 ::google::protobuf::Metadata YWorker::GetMetadata() const {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[59];
+  return protobuf_y3d_2eproto::file_level_metadata[63];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -26325,56 +27635,18 @@ void YWorker::set_allocated_ip_address(::std::string* ip_address) {
   // @@protoc_insertion_point(field_set_allocated:y3d.YWorker.ip_address)
 }
 
-// string asset_folder = 4;
-void YWorker::clear_asset_folder() {
-  asset_folder_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+// int32 process_id = 4;
+void YWorker::clear_process_id() {
+  process_id_ = 0;
 }
-const ::std::string& YWorker::asset_folder() const {
-  // @@protoc_insertion_point(field_get:y3d.YWorker.asset_folder)
-  return asset_folder_.GetNoArena();
+::google::protobuf::int32 YWorker::process_id() const {
+  // @@protoc_insertion_point(field_get:y3d.YWorker.process_id)
+  return process_id_;
 }
-void YWorker::set_asset_folder(const ::std::string& value) {
+void YWorker::set_process_id(::google::protobuf::int32 value) {
   
-  asset_folder_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:y3d.YWorker.asset_folder)
-}
-#if LANG_CXX11
-void YWorker::set_asset_folder(::std::string&& value) {
-  
-  asset_folder_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:y3d.YWorker.asset_folder)
-}
-#endif
-void YWorker::set_asset_folder(const char* value) {
-  
-  asset_folder_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:y3d.YWorker.asset_folder)
-}
-void YWorker::set_asset_folder(const char* value, size_t size) {
-  
-  asset_folder_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:y3d.YWorker.asset_folder)
-}
-::std::string* YWorker::mutable_asset_folder() {
-  
-  // @@protoc_insertion_point(field_mutable:y3d.YWorker.asset_folder)
-  return asset_folder_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-::std::string* YWorker::release_asset_folder() {
-  // @@protoc_insertion_point(field_release:y3d.YWorker.asset_folder)
-  
-  return asset_folder_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-void YWorker::set_allocated_asset_folder(::std::string* asset_folder) {
-  if (asset_folder != NULL) {
-    
-  } else {
-    
-  }
-  asset_folder_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), asset_folder);
-  // @@protoc_insertion_point(field_set_allocated:y3d.YWorker.asset_folder)
+  process_id_ = value;
+  // @@protoc_insertion_point(field_set:y3d.YWorker.process_id)
 }
 
 // .y3d.YWorker.ServingStatus status = 5;
@@ -26396,7 +27668,976 @@ void YWorker::set_status(::y3d::YWorker_ServingStatus value) {
 // ===================================================================
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int YWorkerList::kMasterFieldNumber;
+const int YSubWorker::kSidFieldNumber;
+const int YSubWorker::kSnameFieldNumber;
+const int YSubWorker::kAssetFolderFieldNumber;
+const int YSubWorker::kWorkerFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+YSubWorker::YSubWorker()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_y3d_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:y3d.YSubWorker)
+}
+YSubWorker::YSubWorker(const YSubWorker& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  sname_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.sname().size() > 0) {
+    sname_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.sname_);
+  }
+  asset_folder_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.asset_folder().size() > 0) {
+    asset_folder_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.asset_folder_);
+  }
+  if (from.has_worker()) {
+    worker_ = new ::y3d::YWorker(*from.worker_);
+  } else {
+    worker_ = NULL;
+  }
+  sid_ = from.sid_;
+  // @@protoc_insertion_point(copy_constructor:y3d.YSubWorker)
+}
+
+void YSubWorker::SharedCtor() {
+  sname_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  asset_folder_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(&worker_, 0, reinterpret_cast<char*>(&sid_) -
+    reinterpret_cast<char*>(&worker_) + sizeof(sid_));
+  _cached_size_ = 0;
+}
+
+YSubWorker::~YSubWorker() {
+  // @@protoc_insertion_point(destructor:y3d.YSubWorker)
+  SharedDtor();
+}
+
+void YSubWorker::SharedDtor() {
+  sname_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  asset_folder_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (this != internal_default_instance()) {
+    delete worker_;
+  }
+}
+
+void YSubWorker::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* YSubWorker::descriptor() {
+  protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_y3d_2eproto::file_level_metadata[64].descriptor;
+}
+
+const YSubWorker& YSubWorker::default_instance() {
+  protobuf_y3d_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+YSubWorker* YSubWorker::New(::google::protobuf::Arena* arena) const {
+  YSubWorker* n = new YSubWorker;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void YSubWorker::Clear() {
+// @@protoc_insertion_point(message_clear_start:y3d.YSubWorker)
+  sname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  asset_folder_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (GetArenaNoVirtual() == NULL && worker_ != NULL) {
+    delete worker_;
+  }
+  worker_ = NULL;
+  sid_ = 0;
+}
+
+bool YSubWorker::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:y3d.YSubWorker)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // int32 sid = 1;
+      case 1: {
+        if (tag == 8u) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &sid_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // string sname = 2;
+      case 2: {
+        if (tag == 18u) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_sname()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->sname().data(), this->sname().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "y3d.YSubWorker.sname"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // string asset_folder = 3;
+      case 3: {
+        if (tag == 26u) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_asset_folder()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->asset_folder().data(), this->asset_folder().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "y3d.YSubWorker.asset_folder"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // .y3d.YWorker worker = 4;
+      case 4: {
+        if (tag == 34u) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_worker()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:y3d.YSubWorker)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:y3d.YSubWorker)
+  return false;
+#undef DO_
+}
+
+void YSubWorker::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:y3d.YSubWorker)
+  // int32 sid = 1;
+  if (this->sid() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->sid(), output);
+  }
+
+  // string sname = 2;
+  if (this->sname().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->sname().data(), this->sname().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "y3d.YSubWorker.sname");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      2, this->sname(), output);
+  }
+
+  // string asset_folder = 3;
+  if (this->asset_folder().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->asset_folder().data(), this->asset_folder().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "y3d.YSubWorker.asset_folder");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      3, this->asset_folder(), output);
+  }
+
+  // .y3d.YWorker worker = 4;
+  if (this->has_worker()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      4, *this->worker_, output);
+  }
+
+  // @@protoc_insertion_point(serialize_end:y3d.YSubWorker)
+}
+
+::google::protobuf::uint8* YSubWorker::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic;  // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:y3d.YSubWorker)
+  // int32 sid = 1;
+  if (this->sid() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->sid(), target);
+  }
+
+  // string sname = 2;
+  if (this->sname().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->sname().data(), this->sname().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "y3d.YSubWorker.sname");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->sname(), target);
+  }
+
+  // string asset_folder = 3;
+  if (this->asset_folder().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->asset_folder().data(), this->asset_folder().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "y3d.YSubWorker.asset_folder");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        3, this->asset_folder(), target);
+  }
+
+  // .y3d.YWorker worker = 4;
+  if (this->has_worker()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        4, *this->worker_, false, target);
+  }
+
+  // @@protoc_insertion_point(serialize_to_array_end:y3d.YSubWorker)
+  return target;
+}
+
+size_t YSubWorker::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:y3d.YSubWorker)
+  size_t total_size = 0;
+
+  // string sname = 2;
+  if (this->sname().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->sname());
+  }
+
+  // string asset_folder = 3;
+  if (this->asset_folder().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->asset_folder());
+  }
+
+  // .y3d.YWorker worker = 4;
+  if (this->has_worker()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->worker_);
+  }
+
+  // int32 sid = 1;
+  if (this->sid() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->sid());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void YSubWorker::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:y3d.YSubWorker)
+  GOOGLE_DCHECK_NE(&from, this);
+  const YSubWorker* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const YSubWorker>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:y3d.YSubWorker)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:y3d.YSubWorker)
+    MergeFrom(*source);
+  }
+}
+
+void YSubWorker::MergeFrom(const YSubWorker& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:y3d.YSubWorker)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  if (from.sname().size() > 0) {
+
+    sname_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.sname_);
+  }
+  if (from.asset_folder().size() > 0) {
+
+    asset_folder_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.asset_folder_);
+  }
+  if (from.has_worker()) {
+    mutable_worker()->::y3d::YWorker::MergeFrom(from.worker());
+  }
+  if (from.sid() != 0) {
+    set_sid(from.sid());
+  }
+}
+
+void YSubWorker::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:y3d.YSubWorker)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void YSubWorker::CopyFrom(const YSubWorker& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:y3d.YSubWorker)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool YSubWorker::IsInitialized() const {
+  return true;
+}
+
+void YSubWorker::Swap(YSubWorker* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void YSubWorker::InternalSwap(YSubWorker* other) {
+  sname_.Swap(&other->sname_);
+  asset_folder_.Swap(&other->asset_folder_);
+  std::swap(worker_, other->worker_);
+  std::swap(sid_, other->sid_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata YSubWorker::GetMetadata() const {
+  protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_y3d_2eproto::file_level_metadata[64];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// YSubWorker
+
+// int32 sid = 1;
+void YSubWorker::clear_sid() {
+  sid_ = 0;
+}
+::google::protobuf::int32 YSubWorker::sid() const {
+  // @@protoc_insertion_point(field_get:y3d.YSubWorker.sid)
+  return sid_;
+}
+void YSubWorker::set_sid(::google::protobuf::int32 value) {
+  
+  sid_ = value;
+  // @@protoc_insertion_point(field_set:y3d.YSubWorker.sid)
+}
+
+// string sname = 2;
+void YSubWorker::clear_sname() {
+  sname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+const ::std::string& YSubWorker::sname() const {
+  // @@protoc_insertion_point(field_get:y3d.YSubWorker.sname)
+  return sname_.GetNoArena();
+}
+void YSubWorker::set_sname(const ::std::string& value) {
+  
+  sname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:y3d.YSubWorker.sname)
+}
+#if LANG_CXX11
+void YSubWorker::set_sname(::std::string&& value) {
+  
+  sname_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:y3d.YSubWorker.sname)
+}
+#endif
+void YSubWorker::set_sname(const char* value) {
+  
+  sname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:y3d.YSubWorker.sname)
+}
+void YSubWorker::set_sname(const char* value, size_t size) {
+  
+  sname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:y3d.YSubWorker.sname)
+}
+::std::string* YSubWorker::mutable_sname() {
+  
+  // @@protoc_insertion_point(field_mutable:y3d.YSubWorker.sname)
+  return sname_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* YSubWorker::release_sname() {
+  // @@protoc_insertion_point(field_release:y3d.YSubWorker.sname)
+  
+  return sname_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void YSubWorker::set_allocated_sname(::std::string* sname) {
+  if (sname != NULL) {
+    
+  } else {
+    
+  }
+  sname_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), sname);
+  // @@protoc_insertion_point(field_set_allocated:y3d.YSubWorker.sname)
+}
+
+// string asset_folder = 3;
+void YSubWorker::clear_asset_folder() {
+  asset_folder_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+const ::std::string& YSubWorker::asset_folder() const {
+  // @@protoc_insertion_point(field_get:y3d.YSubWorker.asset_folder)
+  return asset_folder_.GetNoArena();
+}
+void YSubWorker::set_asset_folder(const ::std::string& value) {
+  
+  asset_folder_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:y3d.YSubWorker.asset_folder)
+}
+#if LANG_CXX11
+void YSubWorker::set_asset_folder(::std::string&& value) {
+  
+  asset_folder_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:y3d.YSubWorker.asset_folder)
+}
+#endif
+void YSubWorker::set_asset_folder(const char* value) {
+  
+  asset_folder_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:y3d.YSubWorker.asset_folder)
+}
+void YSubWorker::set_asset_folder(const char* value, size_t size) {
+  
+  asset_folder_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:y3d.YSubWorker.asset_folder)
+}
+::std::string* YSubWorker::mutable_asset_folder() {
+  
+  // @@protoc_insertion_point(field_mutable:y3d.YSubWorker.asset_folder)
+  return asset_folder_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* YSubWorker::release_asset_folder() {
+  // @@protoc_insertion_point(field_release:y3d.YSubWorker.asset_folder)
+  
+  return asset_folder_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void YSubWorker::set_allocated_asset_folder(::std::string* asset_folder) {
+  if (asset_folder != NULL) {
+    
+  } else {
+    
+  }
+  asset_folder_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), asset_folder);
+  // @@protoc_insertion_point(field_set_allocated:y3d.YSubWorker.asset_folder)
+}
+
+// .y3d.YWorker worker = 4;
+bool YSubWorker::has_worker() const {
+  return this != internal_default_instance() && worker_ != NULL;
+}
+void YSubWorker::clear_worker() {
+  if (GetArenaNoVirtual() == NULL && worker_ != NULL) delete worker_;
+  worker_ = NULL;
+}
+const ::y3d::YWorker& YSubWorker::worker() const {
+  // @@protoc_insertion_point(field_get:y3d.YSubWorker.worker)
+  return worker_ != NULL ? *worker_
+                         : *::y3d::YWorker::internal_default_instance();
+}
+::y3d::YWorker* YSubWorker::mutable_worker() {
+  
+  if (worker_ == NULL) {
+    worker_ = new ::y3d::YWorker;
+  }
+  // @@protoc_insertion_point(field_mutable:y3d.YSubWorker.worker)
+  return worker_;
+}
+::y3d::YWorker* YSubWorker::release_worker() {
+  // @@protoc_insertion_point(field_release:y3d.YSubWorker.worker)
+  
+  ::y3d::YWorker* temp = worker_;
+  worker_ = NULL;
+  return temp;
+}
+void YSubWorker::set_allocated_worker(::y3d::YWorker* worker) {
+  delete worker_;
+  worker_ = worker;
+  if (worker) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:y3d.YSubWorker.worker)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int YMainWorker::kMainWorkerFieldNumber;
+const int YMainWorker::kWorkersFieldNumber;
+const int YMainWorker::kWorkingProjectFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+YMainWorker::YMainWorker()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_y3d_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:y3d.YMainWorker)
+}
+YMainWorker::YMainWorker(const YMainWorker& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      workers_(from.workers_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  working_project_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.working_project().size() > 0) {
+    working_project_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.working_project_);
+  }
+  if (from.has_main_worker()) {
+    main_worker_ = new ::y3d::YSubWorker(*from.main_worker_);
+  } else {
+    main_worker_ = NULL;
+  }
+  // @@protoc_insertion_point(copy_constructor:y3d.YMainWorker)
+}
+
+void YMainWorker::SharedCtor() {
+  working_project_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  main_worker_ = NULL;
+  _cached_size_ = 0;
+}
+
+YMainWorker::~YMainWorker() {
+  // @@protoc_insertion_point(destructor:y3d.YMainWorker)
+  SharedDtor();
+}
+
+void YMainWorker::SharedDtor() {
+  working_project_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (this != internal_default_instance()) {
+    delete main_worker_;
+  }
+}
+
+void YMainWorker::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* YMainWorker::descriptor() {
+  protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_y3d_2eproto::file_level_metadata[65].descriptor;
+}
+
+const YMainWorker& YMainWorker::default_instance() {
+  protobuf_y3d_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+YMainWorker* YMainWorker::New(::google::protobuf::Arena* arena) const {
+  YMainWorker* n = new YMainWorker;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void YMainWorker::Clear() {
+// @@protoc_insertion_point(message_clear_start:y3d.YMainWorker)
+  workers_.Clear();
+  working_project_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (GetArenaNoVirtual() == NULL && main_worker_ != NULL) {
+    delete main_worker_;
+  }
+  main_worker_ = NULL;
+}
+
+bool YMainWorker::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:y3d.YMainWorker)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // .y3d.YSubWorker main_worker = 1;
+      case 1: {
+        if (tag == 10u) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_main_worker()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // repeated .y3d.YSubWorker workers = 2;
+      case 2: {
+        if (tag == 18u) {
+          DO_(input->IncrementRecursionDepth());
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtualNoRecursionDepth(
+                input, add_workers()));
+        } else {
+          goto handle_unusual;
+        }
+        input->UnsafeDecrementRecursionDepth();
+        break;
+      }
+
+      // string working_project = 3;
+      case 3: {
+        if (tag == 26u) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_working_project()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->working_project().data(), this->working_project().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "y3d.YMainWorker.working_project"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:y3d.YMainWorker)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:y3d.YMainWorker)
+  return false;
+#undef DO_
+}
+
+void YMainWorker::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:y3d.YMainWorker)
+  // .y3d.YSubWorker main_worker = 1;
+  if (this->has_main_worker()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, *this->main_worker_, output);
+  }
+
+  // repeated .y3d.YSubWorker workers = 2;
+  for (unsigned int i = 0, n = this->workers_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      2, this->workers(i), output);
+  }
+
+  // string working_project = 3;
+  if (this->working_project().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->working_project().data(), this->working_project().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "y3d.YMainWorker.working_project");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      3, this->working_project(), output);
+  }
+
+  // @@protoc_insertion_point(serialize_end:y3d.YMainWorker)
+}
+
+::google::protobuf::uint8* YMainWorker::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic;  // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:y3d.YMainWorker)
+  // .y3d.YSubWorker main_worker = 1;
+  if (this->has_main_worker()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        1, *this->main_worker_, false, target);
+  }
+
+  // repeated .y3d.YSubWorker workers = 2;
+  for (unsigned int i = 0, n = this->workers_size(); i < n; i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        2, this->workers(i), false, target);
+  }
+
+  // string working_project = 3;
+  if (this->working_project().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->working_project().data(), this->working_project().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "y3d.YMainWorker.working_project");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        3, this->working_project(), target);
+  }
+
+  // @@protoc_insertion_point(serialize_to_array_end:y3d.YMainWorker)
+  return target;
+}
+
+size_t YMainWorker::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:y3d.YMainWorker)
+  size_t total_size = 0;
+
+  // repeated .y3d.YSubWorker workers = 2;
+  {
+    unsigned int count = this->workers_size();
+    total_size += 1UL * count;
+    for (unsigned int i = 0; i < count; i++) {
+      total_size +=
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->workers(i));
+    }
+  }
+
+  // string working_project = 3;
+  if (this->working_project().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->working_project());
+  }
+
+  // .y3d.YSubWorker main_worker = 1;
+  if (this->has_main_worker()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->main_worker_);
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void YMainWorker::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:y3d.YMainWorker)
+  GOOGLE_DCHECK_NE(&from, this);
+  const YMainWorker* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const YMainWorker>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:y3d.YMainWorker)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:y3d.YMainWorker)
+    MergeFrom(*source);
+  }
+}
+
+void YMainWorker::MergeFrom(const YMainWorker& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:y3d.YMainWorker)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  workers_.MergeFrom(from.workers_);
+  if (from.working_project().size() > 0) {
+
+    working_project_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.working_project_);
+  }
+  if (from.has_main_worker()) {
+    mutable_main_worker()->::y3d::YSubWorker::MergeFrom(from.main_worker());
+  }
+}
+
+void YMainWorker::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:y3d.YMainWorker)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void YMainWorker::CopyFrom(const YMainWorker& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:y3d.YMainWorker)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool YMainWorker::IsInitialized() const {
+  return true;
+}
+
+void YMainWorker::Swap(YMainWorker* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void YMainWorker::InternalSwap(YMainWorker* other) {
+  workers_.UnsafeArenaSwap(&other->workers_);
+  working_project_.Swap(&other->working_project_);
+  std::swap(main_worker_, other->main_worker_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata YMainWorker::GetMetadata() const {
+  protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_y3d_2eproto::file_level_metadata[65];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// YMainWorker
+
+// .y3d.YSubWorker main_worker = 1;
+bool YMainWorker::has_main_worker() const {
+  return this != internal_default_instance() && main_worker_ != NULL;
+}
+void YMainWorker::clear_main_worker() {
+  if (GetArenaNoVirtual() == NULL && main_worker_ != NULL) delete main_worker_;
+  main_worker_ = NULL;
+}
+const ::y3d::YSubWorker& YMainWorker::main_worker() const {
+  // @@protoc_insertion_point(field_get:y3d.YMainWorker.main_worker)
+  return main_worker_ != NULL ? *main_worker_
+                         : *::y3d::YSubWorker::internal_default_instance();
+}
+::y3d::YSubWorker* YMainWorker::mutable_main_worker() {
+  
+  if (main_worker_ == NULL) {
+    main_worker_ = new ::y3d::YSubWorker;
+  }
+  // @@protoc_insertion_point(field_mutable:y3d.YMainWorker.main_worker)
+  return main_worker_;
+}
+::y3d::YSubWorker* YMainWorker::release_main_worker() {
+  // @@protoc_insertion_point(field_release:y3d.YMainWorker.main_worker)
+  
+  ::y3d::YSubWorker* temp = main_worker_;
+  main_worker_ = NULL;
+  return temp;
+}
+void YMainWorker::set_allocated_main_worker(::y3d::YSubWorker* main_worker) {
+  delete main_worker_;
+  main_worker_ = main_worker;
+  if (main_worker) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:y3d.YMainWorker.main_worker)
+}
+
+// repeated .y3d.YSubWorker workers = 2;
+int YMainWorker::workers_size() const {
+  return workers_.size();
+}
+void YMainWorker::clear_workers() {
+  workers_.Clear();
+}
+const ::y3d::YSubWorker& YMainWorker::workers(int index) const {
+  // @@protoc_insertion_point(field_get:y3d.YMainWorker.workers)
+  return workers_.Get(index);
+}
+::y3d::YSubWorker* YMainWorker::mutable_workers(int index) {
+  // @@protoc_insertion_point(field_mutable:y3d.YMainWorker.workers)
+  return workers_.Mutable(index);
+}
+::y3d::YSubWorker* YMainWorker::add_workers() {
+  // @@protoc_insertion_point(field_add:y3d.YMainWorker.workers)
+  return workers_.Add();
+}
+::google::protobuf::RepeatedPtrField< ::y3d::YSubWorker >*
+YMainWorker::mutable_workers() {
+  // @@protoc_insertion_point(field_mutable_list:y3d.YMainWorker.workers)
+  return &workers_;
+}
+const ::google::protobuf::RepeatedPtrField< ::y3d::YSubWorker >&
+YMainWorker::workers() const {
+  // @@protoc_insertion_point(field_list:y3d.YMainWorker.workers)
+  return workers_;
+}
+
+// string working_project = 3;
+void YMainWorker::clear_working_project() {
+  working_project_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+const ::std::string& YMainWorker::working_project() const {
+  // @@protoc_insertion_point(field_get:y3d.YMainWorker.working_project)
+  return working_project_.GetNoArena();
+}
+void YMainWorker::set_working_project(const ::std::string& value) {
+  
+  working_project_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:y3d.YMainWorker.working_project)
+}
+#if LANG_CXX11
+void YMainWorker::set_working_project(::std::string&& value) {
+  
+  working_project_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:y3d.YMainWorker.working_project)
+}
+#endif
+void YMainWorker::set_working_project(const char* value) {
+  
+  working_project_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:y3d.YMainWorker.working_project)
+}
+void YMainWorker::set_working_project(const char* value, size_t size) {
+  
+  working_project_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:y3d.YMainWorker.working_project)
+}
+::std::string* YMainWorker::mutable_working_project() {
+  
+  // @@protoc_insertion_point(field_mutable:y3d.YMainWorker.working_project)
+  return working_project_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* YMainWorker::release_working_project() {
+  // @@protoc_insertion_point(field_release:y3d.YMainWorker.working_project)
+  
+  return working_project_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void YMainWorker::set_allocated_working_project(::std::string* working_project) {
+  if (working_project != NULL) {
+    
+  } else {
+    
+  }
+  working_project_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), working_project);
+  // @@protoc_insertion_point(field_set_allocated:y3d.YMainWorker.working_project)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int YWorkerList::kWorkersFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
@@ -26414,16 +28655,10 @@ YWorkerList::YWorkerList(const YWorkerList& from)
       workers_(from.workers_),
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  if (from.has_master()) {
-    master_ = new ::y3d::YWorker(*from.master_);
-  } else {
-    master_ = NULL;
-  }
   // @@protoc_insertion_point(copy_constructor:y3d.YWorkerList)
 }
 
 void YWorkerList::SharedCtor() {
-  master_ = NULL;
   _cached_size_ = 0;
 }
 
@@ -26433,9 +28668,6 @@ YWorkerList::~YWorkerList() {
 }
 
 void YWorkerList::SharedDtor() {
-  if (this != internal_default_instance()) {
-    delete master_;
-  }
 }
 
 void YWorkerList::SetCachedSize(int size) const {
@@ -26445,7 +28677,7 @@ void YWorkerList::SetCachedSize(int size) const {
 }
 const ::google::protobuf::Descriptor* YWorkerList::descriptor() {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[60].descriptor;
+  return protobuf_y3d_2eproto::file_level_metadata[66].descriptor;
 }
 
 const YWorkerList& YWorkerList::default_instance() {
@@ -26464,10 +28696,6 @@ YWorkerList* YWorkerList::New(::google::protobuf::Arena* arena) const {
 void YWorkerList::Clear() {
 // @@protoc_insertion_point(message_clear_start:y3d.YWorkerList)
   workers_.Clear();
-  if (GetArenaNoVirtual() == NULL && master_ != NULL) {
-    delete master_;
-  }
-  master_ = NULL;
 }
 
 bool YWorkerList::MergePartialFromCodedStream(
@@ -26480,20 +28708,9 @@ bool YWorkerList::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // .y3d.YWorker master = 1;
+      // repeated .y3d.YWorker workers = 1;
       case 1: {
         if (tag == 10u) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-               input, mutable_master()));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // repeated .y3d.YWorker workers = 2;
-      case 2: {
-        if (tag == 18u) {
           DO_(input->IncrementRecursionDepth());
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtualNoRecursionDepth(
                 input, add_workers()));
@@ -26528,16 +28745,10 @@ failure:
 void YWorkerList::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:y3d.YWorkerList)
-  // .y3d.YWorker master = 1;
-  if (this->has_master()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, *this->master_, output);
-  }
-
-  // repeated .y3d.YWorker workers = 2;
+  // repeated .y3d.YWorker workers = 1;
   for (unsigned int i = 0, n = this->workers_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      2, this->workers(i), output);
+      1, this->workers(i), output);
   }
 
   // @@protoc_insertion_point(serialize_end:y3d.YWorkerList)
@@ -26547,18 +28758,11 @@ void YWorkerList::SerializeWithCachedSizes(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic;  // Unused
   // @@protoc_insertion_point(serialize_to_array_start:y3d.YWorkerList)
-  // .y3d.YWorker master = 1;
-  if (this->has_master()) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      InternalWriteMessageNoVirtualToArray(
-        1, *this->master_, false, target);
-  }
-
-  // repeated .y3d.YWorker workers = 2;
+  // repeated .y3d.YWorker workers = 1;
   for (unsigned int i = 0, n = this->workers_size(); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
-        2, this->workers(i), false, target);
+        1, this->workers(i), false, target);
   }
 
   // @@protoc_insertion_point(serialize_to_array_end:y3d.YWorkerList)
@@ -26569,7 +28773,7 @@ size_t YWorkerList::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:y3d.YWorkerList)
   size_t total_size = 0;
 
-  // repeated .y3d.YWorker workers = 2;
+  // repeated .y3d.YWorker workers = 1;
   {
     unsigned int count = this->workers_size();
     total_size += 1UL * count;
@@ -26578,13 +28782,6 @@ size_t YWorkerList::ByteSizeLong() const {
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
           this->workers(i));
     }
-  }
-
-  // .y3d.YWorker master = 1;
-  if (this->has_master()) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        *this->master_);
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -26614,9 +28811,6 @@ void YWorkerList::MergeFrom(const YWorkerList& from) {
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   workers_.MergeFrom(from.workers_);
-  if (from.has_master()) {
-    mutable_master()->::y3d::YWorker::MergeFrom(from.master());
-  }
 }
 
 void YWorkerList::CopyFrom(const ::google::protobuf::Message& from) {
@@ -26643,58 +28837,18 @@ void YWorkerList::Swap(YWorkerList* other) {
 }
 void YWorkerList::InternalSwap(YWorkerList* other) {
   workers_.UnsafeArenaSwap(&other->workers_);
-  std::swap(master_, other->master_);
   std::swap(_cached_size_, other->_cached_size_);
 }
 
 ::google::protobuf::Metadata YWorkerList::GetMetadata() const {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[60];
+  return protobuf_y3d_2eproto::file_level_metadata[66];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // YWorkerList
 
-// .y3d.YWorker master = 1;
-bool YWorkerList::has_master() const {
-  return this != internal_default_instance() && master_ != NULL;
-}
-void YWorkerList::clear_master() {
-  if (GetArenaNoVirtual() == NULL && master_ != NULL) delete master_;
-  master_ = NULL;
-}
-const ::y3d::YWorker& YWorkerList::master() const {
-  // @@protoc_insertion_point(field_get:y3d.YWorkerList.master)
-  return master_ != NULL ? *master_
-                         : *::y3d::YWorker::internal_default_instance();
-}
-::y3d::YWorker* YWorkerList::mutable_master() {
-  
-  if (master_ == NULL) {
-    master_ = new ::y3d::YWorker;
-  }
-  // @@protoc_insertion_point(field_mutable:y3d.YWorkerList.master)
-  return master_;
-}
-::y3d::YWorker* YWorkerList::release_master() {
-  // @@protoc_insertion_point(field_release:y3d.YWorkerList.master)
-  
-  ::y3d::YWorker* temp = master_;
-  master_ = NULL;
-  return temp;
-}
-void YWorkerList::set_allocated_master(::y3d::YWorker* master) {
-  delete master_;
-  master_ = master;
-  if (master) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_set_allocated:y3d.YWorkerList.master)
-}
-
-// repeated .y3d.YWorker workers = 2;
+// repeated .y3d.YWorker workers = 1;
 int YWorkerList::workers_size() const {
   return workers_.size();
 }
@@ -26782,7 +28936,7 @@ void YWorkerRequest::SetCachedSize(int size) const {
 }
 const ::google::protobuf::Descriptor* YWorkerRequest::descriptor() {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[61].descriptor;
+  return protobuf_y3d_2eproto::file_level_metadata[67].descriptor;
 }
 
 const YWorkerRequest& YWorkerRequest::default_instance() {
@@ -27012,7 +29166,7 @@ void YWorkerRequest::InternalSwap(YWorkerRequest* other) {
 
 ::google::protobuf::Metadata YWorkerRequest::GetMetadata() const {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[61];
+  return protobuf_y3d_2eproto::file_level_metadata[67];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -27148,7 +29302,7 @@ void WorkerApp::SetCachedSize(int size) const {
 }
 const ::google::protobuf::Descriptor* WorkerApp::descriptor() {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[62].descriptor;
+  return protobuf_y3d_2eproto::file_level_metadata[68].descriptor;
 }
 
 const WorkerApp& WorkerApp::default_instance() {
@@ -27420,7 +29574,7 @@ void WorkerApp::InternalSwap(WorkerApp* other) {
 
 ::google::protobuf::Metadata WorkerApp::GetMetadata() const {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[62];
+  return protobuf_y3d_2eproto::file_level_metadata[68];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -27588,8 +29742,9 @@ void WorkerApp::set_allocated_extra(::std::string* extra) {
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int YWorkerResponse::kWlistFieldNumber;
-const int YWorkerResponse::kNewWorkerFieldNumber;
+const int YWorkerResponse::kWorkerFieldNumber;
 const int YWorkerResponse::kErrorFieldNumber;
+const int YWorkerResponse::kMessageFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 YWorkerResponse::YWorkerResponse()
@@ -27605,27 +29760,28 @@ YWorkerResponse::YWorkerResponse(const YWorkerResponse& from)
       _internal_metadata_(NULL),
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  error_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.error().size() > 0) {
-    error_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.error_);
+  message_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.message().size() > 0) {
+    message_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.message_);
   }
   if (from.has_wlist()) {
     wlist_ = new ::y3d::YWorkerList(*from.wlist_);
   } else {
     wlist_ = NULL;
   }
-  if (from.has_new_worker()) {
-    new_worker_ = new ::y3d::YWorker(*from.new_worker_);
+  if (from.has_worker()) {
+    worker_ = new ::y3d::YWorker(*from.worker_);
   } else {
-    new_worker_ = NULL;
+    worker_ = NULL;
   }
+  error_ = from.error_;
   // @@protoc_insertion_point(copy_constructor:y3d.YWorkerResponse)
 }
 
 void YWorkerResponse::SharedCtor() {
-  error_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  ::memset(&wlist_, 0, reinterpret_cast<char*>(&new_worker_) -
-    reinterpret_cast<char*>(&wlist_) + sizeof(new_worker_));
+  message_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(&wlist_, 0, reinterpret_cast<char*>(&error_) -
+    reinterpret_cast<char*>(&wlist_) + sizeof(error_));
   _cached_size_ = 0;
 }
 
@@ -27635,12 +29791,12 @@ YWorkerResponse::~YWorkerResponse() {
 }
 
 void YWorkerResponse::SharedDtor() {
-  error_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  message_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != internal_default_instance()) {
     delete wlist_;
   }
   if (this != internal_default_instance()) {
-    delete new_worker_;
+    delete worker_;
   }
 }
 
@@ -27651,7 +29807,7 @@ void YWorkerResponse::SetCachedSize(int size) const {
 }
 const ::google::protobuf::Descriptor* YWorkerResponse::descriptor() {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[63].descriptor;
+  return protobuf_y3d_2eproto::file_level_metadata[69].descriptor;
 }
 
 const YWorkerResponse& YWorkerResponse::default_instance() {
@@ -27669,15 +29825,16 @@ YWorkerResponse* YWorkerResponse::New(::google::protobuf::Arena* arena) const {
 
 void YWorkerResponse::Clear() {
 // @@protoc_insertion_point(message_clear_start:y3d.YWorkerResponse)
-  error_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  message_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (GetArenaNoVirtual() == NULL && wlist_ != NULL) {
     delete wlist_;
   }
   wlist_ = NULL;
-  if (GetArenaNoVirtual() == NULL && new_worker_ != NULL) {
-    delete new_worker_;
+  if (GetArenaNoVirtual() == NULL && worker_ != NULL) {
+    delete worker_;
   }
-  new_worker_ = NULL;
+  worker_ = NULL;
+  error_ = false;
 }
 
 bool YWorkerResponse::MergePartialFromCodedStream(
@@ -27701,26 +29858,39 @@ bool YWorkerResponse::MergePartialFromCodedStream(
         break;
       }
 
-      // .y3d.YWorker new_worker = 2;
+      // .y3d.YWorker worker = 2;
       case 2: {
         if (tag == 18u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-               input, mutable_new_worker()));
+               input, mutable_worker()));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // string error = 3;
+      // bool error = 3;
       case 3: {
-        if (tag == 26u) {
+        if (tag == 24u) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &error_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // string message = 4;
+      case 4: {
+        if (tag == 34u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_error()));
+                input, this->mutable_message()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->error().data(), this->error().length(),
+            this->message().data(), this->message().length(),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "y3d.YWorkerResponse.error"));
+            "y3d.YWorkerResponse.message"));
         } else {
           goto handle_unusual;
         }
@@ -27757,20 +29927,25 @@ void YWorkerResponse::SerializeWithCachedSizes(
       1, *this->wlist_, output);
   }
 
-  // .y3d.YWorker new_worker = 2;
-  if (this->has_new_worker()) {
+  // .y3d.YWorker worker = 2;
+  if (this->has_worker()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      2, *this->new_worker_, output);
+      2, *this->worker_, output);
   }
 
-  // string error = 3;
-  if (this->error().size() > 0) {
+  // bool error = 3;
+  if (this->error() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(3, this->error(), output);
+  }
+
+  // string message = 4;
+  if (this->message().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->error().data(), this->error().length(),
+      this->message().data(), this->message().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "y3d.YWorkerResponse.error");
+      "y3d.YWorkerResponse.message");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      3, this->error(), output);
+      4, this->message(), output);
   }
 
   // @@protoc_insertion_point(serialize_end:y3d.YWorkerResponse)
@@ -27787,22 +29962,27 @@ void YWorkerResponse::SerializeWithCachedSizes(
         1, *this->wlist_, false, target);
   }
 
-  // .y3d.YWorker new_worker = 2;
-  if (this->has_new_worker()) {
+  // .y3d.YWorker worker = 2;
+  if (this->has_worker()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
-        2, *this->new_worker_, false, target);
+        2, *this->worker_, false, target);
   }
 
-  // string error = 3;
-  if (this->error().size() > 0) {
+  // bool error = 3;
+  if (this->error() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(3, this->error(), target);
+  }
+
+  // string message = 4;
+  if (this->message().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->error().data(), this->error().length(),
+      this->message().data(), this->message().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "y3d.YWorkerResponse.error");
+      "y3d.YWorkerResponse.message");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        3, this->error(), target);
+        4, this->message(), target);
   }
 
   // @@protoc_insertion_point(serialize_to_array_end:y3d.YWorkerResponse)
@@ -27813,11 +29993,11 @@ size_t YWorkerResponse::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:y3d.YWorkerResponse)
   size_t total_size = 0;
 
-  // string error = 3;
-  if (this->error().size() > 0) {
+  // string message = 4;
+  if (this->message().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->error());
+        this->message());
   }
 
   // .y3d.YWorkerList wlist = 1;
@@ -27827,11 +30007,16 @@ size_t YWorkerResponse::ByteSizeLong() const {
         *this->wlist_);
   }
 
-  // .y3d.YWorker new_worker = 2;
-  if (this->has_new_worker()) {
+  // .y3d.YWorker worker = 2;
+  if (this->has_worker()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        *this->new_worker_);
+        *this->worker_);
+  }
+
+  // bool error = 3;
+  if (this->error() != 0) {
+    total_size += 1 + 1;
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -27860,15 +30045,18 @@ void YWorkerResponse::MergeFrom(const YWorkerResponse& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:y3d.YWorkerResponse)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  if (from.error().size() > 0) {
+  if (from.message().size() > 0) {
 
-    error_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.error_);
+    message_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.message_);
   }
   if (from.has_wlist()) {
     mutable_wlist()->::y3d::YWorkerList::MergeFrom(from.wlist());
   }
-  if (from.has_new_worker()) {
-    mutable_new_worker()->::y3d::YWorker::MergeFrom(from.new_worker());
+  if (from.has_worker()) {
+    mutable_worker()->::y3d::YWorker::MergeFrom(from.worker());
+  }
+  if (from.error() != 0) {
+    set_error(from.error());
   }
 }
 
@@ -27895,15 +30083,16 @@ void YWorkerResponse::Swap(YWorkerResponse* other) {
   InternalSwap(other);
 }
 void YWorkerResponse::InternalSwap(YWorkerResponse* other) {
-  error_.Swap(&other->error_);
+  message_.Swap(&other->message_);
   std::swap(wlist_, other->wlist_);
-  std::swap(new_worker_, other->new_worker_);
+  std::swap(worker_, other->worker_);
+  std::swap(error_, other->error_);
   std::swap(_cached_size_, other->_cached_size_);
 }
 
 ::google::protobuf::Metadata YWorkerResponse::GetMetadata() const {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[63];
+  return protobuf_y3d_2eproto::file_level_metadata[69];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -27948,95 +30137,109 @@ void YWorkerResponse::set_allocated_wlist(::y3d::YWorkerList* wlist) {
   // @@protoc_insertion_point(field_set_allocated:y3d.YWorkerResponse.wlist)
 }
 
-// .y3d.YWorker new_worker = 2;
-bool YWorkerResponse::has_new_worker() const {
-  return this != internal_default_instance() && new_worker_ != NULL;
+// .y3d.YWorker worker = 2;
+bool YWorkerResponse::has_worker() const {
+  return this != internal_default_instance() && worker_ != NULL;
 }
-void YWorkerResponse::clear_new_worker() {
-  if (GetArenaNoVirtual() == NULL && new_worker_ != NULL) delete new_worker_;
-  new_worker_ = NULL;
+void YWorkerResponse::clear_worker() {
+  if (GetArenaNoVirtual() == NULL && worker_ != NULL) delete worker_;
+  worker_ = NULL;
 }
-const ::y3d::YWorker& YWorkerResponse::new_worker() const {
-  // @@protoc_insertion_point(field_get:y3d.YWorkerResponse.new_worker)
-  return new_worker_ != NULL ? *new_worker_
+const ::y3d::YWorker& YWorkerResponse::worker() const {
+  // @@protoc_insertion_point(field_get:y3d.YWorkerResponse.worker)
+  return worker_ != NULL ? *worker_
                          : *::y3d::YWorker::internal_default_instance();
 }
-::y3d::YWorker* YWorkerResponse::mutable_new_worker() {
+::y3d::YWorker* YWorkerResponse::mutable_worker() {
   
-  if (new_worker_ == NULL) {
-    new_worker_ = new ::y3d::YWorker;
+  if (worker_ == NULL) {
+    worker_ = new ::y3d::YWorker;
   }
-  // @@protoc_insertion_point(field_mutable:y3d.YWorkerResponse.new_worker)
-  return new_worker_;
+  // @@protoc_insertion_point(field_mutable:y3d.YWorkerResponse.worker)
+  return worker_;
 }
-::y3d::YWorker* YWorkerResponse::release_new_worker() {
-  // @@protoc_insertion_point(field_release:y3d.YWorkerResponse.new_worker)
+::y3d::YWorker* YWorkerResponse::release_worker() {
+  // @@protoc_insertion_point(field_release:y3d.YWorkerResponse.worker)
   
-  ::y3d::YWorker* temp = new_worker_;
-  new_worker_ = NULL;
+  ::y3d::YWorker* temp = worker_;
+  worker_ = NULL;
   return temp;
 }
-void YWorkerResponse::set_allocated_new_worker(::y3d::YWorker* new_worker) {
-  delete new_worker_;
-  new_worker_ = new_worker;
-  if (new_worker) {
+void YWorkerResponse::set_allocated_worker(::y3d::YWorker* worker) {
+  delete worker_;
+  worker_ = worker;
+  if (worker) {
     
   } else {
     
   }
-  // @@protoc_insertion_point(field_set_allocated:y3d.YWorkerResponse.new_worker)
+  // @@protoc_insertion_point(field_set_allocated:y3d.YWorkerResponse.worker)
 }
 
-// string error = 3;
+// bool error = 3;
 void YWorkerResponse::clear_error() {
-  error_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  error_ = false;
 }
-const ::std::string& YWorkerResponse::error() const {
+bool YWorkerResponse::error() const {
   // @@protoc_insertion_point(field_get:y3d.YWorkerResponse.error)
-  return error_.GetNoArena();
+  return error_;
 }
-void YWorkerResponse::set_error(const ::std::string& value) {
+void YWorkerResponse::set_error(bool value) {
   
-  error_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  error_ = value;
   // @@protoc_insertion_point(field_set:y3d.YWorkerResponse.error)
 }
-#if LANG_CXX11
-void YWorkerResponse::set_error(::std::string&& value) {
+
+// string message = 4;
+void YWorkerResponse::clear_message() {
+  message_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+const ::std::string& YWorkerResponse::message() const {
+  // @@protoc_insertion_point(field_get:y3d.YWorkerResponse.message)
+  return message_.GetNoArena();
+}
+void YWorkerResponse::set_message(const ::std::string& value) {
   
-  error_.SetNoArena(
+  message_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:y3d.YWorkerResponse.message)
+}
+#if LANG_CXX11
+void YWorkerResponse::set_message(::std::string&& value) {
+  
+  message_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:y3d.YWorkerResponse.error)
+  // @@protoc_insertion_point(field_set_rvalue:y3d.YWorkerResponse.message)
 }
 #endif
-void YWorkerResponse::set_error(const char* value) {
+void YWorkerResponse::set_message(const char* value) {
   
-  error_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:y3d.YWorkerResponse.error)
+  message_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:y3d.YWorkerResponse.message)
 }
-void YWorkerResponse::set_error(const char* value, size_t size) {
+void YWorkerResponse::set_message(const char* value, size_t size) {
   
-  error_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  message_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:y3d.YWorkerResponse.error)
+  // @@protoc_insertion_point(field_set_pointer:y3d.YWorkerResponse.message)
 }
-::std::string* YWorkerResponse::mutable_error() {
+::std::string* YWorkerResponse::mutable_message() {
   
-  // @@protoc_insertion_point(field_mutable:y3d.YWorkerResponse.error)
-  return error_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  // @@protoc_insertion_point(field_mutable:y3d.YWorkerResponse.message)
+  return message_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-::std::string* YWorkerResponse::release_error() {
-  // @@protoc_insertion_point(field_release:y3d.YWorkerResponse.error)
+::std::string* YWorkerResponse::release_message() {
+  // @@protoc_insertion_point(field_release:y3d.YWorkerResponse.message)
   
-  return error_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return message_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-void YWorkerResponse::set_allocated_error(::std::string* error) {
-  if (error != NULL) {
+void YWorkerResponse::set_allocated_message(::std::string* message) {
+  if (message != NULL) {
     
   } else {
     
   }
-  error_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), error);
-  // @@protoc_insertion_point(field_set_allocated:y3d.YWorkerResponse.error)
+  message_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), message);
+  // @@protoc_insertion_point(field_set_allocated:y3d.YWorkerResponse.message)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -28107,7 +30310,7 @@ void YMasterServer::SetCachedSize(int size) const {
 }
 const ::google::protobuf::Descriptor* YMasterServer::descriptor() {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[64].descriptor;
+  return protobuf_y3d_2eproto::file_level_metadata[70].descriptor;
 }
 
 const YMasterServer& YMasterServer::default_instance() {
@@ -28187,7 +30390,7 @@ bool YMasterServer::MergePartialFromCodedStream(
         break;
       }
 
-      // repeated .y3d.YWorker main_workers = 4;
+      // repeated .y3d.YMainWorker main_workers = 4;
       case 4: {
         if (tag == 34u) {
           DO_(input->IncrementRecursionDepth());
@@ -28267,7 +30470,7 @@ void YMasterServer::SerializeWithCachedSizes(
       3, this->shared_folder(), output);
   }
 
-  // repeated .y3d.YWorker main_workers = 4;
+  // repeated .y3d.YMainWorker main_workers = 4;
   for (unsigned int i = 0, n = this->main_workers_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       4, this->main_workers(i), output);
@@ -28318,7 +30521,7 @@ void YMasterServer::SerializeWithCachedSizes(
         3, this->shared_folder(), target);
   }
 
-  // repeated .y3d.YWorker main_workers = 4;
+  // repeated .y3d.YMainWorker main_workers = 4;
   for (unsigned int i = 0, n = this->main_workers_size(); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
@@ -28338,7 +30541,7 @@ size_t YMasterServer::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:y3d.YMasterServer)
   size_t total_size = 0;
 
-  // repeated .y3d.YWorker main_workers = 4;
+  // repeated .y3d.YMainWorker main_workers = 4;
   {
     unsigned int count = this->main_workers_size();
     total_size += 1UL * count;
@@ -28454,7 +30657,7 @@ void YMasterServer::InternalSwap(YMasterServer* other) {
 
 ::google::protobuf::Metadata YMasterServer::GetMetadata() const {
   protobuf_y3d_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_y3d_2eproto::file_level_metadata[64];
+  return protobuf_y3d_2eproto::file_level_metadata[70];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -28630,31 +30833,31 @@ void YMasterServer::set_allocated_shared_folder(::std::string* shared_folder) {
   // @@protoc_insertion_point(field_set_allocated:y3d.YMasterServer.shared_folder)
 }
 
-// repeated .y3d.YWorker main_workers = 4;
+// repeated .y3d.YMainWorker main_workers = 4;
 int YMasterServer::main_workers_size() const {
   return main_workers_.size();
 }
 void YMasterServer::clear_main_workers() {
   main_workers_.Clear();
 }
-const ::y3d::YWorker& YMasterServer::main_workers(int index) const {
+const ::y3d::YMainWorker& YMasterServer::main_workers(int index) const {
   // @@protoc_insertion_point(field_get:y3d.YMasterServer.main_workers)
   return main_workers_.Get(index);
 }
-::y3d::YWorker* YMasterServer::mutable_main_workers(int index) {
+::y3d::YMainWorker* YMasterServer::mutable_main_workers(int index) {
   // @@protoc_insertion_point(field_mutable:y3d.YMasterServer.main_workers)
   return main_workers_.Mutable(index);
 }
-::y3d::YWorker* YMasterServer::add_main_workers() {
+::y3d::YMainWorker* YMasterServer::add_main_workers() {
   // @@protoc_insertion_point(field_add:y3d.YMasterServer.main_workers)
   return main_workers_.Add();
 }
-::google::protobuf::RepeatedPtrField< ::y3d::YWorker >*
+::google::protobuf::RepeatedPtrField< ::y3d::YMainWorker >*
 YMasterServer::mutable_main_workers() {
   // @@protoc_insertion_point(field_mutable_list:y3d.YMasterServer.main_workers)
   return &main_workers_;
 }
-const ::google::protobuf::RepeatedPtrField< ::y3d::YWorker >&
+const ::google::protobuf::RepeatedPtrField< ::y3d::YMainWorker >&
 YMasterServer::main_workers() const {
   // @@protoc_insertion_point(field_list:y3d.YMasterServer.main_workers)
   return main_workers_;

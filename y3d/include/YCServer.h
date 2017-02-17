@@ -1,4 +1,11 @@
 #pragma once
+#ifdef _DEBUG
+#pragma comment(lib, "libprotobufd.lib")
+#pragma comment(lib, "libprotocd.lib")
+#else
+#pragma comment(lib, "libprotobuf.lib")
+#pragma comment(lib, "libprotoc.lib")
+#endif
 
 #include "y3d.pb.h"
 #include "yservice.pb.h"

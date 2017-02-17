@@ -85,6 +85,9 @@ class tViewer3DDefaultTypeInternal;
 Y3D_EXPORT_MACRO extern tViewer3DDefaultTypeInternal _tViewer3D_default_instance_;
 }  // namespace xnormal
 namespace y3d {
+class AllWorkerParam;
+class AllWorkerParamDefaultTypeInternal;
+Y3D_EXPORT_MACRO extern AllWorkerParamDefaultTypeInternal _AllWorkerParam_default_instance_;
 class BatchOptimizeParam;
 class BatchOptimizeParamDefaultTypeInternal;
 Y3D_EXPORT_MACRO extern BatchOptimizeParamDefaultTypeInternal _BatchOptimizeParam_default_instance_;
@@ -133,6 +136,9 @@ Y3D_EXPORT_MACRO extern FRangeItemDefaultTypeInternal _FRangeItem_default_instan
 class FilterView;
 class FilterViewDefaultTypeInternal;
 Y3D_EXPORT_MACRO extern FilterViewDefaultTypeInternal _FilterView_default_instance_;
+class IntParam;
+class IntParamDefaultTypeInternal;
+Y3D_EXPORT_MACRO extern IntParamDefaultTypeInternal _IntParam_default_instance_;
 class LPoly3DMax;
 class LPoly3DMaxDefaultTypeInternal;
 Y3D_EXPORT_MACRO extern LPoly3DMaxDefaultTypeInternal _LPoly3DMax_default_instance_;
@@ -202,6 +208,9 @@ Y3D_EXPORT_MACRO extern TestParamDefaultTypeInternal _TestParam_default_instance
 class WorkerApp;
 class WorkerAppDefaultTypeInternal;
 Y3D_EXPORT_MACRO extern WorkerAppDefaultTypeInternal _WorkerApp_default_instance_;
+class WorkerParam;
+class WorkerParamDefaultTypeInternal;
+Y3D_EXPORT_MACRO extern WorkerParamDefaultTypeInternal _WorkerParam_default_instance_;
 class YAmbient;
 class YAmbientDefaultTypeInternal;
 Y3D_EXPORT_MACRO extern YAmbientDefaultTypeInternal _YAmbient_default_instance_;
@@ -250,12 +259,18 @@ Y3D_EXPORT_MACRO extern YJobDefaultTypeInternal _YJob_default_instance_;
 class YJobAction;
 class YJobActionDefaultTypeInternal;
 Y3D_EXPORT_MACRO extern YJobActionDefaultTypeInternal _YJobAction_default_instance_;
+class YJobList;
+class YJobListDefaultTypeInternal;
+Y3D_EXPORT_MACRO extern YJobListDefaultTypeInternal _YJobList_default_instance_;
 class YLayer;
 class YLayerDefaultTypeInternal;
 Y3D_EXPORT_MACRO extern YLayerDefaultTypeInternal _YLayer_default_instance_;
 class YLight;
 class YLightDefaultTypeInternal;
 Y3D_EXPORT_MACRO extern YLightDefaultTypeInternal _YLight_default_instance_;
+class YMainWorker;
+class YMainWorkerDefaultTypeInternal;
+Y3D_EXPORT_MACRO extern YMainWorkerDefaultTypeInternal _YMainWorker_default_instance_;
 class YMasterServer;
 class YMasterServerDefaultTypeInternal;
 Y3D_EXPORT_MACRO extern YMasterServerDefaultTypeInternal _YMasterServer_default_instance_;
@@ -295,6 +310,9 @@ Y3D_EXPORT_MACRO extern YResourceDefaultTypeInternal _YResource_default_instance
 class YSpecular;
 class YSpecularDefaultTypeInternal;
 Y3D_EXPORT_MACRO extern YSpecularDefaultTypeInternal _YSpecular_default_instance_;
+class YSubWorker;
+class YSubWorkerDefaultTypeInternal;
+Y3D_EXPORT_MACRO extern YSubWorkerDefaultTypeInternal _YSubWorker_default_instance_;
 class YSystem;
 class YSystemDefaultTypeInternal;
 Y3D_EXPORT_MACRO extern YSystemDefaultTypeInternal _YSystem_default_instance_;
@@ -456,12 +474,14 @@ enum YWorker_ServingStatus {
   YWorker_ServingStatus_UNKNOWN = 0,
   YWorker_ServingStatus_SERVING = 1,
   YWorker_ServingStatus_NOT_SERVING = 2,
+  YWorker_ServingStatus_NOT_CONNECT_MASTER = 3,
+  YWorker_ServingStatus_NO_PROJECT = 4,
   YWorker_ServingStatus_YWorker_ServingStatus_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
   YWorker_ServingStatus_YWorker_ServingStatus_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
 };
 Y3D_EXPORT_MACRO bool YWorker_ServingStatus_IsValid(int value);
 const YWorker_ServingStatus YWorker_ServingStatus_ServingStatus_MIN = YWorker_ServingStatus_UNKNOWN;
-const YWorker_ServingStatus YWorker_ServingStatus_ServingStatus_MAX = YWorker_ServingStatus_NOT_SERVING;
+const YWorker_ServingStatus YWorker_ServingStatus_ServingStatus_MAX = YWorker_ServingStatus_NO_PROJECT;
 const int YWorker_ServingStatus_ServingStatus_ARRAYSIZE = YWorker_ServingStatus_ServingStatus_MAX + 1;
 
 Y3D_EXPORT_MACRO const ::google::protobuf::EnumDescriptor* YWorker_ServingStatus_descriptor();
@@ -3244,6 +3264,89 @@ class Y3D_EXPORT_MACRO StringParam : public ::google::protobuf::Message /* @@pro
 };
 // -------------------------------------------------------------------
 
+class Y3D_EXPORT_MACRO IntParam : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:y3d.IntParam) */ {
+ public:
+  IntParam();
+  virtual ~IntParam();
+
+  IntParam(const IntParam& from);
+
+  inline IntParam& operator=(const IntParam& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const IntParam& default_instance();
+
+  static inline const IntParam* internal_default_instance() {
+    return reinterpret_cast<const IntParam*>(
+               &_IntParam_default_instance_);
+  }
+
+  void Swap(IntParam* other);
+
+  // implements Message ----------------------------------------------
+
+  inline IntParam* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  IntParam* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const IntParam& from);
+  void MergeFrom(const IntParam& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output)
+      const PROTOBUF_FINAL {
+    return InternalSerializeWithCachedSizesToArray(
+        ::google::protobuf::io::CodedOutputStream::IsDefaultSerializationDeterministic(), output);
+  }
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(IntParam* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // int32 int_value = 1;
+  void clear_int_value();
+  static const int kIntValueFieldNumber = 1;
+  ::google::protobuf::int32 int_value() const;
+  void set_int_value(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:y3d.IntParam)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::int32 int_value_;
+  mutable int _cached_size_;
+  friend struct Y3D_EXPORT_MACRO protobuf_y3d_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
 class Y3D_EXPORT_MACRO TestParam : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:y3d.TestParam) */ {
  public:
   TestParam();
@@ -3340,6 +3443,223 @@ class Y3D_EXPORT_MACRO TestParam : public ::google::protobuf::Message /* @@proto
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::ArenaStringPtr test_name_;
   ::google::protobuf::Any* anything_;
+  mutable int _cached_size_;
+  friend struct Y3D_EXPORT_MACRO protobuf_y3d_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class Y3D_EXPORT_MACRO WorkerParam : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:y3d.WorkerParam) */ {
+ public:
+  WorkerParam();
+  virtual ~WorkerParam();
+
+  WorkerParam(const WorkerParam& from);
+
+  inline WorkerParam& operator=(const WorkerParam& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const WorkerParam& default_instance();
+
+  enum WtypeCase {
+    kWid = 1,
+    kWname = 2,
+    kWorker = 3,
+    WTYPE_NOT_SET = 0,
+  };
+
+  static inline const WorkerParam* internal_default_instance() {
+    return reinterpret_cast<const WorkerParam*>(
+               &_WorkerParam_default_instance_);
+  }
+
+  void Swap(WorkerParam* other);
+
+  // implements Message ----------------------------------------------
+
+  inline WorkerParam* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  WorkerParam* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const WorkerParam& from);
+  void MergeFrom(const WorkerParam& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output)
+      const PROTOBUF_FINAL {
+    return InternalSerializeWithCachedSizesToArray(
+        ::google::protobuf::io::CodedOutputStream::IsDefaultSerializationDeterministic(), output);
+  }
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(WorkerParam* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // int32 wid = 1;
+  private:
+  bool has_wid() const;
+  public:
+  void clear_wid();
+  static const int kWidFieldNumber = 1;
+  ::google::protobuf::int32 wid() const;
+  void set_wid(::google::protobuf::int32 value);
+
+  // string wname = 2;
+  private:
+  bool has_wname() const;
+  public:
+  void clear_wname();
+  static const int kWnameFieldNumber = 2;
+  const ::std::string& wname() const;
+  void set_wname(const ::std::string& value);
+  #if LANG_CXX11
+  void set_wname(::std::string&& value);
+  #endif
+  void set_wname(const char* value);
+  void set_wname(const char* value, size_t size);
+  ::std::string* mutable_wname();
+  ::std::string* release_wname();
+  void set_allocated_wname(::std::string* wname);
+
+  // .y3d.YWorker worker = 3;
+  bool has_worker() const;
+  void clear_worker();
+  static const int kWorkerFieldNumber = 3;
+  const ::y3d::YWorker& worker() const;
+  ::y3d::YWorker* mutable_worker();
+  ::y3d::YWorker* release_worker();
+  void set_allocated_worker(::y3d::YWorker* worker);
+
+  WtypeCase wtype_case() const;
+  // @@protoc_insertion_point(class_scope:y3d.WorkerParam)
+ private:
+  void set_has_wid();
+  void set_has_wname();
+  void set_has_worker();
+
+  inline bool has_wtype() const;
+  void clear_wtype();
+  inline void clear_has_wtype();
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  union WtypeUnion {
+    WtypeUnion() {}
+    ::google::protobuf::int32 wid_;
+    ::google::protobuf::internal::ArenaStringPtr wname_;
+    ::y3d::YWorker* worker_;
+  } wtype_;
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _oneof_case_[1];
+
+  friend struct Y3D_EXPORT_MACRO protobuf_y3d_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class Y3D_EXPORT_MACRO AllWorkerParam : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:y3d.AllWorkerParam) */ {
+ public:
+  AllWorkerParam();
+  virtual ~AllWorkerParam();
+
+  AllWorkerParam(const AllWorkerParam& from);
+
+  inline AllWorkerParam& operator=(const AllWorkerParam& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const AllWorkerParam& default_instance();
+
+  static inline const AllWorkerParam* internal_default_instance() {
+    return reinterpret_cast<const AllWorkerParam*>(
+               &_AllWorkerParam_default_instance_);
+  }
+
+  void Swap(AllWorkerParam* other);
+
+  // implements Message ----------------------------------------------
+
+  inline AllWorkerParam* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  AllWorkerParam* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const AllWorkerParam& from);
+  void MergeFrom(const AllWorkerParam& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output)
+      const PROTOBUF_FINAL {
+    return InternalSerializeWithCachedSizesToArray(
+        ::google::protobuf::io::CodedOutputStream::IsDefaultSerializationDeterministic(), output);
+  }
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(AllWorkerParam* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // int32 status = 1;
+  void clear_status();
+  static const int kStatusFieldNumber = 1;
+  ::google::protobuf::int32 status() const;
+  void set_status(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:y3d.AllWorkerParam)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::int32 status_;
   mutable int _cached_size_;
   friend struct Y3D_EXPORT_MACRO protobuf_y3d_2eproto::TableStruct;
 };
@@ -6979,6 +7299,95 @@ class Y3D_EXPORT_MACRO YJob : public ::google::protobuf::Message /* @@protoc_ins
 };
 // -------------------------------------------------------------------
 
+class Y3D_EXPORT_MACRO YJobList : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:y3d.YJobList) */ {
+ public:
+  YJobList();
+  virtual ~YJobList();
+
+  YJobList(const YJobList& from);
+
+  inline YJobList& operator=(const YJobList& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const YJobList& default_instance();
+
+  static inline const YJobList* internal_default_instance() {
+    return reinterpret_cast<const YJobList*>(
+               &_YJobList_default_instance_);
+  }
+
+  void Swap(YJobList* other);
+
+  // implements Message ----------------------------------------------
+
+  inline YJobList* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  YJobList* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const YJobList& from);
+  void MergeFrom(const YJobList& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output)
+      const PROTOBUF_FINAL {
+    return InternalSerializeWithCachedSizesToArray(
+        ::google::protobuf::io::CodedOutputStream::IsDefaultSerializationDeterministic(), output);
+  }
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(YJobList* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .y3d.YJob jobs = 1;
+  int jobs_size() const;
+  void clear_jobs();
+  static const int kJobsFieldNumber = 1;
+  const ::y3d::YJob& jobs(int index) const;
+  ::y3d::YJob* mutable_jobs(int index);
+  ::y3d::YJob* add_jobs();
+  ::google::protobuf::RepeatedPtrField< ::y3d::YJob >*
+      mutable_jobs();
+  const ::google::protobuf::RepeatedPtrField< ::y3d::YJob >&
+      jobs() const;
+
+  // @@protoc_insertion_point(class_scope:y3d.YJobList)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::RepeatedPtrField< ::y3d::YJob > jobs_;
+  mutable int _cached_size_;
+  friend struct Y3D_EXPORT_MACRO protobuf_y3d_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
 class Y3D_EXPORT_MACRO YWorker : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:y3d.YWorker) */ {
  public:
   YWorker();
@@ -7051,6 +7460,10 @@ class Y3D_EXPORT_MACRO YWorker : public ::google::protobuf::Message /* @@protoc_
     YWorker_ServingStatus_SERVING;
   static const ServingStatus NOT_SERVING =
     YWorker_ServingStatus_NOT_SERVING;
+  static const ServingStatus NOT_CONNECT_MASTER =
+    YWorker_ServingStatus_NOT_CONNECT_MASTER;
+  static const ServingStatus NO_PROJECT =
+    YWorker_ServingStatus_NO_PROJECT;
   static inline bool ServingStatus_IsValid(int value) {
     return YWorker_ServingStatus_IsValid(value);
   }
@@ -7102,25 +7515,17 @@ class Y3D_EXPORT_MACRO YWorker : public ::google::protobuf::Message /* @@protoc_
   ::std::string* release_ip_address();
   void set_allocated_ip_address(::std::string* ip_address);
 
-  // string asset_folder = 4;
-  void clear_asset_folder();
-  static const int kAssetFolderFieldNumber = 4;
-  const ::std::string& asset_folder() const;
-  void set_asset_folder(const ::std::string& value);
-  #if LANG_CXX11
-  void set_asset_folder(::std::string&& value);
-  #endif
-  void set_asset_folder(const char* value);
-  void set_asset_folder(const char* value, size_t size);
-  ::std::string* mutable_asset_folder();
-  ::std::string* release_asset_folder();
-  void set_allocated_asset_folder(::std::string* asset_folder);
-
   // int32 wid = 1;
   void clear_wid();
   static const int kWidFieldNumber = 1;
   ::google::protobuf::int32 wid() const;
   void set_wid(::google::protobuf::int32 value);
+
+  // int32 process_id = 4;
+  void clear_process_id();
+  static const int kProcessIdFieldNumber = 4;
+  ::google::protobuf::int32 process_id() const;
+  void set_process_id(::google::protobuf::int32 value);
 
   // .y3d.YWorker.ServingStatus status = 5;
   void clear_status();
@@ -7134,9 +7539,246 @@ class Y3D_EXPORT_MACRO YWorker : public ::google::protobuf::Message /* @@protoc_
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::ArenaStringPtr wname_;
   ::google::protobuf::internal::ArenaStringPtr ip_address_;
-  ::google::protobuf::internal::ArenaStringPtr asset_folder_;
   ::google::protobuf::int32 wid_;
+  ::google::protobuf::int32 process_id_;
   int status_;
+  mutable int _cached_size_;
+  friend struct Y3D_EXPORT_MACRO protobuf_y3d_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class Y3D_EXPORT_MACRO YSubWorker : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:y3d.YSubWorker) */ {
+ public:
+  YSubWorker();
+  virtual ~YSubWorker();
+
+  YSubWorker(const YSubWorker& from);
+
+  inline YSubWorker& operator=(const YSubWorker& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const YSubWorker& default_instance();
+
+  static inline const YSubWorker* internal_default_instance() {
+    return reinterpret_cast<const YSubWorker*>(
+               &_YSubWorker_default_instance_);
+  }
+
+  void Swap(YSubWorker* other);
+
+  // implements Message ----------------------------------------------
+
+  inline YSubWorker* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  YSubWorker* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const YSubWorker& from);
+  void MergeFrom(const YSubWorker& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output)
+      const PROTOBUF_FINAL {
+    return InternalSerializeWithCachedSizesToArray(
+        ::google::protobuf::io::CodedOutputStream::IsDefaultSerializationDeterministic(), output);
+  }
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(YSubWorker* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // string sname = 2;
+  void clear_sname();
+  static const int kSnameFieldNumber = 2;
+  const ::std::string& sname() const;
+  void set_sname(const ::std::string& value);
+  #if LANG_CXX11
+  void set_sname(::std::string&& value);
+  #endif
+  void set_sname(const char* value);
+  void set_sname(const char* value, size_t size);
+  ::std::string* mutable_sname();
+  ::std::string* release_sname();
+  void set_allocated_sname(::std::string* sname);
+
+  // string asset_folder = 3;
+  void clear_asset_folder();
+  static const int kAssetFolderFieldNumber = 3;
+  const ::std::string& asset_folder() const;
+  void set_asset_folder(const ::std::string& value);
+  #if LANG_CXX11
+  void set_asset_folder(::std::string&& value);
+  #endif
+  void set_asset_folder(const char* value);
+  void set_asset_folder(const char* value, size_t size);
+  ::std::string* mutable_asset_folder();
+  ::std::string* release_asset_folder();
+  void set_allocated_asset_folder(::std::string* asset_folder);
+
+  // .y3d.YWorker worker = 4;
+  bool has_worker() const;
+  void clear_worker();
+  static const int kWorkerFieldNumber = 4;
+  const ::y3d::YWorker& worker() const;
+  ::y3d::YWorker* mutable_worker();
+  ::y3d::YWorker* release_worker();
+  void set_allocated_worker(::y3d::YWorker* worker);
+
+  // int32 sid = 1;
+  void clear_sid();
+  static const int kSidFieldNumber = 1;
+  ::google::protobuf::int32 sid() const;
+  void set_sid(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:y3d.YSubWorker)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr sname_;
+  ::google::protobuf::internal::ArenaStringPtr asset_folder_;
+  ::y3d::YWorker* worker_;
+  ::google::protobuf::int32 sid_;
+  mutable int _cached_size_;
+  friend struct Y3D_EXPORT_MACRO protobuf_y3d_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class Y3D_EXPORT_MACRO YMainWorker : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:y3d.YMainWorker) */ {
+ public:
+  YMainWorker();
+  virtual ~YMainWorker();
+
+  YMainWorker(const YMainWorker& from);
+
+  inline YMainWorker& operator=(const YMainWorker& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const YMainWorker& default_instance();
+
+  static inline const YMainWorker* internal_default_instance() {
+    return reinterpret_cast<const YMainWorker*>(
+               &_YMainWorker_default_instance_);
+  }
+
+  void Swap(YMainWorker* other);
+
+  // implements Message ----------------------------------------------
+
+  inline YMainWorker* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  YMainWorker* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const YMainWorker& from);
+  void MergeFrom(const YMainWorker& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output)
+      const PROTOBUF_FINAL {
+    return InternalSerializeWithCachedSizesToArray(
+        ::google::protobuf::io::CodedOutputStream::IsDefaultSerializationDeterministic(), output);
+  }
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(YMainWorker* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .y3d.YSubWorker workers = 2;
+  int workers_size() const;
+  void clear_workers();
+  static const int kWorkersFieldNumber = 2;
+  const ::y3d::YSubWorker& workers(int index) const;
+  ::y3d::YSubWorker* mutable_workers(int index);
+  ::y3d::YSubWorker* add_workers();
+  ::google::protobuf::RepeatedPtrField< ::y3d::YSubWorker >*
+      mutable_workers();
+  const ::google::protobuf::RepeatedPtrField< ::y3d::YSubWorker >&
+      workers() const;
+
+  // string working_project = 3;
+  void clear_working_project();
+  static const int kWorkingProjectFieldNumber = 3;
+  const ::std::string& working_project() const;
+  void set_working_project(const ::std::string& value);
+  #if LANG_CXX11
+  void set_working_project(::std::string&& value);
+  #endif
+  void set_working_project(const char* value);
+  void set_working_project(const char* value, size_t size);
+  ::std::string* mutable_working_project();
+  ::std::string* release_working_project();
+  void set_allocated_working_project(::std::string* working_project);
+
+  // .y3d.YSubWorker main_worker = 1;
+  bool has_main_worker() const;
+  void clear_main_worker();
+  static const int kMainWorkerFieldNumber = 1;
+  const ::y3d::YSubWorker& main_worker() const;
+  ::y3d::YSubWorker* mutable_main_worker();
+  ::y3d::YSubWorker* release_main_worker();
+  void set_allocated_main_worker(::y3d::YSubWorker* main_worker);
+
+  // @@protoc_insertion_point(class_scope:y3d.YMainWorker)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::RepeatedPtrField< ::y3d::YSubWorker > workers_;
+  ::google::protobuf::internal::ArenaStringPtr working_project_;
+  ::y3d::YSubWorker* main_worker_;
   mutable int _cached_size_;
   friend struct Y3D_EXPORT_MACRO protobuf_y3d_2eproto::TableStruct;
 };
@@ -7209,10 +7851,10 @@ class Y3D_EXPORT_MACRO YWorkerList : public ::google::protobuf::Message /* @@pro
 
   // accessors -------------------------------------------------------
 
-  // repeated .y3d.YWorker workers = 2;
+  // repeated .y3d.YWorker workers = 1;
   int workers_size() const;
   void clear_workers();
-  static const int kWorkersFieldNumber = 2;
+  static const int kWorkersFieldNumber = 1;
   const ::y3d::YWorker& workers(int index) const;
   ::y3d::YWorker* mutable_workers(int index);
   ::y3d::YWorker* add_workers();
@@ -7221,21 +7863,11 @@ class Y3D_EXPORT_MACRO YWorkerList : public ::google::protobuf::Message /* @@pro
   const ::google::protobuf::RepeatedPtrField< ::y3d::YWorker >&
       workers() const;
 
-  // .y3d.YWorker master = 1;
-  bool has_master() const;
-  void clear_master();
-  static const int kMasterFieldNumber = 1;
-  const ::y3d::YWorker& master() const;
-  ::y3d::YWorker* mutable_master();
-  ::y3d::YWorker* release_master();
-  void set_allocated_master(::y3d::YWorker* master);
-
   // @@protoc_insertion_point(class_scope:y3d.YWorkerList)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::RepeatedPtrField< ::y3d::YWorker > workers_;
-  ::y3d::YWorker* master_;
   mutable int _cached_size_;
   friend struct Y3D_EXPORT_MACRO protobuf_y3d_2eproto::TableStruct;
 };
@@ -7529,19 +8161,19 @@ class Y3D_EXPORT_MACRO YWorkerResponse : public ::google::protobuf::Message /* @
 
   // accessors -------------------------------------------------------
 
-  // string error = 3;
-  void clear_error();
-  static const int kErrorFieldNumber = 3;
-  const ::std::string& error() const;
-  void set_error(const ::std::string& value);
+  // string message = 4;
+  void clear_message();
+  static const int kMessageFieldNumber = 4;
+  const ::std::string& message() const;
+  void set_message(const ::std::string& value);
   #if LANG_CXX11
-  void set_error(::std::string&& value);
+  void set_message(::std::string&& value);
   #endif
-  void set_error(const char* value);
-  void set_error(const char* value, size_t size);
-  ::std::string* mutable_error();
-  ::std::string* release_error();
-  void set_allocated_error(::std::string* error);
+  void set_message(const char* value);
+  void set_message(const char* value, size_t size);
+  ::std::string* mutable_message();
+  ::std::string* release_message();
+  void set_allocated_message(::std::string* message);
 
   // .y3d.YWorkerList wlist = 1;
   bool has_wlist() const;
@@ -7552,22 +8184,29 @@ class Y3D_EXPORT_MACRO YWorkerResponse : public ::google::protobuf::Message /* @
   ::y3d::YWorkerList* release_wlist();
   void set_allocated_wlist(::y3d::YWorkerList* wlist);
 
-  // .y3d.YWorker new_worker = 2;
-  bool has_new_worker() const;
-  void clear_new_worker();
-  static const int kNewWorkerFieldNumber = 2;
-  const ::y3d::YWorker& new_worker() const;
-  ::y3d::YWorker* mutable_new_worker();
-  ::y3d::YWorker* release_new_worker();
-  void set_allocated_new_worker(::y3d::YWorker* new_worker);
+  // .y3d.YWorker worker = 2;
+  bool has_worker() const;
+  void clear_worker();
+  static const int kWorkerFieldNumber = 2;
+  const ::y3d::YWorker& worker() const;
+  ::y3d::YWorker* mutable_worker();
+  ::y3d::YWorker* release_worker();
+  void set_allocated_worker(::y3d::YWorker* worker);
+
+  // bool error = 3;
+  void clear_error();
+  static const int kErrorFieldNumber = 3;
+  bool error() const;
+  void set_error(bool value);
 
   // @@protoc_insertion_point(class_scope:y3d.YWorkerResponse)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::internal::ArenaStringPtr error_;
+  ::google::protobuf::internal::ArenaStringPtr message_;
   ::y3d::YWorkerList* wlist_;
-  ::y3d::YWorker* new_worker_;
+  ::y3d::YWorker* worker_;
+  bool error_;
   mutable int _cached_size_;
   friend struct Y3D_EXPORT_MACRO protobuf_y3d_2eproto::TableStruct;
 };
@@ -7640,16 +8279,16 @@ class Y3D_EXPORT_MACRO YMasterServer : public ::google::protobuf::Message /* @@p
 
   // accessors -------------------------------------------------------
 
-  // repeated .y3d.YWorker main_workers = 4;
+  // repeated .y3d.YMainWorker main_workers = 4;
   int main_workers_size() const;
   void clear_main_workers();
   static const int kMainWorkersFieldNumber = 4;
-  const ::y3d::YWorker& main_workers(int index) const;
-  ::y3d::YWorker* mutable_main_workers(int index);
-  ::y3d::YWorker* add_main_workers();
-  ::google::protobuf::RepeatedPtrField< ::y3d::YWorker >*
+  const ::y3d::YMainWorker& main_workers(int index) const;
+  ::y3d::YMainWorker* mutable_main_workers(int index);
+  ::y3d::YMainWorker* add_main_workers();
+  ::google::protobuf::RepeatedPtrField< ::y3d::YMainWorker >*
       mutable_main_workers();
-  const ::google::protobuf::RepeatedPtrField< ::y3d::YWorker >&
+  const ::google::protobuf::RepeatedPtrField< ::y3d::YMainWorker >&
       main_workers() const;
 
   // string mname = 1;
@@ -7704,7 +8343,7 @@ class Y3D_EXPORT_MACRO YMasterServer : public ::google::protobuf::Message /* @@p
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::RepeatedPtrField< ::y3d::YWorker > main_workers_;
+  ::google::protobuf::RepeatedPtrField< ::y3d::YMainWorker > main_workers_;
   ::google::protobuf::internal::ArenaStringPtr mname_;
   ::google::protobuf::internal::ArenaStringPtr address_;
   ::google::protobuf::internal::ArenaStringPtr shared_folder_;
@@ -10123,6 +10762,24 @@ inline void StringParam::set_allocated_str(::std::string* str) {
 
 // -------------------------------------------------------------------
 
+// IntParam
+
+// int32 int_value = 1;
+inline void IntParam::clear_int_value() {
+  int_value_ = 0;
+}
+inline ::google::protobuf::int32 IntParam::int_value() const {
+  // @@protoc_insertion_point(field_get:y3d.IntParam.int_value)
+  return int_value_;
+}
+inline void IntParam::set_int_value(::google::protobuf::int32 value) {
+  
+  int_value_ = value;
+  // @@protoc_insertion_point(field_set:y3d.IntParam.int_value)
+}
+
+// -------------------------------------------------------------------
+
 // TestParam
 
 // string test_name = 1;
@@ -10214,6 +10871,208 @@ inline void TestParam::set_allocated_anything(::google::protobuf::Any* anything)
     
   }
   // @@protoc_insertion_point(field_set_allocated:y3d.TestParam.anything)
+}
+
+// -------------------------------------------------------------------
+
+// WorkerParam
+
+// int32 wid = 1;
+inline bool WorkerParam::has_wid() const {
+  return wtype_case() == kWid;
+}
+inline void WorkerParam::set_has_wid() {
+  _oneof_case_[0] = kWid;
+}
+inline void WorkerParam::clear_wid() {
+  if (has_wid()) {
+    wtype_.wid_ = 0;
+    clear_has_wtype();
+  }
+}
+inline ::google::protobuf::int32 WorkerParam::wid() const {
+  // @@protoc_insertion_point(field_get:y3d.WorkerParam.wid)
+  if (has_wid()) {
+    return wtype_.wid_;
+  }
+  return 0;
+}
+inline void WorkerParam::set_wid(::google::protobuf::int32 value) {
+  if (!has_wid()) {
+    clear_wtype();
+    set_has_wid();
+  }
+  wtype_.wid_ = value;
+  // @@protoc_insertion_point(field_set:y3d.WorkerParam.wid)
+}
+
+// string wname = 2;
+inline bool WorkerParam::has_wname() const {
+  return wtype_case() == kWname;
+}
+inline void WorkerParam::set_has_wname() {
+  _oneof_case_[0] = kWname;
+}
+inline void WorkerParam::clear_wname() {
+  if (has_wname()) {
+    wtype_.wname_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    clear_has_wtype();
+  }
+}
+inline const ::std::string& WorkerParam::wname() const {
+  // @@protoc_insertion_point(field_get:y3d.WorkerParam.wname)
+  if (has_wname()) {
+    return wtype_.wname_.GetNoArena();
+  }
+  return *&::google::protobuf::internal::GetEmptyStringAlreadyInited();
+}
+inline void WorkerParam::set_wname(const ::std::string& value) {
+  // @@protoc_insertion_point(field_set:y3d.WorkerParam.wname)
+  if (!has_wname()) {
+    clear_wtype();
+    set_has_wname();
+    wtype_.wname_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  wtype_.wname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:y3d.WorkerParam.wname)
+}
+#if LANG_CXX11
+inline void WorkerParam::set_wname(::std::string&& value) {
+  // @@protoc_insertion_point(field_set:y3d.WorkerParam.wname)
+  if (!has_wname()) {
+    clear_wtype();
+    set_has_wname();
+    wtype_.wname_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  wtype_.wname_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:y3d.WorkerParam.wname)
+}
+#endif
+inline void WorkerParam::set_wname(const char* value) {
+  if (!has_wname()) {
+    clear_wtype();
+    set_has_wname();
+    wtype_.wname_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  wtype_.wname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:y3d.WorkerParam.wname)
+}
+inline void WorkerParam::set_wname(const char* value, size_t size) {
+  if (!has_wname()) {
+    clear_wtype();
+    set_has_wname();
+    wtype_.wname_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  wtype_.wname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(
+      reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:y3d.WorkerParam.wname)
+}
+inline ::std::string* WorkerParam::mutable_wname() {
+  if (!has_wname()) {
+    clear_wtype();
+    set_has_wname();
+    wtype_.wname_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  // @@protoc_insertion_point(field_mutable:y3d.WorkerParam.wname)
+  return wtype_.wname_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* WorkerParam::release_wname() {
+  // @@protoc_insertion_point(field_release:y3d.WorkerParam.wname)
+  if (has_wname()) {
+    clear_has_wtype();
+    return wtype_.wname_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  } else {
+    return NULL;
+  }
+}
+inline void WorkerParam::set_allocated_wname(::std::string* wname) {
+  if (!has_wname()) {
+    wtype_.wname_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  clear_wtype();
+  if (wname != NULL) {
+    set_has_wname();
+    wtype_.wname_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+        wname);
+  }
+  // @@protoc_insertion_point(field_set_allocated:y3d.WorkerParam.wname)
+}
+
+// .y3d.YWorker worker = 3;
+inline bool WorkerParam::has_worker() const {
+  return wtype_case() == kWorker;
+}
+inline void WorkerParam::set_has_worker() {
+  _oneof_case_[0] = kWorker;
+}
+inline void WorkerParam::clear_worker() {
+  if (has_worker()) {
+    delete wtype_.worker_;
+    clear_has_wtype();
+  }
+}
+inline  const ::y3d::YWorker& WorkerParam::worker() const {
+  // @@protoc_insertion_point(field_get:y3d.WorkerParam.worker)
+  return has_worker()
+      ? *wtype_.worker_
+      : ::y3d::YWorker::default_instance();
+}
+inline ::y3d::YWorker* WorkerParam::mutable_worker() {
+  if (!has_worker()) {
+    clear_wtype();
+    set_has_worker();
+    wtype_.worker_ = new ::y3d::YWorker;
+  }
+  // @@protoc_insertion_point(field_mutable:y3d.WorkerParam.worker)
+  return wtype_.worker_;
+}
+inline ::y3d::YWorker* WorkerParam::release_worker() {
+  // @@protoc_insertion_point(field_release:y3d.WorkerParam.worker)
+  if (has_worker()) {
+    clear_has_wtype();
+    ::y3d::YWorker* temp = wtype_.worker_;
+    wtype_.worker_ = NULL;
+    return temp;
+  } else {
+    return NULL;
+  }
+}
+inline void WorkerParam::set_allocated_worker(::y3d::YWorker* worker) {
+  clear_wtype();
+  if (worker) {
+    set_has_worker();
+    wtype_.worker_ = worker;
+  }
+  // @@protoc_insertion_point(field_set_allocated:y3d.WorkerParam.worker)
+}
+
+inline bool WorkerParam::has_wtype() const {
+  return wtype_case() != WTYPE_NOT_SET;
+}
+inline void WorkerParam::clear_has_wtype() {
+  _oneof_case_[0] = WTYPE_NOT_SET;
+}
+inline WorkerParam::WtypeCase WorkerParam::wtype_case() const {
+  return WorkerParam::WtypeCase(_oneof_case_[0]);
+}
+// -------------------------------------------------------------------
+
+// AllWorkerParam
+
+// int32 status = 1;
+inline void AllWorkerParam::clear_status() {
+  status_ = 0;
+}
+inline ::google::protobuf::int32 AllWorkerParam::status() const {
+  // @@protoc_insertion_point(field_get:y3d.AllWorkerParam.status)
+  return status_;
+}
+inline void AllWorkerParam::set_status(::google::protobuf::int32 value) {
+  
+  status_ = value;
+  // @@protoc_insertion_point(field_set:y3d.AllWorkerParam.status)
 }
 
 // -------------------------------------------------------------------
@@ -13989,6 +14848,40 @@ YJob::tests() const {
 
 // -------------------------------------------------------------------
 
+// YJobList
+
+// repeated .y3d.YJob jobs = 1;
+inline int YJobList::jobs_size() const {
+  return jobs_.size();
+}
+inline void YJobList::clear_jobs() {
+  jobs_.Clear();
+}
+inline const ::y3d::YJob& YJobList::jobs(int index) const {
+  // @@protoc_insertion_point(field_get:y3d.YJobList.jobs)
+  return jobs_.Get(index);
+}
+inline ::y3d::YJob* YJobList::mutable_jobs(int index) {
+  // @@protoc_insertion_point(field_mutable:y3d.YJobList.jobs)
+  return jobs_.Mutable(index);
+}
+inline ::y3d::YJob* YJobList::add_jobs() {
+  // @@protoc_insertion_point(field_add:y3d.YJobList.jobs)
+  return jobs_.Add();
+}
+inline ::google::protobuf::RepeatedPtrField< ::y3d::YJob >*
+YJobList::mutable_jobs() {
+  // @@protoc_insertion_point(field_mutable_list:y3d.YJobList.jobs)
+  return &jobs_;
+}
+inline const ::google::protobuf::RepeatedPtrField< ::y3d::YJob >&
+YJobList::jobs() const {
+  // @@protoc_insertion_point(field_list:y3d.YJobList.jobs)
+  return jobs_;
+}
+
+// -------------------------------------------------------------------
+
 // YWorker
 
 // int32 wid = 1;
@@ -14109,56 +15002,18 @@ inline void YWorker::set_allocated_ip_address(::std::string* ip_address) {
   // @@protoc_insertion_point(field_set_allocated:y3d.YWorker.ip_address)
 }
 
-// string asset_folder = 4;
-inline void YWorker::clear_asset_folder() {
-  asset_folder_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+// int32 process_id = 4;
+inline void YWorker::clear_process_id() {
+  process_id_ = 0;
 }
-inline const ::std::string& YWorker::asset_folder() const {
-  // @@protoc_insertion_point(field_get:y3d.YWorker.asset_folder)
-  return asset_folder_.GetNoArena();
+inline ::google::protobuf::int32 YWorker::process_id() const {
+  // @@protoc_insertion_point(field_get:y3d.YWorker.process_id)
+  return process_id_;
 }
-inline void YWorker::set_asset_folder(const ::std::string& value) {
+inline void YWorker::set_process_id(::google::protobuf::int32 value) {
   
-  asset_folder_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:y3d.YWorker.asset_folder)
-}
-#if LANG_CXX11
-inline void YWorker::set_asset_folder(::std::string&& value) {
-  
-  asset_folder_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:y3d.YWorker.asset_folder)
-}
-#endif
-inline void YWorker::set_asset_folder(const char* value) {
-  
-  asset_folder_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:y3d.YWorker.asset_folder)
-}
-inline void YWorker::set_asset_folder(const char* value, size_t size) {
-  
-  asset_folder_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:y3d.YWorker.asset_folder)
-}
-inline ::std::string* YWorker::mutable_asset_folder() {
-  
-  // @@protoc_insertion_point(field_mutable:y3d.YWorker.asset_folder)
-  return asset_folder_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* YWorker::release_asset_folder() {
-  // @@protoc_insertion_point(field_release:y3d.YWorker.asset_folder)
-  
-  return asset_folder_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void YWorker::set_allocated_asset_folder(::std::string* asset_folder) {
-  if (asset_folder != NULL) {
-    
-  } else {
-    
-  }
-  asset_folder_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), asset_folder);
-  // @@protoc_insertion_point(field_set_allocated:y3d.YWorker.asset_folder)
+  process_id_ = value;
+  // @@protoc_insertion_point(field_set:y3d.YWorker.process_id)
 }
 
 // .y3d.YWorker.ServingStatus status = 5;
@@ -14177,48 +15032,295 @@ inline void YWorker::set_status(::y3d::YWorker_ServingStatus value) {
 
 // -------------------------------------------------------------------
 
-// YWorkerList
+// YSubWorker
 
-// .y3d.YWorker master = 1;
-inline bool YWorkerList::has_master() const {
-  return this != internal_default_instance() && master_ != NULL;
+// int32 sid = 1;
+inline void YSubWorker::clear_sid() {
+  sid_ = 0;
 }
-inline void YWorkerList::clear_master() {
-  if (GetArenaNoVirtual() == NULL && master_ != NULL) delete master_;
-  master_ = NULL;
+inline ::google::protobuf::int32 YSubWorker::sid() const {
+  // @@protoc_insertion_point(field_get:y3d.YSubWorker.sid)
+  return sid_;
 }
-inline const ::y3d::YWorker& YWorkerList::master() const {
-  // @@protoc_insertion_point(field_get:y3d.YWorkerList.master)
-  return master_ != NULL ? *master_
-                         : *::y3d::YWorker::internal_default_instance();
-}
-inline ::y3d::YWorker* YWorkerList::mutable_master() {
+inline void YSubWorker::set_sid(::google::protobuf::int32 value) {
   
-  if (master_ == NULL) {
-    master_ = new ::y3d::YWorker;
-  }
-  // @@protoc_insertion_point(field_mutable:y3d.YWorkerList.master)
-  return master_;
+  sid_ = value;
+  // @@protoc_insertion_point(field_set:y3d.YSubWorker.sid)
 }
-inline ::y3d::YWorker* YWorkerList::release_master() {
-  // @@protoc_insertion_point(field_release:y3d.YWorkerList.master)
+
+// string sname = 2;
+inline void YSubWorker::clear_sname() {
+  sname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& YSubWorker::sname() const {
+  // @@protoc_insertion_point(field_get:y3d.YSubWorker.sname)
+  return sname_.GetNoArena();
+}
+inline void YSubWorker::set_sname(const ::std::string& value) {
   
-  ::y3d::YWorker* temp = master_;
-  master_ = NULL;
-  return temp;
+  sname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:y3d.YSubWorker.sname)
 }
-inline void YWorkerList::set_allocated_master(::y3d::YWorker* master) {
-  delete master_;
-  master_ = master;
-  if (master) {
+#if LANG_CXX11
+inline void YSubWorker::set_sname(::std::string&& value) {
+  
+  sname_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:y3d.YSubWorker.sname)
+}
+#endif
+inline void YSubWorker::set_sname(const char* value) {
+  
+  sname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:y3d.YSubWorker.sname)
+}
+inline void YSubWorker::set_sname(const char* value, size_t size) {
+  
+  sname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:y3d.YSubWorker.sname)
+}
+inline ::std::string* YSubWorker::mutable_sname() {
+  
+  // @@protoc_insertion_point(field_mutable:y3d.YSubWorker.sname)
+  return sname_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* YSubWorker::release_sname() {
+  // @@protoc_insertion_point(field_release:y3d.YSubWorker.sname)
+  
+  return sname_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void YSubWorker::set_allocated_sname(::std::string* sname) {
+  if (sname != NULL) {
     
   } else {
     
   }
-  // @@protoc_insertion_point(field_set_allocated:y3d.YWorkerList.master)
+  sname_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), sname);
+  // @@protoc_insertion_point(field_set_allocated:y3d.YSubWorker.sname)
 }
 
-// repeated .y3d.YWorker workers = 2;
+// string asset_folder = 3;
+inline void YSubWorker::clear_asset_folder() {
+  asset_folder_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& YSubWorker::asset_folder() const {
+  // @@protoc_insertion_point(field_get:y3d.YSubWorker.asset_folder)
+  return asset_folder_.GetNoArena();
+}
+inline void YSubWorker::set_asset_folder(const ::std::string& value) {
+  
+  asset_folder_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:y3d.YSubWorker.asset_folder)
+}
+#if LANG_CXX11
+inline void YSubWorker::set_asset_folder(::std::string&& value) {
+  
+  asset_folder_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:y3d.YSubWorker.asset_folder)
+}
+#endif
+inline void YSubWorker::set_asset_folder(const char* value) {
+  
+  asset_folder_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:y3d.YSubWorker.asset_folder)
+}
+inline void YSubWorker::set_asset_folder(const char* value, size_t size) {
+  
+  asset_folder_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:y3d.YSubWorker.asset_folder)
+}
+inline ::std::string* YSubWorker::mutable_asset_folder() {
+  
+  // @@protoc_insertion_point(field_mutable:y3d.YSubWorker.asset_folder)
+  return asset_folder_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* YSubWorker::release_asset_folder() {
+  // @@protoc_insertion_point(field_release:y3d.YSubWorker.asset_folder)
+  
+  return asset_folder_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void YSubWorker::set_allocated_asset_folder(::std::string* asset_folder) {
+  if (asset_folder != NULL) {
+    
+  } else {
+    
+  }
+  asset_folder_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), asset_folder);
+  // @@protoc_insertion_point(field_set_allocated:y3d.YSubWorker.asset_folder)
+}
+
+// .y3d.YWorker worker = 4;
+inline bool YSubWorker::has_worker() const {
+  return this != internal_default_instance() && worker_ != NULL;
+}
+inline void YSubWorker::clear_worker() {
+  if (GetArenaNoVirtual() == NULL && worker_ != NULL) delete worker_;
+  worker_ = NULL;
+}
+inline const ::y3d::YWorker& YSubWorker::worker() const {
+  // @@protoc_insertion_point(field_get:y3d.YSubWorker.worker)
+  return worker_ != NULL ? *worker_
+                         : *::y3d::YWorker::internal_default_instance();
+}
+inline ::y3d::YWorker* YSubWorker::mutable_worker() {
+  
+  if (worker_ == NULL) {
+    worker_ = new ::y3d::YWorker;
+  }
+  // @@protoc_insertion_point(field_mutable:y3d.YSubWorker.worker)
+  return worker_;
+}
+inline ::y3d::YWorker* YSubWorker::release_worker() {
+  // @@protoc_insertion_point(field_release:y3d.YSubWorker.worker)
+  
+  ::y3d::YWorker* temp = worker_;
+  worker_ = NULL;
+  return temp;
+}
+inline void YSubWorker::set_allocated_worker(::y3d::YWorker* worker) {
+  delete worker_;
+  worker_ = worker;
+  if (worker) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:y3d.YSubWorker.worker)
+}
+
+// -------------------------------------------------------------------
+
+// YMainWorker
+
+// .y3d.YSubWorker main_worker = 1;
+inline bool YMainWorker::has_main_worker() const {
+  return this != internal_default_instance() && main_worker_ != NULL;
+}
+inline void YMainWorker::clear_main_worker() {
+  if (GetArenaNoVirtual() == NULL && main_worker_ != NULL) delete main_worker_;
+  main_worker_ = NULL;
+}
+inline const ::y3d::YSubWorker& YMainWorker::main_worker() const {
+  // @@protoc_insertion_point(field_get:y3d.YMainWorker.main_worker)
+  return main_worker_ != NULL ? *main_worker_
+                         : *::y3d::YSubWorker::internal_default_instance();
+}
+inline ::y3d::YSubWorker* YMainWorker::mutable_main_worker() {
+  
+  if (main_worker_ == NULL) {
+    main_worker_ = new ::y3d::YSubWorker;
+  }
+  // @@protoc_insertion_point(field_mutable:y3d.YMainWorker.main_worker)
+  return main_worker_;
+}
+inline ::y3d::YSubWorker* YMainWorker::release_main_worker() {
+  // @@protoc_insertion_point(field_release:y3d.YMainWorker.main_worker)
+  
+  ::y3d::YSubWorker* temp = main_worker_;
+  main_worker_ = NULL;
+  return temp;
+}
+inline void YMainWorker::set_allocated_main_worker(::y3d::YSubWorker* main_worker) {
+  delete main_worker_;
+  main_worker_ = main_worker;
+  if (main_worker) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:y3d.YMainWorker.main_worker)
+}
+
+// repeated .y3d.YSubWorker workers = 2;
+inline int YMainWorker::workers_size() const {
+  return workers_.size();
+}
+inline void YMainWorker::clear_workers() {
+  workers_.Clear();
+}
+inline const ::y3d::YSubWorker& YMainWorker::workers(int index) const {
+  // @@protoc_insertion_point(field_get:y3d.YMainWorker.workers)
+  return workers_.Get(index);
+}
+inline ::y3d::YSubWorker* YMainWorker::mutable_workers(int index) {
+  // @@protoc_insertion_point(field_mutable:y3d.YMainWorker.workers)
+  return workers_.Mutable(index);
+}
+inline ::y3d::YSubWorker* YMainWorker::add_workers() {
+  // @@protoc_insertion_point(field_add:y3d.YMainWorker.workers)
+  return workers_.Add();
+}
+inline ::google::protobuf::RepeatedPtrField< ::y3d::YSubWorker >*
+YMainWorker::mutable_workers() {
+  // @@protoc_insertion_point(field_mutable_list:y3d.YMainWorker.workers)
+  return &workers_;
+}
+inline const ::google::protobuf::RepeatedPtrField< ::y3d::YSubWorker >&
+YMainWorker::workers() const {
+  // @@protoc_insertion_point(field_list:y3d.YMainWorker.workers)
+  return workers_;
+}
+
+// string working_project = 3;
+inline void YMainWorker::clear_working_project() {
+  working_project_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& YMainWorker::working_project() const {
+  // @@protoc_insertion_point(field_get:y3d.YMainWorker.working_project)
+  return working_project_.GetNoArena();
+}
+inline void YMainWorker::set_working_project(const ::std::string& value) {
+  
+  working_project_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:y3d.YMainWorker.working_project)
+}
+#if LANG_CXX11
+inline void YMainWorker::set_working_project(::std::string&& value) {
+  
+  working_project_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:y3d.YMainWorker.working_project)
+}
+#endif
+inline void YMainWorker::set_working_project(const char* value) {
+  
+  working_project_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:y3d.YMainWorker.working_project)
+}
+inline void YMainWorker::set_working_project(const char* value, size_t size) {
+  
+  working_project_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:y3d.YMainWorker.working_project)
+}
+inline ::std::string* YMainWorker::mutable_working_project() {
+  
+  // @@protoc_insertion_point(field_mutable:y3d.YMainWorker.working_project)
+  return working_project_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* YMainWorker::release_working_project() {
+  // @@protoc_insertion_point(field_release:y3d.YMainWorker.working_project)
+  
+  return working_project_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void YMainWorker::set_allocated_working_project(::std::string* working_project) {
+  if (working_project != NULL) {
+    
+  } else {
+    
+  }
+  working_project_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), working_project);
+  // @@protoc_insertion_point(field_set_allocated:y3d.YMainWorker.working_project)
+}
+
+// -------------------------------------------------------------------
+
+// YWorkerList
+
+// repeated .y3d.YWorker workers = 1;
 inline int YWorkerList::workers_size() const {
   return workers_.size();
 }
@@ -14522,95 +15624,109 @@ inline void YWorkerResponse::set_allocated_wlist(::y3d::YWorkerList* wlist) {
   // @@protoc_insertion_point(field_set_allocated:y3d.YWorkerResponse.wlist)
 }
 
-// .y3d.YWorker new_worker = 2;
-inline bool YWorkerResponse::has_new_worker() const {
-  return this != internal_default_instance() && new_worker_ != NULL;
+// .y3d.YWorker worker = 2;
+inline bool YWorkerResponse::has_worker() const {
+  return this != internal_default_instance() && worker_ != NULL;
 }
-inline void YWorkerResponse::clear_new_worker() {
-  if (GetArenaNoVirtual() == NULL && new_worker_ != NULL) delete new_worker_;
-  new_worker_ = NULL;
+inline void YWorkerResponse::clear_worker() {
+  if (GetArenaNoVirtual() == NULL && worker_ != NULL) delete worker_;
+  worker_ = NULL;
 }
-inline const ::y3d::YWorker& YWorkerResponse::new_worker() const {
-  // @@protoc_insertion_point(field_get:y3d.YWorkerResponse.new_worker)
-  return new_worker_ != NULL ? *new_worker_
+inline const ::y3d::YWorker& YWorkerResponse::worker() const {
+  // @@protoc_insertion_point(field_get:y3d.YWorkerResponse.worker)
+  return worker_ != NULL ? *worker_
                          : *::y3d::YWorker::internal_default_instance();
 }
-inline ::y3d::YWorker* YWorkerResponse::mutable_new_worker() {
+inline ::y3d::YWorker* YWorkerResponse::mutable_worker() {
   
-  if (new_worker_ == NULL) {
-    new_worker_ = new ::y3d::YWorker;
+  if (worker_ == NULL) {
+    worker_ = new ::y3d::YWorker;
   }
-  // @@protoc_insertion_point(field_mutable:y3d.YWorkerResponse.new_worker)
-  return new_worker_;
+  // @@protoc_insertion_point(field_mutable:y3d.YWorkerResponse.worker)
+  return worker_;
 }
-inline ::y3d::YWorker* YWorkerResponse::release_new_worker() {
-  // @@protoc_insertion_point(field_release:y3d.YWorkerResponse.new_worker)
+inline ::y3d::YWorker* YWorkerResponse::release_worker() {
+  // @@protoc_insertion_point(field_release:y3d.YWorkerResponse.worker)
   
-  ::y3d::YWorker* temp = new_worker_;
-  new_worker_ = NULL;
+  ::y3d::YWorker* temp = worker_;
+  worker_ = NULL;
   return temp;
 }
-inline void YWorkerResponse::set_allocated_new_worker(::y3d::YWorker* new_worker) {
-  delete new_worker_;
-  new_worker_ = new_worker;
-  if (new_worker) {
+inline void YWorkerResponse::set_allocated_worker(::y3d::YWorker* worker) {
+  delete worker_;
+  worker_ = worker;
+  if (worker) {
     
   } else {
     
   }
-  // @@protoc_insertion_point(field_set_allocated:y3d.YWorkerResponse.new_worker)
+  // @@protoc_insertion_point(field_set_allocated:y3d.YWorkerResponse.worker)
 }
 
-// string error = 3;
+// bool error = 3;
 inline void YWorkerResponse::clear_error() {
-  error_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  error_ = false;
 }
-inline const ::std::string& YWorkerResponse::error() const {
+inline bool YWorkerResponse::error() const {
   // @@protoc_insertion_point(field_get:y3d.YWorkerResponse.error)
-  return error_.GetNoArena();
+  return error_;
 }
-inline void YWorkerResponse::set_error(const ::std::string& value) {
+inline void YWorkerResponse::set_error(bool value) {
   
-  error_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  error_ = value;
   // @@protoc_insertion_point(field_set:y3d.YWorkerResponse.error)
 }
-#if LANG_CXX11
-inline void YWorkerResponse::set_error(::std::string&& value) {
+
+// string message = 4;
+inline void YWorkerResponse::clear_message() {
+  message_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& YWorkerResponse::message() const {
+  // @@protoc_insertion_point(field_get:y3d.YWorkerResponse.message)
+  return message_.GetNoArena();
+}
+inline void YWorkerResponse::set_message(const ::std::string& value) {
   
-  error_.SetNoArena(
+  message_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:y3d.YWorkerResponse.message)
+}
+#if LANG_CXX11
+inline void YWorkerResponse::set_message(::std::string&& value) {
+  
+  message_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:y3d.YWorkerResponse.error)
+  // @@protoc_insertion_point(field_set_rvalue:y3d.YWorkerResponse.message)
 }
 #endif
-inline void YWorkerResponse::set_error(const char* value) {
+inline void YWorkerResponse::set_message(const char* value) {
   
-  error_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:y3d.YWorkerResponse.error)
+  message_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:y3d.YWorkerResponse.message)
 }
-inline void YWorkerResponse::set_error(const char* value, size_t size) {
+inline void YWorkerResponse::set_message(const char* value, size_t size) {
   
-  error_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  message_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:y3d.YWorkerResponse.error)
+  // @@protoc_insertion_point(field_set_pointer:y3d.YWorkerResponse.message)
 }
-inline ::std::string* YWorkerResponse::mutable_error() {
+inline ::std::string* YWorkerResponse::mutable_message() {
   
-  // @@protoc_insertion_point(field_mutable:y3d.YWorkerResponse.error)
-  return error_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  // @@protoc_insertion_point(field_mutable:y3d.YWorkerResponse.message)
+  return message_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* YWorkerResponse::release_error() {
-  // @@protoc_insertion_point(field_release:y3d.YWorkerResponse.error)
+inline ::std::string* YWorkerResponse::release_message() {
+  // @@protoc_insertion_point(field_release:y3d.YWorkerResponse.message)
   
-  return error_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return message_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void YWorkerResponse::set_allocated_error(::std::string* error) {
-  if (error != NULL) {
+inline void YWorkerResponse::set_allocated_message(::std::string* message) {
+  if (message != NULL) {
     
   } else {
     
   }
-  error_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), error);
-  // @@protoc_insertion_point(field_set_allocated:y3d.YWorkerResponse.error)
+  message_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), message);
+  // @@protoc_insertion_point(field_set_allocated:y3d.YWorkerResponse.message)
 }
 
 // -------------------------------------------------------------------
@@ -14787,37 +15903,49 @@ inline void YMasterServer::set_allocated_shared_folder(::std::string* shared_fol
   // @@protoc_insertion_point(field_set_allocated:y3d.YMasterServer.shared_folder)
 }
 
-// repeated .y3d.YWorker main_workers = 4;
+// repeated .y3d.YMainWorker main_workers = 4;
 inline int YMasterServer::main_workers_size() const {
   return main_workers_.size();
 }
 inline void YMasterServer::clear_main_workers() {
   main_workers_.Clear();
 }
-inline const ::y3d::YWorker& YMasterServer::main_workers(int index) const {
+inline const ::y3d::YMainWorker& YMasterServer::main_workers(int index) const {
   // @@protoc_insertion_point(field_get:y3d.YMasterServer.main_workers)
   return main_workers_.Get(index);
 }
-inline ::y3d::YWorker* YMasterServer::mutable_main_workers(int index) {
+inline ::y3d::YMainWorker* YMasterServer::mutable_main_workers(int index) {
   // @@protoc_insertion_point(field_mutable:y3d.YMasterServer.main_workers)
   return main_workers_.Mutable(index);
 }
-inline ::y3d::YWorker* YMasterServer::add_main_workers() {
+inline ::y3d::YMainWorker* YMasterServer::add_main_workers() {
   // @@protoc_insertion_point(field_add:y3d.YMasterServer.main_workers)
   return main_workers_.Add();
 }
-inline ::google::protobuf::RepeatedPtrField< ::y3d::YWorker >*
+inline ::google::protobuf::RepeatedPtrField< ::y3d::YMainWorker >*
 YMasterServer::mutable_main_workers() {
   // @@protoc_insertion_point(field_mutable_list:y3d.YMasterServer.main_workers)
   return &main_workers_;
 }
-inline const ::google::protobuf::RepeatedPtrField< ::y3d::YWorker >&
+inline const ::google::protobuf::RepeatedPtrField< ::y3d::YMainWorker >&
 YMasterServer::main_workers() const {
   // @@protoc_insertion_point(field_list:y3d.YMasterServer.main_workers)
   return main_workers_;
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

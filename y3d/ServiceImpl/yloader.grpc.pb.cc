@@ -77,5 +77,89 @@ Loader::Service::~Service() {
 }
 
 
+static const char* YServiceMaxLoader_method_names[] = {
+  "/y3d.YServiceMaxLoader/Shutdown",
+  "/y3d.YServiceMaxLoader/LoadDll",
+  "/y3d.YServiceMaxLoader/CloseApp",
+};
+
+std::unique_ptr< YServiceMaxLoader::Stub> YServiceMaxLoader::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
+  std::unique_ptr< YServiceMaxLoader::Stub> stub(new YServiceMaxLoader::Stub(channel));
+  return stub;
+}
+
+YServiceMaxLoader::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
+  : channel_(channel), rpcmethod_Shutdown_(YServiceMaxLoader_method_names[0], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_LoadDll_(YServiceMaxLoader_method_names[1], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_CloseApp_(YServiceMaxLoader_method_names[2], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  {}
+
+::grpc::Status YServiceMaxLoader::Stub::Shutdown(::grpc::ClientContext* context, const ::y3d::LibInfo& request, ::y3d::ResultType* response) {
+  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_Shutdown_, context, request, response);
+}
+
+::grpc::ClientAsyncResponseReader< ::y3d::ResultType>* YServiceMaxLoader::Stub::AsyncShutdownRaw(::grpc::ClientContext* context, const ::y3d::LibInfo& request, ::grpc::CompletionQueue* cq) {
+  return new ::grpc::ClientAsyncResponseReader< ::y3d::ResultType>(channel_.get(), cq, rpcmethod_Shutdown_, context, request);
+}
+
+::grpc::Status YServiceMaxLoader::Stub::LoadDll(::grpc::ClientContext* context, const ::y3d::LibInfo& request, ::y3d::ResultType* response) {
+  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_LoadDll_, context, request, response);
+}
+
+::grpc::ClientAsyncResponseReader< ::y3d::ResultType>* YServiceMaxLoader::Stub::AsyncLoadDllRaw(::grpc::ClientContext* context, const ::y3d::LibInfo& request, ::grpc::CompletionQueue* cq) {
+  return new ::grpc::ClientAsyncResponseReader< ::y3d::ResultType>(channel_.get(), cq, rpcmethod_LoadDll_, context, request);
+}
+
+::grpc::Status YServiceMaxLoader::Stub::CloseApp(::grpc::ClientContext* context, const ::y3d::LibInfo& request, ::y3d::ResultType* response) {
+  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_CloseApp_, context, request, response);
+}
+
+::grpc::ClientAsyncResponseReader< ::y3d::ResultType>* YServiceMaxLoader::Stub::AsyncCloseAppRaw(::grpc::ClientContext* context, const ::y3d::LibInfo& request, ::grpc::CompletionQueue* cq) {
+  return new ::grpc::ClientAsyncResponseReader< ::y3d::ResultType>(channel_.get(), cq, rpcmethod_CloseApp_, context, request);
+}
+
+YServiceMaxLoader::Service::Service() {
+  AddMethod(new ::grpc::RpcServiceMethod(
+      YServiceMaxLoader_method_names[0],
+      ::grpc::RpcMethod::NORMAL_RPC,
+      new ::grpc::RpcMethodHandler< YServiceMaxLoader::Service, ::y3d::LibInfo, ::y3d::ResultType>(
+          std::mem_fn(&YServiceMaxLoader::Service::Shutdown), this)));
+  AddMethod(new ::grpc::RpcServiceMethod(
+      YServiceMaxLoader_method_names[1],
+      ::grpc::RpcMethod::NORMAL_RPC,
+      new ::grpc::RpcMethodHandler< YServiceMaxLoader::Service, ::y3d::LibInfo, ::y3d::ResultType>(
+          std::mem_fn(&YServiceMaxLoader::Service::LoadDll), this)));
+  AddMethod(new ::grpc::RpcServiceMethod(
+      YServiceMaxLoader_method_names[2],
+      ::grpc::RpcMethod::NORMAL_RPC,
+      new ::grpc::RpcMethodHandler< YServiceMaxLoader::Service, ::y3d::LibInfo, ::y3d::ResultType>(
+          std::mem_fn(&YServiceMaxLoader::Service::CloseApp), this)));
+}
+
+YServiceMaxLoader::Service::~Service() {
+}
+
+::grpc::Status YServiceMaxLoader::Service::Shutdown(::grpc::ServerContext* context, const ::y3d::LibInfo* request, ::y3d::ResultType* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status YServiceMaxLoader::Service::LoadDll(::grpc::ServerContext* context, const ::y3d::LibInfo* request, ::y3d::ResultType* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status YServiceMaxLoader::Service::CloseApp(::grpc::ServerContext* context, const ::y3d::LibInfo* request, ::y3d::ResultType* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+
 }  // namespace y3d
 
