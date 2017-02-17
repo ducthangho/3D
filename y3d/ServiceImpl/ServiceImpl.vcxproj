@@ -108,7 +108,7 @@
       </Command>
     </PostBuildEvent>
     <PreLinkEvent>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">"$(ProjectDir)..\bin\LoaderCmd.exe" -l 0</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">"$(ProjectDir)..\bin\LoaderCmd.exe" -w stopall</Command>
     </PreLinkEvent>
     <PostBuildEvent>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -121,7 +121,7 @@
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(ProjectDir)..\bin\LoaderCmd.exe" -w stopall</Command>
     </PreLinkEvent>
     <PreLinkEvent>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(ProjectDir)..\bin\LoaderCmd.exe" -l 0</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(ProjectDir)..\bin\LoaderCmd.exe" -w stopall</Command>
     </PreLinkEvent>
   </ItemDefinitionGroup>
   <ItemGroup>

@@ -75,13 +75,20 @@ int stop_all_worker() {
 }
 
 int test1() {
-	auto client = y3d::YServiceMaster::NewStub(grpc::CreateChannel(master_ip, grpc::InsecureChannelCredentials()));
-	grpc::ClientContext context;
-	y3d::YWorkerRequest req;
-	req.set_call_in_app(false);
-	req.set_slient(true);
-	y3d::YWorkerResponse rep;
-	auto status = client->AddWorker(&context, req, &rep);
+
+	for (int i = 0; i < 20; ++i) {
+		std::thread t([]() {
+			auto client = y3d::YServiceMaster::NewStub(grpc::CreateChannel(master_ip, grpc::InsecureChannelCredentials()));
+			grpc::ClientContext context;
+			y3d::YWorkerRequest req;
+			req.set_call_in_app(false);
+			req.set_slient(true);
+			y3d::YWorkerResponse rep;
+			auto status = client->AddWorker(&context, req, &rep);
+		});
+		t.detach();
+	}
+	
 	return 0;
 }
 
