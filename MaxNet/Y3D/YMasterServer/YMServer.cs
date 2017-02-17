@@ -23,7 +23,7 @@ namespace YMasterServer
             ret.Worker.IpAddress = String.Format("127.0.0.1:{0}", ret.Worker.Wid + 38000);
             ret.Worker.Wname = "Worker " + ret.Worker.Wid;
             ret.Worker.Status = YWorker.Types.ServingStatus.NotServing;
-
+            ret.Worker.Wtype = YWorker.Types.WorkerType.Free;
             YMServer.workers.TryAdd(ret.Worker.Wid, ret.Worker);
             ret.Wlist = new YWorkerList();
             ret.Wlist.Workers.Add(YMServer.workers.Values);
@@ -101,24 +101,6 @@ namespace YMasterServer
             {
                 Console.WriteLine("Khong tim thay key");
             }
-            //foreach (YWorker yw in YMServer.all_workers.Workers)
-            //{
-            //    if ((yw.Wid == request.Wid) || (yw.Wname == request.Wname))
-            //    {
-            //        Channel channel = new Channel(yw.IpAddress, ChannelCredentials.Insecure);
-            //        y3d.s.YServiceMaxLoader.YServiceMaxLoaderClient loaderClient = new y3d.s.YServiceMaxLoader.YServiceMaxLoaderClient(channel);
-            //        LibInfo req = new LibInfo();
-            //        req.Id = yw.Wid;
-            //        var retDll = loaderClient.Shutdown(req);
-            //        yw.Status = y3d.e.YWorker.Types.ServingStatus.NotServing;
-
-            //        YWorkerResponse rep = new YWorkerResponse();
-            //        rep.Worker = yw;
-            //        rep.Wlist = YMServer.all_workers;
-            //        rep.Error = false;
-            //        return Task.FromResult(rep);
-            //    }
-            //}
             return base.StartWorker(request, context);
         }
 
@@ -218,10 +200,32 @@ namespace YMasterServer
             return Task.FromResult(new ResultReply());
         }
 
-        //public override Task<YWorkerList> AllWorkers(EmptyParam request, ServerCallContext context)
+        //public override Task<YWorkerResponse> GiveMeAWorker(EmptyParam request, ServerCallContext context)
         //{
-        //    return Task.FromResult(new YWorkerList(Utils.Tools.YWList));
+        //    YWorkerResponse rep = new YWorkerResponse();
+        //    rep.Error = true;
+        //    var yw = YMServer.GiveMeAFreeWorker();
+        //    if (yw != null)
+        //    {
+        //        rep.Error = false;
+        //        rep.Worker = yw;
+        //    }
+        //    return Task.FromResult(rep);
         //}
+
+        public override async Task<YWorkerResponse> GiveMeAWorker(EmptyParam request, ServerCallContext context)
+        {
+            YWorkerResponse rep = new YWorkerResponse();
+            rep.Error = true;
+            var yw =  await YMServer.GiveMeAFreeWorker();
+            if (yw != null)
+            {
+                rep.Error = false;
+                rep.Worker = yw;
+            }
+            return rep;
+            //return Task.FromResult(rep);
+        }
 
         //public override Task<ResultReply> CheckHealth(EmptyParam request, ServerCallContext context)
         //{
@@ -309,21 +313,75 @@ namespace YMasterServer
             return null;
         }
 
-        public static YWorker GiveMeAFreeWorker()
+        public static async YWorker Processing(int index)
         {
-            if (YSys.MasterServer.MainWorkers.Count < 1)
+            var channel = new Channel(String.Format("127.0.0.1:{0}", index + 38000), ChannelCredentials.Insecure);
+
+            if (channel.State != Grpc.Core.ChannelState.Ready)
             {
-                if (StartApp("MAX3D"))
+                while (!channel.ConnectAsync().IsCompleted)
                 {
-                    //if (rpc.YClient.CChannel.State != Grpc.Core.ChannelState.Ready)
-                    //{
-                    //    while (!rpc.YClient.CChannel.ConnectAsync().IsCompleted)
-                    //    {
-                    //        System.Threading.Thread.Sleep(5000);
-                    //    }
-                    //    //rpc.YClient.CChannel.WaitForStateChangedAsync(Grpc.Core.ChannelState.Ready);
-                    //}
+                    System.Threading.Thread.Sleep(5000);
+                    //channel = new Channel(String.Format("127.0.0.1:{0}", index + 38000), ChannelCredentials.Insecure);
                 }
+                //var client = new YServiceMaxLoader.YServiceMaxLoaderClient(channel);
+                //client.LoadDll(new LibInfo());
+
+                //rpc.YClient.CChannel.WaitForStateChangedAsync(Grpc.Core.ChannelState.Ready);
+            }
+            Console.WriteLine("Da tao");
+            YWorker ret;
+            if (workers.TryGetValue(index, out ret))
+            {
+                return ret;
+            }
+            return null;
+        }
+
+        public static Task<YWorker> GiveMeAFreeWorker()
+        {
+            foreach (var w in workers.Values)
+            {
+                if (w.Wtype == YWorker.Types.WorkerType.Free)
+                {
+                    return Task.FromResult(w);
+                }
+            }
+            // not found any free worker
+            var index = LastIndex+1;
+            Console.WriteLine(String.Format("id:{0}", index));
+            if (StartApp("MAX3D"))
+            {
+                YWorker ret;
+                Task rs = new Task( () => 
+                {
+                    var channel = new Channel(String.Format("127.0.0.1:{0}", index + 38000), ChannelCredentials.Insecure);
+
+                    if (channel.State != Grpc.Core.ChannelState.Ready)
+                    {
+                        while (!channel.ConnectAsync().IsCompleted)
+                        {
+                            System.Threading.Thread.Sleep(5000);
+                            //channel = new Channel(String.Format("127.0.0.1:{0}", index + 38000), ChannelCredentials.Insecure);
+                        }
+                        //var client = new YServiceMaxLoader.YServiceMaxLoaderClient(channel);
+                        //client.LoadDll(new LibInfo());
+
+                        //rpc.YClient.CChannel.WaitForStateChangedAsync(Grpc.Core.ChannelState.Ready);
+                    }
+                    Console.WriteLine("Da tao");
+
+
+                    workers.TryGetValue(index, out ret);                    
+                });
+                //return Task
+                //(new System.Threading.Thread(() => void
+                //{
+                   
+                //})).Start();
+
+               
+
             }
             return null;
         }
@@ -331,7 +389,7 @@ namespace YMasterServer
         {
             if (CurrentWorker == null)
             {
-                CurrentWorker = GiveMeAFreeWorker();
+                //CurrentWorker = GiveMeAFreeWorker();
                 if (CurrentWorker == null) return false;
             }
             return true;

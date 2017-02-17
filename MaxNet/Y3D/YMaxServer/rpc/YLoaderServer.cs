@@ -212,7 +212,11 @@ namespace YMaxServer.rpc
             var MasterClient = new y3d.s.YServiceMaster.YServiceMasterClient(new Channel(MASTER_IP, ChannelCredentials.Insecure));
             YWorkerRequest req = new YWorkerRequest();
             req.CallInApp = true;
+            //var ret = MasterClient.AddWorkerAsync(req);
+            //ret.ResponseAsync.Wait();
+            //var rep = ret.ResponseAsync.Result;
             var rep = MasterClient.AddWorker(req);
+
             worker_id = rep.Worker.Wid;
             server = new Server
             {

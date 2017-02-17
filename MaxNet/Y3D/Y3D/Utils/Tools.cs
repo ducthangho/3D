@@ -15,6 +15,7 @@ namespace Y3D.Utils
         public static YSystem YSys = new YSystem();
         public static YWorkerList YWList = new YWorkerList();
         public static ProjectInfo CurrentProject = new ProjectInfo();
+        public static YWorker CurrentWorker = null;
         public static YAreaList CurrentYAL = null;
 
         public static bool IsProcessOpen(string name)

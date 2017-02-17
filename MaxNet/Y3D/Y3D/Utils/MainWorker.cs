@@ -11,20 +11,19 @@ namespace Y3D.Utils
 {
     class MainWorker
     {
-        YWorker worker;
-        public Channel CChannel;
-        public Channel CSChannel;
-        public Channel MasterChannel;
+        public static YWorker worker = null;
+        public static Channel ChannelLoader = null;
+        public static Channel ChannelMax = null;
 
-        public y3d.s.YServiceMaxTools.YServiceMaxToolsClient CClient;
-        public y3d.s.YServiceMaster.YServiceMasterClient CWClient;
-        //public y3d.s.YMainWorker CSMClient;
+        static public y3d.s.YServiceMaxTools.YServiceMaxToolsClient MaxClient;
+        static public y3d.s.YServiceMaxLoader.YServiceMaxLoaderClient LoaderClient;
 
-        public void updateClient()
+        static public void updateClient()
         {
-
-            CChannel = new Channel(worker.IpAddress, ChannelCredentials.Insecure);
-
+            ChannelLoader = new Channel(worker.IpAddress, ChannelCredentials.Insecure);
+            ChannelMax = new Channel(String.Format("127.0.0.1:{0}", worker.Wid + 39000), ChannelCredentials.Insecure);
+            LoaderClient = new YServiceMaxLoader.YServiceMaxLoaderClient(ChannelLoader);
+            MaxClient = new YServiceMaxTools.YServiceMaxToolsClient(ChannelMax);
         } 
 
     }

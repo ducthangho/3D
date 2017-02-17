@@ -471,9 +471,14 @@ message YWorker {
     SERVING = 1;
     NOT_SERVING = 2;
     NOT_CONNECT_MASTER=3;
-    NO_PROJECT=4;
   }
   ServingStatus status = 5;
+  enum WorkerType {
+    FREE = 0;
+    MAIN_WORKER = 1;
+    SUB_WORKER = 2;
+  }
+  WorkerType wtype=6;
 }
 
 message YSubWorker {
