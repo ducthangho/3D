@@ -11,9 +11,11 @@ using System.Collections.Concurrent;
 
 namespace YMasterServer
 {
-
+    
     class YServiceMasterImpl : y3d.s.YServiceMaster.YServiceMasterBase
     {
+        public const int MAXRETRIES = 50;
+
         public override Task<YWorkerResponse> AddWorker(YWorkerRequest req, ServerCallContext context)
         {
             YWorkerResponse ret = new YWorkerResponse();
@@ -217,11 +219,12 @@ namespace YMasterServer
         {            
             var yw =  YMServer.GiveMeAFreeWorker();
             var t = yw.ContinueWith<YWorkerResponse>(  (task) =>
-            {
+            {                               
                 YWorkerResponse result = new YWorkerResponse();
                 if (task.IsCompleted)
                 {
                     Console.WriteLine("Done");
+                    
                     result.Error = false;
                     result.Worker = task.Result;
                 } else if (task.IsFaulted || task.IsCanceled)
@@ -342,12 +345,13 @@ namespace YMasterServer
 
                 if (channel.State != Grpc.Core.ChannelState.Ready)
                 {
-
-                   while (await channel.ConnectAsync(deadline: DateTime.UtcNow.AddMilliseconds(5000)).ContinueWith<bool>( (t) => t.IsCanceled || t.IsFaulted) )
+                    int count = 0;
+                   while (await channel.ConnectAsync(deadline: DateTime.UtcNow.AddMilliseconds(5000)).ContinueWith<bool>( (t) => t.IsCanceled || t.IsFaulted) && count++ < YServiceMasterImpl.MAXRETRIES)
                    {
                         Console.WriteLine("5s. Retry");                        
 
-                    }//*/                   
+                    }//*/  
+                    if (count >= YServiceMasterImpl.MAXRETRIES) return null;                
                     Console.WriteLine("Connected!!!");
                 };
                 YWorker rt;
