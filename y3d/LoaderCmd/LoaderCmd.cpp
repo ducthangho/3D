@@ -20,9 +20,18 @@ int show_all_workers(int32_t stat = 2) {
 	for (int i = 0; i < rep.wlist().workers_size(); i++)
 	{
 		auto yw = rep.wlist().workers(i);
-		printf("\n%d. %s  (ip:%s)", (i + 1), yw.wname(), yw.ip_address());
+		printf("\n%d. %s  (ip:%s) (status:%s)", (i + 1), yw.wname(), yw.ip_loader(), yw.status());
 	}
 	return status.error_code();
+}
+
+int start_all_workers() {
+	auto client = y3d::YServiceMaster::NewStub(grpc::CreateChannel(master_ip, grpc::InsecureChannelCredentials()));
+	grpc::ClientContext context;
+	y3d::EmptyParam request;
+	y3d::ResultReply resp;
+	auto status = client->StartAllWorkers(&context, request, &resp);
+	return resp.error();
 }
 
 int start_worker(int32_t id) {
@@ -165,6 +174,8 @@ int main(int argc, char** argv)
 			auto worker = workerArg.getValue();
 			if (worker == "stopall") {
 				stop_all_worker();
+			}else if (worker == "startall") {
+				start_all_workers();
 			}else if (widArg.isSet()) {
 				auto wid = widArg.getValue();
 				if (worker == "start") {

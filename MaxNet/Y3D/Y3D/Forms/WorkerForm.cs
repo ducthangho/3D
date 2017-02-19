@@ -29,9 +29,9 @@ namespace Y3D.Forms
                 if (x is YWorker)
                 {
                     YWorker yw = (YWorker)x;
-                    if (yw.Status == YWorker.Types.ServingStatus.NotServing)
+                    if (yw.Status == ServingStatus.NotServing)
                         return "c_red";
-                    if (yw.Status == YWorker.Types.ServingStatus.Serving)
+                    if (yw.Status == ServingStatus.Serving)
                         return "c_green";
                 }
                 return "c_yellow";

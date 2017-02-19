@@ -61,8 +61,9 @@ namespace YMaxServer.Actions
             Grpc.Core.Channel channel = new Grpc.Core.Channel(rpc.YLoaderServer.MASTER_IP, Grpc.Core.ChannelCredentials.Insecure);
             y3d.s.YServiceMaster.YServiceMasterClient MasterClient = new y3d.s.YServiceMaster.YServiceMasterClient(channel);
             y3d.e.WorkerParam wp = new y3d.e.WorkerParam();
-            wp.Wid = rpc.YLoaderServer.worker_id;
+            wp.Wid = rpc.YLoaderServer.worker.Wid;
             var ret = MasterClient.AppExitCallbackAsync(wp);
+            //rpc.YLoaderServer.Stop();
             //Utilities.YProject.closeAllForm();
             return true;
         }

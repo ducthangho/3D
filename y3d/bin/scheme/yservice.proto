@@ -43,6 +43,8 @@ service YServiceTest {
 service YServiceMaster {
   rpc AllWorkers(AllWorkerParam) returns (YWorkerResponse) {}
   rpc StopAllWorkers(EmptyParam) returns (ResultReply) {}
+  rpc StartAllWorkers(EmptyParam) returns (ResultReply) {}
+
   rpc AddWorker(YWorkerRequest) returns (YWorkerResponse) {}
   rpc CloseWorkerApp(WorkerParam) returns (ResultReply) {}
   rpc StartWorker(WorkerParam) returns (YWorkerResponse) {}
@@ -54,6 +56,7 @@ service YServiceMaster {
   rpc LoadSystem(EmptyParam) returns (YSystem) {}
   rpc SaveSystem(YSystem) returns (ResultReply) {}
   rpc GiveMeAWorker(EmptyParam) returns (YWorkerResponse) {}
+  rpc IsReady(WorkerParam) returns (ReadyRespone) {}
 }
 
 service YServiceMainWorker { // server for 3dsmax send actions request, run in mainworker app

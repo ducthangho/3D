@@ -20,19 +20,34 @@ namespace Y3D.Forms
 
         private void btnTest1_Click(object sender, EventArgs e)
         {
-            Channel channel = new Channel("127.0.0.1:39001", ChannelCredentials.Insecure);
-            var testClient = new y3d.s.YServiceTest.YServiceTestClient(channel);
-            testClient.MTest1(new y3d.e.EmptyParam());
+            if (Utils.MainWorker.getMainWorker())
+            {
+                Utils.MainWorker.TestClient.MTest1(new y3d.e.EmptyParam());
+            }
+
         }
 
         private void btnTest2_Click(object sender, EventArgs e)
         {
-            rpc.YClient.MasterClient.StopAllWorkers(new y3d.e.EmptyParam());
-            //rpc.YClient.test2();
+            if (Utils.MainWorker.getMainWorker())
+            {
+                Utils.MainWorker.TestClient.MTest2(new y3d.e.EmptyParam());
+            }
         }
 
         private void btnTest3_Click(object sender, EventArgs e)
         {
+            y3d.e.WorkerParam wp = new y3d.e.WorkerParam();
+            wp.Ip = "127.0.0.1:38001";
+            //var x = rpc.YClient.MasterClient.IsReady(wp);
+            //MessageBox.Show(x.Status.ToString());
+            var x = rpc.YClient.MasterClient.IsReadyAsync(wp);
+            x.ResponseAsync.Wait();
+            if (x.ResponseAsync.IsCompleted)
+            {
+                MessageBox.Show(x.ResponseAsync.Result.Status.ToString());
+            }
+
             //rpc.YClient.test3();
         }
 

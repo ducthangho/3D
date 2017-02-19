@@ -109,7 +109,14 @@ enum GVerType {
   IN_BAKE=2;
   STANDARD=3;
 }
-  
+
+enum ServingStatus {
+  UNKNOWN = 0;
+  SERVING = 1;
+  NOT_SERVING = 2;
+  NOT_CONNECT_MASTER=3;
+}
+
 message YObject {
   string name = 1;
   YPoint3 pos = 3;
@@ -229,6 +236,7 @@ message WorkerParam {
     int32 wid=1;
     string wname = 2;    
     YWorker worker = 3;
+    string ip = 4;
   }
 }
 
@@ -236,6 +244,9 @@ message AllWorkerParam {
   int32 status=1;
 }
 
+message ReadyRespone {
+   ServingStatus status =17;
+}
 // ------------------------------ Event
 message YEvent {
   oneof event {
@@ -401,7 +412,7 @@ message YSystem {
   PSetting default_setting = 3;
   repeated ProjectInfo projects=4;
   map<string,WorkerApp> apps=5;
-  YMasterServer master_server=6;
+  MasterServerInfo master_server=6;
 }
 
 message NewProjectParam {
@@ -464,21 +475,17 @@ message YJobList {
 message YWorker {
   int32 wid=1;
   string wname=2;
-  string ip_address =3;
-  int32 process_id=4;
-  enum ServingStatus {
-    UNKNOWN = 0;
-    SERVING = 1;
-    NOT_SERVING = 2;
-    NOT_CONNECT_MASTER=3;
-  }
-  ServingStatus status = 5;
+  string ip_loader = 4;
+  string ip_max = 5;
+  int32 process_id=6;
+
+  ServingStatus status = 7;
   enum WorkerType {
     FREE = 0;
     MAIN_WORKER = 1;
     SUB_WORKER = 2;
   }
-  WorkerType wtype=6;
+  WorkerType wtype=8;
 }
 
 message YSubWorker {
@@ -504,6 +511,7 @@ message YWorkerRequest {
   bool call_in_app=1;
   bool slient=2;
   WorkerApp app=3;
+  YMachine machine=4;
 }
 
 message WorkerApp {
@@ -519,10 +527,16 @@ message YWorkerResponse {
   string message = 4;
 }
 
-message YMasterServer {
+message MasterServerInfo {
   string mname = 1;
   string address =2;
   int32 port=5;
   string shared_folder = 3;
-  repeated YMainWorker main_workers = 4;
+  // repeated YMainWorker main_workers = 4;
+}
+
+message YMachine {
+  string mname = 1;
+  string uname = 2;
+  string ip_address = 3;
 }

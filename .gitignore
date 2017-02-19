@@ -17,7 +17,8 @@ y3d/bin/*.pdb
 y3d/bin/*.exp
 y3d/bin/*.exe
 y3d/bin/*.dll
-y3d/bin/**
+y3d/bin/Release/**
+y3d/bin/mserver/**
 y3d/lib/**
 y3d/icph/**
 MaxNet/Y3D/packages/**

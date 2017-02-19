@@ -21,59 +21,17 @@ namespace Y3D.Forms
         {
             var rep = rpc.YClient.MasterClient.GiveMeAWorkerAsync(new y3d.e.EmptyParam());
             await rep;
-            //Console.WriteLine("ddd");
-            //MessageBox.Show(rep.ResponseAsync.Result.Worker.Wname);
+            //Console.WriteLine(String.Format("name: {0}", rep.ResponseAsync.Result.Worker.Wname));
+            MessageBox.Show(rep.ResponseAsync.Result.Worker.Wname);
         }
 
         private void btnNewFromMax_Click(object sender, EventArgs e)
         {
-            if (Utils.MainWorker.worker == null)
+            Utils.MainWorker.getMainWorker();
+            if (Utils.MainWorker.worker!=null)
             {
-                giveworker();
-                //var rep = rpc.YClient.MasterClient.GiveMeAWorkerAsync(new y3d.e.EmptyParam());
-                //await rep;
-                //MessageBox.Show(rep.ResponseAsync.Result.Worker.Wname);
-
-                //var ret = rpc.YClient.MasterClient.GiveMeAWorker(new y3d.e.EmptyParam());
-                //rep.ResponseAsync.Wait();
-                //while (!rep.ResponseAsync.IsCompleted)
-                //{
-                //    System.Threading.Thread.Sleep(2000);
-                //}
-                //var ret = rep.ResponseAsync.Result;
-                //MessageBox.Show(ret.Worker.Wname);
-                //if (ret != null)
-                //{
-                //    Utils.MainWorker.worker = ret.Worker;
-                //    MessageBox.Show(ret.Worker.Wname);
-                //    //Utils.MainWorker.updateClient();
-                //    //Utils.MainWorker.LoaderClient.LoadDll(new y3d.s.LibInfo());
-                //}
-
-                //while (rep==null)
-                //{
-                //    System.Threading.Thread.Sleep(2000);
-                //}
-                //if (rep!=null)
-                //{
-                //    var ret = rep.ResponseAsync.Result;
-                //    MessageBox.Show(ret.Worker.Wname);
-                //}
-                //rep.ResponseAsync.Wait();
-                //if (rep.GetStatus().StatusCode == Grpc.Core.StatusCode.OK)
-                //{
-                //    var ret = rep.ResponseAsync.Result;
-                //    MessageBox.Show(ret.Worker.Wname);
-                //}
-
-                //if (ret!=null)
-                //{
-                //    Utils.MainWorker.worker = ret.Worker;
-                //    MessageBox.Show(ret.Worker.Wname); 
-                //    Utils.MainWorker.updateClient();
-                //    Utils.MainWorker.LoaderClient.LoadDll(new y3d.s.LibInfo());
-                //}
-
+                MessageBox.Show(Utils.MainWorker.worker.Wname);
+                //Utils.MainWorker.MaxClient.GetObjectFromMax(new y3d.e.EmptyParam());
             }
             //if (rpc.YMasterServer.CurrentWorker == null)
             //{
