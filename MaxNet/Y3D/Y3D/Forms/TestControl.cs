@@ -20,19 +20,25 @@ namespace Y3D.Forms
 
         private void btnTest1_Click(object sender, EventArgs e)
         {
-            if (Utils.MainWorker.getMainWorker())
-            {
-                Utils.MainWorker.TestClient.MTest1(new y3d.e.EmptyParam());
-            }
-
+            var x = Utils.MainWorker.getMainWorker().ContinueWith(
+                (task) =>
+                {
+                    if (task.IsCompleted)
+                        Utils.MainWorker.TestClient.MTest1(new y3d.e.EmptyParam());
+                }
+            );            
         }
 
         private void btnTest2_Click(object sender, EventArgs e)
         {
-            if (Utils.MainWorker.getMainWorker())
-            {
-                Utils.MainWorker.TestClient.MTest2(new y3d.e.EmptyParam());
-            }
+            var x = Utils.MainWorker.getMainWorker().ContinueWith(
+                (task) =>
+                {
+                    if (task.IsCompleted)
+                        Utils.MainWorker.TestClient.MTest2(new y3d.e.EmptyParam());
+                }
+            );
+            
         }
 
         private void btnTest3_Click(object sender, EventArgs e)
@@ -41,12 +47,31 @@ namespace Y3D.Forms
             wp.Ip = "127.0.0.1:38001";
             //var x = rpc.YClient.MasterClient.IsReady(wp);
             //MessageBox.Show(x.Status.ToString());
-            var x = rpc.YClient.MasterClient.IsReadyAsync(wp);
-            x.ResponseAsync.Wait();
-            if (x.ResponseAsync.IsCompleted)
-            {
-                MessageBox.Show(x.ResponseAsync.Result.Status.ToString());
-            }
+            var x = Utils.MainWorker.getMainWorker().ContinueWith<  Task<bool>  >(
+                (task) =>
+                {
+                    if (!task.Result)
+                    {
+                        MessageBox.Show("Fail to connect");
+                        return Task.FromResult(false);
+                    }
+
+                    var xx = rpc.YClient.MasterClient.IsReadyAsync(wp);
+                    var rs = xx.ResponseAsync.ContinueWith<bool>((t) =>
+                    {
+                        if (t.IsCompleted)
+                        {
+                            MessageBox.Show(xx.ResponseAsync.Result.Status.ToString());
+                            return true;
+                        }
+                        else MessageBox.Show("Fail to connect");
+                        return false;
+                    });
+
+                    return rs;
+                }
+            ); 
+            
 
             //rpc.YClient.test3();
         }

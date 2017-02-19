@@ -20,40 +20,51 @@ namespace Y3D.Utils
         static public y3d.s.YServiceMaxLoader.YServiceMaxLoaderClient LoaderClient;
         static public y3d.s.YServiceTest.YServiceTestClient TestClient;
 
-        static public bool getMainWorker()
+        static public Task<bool> getMainWorker()
         {
             if (worker == null)
             {
                 var rep = rpc.YClient.MasterClient.GiveMeAWorkerAsync(new y3d.e.EmptyParam());
-                rep.ResponseAsync.Wait();
-                if (rep.ResponseAsync.IsCompleted)
-                {
-                    y3d.e.WorkerParam wp = new y3d.e.WorkerParam();
-                    wp.Wid = rep.ResponseAsync.Result.Worker.Wid;
-                    var rr = rpc.YClient.MasterClient.StartWorker(wp);
-                    //r.ResponseAsync.Wait();
-                    //var rr = r.ResponseAsync.Result;
-                    if (rr.Error)
+                var x = rep.ResponseAsync.ContinueWith<bool>(
+                    (task) =>
                     {
-                        MessageBox.Show("Can not start worker!");
-                    } else
-                    {
-                        worker = rep.ResponseAsync.Result.Worker;
-                        updateClient();
-                    }
-                    return true;
+                        if (rep.ResponseAsync.IsCompleted)
+                        {
+                            y3d.e.WorkerParam wp = new y3d.e.WorkerParam();
+                            wp.Wid = rep.ResponseAsync.Result.Worker.Wid;
+                            var rr = rpc.YClient.MasterClient.StartWorker(wp);
+                            //r.ResponseAsync.Wait();
+                            //var rr = r.ResponseAsync.Result;
+                            if (rr.Error)
+                            {
+                                MessageBox.Show("Can not start worker!");
+                                return false;
+                            }
+                            else
+                            {
+                                worker = rep.ResponseAsync.Result.Worker;
+                                updateClient();
+                            }
+                            return true;
 
-                } else
-                {
-                    MessageBox.Show("Can not get a worker from server!");
-                }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Can not get a worker from server!");
+                        }
+                        return false;
+                    }
+                    );
+                //rep.ResponseAsync.Wait();
+                return x;
+               
             } 
             //if (worker.Status != y3d.e.ServingStatus.Serving)
             //{
             //    LoaderClient.LoadDll(new LibInfo());
             //    worker.Status = ServingStatus.Serving;
             //}
-            return (worker != null);
+            return Task.FromResult(false);
         }
         
         static public void updateClient()

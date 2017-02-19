@@ -46,7 +46,7 @@ namespace Y3D.Forms
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            YWorker yw = (YWorker)this.dlvWorker.SelectedObject;
+            YWorker yw = (YWorker)this.dlvWorker.SelectedObject;            
             WorkerParam req = new WorkerParam();
             req.Wid = yw.Wid;
             //req.Wname = yw.Wname;

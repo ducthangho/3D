@@ -556,7 +556,7 @@ namespace YMasterServer
         }
         public static void StartWorker(YWorker yw, bool startServerOnly = true)
         {
-            var client = new YServiceMaxLoader.YServiceMaxLoaderClient(new Channel(yw.IpLoader, ChannelCredentials.Insecure));
+            var client = new YServiceMaxLoader.YServiceMaxLoaderClient(new Channel(yw.IpLoader, ChannelCredentials.Insecure));            
 
             if (startServerOnly)
             {

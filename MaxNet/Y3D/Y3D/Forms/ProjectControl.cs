@@ -27,12 +27,20 @@ namespace Y3D.Forms
 
         private void btnNewFromMax_Click(object sender, EventArgs e)
         {
-            Utils.MainWorker.getMainWorker();
-            if (Utils.MainWorker.worker!=null)
-            {
-                MessageBox.Show(Utils.MainWorker.worker.Wname);
-                //Utils.MainWorker.MaxClient.GetObjectFromMax(new y3d.e.EmptyParam());
-            }
+            var x = Utils.MainWorker.getMainWorker();
+            x.ContinueWith(
+                (task) =>
+                {
+                    if (task.Result)
+                        MessageBox.Show(Utils.MainWorker.worker.Wname);
+                    else MessageBox.Show("Cannot start.");
+                }
+            );
+            //if (Utils.MainWorker.worker!=null)
+            //{
+            //    MessageBox.Show(Utils.MainWorker.worker.Wname);
+            //    //Utils.MainWorker.MaxClient.GetObjectFromMax(new y3d.e.EmptyParam());
+            //}
             //if (rpc.YMasterServer.CurrentWorker == null)
             //{
             //    // start main worker 3dmax
