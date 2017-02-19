@@ -47,30 +47,15 @@ namespace Y3D.Forms
             wp.Ip = "127.0.0.1:38001";
             //var x = rpc.YClient.MasterClient.IsReady(wp);
             //MessageBox.Show(x.Status.ToString());
-            var x = Utils.MainWorker.getMainWorker().ContinueWith<  Task<bool>  >(
-                (task) =>
+            var x = rpc.YClient.MasterClient.IsReadyAsync(wp);            
+            x.ResponseAsync.ContinueWith( (task) =>
+            {
+                if (task.IsFaulted || task.IsCanceled)
                 {
-                    if (!task.Result)
-                    {
-                        MessageBox.Show("Fail to connect");
-                        return Task.FromResult(false);
-                    }
-
-                    var xx = rpc.YClient.MasterClient.IsReadyAsync(wp);
-                    var rs = xx.ResponseAsync.ContinueWith<bool>((t) =>
-                    {
-                        if (t.IsCompleted)
-                        {
-                            MessageBox.Show(xx.ResponseAsync.Result.Status.ToString());
-                            return true;
-                        }
-                        else MessageBox.Show("Fail to connect");
-                        return false;
-                    });
-
-                    return rs;
-                }
-            ); 
+                    MessageBox.Show("Fail to connect");
+                } else if (task.IsCompleted && task.Result != null && task.Result.Status == y3d.e.ServingStatus.Serving)
+                    MessageBox.Show(x.ResponseAsync.Result.Status.ToString());                
+            });
             
 
             //rpc.YClient.test3();
