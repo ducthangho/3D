@@ -31,9 +31,11 @@ namespace Y3D.Forms
             x.ContinueWith(
                 (task) =>
                 {
-                    if (task.Result)
-                        MessageBox.Show(Utils.MainWorker.worker.Wname);
-                    else MessageBox.Show("Cannot start.");
+
+                    if (task.IsFaulted || task.IsCanceled)
+                        MessageBox.Show("Cannot start.");
+                    else if (task.IsCompleted) MessageBox.Show(Utils.MainWorker.worker.Wname);
+                    
                 }
             );
             //if (Utils.MainWorker.worker!=null)

@@ -48,15 +48,17 @@ namespace Y3D.Forms
             //var x = rpc.YClient.MasterClient.IsReady(wp);
             //MessageBox.Show(x.Status.ToString());
             var x = rpc.YClient.MasterClient.IsReadyAsync(wp);            
-            x.ResponseAsync.ContinueWith( (task) =>
+            var rs = x.ResponseAsync.ContinueWith<bool>( (task) =>
             {
                 if (task.IsFaulted || task.IsCanceled)
                 {
                     MessageBox.Show("Fail to connect");
+                    return false;
                 } else if (task.IsCompleted && task.Result != null && task.Result.Status == y3d.e.ServingStatus.Serving)
-                    MessageBox.Show(x.ResponseAsync.Result.Status.ToString());                
+                    MessageBox.Show(x.ResponseAsync.Result.Status.ToString());
+                return true;    
             });
-            
+            rs.Wait();
 
             //rpc.YClient.test3();
         }
