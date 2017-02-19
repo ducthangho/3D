@@ -116,6 +116,7 @@ msbuild /m /p:Configuration=Release protobuf.sln
 msbuild /m /p:Configuration=Debug protobuf.sln
 xcopy "Release\*.*" "..\..\..\..\..\..\bin\Release" /Y
 xcopy "Release\*.*" "..\..\..\..\..\..\lib\protobuf\Release" /Y
+xcopy "Release\*.*" "..\..\..\..\..\..\bin" /Y
 xcopy "Debug\*.*" "..\..\..\..\..\..\bin\Debug" /Y
 xcopy "Debug\*.*" "..\..\..\..\..\..\lib\protobuf\Debug" /Y
 msbuild protobuf.sln /t:Clean
