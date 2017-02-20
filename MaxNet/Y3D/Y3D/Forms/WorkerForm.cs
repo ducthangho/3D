@@ -39,9 +39,28 @@ namespace Y3D.Forms
 
             AllWorkerParam req = new AllWorkerParam();
             req.Status = 2;
-            var rep = rpc.YClient.MasterClient.AllWorkers(req);
-            if (!rep.Error)
-                dlvWorker.SetObjects(rep.Wlist.Workers);
+            req.Refresh = true;
+
+            //var rep = rpc.YClient.MasterClient.AllWorkers(req);
+            //if (!rep.Error)
+            //{
+            //    dlvWorker.SetObjects(rep.Wlist.Workers);
+            //}
+
+
+            var xx = rpc.YClient.MasterClient.AllWorkersAsync(req);
+            var rs = xx.ResponseAsync.ContinueWith((t) =>
+            {
+                if (t.IsCompleted)
+                {
+                    dlvWorker.SetObjects(t.Result.Wlist.Workers);
+                    //if (!t.Result.Error)
+                    //{
+                    //    dlvWorker.SetObjects(t.Result.Wlist.Workers);
+                    //    return true;
+                    //}
+                }
+            });
         }
 
         private void btnStart_Click(object sender, EventArgs e)

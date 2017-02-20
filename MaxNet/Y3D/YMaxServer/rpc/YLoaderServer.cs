@@ -207,18 +207,19 @@ namespace YMaxServer.rpc
     {
         public const string MASTER_IP = "127.0.0.1:38000";
         public static YWorker worker = null;
-        //public static int worker_id = 0;
         public static Server server;
         public static void Start()
         {
             var MasterClient = new y3d.s.YServiceMaster.YServiceMasterClient(new Channel(MASTER_IP, ChannelCredentials.Insecure));
             YWorkerRequest req = new YWorkerRequest();
             req.CallInApp = true;
-            //var ret = MasterClient.AddWorkerAsync(req);
-            //ret.ResponseAsync.Wait();
-            //var rep = ret.ResponseAsync.Result;
-            var rep = MasterClient.AddWorker(req);
 
+            req.Machine = new YMachine();
+            req.Machine.IpAddress = "127.0.0.1";
+            req.Machine.Mname = "";
+
+            var rep = MasterClient.AddWorker(req);
+            if (rep == null) return;
             //worker_id = rep.Worker.Wid;
             worker = rep.Worker.Clone();
             server = new Server

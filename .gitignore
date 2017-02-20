@@ -11,6 +11,7 @@ y3d/ytest/obj/**
 y3d/ymax/obj/**
 y3d/ycpp/obj/**
 y3d/Service/grpc/**
+y3d/Service/obj/**
 y3d/bin/scheme/example/**
 y3d/bin/scheme/*.cs
 y3d/bin/*.pdb

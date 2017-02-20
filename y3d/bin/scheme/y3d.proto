@@ -242,6 +242,7 @@ message WorkerParam {
 
 message AllWorkerParam {
   int32 status=1;
+  bool refresh=2;
 }
 
 message ReadyRespone {
@@ -486,6 +487,7 @@ message YWorker {
     SUB_WORKER = 2;
   }
   WorkerType wtype=8;
+  bool no_app = 9; // crash or waiting for app
 }
 
 message YSubWorker {

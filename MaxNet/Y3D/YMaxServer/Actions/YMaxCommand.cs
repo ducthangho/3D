@@ -62,7 +62,17 @@ namespace YMaxServer.Actions
             y3d.s.YServiceMaster.YServiceMasterClient MasterClient = new y3d.s.YServiceMaster.YServiceMasterClient(channel);
             y3d.e.WorkerParam wp = new y3d.e.WorkerParam();
             wp.Wid = rpc.YLoaderServer.worker.Wid;
-            var ret = MasterClient.AppExitCallbackAsync(wp);
+            if (MasterClient == null) return false;
+
+            try
+            {
+                var ret = MasterClient.AppExitCallbackAsync(wp);
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show("Can not shutdown server");
+            }
+            
             //rpc.YLoaderServer.Stop();
             //Utilities.YProject.closeAllForm();
             return true;
