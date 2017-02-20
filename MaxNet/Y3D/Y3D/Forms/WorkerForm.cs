@@ -51,14 +51,9 @@ namespace Y3D.Forms
             var xx = rpc.YClient.MasterClient.AllWorkersAsync(req);
             var rs = xx.ResponseAsync.ContinueWith((t) =>
             {
-                if (t.IsCompleted)
+                if (!t.IsFaulted && !t.IsCanceled) 
                 {
                     dlvWorker.SetObjects(t.Result.Wlist.Workers);
-                    //if (!t.Result.Error)
-                    //{
-                    //    dlvWorker.SetObjects(t.Result.Wlist.Workers);
-                    //    return true;
-                    //}
                 }
             });
         }

@@ -20,7 +20,7 @@ int show_all_workers(int32_t stat = 2) {
 	for (int i = 0; i < rep.wlist().workers_size(); i++)
 	{
 		auto yw = rep.wlist().workers(i);
-		printf("\n%d. %s  (ip:%s) (status:%s)", (i + 1), yw.wname(), yw.ip_loader(), yw.status());
+		printf("\n%d. %s  (ip:%s:%s) (status:%s)", (i + 1), yw.wname(), yw.machine_ip(), yw.port_loader(), yw.status());
 	}
 	return status.error_code();
 }

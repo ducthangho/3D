@@ -71,7 +71,7 @@ namespace Y3D.Utils
             {
                 y3d.e.WorkerParam wp = new y3d.e.WorkerParam();
                 wp.Wid = worker.Wid;
-                wp.Ip = worker.IpLoader;
+                wp.Ip = worker.MachineIp+":"+ worker.PortLoader;
                 var x = rpc.YClient.MasterClient.IsReadyAsync(wp);
                 var rs = x.ResponseAsync.ContinueWith<bool>((task) =>
                 {
@@ -94,12 +94,14 @@ namespace Y3D.Utils
         
         static public void updateClient()
         {
-            ChannelLoader = new Channel(worker.IpLoader, ChannelCredentials.Insecure);
-            ChannelMax = new Channel(worker.IpMax, ChannelCredentials.Insecure);
+            ChannelLoader = new Channel(worker.MachineIp+":"+worker.PortLoader, ChannelCredentials.Insecure);
+            ChannelMax = new Channel(worker.MachineIp + ":" + worker.PortMax, ChannelCredentials.Insecure);
             LoaderClient = new YServiceMaxLoader.YServiceMaxLoaderClient(ChannelLoader);
             MaxClient = new YServiceMaxTools.YServiceMaxToolsClient(ChannelMax);
             TestClient = new YServiceTest.YServiceTestClient(ChannelMax);
         } 
+
+
 
     }
 }

@@ -11,7 +11,6 @@ using System.Collections.Concurrent;
 
 namespace YMasterServer
 {
-
     class YServiceMasterImpl : y3d.s.YServiceMaster.YServiceMasterBase
     {
         public override Task<YWorkerResponse> AddWorker(YWorkerRequest req, ServerCallContext context)
@@ -29,11 +28,11 @@ namespace YMasterServer
                     {
                         ip = req.Machine.IpAddress; // viet them ham lay ip ko co cong
                     }
-                    ip += ":{0}";
                     //ret.Worker.Wid = System.Threading.Interlocked.Increment(ref YMServer.LastIndex);
                     ret.Worker.Wid = x.Result;
-                    ret.Worker.IpLoader = String.Format(ip, ret.Worker.Wid + 38000);
-                    ret.Worker.IpMax = String.Format(ip, ret.Worker.Wid + 39000);
+                    ret.Worker.MachineIp = req.Machine.IpAddress;
+                    ret.Worker.PortLoader = 38000 + ret.Worker.Wid;
+                    ret.Worker.PortMax = 39000 + ret.Worker.Wid;
                     ret.Worker.Wname = "Worker " + ret.Worker.Wid;
                     ret.Worker.Status = ServingStatus.NotServing;
                     ret.Worker.Wtype = YWorker.Types.WorkerType.Free;
@@ -60,11 +59,11 @@ namespace YMasterServer
                         {
 
                         }
-                        Console.WriteLine(String.Format("{0} Loader was created and listening on {1} ", ret.Worker.Wname, ret.Worker.IpLoader));
+                        Console.WriteLine(String.Format("{0} Loader was created and listening on {1}:{2} ", ret.Worker.Wname, ret.Worker.MachineIp,ret.Worker.PortLoader));
                         ret.Error = false;
                     } else
                     {
-                        Console.WriteLine(String.Format("Crash {0} Loader was restored and listening on {1} ", ret.Worker.Wname, ret.Worker.IpLoader));
+                        Console.WriteLine(String.Format("Crash {0} Loader was restored and listening on {1}:{2} ", ret.Worker.Wname, ret.Worker.MachineIp, ret.Worker.PortLoader));
                     }
                 }
                 return ret;
@@ -126,7 +125,7 @@ namespace YMasterServer
                 rep.Wlist = new YWorkerList();
                 rep.Wlist.Workers.Add(YMServer.workers.Values);
                 rep.Error = false;
-                Console.WriteLine(String.Format("{0} is closed on {1}", yw.Wname, yw.IpMax));
+                Console.WriteLine(String.Format("{0} is closed on {1}:{2}", yw.Wname, yw.MachineIp,yw.PortMax));
                 return Task.FromResult(rep);
             }
             catch (KeyNotFoundException ex)
@@ -237,7 +236,7 @@ namespace YMasterServer
             
             if (YMServer.workers.TryRemove(request.Wid, out yw))
             {
-                Console.WriteLine(String.Format("{0}({1}) has been removed automatically when someone exit application!", yw.Wname, yw.IpLoader));
+                Console.WriteLine(String.Format("{0}({1}:{2}) has been removed automatically when someone exit application!", yw.Wname, yw.MachineIp,yw.PortLoader));
                 rep.Error = false;
             }
             
@@ -291,7 +290,7 @@ namespace YMasterServer
                 ip = request.Ip;
             } else if (request.WtypeCase == WorkerParam.WtypeOneofCase.Worker)
             {
-                ip = request.Worker.IpMax;
+                ip = request.Worker.MachineIp+":"+request.Worker.PortMax;
             }
 
             var ready =  YMServer.ip_ready(ip);
@@ -355,31 +354,42 @@ namespace YMasterServer
         public static Server server;
         public static ConcurrentDictionary<int, YWorker> workers = new ConcurrentDictionary<int, YWorker>();
 
-        public static async Task<bool> ip_ready(string ip_address, int timeout=3000)
+        public static Task<bool> ip_ready(string ip_address, int timeout=3000)
         {
             var channel = new Channel(ip_address, ChannelCredentials.Insecure);
-            await channel.ConnectAsync(deadline: DateTime.UtcNow.AddMilliseconds(timeout));
-            return (channel.State == ChannelState.Ready);
+            var t = channel.ConnectAsync(deadline: DateTime.UtcNow.AddMilliseconds(timeout));
+
+            return t.ContinueWith<bool>(
+                (task) =>
+                {
+                    bool rs = false;
+                    if (task.IsFaulted || task.IsCanceled)
+                        rs = true;
+                    return rs;
+                }
+            );
+
+            //return (channel.State == ChannelState.Ready);
         }
        
         public static Task<bool> check_worker(int wid, int timeout = 10000)
         {
-            var channel = new Channel(workers[wid].IpLoader, ChannelCredentials.Insecure);
+            var channel = new Channel(workers[wid].MachineIp+":"+workers[wid].PortLoader, ChannelCredentials.Insecure);
             var t = channel.ConnectAsync(deadline: DateTime.UtcNow.AddMilliseconds(timeout));
            
             return t.ContinueWith<bool>(
                 (task) =>
                 {
                     bool rs = false;
-                    if (task.IsFaulted||task.IsCanceled)
+                    if (task.IsFaulted || task.IsCanceled)
                         rs = true;
 
-                    Console.WriteLine("check_worker " + wid+ " : "+task.Status.ToString());
-                    workers[wid].NoApp = rs;                    
+                    Console.WriteLine("check_worker " + wid + " : " + task.Status.ToString());
+                    workers[wid].NoApp = rs;
                     return rs;
                 }
             );
-                      
+
         }
 
         public static Task<int> GiveMeNewID()
@@ -621,7 +631,7 @@ namespace YMasterServer
         public static void StopWorker(YWorker yw, bool stopServerOnly = true)
         {
             Console.WriteLine(String.Format("Stopping {0}..",yw.Wname));
-            var client = new YServiceMaxLoader.YServiceMaxLoaderClient(new Channel(yw.IpLoader, ChannelCredentials.Insecure));
+            var client = new YServiceMaxLoader.YServiceMaxLoaderClient(new Channel(yw.MachineIp + ":" + yw.PortLoader, ChannelCredentials.Insecure));
             if (stopServerOnly)
             {
                 client.Shutdown(new LibInfo());
@@ -634,7 +644,7 @@ namespace YMasterServer
         }
         public static void StartWorker(YWorker yw, bool startServerOnly = true)
         {
-            var client = new YServiceMaxLoader.YServiceMaxLoaderClient(new Channel(yw.IpLoader, ChannelCredentials.Insecure));            
+            var client = new YServiceMaxLoader.YServiceMaxLoaderClient(new Channel(yw.MachineIp + ":" + yw.PortLoader, ChannelCredentials.Insecure));            
 
             if (startServerOnly)
             {
@@ -642,7 +652,7 @@ namespace YMasterServer
                 req.Id = yw.Wid;
                 var retDll = client.LoadDll(req);
                 yw.Status = y3d.e.ServingStatus.Serving;
-                Console.WriteLine(String.Format("{0} App Server is ready on {1}", yw.Wname, yw.IpMax));
+                Console.WriteLine(String.Format("{0} App Server is ready on {1}", yw.Wname, yw.MachineIp + ":" + yw.PortMax));
                 //yw.ProcessId = retDll.ProcessId;
 
                 //    YWorkerResponse rep = new YWorkerResponse();

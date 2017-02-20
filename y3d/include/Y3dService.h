@@ -48,7 +48,7 @@ extern "C" {
 	DLLAPI extern std::atomic<bool> isShuttingdown;
 	DLLAPI extern std::condition_variable shutdown_cv;
 	DLLAPI extern std::condition_variable ready_cv;
-	DLLAPI void APIENTRY startService(const char* dllname = "ServiceImpl.dll", const char* ip_address="0.0.0.0.38001");
+	DLLAPI void APIENTRY startService(const char* dllname = "ServiceImpl.dll", const char* ip_address="0.0.0.0:38001");
 	DLLAPI void APIENTRY stopService();
 #ifdef __cplusplus
 }

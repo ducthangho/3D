@@ -61,10 +61,9 @@ service YServiceMaster {
 
 service YServiceMainWorker { // server for 3dsmax send actions request, run in mainworker app
   rpc DoEvent(YEvent) returns (ResponseEvent);
+  rpc UpdateWorkers(WorkerParam) returns (YWorkerResponse);
   rpc CloseWorkerApp(YEvent) returns (ResponseEvent);
 }
-
-
 
 // service YServiceMaxTools {
 //   rpc TestTest(TestParam) returns (ResultReply) {}

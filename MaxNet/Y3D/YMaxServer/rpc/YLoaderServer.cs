@@ -190,8 +190,9 @@ namespace YMaxServer.rpc
             //MessageBox.Show(pAddressOfFunctionToCall.ToString());
             //var ip_addr = String.Format("127.0.0.1:{0}", 39000 + YLoaderServer.worker_id);
             //MessageBox.Show(YLoaderServer.worker.IpMax);
-            if (startService != null) startService("ServiceImpl.dll", YLoaderServer.worker.IpMax);
-            
+            //if (startService != null) startService("ServiceImpl.dll", (YLoaderServer.worker.MachineIp+":"+YLoaderServer.worker.PortMax));
+            if (startService != null) startService("ServiceImpl.dll", "0.0.0.0:" + YLoaderServer.worker.PortMax);
+
             //Channel channel = new Channel("0.0.0.0:39001", ChannelCredentials.Insecure);
             //y3d.s.Tools.ToolsClient toolClient = new y3d.s.Tools.ToolsClient(channel);
             //var re = toolClient.CloneObject(new EmptyParam());

@@ -52,6 +52,7 @@ namespace Y3D.Forms
             Utils.Tools.InitSystem();
             projectControl1.Show();
             active_htab(btnTabProject);
+            rpc.YServer.Start();
         }
 
         private void objectManagerMItem_Click(object sender, EventArgs e)

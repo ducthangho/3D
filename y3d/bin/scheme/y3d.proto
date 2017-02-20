@@ -476,9 +476,10 @@ message YJobList {
 message YWorker {
   int32 wid=1;
   string wname=2;
-  string ip_loader = 4;
-  string ip_max = 5;
-  int32 process_id=6;
+  string machine_ip=3;
+  int32 port_loader = 4;
+  int32 port_max = 5;
+  int32 process_id=10;
 
   ServingStatus status = 7;
   enum WorkerType {
