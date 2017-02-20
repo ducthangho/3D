@@ -372,7 +372,13 @@ namespace YMasterServer
             //return (channel.State == ChannelState.Ready);
         }
        
-        public static Task<bool> check_worker(int wid, int timeout = 10000)
+        /// <summary>
+        /// Check worker loader
+        /// </summary>
+        /// <param name="wid"></param>
+        /// <param name="timeout"></param>
+        /// <returns></returns>
+        public static Task<bool> check_worker(int wid, int timeout = 5000)
         {
             var channel = new Channel(workers[wid].MachineIp+":"+workers[wid].PortLoader, ChannelCredentials.Insecure);
             var t = channel.ConnectAsync(deadline: DateTime.UtcNow.AddMilliseconds(timeout));
@@ -386,11 +392,49 @@ namespace YMasterServer
 
                     Console.WriteLine("check_worker " + wid + " : " + task.Status.ToString());
                     workers[wid].NoApp = rs;
+
+                    //if (!workers[wid].NoApp)
+                    //{
+                    //    if (workers[wid].Status==ServingStatus.Serving)
+                    //    {
+
+                    //    }
+                    //}
+
                     return rs;
                 }
             );
-
         }
+
+        /// <summary>
+        /// Check worker App service
+        /// </summary>
+        /// <param name="wid"></param>
+        /// <param name="timeout"></param>
+        /// <returns></returns>
+        public static Task<bool> check_worker_service(int wid, int timeout = 10000)
+        {
+            if (workers[wid].NoApp) return Task.FromResult(false);
+            if (workers[wid].Status!=ServingStatus.Serving) return Task.FromResult(false);
+
+            var channel = new Channel(workers[wid].MachineIp + ":" + workers[wid].PortMax, ChannelCredentials.Insecure);
+            var t = channel.ConnectAsync(deadline: DateTime.UtcNow.AddMilliseconds(timeout));
+
+            return t.ContinueWith<bool>(
+                (task) =>
+                {
+                    bool rs = false;
+                    if (task.IsFaulted || task.IsCanceled)
+                        rs = true;
+                    if (!rs)
+                    {
+                         StartWorker(workers[wid]);
+                    }
+                    return rs;
+                }
+            );
+        }
+
 
         public static Task<int> GiveMeNewID()
         {
