@@ -24,6 +24,7 @@ y3d/icph/**
 MaxNet/Y3D/packages/**
 MaxNet/Y3D/**/obj/**
 MaxNet/Y3D/**/bin/**
+MaxNet/Y3D/x64/Release/**
 **/Debug/
 *.opendb
 *.tlog
@@ -34,8 +35,10 @@ MaxNet/Y3D/**/bin/**
 *.log
 *.obj
 y3d/y3d/Models/**
-y3d/Service/*.pb.*
-y3d/Service/*.grpc.pb.*
+y3d/include/*.pb.*
+y3d/include/*.grpc.pb.*
+y3d/ServiceImpl/*.pb.*
+y3d/ServiceImpl/*.grpc.pb.*
 MaxNet/Y3D/Y3D.Entities/*.cs
 y3d_max/hiddencmdout.tmp
 rac/**
