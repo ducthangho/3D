@@ -642,9 +642,9 @@ namespace YMasterServer
                 client.CloseApp(new LibInfo());
             }
         }
-        public static void StartWorker(YWorker yw, bool startServerOnly = true)
-        {
-            var client = new YServiceMaxLoader.YServiceMaxLoaderClient(new Channel(yw.MachineIp + ":" + yw.PortLoader, ChannelCredentials.Insecure));            
+        public static Task StartWorker(YWorker yw, bool startServerOnly = true)
+        {           
+            var client = new YServiceMaxLoader.YServiceMaxLoaderClient(new Channel(yw.MachineIp + ":" + yw.PortLoader, ChannelCredentials.Insecure));
 
             if (startServerOnly)
             {
@@ -666,7 +666,10 @@ namespace YMasterServer
             else
             {
             }
-        }
+            return Task.FromResult(0);            
+
+        } 
+
         public static void StopAllWorker()
         {
             saveWorkers();

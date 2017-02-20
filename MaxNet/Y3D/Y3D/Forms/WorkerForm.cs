@@ -64,12 +64,22 @@ namespace Y3D.Forms
             WorkerParam req = new WorkerParam();
             req.Wid = yw.Wid;
             //req.Wname = yw.Wname;
-            var rep = rpc.YClient.MasterClient.StartWorker(req);
-            if (!rep.Error)
-            {
-                dlvWorker.SetObjects(rep.Wlist.Workers);
-                MessageBox.Show("Start thanh cong..");
-            }
+            var rep = rpc.YClient.MasterClient.StartWorkerAsync(req);
+            rep.ResponseAsync.ContinueWith(
+                (t) =>
+                {
+                    if (t.IsCanceled || t.IsFaulted)
+                        return;
+
+                    var rs = t.Result;
+                    if (!rs.Error)
+                    {
+                        dlvWorker.SetObjects(rs.Wlist.Workers);
+                        MessageBox.Show("Start thanh cong..");
+                    }
+                    
+                }
+            );            
         }
 
         private void btnStop_Click(object sender, EventArgs e)
@@ -77,12 +87,22 @@ namespace Y3D.Forms
             YWorker yw = (YWorker)this.dlvWorker.SelectedObject;
             WorkerParam wp = new WorkerParam();
             wp.Wid = yw.Wid;
-            var rep = rpc.YClient.MasterClient.StopWorker(wp);
-            if (!rep.Error)
-            {
-                dlvWorker.SetObjects(rep.Wlist.Workers);
-                MessageBox.Show("Stop thanh cong..");
-            }
+            var rep = rpc.YClient.MasterClient.StopWorkerAsync(wp);
+
+            rep.ResponseAsync.ContinueWith(
+                (t) =>
+                {
+                    if (t.IsCanceled || t.IsFaulted)
+                        return;
+
+                    var rs = t.Result;
+                    if (!rs.Error)
+                    {
+                        dlvWorker.SetObjects(rs.Wlist.Workers);
+                        MessageBox.Show("Stop thanh cong..");
+                    }
+                }
+            );          
         }
 
         private void btnDel_Click(object sender, EventArgs e)
