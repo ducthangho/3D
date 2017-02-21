@@ -263,18 +263,18 @@ namespace YMasterServer
             var t = yw.ContinueWith<YWorkerResponse>((task) =>
             {
                 YWorkerResponse result = new YWorkerResponse();
-                if (task.IsCompleted)
+                if (task.IsFaulted || task.IsCanceled)
+                {
+                    result.Error = true;
+                    result.Worker = null;
+                    result.Message = task.Exception.Message;
+                } else if (task.IsCompleted)
                 {
                     Console.WriteLine("Done");
                     result.Error = false;
                     result.Worker = task.Result;
                 }
-                else if (task.IsFaulted || task.IsCanceled)
-                {
-                    result.Error = true;
-                    result.Worker = null;
-                    result.Message = task.Exception.Message;
-                }
+                
                 return result;
             });
             return t;
@@ -722,14 +722,18 @@ namespace YMasterServer
 
                     var r = client.LoadDllAsync(req);
                     return r.ResponseAsync.ContinueWith((t) => {
+                        if (t.IsFaulted || t.IsCanceled)
+                        {
+                            Console.WriteLine(String.Format("{0} App Server can not start on {1}", yw.Wname, yw.MachineIp + ":" + yw.PortMax));
+                            return;
+                        }
+
                         if (t.IsCompleted)
                         {
                             Console.WriteLine(String.Format("{0} App Server is ready on {1}", yw.Wname, yw.MachineIp + ":" + yw.PortMax));
                             yw.Status = y3d.e.ServingStatus.Serving;
                             return;
-                        }
-                        Console.WriteLine(String.Format("{0} App Server can not start on {1}", yw.Wname, yw.MachineIp + ":" + yw.PortMax));
-                        return;
+                        }                        
                     });
 
                     //yw.Status = y3d.e.ServingStatus.Serving;

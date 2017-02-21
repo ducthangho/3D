@@ -22,9 +22,9 @@ namespace Y3D.rpc
     class YServer
     {
         public static Server server=null;
-        public static void Start()
+        public static Task Start()
         {
-            var x = Utils.MainWorker.getMainWorker().ContinueWith(
+            return Utils.MainWorker.getMainWorker().ContinueWith(
                 (task) =>
                 {
                     if (task.IsCompleted)
@@ -44,10 +44,10 @@ namespace Y3D.rpc
 
         }
 
-        public static void Stop()
+        public static Task Stop()
         {
             //MessageBox.Show("bye");
-            server.ShutdownAsync().Wait();
+            return server.ShutdownAsync();
         }
     }
 }
