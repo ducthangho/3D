@@ -96,14 +96,21 @@ namespace YMasterServer
             try
             {
                 var yw = YMServer.workers[request.Wid];
-                YMServer.StartWorker(yw);
-                
-                rep.Worker = yw;
-                rep.Wlist = new YWorkerList();
-                rep.Wlist.Workers.Add(YMServer.workers.Values);
-                rep.Error = false;
+                var t = YMServer.StartWorker(yw);
+                return t.ContinueWith<YWorkerResponse>((tt) => {
+                    if (tt.IsCompleted)
+                    {
+                        rep.Worker = yw;
+                        rep.Wlist = new YWorkerList();
+                        rep.Wlist.Workers.Add(YMServer.workers.Values);
+                        rep.Error = false;
+                        return rep;
+                    }
+                    return rep;
+                });
+  
                 //Console.WriteLine(String.Format("{0} app server is ready on {1}", yw.Wname, yw.IpMax));
-                return Task.FromResult(rep);
+                //return Task.FromResult(rep);
             }
             catch (KeyNotFoundException ex)
             {
@@ -119,7 +126,7 @@ namespace YMasterServer
             try
             {
                 var yw = YMServer.workers[request.Wid];
-                YMServer.StartWorker(yw);
+                YMServer.StopWorker(yw);
 
                 rep.Worker = yw;
                 rep.Wlist = new YWorkerList();
@@ -708,9 +715,31 @@ namespace YMasterServer
             {
                 LibInfo req = new LibInfo();
                 req.Id = yw.Wid;
-                var retDll = client.LoadDll(req);
-                yw.Status = y3d.e.ServingStatus.Serving;
-                Console.WriteLine(String.Format("{0} App Server is ready on {1}", yw.Wname, yw.MachineIp + ":" + yw.PortMax));
+                
+                try
+                {
+                    //var retDll = client.LoadDll(req);
+
+                    var r = client.LoadDllAsync(req);
+                    return r.ResponseAsync.ContinueWith((t) => {
+                        if (t.IsCompleted)
+                        {
+                            Console.WriteLine(String.Format("{0} App Server is ready on {1}", yw.Wname, yw.MachineIp + ":" + yw.PortMax));
+                            yw.Status = y3d.e.ServingStatus.Serving;
+                            return;
+                        }
+                        Console.WriteLine(String.Format("{0} App Server can not start on {1}", yw.Wname, yw.MachineIp + ":" + yw.PortMax));
+                        return;
+                    });
+
+                    //yw.Status = y3d.e.ServingStatus.Serving;
+                    //Console.WriteLine(String.Format("{0} App Server is ready on {1}", yw.Wname, yw.MachineIp + ":" + yw.PortMax));
+                }
+                catch (System.Exception ex)
+                {
+                    Console.WriteLine("Something wrong!");
+                }
+      
                 //yw.ProcessId = retDll.ProcessId;
 
                 //    YWorkerResponse rep = new YWorkerResponse();

@@ -60,10 +60,10 @@ namespace YMaxServer.Actions
         {
             Grpc.Core.Channel channel = new Grpc.Core.Channel(rpc.YLoaderServer.MASTER_IP, Grpc.Core.ChannelCredentials.Insecure);
             y3d.s.YServiceMaster.YServiceMasterClient MasterClient = new y3d.s.YServiceMaster.YServiceMasterClient(channel);
+            if (MasterClient == null) return false;
+            if (rpc.YLoaderServer.worker==null) return false;
             y3d.e.WorkerParam wp = new y3d.e.WorkerParam();
             wp.Wid = rpc.YLoaderServer.worker.Wid;
-            if (MasterClient == null) return false;
-
             try
             {
                 var ret = MasterClient.AppExitCallbackAsync(wp);
