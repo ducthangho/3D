@@ -60,10 +60,12 @@ namespace YMasterServer
 
                         }
                         Console.WriteLine(String.Format("{0} Loader was created and listening on {1}:{2} ", ret.Worker.Wname, ret.Worker.MachineIp,ret.Worker.PortLoader));
+                        YMServer.Update2GUI();
                         ret.Error = false;
                     } else
                     {
                         Console.WriteLine(String.Format("Crash {0} Loader was restored and listening on {1}:{2} ", ret.Worker.Wname, ret.Worker.MachineIp, ret.Worker.PortLoader));
+                        YMServer.Update2GUI();
                     }
                 }
                 return ret;
