@@ -18,6 +18,11 @@ namespace Y3D.Forms
             InitializeComponent();
         }
 
+        public void updateWorkerList(YWorkerResponse x)
+        {
+            dlvWorker.SetObjects(x.Wlist.Workers);
+        }
+
         private void btnNew_Click(object sender, EventArgs e)
         {
 

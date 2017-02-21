@@ -12,9 +12,13 @@ namespace Y3D.rpc
 
     class YServiceMainWorkerImpl : y3d.s.YServiceMainWorker.YServiceMainWorkerBase
     {
-        public override Task<YWorkerResponse> UpdateWorkers(WorkerParam request, ServerCallContext context)
+        public override Task<EmptyParam> UpdateWorkers(YWorkerResponse request, ServerCallContext context)
         {
-            return base.UpdateWorkers(request, context);
+            if (YServer.wform!=null)
+            {
+                YServer.wform.updateWorkerList(request);
+            }
+            return Task.FromResult(new EmptyParam());
         }
     };
 
@@ -22,6 +26,7 @@ namespace Y3D.rpc
     class YServer
     {
         public static Server server=null;
+        public static Forms.WorkerForm wform = null;
         public static void Start()
         {
             var x = Utils.MainWorker.getMainWorker().ContinueWith(
