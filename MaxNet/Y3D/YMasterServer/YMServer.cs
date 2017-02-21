@@ -277,7 +277,7 @@ namespace YMasterServer
                     result.Error = false;
                     result.Worker = task.Result;
                 }
-                
+                YMServer.Update2GUI();
                 return result;
             });
             return t;

@@ -43,3 +43,4 @@ y3d/ServiceImpl/*.grpc.pb.*
 MaxNet/Y3D/Y3D.Entities/*.cs
 y3d_max/hiddencmdout.tmp
 rac/**
+*.suo
