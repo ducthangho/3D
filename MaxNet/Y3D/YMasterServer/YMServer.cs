@@ -244,6 +244,7 @@ namespace YMasterServer
             if (YMServer.workers.TryRemove(request.Wid, out yw))
             {
                 Console.WriteLine(String.Format("{0}({1}:{2}) has been removed automatically when someone exit application!", yw.Wname, yw.MachineIp,yw.PortLoader));
+                YMServer.Update2GUI();
                 rep.Error = false;
             }
             
@@ -508,6 +509,7 @@ namespace YMasterServer
             {
                 if (w.Wtype == YWorker.Types.WorkerType.Free)
                 {
+                    w.Wtype = YWorker.Types.WorkerType.MainWorker;
                     return Task.FromResult(w);
                 }
             }
@@ -533,7 +535,11 @@ namespace YMasterServer
                     ).ContinueWith<YWorker>( _ => {
                         YWorker tmp;
                         if (workers.TryGetValue(index, out tmp))
+                        {
+                            tmp.Wtype = YWorker.Types.WorkerType.MainWorker;
                             return tmp;
+                        }
+                            
                         return null;
                     });                                        
                 };
@@ -769,12 +775,36 @@ namespace YMasterServer
                 List<Task> tasks = new List<Task>();
                 foreach (var w in workers.Values)
                 {
-                    tasks.Add(StopWorker(w));
+                    if (w.Status==ServingStatus.Serving)
+                        tasks.Add(StopWorker(w));
                 }
                 return Task.WhenAll(tasks);
             }).Unwrap();
           
         }
+
+        public static void Update2GUI()
+        {
+            Console.WriteLine("Updating worker status to GUI...");
+            foreach (var yw in workers.Values)
+            {
+                Console.WriteLine(String.Format("{0} type is {1}", yw.Wname, yw.Wtype.ToString()));
+                if (yw.Wtype!=YWorker.Types.WorkerType.Free)
+                {
+                    var channel = new Channel(yw.MachineIp + ":" + (yw.Wid + 37000), ChannelCredentials.Insecure);
+                    var client = new YServiceMainWorker.YServiceMainWorkerClient(channel);
+                    if (client != null)
+                    {
+                        YWorkerResponse wr = new YWorkerResponse();
+                        wr.Worker = yw;
+                        wr.Wlist = new YWorkerList();
+                        wr.Wlist.Workers.Add(YMServer.workers.Values);
+                        client.UpdateWorkersAsync(wr);
+                    }
+                }
+            }
+        }
+
         //public static void forceStopWorker(YWorker yw)
         //{
         //    var s = String.Format("127.0.0.1:{0}", yw.Wid + 39000);

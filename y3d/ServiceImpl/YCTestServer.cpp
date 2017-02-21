@@ -174,7 +174,7 @@ Status YServiceTestImpl::MTest1(ServerContext* context, const EmptyParam* reques
 Status YServiceTestImpl::MTest2(ServerContext* context, const EmptyParam* request, EmptyParam* reply)
 {
 	Invoke([]() {
-		log("This is MTest 2 zzz\n");
+		log("This is MTest 2\n");
 	});
 	return Status::OK;
 }
