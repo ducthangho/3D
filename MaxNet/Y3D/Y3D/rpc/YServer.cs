@@ -34,7 +34,7 @@ namespace Y3D.rpc
                             server = new Server
                             {
                                 Services = { y3d.s.YServiceMainWorker.BindService(new YServiceMainWorkerImpl()) },
-                                Ports = { new ServerPort("127.0.0.1", Utils.MainWorker.worker.Wid+37000, ServerCredentials.Insecure) }
+                                Ports = { new ServerPort("0.0.0.0", Utils.MainWorker.worker.Wid+37000, ServerCredentials.Insecure) }
                             };
                             server.Start();
                         }

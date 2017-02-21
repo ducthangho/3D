@@ -34,7 +34,7 @@ namespace Y3D.Forms
             var x = Utils.MainWorker.getMainWorker().ContinueWith(
                 (task) =>
                 {
-                    if (task.IsCompleted)
+                    if (!task.IsFaulted && !task.IsCanceled)
                         Utils.MainWorker.TestClient.MTest2(new y3d.e.EmptyParam());
                 }
             );

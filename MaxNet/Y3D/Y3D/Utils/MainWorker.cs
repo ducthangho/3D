@@ -61,11 +61,7 @@ namespace Y3D.Utils
                         return Task.FromResult(false);
                     });
                 //rep.ResponseAsync.Wait();
-                return x.ContinueWith<bool>((xxx) => {
-                    if (xxx.IsFaulted || xxx.IsCanceled || !xxx.Result.Result)
-                        return false;
-                    return true;
-                });
+                return x.Unwrap();
 
             } else
             {

@@ -495,13 +495,13 @@ namespace YMasterServer
             return null;
         }
 
-        public static async Task<YWorker> GiveMeAFreeWorker()
+        public static Task<YWorker> GiveMeAFreeWorker()
         {
             foreach (var w in workers.Values)
             {
                 if (w.Wtype == YWorker.Types.WorkerType.Free)
                 {
-                    return w;
+                    return Task.FromResult(w);
                 }
             }
             // not found any free worker
@@ -515,7 +515,7 @@ namespace YMasterServer
                 if (channel.State != Grpc.Core.ChannelState.Ready)
                 {
 
-                    while (await channel.ConnectAsync(deadline: DateTime.UtcNow.AddMilliseconds(5000)).ContinueWith<bool>((t) => t.IsCanceled || t.IsFaulted))
+                    while (channel.ConnectAsync(deadline: DateTime.UtcNow.AddMilliseconds(5000)).ContinueWith<bool>((t) => t.IsCanceled || t.IsFaulted).Result)
                     {
                         Console.WriteLine("5s. Retry");
                     }//*/                   
@@ -523,11 +523,11 @@ namespace YMasterServer
                 };
                 YWorker rt;
                 if (workers.TryGetValue(index, out rt))
-                    return rt;
+                    return Task.FromResult(rt);
 
 
             }
-            return null;
+            return Task.FromResult<YWorker>(null);
         }
         
         public static void InitSystem()
@@ -593,15 +593,16 @@ namespace YMasterServer
             }
             //Start();
         }
-        public static void SaveSystem()
+        public static Task SaveSystem()
         {
             var path = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData), "y3d\\ysettings.y3d");
             using (Stream output = File.OpenWrite(path))
             {
                 YSys.WriteTo(output);
             }
+            return Task.FromResult(0);
         }
-        public static void saveWorkers()
+        public static Task saveWorkers()
         {
             Console.WriteLine("Saving all workers...");
             var path = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData), "y3d\\working_workers.y3d");
@@ -611,8 +612,10 @@ namespace YMasterServer
             {
                 wl.WriteTo(output);
             }
+            return Task.FromResult(0);
         }
-        public static void loadWorkers()
+
+        public static Task loadWorkers()
         {
             Console.WriteLine("Loading all workers...");
             var path = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData), "y3d\\working_workers.y3d");
@@ -635,15 +638,16 @@ namespace YMasterServer
             Console.WriteLine("Restore status of all workers");
             //refreshWorkers();
             List<YWorker> wlist = new List<YWorker>(workers.Values);
+            List<Task> tList = new List<Task>();
             foreach (var w in wlist)
             {
                 if (w.Status == ServingStatus.Serving)
                 {
-                    StartWorker(w);
+                    tList.Add(StartWorker(w));
                 }
             }
 
-            
+            return Task.WhenAll(tList);
             //    var wl = new YWorkerList();
             //wl.Workers.Add(YMServer.workers.Values);
             //using (Stream output = File.OpenWrite(path))
@@ -652,9 +656,10 @@ namespace YMasterServer
             //}
         }
 
-        public static void FindLoaderWhenStart()
+        public static Task FindLoaderWhenStart()
         {
             // tim cac loader server va add thanh worker khi moi khoi tao
+            return Task.FromResult(0);
         }
 
         public static Task refreshWorkers()
@@ -672,19 +677,20 @@ namespace YMasterServer
         }
 
 
-        public static void StopWorker(YWorker yw, bool stopServerOnly = true)
+        public static Task StopWorker(YWorker yw, bool stopServerOnly = true)
         {
             Console.WriteLine(String.Format("Stopping {0}..",yw.Wname));
             var client = new YServiceMaxLoader.YServiceMaxLoaderClient(new Channel(yw.MachineIp + ":" + yw.PortLoader, ChannelCredentials.Insecure));
             if (stopServerOnly)
             {
-                client.Shutdown(new LibInfo());
-                yw.Status = ServingStatus.NotServing;
+                var rep = client.ShutdownAsync(new LibInfo());
+                return rep.ResponseAsync.ContinueWith( _ => { yw.Status = ServingStatus.NotServing; });                
             }
             else
             {
-                client.CloseApp(new LibInfo());
+                return client.CloseAppAsync(new LibInfo()).ResponseAsync.ContinueWith( _ => { });
             }
+            //return Task.FromResult(0);
         }
         public static Task StartWorker(YWorker yw, bool startServerOnly = true)
         {           
@@ -714,15 +720,19 @@ namespace YMasterServer
 
         } 
 
-        public static void StopAllWorker()
+        public static Task StopAllWorker()
         {
-            saveWorkers();
-            Console.WriteLine("Stopping all workers..");
-            foreach (var w in workers.Values)
-            {
-                StopWorker(w);
-            }
-
+            var t = saveWorkers();
+            return t.ContinueWith(_ => {
+                Console.WriteLine("Stopping all workers..");
+                List<Task> tasks = new List<Task>();
+                foreach (var w in workers.Values)
+                {
+                    tasks.Add(StopWorker(w));
+                }
+                return Task.WhenAll(tasks);
+            }).Unwrap();
+          
         }
         //public static void forceStopWorker(YWorker yw)
         //{
@@ -738,11 +748,12 @@ namespace YMasterServer
                 Services = { y3d.s.YServiceMaster.BindService(new YServiceMasterImpl()) },
                 Ports = { new ServerPort(YSys.MasterServer.Address, YSys.MasterServer.Port, ServerCredentials.Insecure) }
             };
-            server.Start();
+            server.Start();            
         }
-        public static void Stop()
+
+        public static Task Stop()
         {
-            server.ShutdownAsync().Wait();
+            return server.ShutdownAsync();
         }
     }
 }
