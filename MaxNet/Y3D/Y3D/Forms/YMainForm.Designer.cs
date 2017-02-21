@@ -59,7 +59,8 @@
             this.testToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(606, 24);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(808, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -144,9 +145,10 @@
             this.panel1.Controls.Add(this.btnTabTest);
             this.panel1.Controls.Add(this.btnTabObject);
             this.panel1.Controls.Add(this.btnTabProject);
-            this.panel1.Location = new System.Drawing.Point(0, 27);
+            this.panel1.Location = new System.Drawing.Point(0, 33);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(40, 550);
+            this.panel1.Size = new System.Drawing.Size(53, 677);
             this.panel1.TabIndex = 4;
             // 
             // btnTabTest
@@ -156,9 +158,10 @@
             this.btnTabTest.FlatAppearance.BorderSize = 0;
             this.btnTabTest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTabTest.Image = global::Y3D.Properties.Resources.test_off;
-            this.btnTabTest.Location = new System.Drawing.Point(4, 84);
+            this.btnTabTest.Location = new System.Drawing.Point(5, 103);
+            this.btnTabTest.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnTabTest.Name = "btnTabTest";
-            this.btnTabTest.Size = new System.Drawing.Size(32, 32);
+            this.btnTabTest.Size = new System.Drawing.Size(43, 39);
             this.btnTabTest.TabIndex = 2;
             this.btnTabTest.Tag = "test";
             this.btnTabTest.UseVisualStyleBackColor = false;
@@ -171,9 +174,10 @@
             this.btnTabObject.FlatAppearance.BorderSize = 0;
             this.btnTabObject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTabObject.Image = global::Y3D.Properties.Resources.omana_off;
-            this.btnTabObject.Location = new System.Drawing.Point(4, 46);
+            this.btnTabObject.Location = new System.Drawing.Point(5, 57);
+            this.btnTabObject.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnTabObject.Name = "btnTabObject";
-            this.btnTabObject.Size = new System.Drawing.Size(32, 32);
+            this.btnTabObject.Size = new System.Drawing.Size(43, 39);
             this.btnTabObject.TabIndex = 1;
             this.btnTabObject.Tag = "omana";
             this.btnTabObject.UseVisualStyleBackColor = false;
@@ -186,9 +190,10 @@
             this.btnTabProject.FlatAppearance.BorderSize = 0;
             this.btnTabProject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTabProject.Image = global::Y3D.Properties.Resources.buffer24_off;
-            this.btnTabProject.Location = new System.Drawing.Point(4, 8);
+            this.btnTabProject.Location = new System.Drawing.Point(5, 10);
+            this.btnTabProject.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnTabProject.Name = "btnTabProject";
-            this.btnTabProject.Size = new System.Drawing.Size(32, 32);
+            this.btnTabProject.Size = new System.Drawing.Size(43, 39);
             this.btnTabProject.TabIndex = 0;
             this.btnTabProject.Tag = "buffer24";
             this.btnTabProject.UseVisualStyleBackColor = false;
@@ -196,9 +201,10 @@
             // 
             // objectsControl1
             // 
-            this.objectsControl1.Location = new System.Drawing.Point(46, 27);
+            this.objectsControl1.Location = new System.Drawing.Point(61, 33);
+            this.objectsControl1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.objectsControl1.Name = "objectsControl1";
-            this.objectsControl1.Size = new System.Drawing.Size(560, 550);
+            this.objectsControl1.Size = new System.Drawing.Size(747, 677);
             this.objectsControl1.TabIndex = 3;
             this.objectsControl1.Tag = "omana";
             this.objectsControl1.Visible = false;
@@ -206,9 +212,10 @@
             // testControl1
             // 
             this.testControl1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.testControl1.Location = new System.Drawing.Point(46, 27);
+            this.testControl1.Location = new System.Drawing.Point(61, 33);
+            this.testControl1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.testControl1.Name = "testControl1";
-            this.testControl1.Size = new System.Drawing.Size(561, 550);
+            this.testControl1.Size = new System.Drawing.Size(748, 677);
             this.testControl1.TabIndex = 2;
             this.testControl1.Tag = "test";
             this.testControl1.Visible = false;
@@ -216,24 +223,27 @@
             // projectControl1
             // 
             this.projectControl1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.projectControl1.Location = new System.Drawing.Point(47, 27);
+            this.projectControl1.Location = new System.Drawing.Point(63, 33);
+            this.projectControl1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.projectControl1.Name = "projectControl1";
-            this.projectControl1.Size = new System.Drawing.Size(560, 550);
+            this.projectControl1.Size = new System.Drawing.Size(747, 677);
             this.projectControl1.TabIndex = 5;
             this.projectControl1.Tag = "buffer24";
+            this.projectControl1.Load += new System.EventHandler(this.projectControl1_Load);
             // 
             // YMainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(606, 576);
+            this.ClientSize = new System.Drawing.Size(808, 709);
             this.Controls.Add(this.projectControl1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.objectsControl1);
             this.Controls.Add(this.testControl1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.Name = "YMainForm";
             this.Text = "Y3D";

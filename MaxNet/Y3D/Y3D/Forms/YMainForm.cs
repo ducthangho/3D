@@ -107,5 +107,10 @@ namespace Y3D.Forms
             projectControl1.Show();
             active_htab(btnTabProject);
         }
+
+        private void projectControl1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
