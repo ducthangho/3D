@@ -528,6 +528,7 @@ message YWorkerResponse {
   YWorker worker=2;
   bool error=3;
   string message = 4;
+  int32 wid=5;
 }
 
 message MasterServerInfo {

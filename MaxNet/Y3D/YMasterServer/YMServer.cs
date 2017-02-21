@@ -129,11 +129,11 @@ namespace YMasterServer
             {
                 var yw = YMServer.workers[request.Wid];
                 YMServer.StopWorker(yw);
-
                 rep.Worker = yw;
                 rep.Wlist = new YWorkerList();
-                rep.Wlist.Workers.Add(YMServer.workers.Values);
+                rep.Wlist.Workers.Add(YMServer.workers.Values);                
                 rep.Error = false;
+                rep.Wid = request.Wid;
                 Console.WriteLine(String.Format("{0} is closed on {1}:{2}", yw.Wname, yw.MachineIp,yw.PortMax));
                 return Task.FromResult(rep);
             }
@@ -528,7 +528,8 @@ namespace YMasterServer
                     return Task.Factory.StartNew(
                         () =>
                         {
-                            while (channel.ConnectAsync(deadline: DateTime.UtcNow.AddMilliseconds(5000)).ContinueWith<bool>((t) => t.IsCanceled || t.IsFaulted).Result)
+                            int count = 0;
+                            while (channel.ConnectAsync(deadline: DateTime.UtcNow.AddMilliseconds(5000)).ContinueWith<bool>((t) => t.IsCanceled || t.IsFaulted).Result && count++<20)
                             {
                                 Console.WriteLine("5s. Retry");
                             }//*/                   

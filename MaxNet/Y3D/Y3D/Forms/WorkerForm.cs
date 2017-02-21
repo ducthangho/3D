@@ -65,7 +65,13 @@ namespace Y3D.Forms
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            YWorker yw = (YWorker)this.dlvWorker.SelectedObject;            
+            YWorker yw = (YWorker)this.dlvWorker.SelectedObject;
+            if (yw == null)//No object selected
+            {
+                if (dlvWorker.GetItemCount() == 0) return;
+                yw = (YWorker)dlvWorker.GetModelObject(0);
+                dlvWorker.SelectObject(yw, true);
+            }
             WorkerParam req = new WorkerParam();
             req.Wid = yw.Wid;
             //req.Wname = yw.Wname;
@@ -87,9 +93,31 @@ namespace Y3D.Forms
             );            
         }
 
+        private void selectWorkerID(Int32 id)
+        {
+            for (int i=0;i<dlvWorker.GetItemCount();++i)
+            {
+                var yw = (YWorker)dlvWorker.GetModelObject(i);
+                if (yw.Wid == id)
+                {
+                    dlvWorker.Focus();
+                    dlvWorker.EnsureModelVisible(yw);
+                    dlvWorker.SelectObject(yw);
+                    dlvWorker.HideSelection = false;
+                    return;
+                }
+            }
+        }
+
         private void btnStop_Click(object sender, EventArgs e)
         {
             YWorker yw = (YWorker)this.dlvWorker.SelectedObject;
+            if (yw == null)//No object selected
+            {
+                if (dlvWorker.GetItemCount() == 0) return;                
+                yw = (YWorker)dlvWorker.GetModelObject(dlvWorker.GetItemCount() - 1);
+                dlvWorker.SelectObject(yw, true);
+            }            
             WorkerParam wp = new WorkerParam();
             wp.Wid = yw.Wid;
             var rep = rpc.YClient.MasterClient.StopWorkerAsync(wp);
@@ -102,9 +130,10 @@ namespace Y3D.Forms
 
                     var rs = t.Result;
                     if (!rs.Error)
-                    {
+                    {                        
                         dlvWorker.SetObjects(rs.Wlist.Workers);
-                        MessageBox.Show("Stop thanh cong..");
+                        selectWorkerID(rs.Wid);
+                        //MessageBox.Show("Stop thanh cong..");
                     }
                 }
             );          
