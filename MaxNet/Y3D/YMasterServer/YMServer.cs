@@ -514,18 +514,26 @@ namespace YMasterServer
 
                 if (channel.State != Grpc.Core.ChannelState.Ready)
                 {
-
-                    while (channel.ConnectAsync(deadline: DateTime.UtcNow.AddMilliseconds(5000)).ContinueWith<bool>((t) => t.IsCanceled || t.IsFaulted).Result)
-                    {
-                        Console.WriteLine("5s. Retry");
-                    }//*/                   
-                    Console.WriteLine("Connected!!!");
+                    return Task.Factory.StartNew(
+                        () =>
+                        {
+                            while (channel.ConnectAsync(deadline: DateTime.UtcNow.AddMilliseconds(5000)).ContinueWith<bool>((t) => t.IsCanceled || t.IsFaulted).Result)
+                            {
+                                Console.WriteLine("5s. Retry");
+                            }//*/                   
+                            Console.WriteLine("Connected!!!");
+                        }
+                    ).ContinueWith<YWorker>( _ => {
+                        YWorker tmp;
+                        if (workers.TryGetValue(index, out tmp))
+                            return tmp;
+                        return null;
+                    });                                        
                 };
+
                 YWorker rt;
                 if (workers.TryGetValue(index, out rt))
-                    return Task.FromResult(rt);
-
-
+                    return Task.FromResult <YWorker> (rt);
             }
             return Task.FromResult<YWorker>(null);
         }
