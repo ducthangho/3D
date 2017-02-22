@@ -52,6 +52,7 @@ namespace Y3D.Forms
             Utils.Tools.InitSystem();
             projectControl1.Show();
             active_htab(btnTabProject);
+            rpc.YServer.Start();
         }
 
         private void objectManagerMItem_Click(object sender, EventArgs e)
@@ -81,8 +82,8 @@ namespace Y3D.Forms
 
         private void workersManagerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            WorkerForm wf = new WorkerForm();
-            DialogResult result = wf.ShowDialog();
+            rpc.YServer.wform = new WorkerForm();
+            DialogResult result = rpc.YServer.wform.ShowDialog();
             if (result == DialogResult.OK)
             {
                 
@@ -105,6 +106,11 @@ namespace Y3D.Forms
         {
             projectControl1.Show();
             active_htab(btnTabProject);
+        }
+
+        private void projectControl1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

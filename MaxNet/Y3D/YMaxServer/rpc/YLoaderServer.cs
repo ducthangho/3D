@@ -190,8 +190,9 @@ namespace YMaxServer.rpc
             //MessageBox.Show(pAddressOfFunctionToCall.ToString());
             //var ip_addr = String.Format("127.0.0.1:{0}", 39000 + YLoaderServer.worker_id);
             //MessageBox.Show(YLoaderServer.worker.IpMax);
-            if (startService != null) startService("ServiceImpl.dll", YLoaderServer.worker.IpMax);
-            
+            //if (startService != null) startService("ServiceImpl.dll", (YLoaderServer.worker.MachineIp+":"+YLoaderServer.worker.PortMax));
+            if (startService != null) startService("ServiceImpl.dll", "0.0.0.0:" + YLoaderServer.worker.PortMax);
+
             //Channel channel = new Channel("0.0.0.0:39001", ChannelCredentials.Insecure);
             //y3d.s.Tools.ToolsClient toolClient = new y3d.s.Tools.ToolsClient(channel);
             //var re = toolClient.CloneObject(new EmptyParam());
@@ -207,18 +208,19 @@ namespace YMaxServer.rpc
     {
         public const string MASTER_IP = "127.0.0.1:38000";
         public static YWorker worker = null;
-        //public static int worker_id = 0;
         public static Server server;
         public static void Start()
         {
             var MasterClient = new y3d.s.YServiceMaster.YServiceMasterClient(new Channel(MASTER_IP, ChannelCredentials.Insecure));
             YWorkerRequest req = new YWorkerRequest();
             req.CallInApp = true;
-            //var ret = MasterClient.AddWorkerAsync(req);
-            //ret.ResponseAsync.Wait();
-            //var rep = ret.ResponseAsync.Result;
-            var rep = MasterClient.AddWorker(req);
 
+            req.Machine = new YMachine();
+            req.Machine.IpAddress = "127.0.0.1";
+            req.Machine.Mname = "";
+
+            var rep = MasterClient.AddWorker(req);
+            if (rep == null) return;
             //worker_id = rep.Worker.Wid;
             worker = rep.Worker.Clone();
             server = new Server

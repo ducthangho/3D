@@ -61,17 +61,13 @@ namespace Y3D.Utils
                         return Task.FromResult(false);
                     });
                 //rep.ResponseAsync.Wait();
-                return x.ContinueWith<bool>((xxx) => {
-                    if (xxx.IsFaulted || xxx.IsCanceled || !xxx.Result.Result)
-                        return false;
-                    return true;
-                });
+                return x.Unwrap();
 
             } else
             {
                 y3d.e.WorkerParam wp = new y3d.e.WorkerParam();
                 wp.Wid = worker.Wid;
-                wp.Ip = worker.IpLoader;
+                wp.Ip = worker.MachineIp+":"+ worker.PortLoader;
                 var x = rpc.YClient.MasterClient.IsReadyAsync(wp);
                 var rs = x.ResponseAsync.ContinueWith<bool>((task) =>
                 {
@@ -94,12 +90,14 @@ namespace Y3D.Utils
         
         static public void updateClient()
         {
-            ChannelLoader = new Channel(worker.IpLoader, ChannelCredentials.Insecure);
-            ChannelMax = new Channel(worker.IpMax, ChannelCredentials.Insecure);
+            ChannelLoader = new Channel(worker.MachineIp+":"+worker.PortLoader, ChannelCredentials.Insecure);
+            ChannelMax = new Channel(worker.MachineIp + ":" + worker.PortMax, ChannelCredentials.Insecure);
             LoaderClient = new YServiceMaxLoader.YServiceMaxLoaderClient(ChannelLoader);
             MaxClient = new YServiceMaxTools.YServiceMaxToolsClient(ChannelMax);
             TestClient = new YServiceTest.YServiceTestClient(ChannelMax);
         } 
+
+
 
     }
 }

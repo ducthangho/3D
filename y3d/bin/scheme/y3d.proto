@@ -242,6 +242,7 @@ message WorkerParam {
 
 message AllWorkerParam {
   int32 status=1;
+  bool refresh=2;
 }
 
 message ReadyRespone {
@@ -475,9 +476,10 @@ message YJobList {
 message YWorker {
   int32 wid=1;
   string wname=2;
-  string ip_loader = 4;
-  string ip_max = 5;
-  int32 process_id=6;
+  string machine_ip=3;
+  int32 port_loader = 4;
+  int32 port_max = 5;
+  int32 process_id=10;
 
   ServingStatus status = 7;
   enum WorkerType {
@@ -486,6 +488,7 @@ message YWorker {
     SUB_WORKER = 2;
   }
   WorkerType wtype=8;
+  bool no_app = 9; // crash or waiting for app
 }
 
 message YSubWorker {
@@ -525,6 +528,7 @@ message YWorkerResponse {
   YWorker worker=2;
   bool error=3;
   string message = 4;
+  int32 wid=5;
 }
 
 message MasterServerInfo {
