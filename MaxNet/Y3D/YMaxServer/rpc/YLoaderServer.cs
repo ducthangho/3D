@@ -222,17 +222,20 @@ namespace YMaxServer.rpc
             var rep = MasterClient.AddWorkerAsync(req);
             try
             {
-                rep.ResponseAsync.Wait();
-                if (rep.ResponseAsync.IsCanceled || rep.ResponseAsync.IsFaulted) return;
-                if (rep.ResponseAsync.Result == null) return;
-                worker = rep.ResponseAsync.Result.Worker.Clone();
-                server = new Server
-                {
-                    Services = { YServiceMaxLoader.BindService(new YServiceMaxLoaderImpl()) },
-                    Ports = { new ServerPort("localhost", rep.ResponseAsync.Result.Worker.Wid + 38000, ServerCredentials.Insecure) }
-                };
-                server.Start();
-                return;
+                rep.ResponseAsync.ContinueWith((task) =>
+               {
+                   if (task.IsCanceled || task.IsFaulted) return;
+                   if (task.Result == null) return;
+                   worker = task.Result.Worker.Clone();
+                   server = new Server
+                   {
+                       Services = { YServiceMaxLoader.BindService(new YServiceMaxLoaderImpl()) },
+                       Ports = { new ServerPort("localhost", rep.ResponseAsync.Result.Worker.Wid + 38000, ServerCredentials.Insecure) }
+                   };
+                   server.Start();
+                   return;
+               });
+                
             }
             catch (System.Exception ex)
             {

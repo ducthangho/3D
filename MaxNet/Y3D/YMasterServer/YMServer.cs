@@ -13,6 +13,7 @@ namespace YMasterServer
 {
     class YServiceMasterImpl : y3d.s.YServiceMaster.YServiceMasterBase
     {
+       
         public override Task<YWorkerResponse> AddWorker(YWorkerRequest req, ServerCallContext context)
         {
             var x = YMServer.GiveMeNewID();
@@ -408,16 +409,26 @@ namespace YMasterServer
                         rs = true;
 
                     Console.WriteLine("check_worker " + wid + " : " + task.Status.ToString());
-                    workers[wid].NoApp = rs;
+                    workers[wid].NoApp = rs;                
+                    return rs;
+                }
+            );
+        }
 
-                    //if (!workers[wid].NoApp)
-                    //{
-                    //    if (workers[wid].Status==ServingStatus.Serving)
-                    //    {
+        public static Task<int> check_worker(String ip,int wid, int timeout = 5000)
+        {
+            int portLoader = 38000 + wid;
+            var channel = new Channel(ip + ":" + portLoader, ChannelCredentials.Insecure);
+            var t = channel.ConnectAsync(deadline: DateTime.UtcNow.AddMilliseconds(timeout));
 
-                    //    }
-                    //}
+            return t.ContinueWith<int>(
+                (task) =>
+                {
+                    int rs = 0;
+                    if (task.IsFaulted || task.IsCanceled)
+                        rs = wid;
 
+                    Console.WriteLine("check_worker " + wid + " : " + task.Status.ToString());                    
                     return rs;
                 }
             );
@@ -512,6 +523,26 @@ namespace YMasterServer
             return null;
         }
 
+        public static YWorker createDefaultWorker(String ip, int wid)
+        {
+            var tmp = new YWorker();
+            tmp.Wid = wid;
+            tmp.MachineIp = ip;
+            tmp.PortLoader = 38000 + wid;
+            tmp.PortMax = 39000 + wid;
+            tmp.Wname = "Worker " + wid;
+            tmp.Status = ServingStatus.NotServing;
+            tmp.Wtype = YWorker.Types.WorkerType.Free;
+            tmp.NoApp = false;
+            return tmp;
+        }
+
+        public static bool testConnection(String ip, int wid, int range = 38000)
+        {
+            var channel = new Channel(String.Format(ip + ":{0}", wid + range), ChannelCredentials.Insecure);
+            return (!channel.ConnectAsync(deadline: DateTime.UtcNow.AddMilliseconds(3000)).ContinueWith<bool>((t) => t.IsCanceled || t.IsFaulted).Result);
+        }
+
         public static Task<YWorker> GiveMeAFreeWorker()
         {
             foreach (var w in workers.Values)
@@ -520,11 +551,40 @@ namespace YMasterServer
                 {
                     w.Wtype = YWorker.Types.WorkerType.MainWorker;
                     return Task.FromResult(w);
-                }
+                }                
             }
             // not found any free worker
             var index = LastIndex + 1;
             Console.WriteLine(String.Format("id:{0}", index));
+            int prevCount = workers.Count;
+            //refreshMissingWorkers( (index<5) ? 5 : index );
+
+            //if (workers.Count != prevCount)//Check again
+            //{
+            //    foreach (var w in workers.Values)
+            //    {
+            //        if (w.Wtype == YWorker.Types.WorkerType.Free)
+            //        {
+            //            w.Wtype = YWorker.Types.WorkerType.MainWorker;
+            //            return Task.FromResult(w);
+            //        }
+            //    }
+            //}
+
+            //for (int j = 1; j <= index; ++j)
+            {
+                if (YMServer.workers[index] == null && testConnection(MASTER_IP_DEFAULT, index))
+                {
+                    var tmp = createDefaultWorker(MASTER_IP_DEFAULT, index);
+                    if (YMServer.workers.TryAdd(index, tmp))
+                    {
+                        tmp.Wtype = YWorker.Types.WorkerType.MainWorker;
+                        return Task.FromResult(tmp);
+                    }
+                }
+            }
+
+
             if (StartApp("MAX3D"))
             {
 
@@ -545,6 +605,13 @@ namespace YMasterServer
                     ).ContinueWith<YWorker>( _ => {
                         YWorker tmp;
                         if (workers.TryGetValue(index, out tmp))
+                        {
+                            tmp.Wtype = YWorker.Types.WorkerType.MainWorker;
+                            return tmp;
+                        }
+
+                        tmp = createDefaultWorker(MASTER_IP_DEFAULT, index);
+                        if (YMServer.workers.TryAdd(index, tmp))
                         {
                             tmp.Wtype = YWorker.Types.WorkerType.MainWorker;
                             return tmp;
@@ -703,6 +770,26 @@ namespace YMasterServer
             foreach (var w in wlist)
             {
                 tasks.Add(Task.Run(() => check_worker(w.Wid)));
+            }
+            return Task.WhenAll(tasks);
+        }
+
+        public static Task refreshMissingWorkers(int lastIndex)
+        {
+            Console.WriteLine("Recheck status of all workers");            
+            var tasks = new List<Task>();
+
+            for (int wid = 1;wid<= lastIndex;++wid)
+            {
+                YWorker x;
+                if (!workers.TryGetValue(wid,out x) )
+                    tasks.Add(Task.Run(() => check_worker(MASTER_IP_DEFAULT, wid)).ContinueWith( (t) => {
+                        if (t.Result > 0)
+                        {
+                            var tmp = createDefaultWorker(MASTER_IP_DEFAULT, t.Result);
+                            workers.TryAdd(t.Result, tmp);
+                        }
+                 } ) );
             }
             return Task.WhenAll(tasks);
         }
