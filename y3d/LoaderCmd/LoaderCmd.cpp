@@ -8,7 +8,10 @@
 #include "grpc++/grpc++.h"
 #include "tclap/CmdLine.h"
 #include "tbb/task_group.h"
+#include "LogClient.h"
+#include "YLibs.h"
 std::string master_ip = "127.0.0.1:38000";
+
 
 int show_all_workers(int32_t stat = 2) {
 	auto client = y3d::YServiceMaster::NewStub(grpc::CreateChannel(master_ip, grpc::InsecureChannelCredentials()));
@@ -98,11 +101,18 @@ int test1() {
 				y3d::YWorkerResponse rep;
 				auto status = client->AddWorker(&context, req, &rep);
 			}
-			
 		});		
 	}
 	tg.wait();
 	return 0;
+}
+
+int test2() {
+	LogClient logClient(grpc::CreateChannel(address, grpc::InsecureChannelCredentials()));
+	logserver::LOG("Hello world {}\n",123);
+	//logserver::log(L"Hello world with wchar* \n");
+	//logserver::log("Hello {} , that preceded text is formated text", "Minh");
+	return 1;
 }
 
 //int shutdownService() {
@@ -200,6 +210,7 @@ int main(int argc, char** argv)
 			if (t == 1) {
 				test1();
 			}
+			else test2();
 		}
 	}
 

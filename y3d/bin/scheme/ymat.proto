@@ -103,3 +103,4 @@ message YMultiMat {
     YDiffuse default_diffuse=1;
     repeated YMat materials = 2;
 }
+

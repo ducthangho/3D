@@ -1,0 +1,13 @@
+syntax = "proto3";
+// import "y3d.proto";
+import "google/protobuf/any.proto";
+package y3d;
+
+service LogService{
+  rpc Log(LogMessage) returns (LogMessage);
+}
+
+
+message LogMessage{
+    string message = 1;
+}

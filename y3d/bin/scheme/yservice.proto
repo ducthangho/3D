@@ -64,8 +64,6 @@ service YServiceMainWorker { // server for 3dsmax send actions request, run in m
   rpc CloseWorkerApp(YEvent) returns (ResponseEvent);
 }
 
-
-
 // service YServiceMaxTools {
 //   rpc TestTest(TestParam) returns (ResultReply) {}
 //   rpc RenameObject (RenameParam) returns (ResultReply) {}
