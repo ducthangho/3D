@@ -21,6 +21,8 @@ namespace Y3D.Forms
         public void updateWorkerList(YWorkerResponse x)
         {
             dlvWorker.SetObjects(x.Wlist.Workers);
+            btnStart.Enabled = false;
+            btnStop.Enabled = false;
         }
 
         private void btnNew_Click(object sender, EventArgs e)
@@ -72,6 +74,9 @@ namespace Y3D.Forms
                 yw = (YWorker)dlvWorker.GetModelObject(0);
                 dlvWorker.SelectObject(yw, true);
             }
+            this.btnStart.Enabled = false;
+            if (yw.Status == ServingStatus.Serving) return;
+
             WorkerParam req = new WorkerParam();
             req.Wid = yw.Wid;
             //req.Wname = yw.Wname;
@@ -87,8 +92,9 @@ namespace Y3D.Forms
                     {
                         dlvWorker.SetObjects(rs.Wlist.Workers);
                         MessageBox.Show("Start thanh cong..");
+                        return;
                     }
-                    
+                    btnStart.Enabled = true;
                 }
             );            
         }
@@ -117,7 +123,10 @@ namespace Y3D.Forms
                 if (dlvWorker.GetItemCount() == 0) return;                
                 yw = (YWorker)dlvWorker.GetModelObject(dlvWorker.GetItemCount() - 1);
                 dlvWorker.SelectObject(yw, true);
-            }            
+            }
+            btnStop.Enabled = false;
+            if (yw.Status == ServingStatus.NotServing) return;
+
             WorkerParam wp = new WorkerParam();
             wp.Wid = yw.Wid;
             var rep = rpc.YClient.MasterClient.StopWorkerAsync(wp);
@@ -133,8 +142,10 @@ namespace Y3D.Forms
                     {                        
                         dlvWorker.SetObjects(rs.Wlist.Workers);
                         selectWorkerID(rs.Wid);
+                        return;
                         //MessageBox.Show("Stop thanh cong..");
                     }
+                    btnStop.Enabled = true;
                 }
             );          
         }
@@ -153,6 +164,26 @@ namespace Y3D.Forms
             wp.Wid = yw.Wid;
             //MessageBox.Show(yw.ProcessId.ToString());
             var rep = rpc.YClient.MasterClient.CloseWorkerApp(wp);
+        }
+
+        private void dlvWorker_Click(object sender, EventArgs e)
+        {
+            YWorker yw = (YWorker)this.dlvWorker.SelectedObject;
+            if (yw == null)
+            {
+                btnStart.Enabled = false;
+                btnStop.Enabled = false;
+                return;
+            }
+            if (yw.Status==ServingStatus.Serving)
+            {
+                btnStart.Enabled = false;
+                btnStop.Enabled = true;
+            } else if (yw.Status == ServingStatus.NotServing)
+            {
+                btnStart.Enabled = true;
+                btnStop.Enabled = false;
+            }
         }
     }
 }

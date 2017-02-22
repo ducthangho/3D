@@ -128,14 +128,21 @@ namespace YMasterServer
             try
             {
                 var yw = YMServer.workers[request.Wid];
-                YMServer.StopWorker(yw);
-                rep.Worker = yw;
-                rep.Wlist = new YWorkerList();
-                rep.Wlist.Workers.Add(YMServer.workers.Values);                
-                rep.Error = false;
-                rep.Wid = request.Wid;
-                Console.WriteLine(String.Format("{0} is closed on {1}:{2}", yw.Wname, yw.MachineIp,yw.PortMax));
-                return Task.FromResult(rep);
+                var t = YMServer.StopWorker(yw);
+
+                return t.ContinueWith<YWorkerResponse>((tt) =>
+                {
+                    if (tt.IsCompleted)
+                    {
+                        rep.Worker = yw;
+                        rep.Wlist = new YWorkerList();
+                        rep.Wlist.Workers.Add(YMServer.workers.Values);
+                        rep.Error = false;
+                        rep.Wid = request.Wid;
+                        Console.WriteLine(String.Format("{0} is closed on {1}:{2}", yw.Wname, yw.MachineIp, yw.PortMax));
+                    }
+                    return rep;
+                });
             }
             catch (KeyNotFoundException ex)
             {

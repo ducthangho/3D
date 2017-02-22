@@ -218,22 +218,55 @@ namespace YMaxServer.rpc
             req.Machine = new YMachine();
             req.Machine.IpAddress = "127.0.0.1";
             req.Machine.Mname = "";
-
-            var rep = MasterClient.AddWorker(req);
-            if (rep == null) return;
-            //worker_id = rep.Worker.Wid;
-            worker = rep.Worker.Clone();
-            server = new Server
+            if (MasterClient == null) return;
+            var rep = MasterClient.AddWorkerAsync(req);
+            try
             {
-                Services = { YServiceMaxLoader.BindService(new YServiceMaxLoaderImpl()) },
-                Ports = { new ServerPort("localhost", rep.Worker.Wid + 38000, ServerCredentials.Insecure) }
-            };
-            server.Start();
+                rep.ResponseAsync.Wait();
+                if (rep.ResponseAsync.IsCanceled || rep.ResponseAsync.IsFaulted) return;
+                if (rep.ResponseAsync.Result == null) return;
+                worker = rep.ResponseAsync.Result.Worker.Clone();
+                server = new Server
+                {
+                    Services = { YServiceMaxLoader.BindService(new YServiceMaxLoaderImpl()) },
+                    Ports = { new ServerPort("localhost", rep.ResponseAsync.Result.Worker.Wid + 38000, ServerCredentials.Insecure) }
+                };
+                server.Start();
+                return;
+            }
+            catch (System.Exception ex)
+            {
+            	    
+            }
+            //var t = rep.ResponseAsync.ContinueWith((tt) =>
+            //{
+            //    if (tt.IsCanceled || tt.IsFaulted) return;
+            //    if (tt.IsCompleted)
+            //    {
+            //        if (tt.Result == null) return;
+            //        //worker_id = rep.Worker.Wid;
+            //        worker = tt.Result.Worker.Clone();
+            //        server = new Server
+            //        {
+            //            Services = { YServiceMaxLoader.BindService(new YServiceMaxLoaderImpl()) },
+            //            Ports = { new ServerPort("localhost", tt.Result.Worker.Wid + 38000, ServerCredentials.Insecure) }
+            //        };
+            //        server.Start();
+            //    }
+            //});
         }
 
         public static void Stop()
         {
-            server.ShutdownAsync().Wait();
+            try
+            {
+                server.ShutdownAsync().Wait();
+            }
+            catch (System.Exception ex)
+            {
+            	
+            }
+            
         }
     }
 }

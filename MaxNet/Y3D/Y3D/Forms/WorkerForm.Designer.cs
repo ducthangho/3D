@@ -64,6 +64,7 @@
             this.dlvWorker.TabIndex = 0;
             this.dlvWorker.UseCompatibleStateImageBehavior = false;
             this.dlvWorker.View = System.Windows.Forms.View.Details;
+            this.dlvWorker.Click += new System.EventHandler(this.dlvWorker_Click);
             // 
             // olvColumnName
             // 
@@ -117,6 +118,7 @@
             // 
             // btnDel
             // 
+            this.btnDel.Enabled = false;
             this.btnDel.Image = global::Y3D.Properties.Resources.trash;
             this.btnDel.Location = new System.Drawing.Point(183, 187);
             this.btnDel.Name = "btnDel";
@@ -127,6 +129,7 @@
             // 
             // btnStop
             // 
+            this.btnStop.Enabled = false;
             this.btnStop.Image = global::Y3D.Properties.Resources.stop;
             this.btnStop.Location = new System.Drawing.Point(138, 187);
             this.btnStop.Name = "btnStop";
@@ -137,6 +140,7 @@
             // 
             // btnStart
             // 
+            this.btnStart.Enabled = false;
             this.btnStart.Image = global::Y3D.Properties.Resources.start;
             this.btnStart.Location = new System.Drawing.Point(93, 187);
             this.btnStart.Name = "btnStart";
