@@ -15,12 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\ServiceImpl\helloworld.grpc.pb.cc">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\ServiceImpl\helloworld.pb.cc">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\ServiceImpl\ylogservice.grpc.pb.cc">
       <Filter>Source Files</Filter>
     </ClCompile>

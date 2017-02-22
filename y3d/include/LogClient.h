@@ -113,7 +113,7 @@ namespace logserver {
 		}
 	}
 
-	template <typename T, typename... Args>
+	/*template <typename T, typename... Args>
 	inline void LOG(T t, const Args & ... args) {
 		fmt::MemoryWriter w;
 		w.write(std::to_string(t), args...);
@@ -123,6 +123,6 @@ namespace logserver {
 			logClient = getLogClientInstance();
 			logClient->log(a);
 		}
-	}
+	}*/
 }
 

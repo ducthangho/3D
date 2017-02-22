@@ -153,8 +153,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\ServiceImpl\helloworld.grpc.pb.cc" />
-    <ClCompile Include="..\ServiceImpl\helloworld.pb.cc" />
     <ClCompile Include="..\ServiceImpl\ylogservice.grpc.pb.cc" />
     <ClCompile Include="..\ServiceImpl\ylogservice.pb.cc" />
     <ClCompile Include="Server.cpp" />
