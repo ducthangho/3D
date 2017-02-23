@@ -220,27 +220,21 @@ namespace YMaxServer.rpc
             req.Machine.Mname = "";
             if (MasterClient == null) return;
             var rep = MasterClient.AddWorkerAsync(req);
-            try
+            rep.ResponseAsync.ContinueWith((task) =>
             {
-                rep.ResponseAsync.ContinueWith((task) =>
-               {
-                   if (task.IsCanceled || task.IsFaulted) return;
-                   if (task.Result == null) return;
-                   worker = task.Result.Worker.Clone();
-                   server = new Server
-                   {
-                       Services = { YServiceMaxLoader.BindService(new YServiceMaxLoaderImpl()) },
-                       Ports = { new ServerPort("localhost", rep.ResponseAsync.Result.Worker.Wid + 38000, ServerCredentials.Insecure) }
-                   };
-                   server.Start();
-                   return;
-               });
-                
-            }
-            catch (System.Exception ex)
-            {
-            	    
-            }
+                if (task.IsCanceled || task.IsFaulted) return;
+                if (task.Result == null) return;
+                worker = task.Result.Worker.Clone();
+                server = new Server
+                {
+                    Services = { YServiceMaxLoader.BindService(new YServiceMaxLoaderImpl()) },
+                    Ports = { new ServerPort("localhost", worker.PortLoader, ServerCredentials.Insecure) }
+                };
+                server.Start();
+                return;
+            });
+
+        }
             //var t = rep.ResponseAsync.ContinueWith((tt) =>
             //{
             //    if (tt.IsCanceled || tt.IsFaulted) return;
@@ -257,7 +251,6 @@ namespace YMaxServer.rpc
             //        server.Start();
             //    }
             //});
-        }
 
         public static void Stop()
         {

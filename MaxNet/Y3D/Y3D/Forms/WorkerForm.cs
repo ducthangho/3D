@@ -44,6 +44,16 @@ namespace Y3D.Forms
                 return "c_yellow";
             };
 
+
+            this.olvColumnAddr.AspectGetter = delegate (object x)
+            {
+                if (x is YWorker)
+                {
+                    YWorker yw = (YWorker)x;
+                    return yw.MachineIp + ":" + yw.PortLoader;
+                }
+                return "...";
+            };
             AllWorkerParam req = new AllWorkerParam();
             req.Status = 2;
             req.Refresh = true;
