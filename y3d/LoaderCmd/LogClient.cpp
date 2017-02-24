@@ -52,10 +52,7 @@ bool LogClient::log(const std::string& logMsg)
 		{
 			std::lock_guard<std::mutex> lock(checkProcessRunning);
 			if (!IsProcessIsRunning(L"LogServer.exe")) {
-				std::cout << "ddddddddddddddddddddddddddddd" << std::endl;
-				std::string cmd = "start " + *(logServerTerminalAddress.load());
-				std::cout << "dsdsd        " << cmd << std::endl;
-
+				std::string cmd = "start " + *(logServerTerminalAddress.load());				
 				int result = system(cmd.c_str());
 			}
 		}

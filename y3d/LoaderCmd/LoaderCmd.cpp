@@ -110,11 +110,12 @@ int test1() {
 
 int test2() {
 	tbb::task_group tg;
-	for (int i = 0; i < 20; ++i) {
+	for (int i = 0; i < 7; ++i) {
 		tg.run([i]() {
 			printf("Client number %d is connecting\n", i);
-			for (int j = 0; j < 50; ++j) {
-				logserver::LOG("Hello world i={},j={}\n", i,j);
+			for (int j = 0; j < 150; ++j) {
+				logserver::LOG("Hello world with fmt like format i={},j={}\n", i,j);
+				logserver::LOG("Hello world with printf like format i=%d,j=%d\n", i, j);
 			}
 		});
 	}
