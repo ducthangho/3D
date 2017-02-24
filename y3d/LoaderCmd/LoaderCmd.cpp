@@ -8,7 +8,8 @@
 #include "grpc++/grpc++.h"
 #include "tclap/CmdLine.h"
 #include "tbb/task_group.h"
-#include "LogClient.h"
+//#include "LogClient.h"
+#include <common.h>
 #include "YLibs.h"
 
 std::string master_ip = "127.0.0.1:38000";

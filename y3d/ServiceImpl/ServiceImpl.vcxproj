@@ -125,6 +125,7 @@
     </PreLinkEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\LoaderCmd\LogClient.cpp" />
     <ClCompile Include="..\Service\grpc\src\cpp\util\status.cc" />
     <ClCompile Include="DllEntry.cpp" />
     <ClCompile Include="pugixml.cpp" />
@@ -133,6 +134,8 @@
     <ClCompile Include="y3d.pb.cc" />
     <ClCompile Include="YCServer.cpp" />
     <ClCompile Include="YCTestServer.cpp" />
+    <ClCompile Include="ylogservice.grpc.pb.cc" />
+    <ClCompile Include="ylogservice.pb.cc" />
     <ClCompile Include="ymat.pb.cc" />
     <ClCompile Include="ymax.grpc.pb.cc" />
     <ClCompile Include="ymax.pb.cc" />

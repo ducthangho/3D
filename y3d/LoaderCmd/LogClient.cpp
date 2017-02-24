@@ -7,6 +7,7 @@
 #include "ylogservice.grpc.pb.h"
 #include <windows.h>
 #include <Tlhelp32.h>
+#include <common.h>
 
 using grpc::Channel;
 using grpc::ClientContext;
@@ -129,4 +130,7 @@ HANDLE GetProcessHandle(const wchar_t *process_name, DWORD dwAccess)
 			return OpenProcess(dwAccess, 0, pe32.th32ProcessID);
 
 	} while (Process32Next(hProcessSnap, &pe32));
+
+	CloseHandle(hProcessSnap);
+	return 0;
 }

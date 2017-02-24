@@ -40,6 +40,11 @@
     <ClCompile Include="YCTestServer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ylogservice.grpc.pb.cc" />
+    <ClCompile Include="ylogservice.pb.cc" />
+    <ClCompile Include="..\LoaderCmd\LogClient.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
