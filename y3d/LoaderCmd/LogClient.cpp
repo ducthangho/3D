@@ -37,9 +37,12 @@ bool LogClient::log(const std::string& logMsg)
 	}
 	else
 	{	
-		LogClient* oldPtr = logClientPtr.exchange(nullptr);
-		//delete oldPtr->stub_.get();
-		delete oldPtr;
+		//LogClient* oldPtr = logClientPtr.exchange(nullptr);
+		//delete oldPtr;
+		LogClient* oldPtr = logClientPtr;
+		if (!logClientPtr.compare_exchange_strong(oldPtr, nullptr))
+			delete oldPtr;
+
 		std::cout << "Log function return error: " << status.error_code() << ": " << status.error_message() << std::endl;
 		//bool isProcessRunning = true;
 		//{			
