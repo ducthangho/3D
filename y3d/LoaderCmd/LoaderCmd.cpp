@@ -110,7 +110,7 @@ int test1() {
 
 int test2() {
 	tbb::task_group tg;
-	for (int i = 0; i < 20; ++i) {
+	for (int i = 0; i < 7; ++i) {
 		tg.run([i]() {
 			printf("Client number %d is connecting\n", i);
 			for (int j = 0; j < 150; ++j) {
