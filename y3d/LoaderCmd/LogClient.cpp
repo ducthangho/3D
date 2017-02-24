@@ -24,6 +24,8 @@ LogClient::LogClient(std::shared_ptr<Channel> channel) :stub_(y3d::LogService::N
 //}
 
 std::mutex checkProcessRunning;
+std::string _logServerTerminalAddress = "F:\\WorkSpace\\3D\\MaxNet\\Y3D\\x64\\Release\\LogServer.exe";
+std::atomic<std::string*> logServerTerminalAddress = &_logServerTerminalAddress;
 
 bool LogClient::log(const std::string& logMsg)
 {
@@ -42,7 +44,6 @@ bool LogClient::log(const std::string& logMsg)
 		LogClient* oldPtr = logClientPtr;
 		if (!logClientPtr.compare_exchange_strong(oldPtr, nullptr))
 			delete oldPtr;
-
 		std::cout << "Log function return error: " << status.error_code() << ": " << status.error_message() << std::endl;
 		//bool isProcessRunning = true;
 		//{			
@@ -51,8 +52,11 @@ bool LogClient::log(const std::string& logMsg)
 		{
 			std::lock_guard<std::mutex> lock(checkProcessRunning);
 			if (!IsProcessIsRunning(L"LogServer.exe")) {
-				char* cmd = "start F:\\WorkSpace\\3D\\MaxNet\\Y3D\\x64\\Release\\LogServer.exe";
-				int result = system(cmd);
+				std::cout << "ddddddddddddddddddddddddddddd" << std::endl;
+				std::string cmd = "start " + *(logServerTerminalAddress.load());
+				std::cout << "dsdsd        " << cmd << std::endl;
+
+				int result = system(cmd.c_str());
 			}
 		}
 		return false;
@@ -61,6 +65,7 @@ bool LogClient::log(const std::string& logMsg)
 
 std::mutex mm_mutex;
 LogClientPtr logClientPtr = nullptr;
+
 
 LogClient* getLogClientInstance() {
 	LogClient* tmp = logClientPtr.load();
@@ -85,12 +90,12 @@ bool IsProcessIsRunning(const wchar_t * process_name)
 	HANDLE hProcess = GetProcessHandle(process_name, PROCESS_QUERY_INFORMATION);
 	if (hProcess == 0 || hProcess == INVALID_HANDLE_VALUE)
 	{
-		std::cout << "Server terminal is not running";
+		std::cout << "Server terminal is not running"<<std::endl;
 		return false;
 	}
 	else
 	{
-		std::cout << "Server terminal is running";
+		std::cout << "Server terminal is running"<<std::endl;
 		return true;
 	}
 }
