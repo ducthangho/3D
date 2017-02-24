@@ -31,13 +31,16 @@ extern LogClient* getLogClientInstance();
 extern HANDLE GetProcessHandle(const wchar_t *process_name, DWORD dwAccess);
 extern bool IsProcessIsRunning(const wchar_t *process_name);
 extern std::string _logServerTerminalAddress;
-extern std::atomic<std::string *> logServerTerminalAddress;
+//extern std::atomic<std::string *> logServerTerminalAddress;
 
+extern std::mutex lock_setServerAddress;
 namespace logserver {
 
 	inline void SetLogServerTerminalAdress(std::string address) {
 		//logServerTerminalAddress.compare_exchange_strong(address, address);
-		logServerTerminalAddress = &address;
+		//logServerTerminalAddress = &address;
+		std::lock_guard<std::mutex> lock(lock_setServerAddress);
+		_logServerTerminalAddress = address;
 	}
 
 	//expect stub_->Log(&context, messageSend, &messageRec) is thread safe
