@@ -115,7 +115,7 @@ int test2() {
 			printf("Client number %d is connecting\n", i);
 			for (int j = 0; j < 150; ++j) {
 				logserver::LOG("Hello world with fmt like format i={},j={}\n", i,j);
-				logserver::LOG("Hello world with printf like format i=%d,j=%d\n", i, j);
+				logserver::Printf("Hello world with printf like format i=%d,j=%d\n", i, j);
 			}
 		});
 	}
