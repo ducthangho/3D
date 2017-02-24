@@ -68,7 +68,6 @@ bool LogClient::log(const std::string& logMsg)
 std::mutex mm_mutex;
 LogClientPtr logClientPtr = nullptr;
 
-
 LogClient* getLogClientInstance() {
 	LogClient* tmp = logClientPtr.load();
 	if (tmp == nullptr) {
@@ -83,7 +82,6 @@ LogClient* getLogClientInstance() {
 			logClientPtr.store(tmp);
 		}
 	}
-	
 	return tmp;
 }
 
