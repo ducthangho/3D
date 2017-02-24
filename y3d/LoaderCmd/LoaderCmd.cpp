@@ -10,6 +10,7 @@
 #include "tbb/task_group.h"
 #include "LogClient.h"
 #include "YLibs.h"
+
 std::string master_ip = "127.0.0.1:38000";
 
 
@@ -108,11 +109,24 @@ int test1() {
 }
 
 int test2() {
-	LogClient logClient(grpc::CreateChannel(address, grpc::InsecureChannelCredentials()));
-	logserver::LOG("Hello world {}\n",123);
-	//logserver::log(L"Hello world with wchar* \n");
-	//logserver::log("Hello {} , that preceded text is formated text", "Minh");
+	tbb::task_group tg;
+	for (int i = 0; i < 20; ++i) {
+		tg.run([i]() {
+			printf("Client number %d is connecting\n", i);
+			for (int j = 0; j < 50; ++j) {
+				logserver::LOG("Hello world i={},j={}\n", i,j);
+			}
+		});
+	}
+	tg.wait();
+	//LogClient logClient(grpc::CreateChannel(address, grpc::InsecureChannelCredentials()));
+	//logserver::LOG("Hello world {}\n",123);
 	return 1;
+}
+
+
+void test3() {
+	IsProcessIsRunning(L"LogServer.exe");
 }
 
 //int shutdownService() {
@@ -210,7 +224,11 @@ int main(int argc, char** argv)
 			if (t == 1) {
 				test1();
 			}
-			else test2();
+			else if (t == 2) { test2(); }
+			else if (t==3)
+			{
+				test3();
+			}
 		}
 	}
 

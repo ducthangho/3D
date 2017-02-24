@@ -6,11 +6,12 @@
 #include <memory>
 #include <atomic>
 #include <mutex>
-
+#include <sstream>
 #include <grpc++/grpc++.h>
 #include "ylogservice.grpc.pb.h"
 #include "common.h"
 #include "fmt/format.h"
+
 
 const std::string address = "127.0.0.1:39393";
 extern std::mutex mm_mutex;
@@ -27,6 +28,8 @@ public:
 typedef std::atomic<LogClient*> LogClientPtr;
 extern LogClientPtr logClientPtr;
 extern LogClient* getLogClientInstance();
+extern HANDLE GetProcessHandle(const wchar_t *process_name, DWORD dwAccess);
+extern bool IsProcessIsRunning(const wchar_t *process_name);
 
 namespace logserver {
 	//expect stub_->Log(&context, messageSend, &messageRec) is thread safe
@@ -113,9 +116,18 @@ namespace logserver {
 		}
 	}
 
+	template <typename T>
+	inline std::string NumberToString(T Number)
+	{
+		std::ostringstream ss;
+		ss << Number;
+		return ss.str();
+	}
+
 	/*template <typename T, typename... Args>
 	inline void LOG(T t, const Args & ... args) {
 		fmt::MemoryWriter w;
+		std::string First = NumberToString(t);
 		w.write(std::to_string(t), args...);
 		LogClient* logClient = getLogClientInstance();
 		auto a = w.str();

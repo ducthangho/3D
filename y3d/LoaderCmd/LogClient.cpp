@@ -6,6 +6,7 @@
 #include <grpc++/grpc++.h>
 #include "ylogservice.grpc.pb.h"
 #include <windows.h>
+#include <Tlhelp32.h>
 
 using grpc::Channel;
 using grpc::ClientContext;
@@ -22,7 +23,7 @@ LogClient::LogClient(std::shared_ptr<Channel> channel) :stub_(y3d::LogService::N
 //	return std::string(buffer).substr(0, pos);
 //}
 
-
+std::mutex checkProcessRunning;
 
 bool LogClient::log(const std::string& logMsg)
 {
@@ -39,14 +40,18 @@ bool LogClient::log(const std::string& logMsg)
 		LogClient* oldPtr = logClientPtr.exchange(nullptr);
 		//delete oldPtr->stub_.get();
 		delete oldPtr;
-		std::cout << "Log function return error: " << status.error_code() << ": " << status.error_message()<< std::endl;
-		char* cmd = "start F:\\WorkSpace\\3D\\MaxNet\\Y3D\\x64\\Release\\LogServer.exe";
-		int result = system(cmd);
-		//y3d::LogMessage messageSend;
-		//messageSend.set_message(logMsg);
-		//y3d::LogMessage messageRec;
-		//ClientContext context;
-		//stub_->Log(&context, messageSend, &messageRec);
+		std::cout << "Log function return error: " << status.error_code() << ": " << status.error_message() << std::endl;
+		//bool isProcessRunning = true;
+		//{			
+		//	isProcessRunning = IsProcessIsRunning(L"LogServer.exe");
+		//}
+		{
+			std::lock_guard<std::mutex> lock(checkProcessRunning);
+			if (!IsProcessIsRunning(L"LogServer.exe")) {
+				char* cmd = "start F:\\WorkSpace\\3D\\MaxNet\\Y3D\\x64\\Release\\LogServer.exe";
+				int result = system(cmd);
+			}
+		}
 		return false;
 	}
 }
@@ -70,4 +75,50 @@ LogClient* getLogClientInstance() {
 	}
 	
 	return tmp;
+}
+
+bool IsProcessIsRunning(const wchar_t * process_name)
+{
+	HANDLE hProcess = GetProcessHandle(process_name, PROCESS_QUERY_INFORMATION);
+	if (hProcess == 0 || hProcess == INVALID_HANDLE_VALUE)
+	{
+		std::cout << "Server terminal is not running";
+		return false;
+	}
+	else
+	{
+		std::cout << "Server terminal is running";
+		return true;
+	}
+}
+
+HANDLE GetProcessHandle(const wchar_t *process_name, DWORD dwAccess)
+{
+	HANDLE hProcessSnap;
+	HANDLE hProcess;
+	PROCESSENTRY32 pe32;
+
+
+	hProcessSnap = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
+
+	if (hProcessSnap == INVALID_HANDLE_VALUE)
+	{
+		std::cerr << "Failed to create process snapshot!";
+		return INVALID_HANDLE_VALUE;
+	}
+
+	pe32.dwSize = sizeof(PROCESSENTRY32);
+
+	if (!Process32First(hProcessSnap, &pe32))
+	{
+		std::cerr << "Process32First() failed\n";
+		return INVALID_HANDLE_VALUE;
+	}
+
+	do
+	{
+		if (wcscmp(pe32.szExeFile, process_name) == 0)
+			return OpenProcess(dwAccess, 0, pe32.th32ProcessID);
+
+	} while (Process32Next(hProcessSnap, &pe32));
 }
