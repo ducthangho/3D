@@ -1,7 +1,8 @@
 ﻿  Service.vcxproj -> C:\Program Files\Autodesk\3ds Max 2017\Service.dll
   Service.vcxproj -> C:\Program Files\Autodesk\3ds Max 2017\Service.pdb (Partial PDB)
-  xcopy "F:\WorkSpace\3D\y3d\Service\"..\lib\grpc\grpc_dll.dll "C:\Program Files\Autodesk\3ds Max 2017\" /D /Y
+  xcopy "F:\git\New3D\y3d\Service\"..\lib\grpc\grpc_dll.dll "C:\Program Files\Autodesk\3ds Max 2017\" /D /Y
   0 File(s) copied
   0 File(s) copied
-  xcopy "F:\WorkSpace\3D\y3d\Service\"..\lib\protobuf\*.dll "C:\Program Files\Autodesk\3ds Max 2017\" /D /Y
+  xcopy "F:\git\New3D\y3d\Service\"..\lib\protobuf\*.dll "C:\Program Files\Autodesk\3ds Max 2017\" /D /Y
   0 File(s) copied
+  "Error level is 9009"

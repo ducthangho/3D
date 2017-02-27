@@ -84,7 +84,7 @@
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(MaxSdkLib)..\Release;$(MsBuildProjectDirectory)\..\lib\tbb;$(MsBuildProjectDirectory)\..\lib;$(MsBuildProjectDirectory)\..\lib\grpc\$(Configuration);$(MsBuildProjectDirectory)\..\lib\protobuf\$(Configuration);$(MsBuildProjectDirectory)\..\lib\protobuf\Release;$(MsBuildProjectDirectory)\..\lib\grpc\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>tbb.lib;tbbmalloc.lib;core.lib;geom.lib;gfx.lib;mesh.lib;maxutil.lib;maxscrpt.lib;gup.lib;paramblk2.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>gpr.lib;grpc_dll.lib;tbb.lib;tbbmalloc.lib;core.lib;geom.lib;gfx.lib;mesh.lib;maxutil.lib;maxscrpt.lib;gup.lib;paramblk2.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ModuleDefinitionFile>
       </ModuleDefinitionFile>
       <LinkTimeCodeGeneration Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
@@ -102,6 +102,7 @@
       <OutputFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
       <ProgramDatabaseFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(OutDir)$(TargetName).pdb</ProgramDatabaseFile>
       <ProgramDatabaseFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)$(TargetName).pdb</ProgramDatabaseFile>
+      <IgnoreSpecificDefaultLibraries Condition="'$(Configuration)|$(Platform)'=='Release|x64'">libcmt</IgnoreSpecificDefaultLibraries>
     </Link>
     <PostBuildEvent>
       <Command Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">
@@ -126,6 +127,23 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\LoaderCmd\LogClient.cpp" />
+    <ClCompile Include="..\Service\grpc\src\core\lib\iomgr\closure.c" />
+    <ClCompile Include="..\Service\grpc\src\core\lib\iomgr\combiner.c" />
+    <ClCompile Include="..\Service\grpc\src\core\lib\iomgr\error.c" />
+    <ClCompile Include="..\Service\grpc\src\core\lib\iomgr\exec_ctx.c" />
+    <ClCompile Include="..\Service\grpc\src\core\lib\iomgr\socket_mutator.c" />
+    <ClCompile Include="..\Service\grpc\src\core\lib\iomgr\workqueue_uv.c" />
+    <ClCompile Include="..\Service\grpc\src\core\lib\iomgr\workqueue_windows.c" />
+    <ClCompile Include="..\Service\grpc\src\cpp\client\channel_cc.cc" />
+    <ClCompile Include="..\Service\grpc\src\cpp\client\client_context.cc" />
+    <ClCompile Include="..\Service\grpc\src\cpp\client\create_channel.cc" />
+    <ClCompile Include="..\Service\grpc\src\cpp\client\create_channel_internal.cc" />
+    <ClCompile Include="..\Service\grpc\src\cpp\client\credentials_cc.cc" />
+    <ClCompile Include="..\Service\grpc\src\cpp\client\insecure_credentials.cc" />
+    <ClCompile Include="..\Service\grpc\src\cpp\common\channel_arguments.cc" />
+    <ClCompile Include="..\Service\grpc\src\cpp\common\completion_queue_cc.cc" />
+    <ClCompile Include="..\Service\grpc\src\cpp\common\core_codegen.cc" />
+    <ClCompile Include="..\Service\grpc\src\cpp\common\version_cc.cc" />
     <ClCompile Include="..\Service\grpc\src\cpp\util\status.cc" />
     <ClCompile Include="DllEntry.cpp" />
     <ClCompile Include="pugixml.cpp" />

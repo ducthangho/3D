@@ -45,6 +45,37 @@
     <ClCompile Include="..\LoaderCmd\LogClient.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\Service\grpc\src\cpp\client\client_context.cc" />
+    <ClCompile Include="..\Service\grpc\src\cpp\client\create_channel.cc" />
+    <ClCompile Include="..\Service\grpc\src\cpp\client\insecure_credentials.cc" />
+    <ClCompile Include="..\Service\grpc\src\cpp\client\create_channel_internal.cc" />
+    <ClCompile Include="..\Service\grpc\src\cpp\client\credentials_cc.cc" />
+    <ClCompile Include="..\Service\grpc\src\cpp\client\channel_cc.cc" />
+    <ClCompile Include="..\Service\grpc\src\cpp\common\channel_arguments.cc" />
+    <ClCompile Include="..\Service\grpc\src\cpp\common\completion_queue_cc.cc" />
+    <ClCompile Include="..\Service\grpc\src\cpp\common\core_codegen.cc" />
+    <ClCompile Include="..\Service\grpc\src\core\lib\iomgr\socket_mutator.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Service\grpc\src\core\lib\iomgr\exec_ctx.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Service\grpc\src\core\lib\iomgr\error.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Service\grpc\src\core\lib\iomgr\closure.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Service\grpc\src\core\lib\iomgr\combiner.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Service\grpc\src\core\lib\iomgr\workqueue_uv.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Service\grpc\src\core\lib\iomgr\workqueue_windows.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Service\grpc\src\cpp\common\version_cc.cc" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
