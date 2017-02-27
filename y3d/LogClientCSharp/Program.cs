@@ -50,7 +50,7 @@ namespace LogClientCSharp
                 { "n|name=", "the {NAME} of someone to greet.",v => names.Add (v) },
                 { "r|repeat=","the number of {TIMES} to repeat the greeting.\n" +"this must be an integer.",(int v) => repeat = v },
                 { "v", "increase debug message verbosity",v => { if (v != null) ++verbosity; } },
-                { "k|repeasst=","the number of {TIMES} to repeat the greeting.\n" +"this must be an integer.",(int v) => { new Program().PickTest(v); } },
+                { "t|numtest=","Pick the Test scenario number",(int v) => { new Program().PickTest(v); } },
                 { "h|help",  "show this message and exit",v => show_help = v != null },
             };
 
