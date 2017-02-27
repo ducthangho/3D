@@ -44,3 +44,5 @@ MaxNet/Y3D/Y3D.Entities/*.cs
 y3d_max/hiddencmdout.tmp
 rac/**
 *.suo
+y3d/LogClientCSharp/bin/Release/Grpc.Core.dll
+*.dll

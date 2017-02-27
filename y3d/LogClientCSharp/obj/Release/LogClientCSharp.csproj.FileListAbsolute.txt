@@ -1,0 +1,15 @@
+F:\WorkSpace\3D\y3d\LogClientCSharp\obj\Release\LogClientCSharp.csprojResolveAssemblyReference.cache
+F:\WorkSpace\3D\y3d\LogClientCSharp\bin\Release\LogClientCSharp.exe.config
+F:\WorkSpace\3D\y3d\LogClientCSharp\bin\Release\LogClientCSharp.exe
+F:\WorkSpace\3D\y3d\LogClientCSharp\bin\Release\LogClientCSharp.pdb
+F:\WorkSpace\3D\y3d\LogClientCSharp\bin\Release\Grpc.Core.dll
+F:\WorkSpace\3D\y3d\LogClientCSharp\bin\Release\Y3D.Entities.dll
+F:\WorkSpace\3D\y3d\LogClientCSharp\bin\Release\Google.Protobuf.dll
+F:\WorkSpace\3D\y3d\LogClientCSharp\bin\Release\Y3D.Entities.pdb
+F:\WorkSpace\3D\y3d\LogClientCSharp\bin\Release\Grpc.Core.xml
+F:\WorkSpace\3D\y3d\LogClientCSharp\bin\Release\Google.Protobuf.xml
+F:\WorkSpace\3D\y3d\LogClientCSharp\obj\Release\LogClientCSharp.exe
+F:\WorkSpace\3D\y3d\LogClientCSharp\obj\Release\LogClientCSharp.pdb
+F:\WorkSpace\3D\MaxNet\Y3D\Y3D\bin\Release\LogClientCSharp.exe.config
+F:\WorkSpace\3D\MaxNet\Y3D\Y3D\bin\Release\LogClientCSharp.exe
+F:\WorkSpace\3D\MaxNet\Y3D\Y3D\bin\Release\LogClientCSharp.pdb
