@@ -46,3 +46,4 @@ rac/**
 *.suo
 y3d/LogClientCSharp/bin/Release/Grpc.Core.dll
 *.dll
+y3d/LogClientCSharp/obj/Release/LogClientCSharp.exe

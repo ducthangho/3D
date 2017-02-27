@@ -17,8 +17,7 @@ namespace LogClientCSharp
         private static readonly Lazy<LogClient> logClient = new Lazy<LogClient>(() => new LogClient());
         private LogService.LogServiceClient client;
         private string _logServerTerminalAddress = "F:\\WorkSpace\\3D\\MaxNet\\Y3D\\x64\\Release\\LogServer.exe";
-        private Object thisLock = new Object();
-        private int a = 1;
+        private Object thisLock = new Object();        
 
         private LogClient()
         {

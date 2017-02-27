@@ -1,4 +1,3 @@
-F:\WorkSpace\3D\y3d\LogClientCSharp\obj\Release\LogClientCSharp.csprojResolveAssemblyReference.cache
 F:\WorkSpace\3D\y3d\LogClientCSharp\bin\Release\LogClientCSharp.exe.config
 F:\WorkSpace\3D\y3d\LogClientCSharp\bin\Release\LogClientCSharp.exe
 F:\WorkSpace\3D\y3d\LogClientCSharp\bin\Release\LogClientCSharp.pdb
