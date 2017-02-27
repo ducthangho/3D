@@ -12,3 +12,4 @@ F:\WorkSpace\3D\y3d\LogClientCSharp\obj\Release\LogClientCSharp.pdb
 F:\WorkSpace\3D\MaxNet\Y3D\Y3D\bin\Release\LogClientCSharp.exe.config
 F:\WorkSpace\3D\MaxNet\Y3D\Y3D\bin\Release\LogClientCSharp.exe
 F:\WorkSpace\3D\MaxNet\Y3D\Y3D\bin\Release\LogClientCSharp.pdb
+F:\WorkSpace\3D\y3d\LogClientCSharp\obj\Release\LogClientCSharp.csprojResolveAssemblyReference.cache
