@@ -48,7 +48,7 @@ bool LogClient::log(const std::string& logMsg)
 		return true;
 	}
 	else
-	{	
+	{
 		//LogClient* oldPtr = logClientPtr.exchange(nullptr);
 		//delete oldPtr;
 		LogClient* oldPtr = logClientPtr;
@@ -61,13 +61,15 @@ bool LogClient::log(const std::string& logMsg)
 		//}
 		{
 			std::lock_guard<std::mutex> lock(checkProcessRunning);
-			std::lock_guard<std::mutex> lock(lock_setServerAddress);
-			if (!IsProcessIsRunning(TerminalName.c_str())) {
-				std::string cmd;
-				{					
-					cmd = "start " + _logServerTerminalAddress;
-				}				
-				int result = system(cmd.c_str());
+			{
+				//std::lock_guard<std::mutex> lock(lock_setServerAddress);
+				if (!IsProcessIsRunning(TerminalName.c_str())) {
+					std::string cmd;
+					{
+						cmd = "start " + _logServerTerminalAddress;
+					}
+					int result = system(cmd.c_str());
+				}
 			}
 		}
 		return false;

@@ -213,11 +213,13 @@ inline int dirExists(const char *path)
 
 namespace logserver {
 	extern std::string FileName(const std::string& str);
+	extern std::mutex checkProcessRunning;
 
 	inline void SetLogServerTerminalAdress(std::string address) {
 		//logServerTerminalAddress.compare_exchange_strong(address, address);
 		//logServerTerminalAddress = &address;
-		std::lock_guard<std::mutex> lock(lock_setServerAddress);
+		//std::lock_guard<std::mutex> lock(lock_setServerAddress);
+		std::lock_guard<std::mutex> lock(checkProcessRunning);
 		_logServerTerminalAddress = address;
 		TerminalName = s2ws(FileName(_logServerTerminalAddress)).c_str();
 	}
