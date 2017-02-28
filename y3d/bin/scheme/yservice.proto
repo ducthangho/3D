@@ -64,31 +64,3 @@ service YServiceMainWorker { // server for 3dsmax send actions request, run in m
   rpc UpdateWorkers(YWorkerResponse) returns (EmptyParam);
   rpc CloseWorkerApp(YEvent) returns (ResponseEvent);
 }
-
-// service YServiceMaxTools {
-//   rpc TestTest(TestParam) returns (ResultReply) {}
-//   rpc RenameObject (RenameParam) returns (ResultReply) {}
-//   rpc SaveProject(ProjectInfo) returns (ResponseEvent) {}
-//   rpc NewProject(NewProjectParam) returns (ResponseNProject) {}
-//   rpc LoadProject(ProjectInfo) returns (ResponseNProject) {}
-//   rpc DeleteProject(ProjectInfo) returns (ResponseNProject) {}
-//   rpc Unwrap(EUnwrap) returns (ResultReply) {}
-//   rpc Packing(EPacking) returns (ResultReply) {}
-//   rpc LowPoly(ELowpoly) returns (ResultReply) {}
-//   rpc LoadSystem(EmptyParam) returns (YSystem) {}
-//   rpc SaveSystem(YSystem) returns (ResultReply) {}
-//   rpc BakeNormal(ENormal) returns (ResultReply) {}
-//   rpc BakeNormalMax(ENormal) returns (ResultReply) {}
-//   rpc MakeNode4Edit(Make4TestParam) returns (ResultReply) {}
-//   rpc BatchOptimize(BatchOptimizeParam) returns (ResultReply) {}
-//   rpc GetObjectFromMax(EmptyParam) returns (YAreaList) {}
-//   rpc CloneObject(EmptyParam) returns (ResultReply) {}
-//   rpc DoStreamClient(stream YEvent) returns (ResponseEvent);
-//   rpc DoStreamServer(EmptyParam) returns (stream YEvent);
-//   rpc DoAction(stream YEvent) returns (stream YEvent);
-//   rpc DoEvent(YEvent) returns (ResponseEvent);
-//   rpc DoUnwrap(EUnwrap) returns (ResponseEvent);
-//   rpc Shutdown(EmptyParam) returns (ResultReply) {}
-//   rpc AddTestObject(TestOParam) returns (ResultReply);
-//   rpc ApplyTestObject(TestOParam) returns (ResultReply);
-// }

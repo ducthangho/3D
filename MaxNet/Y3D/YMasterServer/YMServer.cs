@@ -44,10 +44,10 @@ namespace YMasterServer
                         ret.Worker.NoApp = false;
                     }
 
-                    if (YMServer.workers.TryAdd(ret.Worker.Wid, ret.Worker))
+                    if (YRedis.addWorker(ret.Worker))
                     {
                         ret.Wlist = new YWorkerList();
-                        ret.Wlist.Workers.Add(YMServer.workers.Values);
+                        ret.Wlist.Workers.Add(YMServer.getAllWorker());
                         if (!req.CallInApp)
                         {
                             if (!req.Slient)
@@ -84,11 +84,11 @@ namespace YMasterServer
                 var task = YMServer.refreshWorkers();
                 return task.ContinueWith<YWorkerResponse>((t) =>
                 {
-                    rep.Wlist.Workers.Add(YMServer.workers.Values);
+                    rep.Wlist.Workers.Add(YMServer.getAllWorker());
                     return rep;
                 });
             }
-            rep.Wlist.Workers.Add(YMServer.workers.Values);
+            rep.Wlist.Workers.Add(YMServer.getAllWorker());
             return Task.FromResult(rep);
         }
 
@@ -96,28 +96,23 @@ namespace YMasterServer
         {
             YWorkerResponse rep = new YWorkerResponse();
             rep.Error = true;
-            try
+
+            var yw = YRedis.getWorkerById(request.Wid);
+            if (yw != null)
             {
-                var yw = YMServer.workers[request.Wid];                
                 var t = YMServer.StartWorker(yw);
-                return t.ContinueWith<YWorkerResponse>((tt) => {
+                return t.ContinueWith<YWorkerResponse>((tt) =>
+                {
                     if (tt.IsCompleted)
                     {
                         rep.Worker = yw;
                         rep.Wlist = new YWorkerList();
-                        rep.Wlist.Workers.Add(YMServer.workers.Values);
+                        rep.Wlist.Workers.Add(YMServer.getAllWorker());
                         rep.Error = false;
                         return rep;
                     }
                     return rep;
                 });
-  
-                //Console.WriteLine(String.Format("{0} app server is ready on {1}", yw.Wname, yw.IpMax));
-                //return Task.FromResult(rep);
-            }
-            catch (KeyNotFoundException ex)
-            {
-                Console.WriteLine("Khong tim thay key");
             }
             return Task.FromResult(rep);
         }
@@ -126,18 +121,17 @@ namespace YMasterServer
         {
             YWorkerResponse rep = new YWorkerResponse();
             rep.Error = true;
-            try
+            var yw = YRedis.getWorkerById(request.Wid);
+            if (yw != null)
             {
-                var yw = YMServer.workers[request.Wid];
                 var t = YMServer.StopWorker(yw);
-
                 return t.ContinueWith<YWorkerResponse>((tt) =>
                 {
                     if (tt.IsCompleted)
                     {
                         rep.Worker = yw;
                         rep.Wlist = new YWorkerList();
-                        rep.Wlist.Workers.Add(YMServer.workers.Values);
+                        rep.Wlist.Workers.Add(YMServer.getAllWorker());
                         rep.Error = false;
                         rep.Wid = request.Wid;
                         Console.WriteLine(String.Format("{0} is closed on {1}:{2}", yw.Wname, yw.MachineIp, yw.PortMax));
@@ -145,13 +139,7 @@ namespace YMasterServer
                     return rep;
                 });
             }
-            catch (KeyNotFoundException ex)
-            {
-                Console.WriteLine("Khong tim thay key");
-            }
             return Task.FromResult(rep);
-
-
             //var yw = YMServer.workers[request.Wid];
             //try
             //{
@@ -249,15 +237,13 @@ namespace YMasterServer
         {
             ResultReply rep = new ResultReply();
             rep.Error = true;
-            YWorker yw;
-            
-            if (YMServer.workers.TryRemove(request.Wid, out yw))
+            YWorker yw = YRedis.getWorkerById(request.Wid);
+            if (YRedis.removeWorkerById(request.Wid))
             {
-                Console.WriteLine(String.Format("{0}({1}:{2}) has been removed automatically when someone exit application!", yw.Wname, yw.MachineIp,yw.PortLoader));
+                Console.WriteLine(String.Format("{0}({1}:{2}) has been removed automatically when someone exit application!", yw.Wname, yw.MachineIp, yw.PortLoader));
                 YMServer.Update2GUI();
                 rep.Error = false;
             }
-            
             return Task.FromResult(rep);
         }
 
@@ -370,7 +356,7 @@ namespace YMasterServer
         public static int LastIndex = 0;
         public const string MASTER_IP_DEFAULT = "127.0.0.1";
         public static Server server;
-        public static ConcurrentDictionary<int, YWorker> workers = new ConcurrentDictionary<int, YWorker>();
+        //public static ConcurrentDictionary<int, YWorker> workers = new ConcurrentDictionary<int, YWorker>();
 
         public static Task<bool> ip_ready(string ip_address, int timeout=3000)
         {
@@ -390,15 +376,10 @@ namespace YMasterServer
             //return (channel.State == ChannelState.Ready);
         }
        
-        /// <summary>
-        /// Check worker loader
-        /// </summary>
-        /// <param name="wid"></param>
-        /// <param name="timeout"></param>
-        /// <returns></returns>
-        public static Task<bool> check_worker(int wid, int timeout = 5000)
+
+        public static Task<bool> check_worker(YWorker yw, int timeout = 5000)
         {
-            var channel = new Channel(workers[wid].MachineIp+":"+workers[wid].PortLoader, ChannelCredentials.Insecure);
+            var channel = new Channel(yw.MachineIp+":"+yw.PortLoader, ChannelCredentials.Insecure);
             var t = channel.ConnectAsync(deadline: DateTime.UtcNow.AddMilliseconds(timeout));
            
             return t.ContinueWith<bool>(
@@ -408,8 +389,8 @@ namespace YMasterServer
                     if (task.IsFaulted || task.IsCanceled)
                         rs = true;
 
-                    Console.WriteLine("check_worker " + wid + " : " + task.Status.ToString());
-                    var tmp = workers[wid];
+                    Console.WriteLine("check_worker " + yw.Wid + " : " + task.Status.ToString());
+                    var tmp = yw;
                     tmp.NoApp = rs;
                     if (!rs)
                     {
@@ -419,68 +400,94 @@ namespace YMasterServer
                         }
                         //var channel2 = new Channel(workers[wid].MachineIp + ":" + workers[wid].PortMax, ChannelCredentials.Insecure);
                         //var t2 = channel2.ConnectAsync(deadline: DateTime.UtcNow.AddMilliseconds(timeout));
-
                     }
-                    workers[wid] = tmp;
+                    //workers[wid] = tmp;
+                    // save to redis
+                    YRedis.updateWorker(tmp);
                     return rs;
                 }
             );
         }
 
-        public static Task<int> check_worker(String ip,int wid, int timeout = 5000)
-        {
-            int portLoader = 38000 + wid;
-            var channel = new Channel(ip + ":" + portLoader, ChannelCredentials.Insecure);
-            var t = channel.ConnectAsync(deadline: DateTime.UtcNow.AddMilliseconds(timeout));
+        //public static Task<bool> check_worker(int wid, int timeout = 5000)
+        //{
+        //    var channel = new Channel(workers[wid].MachineIp + ":" + workers[wid].PortLoader, ChannelCredentials.Insecure);
+        //    var t = channel.ConnectAsync(deadline: DateTime.UtcNow.AddMilliseconds(timeout));
 
-            return t.ContinueWith<int>(
-                (task) =>
-                {
-                    int rs = wid;
-                    Console.WriteLine("check_worker " + wid + " : " + task.Status.ToString());
-                    if (task.IsFaulted || task.IsCanceled)
-                        return 0;
+        //    return t.ContinueWith<bool>(
+        //        (task) =>
+        //        {
+        //            bool rs = false;
+        //            if (task.IsFaulted || task.IsCanceled)
+        //                rs = true;
 
-                   
-                    var tmp = createDefaultWorker(ip, wid);
-                    tmp.Wtype = YWorker.Types.WorkerType.Free;
-                    tmp.NoApp = false;
-                    workers.TryAdd(wid, tmp);                        
-                    return rs;
-                }
-            );
-        }
+        //            Console.WriteLine("check_worker " + wid + " : " + task.Status.ToString());
+        //            var tmp = workers[wid];
+        //            tmp.NoApp = rs;
+        //            if (!rs)
+        //            {
+        //                if (testConnection(tmp.MachineIp, tmp.Wid, 39000))
+        //                {
+        //                    tmp.Status = ServingStatus.Serving;
+        //                }
+        //                //var channel2 = new Channel(workers[wid].MachineIp + ":" + workers[wid].PortMax, ChannelCredentials.Insecure);
+        //                //var t2 = channel2.ConnectAsync(deadline: DateTime.UtcNow.AddMilliseconds(timeout));
 
-        /// <summary>
-        /// Check worker App service
-        /// </summary>
-        /// <param name="wid"></param>
-        /// <param name="timeout"></param>
-        /// <returns></returns>
-        public static Task<bool> check_worker_service(int wid, int timeout = 10000)
-        {
-            if (workers[wid].NoApp) return Task.FromResult(false);
-            if (workers[wid].Status!=ServingStatus.Serving) return Task.FromResult(false);
+        //            }
+        //            workers[wid] = tmp;
+        //            return rs;
+        //        }
+        //    );
 
-            var channel = new Channel(workers[wid].MachineIp + ":" + workers[wid].PortMax, ChannelCredentials.Insecure);
-            var t = channel.ConnectAsync(deadline: DateTime.UtcNow.AddMilliseconds(timeout));
+        //}
 
-            return t.ContinueWith<bool>(
-                (task) =>
-                {
-                    bool rs = false;
-                    if (task.IsFaulted || task.IsCanceled)
-                        rs = true;
-                    if (!rs)
-                    {
-                         StartWorker(workers[wid]);
-                    }
-                    return rs;
-                }
-            );
-        }
+        //public static Task<int> check_worker(String ip,int wid, int timeout = 5000)
+        //{
+        //    int portLoader = 38000 + wid;
+        //    var channel = new Channel(ip + ":" + portLoader, ChannelCredentials.Insecure);
+        //    var t = channel.ConnectAsync(deadline: DateTime.UtcNow.AddMilliseconds(timeout));
+
+        //    return t.ContinueWith<int>(
+        //        (task) =>
+        //        {
+        //            int rs = wid;
+        //            Console.WriteLine("check_worker " + wid + " : " + task.Status.ToString());
+        //            if (task.IsFaulted || task.IsCanceled)
+        //                return 0;
 
 
+        //            var tmp = createDefaultWorker(ip, wid);
+        //            tmp.Wtype = YWorker.Types.WorkerType.Free;
+        //            tmp.NoApp = false;
+        //            workers.TryAdd(wid, tmp);                        
+        //            return rs;
+        //        }
+        //    );
+        //}
+
+
+        //public static Task<bool> check_worker_service(int wid, int timeout = 10000)
+        //{
+        //    if (workers[wid].NoApp) return Task.FromResult(false);
+        //    if (workers[wid].Status!=ServingStatus.Serving) return Task.FromResult(false);
+
+        //    var channel = new Channel(workers[wid].MachineIp + ":" + workers[wid].PortMax, ChannelCredentials.Insecure);
+        //    var t = channel.ConnectAsync(deadline: DateTime.UtcNow.AddMilliseconds(timeout));
+
+        //    return t.ContinueWith<bool>(
+        //        (task) =>
+        //        {
+        //            bool rs = false;
+        //            if (task.IsFaulted || task.IsCanceled)
+        //                rs = true;
+        //            if (!rs)
+        //            {
+        //                 StartWorker(workers[wid]);
+        //            }
+        //            return rs;
+        //        }
+        //    );
+        //}
         public static Task<int> GiveMeNewID()
         {
             var task = refreshWorkers();
@@ -488,24 +495,19 @@ namespace YMasterServer
             {
                 if (t.IsFaulted || t.IsCanceled)
                 {
-                    System.Threading.Interlocked.Increment(ref YMServer.LastIndex);
-                    return YMServer.LastIndex;
+                    return YRedis.incrWorkerId();
+                    //System.Threading.Interlocked.Increment(ref YMServer.LastIndex);
+                    //return YMServer.LastIndex;
                 }
-                
+                var ww = getAllWorker();
 
-                foreach (var w in workers.Values)
+                foreach (var w in ww)
                 {
                     if (w.NoApp) return w.Wid;
                 }
-                System.Threading.Interlocked.Increment(ref YMServer.LastIndex);
-                return YMServer.LastIndex;
+                return YRedis.incrWorkerId();
             });
-
-
-            
         }
-
-
         public static bool StartApp(string app_key)
         {
             var app = YSys.Apps[app_key];
@@ -524,18 +526,20 @@ namespace YMasterServer
             }
             return null;
         }
-        public static YWorker GetWorker(WorkerParam wp) { 
+        public static YWorker GetWorker(WorkerParam wp) {
 
             if ((wp.WtypeCase == WorkerParam.WtypeOneofCase.Wid))
             {
-                try
-                {
-                    return workers[wp.Wid];
-                }
-                catch (KeyNotFoundException ex)
-                {
-                    return null;
-                }
+                var x = YRedis.rc.Db.HashGet("yworkers", wp.Wid.ToString());
+                return YWorker.Parser.ParseFrom(x);
+                //try
+                //{
+                //    return workers[wp.Wid];
+                //}
+                //catch (KeyNotFoundException ex)
+                //{
+                //    return null;
+                //}
             }
             return null;
         }
@@ -562,52 +566,32 @@ namespace YMasterServer
 
         public static Task<YWorker> GiveMeAFreeWorker()
         {
-            foreach (var w in workers.Values)
-            {
-                if (w.Wtype == YWorker.Types.WorkerType.MainWorker)
-                {
-                    workers[w.Wid] = w;
+            var ww = getAllWorker();
+            //foreach (var w in ww)
+            //{
+            //    if (w.Wtype == YWorker.Types.WorkerType.MainWorker)
+            //    {
+            //        workers[w.Wid] = w;
+            //        if (w.NoApp)
+            //        {
+            //        }
 
-                    if (w.NoApp)
-                    {
-
-                    }
-
-                    return Task.FromResult(w);
-                }
-            }
-
-            foreach (var w in workers.Values)
+            //        return Task.FromResult(w);
+            //    }
+            //}
+            foreach (var w in ww)
             {
                 if (w.Wtype == YWorker.Types.WorkerType.Free)
                 {
                     w.Wtype = YWorker.Types.WorkerType.MainWorker;
-                    workers[w.Wid] = w;
+                    YRedis.updateWorker(w);
                     return Task.FromResult(w);
                 }                
             }
             // not found any free worker
-            var index = LastIndex + 1;
+            var index = YRedis.getMaxWorkerId() + 1;
 
             Console.WriteLine(String.Format("id:{0}", index));
-            int prevCount = workers.Count;
-
-            //return refreshMissingWorkers( (index<5) ? 5 : index ).ContinueWith<YWorker>( (t, count) => {
-            //    if (t.IsCanceled || t.IsFaulted) return null;
-            //    if (workers.Count != (int)count)//Check again
-            //    {
-            //        foreach (var w in workers.Values)
-            //        {
-            //            if (w.Wtype == YWorker.Types.WorkerType.Free)
-            //            {
-            //                w.Wtype = YWorker.Types.WorkerType.MainWorker;
-            //                workers[w.Wid] = w;
-            //                return w;                            
-            //            }
-            //        }                    
-            //    }
-            //    return null;
-            //},prevCount)
             
             if (testConnection(MASTER_IP_DEFAULT,index,38000))
             {
@@ -615,11 +599,9 @@ namespace YMasterServer
                 if (testConnection(MASTER_IP_DEFAULT, index, 39000))
                     tmp.Status = ServingStatus.Serving;
                 else tmp.Status = ServingStatus.NotServing;
-
                 tmp.Wtype = YWorker.Types.WorkerType.MainWorker;
-                workers[index] = tmp;
+                YRedis.updateWorker(tmp);
                 return Task.FromResult(tmp);
-
             }
 
             if (StartApp("MAX3D"))
@@ -638,28 +620,25 @@ namespace YMasterServer
                             }//*/                   
                             Console.WriteLine("Connected!!!");
                         }
-                    ).ContinueWith<YWorker>((tt) => {
-                        YWorker tmp;
-
-                        if (workers.TryGetValue(index, out tmp))
+                    ).ContinueWith<YWorker>((tt) =>
+                    {
+                        YWorker tmp = YRedis.getWorkerById(index);
+                        if (tmp!=null)
                         {
                             tmp.Wtype = YWorker.Types.WorkerType.MainWorker;
-                            workers[index] = tmp;
+                            YRedis.updateWorker(tmp);
                             return tmp;
                         }
                         return null;
                     });
                 };
 
-                YWorker rt;
-                if (workers.TryGetValue(index, out rt))
+                YWorker rt = YRedis.getWorkerById(index); 
+                if (rt != null)
                     return Task.FromResult<YWorker>(rt);
             }
 
             return Task.FromResult<YWorker>(null);
-           
-
-           
 
             //for (int j = 1; j <= index; ++j)
             //{
@@ -680,23 +659,8 @@ namespace YMasterServer
 
         public static void InitSystem()
         {
-            //var path = System.IO.Path.Combine(System.IO.Directory.GetCurrentDirectory(), "ysettings.y3d");
-
-            //var wtemp_path = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData), "y3d\\working_workers.y3d");
-            //if (!File.Exists(wtemp_path))
-            //{
-            //    System.IO.File.Delete(wtemp_path);
-            //}
-
-            var path = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData), "y3d");
-            Console.WriteLine("Y3D System Path:" + path);
-            if (!Directory.Exists(path))
-            {
-                Directory.CreateDirectory(path);
-            }
-            path = System.IO.Path.Combine(path, "ysetting.y3d");
-
-            if (!File.Exists(path))
+            YRedis.rc = new CacheClientBase(new ProtobufSerializer());
+            if (!YRedis.rc.Db.KeyExists("ysystem"))
             {
                 YSys = new YSystem();
                 YSys.DefaultInfo = new ProjectInfo();
@@ -721,74 +685,126 @@ namespace YMasterServer
                 YSys.Apps.Add("MAX3D", MAX3D_APP);
                 YSys.Apps.Add("BLENDER", BLENDER_APP);
 
-                // Save to ysetting.y3d
-                using (Stream output = File.OpenWrite(path))
-                {
-                    YSys.WriteTo(output);
-                }
-                YSys.Projects.Clear();
+                //var x = RedisHelper.RedisProtobuf.Serialize(YSys);
+                //var x = YSys.ToByteArray();
+                //rc.db.StringSet("ysystem", x);
+                //rdb.SetAdd("ysystem", x);
+                //RedisHelper.sub.Add("ysystem", YSys);
+                YRedis.rc.Sut.Add("ysystem", YSys);
             }
             else
             {
-                using (Stream file = File.OpenRead(path))
-                {
-                    var a = Google.Protobuf.CodedInputStream.CreateWithLimits(file, 1024 << 20, 10);
-                    YSys = YSystem.Parser.ParseFrom(a);
-                }
+                var x = YRedis.rc.Db.StringGet("ysystem");
+                YSys = YSystem.Parser.ParseFrom(x);
             }
 
-            if (!Directory.Exists(YSys.WorkingFolder))
-            {
-                Directory.CreateDirectory(YSys.WorkingFolder);
-            }
+            //var path = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData), "y3d");
+            //Console.WriteLine("Y3D System Path:" + path);
+            //if (!Directory.Exists(path))
+            //{
+            //    Directory.CreateDirectory(path);
+            //}
+            //path = System.IO.Path.Combine(path, "ysetting.y3d");
+
+            //if (!File.Exists(path))
+            //{
+            //    YSys = new YSystem();
+            //    YSys.DefaultInfo = new ProjectInfo();
+            //    YSys.DefaultSetting = new PSetting();
+            //    YSys.DefaultSetting.MaxRecent = 5;
+
+            //    YSys.MasterServer = new y3d.e.MasterServerInfo();
+            //    YSys.MasterServer.Mname = "Y3D Master Server";
+            //    YSys.MasterServer.Address = MASTER_IP_DEFAULT;
+            //    YSys.MasterServer.Port = StartPort;
+            //    // Set default working folder
+            //    //YSys.WorkingFolder = System.IO.Path.Combine(System.IO.Directory.GetCurrentDirectory(), "ywork");
+            //    YSys.WorkingFolder = "D:\\ywork";
+            //    // Set default 3d application
+            //    WorkerApp MAX3D_APP = new WorkerApp();
+            //    MAX3D_APP.PathRun = "C:\\Program Files\\Autodesk\\3ds Max 2017\\3dsmax.exe";
+            //    MAX3D_APP.Wname = "3dsmax";
+
+            //    WorkerApp BLENDER_APP = new WorkerApp();
+            //    BLENDER_APP.PathRun = "C:\\Program Files\\Blender Foundation\\Blender\\blender.exe";
+
+            //    YSys.Apps.Add("MAX3D", MAX3D_APP);
+            //    YSys.Apps.Add("BLENDER", BLENDER_APP);
+
+            //    // Save to ysetting.y3d
+            //    using (Stream output = File.OpenWrite(path))
+            //    {
+            //        YSys.WriteTo(output);
+            //    }
+            //    YSys.Projects.Clear();
+            //}
+            //else
+            //{
+            //    using (Stream file = File.OpenRead(path))
+            //    {
+            //        var a = Google.Protobuf.CodedInputStream.CreateWithLimits(file, 1024 << 20, 10);
+            //        YSys = YSystem.Parser.ParseFrom(a);
+            //    }
+            //}
+
+            //if (!Directory.Exists(YSys.WorkingFolder))
+            //{
+            //    Directory.CreateDirectory(YSys.WorkingFolder);
+            //}
             //Start();
         }
+
         public static Task SaveSystem()
         {
-            var path = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData), "y3d\\ysettings.y3d");
-            using (Stream output = File.OpenWrite(path))
-            {
-                YSys.WriteTo(output);
-            }
+            //var path = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData), "y3d\\ysettings.y3d");
+            //using (Stream output = File.OpenWrite(path))
+            //{
+            //    YSys.WriteTo(output);
+            //}
+            YRedis.rc.Sut.Add("ysystem", YSys);
             return Task.FromResult(0);
         }
-        public static Task saveWorkers()
-        {
-            Console.WriteLine("Saving all workers...");
-            var path = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData), "y3d\\working_workers.y3d");
-            var wl = new YWorkerList();
-            wl.Workers.Add(YMServer.workers.Values);
-            using (Stream output = File.OpenWrite(path))
-            {
-                wl.WriteTo(output);
-            }
-            return Task.FromResult(0);
-        }
+        //public static Task saveWorkers()
+        //{
+        //    Console.WriteLine("Saving all workers...");
+        //    var path = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData), "y3d\\working_workers.y3d");
+        //    var wl = new YWorkerList();
+        //    wl.Workers.Add(YMServer.workers.Values);
+        //    using (Stream output = File.OpenWrite(path))
+        //    {
+        //        wl.WriteTo(output);
+        //    }
+        //    return Task.FromResult(0);
+        //}
 
         public static Task loadWorkers()
         {
             Console.WriteLine("Loading all workers...");
-            var path = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData), "y3d\\working_workers.y3d");
-            if (File.Exists(path))
-            {
-                using (Stream file = File.OpenRead(path))
-                {
-                    var a = Google.Protobuf.CodedInputStream.CreateWithLimits(file, 1024 << 20, 10);
-                    YWorkerList wl = YWorkerList.Parser.ParseFrom(a);
-                    workers.Clear();
-                    foreach (var w in wl.Workers)
-                    {
-                        workers.TryAdd(w.Wid, w);
-                    }
-                }
-            } else
-            {
-                Console.WriteLine(String.Format("Can not found : {0}", path));
-            }
+
+            //YSys = YSystem.Parser.ParseFrom(x);
+
+            //var path = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData), "y3d\\working_workers.y3d");
+            //if (File.Exists(path))
+            //{
+            //    using (Stream file = File.OpenRead(path))
+            //    {
+            //        var a = Google.Protobuf.CodedInputStream.CreateWithLimits(file, 1024 << 20, 10);
+            //        YWorkerList wl = YWorkerList.Parser.ParseFrom(a);
+            //        workers.Clear();
+            //        foreach (var w in wl.Workers)
+            //        {
+            //            workers.TryAdd(w.Wid, w);
+            //        }
+            //    }
+            //} else
+            //{
+            //    Console.WriteLine(String.Format("Can not found : {0}", path));
+            //}
+            var ww = getAllWorker();
             Console.WriteLine("Restore status of all workers");
             return refreshWorkers().ContinueWith(_ => {
                 List<Task> tList = new List<Task>();
-                foreach (var w in workers.Values)
+                foreach (var w in ww)
                 {
                     if (w.Status == ServingStatus.Serving &&w.NoApp==false)
                     {
@@ -811,41 +827,52 @@ namespace YMasterServer
             return Task.FromResult(0);
         }
 
+        public static List<YWorker> getAllWorker()
+        {
+            var x = YRedis.rc.Db.HashValues("yworkers");
+            List<YWorker> ret = new List<YWorker>();
+            for (int i = 0; i < x.Length; i++)
+            {
+                ret.Add(YWorker.Parser.ParseFrom(x[i]));
+            }
+            return ret;
+        }
+
         public static Task refreshWorkers()
         {
             Console.WriteLine("Recheck status of all workers");
-            List<YWorker> wlist = new List<YWorker>(workers.Values);
-
+            //List<YWorker> wlist = new List<YWorker>(workers.Values);
+            var wlist = getAllWorker();
             var tasks = new List<Task>();
-
             foreach (var w in wlist)
             {
-                tasks.Add(Task.Run(() => check_worker(w.Wid)));
-            }
-            return Task.WhenAll(tasks).ContinueWith(_ => { saveWorkers(); });
-        }
-
-        public static Task refreshMissingWorkers(int lastIndex)
-        {
-            Console.WriteLine("Recheck status of all workers");            
-            var tasks = new List<Task>();
-
-            for (int wid = 1;wid<= lastIndex;++wid)
-            {
-                YWorker x;
-                if (!workers.TryGetValue(wid,out x) )
-                    tasks.Add(Task.Factory.StartNew( o => {
-                        return check_worker(MASTER_IP_DEFAULT, (int)o);
-                    },wid).Unwrap().ContinueWith( (t) => {
-                        if (t.Result > 0)
-                        {
-                            var tmp = createDefaultWorker(MASTER_IP_DEFAULT, t.Result);
-                            workers.TryAdd(t.Result, tmp);
-                        }
-                 } ) );
+                tasks.Add(Task.Run(() => check_worker(w)));
             }
             return Task.WhenAll(tasks);
+            //return Task.WhenAll(tasks).ContinueWith(_ => { saveWorkers(); });
         }
+
+        //public static Task refreshMissingWorkers(int lastIndex)
+        //{
+        //    Console.WriteLine("Recheck status of all workers");            
+        //    var tasks = new List<Task>();
+
+        //    for (int wid = 1;wid<= lastIndex;++wid)
+        //    {
+        //        YWorker x;
+        //        if (!workers.TryGetValue(wid,out x) )
+        //            tasks.Add(Task.Factory.StartNew( o => {
+        //                return check_worker(MASTER_IP_DEFAULT, (int)o);
+        //            },wid).Unwrap().ContinueWith( (t) => {
+        //                if (t.Result > 0)
+        //                {
+        //                    var tmp = createDefaultWorker(MASTER_IP_DEFAULT, t.Result);
+        //                    workers.TryAdd(t.Result, tmp);
+        //                }
+        //         } ) );
+        //    }
+        //    return Task.WhenAll(tasks);
+        //}
 
 
         public static Task StopWorker(YWorker yw, bool stopServerOnly = true)
@@ -857,11 +884,12 @@ namespace YMasterServer
                 int wid = yw.Wid;
                 var rep = client.ShutdownAsync(new LibInfo());
                 return rep.ResponseAsync.ContinueWith( (_,idx) => {
-                    var wk = workers[(int)idx];
+                    var wk = YRedis.getWorkerById((int)idx);
                     if (wk != null)
                     {              
                         wk.Status = ServingStatus.NotServing;
-                        workers[(int)idx] = wk;
+                        YRedis.updateWorker(wk);
+                        //workers[(int)idx] = wk;
                     }
                 },wid);                
             }
@@ -886,7 +914,8 @@ namespace YMasterServer
                     int idx = yw.Wid;
                     var r = client.LoadDllAsync(req);
                     return r.ResponseAsync.ContinueWith((t,wid) => {//yw could have changed when get here
-                        var o = workers[(int)wid];
+                        //var o = workers[(int)wid];
+                        var o = YRedis.getWorkerById((int)wid);
                         if (t.IsFaulted || t.IsCanceled)
                         {
                             if (o!=null) Console.WriteLine(String.Format("{0} App Server can not start on {1}", o.Wname, o.MachineIp + ":" + o.PortMax));
@@ -897,7 +926,7 @@ namespace YMasterServer
                         {
                             Console.WriteLine(String.Format("{0} App Server is ready on {1}", o.Wname, o.MachineIp + ":" + o.PortMax));                          
                             o.Status = y3d.e.ServingStatus.Serving;
-                            workers[(int)wid] = o;
+                            YRedis.updateWorker(o);
                             return;
                         }                        
                     },idx);
@@ -929,44 +958,70 @@ namespace YMasterServer
 
         public static Task StopAllWorker()
         {
-            var t = saveWorkers();
-            return t.ContinueWith(_ => {
-                Console.WriteLine("Stopping all workers..");
-                List<Task> tasks = new List<Task>();
-                foreach (var w in workers.Values)
-                {
-                    if (w.Status==ServingStatus.Serving)
-                        tasks.Add(StopWorker(w));
-                }
-                return Task.WhenAll(tasks);
-            }).Unwrap();
-          
+            //var t = saveWorkers();
+            //return t.ContinueWith(_ => {
+            //    Console.WriteLine("Stopping all workers..");
+            //    List<Task> tasks = new List<Task>();
+            //    foreach (var w in workers.Values)
+            //    {
+            //        if (w.Status == ServingStatus.Serving)
+            //            tasks.Add(StopWorker(w));
+            //    }
+            //    return Task.WhenAll(tasks);
+            //}).Unwrap();
+            Console.WriteLine("Stopping all workers..");
+            List<Task> tasks = new List<Task>();
+            var ww = getAllWorker();
+            foreach (var w in ww)
+            {
+                if (w.Status == ServingStatus.Serving)
+                    tasks.Add(StopWorker(w));
+            }
+            return Task.WhenAll(tasks);
         }
 
         public static void Update2GUI()
         {
-            var t = saveWorkers();
-            t.ContinueWith(_ => {
-                Console.WriteLine("Updating worker status to GUI...");
-                foreach (var yw in workers.Values)
+            //var t = saveWorkers();
+            //t.ContinueWith(_ => {
+            //    Console.WriteLine("Updating worker status to GUI...");
+            //    foreach (var yw in workers.Values)
+            //    {
+            //        Console.WriteLine(String.Format("{0} type is {1}", yw.Wname, yw.Wtype.ToString()));
+            //        if (yw.Wtype != YWorker.Types.WorkerType.Free)
+            //        {
+            //            var channel = new Channel(yw.MachineIp + ":" + (yw.Wid + 37000), ChannelCredentials.Insecure);
+            //            var client = new YServiceMainWorker.YServiceMainWorkerClient(channel);
+            //            if (client != null)
+            //            {
+            //                YWorkerResponse wr = new YWorkerResponse();
+            //                wr.Worker = yw;
+            //                wr.Wlist = new YWorkerList();
+            //                wr.Wlist.Workers.Add(YMServer.workers.Values);
+            //                client.UpdateWorkersAsync(wr);
+            //            }
+            //        }
+            //    }
+            //});
+            Console.WriteLine("Updating worker status to GUI...");
+            var ww = getAllWorker();
+            foreach (var yw in ww)
+            {
+                Console.WriteLine(String.Format("{0} type is {1}", yw.Wname, yw.Wtype.ToString()));
+                if (yw.Wtype != YWorker.Types.WorkerType.Free)
                 {
-                    Console.WriteLine(String.Format("{0} type is {1}", yw.Wname, yw.Wtype.ToString()));
-                    if (yw.Wtype != YWorker.Types.WorkerType.Free)
+                    var channel = new Channel(yw.MachineIp + ":" + (yw.Wid + 37000), ChannelCredentials.Insecure);
+                    var client = new YServiceMainWorker.YServiceMainWorkerClient(channel);
+                    if (client != null)
                     {
-                        var channel = new Channel(yw.MachineIp + ":" + (yw.Wid + 37000), ChannelCredentials.Insecure);
-                        var client = new YServiceMainWorker.YServiceMainWorkerClient(channel);
-                        if (client != null)
-                        {
-                            YWorkerResponse wr = new YWorkerResponse();
-                            wr.Worker = yw;
-                            wr.Wlist = new YWorkerList();
-                            wr.Wlist.Workers.Add(YMServer.workers.Values);
-                            client.UpdateWorkersAsync(wr);
-                        }
+                        YWorkerResponse wr = new YWorkerResponse();
+                        wr.Worker = yw;
+                        wr.Wlist = new YWorkerList();
+                        wr.Wlist.Workers.Add(ww);
+                        client.UpdateWorkersAsync(wr);
                     }
                 }
-            });
-
+            }
         }
 
         //public static void forceStopWorker(YWorker yw)
