@@ -27,6 +27,7 @@ LogClient::LogClient(std::shared_ptr<Channel> channel) :stub_(y3d::LogService::N
 std::mutex lock_setServerAddress;
 std::mutex checkProcessRunning;
 std::string _logServerTerminalAddress = "F:\\WorkSpace\\3D\\MaxNet\\Y3D\\x64\\Release\\LogServer.exe";
+std::wstring TerminalName = L"LogServer.exe";
 std::atomic<std::string*> logServerTerminalAddress = &_logServerTerminalAddress;
 
 std::string FileName(const std::string& str)
@@ -60,11 +61,10 @@ bool LogClient::log(const std::string& logMsg)
 		//}
 		{
 			std::lock_guard<std::mutex> lock(checkProcessRunning);
-			auto ProcessName = s2ws(FileName(_logServerTerminalAddress)).c_str();			
-			if (!IsProcessIsRunning(ProcessName)) {
+			std::lock_guard<std::mutex> lock(lock_setServerAddress);
+			if (!IsProcessIsRunning(TerminalName.c_str())) {
 				std::string cmd;
-				{
-					std::lock_guard<std::mutex> lock(lock_setServerAddress);
+				{					
 					cmd = "start " + _logServerTerminalAddress;
 				}				
 				int result = system(cmd.c_str());

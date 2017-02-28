@@ -42,6 +42,7 @@ extern LogClient* getLogClientInstance();
 extern HANDLE GetProcessHandle(const wchar_t *process_name, DWORD dwAccess);
 extern bool IsProcessIsRunning(const wchar_t *process_name);
 extern std::string _logServerTerminalAddress;
+extern std::wstring TerminalName;
 
 class Time {
 public:
@@ -211,12 +212,14 @@ inline int dirExists(const char *path)
 
 
 namespace logserver {
+	extern std::string FileName(const std::string& str);
 
 	inline void SetLogServerTerminalAdress(std::string address) {
 		//logServerTerminalAddress.compare_exchange_strong(address, address);
 		//logServerTerminalAddress = &address;
 		std::lock_guard<std::mutex> lock(lock_setServerAddress);
 		_logServerTerminalAddress = address;
+		TerminalName = s2ws(FileName(_logServerTerminalAddress)).c_str();
 	}
 
 	//expect stub_->Log(&context, messageSend, &messageRec) is thread safe

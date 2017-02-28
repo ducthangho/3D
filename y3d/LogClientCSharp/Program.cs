@@ -25,7 +25,7 @@ namespace LogClientCSharp
 
                     for (int j = 0; j < 150; j++)
                     {
-                        a.LOG("This is message from thread {0}, j = {1}\n", i, j);
+                        a.LOG("C#: This is message from thread {0}, j = {1}\n", i, j);
                     }
                 }));
                 newThread.Start();
@@ -63,7 +63,7 @@ namespace LogClientCSharp
             {
                 Console.Write("greet: ");
                 Console.WriteLine(e.Message);
-                Console.WriteLine("Try `greet --help' for more information.");
+                Console.WriteLine("Try `LogClientCSharp --help' for more information.");
                 return;
             }
 
