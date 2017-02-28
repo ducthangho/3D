@@ -70,7 +70,8 @@ namespace LogClientCSharp
                 return true;
             }
             catch (RpcException e)
-            {               
+            {
+                Console.WriteLine("RPC failed -> "+e);     
                 lock (thisLock)
                 {
                     this.client = new LogService.LogServiceClient(new Channel(LOGSERVERADRESS, ChannelCredentials.Insecure));

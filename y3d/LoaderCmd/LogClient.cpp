@@ -29,6 +29,13 @@ std::mutex checkProcessRunning;
 std::string _logServerTerminalAddress = "F:\\WorkSpace\\3D\\MaxNet\\Y3D\\x64\\Release\\LogServer.exe";
 std::atomic<std::string*> logServerTerminalAddress = &_logServerTerminalAddress;
 
+std::string FileName(const std::string& str)
+{
+	size_t found = str.find_last_of("/\\");
+	std::string path = str.substr(found + 1); // check that is OK
+	return path;
+}
+
 bool LogClient::log(const std::string& logMsg)
 {
 	y3d::LogMessage messageSend;
@@ -53,7 +60,8 @@ bool LogClient::log(const std::string& logMsg)
 		//}
 		{
 			std::lock_guard<std::mutex> lock(checkProcessRunning);
-			if (!IsProcessIsRunning(L"LogServer.exe")) {
+			auto ProcessName = s2ws(FileName(_logServerTerminalAddress)).c_str();			
+			if (!IsProcessIsRunning(ProcessName)) {
 				std::string cmd;
 				{
 					std::lock_guard<std::mutex> lock(lock_setServerAddress);
