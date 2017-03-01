@@ -8,4 +8,4 @@ call %Y3D_ROOT%\bin\ygrpc yloader
 call %Y3D_ROOT%\bin\yproto yloader
 
 call %Y3D_ROOT%\bin\yproto_static ylogservice
-call %Y3D_ROOT%\bin\ygrpc ylogservice
+call %Y3D_ROOT%\bin\ygrpc_static ylogservice
