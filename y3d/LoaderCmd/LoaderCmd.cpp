@@ -131,6 +131,21 @@ void test3() {
 	IsProcessIsRunning(L"LogServer.exe");
 }
 
+void loadDll()
+{
+
+}
+
+void test4() {	
+	//auto client = y3d::Tools::NewStub(grpc::CreateChannel(service_ip, grpc::InsecureChannelCredentials()));
+	std::string ip = "127.0.0.1:38010";
+	auto client = y3d::YServiceTest::NewStub(grpc::CreateChannel(ip, grpc::InsecureChannelCredentials()));
+	grpc::ClientContext context;
+	y3d::EmptyParam req;
+	y3d::EmptyParam res;
+	grpc::Status status = client->MTest1(&context, req, &res);
+}
+
 //int shutdownService() {
 //	auto client = y3d::Tools::NewStub(grpc::CreateChannel(service_ip, grpc::InsecureChannelCredentials()));
 //	grpc::ClientContext context;
@@ -186,7 +201,7 @@ int main(int argc, char** argv)
 		cmd.add(lsArg);
 
 
-		TCLAP::ValueArg<int> testArg("t", "test", "1 = test1; 2 = test2; 3 = test3", false, 2, "integer");
+		TCLAP::ValueArg<int> testArg("t", "test", "1 = test1; 2 = test2; 3 = test3; 4 = test4", false, 2, "integer");
 		cmd.add(testArg);
 
 		// Parse the argv array.
@@ -230,6 +245,10 @@ int main(int argc, char** argv)
 			else if (t==3)
 			{
 				test3();
+			}
+			else if (t == 4)
+			{
+				test4();
 			}
 		}
 	}
