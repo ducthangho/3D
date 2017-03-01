@@ -49,7 +49,7 @@ using grpc::Status;
 class LogServiceImp final : public y3d::LogService::Service {
 	::grpc::Status Log(::grpc::ServerContext* context, const ::y3d::LogMessage* request, ::y3d::LogMessage* response) override {
 		printf("%s",request->message().c_str());
-		fflush(stdout);
+		//fflush(stdout);
 		return Status::OK;
 	}
 };

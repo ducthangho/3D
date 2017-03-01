@@ -147,6 +147,9 @@ call "$(ProjectDir)..\bin\start_workers.cmd"</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\LoaderCmd\LogClient.cpp" />
+    <ClCompile Include="..\ServiceImpl\ylogservice.grpc.pb.cc" />
+    <ClCompile Include="..\ServiceImpl\ylogservice.pb.cc" />
     <ClCompile Include="grpc\src\compiler\cpp_generator.cc" />
     <ClCompile Include="grpc\src\compiler\cpp_plugin.cc" />
     <ClCompile Include="grpc\src\core\ext\census\grpc_filter.c" />

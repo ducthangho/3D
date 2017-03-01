@@ -6,12 +6,24 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-
+using y3d;
+using y3d.s;
 
 namespace LogClientCSharp
 {
     class Program
     {
+
+        void loaddll()
+        {
+            Console.WriteLine("Helo here");
+            var client = new YServiceMaxLoader.YServiceMaxLoaderClient(new Channel("127.0.0.1:38001", ChannelCredentials.Insecure));
+            LibInfo req = new LibInfo();
+            req.Id = 38001+9;
+            // int idx = yw.Wid;
+            var r = client.LoadDllAsync(req);
+        }
+
         void test1()
         {
             LogClient a = LogClient.Instance;
@@ -36,6 +48,8 @@ namespace LogClientCSharp
         {
             if (testNumber == 1)
                 test1();
+            else if (testNumber == 2)
+                loaddll();
         }
 
         static int verbosity;

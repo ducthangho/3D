@@ -8,6 +8,7 @@ using y3d.e;
 using y3d.s;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using LogClientCSharp;
 
 namespace YMaxServer.rpc
 {
@@ -182,8 +183,9 @@ namespace YMaxServer.rpc
                 rs.Error = true;
                 return Task.FromResult(rs);
             };
-
-
+            
+            LogClient a = LogClient.Instance;
+            a.LOG("Are log csharp can run??? {0}", 1);
             StartService startService = (StartService)Marshal.GetDelegateForFunctionPointer(
                                                                                     pAddressOfFunctionToCall,
                                                                                     typeof(StartService));
@@ -191,13 +193,22 @@ namespace YMaxServer.rpc
             //var ip_addr = String.Format("127.0.0.1:{0}", 39000 + YLoaderServer.worker_id);
             //MessageBox.Show(YLoaderServer.worker.IpMax);
             //if (startService != null) startService("ServiceImpl.dll", (YLoaderServer.worker.MachineIp+":"+YLoaderServer.worker.PortMax));
-            if (startService != null) startService("ServiceImpl.dll", "0.0.0.0:" + request.Id);
+            if (startService != null) startService("ServiceImpl.dll", "0.0.0.0:" + request.Id);            
+            a.LOG("Are log csharp can run??? {0}", 1);
+            Channel channel = new Channel("0.0.0.0:38010", ChannelCredentials.Insecure);
+            var toolClient = new y3d.s.YServiceTest.YServiceTestClient(channel);
+            var re = toolClient.MTest2(new EmptyParam());
 
             //Channel channel = new Channel("0.0.0.0:39001", ChannelCredentials.Insecure);
             //y3d.s.Tools.ToolsClient toolClient = new y3d.s.Tools.ToolsClient(channel);
             //var re = toolClient.CloneObject(new EmptyParam());
 
             return Task.FromResult(rs);
+        }
+
+        private void LOG()
+        {
+            throw new NotImplementedException();
         }
 
         private int pDll = 0;
@@ -241,7 +252,8 @@ namespace YMaxServer.rpc
             //tmp.Status = ServingStatus.NotServing;
             //tmp.Wtype = YWorker.Types.WorkerType.Free;
             //tmp.NoApp = false;
-
+            LogClient a = LogClient.Instance;
+            a.LOG("Are log csharp can run??? {0}", 20);
             server = new Server
             {
                 Services = { YServiceMaxLoader.BindService(new YServiceMaxLoaderImpl()) },

@@ -41,6 +41,8 @@ std::condition_variable shutdown_cv;
 DLLAPI void APIENTRY startService(const char* dllname, const char* ip_address)
 {
 	
+	LOG("Log here hahahahahah");
+
 	std::unique_lock<std::mutex> lk(loading_requested);
 	if (isLoading) ready_cv.wait(lk, []() {return !isLoading; });
 //	LOG.clear();
@@ -106,6 +108,7 @@ DLLAPI void APIENTRY startService(const char* dllname, const char* ip_address)
 				servicePtr->Initialize(grpc::g_core_codegen_interface, grpc::g_glip);//This is a must have function, used to initialize static global function of grpc
 				grpc::ServerBuilder builder;
 				builder.AddListeningPort(server_address, grpc::InsecureServerCredentials());
+				//LOG("Log here hahahahahah {0}",server_address);
 				// register "service" as the instance through which we'll communicate with
 				// clients. in this case it corresponds to an *synchronous* service.
 				builder.RegisterService(servicePtr.get());
