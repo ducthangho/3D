@@ -3,11 +3,11 @@ REM xcopy .gitmodules grpc /D /Y
 xcopy .gitignore grpc /D /Y
 cd grpc
 git fetch --all --tags --prune
-git checkout tags/v1.1.2
+git checkout tags/v1.1.4
 git submodule update --init --remote --merge --recursive
 ) else (
-git clone --depth 1 --branch v1.1.2 --single-branch https://github.com/grpc/grpc.git
-git checkout tags/v1.1.2
+git clone --depth 1 --branch v1.1.4 --single-branch https://github.com/grpc/grpc.git
+git checkout tags/v1.1.4
 REM xcopy .gitmodules grpc/ /D /Y
 xcopy .gitignore grpc /Y
 cd grpc
