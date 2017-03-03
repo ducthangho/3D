@@ -56,6 +56,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+    <Linkage-fmt_greedy>ltcg</Linkage-fmt_greedy>
   </PropertyGroup>
   <ItemDefinitionGroup>
     <ClCompile>
@@ -82,13 +83,13 @@
       <RuntimeLibrary Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">MultiThreadedDebugDLL</RuntimeLibrary>
       <DebugInformationFormat Condition="'$(Configuration)|$(Platform)'=='Release|x64'">ProgramDatabase</DebugInformationFormat>
       <OmitDefaultLibName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</OmitDefaultLibName>
-      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(MSBuildProjectDirectory)\..\include\import_dll.h</ForcedIncludeFiles>
-      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">$(MSBuildProjectDirectory)\..\include\import_dll.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
-      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(MSBuildProjectDirectory)\..\include\import_dll.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(MSBuildProjectDirectory)\..\include\import_dll.h;$(MSBuildProjectDirectory)\..\include\import_log_dll.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">$(MSBuildProjectDirectory)\..\include\import_dll.h;$(MSBuildProjectDirectory)\..\include\import_log_dll.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(MSBuildProjectDirectory)\..\include\import_dll.h;$(MSBuildProjectDirectory)\..\include\import_log_dll.h</ForcedIncludeFiles>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(MsBuildProjectDirectory)\..\lib\tbb;$(MsBuildProjectDirectory)\..\lib;$(MsBuildProjectDirectory)\..\lib\grpc\$(Configuration);$(MsBuildProjectDirectory)\..\lib\protobuf\$(Configuration);$(MsBuildProjectDirectory)\..\lib\protobuf\Release;$(MsBuildProjectDirectory)\..\lib\grpc\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>grpc_dll.lib;ws2_32.lib;tbb.lib;tbbmalloc.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(MsBuildProjectDirectory)\..\lib\tbb;$(MsBuildProjectDirectory)\..\..\MaxNet\Y3D\x64\$(Configuration);$(MsBuildProjectDirectory)\..\lib;$(MsBuildProjectDirectory)\..\lib\grpc\$(Configuration);$(MsBuildProjectDirectory)\..\lib\protobuf\$(Configuration);$(MsBuildProjectDirectory)\..\lib\protobuf\Release;$(MsBuildProjectDirectory)\..\lib\grpc\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>LogClient.lib;grpc_dll.lib;ws2_32.lib;tbb.lib;tbbmalloc.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ModuleDefinitionFile>
       </ModuleDefinitionFile>
       <LinkTimeCodeGeneration Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
@@ -102,6 +103,7 @@
       <ProgramDatabaseFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)$(TargetName).pdb</ProgramDatabaseFile>
       <GenerateDebugInformation Condition="'$(Configuration)|$(Platform)'=='Release|x64'">DebugFastLink</GenerateDebugInformation>
       <ProgramDatabaseFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(OutDir)$(TargetName).pdb</ProgramDatabaseFile>
+      <IgnoreSpecificDefaultLibraries Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">LIBCMTD</IgnoreSpecificDefaultLibraries>
     </Link>
     <PostBuildEvent />
     <PostBuildEvent />
@@ -147,9 +149,6 @@ call "$(ProjectDir)..\bin\start_workers.cmd"</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\LoaderCmd\LogClient.cpp" />
-    <ClCompile Include="..\ServiceImpl\ylogservice.grpc.pb.cc" />
-    <ClCompile Include="..\ServiceImpl\ylogservice.pb.cc" />
     <ClCompile Include="grpc\src\compiler\cpp_generator.cc" />
     <ClCompile Include="grpc\src\compiler\cpp_plugin.cc" />
     <ClCompile Include="grpc\src\core\ext\census\grpc_filter.c" />
@@ -647,6 +646,11 @@ call "$(ProjectDir)..\bin\start_workers.cmd"</Command>
     <ClInclude Include="grpc\third_party\nanopb\pb_encode.h" />
     <ClInclude Include="Y3dService.h" />
     <ClInclude Include="resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LogClient\LogClient.vcxproj">
+      <Project>{7054621d-5170-4901-b843-d57ebf9cc889}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -8,7 +8,7 @@
 #include "grpc++/grpc++.h"
 #include "tclap/CmdLine.h"
 #include "tbb/task_group.h"
-//#include "LogClient.h"
+#include "LogClient.h"
 #include <common.h>
 #include "YLibs.h"
 
@@ -116,7 +116,7 @@ int test2() {
 			printf("Client number %d is connecting\n", i);
 			for (int j = 0; j < 150; ++j) {
 				logserver::LOG("Hello world with fmt like format i={},j={}\n", i,j);
-				logserver::Printf("Hello world with printf like format i=%d,j=%d, %s\n", i, j,"sucessd! haha");
+				logserver::Printf("Hello world with printf like format i=%d,j=%d, %s\n", i, j,"successful! haha");
 			}
 		});
 	}
@@ -138,7 +138,7 @@ void loadDll()
 
 void test4() {	
 	//auto client = y3d::Tools::NewStub(grpc::CreateChannel(service_ip, grpc::InsecureChannelCredentials()));
-	std::string ip = "127.0.0.1:38010";
+	std::string ip = "127.0.0.1:39007";
 	auto client = y3d::YServiceTest::NewStub(grpc::CreateChannel(ip, grpc::InsecureChannelCredentials()));
 	grpc::ClientContext context;
 	y3d::EmptyParam req;

@@ -1,3 +1,11 @@
+#ifdef _DEBUG
+#pragma comment(lib, "libprotobufd.lib")
+#pragma comment(lib, "libprotocd.lib")
+#else
+#pragma comment(lib, "libprotobuf.lib")
+#pragma comment(lib, "libprotoc.lib")
+#endif
+
 #include <string>
 #include <iostream>
 #include <memory>
@@ -8,6 +16,7 @@
 #include <windows.h>
 #include <Tlhelp32.h>
 #include <common.h>
+#include <Shellapi.h>
 
 using grpc::Channel;
 using grpc::ClientContext;
@@ -26,9 +35,8 @@ LogClient::LogClient(std::shared_ptr<Channel> channel) :stub_(y3d::LogService::N
 
 std::mutex lock_setServerAddress;
 std::mutex checkProcessRunning;
-std::string _logServerTerminalAddress = "F:\\WorkSpace\\3D\\MaxNet\\Y3D\\x64\\Release\\LogServer.exe";
+std::string _logServerTerminalAddress = "LogServer.exe";
 std::wstring TerminalName = L"LogServer.exe";
-std::atomic<std::string*> logServerTerminalAddress = &_logServerTerminalAddress;
 
 std::string FileName(const std::string& str)
 {
@@ -36,6 +44,8 @@ std::string FileName(const std::string& str)
 	std::string path = str.substr(found + 1); // check that is OK
 	return path;
 }
+
+
 
 bool LogClient::log(const std::string& logMsg)
 {
@@ -54,7 +64,7 @@ bool LogClient::log(const std::string& logMsg)
 		LogClient* oldPtr = logClientPtr;
 		if (!logClientPtr.compare_exchange_strong(oldPtr, nullptr))
 			delete oldPtr;
-		std::cout << "Log function return error: " << status.error_code() << ": " << status.error_message() << std::endl;
+		//std::cout << "Log function return error: " << status.error_code() << ": " << status.error_message() << std::endl;
 		//bool isProcessRunning = true;
 		//{			
 		//	isProcessRunning = IsProcessIsRunning(L"LogServer.exe");
@@ -64,11 +74,14 @@ bool LogClient::log(const std::string& logMsg)
 			{
 				//std::lock_guard<std::mutex> lock(lock_setServerAddress);
 				if (!IsProcessIsRunning(TerminalName.c_str())) {
-					std::string cmd;
+					//std::string cmd;
 					{
-						cmd = "start " + _logServerTerminalAddress;
+						_logServerTerminalAddress = find_dll_dir();
+						_logServerTerminalAddress += "\\" + ws2s(TerminalName);
+						ShellExecuteA(NULL, "open", _logServerTerminalAddress.c_str(), NULL, NULL, SW_SHOW);
+						//cmd = "start \"" + _logServerTerminalAddress+"\"";
 					}
-					int result = system(cmd.c_str());
+					//int result = system(cmd.c_str());
 				}
 			}
 		}
@@ -114,7 +127,6 @@ bool IsProcessIsRunning(const wchar_t * process_name)
 HANDLE GetProcessHandle(const wchar_t *process_name, DWORD dwAccess)
 {
 	HANDLE hProcessSnap;
-	HANDLE hProcess;
 	PROCESSENTRY32 pe32;
 
 

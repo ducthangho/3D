@@ -210,7 +210,7 @@ namespace YMaxServer.rpc
         public static YWorker worker = null;
         public static Server server;
         public static void Start()
-        {
+        {       
             var MasterClient = new y3d.s.YServiceMaster.YServiceMasterClient(new Channel(MASTER_IP, ChannelCredentials.Insecure));
             YWorkerRequest req = new YWorkerRequest();
             req.CallInApp = true;

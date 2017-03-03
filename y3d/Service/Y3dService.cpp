@@ -24,6 +24,7 @@
 
 #include "YCServer.h"
 #include "YCTestServer.h"
+#include "LogClient.h"
 
 #define Service_CLASS_ID	Class_ID(0x768455e0, 0x74aca221)
 const std::string MASTER_IP = "127.0.0.1:38000";
@@ -41,7 +42,7 @@ std::condition_variable shutdown_cv;
 DLLAPI void APIENTRY startService(const char* dllname, const char* ip_address)
 {
 	
-	LOG("Log here hahahahahah");
+	logserver::LOG("Starting Service ... \n");
 
 	std::unique_lock<std::mutex> lk(loading_requested);
 	if (isLoading) ready_cv.wait(lk, []() {return !isLoading; });
@@ -69,7 +70,7 @@ DLLAPI void APIENTRY startService(const char* dllname, const char* ip_address)
 			else {
 				dll_path = dllname;
 			}
-			//LOG("DLL path is {0}\n", dll_path);
+			//logserver::LOG("DLL path is {0}\n", dll_path);
 			//LOG("Xin chao");
 					// load plugin and grab all the functions we need		
 			HMODULE dllHandle = 0;
@@ -123,7 +124,9 @@ DLLAPI void APIENTRY startService(const char* dllname, const char* ip_address)
 			
 				//service->Helloworld();
 				//server->Wait();
-
+				char buf[1000];
+				sprintf(buf, "Server listening on %s\n", server_address.c_str());
+				logserver::LOG(buf);
 				auto serveFn = [&]() {
 					server->Wait();
 				};
@@ -150,7 +153,7 @@ DLLAPI void APIENTRY startService(const char* dllname, const char* ip_address)
 				auto fFreeResult = FreeLibrary(dllHandle);
 				if (!fFreeResult) {
 					if (!UnmapViewOfFile(dllHandle))
-						LOG("Cannot unload dll\n");
+						printf("Cannot unload dll\n");
 				}
 				isShuttingdown = false;
 				shutdown_cv.notify_all();

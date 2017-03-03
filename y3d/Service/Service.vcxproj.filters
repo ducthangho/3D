@@ -291,9 +291,6 @@
     <ClCompile Include="grpc\src\core\lib\channel\handshaker_factory.c" />
     <ClCompile Include="grpc\src\cpp\common\insecure_create_auth_context.cc" />
     <ClCompile Include="grpc\src\cpp\common\secure_auth_context.cc" />
-    <ClCompile Include="..\LoaderCmd\LogClient.cpp" />
-    <ClCompile Include="..\ServiceImpl\ylogservice.grpc.pb.cc" />
-    <ClCompile Include="..\ServiceImpl\ylogservice.pb.cc" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\ServiceImpl.h" />

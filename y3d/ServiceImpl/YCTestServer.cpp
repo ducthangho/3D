@@ -8,6 +8,7 @@
 
 #include "YCTestServer.h"
 #include "common.h"
+#include "LogClient.h"
 #include "YLibs.h"
 
 
@@ -148,25 +149,27 @@ void addUnwrap() {
 
 Status YServiceTestImpl::MTest1(ServerContext* context, const EmptyParam* request, EmptyParam* reply)
 {
-	Invoke([]() {
-		//MakeBentCylinder();
-		//addbend();
-		addUnwrap();
-		//log("New node name is \n");
-		/*auto* ip = GetCOREInterface();
+	//Invoke([]() {
+	//	//MakeBentCylinder();
+	//	//addbend();
+	//	addUnwrap();
+	//	//log("New node name is \n");
+	//	/*auto* ip = GetCOREInterface();
 
-		Create a new object using CreateInstance()
-		auto pINode = ip->GetSelNode(0);
-		log(L"New node name is {0} : \n", pINode->GetName());
+	//	Create a new object using CreateInstance()
+	//	auto pINode = ip->GetSelNode(0);
+	//	log(L"New node name is {0} : \n", pINode->GetName());
 
-		auto obj = pINode->GetObjectRef();
+	//	auto obj = pINode->GetObjectRef();
 
-		Get ahold of parameter block
-		IParamArray *iCylParams = obj->GetParamBlock();
+	//	Get ahold of parameter block
+	//	IParamArray *iCylParams = obj->GetParamBlock();
 
-		 Get the current animation time
-		TimeValue time = ip->GetTime();*/
-	});
+	//	 Get the current animation time
+	//	TimeValue time = ip->GetTime();*/
+	//});
+	logserver::LOG("Hello world from ServiceImpl\n");
+
 	return Status::OK;
 }
 
