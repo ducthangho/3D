@@ -112,5 +112,10 @@ namespace Y3D.Forms
         {
 
         }
+
+        private void YMainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Utils.MainWorker.detach_mainworker();
+        }
     }
 }

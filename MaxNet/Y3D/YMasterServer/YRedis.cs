@@ -99,7 +99,34 @@ namespace YMasterServer
 
         public static bool updateWorker(YWorker yw)
         {
+            Console.WriteLine(String.Format("Update {0} to database", yw.Wname));
             return rc.Sut.HashSet("yworkers", yw.Wid.ToString(), yw);
+        }
+
+        public static List<YWorker> getAllWorker()
+        {
+            var x = rc.Db.HashValues("yworkers");
+            List<YWorker> ret = new List<YWorker>();
+            for (int i = 0; i < x.Length; i++)
+            {
+                ret.Add(YWorker.Parser.ParseFrom(x[i]));
+            }
+            return ret;
+        }
+
+        public static void saveWorkers2Temp()
+        {
+            var x = rc.Db.HashGetAll("yworkers");
+            rc.Db.HashSet("yworker_temp", x);
+        }
+
+        public static void loadWorkerFromTemp()
+        {
+            var x = rc.Db.HashGetAll("yworker_temp");
+            rc.Db.HashSet("yworkers", x);
+            var xx = 1;
+            //rc.Db.H
+            //rc.Db.KeyDelete("yworker_temp");
         }
 
     }

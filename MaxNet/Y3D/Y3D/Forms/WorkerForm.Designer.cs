@@ -36,7 +36,7 @@
             this.olvColumnStatus = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.workerimglist = new System.Windows.Forms.ImageList(this.components);
             this.btnNew = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
             this.btnDel = new System.Windows.Forms.Button();
             this.btnStop = new System.Windows.Forms.Button();
             this.btnStart = new System.Windows.Forms.Button();
@@ -107,14 +107,15 @@
             this.btnNew.UseVisualStyleBackColor = true;
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
-            // button1
+            // btnClose
             // 
-            this.button1.Location = new System.Drawing.Point(287, 187);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(45, 32);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Close";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnClose.Location = new System.Drawing.Point(261, 187);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(71, 32);
+            this.btnClose.TabIndex = 5;
+            this.btnClose.Text = "Close";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnDel
             // 
@@ -154,7 +155,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(344, 222);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnDel);
             this.Controls.Add(this.btnStop);
             this.Controls.Add(this.btnStart);
@@ -179,7 +180,7 @@
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.Button btnStop;
         private System.Windows.Forms.Button btnDel;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnClose;
         private BrightIdeasSoftware.DataListView dlvWorker;
     }
 }
