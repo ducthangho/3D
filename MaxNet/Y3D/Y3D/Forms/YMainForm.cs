@@ -50,8 +50,8 @@ namespace Y3D.Forms
         {
             //MessageBox.Show(System.IO.Directory.GetCurrentDirectory());
             Utils.Tools.InitSystem();
-            projectControl1.Show();
-            active_htab(btnTabProject);
+            testControl1.Show();
+            active_htab(btnTabTest);
             rpc.YServer.Start();
         }
 

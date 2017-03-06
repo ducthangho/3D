@@ -383,29 +383,7 @@ namespace YMasterServer
             //return (channel.State == ChannelState.Ready);
         }
 
-        public static Task<bool> check_noapp(YWorker yw, int timeout = 5000)
-        {
-            if (yw.NoApp) return Task.FromResult(true);
-            var channel = new Channel(yw.MachineIp + ":" + yw.PortLoader, ChannelCredentials.Insecure);
-            var t = channel.ConnectAsync(deadline: DateTime.UtcNow.AddMilliseconds(timeout));
-            return t.ContinueWith<bool>(
-                (task) =>
-                {
-                    bool rs = false;
-                    if (task.IsFaulted || task.IsCanceled)
-                        rs = true;
-                    ;
-                    Console.WriteLine(String.Format("check_noapp {0} {1} ({2})", yw.Wname, task.Status.ToString(), rs));
-                    var tmp = yw;
-                    tmp.NoApp = rs;
-                    if (!rs)
-                        YRedis.updateWorker(tmp);
-                    return rs;
-                }
-            );
-        }
-
-        public static Task<bool> check_worker(YWorker yw, int timeout = 5000)
+        public static Task<bool> check_worker(YWorker yw, bool check_noapp_only=false, int timeout = 5000)
         {
             if (yw.NoApp)
             {
@@ -427,6 +405,14 @@ namespace YMasterServer
                     Console.WriteLine("check_worker " + yw.Wid + " : " + task.Status.ToString());
                     var tmp = yw;
                     tmp.NoApp = rs;
+
+                    if (check_noapp_only)
+                    {
+                        if (!rs)
+                            YRedis.updateWorker(tmp);
+                        return rs;
+                    }
+
                     if (!rs)
                     {
                         if (yw.Status == ServingStatus.Serving)
@@ -823,16 +809,18 @@ namespace YMasterServer
             return Task.FromResult(0);
         }
 
-        public static Task refreshWorkers()
+        public static Task refreshWorkers(bool loadTmp=false)
         {
             Console.WriteLine("Recheck status of all workers");
             //List<YWorker> wlist = new List<YWorker>(workers.Values);
             var wlist = YRedis.getAllWorker();
             var tasks = new List<Task>();
+
             foreach (var w in wlist)
             {
-                tasks.Add(Task.Run(() => check_worker(w)));
+                tasks.Add(Task.Run(() => check_worker(w,loadTmp)));
             }
+
             return Task.WhenAll(tasks);
             //return Task.WhenAll(tasks).ContinueWith(_ => { saveWorkers(); });
         }
@@ -958,7 +946,7 @@ namespace YMasterServer
             if (loadTmp) YRedis.loadWorkerFromTemp();
             Console.WriteLine("Loading all workers...");
             Console.WriteLine("Restore status of all workers");
-            return refreshWorkers().ContinueWith(_ =>
+            return refreshWorkers(loadTmp).ContinueWith(_ =>
             {
                 var ww = YRedis.getAllWorker();
                 if (ww.Count < 1)
