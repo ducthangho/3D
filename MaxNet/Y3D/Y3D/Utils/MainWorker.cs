@@ -88,6 +88,15 @@ namespace Y3D.Utils
             return Task.FromResult(false);
         }
         
+        static public void detach_mainworker()
+        {
+            if (worker!=null)
+            {
+                worker.Wtype = YWorker.Types.WorkerType.Free;
+                rpc.YClient.MasterClient.UpdateWorkerAsync(worker);
+            }
+        }
+
         static public void updateClient()
         {
             ChannelLoader = new Channel(worker.MachineIp+":"+worker.PortLoader, ChannelCredentials.Insecure);

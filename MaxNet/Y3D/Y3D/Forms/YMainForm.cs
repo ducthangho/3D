@@ -50,8 +50,8 @@ namespace Y3D.Forms
         {
             //MessageBox.Show(System.IO.Directory.GetCurrentDirectory());
             Utils.Tools.InitSystem();
-            projectControl1.Show();
-            active_htab(btnTabProject);
+            testControl1.Show();
+            active_htab(btnTabTest);
             rpc.YServer.Start();
         }
 
@@ -111,6 +111,11 @@ namespace Y3D.Forms
         private void projectControl1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void YMainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Utils.MainWorker.detach_mainworker();
         }
     }
 }
