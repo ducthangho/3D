@@ -52,7 +52,7 @@ service YServiceMaster {
   rpc AppExitCallback(WorkerParam) returns (ResultReply) {}
   rpc ShowJobInMachine(YWorker) returns (YJobList) {}
   rpc CheckHealth(EmptyParam) returns (ResultReply) {}
-  rpc UpdateWorkerStatus(YWorker) returns (ResultReply) {}
+  rpc UpdateWorker(YWorker) returns (ResultReply) {}
   rpc LoadSystem(EmptyParam) returns (YSystem) {}
   rpc SaveSystem(YSystem) returns (ResultReply) {}
   rpc GiveMeAWorker(EmptyParam) returns (YWorkerResponse) {}

@@ -173,6 +173,7 @@ DLLAPI void APIENTRY startService(const char* dllname, const char* ip_address)
 
 DLLAPI void APIENTRY stopService()
 {
+	logserver::LOG("Stopping Service ... \n");
 	exit_requested.set_value();
 	std::unique_lock<std::mutex> lk(loading_requested);
 	if (dll) {
