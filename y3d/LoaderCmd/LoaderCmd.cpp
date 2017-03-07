@@ -25,7 +25,9 @@ int show_all_workers(int32_t stat = 2) {
 	for (int i = 0; i < rep.wlist().workers_size(); i++)
 	{
 		auto yw = rep.wlist().workers(i);
-		printf("\n%d. %s  (ip:%s:%s) (status:%s)", (i + 1), yw.wname(), yw.machine_ip(), yw.port_loader(), yw.status());
+		auto status = &ServingStatus_Name(yw.status());
+		auto wt = y3d::YWorker::WorkerType_Name(yw.wtype());
+		printf("\n%d. %s  (ip:%s:%d) (status:%s) (type:%s)", (i + 1), yw.wname().c_str(), yw.machine_ip().c_str(), yw.port_loader(), status->c_str(),wt.c_str());
 	}
 	return status.error_code();
 }
