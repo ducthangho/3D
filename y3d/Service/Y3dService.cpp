@@ -25,9 +25,11 @@
 #include "YCServer.h"
 #include "YCTestServer.h"
 #include "LogClient.h"
+#include "prettyprint.hpp"
 
 #define Service_CLASS_ID	Class_ID(0x768455e0, 0x74aca221)
 const std::string MASTER_IP = "127.0.0.1:38000";
+using namespace logserver;
 
 HMODULE dll = nullptr;
 std::promise<void> exit_requested;
@@ -36,8 +38,6 @@ std::condition_variable ready_cv;
 std::atomic<bool> isLoading = false;
 std::atomic<bool> isShuttingdown = false;
 std::condition_variable shutdown_cv;
-
-
 
 DLLAPI void APIENTRY startService(const char* dllname, const char* ip_address)
 {
@@ -123,10 +123,26 @@ DLLAPI void APIENTRY startService(const char* dllname, const char* ip_address)
 				//do {
 			
 				//service->Helloworld();
-				//server->Wait();
-				char buf[1000];
-				sprintf(buf, "Server listening on %s\n", server_address.c_str());
-				logserver::LOG(buf);
+				//server->Wait();				
+				LOG("Server listening on {}\n",server_address);
+				Printf("Test printf: Hello world %d\n", 123);
+				std::map<std::string, int> m;
+				m["hello"] = 1;
+				m["a"] = 0;
+				m["good"] = 5;
+				std::map<int, int> n;
+				n[0] = 1;
+				n[1] = 0;
+				n[3] = 5;
+				std::vector<int> vv = { 1,2,3,4,5 };
+				int arr[] = { 5,4,3,2,1 };
+				std::set<int> ss{ 1,2,3,4,5,0,57 };
+				//PrintWithDelim(", ","Test Print ",server_address,123,0x5678,3.5f);
+				//DBG(server_address);
+				setDelim(" ; ");
+
+				DBG(server_address,ip_address,vv,1,n,m, pretty_print_array(arr, 5),ss);
+				
 				auto serveFn = [&]() {
 					server->Wait();
 				};

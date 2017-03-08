@@ -33,10 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Google.Protobuf, Version=3.1.0.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+    <Reference Include="Google.Protobuf, Version=3.2.0.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\MaxNet\Y3D\packages\Google.Protobuf.3.1.0\lib\net45\Google.Protobuf.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>..\..\MaxNet\Y3D\packages\Google.Protobuf.3.2.0\lib\net45\Google.Protobuf.dll</HintPath>
     </Reference>
     <Reference Include="Grpc.Core">
       <HintPath>C:\Program Files\Autodesk\3ds Max 2017\Grpc.Core.dll</HintPath>

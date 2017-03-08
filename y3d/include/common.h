@@ -16,6 +16,7 @@
 #include <string>
 #include <utility>
 #include <windows.h>
+#include "map.h"
 //#include "LogClient.h"
 //#define FMT_HEADER_ONLY
 

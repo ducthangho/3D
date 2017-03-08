@@ -9,7 +9,9 @@
 #include <sstream>
 #include <grpc++/grpc++.h>
 #include "common.h"
+#include "prettyprint.hpp"
 #include "fmt/format.h"
+#include "fmt/ostream.h"
 #include "ylogservice.grpc.pb.h"
 
 
@@ -20,6 +22,8 @@
 #else
 #define LOGSERVICE_API __declspec( dllimport )   
 #endif
+
+
 
 const std::string address = "127.0.0.1:39393";
 extern std::mutex mm_mutex;
@@ -46,7 +50,7 @@ extern std::wstring TerminalName;
 extern std::string FileName(const std::string& str);
 extern std::mutex checkProcessRunning;
 
-namespace logserver {	
+namespace logserver {
 
 	inline void SetLogServerTerminalAdress(std::string address) {
 		//logServerTerminalAddress.compare_exchange_strong(address, address);
@@ -106,7 +110,7 @@ namespace logserver {
 	}
 
 	template <typename... Args>
-	LOGSERVICE_API inline void LOG(char* format_str, const Args& ... args) {
+	inline void LOG(char* format_str, const Args& ... args) {
 		fmt::MemoryWriter w;
 		w.write(format_str, args...);
 		LogClient* logClient = getLogClientInstance();
@@ -267,4 +271,109 @@ namespace logserver {
 	logClient->log(a);
 	}
 	}*/
+
+
+	#define PRINTER(name) printer(#name, (name))
+
+	template <typename T>
+	std::string printer(char *name, T value) {
+		fmt::MemoryWriter w;
+		w.write(" {0} = {1}", name, value);
+		return std::string(w.c_str());
+	}
+
+	inline std::string const& to_string(std::string const& s) { return s; }
+
+	template<typename... Args>
+	inline std::string stringer(Args const&... args)
+	{
+		std::string result;
+		using ::to_string;
+		using std::to_string;
+		int unpack[]{ 0, (result += to_string(args), 0)... };
+		static_cast<void>(unpack);
+		return result;
+	}
+
+	template<typename... Args>
+	inline std::string stringerWithDelim(char* delim,Args const&... args)
+	{
+		std::string result;
+		using ::to_string;
+		using std::to_string;		
+		int unpack[]{ 0, (result += to_string(args)+delim, 0)... };
+		static_cast<void>(unpack);
+		return result;
+	}
+
+	template <typename... Args>
+	inline void Print(const Args&  ... args) {
+		//fmt::MemoryWriter w;
+		//w.write(format_str, args...);
+		std::string a = stringer( args...);
+		LogClient* logClient = getLogClientInstance();		
+		if (!logClient->log(a)) {
+			logClient = getLogClientInstance();
+			logClient->log(a);
+		}
+	}
+static std::string delim = " ";
+
+template <typename T>
+inline void setDelim(T str) {
+	delim = str;
+}
+
+
+#define EXPAND(x) x
+#define VAR(x) out.write("{} = {}{}",#x,x,delim);
+#define DBG(...)	{	\
+	fmt::MemoryWriter out;\
+	out.write("FILE: \"{}\": LINE {}: ",__FILE__,__LINE__);	\
+	FOR_EACH(VAR, __VA_ARGS__);	\
+	LOG(out.c_str());	\
+	}
+	
+	
+
+	template <typename... Args>
+	inline void PrintWithDelim(char* delim,const Args&  ... args) {
+		//fmt::MemoryWriter w;
+		//w.write(format_str, args...);
+		std::string a = stringerWithDelim(delim,args...);
+		LogClient* logClient = getLogClientInstance();
+		if (!logClient->log(a)) {
+			logClient = getLogClientInstance();
+			logClient->log(a);
+		}
+	}
+
+	//inline void test() {
+	//	fmt::MemoryWriter os;
+	//	std::map<int, int> n;
+	//	n[0] = 1;
+	//	n[1] = 0;
+	//	n[3] = 5;
+	//	std::vector<int> vv = { 1,2,3,4,5 };
+	//	int arr[] = { 5,4,3,2,1 };
+	//	std::string s = fmt::format("\n Testing vv ={}\n", vv);
+	//	std::set<int> ss{ 1,2,3,4,5,0,57 };
+	//	std::map<std::string, int> m;
+	//	m["hello"] = 1;
+	//	m["a"] = 0;
+	//	m["good"] = 5;
+	//	//os << pretty_print_array(arr,5);
+	//	//LOG(s);
+	//	os.write("\n Testing arr ={}\n", pretty_print_array(arr, 5));
+	//	//LOG(s);
+	//	os.write("\n Testing n ={}\n", n);
+	//	//LOG(s);
+	//	os.write("\n Testing ss ={}\n", ss);
+	//	os.write("\n Testing vv ={}\n", vv);
+	//	os.write("\n Testing m ={}\n", m);
+	//	
+	//	//s = fmt::format("\n Testing ss ={}\n", ss);
+	//	//s = os.str();
+	//	LOG(os.c_str());
+	//}
 }
