@@ -136,11 +136,13 @@ DLLAPI void APIENTRY startService(const char* dllname, const char* ip_address)
 				n[3] = 5;
 				std::vector<int> vv = { 1,2,3,4,5 };
 				int arr[] = { 5,4,3,2,1 };
+				std::set<int> ss{ 1,2,3,4,5,0,57 };
 				//PrintWithDelim(", ","Test Print ",server_address,123,0x5678,3.5f);
 				//DBG(server_address);
 				setDelim(" ; ");
 
-				DBG(server_address,ip_address,vv,1);
+				DBG(server_address,ip_address,vv,1,n,m, pretty_print_array(arr, 5),ss);
+				
 				auto serveFn = [&]() {
 					server->Wait();
 				};

@@ -9,6 +9,7 @@
 #include <sstream>
 #include <grpc++/grpc++.h>
 #include "common.h"
+#include "prettyprint.hpp"
 #include "fmt/format.h"
 #include "fmt/ostream.h"
 #include "ylogservice.grpc.pb.h"
@@ -330,7 +331,7 @@ inline void setDelim(T str) {
 	fmt::MemoryWriter out;\
 	out.write("FILE: \"{}\": LINE {}: ",__FILE__,__LINE__);	\
 	FOR_EACH(VAR, __VA_ARGS__);	\
-	LOG(out.data());	\
+	LOG(out.c_str());	\
 	}
 	
 	
@@ -346,4 +347,33 @@ inline void setDelim(T str) {
 			logClient->log(a);
 		}
 	}
+
+	//inline void test() {
+	//	fmt::MemoryWriter os;
+	//	std::map<int, int> n;
+	//	n[0] = 1;
+	//	n[1] = 0;
+	//	n[3] = 5;
+	//	std::vector<int> vv = { 1,2,3,4,5 };
+	//	int arr[] = { 5,4,3,2,1 };
+	//	std::string s = fmt::format("\n Testing vv ={}\n", vv);
+	//	std::set<int> ss{ 1,2,3,4,5,0,57 };
+	//	std::map<std::string, int> m;
+	//	m["hello"] = 1;
+	//	m["a"] = 0;
+	//	m["good"] = 5;
+	//	//os << pretty_print_array(arr,5);
+	//	//LOG(s);
+	//	os.write("\n Testing arr ={}\n", pretty_print_array(arr, 5));
+	//	//LOG(s);
+	//	os.write("\n Testing n ={}\n", n);
+	//	//LOG(s);
+	//	os.write("\n Testing ss ={}\n", ss);
+	//	os.write("\n Testing vv ={}\n", vv);
+	//	os.write("\n Testing m ={}\n", m);
+	//	
+	//	//s = fmt::format("\n Testing ss ={}\n", ss);
+	//	//s = os.str();
+	//	LOG(os.c_str());
+	//}
 }
