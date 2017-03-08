@@ -9,10 +9,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using y3d.e;
+using LogClientCSharp;
+
 namespace Y3D.Forms
 {
     public partial class WorkerForm : Form
     {
+        public static LogClient log = LogClient.Instance;
         public WorkerForm()
         {
             InitializeComponent();
@@ -77,6 +80,7 @@ namespace Y3D.Forms
 
         private void btnStart_Click(object sender, EventArgs e)
         {
+            log.LOG("Button start clicked\n.");
             YWorker yw = (YWorker)this.dlvWorker.SelectedObject;
             if (yw == null)//No object selected
             {
@@ -94,14 +98,14 @@ namespace Y3D.Forms
             rep.ResponseAsync.ContinueWith(
                 (t) =>
                 {
-                    if (t.IsCanceled || t.IsFaulted)
+                    if (t.IsCanceled || t.IsFaulted) { }
                         return;
 
                     var rs = t.Result;
-                    if (!rs.Error)
+                    if (!rs.Error && rs.Wlist!=null && rs.Wlist.Workers!=null)
                     {
                         dlvWorker.SetObjects(rs.Wlist.Workers);
-                        MessageBox.Show("Start thanh cong..");
+                        //MessageBox.Show("Start thanh cong..");
                         return;
                     }
                     btnStart.Enabled = true;

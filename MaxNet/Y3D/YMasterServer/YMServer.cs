@@ -22,7 +22,7 @@ namespace YMasterServer
                 YWorkerResponse ret = new YWorkerResponse();
                 ret.Worker = new YWorker();
                 ret.Error = true;
-                if (task.IsCompleted)
+                if (task.IsCompleted && !task.IsCanceled && !task.IsFaulted)
                 {
                     string ip = YMServer.MASTER_IP_DEFAULT;
                     if (req.Machine != null)
@@ -103,7 +103,7 @@ namespace YMasterServer
                 var t = YMServer.StartWorker(yw);
                 return t.ContinueWith<YWorkerResponse>((tt) =>
                 {
-                    if (tt.IsCompleted)
+                    if (tt.IsCompleted && !tt.IsFaulted && !tt.IsCanceled)
                     {
                         rep.Worker = yw;
                         rep.Wlist = new YWorkerList();
@@ -240,7 +240,7 @@ namespace YMasterServer
             YWorker yw = YRedis.getWorkerById(request.Wid);
             if (YRedis.removeWorkerById(request.Wid))
             {
-                Console.WriteLine(String.Format("{0}({1}:{2}) has been removed automatically when someone exit application!", yw.Wname, yw.MachineIp, yw.PortLoader));
+                Console.WriteLine(String.Format("{0}({1}:{2}) has been removed automatically when someone exit application!\n", yw.Wname, yw.MachineIp, yw.PortLoader));                
                 YMServer.Update2GUI();
                 rep.Error = false;
             }

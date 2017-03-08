@@ -32,7 +32,7 @@ namespace Y3D.rpc
             return Utils.MainWorker.getMainWorker().ContinueWith(
                 (task) =>
                 {
-                    if (task.IsCompleted)
+                    if (!task.IsFaulted && !task.IsCanceled)
                     {
                         if (Utils.MainWorker.worker!=null)
                         {

@@ -167,6 +167,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\y3d\LogClientCSharp\LogClientCSharp.csproj">
+      <Project>{8dd8543a-5ad0-474c-8b98-5b1986f67d44}</Project>
+      <Name>LogClientCSharp</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Y3D.Entities\Y3D.Entities.csproj">
       <Project>{b7a4050c-dc6c-416a-9989-03744498e8c2}</Project>
       <Name>Y3D.Entities</Name>

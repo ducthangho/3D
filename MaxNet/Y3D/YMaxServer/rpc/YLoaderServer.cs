@@ -8,6 +8,7 @@ using y3d.e;
 using y3d.s;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using LogClientCSharp;
 
 namespace YMaxServer.rpc
 {
@@ -52,7 +53,7 @@ namespace YMaxServer.rpc
 
     class YServiceMaxLoaderImpl : YServiceMaxLoader.YServiceMaxLoaderBase
     {
-
+        public static LogClient log = LogClient.Instance;
         public YServiceMaxLoaderImpl()
         {
         }
@@ -71,6 +72,7 @@ namespace YMaxServer.rpc
             if (error_code != 0)
             {
                 s = msg + "\nError no: " + error_code + " - " + NativeMethods.GetErrorMessage(error_code);
+                log.LOG(s);
                 MessageBox.Show(s);
             }
             return s;
@@ -81,35 +83,10 @@ namespace YMaxServer.rpc
             var error_code = Marshal.GetLastWin32Error();
             return handleError(msg, error_code);
         }
-
-        public void init()
-        {
-            if (pDll == 0)
-                pDll = NativeMethods.LoadLibrary(SERVICE_DLL_PATH);
-
-            if (pDll == 0)
-            {
-                MessageBox.Show("Failed to load plugin " + SERVICE_DLL_PATH);
-                return;
-            };
-
-            IntPtr pAddressOfFunctionToCall = NativeMethods.GetProcAddress(pDll, "startService");
-            //oh dear, error handling here
-            if (pAddressOfFunctionToCall == IntPtr.Zero)
-            {
-                MessageBox.Show("Failed to load function startService");
-                return;
-            };
-
-
-            StartService startService = (StartService)Marshal.GetDelegateForFunctionPointer(
-                                                                                    pAddressOfFunctionToCall,
-                                                                                    typeof(StartService));
-            if (startService != null) startService();
-        }
-
+      
         public override Task<ResultType> Shutdown(LibInfo request, ServerCallContext context)
         {
+            log.LOG("Shutting down\n");
                 var rs = new ResultType();
                 if (pDll == 0)
                     return Task.FromResult(rs);
@@ -142,6 +119,7 @@ namespace YMaxServer.rpc
         public override Task<ResultType> CloseApp(LibInfo request, ServerCallContext context)
         {
             //Loader.Global.
+            log.LOG("Closing apps\n");
             var p = System.Diagnostics.Process.GetCurrentProcess();
             p.Close();
             return base.CloseApp(request, context);
@@ -156,6 +134,7 @@ namespace YMaxServer.rpc
 
         public override Task<ResultType> LoadDll(LibInfo request, ServerCallContext context)
         {
+            log.LOG("Load dll {0}\n", SERVICE_DLL_PATH);
             var rs = new ResultType();
             rs.ProcessId = System.Diagnostics.Process.GetCurrentProcess().Id;
             rs.Error = false;
@@ -167,23 +146,25 @@ namespace YMaxServer.rpc
             //
             if (pDll == 0)
             {
+                log.LOG("Failed to load library.\n");
                 rs.Message = handleError("Failed to load library " + SERVICE_DLL_PATH + ".");
                 rs.Error = true;
                 return Task.FromResult(rs);
             };
 
-
+            log.LOG("Getting address of startServer() ... \n");
             IntPtr pAddressOfFunctionToCall = NativeMethods.GetProcAddress(pDll, "startService");
             
             //oh dear, error handling here
             if (pAddressOfFunctionToCall == IntPtr.Zero)
             {
+                log.LOG("Failed to load function startService.\n");
                 rs.Message = handleError("Failed to load function startService.");
                 rs.Error = true;
                 return Task.FromResult(rs);
             };
 
-
+            log.LOG("Finding service from dll....\n");
             StartService startService = (StartService)Marshal.GetDelegateForFunctionPointer(
                                                                                     pAddressOfFunctionToCall,
                                                                                     typeof(StartService));
@@ -191,7 +172,12 @@ namespace YMaxServer.rpc
             //var ip_addr = String.Format("127.0.0.1:{0}", 39000 + YLoaderServer.worker_id);
             //MessageBox.Show(YLoaderServer.worker.IpMax);
             //if (startService != null) startService("ServiceImpl.dll", (YLoaderServer.worker.MachineIp+":"+YLoaderServer.worker.PortMax));
-            if (startService != null) startService("ServiceImpl.dll", "127.0.0.1:" + YLoaderServer.worker.PortMax);
+            if (startService != null)
+            {
+                log.LOG("Found. Starting service ....\n");
+                startService("ServiceImpl.dll", "127.0.0.1:" + YLoaderServer.worker.PortMax);
+                log.LOG("Service has been successfully started\n");
+            }
 
             //Channel channel = new Channel("0.0.0.0:39001", ChannelCredentials.Insecure);
             //y3d.s.Tools.ToolsClient toolClient = new y3d.s.Tools.ToolsClient(channel);
@@ -209,6 +195,7 @@ namespace YMaxServer.rpc
         public const string MASTER_IP = "127.0.0.1:38000";
         public static YWorker worker = null;
         public static Server server;
+        public static LogClient log = LogClient.Instance;
         public static void Start()
         {       
             var MasterClient = new y3d.s.YServiceMaster.YServiceMasterClient(new Channel(MASTER_IP, ChannelCredentials.Insecure));
@@ -231,6 +218,7 @@ namespace YMaxServer.rpc
                     Ports = { new ServerPort("localhost", worker.PortLoader, ServerCredentials.Insecure) }
                 };
                 server.Start();
+                log.LOG("\nYMax server has started at port {0}\n", worker.PortLoader);
                 return;
             });
 

@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Y3D;
 
 namespace LogClientCSharp
@@ -16,7 +17,7 @@ namespace LogClientCSharp
         private const string LOGSERVERADRESS = "127.0.0.1:39393";
         private static readonly Lazy<LogClient> logClient = new Lazy<LogClient>(() => new LogClient());
         private LogService.LogServiceClient client;
-        private string _logServerTerminalAddress = "F:\\WorkSpace\\3D\\MaxNet\\Y3D\\x64\\Release\\LogServer.exe";
+        private string _logServerTerminalAddress = "LogServer.exe";
         private Object thisLock = new Object();        
 
         private LogClient()
@@ -71,13 +72,18 @@ namespace LogClientCSharp
             }
             catch (RpcException e)
             {
-                Console.WriteLine("RPC failed -> "+e);     
+                LogClient.Instance.LOG("RPC failed -> "+e);     
                 lock (thisLock)
                 {
                     this.client = new LogService.LogServiceClient(new Channel(LOGSERVERADRESS, ChannelCredentials.Insecure));
+                    string assemblyFolder = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
                     var filename = Path.GetFileNameWithoutExtension(_logServerTerminalAddress);
                     if (!IsProcessIsRunning(filename))
-                        Process.Start(_logServerTerminalAddress);
+                    {
+                        string path = Path.Combine(assemblyFolder+"\\..\\..", _logServerTerminalAddress);                        
+                        Process.Start(path);
+                    }
+                        
                 }                
                 return false;
             }

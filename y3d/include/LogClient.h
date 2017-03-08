@@ -273,15 +273,6 @@ namespace logserver {
 	}*/
 
 
-	#define PRINTER(name) printer(#name, (name))
-
-	template <typename T>
-	std::string printer(char *name, T value) {
-		fmt::MemoryWriter w;
-		w.write(" {0} = {1}", name, value);
-		return std::string(w.c_str());
-	}
-
 	inline std::string const& to_string(std::string const& s) { return s; }
 
 	template<typename... Args>
