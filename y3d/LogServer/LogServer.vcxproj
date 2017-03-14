@@ -164,6 +164,15 @@ xcopy /Y "$(OutDir)$(TargetName)$(TargetExt)" "$(ADSK_3DSMAX_x64_2017)"</Command
     <ClCompile Include="..\ServiceImpl\ylogservice.pb.cc" />
     <ClCompile Include="Server.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="LogServer.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="icon.ico" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
