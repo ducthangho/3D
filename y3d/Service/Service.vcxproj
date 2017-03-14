@@ -43,7 +43,7 @@
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Platform)'=='x64'">C:\Program Files\Autodesk\3ds Max 2017\</OutDir>
+    <OutDir Condition="'$(Platform)'=='x64'">C:\Program Files\Autodesk\3ds Max 2017</OutDir>
     <IntDir>$(ProjectDir)\obj\$(MaxPlatform)\$(MaxConfiguration)\</IntDir>
     <TargetName>Service</TargetName>
     <TargetExt>.dll</TargetExt>
@@ -124,10 +124,15 @@
       <Command Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">call "$(ProjectDir)..\bin\post_build.cmd" "$(ProjectDir)" "$(ADSK_3DSMAX_x64_2017)"</Command>
     </PostBuildEvent>
     <PostBuildEvent>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">call "$(ProjectDir)..\bin\post_build.cmd" "$(ProjectDir)" "$(ADSK_3DSMAX_x64_2017)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">xcopy /Y /D "$(ProjectDir)..\lib\protobuf\$(Configuration)\*.dll" "$(ADSK_3DSMAX_x64_2017)"
+xcopy /Y /D "$(ProjectDir)..\lib\grpc\$(Configuration)\grpc_dll.dll" "$(ADSK_3DSMAX_x64_2017)"
+xcopy /Y /D "$(ProjectDir)..\lib\grpc\$(Configuration)\grpc_dll.pdb" "$(ADSK_3DSMAX_x64_2017)"
+call "$(ProjectDir)..\bin\start_workers.cmd"</Command>
     </PostBuildEvent>
     <PostBuildEvent>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">call "$(ProjectDir)..\bin\post_build.cmd" "$(ProjectDir)" "$(ADSK_3DSMAX_x64_2017)"
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">xcopy /Y /D "$(ProjectDir)..\lib\protobuf\$(Configuration)\*.dll" "$(ADSK_3DSMAX_x64_2017)"
+xcopy /Y /D "$(ProjectDir)..\lib\grpc\$(Configuration)\grpc_dll.dll" "$(ADSK_3DSMAX_x64_2017)"
+xcopy /Y /D "$(ProjectDir)..\lib\grpc\$(Configuration)\grpc_dll.pdb" "$(ADSK_3DSMAX_x64_2017)"
 call "$(ProjectDir)..\bin\start_workers.cmd"</Command>
     </PostBuildEvent>
     <PreBuildEvent>
