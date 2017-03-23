@@ -72,19 +72,25 @@ namespace LogClientCSharp
             }
             catch (RpcException e)
             {
-                LogClient.Instance.LOG("RPC failed -> "+e);     
+                Console.WriteLine("RPC failed ... -> " + e + "\nEnd RPC fail output");
                 lock (thisLock)
                 {
-                    this.client = new LogService.LogServiceClient(new Channel(LOGSERVERADRESS, ChannelCredentials.Insecure));
-                    string assemblyFolder = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-                    var filename = Path.GetFileNameWithoutExtension(_logServerTerminalAddress);
-                    if (!IsProcessIsRunning(filename))
-                    {
-                        string path = Path.Combine(assemblyFolder+"\\..\\..", _logServerTerminalAddress);                        
-                        Process.Start(path);
+                    try {
+                        this.client = new LogService.LogServiceClient(new Channel(LOGSERVERADRESS, ChannelCredentials.Insecure));
+                        string assemblyFolder = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+                        var filename = Path.GetFileNameWithoutExtension(_logServerTerminalAddress);
+                        if (!IsProcessIsRunning(filename))
+                        {
+                            string path = Path.Combine(assemblyFolder + "\\..\\", _logServerTerminalAddress);
+                            Console.WriteLine("fileName --<:" + path);
+                            Process.Start(path);
+                        }
                     }
-                        
-                }                
+                    catch (Exception e2)
+                    {
+                        Console.WriteLine("End Error when invoke LogServer terminator "+ ",please try to invoke LogServerterminaltor manually");
+                    }
+                }
                 return false;
             }
         }
