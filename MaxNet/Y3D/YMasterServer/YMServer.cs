@@ -8,6 +8,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Collections.Generic;
 using System.Collections.Concurrent;
+using LogClientCSharp;
 
 namespace YMasterServer
 {
@@ -363,10 +364,12 @@ namespace YMasterServer
         public static int LastIndex = 0;
         public const string MASTER_IP_DEFAULT = "127.0.0.1";
         public static Server server;
+        public static LogClient log = LogClient.Instance;
+
         //public static ConcurrentDictionary<int, YWorker> workers = new ConcurrentDictionary<int, YWorker>();
 
         public static Task<bool> ip_ready(string ip_address, int timeout=3000)
-        {
+        {            
             var channel = new Channel(ip_address, ChannelCredentials.Insecure);
             var t = channel.ConnectAsync(deadline: DateTime.UtcNow.AddMilliseconds(timeout));
 
@@ -1040,6 +1043,7 @@ namespace YMasterServer
                 Services = { y3d.s.YServiceMaster.BindService(new YServiceMasterImpl()) },
                 Ports = { new ServerPort(YSys.MasterServer.Address, YSys.MasterServer.Port, ServerCredentials.Insecure) }
             };
+            log.LOG("Hello ..");
             server.Start();
             YRedis.rc.Db.KeyDelete("yworker_temp");
             RestoreAllWorkers();

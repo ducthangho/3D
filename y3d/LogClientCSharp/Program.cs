@@ -16,7 +16,7 @@ namespace LogClientCSharp
 
         void loaddll()
         {
-            Console.WriteLine("Helo here");
+            Console.WriteLine("Helo here...");
             var client = new YServiceMaxLoader.YServiceMaxLoaderClient(new Channel("127.0.0.1:38001", ChannelCredentials.Insecure));
             LibInfo req = new LibInfo();
             req.Id = 38001+9;
@@ -44,12 +44,20 @@ namespace LogClientCSharp
             }
         }
 
+        void testLog()
+        {
+            LogClient a = LogClient.Instance;
+            a.LOG("dsdsds");
+        }
+
         void PickTest(int testNumber)
         {
             if (testNumber == 1)
                 test1();
             else if (testNumber == 2)
                 loaddll();
+            else if (testNumber == 3)
+                testLog();
         }
 
         static int verbosity;
@@ -104,6 +112,9 @@ namespace LogClientCSharp
                 for (int i = 0; i < repeat; ++i)
                     Console.WriteLine(message, name);
             }
+
+            //LogClient a = LogClient.Instance;
+            //a.LOG("dsdsds");
         }
 
         static void ShowHelp(OptionSet p)

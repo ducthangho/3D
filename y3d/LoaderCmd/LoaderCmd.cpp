@@ -140,7 +140,7 @@ void loadDll()
 
 void test4() {	
 	//auto client = y3d::Tools::NewStub(grpc::CreateChannel(service_ip, grpc::InsecureChannelCredentials()));
-	std::string ip = "127.0.0.1:39007";
+	std::string ip = "127.0.0.1:39001";
 	auto client = y3d::YServiceTest::NewStub(grpc::CreateChannel(ip, grpc::InsecureChannelCredentials()));
 	grpc::ClientContext context;
 	y3d::EmptyParam req;
@@ -243,7 +243,10 @@ int main(int argc, char** argv)
 			if (t == 1) {
 				test1();
 			}
-			else if (t == 2) { test2(); }
+			else if (t == 2) 
+			{ 
+				test2(); 
+			}
 			else if (t==3)
 			{
 				test3();
