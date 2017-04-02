@@ -2,15 +2,18 @@ rem set redis-server-path=C:\ProgramData\chocolatey\bin\redis-server.exe
 rem set log-server-path=F:\WorkSpace\3D\y3d\bin\LogServer.exe
 rem set YMasterServer-path=F:\WorkSpace\3D\y3d\bin\mserver\YMasterServer.exe
 set redis-server-path="C:\ProgramData\chocolatey\bin\"
-set log-server-path="F:\WorkSpace\3D\y3d\bin\"
-set YMasterServer-path="F:\WorkSpace\3D\y3d\bin\mserver\"
+set log-server-path="%Y3D_ROOT%\bin"
+set YMasterServer-path="%Y3D_ROOT%\bin\mserver\"
 set threedsmax-path="C:\Program Files\Autodesk\3ds Max 2017\"
+set LoaderCmd-path="%Y3D_ROOT%\bin"
 echo %threedsmax-path%
 
+rem set a=
+rem echo %a%
 
 
 tasklist /FI "IMAGENAME eq redis-server.exe" 2>NUL | find /I /N "redis-server.exe">NUL
-if "%ERRORLEVEL%"=="0" (
+if "%ERRORLEVEL%"=="0" (	
 	echo redis-server.exe is running	
 )else (
 	start /D %redis-server-path% redis-server.exe
@@ -36,3 +39,10 @@ if "%ERRORLEVEL%"=="0" (
 )else (
 	start /D %threedsmax-path% 3dsmax.exe
 )
+
+rem tasklist /FI "IMAGENAME eq LoaderCmd.exe" 2>NUL | find /I /N "LoaderCmd.exe">NUL
+rem if "%ERRORLEVEL%"=="0" (
+rem 	echo LoaderCmd.exe is running
+rem )else (
+rem 	start "??" /D %LoaderCmd-path% LoaderCmd.exe
+rem )
