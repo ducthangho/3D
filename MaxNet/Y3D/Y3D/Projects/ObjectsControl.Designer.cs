@@ -1,4 +1,4 @@
-﻿namespace Y3D.Forms
+﻿namespace Y3D.Projects
 {
     partial class ObjectsControl
     {

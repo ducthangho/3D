@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using y3d.e;
 
-namespace Y3D.Forms
+namespace Y3D.Projects
 {
     public partial class ObjectsControl : UserControl
     {

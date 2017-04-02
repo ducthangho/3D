@@ -89,11 +89,12 @@ namespace YMasterServer
         public static YWorker getWorkerById(int wid)
         {
             var x = rc.Db.HashGet("yworkers", wid.ToString());
-            return YWorker.Parser.ParseFrom(x);
+            return (x.IsNullOrEmpty)?null:YWorker.Parser.ParseFrom(x);
         }
 
         public static bool removeWorkerById(int wid)
         {
+            //Console.WriteLine(String.Format("Remove Worker {0} from database", wid));
             return rc.Sut.HashDelete("yworkers", wid.ToString());
         }
 
@@ -114,6 +115,50 @@ namespace YMasterServer
             return ret;
         }
 
+        public static List<YWorker> getWorkersByMachine(YMachine req, bool include=true)
+        {
+            var ww = rc.Db.HashValues("yworkers");
+            List<YWorker> ret = new List<YWorker>();
+            foreach (var w in ww)
+            {
+                var yw = YWorker.Parser.ParseFrom(w);
+
+                if (yw.MachineIp == req.IpAddress)
+                {
+                    if (include) ret.Add(yw);
+                } else
+                {
+                    if (!include) ret.Add(yw);
+                }
+            }
+            return ret;
+        }
+
+        public static List<YWorker> getWorkersByMachine(String ip, bool include = true)
+        {
+            var ww = rc.Db.HashValues("yworkers");
+            List<YWorker> ret = new List<YWorker>();
+            foreach (var w in ww)
+            {
+                var yw = YWorker.Parser.ParseFrom(w);
+                if (ip=="127.0.0.1"||ip=="localhost")
+                {
+                    if (include) ret.Add(yw);
+                } else
+                {
+                    if (yw.MachineIp == ip)
+                    {
+                        if (include) ret.Add(yw);
+                    }
+                    else
+                    {
+                        if (!include) ret.Add(yw);
+                    }
+                }
+            }
+            return ret;
+        }
+
         public static void saveWorkers2Temp()
         {
             var x = rc.Db.HashGetAll("yworkers");
@@ -129,6 +174,71 @@ namespace YMasterServer
             //rc.Db.KeyDelete("yworker_temp");
         }
 
+        public static UserResponse SignUp(string u, string p)
+        {
+            UserResponse ur = new UserResponse();
+            ur.Rep = new ResultReply();
+            ur.Rep.Error = false;
+            //var user = rc.Db.HashGet("yusers",u);
+            //if (!user.IsNullOrEmpty)
+            if (rc.Db.HashExists("yusers", u))
+            {
+                ur.Rep.Error = true;
+                ur.Rep.Message = String.Format("User ({0}) already exists, please choose another!", u);
+                return ur;
+            }
+            YUser yu = new YUser();
+            yu.Username = u;
+            yu.Password = p;
+            rc.Sut.HashSet("yusers", u, yu);
+            ur.User = yu;
+            ur.User.Password = "";
+            return ur;
+        }
+
+        public static UserResponse SignIn(string u, string p)
+        {
+            UserResponse ur = new UserResponse();
+            ur.Rep = new ResultReply();
+            ur.Rep.Error = true;
+            var user = rc.Db.HashGet("yusers", u);
+            if (!user.IsNullOrEmpty)
+            {
+                var yu = YUser.Parser.ParseFrom(user);
+                if (yu.Password==p)
+                {
+                    ur.Rep.Error = false;
+                    ur.User = yu;
+                    ur.User.Password = "";
+                    ur.User.Settings = MixUserSettings(yu);
+                    return ur;
+                }
+            }
+            ur.Rep.Message = "The user does not exist on this server or the password that was entered does not match the user!";
+            return ur;
+        }
+
+        public static UserSetting MixUserSettings(YUser yu)
+        {
+            UserSetting ret = new UserSetting();
+            if (yu.Settings==null)
+            {
+                ret.Apps.Add(YMServer.YSys.Apps);
+                ret.Workspace = YMServer.YSys.WorkingFolder + "\\" + yu.Username + "\\";
+            } else
+            {
+                foreach (var app in YMServer.YSys.Apps)
+                {
+                    if (!yu.Settings.Apps.ContainsKey(app.Key))
+                    {
+                        ret.Apps.Add(app.Key, app.Value);
+                    }
+                }
+                if (ret.Workspace.Length<1)
+                    ret.Workspace = YMServer.YSys.WorkingFolder + "\\" + yu.Username + "\\";
+            }
+            return ret;
+        }
     }
 
     public class CacheClientBase : IDisposable

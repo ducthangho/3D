@@ -209,6 +209,20 @@ namespace YMaxServer.rpc
         public const string MASTER_IP = "127.0.0.1:38000";
         public static YWorker worker = null;
         public static Server server;
+
+        public static string GetLocalIPAddress()
+        {
+            var host = System.Net.Dns.GetHostEntry(System.Net.Dns.GetHostName());
+            foreach (var ip in host.AddressList)
+            {
+                if (ip.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)
+                {
+                    return ip.ToString();
+                }
+            }
+            return "";
+
+        }
         public static void Start()
         {       
             var MasterClient = new y3d.s.YServiceMaster.YServiceMasterClient(new Channel(MASTER_IP, ChannelCredentials.Insecure));
@@ -216,7 +230,7 @@ namespace YMaxServer.rpc
             req.CallInApp = true;
 
             req.Machine = new YMachine();
-            req.Machine.IpAddress = "127.0.0.1";
+            req.Machine.IpAddress = GetLocalIPAddress();
             req.Machine.Mname = "";
             if (MasterClient == null) return;
             var rep = MasterClient.AddWorkerAsync(req);

@@ -29,17 +29,17 @@ namespace Y3D.rpc
         public static Forms.WorkerForm wform = null;
         public static Task Start()
         {
-            return Utils.MainWorker.getMainWorker().ContinueWith(
+            return Y3D.Projects.Utils.getMainWorker().ContinueWith(
                 (task) =>
                 {
                     if (task.IsCompleted)
                     {
-                        if (Utils.MainWorker.worker!=null)
+                        if (Y3D.Projects.Utils.worker!=null)
                         {
                             server = new Server
                             {
                                 Services = { y3d.s.YServiceMainWorker.BindService(new YServiceMainWorkerImpl()) },
-                                Ports = { new ServerPort("0.0.0.0", Utils.MainWorker.worker.Wid+37000, ServerCredentials.Insecure) }
+                                Ports = { new ServerPort("127.0.0.1", Y3D.Projects.Utils.worker.Wid+37000, ServerCredentials.Insecure) }
                             };
                             server.Start();
                         }

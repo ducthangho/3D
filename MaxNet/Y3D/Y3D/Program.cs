@@ -16,7 +16,7 @@ namespace Y3D
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Forms.YMainForm());
+            Application.Run(new Users.AuthForm());
         }
     }
 }

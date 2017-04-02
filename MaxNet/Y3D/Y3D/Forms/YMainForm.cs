@@ -49,7 +49,7 @@ namespace Y3D.Forms
         private void YMainForm_Load(object sender, EventArgs e)
         {
             //MessageBox.Show(System.IO.Directory.GetCurrentDirectory());
-            Utils.Tools.InitSystem();
+            //Utils.Tools.InitSystem();
             testControl1.Show();
             active_htab(btnTabTest);
             rpc.YServer.Start();
@@ -76,7 +76,7 @@ namespace Y3D.Forms
             DialogResult result = pf.ShowDialog();
             if (result == DialogResult.OK)
             {
-                this.objectsControl1.updateYAL(Utils.Tools.CurrentYAL);
+                this.objectsControl1.updateYAL(Y3D.Projects.Utils.CurrentYAL);
             }
         }
 
@@ -115,7 +115,8 @@ namespace Y3D.Forms
 
         private void YMainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Utils.MainWorker.detach_mainworker();
+            Y3D.Projects.Utils.detach_mainworker();
+            Application.Exit();
         }
     }
 }

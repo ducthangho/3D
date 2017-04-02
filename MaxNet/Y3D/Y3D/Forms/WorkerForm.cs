@@ -57,15 +57,16 @@ namespace Y3D.Forms
             AllWorkerParam req = new AllWorkerParam();
             req.Status = 2;
             req.Refresh = true;
+            req.Machine = Y3D.Users.Auth.ymachine;
 
-            //var rep = rpc.YClient.MasterClient.AllWorkers(req);
+            //var rep = Y3D.Projects.Utils.MasterClient.AllWorkers(req);
             //if (!rep.Error)
             //{
             //    dlvWorker.SetObjects(rep.Wlist.Workers);
             //}
 
 
-            var xx = rpc.YClient.MasterClient.AllWorkersAsync(req);
+            var xx = Y3D.Projects.Utils.MasterClient.AllWorkersAsync(req);
             var rs = xx.ResponseAsync.ContinueWith((t) =>
             {
                 if (!t.IsFaulted && !t.IsCanceled) 
@@ -90,7 +91,7 @@ namespace Y3D.Forms
             WorkerParam req = new WorkerParam();
             req.Wid = yw.Wid;
             //req.Wname = yw.Wname;
-            var rep = rpc.YClient.MasterClient.StartWorkerAsync(req);
+            var rep = Y3D.Projects.Utils.MasterClient.StartWorkerAsync(req);
             rep.ResponseAsync.ContinueWith(
                 (t) =>
                 {
@@ -139,7 +140,7 @@ namespace Y3D.Forms
 
             WorkerParam wp = new WorkerParam();
             wp.Wid = yw.Wid;
-            var rep = rpc.YClient.MasterClient.StopWorkerAsync(wp);
+            var rep = Y3D.Projects.Utils.MasterClient.StopWorkerAsync(wp);
 
             rep.ResponseAsync.ContinueWith(
                 (t) =>
@@ -173,7 +174,7 @@ namespace Y3D.Forms
             WorkerParam wp = new WorkerParam();
             wp.Wid = yw.Wid;
             //MessageBox.Show(yw.ProcessId.ToString());
-            var rep = rpc.YClient.MasterClient.CloseWorkerApp(wp);
+            var rep = Y3D.Projects.Utils.MasterClient.CloseWorkerApp(wp);
         }
 
         private void dlvWorker_Click(object sender, EventArgs e)

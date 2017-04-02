@@ -28,14 +28,14 @@ namespace Y3D.Forms
                 return t.OriginalPath + "\\" + t.Pname+".max";
             };
 
-            this.dlvListProject.SetObjects(Utils.Tools.YSys.Projects);
+            this.dlvListProject.SetObjects(Y3D.Projects.Utils.YSys.Projects);
             this.TopMost = true;
         }
 
         private void LoadP()
         {
             ProjectInfo pi = (ProjectInfo)this.dlvListProject.SelectedObject;
-            if (Utils.Tools.LoadProject(pi))
+            if (Y3D.Projects.Utils.LoadProject(pi))
             {
                 this.DialogResult = DialogResult.OK;
                 this.Close();
