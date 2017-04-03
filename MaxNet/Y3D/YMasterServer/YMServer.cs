@@ -681,7 +681,7 @@ namespace YMasterServer
                 tasks.Add(Task.Run(
                     () => {
                         var y = check_worker(w, loadTmp);
-                        y.ContinueWith(_ => { YRedis.updateWorker(y.Result); });
+                        return y.ContinueWith(_ => { YRedis.updateWorker(y.Result); });
                     }
                 ));
             }

@@ -167,6 +167,10 @@ namespace Y3D.Projects
                                         }
                                         return true;
                                     });
+                                } else if (w.NetState==2)
+                                {
+                                    worker = w;
+                                    return Task.FromResult(true);
                                 }
                             }
                         }
@@ -191,7 +195,7 @@ namespace Y3D.Projects
                 //    }
                 //    return true;
                 //});
-                return Task.FromResult(false); 
+                return Task.FromResult(true); 
             }
             //if (worker.Status != y3d.e.ServingStatus.Serving)
             //{
