@@ -2,6 +2,9 @@
 #include "YLibs.h"
 #include "YProjectUtils.h"
 
+#include "LogClient.h"
+using namespace logserver;
+
 void getObjInfo(INode* node, YObject* yo) {
 	auto* oo = getObject(node);
 	auto t = getSuperType(oo);
@@ -114,83 +117,61 @@ void ObjectFromMax(YAreaList* yal) {
 	ip->SetViewportMax(true);
 }
 
-//void NewYProject(const NewProjectParam* pp, ResponseNProject* rnp) {
-//	std::string tmp = "yms.pre_optimize";
-//	char buf[1000];
-//	std::sprintf(buf, "%s \"%s\" \"%s\"", tmp.c_str(), pp->folder().c_str(), pp->fname().c_str());
-//	auto cmd = s2ws(buf);
-//	ExecuteMAXScriptScript(cmd.c_str());
-//
-//	YAreaList yal;
-//	ObjectFromMax(&yal);
-//
-//	std::string path;
-//	path = pp->folder();
-//	path += "\\" + pp->fname() + "_y3d\\yal.y3d";
-//
-//	auto pi = YSys.add_projects();
-//	pi->CopyFrom(rnp->pinfo());
-//	saveSystem();
-//
-//	log(path);
-//
-//	std::fstream output(path, std::ios::out | std::ios::trunc | std::ios::binary);
-//	if (!yal.SerializePartialToOstream(&output)) {
-//		MessageBoxW(NULL, L"Can not create List Area Object file!", L"Error", MB_OK);
-//	}
-//	rnp->mutable_yal()->CopyFrom(yal);
-//	//rnp->mutable_sys()->CopyFrom(YSys);
-//}
-//
-//void LoadNProject(ResponseNProject* rnp) {
-//	auto* ip = GetCOREInterface();
-//	std::string pfolder;
-//	pfolder.append(rnp->pinfo().project_path().c_str());
-//	pfolder += "\\" + rnp->pinfo().pname() + "_y3d\\";
-//	//pfolder.append("\\");
-//	std::string wpath;
-//	wpath.append(pfolder);
-//	wpath.append(rnp->pinfo().pname().c_str());
-//	wpath.append("90.max");
-//	std::string yal_path;
-//	yal_path.append(pfolder);
-//	yal_path.append("yal.y3d");
-//	if (ip->LoadFromFile(s2ws(wpath).c_str()) == 0) {
-//		MessageBoxW(NULL, L"Can not load working file!", L"Error", MB_OK);
-//	}
-//	else {
-//		std::fstream input(yal_path, std::ios::in | std::ios::binary);
-//		if (!input) {
-//			MessageBoxW(NULL, L"Can not load List Area Object file!", L"Error", MB_OK);
-//		}
-//		else {
-//			YAreaList yal;
-//			if (!yal.ParseFromIstream(&input)) {
-//				MessageBoxW(NULL, L"Can not read setting file!", L"Error", MB_OK);
-//			}
-//			else {
-//				rnp->mutable_yal()->CopyFrom(yal);
-//				//rnp->mutable_sys()->CopyFrom(YSys);
-//			}
-//		}
-//	}
-//}
-//
-//void DeleteYProject(ResponseNProject* rnp) {
-//	for (int i = 0; i < YSys.projects_size(); i++)
-//	{
-//		auto pi = YSys.projects(i);
-//		if ((pi.pname() == rnp->pinfo().pname()) && (pi.project_path() == rnp->pinfo().project_path())) {
-//			YSys.mutable_projects()->DeleteSubrange(i, 1);
-//			saveSystem();
-//			//rnp->mutable_sys()->CopyFrom(YSys);
-//			return;
-//		}
-//	}
-//	MessageBoxW(NULL, L"Can not find project!", L"Error", MB_OK);
-//	rnp->set_err("No project found!");
-//}
+void NewYProject(const NewProjectParam* pp, ResponseNProject* rnp) {
+	logserver::LOG("\nNew project:{}\n",rnp->pinfo().pname());
+	std::string tmp = "yms.pre_optimize";
+	char buf[1000];
+	std::sprintf(buf, "%s \"%s\" \"%s\" \"%s\"", tmp.c_str(), pp->folder().c_str(), pp->fname().c_str(),pp->project_path().c_str());
+	auto cmd = s2ws(buf);
+	ExecuteMAXScriptScript(cmd.c_str());
 
+	YAreaList yal;
+	ObjectFromMax(&yal);
+
+	//std::string path;
+	//path = pp->project_path();
+	//path += "\\yal.y3d";
+	auto path = fmt::format("{0}\\yal.y3d",pp->project_path());
+	//auto pi = YSys.add_projects();
+	//pi->CopyFrom(rnp->pinfo());
+	//saveSystem();
+	logserver::LOG(path);
+	std::fstream output(path, std::ios::out | std::ios::trunc | std::ios::binary);
+	if (!yal.SerializePartialToOstream(&output)) {
+		MessageBoxW(NULL, L"Can not create List Area Object file!", L"Error", MB_OK);
+	}
+	rnp->mutable_yal()->CopyFrom(yal);
+}
+
+void LoadNProject(ResponseNProject* rnp) {
+	auto* ip = GetCOREInterface();
+	auto s90 = fmt::format("{0}\\{1}90.max", rnp->pinfo().project_path(), rnp->pinfo().pname());
+	auto yal_path = fmt::format("{0}\\yal.y3d", rnp->pinfo().project_path());
+	rnp->set_err(false);
+
+	if (ip->LoadFromFile(s2ws(s90).c_str()) == 0) {
+		rnp->set_err(true);
+		MessageBoxW(NULL, L"Can not load working file!", L"Error", MB_OK);
+	}
+	else {
+		std::fstream input(yal_path, std::ios::in | std::ios::binary);
+		if (!input) {
+			rnp->set_err(true);
+			MessageBoxW(NULL, L"Can not load List Area Object file!", L"Error", MB_OK);
+		}
+		else {
+			YAreaList yal;
+			if (!yal.ParseFromIstream(&input)) {
+				rnp->set_err(true);
+				MessageBoxW(NULL, L"Can not read yal file!", L"Error", MB_OK);
+			}
+			else {
+				rnp->mutable_yal()->CopyFrom(yal);
+			}
+		}
+	}
+}
+//
 
 void DoYEvent(YEvent ye) {
 	if (ye.has_select()) {
@@ -198,5 +179,14 @@ void DoYEvent(YEvent ye) {
 		std::string cmd = "select $" + name_select + ";";
 		//MessageBoxW(NULL, s2ws(cmd).c_str(), L"TEST", MB_OK);
 		ExecuteMAXScriptScript(s2ws(cmd).c_str());
+		return;
+	}
+	if (ye.has_close()) {
+		if (ye.close().bypass())
+			ExecuteMAXScriptScript(L"actionMan.executeAction 0 \"16\"");
+			//"resetMaxFile #noPrompt"
+		else {
+
+		}
 	}
 }

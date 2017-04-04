@@ -93,7 +93,7 @@ namespace Y3D.Projects
         public void initGroup()
         {
             EmptyParam ep = new EmptyParam();
-            var yal = rpc.YClient.CClient.GetObjectFromMax(ep);
+            var yal = Y3D.Projects.Utils.MaxClient.GetObjectFromMax(ep);
             this.gtreeListView.SetObjects(yal.Areas);
         }
 
@@ -137,13 +137,13 @@ namespace Y3D.Projects
                     ye.Isolate = new EIsolate();
                     ye.Isolate.EndIsolate = false;
                     ye.Isolate.Name = y.Name;
-                    rpc.YClient.CClient.DoEvent(ye);
+                    Y3D.Projects.Utils.MaxClient.DoEvent(ye);
                 } else
                 {
                     YEvent ye = new YEvent();
                     ye.Select = new ESelect();
                     ye.Select.Name = y.Name;
-                    rpc.YClient.CClient.DoEvent(ye);
+                    Y3D.Projects.Utils.MaxClient.DoEvent(ye);
                 }
 
                 
@@ -165,7 +165,7 @@ namespace Y3D.Projects
                 ye.Isolate = new EIsolate();
                 ye.Isolate.EndIsolate = !((CheckBox)sender).Checked;
                 ye.Isolate.Name = y.Name;
-                rpc.YClient.CClient.DoEvent(ye);
+                Y3D.Projects.Utils.MaxClient.DoEvent(ye);
             }
         }
 

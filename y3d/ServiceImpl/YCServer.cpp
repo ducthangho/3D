@@ -7,6 +7,7 @@
 #include "xnormal.pb.h"
 #include "xNormalSettings.h"
 #include "YProjectUtils.h"
+#include "LogClient.h"
 
 //std::promise<void> exit_requested;
 
@@ -142,51 +143,46 @@ Status YServiceImpl::GetObjectFromMax(ServerContext* context, const EmptyParam* 
 	return Status::OK;
 }
 //
-//Status YServiceImpl::NewProject(ServerContext* context, const NewProjectParam* np, ResponseNProject* rnp)
-//{
-//	Invoke([np, rnp]() -> void {
-//		bool noProject = true;
-//		for (int i = 0; i < YSys.projects_size(); i++)
-//		{
-//			auto pi = YSys.projects(i);
-//			if ((pi.pname() == np->fname()) && (pi.project_path() == np->folder())) {
-//				rnp->mutable_pinfo()->CopyFrom(pi);
-//				LoadNProject(rnp);
-//				//MessageBoxW(NULL, L"Load project cu....(chua lam)", L"Oh", MB_OK);
-//				noProject = false;
-//				break;
-//			}
-//		}
-//		if (noProject) {
-//			rnp->mutable_pinfo()->set_project_path(np->folder());
-//			rnp->mutable_pinfo()->set_pname(np->fname());
-//			NewYProject(np, rnp);
-//		}
-//
-//	});
-//	return Status::OK;
-//}
-//
-//Status YServiceImpl::LoadProject(ServerContext* context, const ProjectInfo* pi, ResponseNProject* rnp)
-//{
-//	Invoke([pi, rnp]() -> void {
-//		//rnp->mutable_pinfo = pi;
-//		rnp->mutable_pinfo()->CopyFrom(*pi);
-//		//rnp->mutable_pinfo()->set_path(np->folder());
-//		//rnp->mutable_pinfo()->set_pname(np->fname());
-//		LoadNProject(rnp);
-//	});
-//	return Status::OK;
-//}
-//
-//Status YServiceImpl::DeleteProject(ServerContext* context, const ProjectInfo* pi, ResponseNProject* rnp)
-//{
-//	Invoke([pi, rnp]() -> void {
-//		rnp->mutable_pinfo()->CopyFrom(*pi);
-//		DeleteYProject(rnp);
-//	});
-//	return Status::OK;
-//}
+Status YServiceImpl::NewProject(ServerContext* context, const NewProjectParam* np, ResponseNProject* rnp)
+{
+	Invoke([np, rnp]() -> void {
+		//bool noProject = true;
+		//for (int i = 0; i < YSys.projects_size(); i++)
+		//{
+		//	auto pi = YSys.projects(i);
+		//	if ((pi.pname() == np->fname()) && (pi.project_path() == np->folder())) {
+		//		rnp->mutable_pinfo()->CopyFrom(pi);
+		//		LoadNProject(rnp);
+		//		//MessageBoxW(NULL, L"Load project cu....(chua lam)", L"Oh", MB_OK);
+		//		noProject = false;
+		//		break;
+		//	}
+		//}
+		//if (noProject) {
+		//	rnp->mutable_pinfo()->set_project_path(np->folder());
+		//	rnp->mutable_pinfo()->set_pname(np->fname());
+		//	NewYProject(np, rnp);
+		//}
+		rnp->mutable_pinfo()->set_project_path(np->project_path());
+		auto opath = fmt::format("{0}\\{1}.max", np->folder(), np->fname());
+		logserver::LOG(opath);
+		rnp->mutable_pinfo()->set_original_path(opath);
+		rnp->mutable_pinfo()->set_pname(np->fname());
+		NewYProject(np, rnp);
+	});
+	return Status::OK;
+}
+
+Status YServiceImpl::LoadProject(ServerContext* context, const ProjectInfo* pi, ResponseNProject* rnp)
+{
+	Invoke([pi, rnp]() -> void {
+		rnp->mutable_pinfo()->CopyFrom(*pi);
+		//rnp->mutable_pinfo()->set_path(np->folder());
+		//rnp->mutable_pinfo()->set_pname(np->fname());
+		LoadNProject(rnp);
+	});
+	return Status::OK;
+}
 
 Status YServiceImpl::DoAction(ServerContext* context, grpc::ServerReaderWriter<YEvent, YEvent>* stream)
 {
@@ -283,13 +279,6 @@ void APIENTRY releaseObject(ServicePtr obj)
 YSERVICE_API ServiceSharedPtr APIENTRY getServicePtr()
 {
 	return std::shared_ptr<AbstractService>(new YServiceImpl);
-}
-
-void YServiceImpl::Helloworld()
-{
-	Invoke([]() {
-		mprintf(L"Hello world.\n");
-	});
 }
 
 void YServiceImpl::Initialize(void* codegen, void* gli)

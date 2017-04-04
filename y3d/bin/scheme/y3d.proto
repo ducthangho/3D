@@ -247,6 +247,7 @@ message YEvent {
     EDelete del = 5;
     ESelectMany select_many=6;
     EIsolate isolate=7;
+    EClose close=8;
   }
 }
 
@@ -277,6 +278,10 @@ message EDelete {
 message EIsolate {
   string name = 1;
   bool endIsolate=2;
+}
+
+message EClose {
+  bool bypass=1;
 }
 
 message ResponseEvent {
@@ -414,7 +419,8 @@ message NewProjectParam {
 message ResponseNProject {
   ProjectInfo pInfo=1;
   YAreaList yal=2;
-  string err=4;
+  bool err=3;
+  string message=4;
 }
 
 
@@ -553,19 +559,28 @@ message YUser {
 }
 
 message UserSetting {
-  map<string,WorkerApp> apps=1;
   string workspace=2;
   string nickname = 3;
   string master_ip = 4;
+  map<string,ProjectInfo> projects=5;
+  map<string,WorkerApp> apps=1;
 }
+
+// message YClientData {
+//   map<string,ProjectInfo> projects=1;
+//   string master_ip = 2;
+// }
 
 message UserParam {
   string uname = 1;
   string password = 2;
+  string token=3;
+  UserSetting usetting=4;
 }
 
 message UserResponse {
   YUser user = 1;
   ResultReply rep = 2;
   YWorkerList wlist = 3;
+  UserSetting usetting = 4;
 }

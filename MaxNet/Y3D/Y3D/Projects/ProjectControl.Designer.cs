@@ -88,6 +88,7 @@
             this.dlvListProject.UseCompatibleStateImageBehavior = false;
             this.dlvListProject.View = System.Windows.Forms.View.Details;
             this.dlvListProject.SelectedIndexChanged += new System.EventHandler(this.dlvListProject_SelectedIndexChanged);
+            this.dlvListProject.DoubleClick += new System.EventHandler(this.dlvListProject_DoubleClick);
             // 
             // olvColumnPName
             // 
@@ -95,7 +96,7 @@
             this.olvColumnPName.Groupable = false;
             this.olvColumnPName.HeaderFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.olvColumnPName.Text = "Project";
-            this.olvColumnPName.Width = 150;
+            this.olvColumnPName.Width = 130;
             // 
             // olvColumnPath
             // 

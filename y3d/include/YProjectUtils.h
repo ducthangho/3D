@@ -15,3 +15,5 @@ void buildGroup(INode* node, YGroup* yg);
 void buildGroup(INode* node, YArea* ya);
 void ObjectFromMax(YAreaList* yal);
 void DoYEvent(YEvent ye);
+void NewYProject(const NewProjectParam* pp, ResponseNProject* rnp);
+void LoadNProject(ResponseNProject* rnp);

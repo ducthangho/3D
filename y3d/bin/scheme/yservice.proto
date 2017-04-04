@@ -62,7 +62,7 @@ service YServiceMaster {
 
   rpc UserLogin(UserParam) returns (UserResponse) {}
   rpc UserRegister(UserParam) returns (UserResponse) {}
-
+  rpc UpdateUserSetting(UserParam) returns (ResultReply) {}
   
 }
 

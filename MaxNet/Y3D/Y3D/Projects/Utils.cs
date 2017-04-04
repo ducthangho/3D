@@ -11,6 +11,8 @@ using System.Net;
 using System.IO;
 using System.Diagnostics;
 
+using Y3D.Users;
+
 namespace Y3D.Projects
 {
     class Utils
@@ -29,7 +31,9 @@ namespace Y3D.Projects
         public static y3d.s.YServiceMaster.YServiceMasterClient MasterClient;
 
         public static YAreaList CurrentYAL = null;
-        public static YSystem YSys = new YSystem();
+        public static ProjectInfo CurrentP = null;
+        public static Forms.YMainForm mainform = null;
+        //public static YSystem YSys = new YSystem();
 
         public static void initSystem()
         {
@@ -214,53 +218,116 @@ namespace Y3D.Projects
             }
         }
 
-        static public void newProjectFromMax()
+        static public int is_project_exist(string path,string pname)
         {
-            //var mw = Y3D.Users.Auth.getMainWorker();
+            foreach (var item in Y3D.Users.Auth.usetting.Projects)
+            {
+                var pp = item.Value;
+                if (pp.OriginalPath == path) return 1;
+                if (pp.Pname == pname) return 2;
+            }
+            return 0;
+        }
 
-            //var x = Y3D.Projects.Utils.getMainWorker();
-            //x.ContinueWith(
-            //    (task) =>
-            //    {
 
-            //        if (task.IsFaulted || task.IsCanceled)
-            //        {
-            //            MessageBox.Show("Cannot start.");
-            //            return;
-            //        }
-            //        if (task.IsCompleted)
-            //        {
-            //            if (task.Result)
-            //            {
-            //                var openFileProject = new System.Windows.Forms.OpenFileDialog();
-            //                openFileProject.Filter = "max files (*.max)|*.max|All files (*.*)|*.*";
-            //                DialogResult result = openFileProject.ShowDialog();
+        static public bool newProjectFromMax()
+        {
+            if (worker != null)
+            {
+                var openFileProject = new System.Windows.Forms.OpenFileDialog();
+                openFileProject.Filter = "max files (*.max)|*.max|All files (*.*)|*.*";
+                DialogResult result = openFileProject.ShowDialog();
 
-            //                if (result == DialogResult.OK)
-            //                {
-            //                    NewProjectParam np = new NewProjectParam();
-            //                    np.Folder = System.IO.Path.GetDirectoryName(openFileProject.FileName);
-            //                    np.Fname = System.IO.Path.GetFileNameWithoutExtension(openFileProject.FileName);
-            //                }
-            //            }
-            //        }
+                if (result == DialogResult.OK)
+                {
+                    NewProjectParam np = new NewProjectParam();
+                    np.Folder = System.IO.Path.GetDirectoryName(openFileProject.FileName);
+                    np.Fname = System.IO.Path.GetFileNameWithoutExtension(openFileProject.FileName);
+                    np.ProjectPath = System.IO.Path.Combine(Auth.usetting.Workspace, np.Fname);
 
-            //    }
-            //);
+                    var x = is_project_exist(openFileProject.FileName,np.Fname);
+                    if (x==1)
+                    {
+                        var pi = Auth.usetting.Projects[np.Fname];
+                        if (LoadProject(pi))
+                        {
+                            return true;
+                        }
+                        // ton tai project -> load project
+                    } else if (x==2)
+                    {
+                        // trung ten: script doi ten ...
+                    } else
+                    {
+                        // new project
+                        var rnp = MaxClient.NewProject(np);
+                        if (rnp != null)
+                        {
+                            var o_file = System.IO.Path.Combine(np.ProjectPath, np.Fname + "_o.max");
+                            File.Copy(openFileProject.FileName, o_file);
+                            CurrentYAL = rnp.Yal;
+                            CurrentP = rnp.PInfo;
+                            Auth.usetting.Projects.Add(rnp.PInfo.Pname,rnp.PInfo);
+                            Auth.updateUSetting();
+                            return true;
+                        }
+                    }
+                }
+            } else
+            {
+                MessageBox.Show("No worker found!");
+            }
+            return false;
         }
 
         public static bool LoadProject(ProjectInfo pi)
         {
-            var rnp = rpc.YClient.CClient.LoadProject(pi);
-            if (rnp.Yal != null)
+            var rnp = Y3D.Projects.Utils.MaxClient.LoadProject(pi);
+            if (!rnp.Err)
             {
-                CurrentYAL = rnp.Yal;
+                if (rnp.Yal != null)
+                {
+                    CurrentYAL = rnp.Yal;
+                    CurrentP = pi;
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            return false;
+        }
+
+        public static bool DeleteProject(ProjectInfo pi)
+        {
+            if (pi == null) return false;
+            if (pi.Pname == CurrentP.Pname)
+            {
+                mainform.resetOM();
+                YEvent ye = new YEvent();
+                ye.Close = new EClose();
+                ye.Close.Bypass = true;
+                Y3D.Projects.Utils.MaxClient.DoEvent(ye);
+            }
+            if (Auth.usetting.Projects.Remove(pi.Pname))
+            {
+                if (System.IO.Directory.Exists(@pi.ProjectPath))
+                {
+                    try
+                    {
+                        System.IO.Directory.Delete(@pi.ProjectPath, true);
+                    }
+
+                    catch (System.IO.IOException e)
+                    {
+                        Console.WriteLine(e.Message);
+                    }
+                }
+                Auth.updateUSetting();
                 return true;
             }
-            else
-            {
-                return false;
-            }
+            return false;
         }
 
     }

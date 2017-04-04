@@ -13,15 +13,6 @@ namespace YMasterServer
 {
     class YServiceMasterImpl : y3d.s.YServiceMaster.YServiceMasterBase
     {
-        //public override Task<YWorkerResponse> AddWorker(YWorkerRequest req, ServerCallContext context)
-        //{
-        //    var new_id = YRedis.incrWorkerId();
-        //    YWorker yw = new YWorker();
-        //    yw.MachineIp = req.Machine.IpAddress;
-
-        //}
-
-
         public override Task<YWorkerResponse> AddWorker(YWorkerRequest req, ServerCallContext context)
         {
             var x = YMServer.GiveMeNewID(req.Machine.IpAddress);
@@ -337,6 +328,13 @@ namespace YMasterServer
             return Task.FromResult(YRedis.SignIn(request.Uname, request.Password));
         }
 
+        public override Task<ResultReply> UpdateUserSetting(UserParam request, ServerCallContext context)
+        {
+            ResultReply ret = new ResultReply();
+            ret.Error = !YRedis.updateUserSetting(request.Uname, request.Usetting);
+            if (ret.Error) ret.Message = "Can not update!";
+            return Task.FromResult(ret);
+        }
         //public override Task<ResultReply> CheckHealth(EmptyParam request, ServerCallContext context)
         //{
         //    //context.Status = new Grpc.Core.Status(StatusCode.OK,"OK");
@@ -470,7 +468,15 @@ namespace YMasterServer
                         w.Wtype = req.Wtype;
                         YRedis.updateWorker(w);
                         return Task.FromResult(w);
+                    } else
+                    {
+                        if (req.Wtype == WorkerType.MainWorker && w.Wtype == WorkerType.MainWorker)
+                        {
+                            YRedis.updateWorker(w);
+                            return Task.FromResult(w);
+                        }
                     }
+            
                 }
             } else if (req.Wtype==WorkerType.RemoteWorker) // get worker from other machine
             {
@@ -669,7 +675,6 @@ namespace YMasterServer
             return Task.FromResult(0);
         }
 
-
         public static Task<List<YWorker>> refreshWorkers(bool loadTmp=false)
         {
             Console.WriteLine("Recheck status of all workers");
@@ -680,8 +685,12 @@ namespace YMasterServer
             {
                 tasks.Add(Task.Run(
                     () => {
+                        var old_state = w.NetState;
                         var y = check_worker(w, loadTmp);
-                        return y.ContinueWith(_ => { YRedis.updateWorker(y.Result); });
+                        return y.ContinueWith(_ => {
+                            if (old_state != y.Result.NetState)
+                                YRedis.updateWorker(y.Result);
+                        });
                     }
                 ));
             }

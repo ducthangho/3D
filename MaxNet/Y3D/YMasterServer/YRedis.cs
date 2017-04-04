@@ -100,7 +100,7 @@ namespace YMasterServer
 
         public static bool updateWorker(YWorker yw)
         {
-            Console.WriteLine(String.Format("Update {0} to database", yw.Wname));
+            Console.WriteLine(String.Format("Update {0} to database (netstate:{1}, type:{2})", yw.Wname,yw.NetState,yw.Wtype.ToString()));
             return rc.Sut.HashSet("yworkers", yw.Wid.ToString(), yw);
         }
 
@@ -174,6 +174,25 @@ namespace YMasterServer
             //rc.Db.KeyDelete("yworker_temp");
         }
 
+        public static UserSetting getSettingByUser(string uname)
+        {
+            var x = rc.Db.HashGet("usettings", uname);
+            if (x.IsNullOrEmpty)
+            {
+                UserSetting ret = new UserSetting();
+                ret.Apps.Add(YMServer.YSys.Apps);
+                ret.Workspace = YMServer.YSys.WorkingFolder + "\\" + uname + "\\";
+                rc.Sut.HashSet("usettings", uname, ret);
+                return ret;
+            }
+            return UserSetting.Parser.ParseFrom(x);
+        }
+
+        public static bool updateUserSetting(string uname, UserSetting usetting)
+        {
+            return rc.Sut.HashSet("usettings", uname, usetting);
+        }
+
         public static UserResponse SignUp(string u, string p)
         {
             UserResponse ur = new UserResponse();
@@ -193,6 +212,7 @@ namespace YMasterServer
             rc.Sut.HashSet("yusers", u, yu);
             ur.User = yu;
             ur.User.Password = "";
+            ur.Usetting = getSettingByUser(yu.Username);
             return ur;
         }
 
@@ -210,7 +230,7 @@ namespace YMasterServer
                     ur.Rep.Error = false;
                     ur.User = yu;
                     ur.User.Password = "";
-                    ur.User.Settings = MixUserSettings(yu);
+                    ur.Usetting = getSettingByUser(yu.Username);
                     return ur;
                 }
             }
@@ -218,27 +238,31 @@ namespace YMasterServer
             return ur;
         }
 
-        public static UserSetting MixUserSettings(YUser yu)
-        {
-            UserSetting ret = new UserSetting();
-            if (yu.Settings==null)
-            {
-                ret.Apps.Add(YMServer.YSys.Apps);
-                ret.Workspace = YMServer.YSys.WorkingFolder + "\\" + yu.Username + "\\";
-            } else
-            {
-                foreach (var app in YMServer.YSys.Apps)
-                {
-                    if (!yu.Settings.Apps.ContainsKey(app.Key))
-                    {
-                        ret.Apps.Add(app.Key, app.Value);
-                    }
-                }
-                if (ret.Workspace.Length<1)
-                    ret.Workspace = YMServer.YSys.WorkingFolder + "\\" + yu.Username + "\\";
-            }
-            return ret;
-        }
+        //public static UserSetting MixUserSettings(string uname)
+        //{
+        //    UserSetting ret = new UserSetting();
+        //    var s = rc.Db.HashGet("usettings", uname);
+        //    if (s.IsNullOrEmpty)
+        //    {
+        //        ret.Apps.Add(YMServer.YSys.Apps);
+        //        ret.Workspace = YMServer.YSys.WorkingFolder + "\\" + uname + "\\";
+        //    } else
+        //    {
+        //        var settings = UserSetting.Parser.ParseFrom(s);
+        //        foreach (var app in YMServer.YSys.Apps)
+        //        {
+        //            if (!settings.Apps.ContainsKey(app.Key))
+        //            {
+        //                ret.Apps.Add(app.Key, app.Value);
+        //            }
+        //        }
+        //        if (ret.Workspace.Length<1)
+        //            ret.Workspace = YMServer.YSys.WorkingFolder + "\\" + uname + "\\";
+        //    }
+        //    return ret;
+        //}
+
+
     }
 
     public class CacheClientBase : IDisposable

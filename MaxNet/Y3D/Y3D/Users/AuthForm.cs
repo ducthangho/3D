@@ -39,8 +39,8 @@ namespace Y3D.Users
             if (!rep.Rep.Error)
             {
                 this.Hide();
-                var fm = new Forms.YMainForm();
-                fm.Show();
+                Y3D.Projects.Utils.mainform = new Forms.YMainForm();
+                Y3D.Projects.Utils.mainform.Show();
             } else
             {
                 MessageBox.Show(rep.Rep.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -60,8 +60,8 @@ namespace Y3D.Users
             if (!rep.Rep.Error)
             {
                 this.Hide();
-                var fm = new Forms.YMainForm();
-                fm.Show();
+                Y3D.Projects.Utils.mainform = new Forms.YMainForm();
+                Y3D.Projects.Utils.mainform.Show();
             }
             else
             {

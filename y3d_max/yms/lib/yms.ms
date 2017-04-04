@@ -348,7 +348,7 @@ if yms_init != true then
 			
 		),
 
-		fn pre_optimize oFileDir oFileName= 
+		fn pre_optimize oFileDir oFileName projectPath = 
 		(
 			-- fname = substring maxFileName 1 (maxFileName.count-4)
 			-- path = maxFilePath + fname + "_"
@@ -358,6 +358,7 @@ if yms_init != true then
 			--oFileName = "phongkhach 1";
 			BatchProOptimizer.SourceFileMode = 0;
 			BatchProOptimizer.SourceFileFiles = oFileDir +"\\"+ oFileName + ".max";
+
 			BatchProOptimizer.OptimizationLevel1 = 90;
 			BatchProOptimizer.OptimizationLevel2 = 0;
 			BatchProOptimizer.OptimizationLevel3 = 0;
@@ -369,9 +370,10 @@ if yms_init != true then
 			BatchProOptimizer.AutoRename = false;
 			BatchProOptimizer.DestFileNameMode = 1;
 			BatchProOptimizer.DestFolderMode = 2;
-			BatchProOptimizer.DestFolderName = ".\\"+oFileName+"_y3d";
+			--BatchProOptimizer.DestFolderName = ".\\"+oFileName+"_y3d";
+			BatchProOptimizer.DestFolderName = projectPath;
 			BatchProOptimizer.batch();
-			loadMaxFile (oFileDir + "\\"+oFileName+"_y3d\\" + oFileName + "90.max") useFileUnits:true quiet:true
+			loadMaxFile (projectPath+"\\" + oFileName + "90.max") useFileUnits:true quiet:true
 			-- MessageBox "load xong"
 		),
 

@@ -17,6 +17,7 @@ namespace Y3D.Users
     {
         static public YUser yuser = null;
         static public YMachine ymachine = getMachineInfo();
+        static public UserSetting usetting = null;
 
         public static string GetLocalIPAddress()
         {
@@ -33,8 +34,8 @@ namespace Y3D.Users
 
         public static bool StartApp(string app_key)
         {
-            if (!yuser.Settings.Apps.ContainsKey(app_key)) return false;
-            var app = yuser.Settings.Apps[app_key];
+            if (!usetting.Apps.ContainsKey(app_key)) return false;
+            var app = usetting.Apps[app_key];
             Process prc = new Process();
             prc.StartInfo.FileName = app.PathRun;
             return prc.Start();
@@ -64,6 +65,7 @@ namespace Y3D.Users
             if (!rep.Rep.Error)
             {
                 yuser = rep.User;
+                usetting = rep.Usetting;
             }
             return rep;
         }
@@ -78,8 +80,21 @@ namespace Y3D.Users
             if (!rep.Rep.Error)
             {
                 yuser = rep.User;
+                usetting = rep.Usetting;
             }
             return rep;
         }
+
+        static public bool updateUSetting()
+        {
+            if (yuser == null) return false;
+            UserParam up = new UserParam();
+            up.Usetting = usetting;
+            up.Uname = yuser.Username;
+            var x = Y3D.Projects.Utils.MasterClient.UpdateUserSetting(up);
+            if (!x.Error) return true;
+            return false;
+        }
+
     }
 }

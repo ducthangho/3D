@@ -57,8 +57,8 @@ namespace Y3D.Forms
 
         private void objectManagerMItem_Click(object sender, EventArgs e)
         {
-            objectsControl1.Show();
-            testControl1.Hide();
+            //objectsControl1.Show();
+            //testControl1.Hide();
         }
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
@@ -117,6 +117,20 @@ namespace Y3D.Forms
         {
             Y3D.Projects.Utils.detach_mainworker();
             Application.Exit();
+        }
+
+        public void switch2OManager()
+        {
+            objectsControl1.Show();
+            objectsControl1.updateYAL(Y3D.Projects.Utils.CurrentYAL);
+            active_htab(btnTabObject);
+        }
+
+        public void resetOM()
+        {
+            Y3D.Projects.Utils.CurrentYAL.Areas.Clear();
+            objectsControl1.updateYAL(Y3D.Projects.Utils.CurrentYAL);
+            Y3D.Projects.Utils.CurrentYAL = null;
         }
     }
 }
