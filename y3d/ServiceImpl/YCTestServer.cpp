@@ -264,9 +264,10 @@ void generateInterfaceFuntionsID2(Interface_ID id)
 		auto fucn_setterid = f->setter_ID;
 		auto func_getterid = f->getter_ID;
 		ParamType2 propTypes = f->prop_type;
+
 		LOG("#define {0}_I{1}_GETTER {2}\n", prop_internalname, internal_name, func_getterid);
 		LOG("#define {0}_I{1}_SETTER {2}\n", prop_internalname, internal_name, fucn_setterid);
-		LOG("propTypes is {0}\n", propTypes);
+		LOG("#define {0}_I{1}_TYPEPARAM {2}\n", prop_internalname, internal_name, propTypes);
 		/*log(" + properties number {0} have internal name is {1},"
 		" setterid is {2}, getterid is {3}\n", i, prop_internalname, fucn_setterid, func_getterid);*/
 	}
@@ -285,7 +286,7 @@ void BatchProOptimizer(y3d::IBatchProOptimizer ibatchProOptimizer)
 	MCHAR* file1 = L"F:\\WorkSpace\\3Ds Max\\Building Phong Tam Project\\scenes\\TestProOptimizerScene\\001.max";
 	Tab<MCHAR*> sourceFile_Files;
 	sourceFile_Files.Append(1,&file1);
-	FPParams pSourceFileFiles(1, 10249, sourceFile_Files);
+	FPParams pSourceFileFiles(1, SOURCEFILEFILES_IBATCHPROOPTIMIZER_TYPEPARAM, sourceFile_Files);
 	fpInterface->Invoke(SOURCEFILEFILES_IBATCHPROOPTIMIZER_SETTER, &pSourceFileFiles);
 
 	fpInterface->Invoke(BATCH_IBATCHPROOPTIMIZER);
