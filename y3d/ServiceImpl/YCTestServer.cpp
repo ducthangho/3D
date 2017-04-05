@@ -183,7 +183,7 @@ void generateInterFacesID()
 		stream.str("");
 		stream << std::hex << b;
 		std::string hexb(stream.str());
-		logserver::LOG("#define I{0}_ID  Interface_ID(0x{1},0x{2})\n",internal_name, hexa, hexb);
+		logserver::LOG("#define {0}_INTERFACE_ID  Interface_ID(0x{1},0x{2})\n",internal_name, hexa, hexb);
 	}
 }
 
@@ -206,7 +206,7 @@ void generateInterfaceFuntionsID(Interface_ID id)
 		func_internalname.toUpper();
 		auto func_id = f->ID;
 		//define function ID
-		LOG("#define IFN_{0}_I{1} {2}\n", func_internalname,internal_name,func_id);
+		LOG("#define {0}_I{1} {2}\n", func_internalname,internal_name,func_id);
 		//log(" + function number {0} have internal name is {1}, id is {2}\n", i, func_internalname, func_id);
 	}
 
@@ -221,25 +221,76 @@ void generateInterfaceFuntionsID(Interface_ID id)
 		prop_internalname.toUpper();
 		auto fucn_setterid = f->setter_ID;
 		auto func_getterid = f->getter_ID;
-		LOG("#define IPROPS_GET_{0}_I{1} {2}\n", prop_internalname, internal_name,func_getterid);
-		LOG("#define IPROPS_SET_{0}_I{1} {2}\n", prop_internalname, internal_name, fucn_setterid);
+		LOG("#define {0}_I{1}_GETTER {2}\n", prop_internalname, internal_name,func_getterid);
+		LOG("#define {0}_I{1}_SETTER {2}\n", prop_internalname, internal_name, fucn_setterid);
 
-		log(" + properties number {0} have internal name is {1},"
-			" setterid is {2}, getterid is {3}\n", i, prop_internalname, fucn_setterid, func_getterid);
+		/*log(" + properties number {0} have internal name is {1},"
+			" setterid is {2}, getterid is {3}\n", i, prop_internalname, fucn_setterid, func_getterid);*/
 	}
 }
 
-void BatchOptimizer(y3d::IBatchProOptimizer ibatchProOptimizer)
+void generateInterfaceFuntionsID2(Interface_ID id)
 {
-	FPInterface* fpInterface = GetCOREInterface(IBATCHPROOPTIMIZER_ID);
-	FPParams pSourceFileMode(1, TYPE_INT, 0);
-	FPValue result;
-	fpInterface->Invoke(IPROPS_SET_SOURCEFILEMODE_IBATCHPROOPTIMIZER, &pSourceFileMode);
+	FPInterface* fpInterface = GetCOREInterface(id);
+	FPInterfaceDesc* fpInterfaceDesc = fpInterface->GetDesc();
+	MSTR internal_name = fpInterfaceDesc->internal_name;
+	internal_name.toUpper();
+	Tab<FPFunctionDef*> functions = fpInterfaceDesc->functions;
+	auto numFunction = functions.Count();
+	//define number of functions
+	LOG("#define I{0}_NUMFUCNTIONS {1}\n", internal_name, numFunction);
 
-	fpInterface->Invoke(IPROPS_GET_SOURCEFILEMODE_IBATCHPROOPTIMIZER, result);
-	log("SourFileMode is {0}\n", result.i);
+	//LOG("- Num functions is {0}\n", numFunction);
+	for (int i = 0; i < numFunction; i++)
+	{
+		auto f = functions[i];
+		auto func_internalname = f->internal_name;
+		func_internalname.toUpper();
+		auto func_id = f->ID;
+		//define function ID
+		LOG("#define {0}_I{1} {2}\n", func_internalname, internal_name, func_id);
+		//log(" + function number {0} have internal name is {1}, id is {2}\n", i, func_internalname, func_id);
+	}
+
+	Tab<FPPropDef*> props = fpInterfaceDesc->props;
+	auto numProps = props.Count();
+	LOG("#define I{0}_NUMPROPS {1}\n", internal_name, numProps);
+	//LOG("- Num Properties is {0}\n", numProps);
+	for (int i = 0; i < numProps; i++)
+	{
+		auto f = props[i];
+		auto prop_internalname = f->internal_name;
+		prop_internalname.toUpper();
+		auto fucn_setterid = f->setter_ID;
+		auto func_getterid = f->getter_ID;
+		ParamType2 propTypes = f->prop_type;
+		LOG("#define {0}_I{1}_GETTER {2}\n", prop_internalname, internal_name, func_getterid);
+		LOG("#define {0}_I{1}_SETTER {2}\n", prop_internalname, internal_name, fucn_setterid);
+		LOG("propTypes is {0}\n", propTypes);
+		/*log(" + properties number {0} have internal name is {1},"
+		" setterid is {2}, getterid is {3}\n", i, prop_internalname, fucn_setterid, func_getterid);*/
+	}
 }
 
+void BatchProOptimizer(y3d::IBatchProOptimizer ibatchProOptimizer)
+{
+	FPInterface* fpInterface = GetCOREInterface(BATCHPROOPTIMIZER_INTERFACE_ID);
+
+	FPParams pSourceFileMode(1, TYPE_INT, 0);
+	fpInterface->Invoke(SOURCEFILEMODE_IBATCHPROOPTIMIZER_SETTER, &pSourceFileMode);
+	FPValue result;
+	fpInterface->Invoke(SOURCEFILEMODE_IBATCHPROOPTIMIZER_GETTER, result);
+	log("SourFileMode is {0}\n", result.i);
+
+	MCHAR* file1 = L"F:\\WorkSpace\\3Ds Max\\Building Phong Tam Project\\scenes\\TestProOptimizerScene\\001.max";
+	Tab<MCHAR*> sourceFile_Files;
+	sourceFile_Files.Append(1,&file1);
+	FPParams pSourceFileFiles(1, 10249, sourceFile_Files);
+	fpInterface->Invoke(SOURCEFILEFILES_IBATCHPROOPTIMIZER_SETTER, &pSourceFileFiles);
+
+	fpInterface->Invoke(BATCH_IBATCHPROOPTIMIZER);
+	//fpInterface->Invoke(SOURCEFILEFILES_IBATCHPROOPTIMIZER_GETTER, result);
+}
 
 Status YServiceTestImpl::MTest1(ServerContext* context, const EmptyParam* request, EmptyParam* reply)
 {
@@ -263,9 +314,9 @@ Status YServiceTestImpl::MTest1(ServerContext* context, const EmptyParam* reques
 		TimeValue time = ip->GetTime();*/
 		
 		//generateInterFacesID();
-		//generateInterfaceFuntionsID(IBATCHPROOPTIMIZER_ID);
+		//generateInterfaceFuntionsID2(BATCHPROOPTIMIZER_INTERFACE_ID);
 		y3d::IBatchProOptimizer y;
-		BatchOptimizer(y);
+		BatchProOptimizer(y);
 
 		//MSTR internal_name = fpInterfaceDesc->internal_name;
 		//logserver::LOG("Internal name is {0}\n", internal_name);
