@@ -155,7 +155,7 @@ void toUpper(MSTR a) {
 }
 
 
-void showInterFaceID()
+void generateInterFacesID()
 {
 	/************************************************************************/
 	/* show all the core interface id of 3ds max
@@ -187,38 +187,46 @@ void showInterFaceID()
 	}
 }
 
-void showInterFaceInfo(Interface_ID id)
+void generateInterfaceFuntionsID(Interface_ID id)
 {
 	FPInterface* fpInterface = GetCOREInterface(id);
 	FPInterfaceDesc* fpInterfaceDesc = fpInterface->GetDesc();
+	MSTR internal_name = fpInterfaceDesc->internal_name;
+	internal_name.toUpper();	
 	Tab<FPFunctionDef*> functions = fpInterfaceDesc->functions;
 	auto numFunction = functions.Count();
-	LOG("- Num functions is {0}\n", numFunction);
+	//define number of functions
+	LOG("#define I{0}_NUMFUCNTIONS {1}\n", internal_name, numFunction);
+
+	//LOG("- Num functions is {0}\n", numFunction);
 	for (int i = 0; i < numFunction; i++)
 	{
 		auto f = functions[i];
 		auto func_internalname = f->internal_name;
+		func_internalname.toUpper();
 		auto func_id = f->ID;
-		LOG(" + function number {0} have internal name is {1}, id is {2}\n", i, func_internalname, func_id);
-		log(" + function number {0} have internal name is {1}, id is {2}\n", i, func_internalname, func_id);
+		//define function ID
+		LOG("#define IFN_{0}_I{1} {2}\n", func_internalname,internal_name,func_id);
+		//log(" + function number {0} have internal name is {1}, id is {2}\n", i, func_internalname, func_id);
 	}
 
 	Tab<FPPropDef*> props = fpInterfaceDesc->props;
 	auto numProps = props.Count();
-	LOG("- Num Properties is {0}\n", numProps);
+	LOG("#define I{0}_NUMPROPS {1}\n", internal_name, numProps);
+	//LOG("- Num Properties is {0}\n", numProps);
 	for (int i = 0; i < numProps; i++)
 	{
 		auto f = props[i];
-		auto func_internalname = f->internal_name;
+		auto prop_internalname = f->internal_name;
+		prop_internalname.toUpper();
 		auto fucn_setterid = f->setter_ID;
 		auto func_getterid = f->getter_ID;
-		LOG(" + properties number {0} have internal name is {1},"
-			" setterid is {2}, getterid is {3}\n", i, func_internalname, fucn_setterid, func_getterid);
+		LOG("#define IPROPS_GET_{0}_I{1} {2}\n", prop_internalname, internal_name,func_getterid);
+		LOG("#define IPROPS_SET_{0}_I{1} {2}\n", prop_internalname, internal_name, fucn_setterid);
 
 		log(" + properties number {0} have internal name is {1},"
-			" setterid is {2}, getterid is {3}\n", i, func_internalname, fucn_setterid, func_getterid);
+			" setterid is {2}, getterid is {3}\n", i, prop_internalname, fucn_setterid, func_getterid);
 	}
-
 }
 
 void BatchOptimizer(y3d::IBatchProOptimizer ibatchProOptimizer)
@@ -226,10 +234,10 @@ void BatchOptimizer(y3d::IBatchProOptimizer ibatchProOptimizer)
 	FPInterface* fpInterface = GetCOREInterface(IBATCHPROOPTIMIZER_ID);
 	FPParams pSourceFileMode(1, TYPE_INT, 0);
 	FPValue result;
-	fpInterface->Invoke(1, &pSourceFileMode);
+	fpInterface->Invoke(IPROPS_SET_SOURCEFILEMODE_IBATCHPROOPTIMIZER, &pSourceFileMode);
 
-	fpInterface->Invoke(0, result);
-	log("SourFileMode is {0}", result.i);
+	fpInterface->Invoke(IPROPS_GET_SOURCEFILEMODE_IBATCHPROOPTIMIZER, result);
+	log("SourFileMode is {0}\n", result.i);
 }
 
 
@@ -254,8 +262,8 @@ Status YServiceTestImpl::MTest1(ServerContext* context, const EmptyParam* reques
 		 Get the current animation time
 		TimeValue time = ip->GetTime();*/
 		
-		//showInterFaceID();
-		//showInterFaceInfo(IBATCHPROOPTIMIZER_ID);
+		//generateInterFacesID();
+		//generateInterfaceFuntionsID(IBATCHPROOPTIMIZER_ID);
 		y3d::IBatchProOptimizer y;
 		BatchOptimizer(y);
 
