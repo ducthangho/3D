@@ -10,7 +10,10 @@
 #include "common.h"
 #include "LogClient.h"
 #include "YLibs.h"
+#include "tab.h"
+#include "ymaxcoreinterface.pb.h"
 
+using namespace logserver;
 
 void MakeBentCylinder()
 {
@@ -147,28 +150,124 @@ void addUnwrap() {
 	log("new height value in getvaluebyname is {}\n", height);
 }
 
+void toUpper(MSTR a) {
+
+}
+
+
+void showInterFaceID()
+{
+	/************************************************************************/
+	/* show all the core interface id of 3ds max
+	*/
+	/************************************************************************/
+	int num = NumCOREInterfaces();
+	logserver::LOG("Num interface is {0}", num);
+
+	int index = 127;
+	logserver::LOG("cls");
+	for (int index = 0; index < num; index++)
+	{
+		FPInterface* fpInterface = GetCOREInterfaceAt(index);
+		FPInterfaceDesc* fpInterfaceDesc = fpInterface->GetDesc();
+		MSTR internal_name = fpInterfaceDesc->internal_name;
+		//logserver::LOG("internal name of interface at index {0} is {1}\n", index, internal_name);
+		internal_name.toUpper();
+		Interface_ID interfaceID = fpInterface->GetID();
+		//logserver::LOG("internal name of interface at index {0} is {1}, interface_id is ({3},{4})\n", index, internal_name,a,b);
+		ULONG a = interfaceID.PartA();
+		ULONG b = interfaceID.PartB();
+		std::stringstream stream;
+		stream << std::hex << a;
+		std::string hexa(stream.str());
+		stream.str("");
+		stream << std::hex << b;
+		std::string hexb(stream.str());
+		logserver::LOG("#define I{0}_ID  Interface_ID(0x{1},0x{2})\n",internal_name, hexa, hexb);
+	}
+}
+
+void showInterFaceInfo(Interface_ID id)
+{
+	FPInterface* fpInterface = GetCOREInterface(id);
+	FPInterfaceDesc* fpInterfaceDesc = fpInterface->GetDesc();
+	Tab<FPFunctionDef*> functions = fpInterfaceDesc->functions;
+	auto numFunction = functions.Count();
+	LOG("- Num functions is {0}\n", numFunction);
+	for (int i = 0; i < numFunction; i++)
+	{
+		auto f = functions[i];
+		auto func_internalname = f->internal_name;
+		auto func_id = f->ID;
+		LOG(" + function number {0} have internal name is {1}, id is {2}\n", i, func_internalname, func_id);
+		log(" + function number {0} have internal name is {1}, id is {2}\n", i, func_internalname, func_id);
+	}
+
+	Tab<FPPropDef*> props = fpInterfaceDesc->props;
+	auto numProps = props.Count();
+	LOG("- Num Properties is {0}\n", numProps);
+	for (int i = 0; i < numProps; i++)
+	{
+		auto f = props[i];
+		auto func_internalname = f->internal_name;
+		auto fucn_setterid = f->setter_ID;
+		auto func_getterid = f->getter_ID;
+		LOG(" + properties number {0} have internal name is {1},"
+			" setterid is {2}, getterid is {3}\n", i, func_internalname, fucn_setterid, func_getterid);
+
+		log(" + properties number {0} have internal name is {1},"
+			" setterid is {2}, getterid is {3}\n", i, func_internalname, fucn_setterid, func_getterid);
+	}
+
+}
+
+void BatchOptimizer(y3d::IBatchProOptimizer ibatchProOptimizer)
+{
+	FPInterface* fpInterface = GetCOREInterface(IBATCHPROOPTIMIZER_ID);
+	FPParams pSourceFileMode(1, TYPE_INT, 0);
+	FPValue result;
+	fpInterface->Invoke(1, &pSourceFileMode);
+
+	fpInterface->Invoke(0, result);
+	log("SourFileMode is {0}", result.i);
+}
+
+
 Status YServiceTestImpl::MTest1(ServerContext* context, const EmptyParam* request, EmptyParam* reply)
 {
-	//Invoke([]() {
-	//	//MakeBentCylinder();
-	//	//addbend();
-	//	addUnwrap();
-	//	//log("New node name is \n");
-	//	/*auto* ip = GetCOREInterface();
+	Invoke([]() {
+		//MakeBentCylinder();
+		//addbend();
+		//addUnwrap();
+		//log("New node name is \n");
+		/*auto* ip = GetCOREInterface();
 
-	//	Create a new object using CreateInstance()
-	//	auto pINode = ip->GetSelNode(0);
-	//	log(L"New node name is {0} : \n", pINode->GetName());
+		Create a new object using CreateInstance()
+		auto pINode = ip->GetSelNode(0);
+		log(L"New node name is {0} : \n", pINode->GetName());
 
-	//	auto obj = pINode->GetObjectRef();
+		auto obj = pINode->GetObjectRef();
 
-	//	Get ahold of parameter block
-	//	IParamArray *iCylParams = obj->GetParamBlock();
+		Get ahold of parameter block
+		IParamArray *iCylParams = obj->GetParamBlock();
 
-	//	 Get the current animation time
-	//	TimeValue time = ip->GetTime();*/
-	//});
-	logserver::LOG("Hello world from ServiceImpl\n");
+		 Get the current animation time
+		TimeValue time = ip->GetTime();*/
+		
+		//showInterFaceID();
+		//showInterFaceInfo(IBATCHPROOPTIMIZER_ID);
+		y3d::IBatchProOptimizer y;
+		BatchOptimizer(y);
+
+		//MSTR internal_name = fpInterfaceDesc->internal_name;
+		//logserver::LOG("Internal name is {0}\n", internal_name);
+		//ULONG flags = fpInterfaceDesc->flags;
+		//std::stringstream stream;
+		//stream << std::hex << flags;
+		//std::string result(stream.str());
+		//logserver::LOG("Internal name is {0}, flags is {1}\n", internal_name, flags);
+	});
+	//logserver::LOG("Hello world from ServiceImpl\n");
 
 	return Status::OK;
 }
