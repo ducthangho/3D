@@ -133,6 +133,11 @@ void test3() {
 	IsProcessIsRunning(L"LogServer.exe");
 }
 
+void test5()
+{
+	logserver::LOG("Hello world with fmt like format i={0}","dddddddddd");
+}
+
 void loadDll()
 {
 
@@ -254,6 +259,10 @@ int main(int argc, char** argv)
 			else if (t == 4)
 			{
 				test4();
+			}
+			else if (t == 5)
+			{
+				test5();
 			}
 		}
 	}
