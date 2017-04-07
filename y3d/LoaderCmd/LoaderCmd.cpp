@@ -26,7 +26,7 @@ int show_all_workers(int32_t stat = 2) {
 	{
 		auto yw = rep.wlist().workers(i);
 		auto status = &ServingStatus_Name(yw.status());
-		auto wt = y3d::YWorker::WorkerType_Name(yw.wtype());
+		auto wt = y3d::WorkerType_Name(yw.wtype());
 		printf("\n%d. %s  (ip:%s:%d) (status:%s) (type:%s)", (i + 1), yw.wname().c_str(), yw.machine_ip().c_str(), yw.port_loader(), status->c_str(),wt.c_str());
 	}
 	return status.error_code();

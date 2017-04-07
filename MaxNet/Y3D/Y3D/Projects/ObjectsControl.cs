@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using y3d.e;
 
-namespace Y3D.Forms
+namespace Y3D.Projects
 {
     public partial class ObjectsControl : UserControl
     {
@@ -93,7 +93,7 @@ namespace Y3D.Forms
         public void initGroup()
         {
             EmptyParam ep = new EmptyParam();
-            var yal = rpc.YClient.CClient.GetObjectFromMax(ep);
+            var yal = Y3D.Projects.Utils.MaxClient.GetObjectFromMax(ep);
             this.gtreeListView.SetObjects(yal.Areas);
         }
 
@@ -131,19 +131,33 @@ namespace Y3D.Forms
             {
 
                 var y = (YObject)x;
+                if (Utils.TestData.Utests!=null)
+                {
+                    if (Utils.TestData.Utests.ContainsKey(y.Name))
+                    {
+                        olvLocalTest.SetObjects(Utils.TestData.Utests[y.Name].Otests);
+                    } else
+                    {
+                        // reset
+                    }
+                } else
+                {
+                    //reset
+                }
                 if (checkBoxIsolate.Checked)
                 {
                     YEvent ye = new YEvent();
                     ye.Isolate = new EIsolate();
                     ye.Isolate.EndIsolate = false;
                     ye.Isolate.Name = y.Name;
-                    rpc.YClient.CClient.DoEvent(ye);
+                    Y3D.Projects.Utils.MaxClient.DoEvent(ye);
                 } else
                 {
                     YEvent ye = new YEvent();
                     ye.Select = new ESelect();
                     ye.Select.Name = y.Name;
-                    rpc.YClient.CClient.DoEvent(ye);
+                    ye.Select.Isolate = checkBoxIsolate.Checked;
+                    Y3D.Projects.Utils.MaxClient.DoEventAsync(ye);
                 }
 
                 
@@ -165,7 +179,7 @@ namespace Y3D.Forms
                 ye.Isolate = new EIsolate();
                 ye.Isolate.EndIsolate = !((CheckBox)sender).Checked;
                 ye.Isolate.Name = y.Name;
-                rpc.YClient.CClient.DoEvent(ye);
+                Y3D.Projects.Utils.MaxClient.DoEvent(ye);
             }
         }
 
@@ -176,6 +190,21 @@ namespace Y3D.Forms
         }
 
         private void btnAddTest_Click(object sender, EventArgs e)
+        {
+            Object x = objectListCtrl.SelectedObject;
+            if (x is YObject)
+            {
+                var y = (YObject)x;
+                if (Projects.Utils.CreateNewTest(y.Name))
+                {
+                    MessageBox.Show("Create ok");
+                    olvLocalTest.SetObjects(Utils.TestData.Utests[y.Name].Otests);
+                }
+            }
+      
+        }
+
+        private void checkBoxInGroup_CheckedChanged(object sender, EventArgs e)
         {
 
         }

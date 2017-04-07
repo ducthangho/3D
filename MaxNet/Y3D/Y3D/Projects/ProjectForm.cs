@@ -28,14 +28,14 @@ namespace Y3D.Forms
                 return t.OriginalPath + "\\" + t.Pname+".max";
             };
 
-            this.dlvListProject.SetObjects(Utils.Tools.YSys.Projects);
+            this.dlvListProject.SetObjects(Users.Auth.usetting.Projects.AsEnumerable());
             this.TopMost = true;
         }
 
         private void LoadP()
         {
             ProjectInfo pi = (ProjectInfo)this.dlvListProject.SelectedObject;
-            if (Utils.Tools.LoadProject(pi))
+            if (Y3D.Projects.Utils.LoadProject(pi))
             {
                 this.DialogResult = DialogResult.OK;
                 this.Close();
@@ -49,7 +49,7 @@ namespace Y3D.Forms
         private void btnLoadP_Click(object sender, EventArgs e)
         {
             LoadP();
-            //var rnp = rpc.YClient.CClient.LoadProject(pi);
+            //var rnp = Y3D.Projects.Utils.MaxClient.LoadProject(pi);
             //if (rnp.Yal != null) this.objectsControl1.updateYAL(np.Yal);
         }
 
@@ -65,7 +65,7 @@ namespace Y3D.Forms
             //if (dialogResult == DialogResult.Yes)
             //{
             //    ProjectInfo pi = (ProjectInfo)this.dlvListProject.SelectedObject;
-            //    var ret = rpc.YClient.CClient.DeleteProject(pi);
+            //    var ret = Y3D.Projects.Utils.MaxClient.DeleteProject(pi);
             //    if (ret.Err.Length==0)
             //    {
             //        Utils.Tools.YSys = ret.Sys;

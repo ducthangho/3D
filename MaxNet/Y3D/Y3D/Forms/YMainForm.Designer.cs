@@ -43,9 +43,9 @@
             this.btnTabTest = new System.Windows.Forms.Button();
             this.btnTabObject = new System.Windows.Forms.Button();
             this.btnTabProject = new System.Windows.Forms.Button();
-            this.objectsControl1 = new Y3D.Forms.ObjectsControl();
-            this.testControl1 = new Y3D.Forms.TestControl();
-            this.projectControl1 = new Y3D.Forms.ProjectControl();
+            this.objectsControl1 = new Y3D.Projects.ObjectsControl();
+            this.testControl1 = new Y3D.Tests.TestControl();
+            this.projectControl1 = new Y3D.Projects.ProjectControl();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -259,8 +259,8 @@
         private System.Windows.Forms.ToolStripMenuItem systemToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem testToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem testForm1ToolStripMenuItem;
-        private TestControl testControl1;
-        private ObjectsControl objectsControl1;
+        private Y3D.Tests.TestControl testControl1;
+        private Y3D.Projects.ObjectsControl objectsControl1;
         private System.Windows.Forms.ToolStripMenuItem objectManagerMItem;
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
@@ -270,7 +270,7 @@
         private System.Windows.Forms.ToolStripMenuItem workersManagerToolStripMenuItem;
         private System.Windows.Forms.Button btnTabObject;
         private System.Windows.Forms.Button btnTabTest;
-        private ProjectControl projectControl1;
+        private Y3D.Projects.ProjectControl projectControl1;
     }
 }
 

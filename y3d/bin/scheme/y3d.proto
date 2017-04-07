@@ -129,7 +129,8 @@ message YObject {
     YCamera camera=11;
     YMesh mesh=12;
   }
-  TestObject ver_obj=13;
+  string current_ver = 13;
+  // TestObject ver_obj=13;
 }
 
 message YArea {
@@ -199,16 +200,7 @@ message RenameParam {
   bool use_select=1;
 }
 
-message Make4TestParam {
-  string oname=1;
-  repeated ELowpoly lowpoly=2;
-}
 
-message TestOParam {
-  int32 id = 1;
-  string oname=2;
-  float low_ratio=3;
-}
 
 message OptimizeParam {
     float ratio =1;
@@ -231,23 +223,12 @@ message TestParam {
   google.protobuf.Any anything=2;
 }
 
-message WorkerParam {
-  oneof wtype {
-    int32 wid=1;
-    string wname = 2;    
-    YWorker worker = 3;
-    string ip = 4;
-  }
-}
-
-message AllWorkerParam {
-  int32 status=1;
-  bool refresh=2;
-}
 
 message ReadyRespone {
    ServingStatus status =17;
 }
+
+
 // ------------------------------ Event
 message YEvent {
   oneof event {
@@ -258,6 +239,7 @@ message YEvent {
     EDelete del = 5;
     ESelectMany select_many=6;
     EIsolate isolate=7;
+    EClose close=8;
   }
 }
 
@@ -288,6 +270,10 @@ message EDelete {
 message EIsolate {
   string name = 1;
   bool endIsolate=2;
+}
+
+message EClose {
+  bool bypass=1;
 }
 
 message ResponseEvent {
@@ -393,7 +379,7 @@ message ProjectInfo {
   repeated FilterView fview=6;
   float optimize_ratio = 7;
   string original_path=8;
-  repeated YWorker workers=9;
+  // repeated YWorker workers=9;
   // YAreaList alist=6;
 }
 
@@ -425,7 +411,8 @@ message NewProjectParam {
 message ResponseNProject {
   ProjectInfo pInfo=1;
   YAreaList yal=2;
-  string err=4;
+  bool err=3;
+  string message=4;
 }
 
 
@@ -438,27 +425,7 @@ message YJobAction {
     ENormal bake_normal = 4;
   }  
 }
-message YItemMesh {
-  YMat bake_mat=1;
-  YBaseMap map=2;
-  YMesh mesh=3;
-  repeated YMesh meshes=4;
-}
 
-message TestObject {
-  bool active=1;
-  YMat original_mat=2;
-  string tname=3;
-  string oname=4;
-  // string name_low=3;
-  // string name_high=4;  
-  // string name_cage=5;  
-  // string obj_low= 6;  
-  // string obj_high=7;  
-  // string obj_cage=8;  
-  string save_path=9;
-  YItemMesh out=10;
-}
 
 message YJob {
   string jname = 1;
@@ -472,6 +439,13 @@ message YJob {
 message YJobList {
   repeated YJob jobs=1;
 }
+// ------------------------------ WORKER,
+enum WorkerType {
+  FREE = 0;
+  MAIN_WORKER = 1;
+  SUB_WORKER = 2;
+  REMOTE_WORKER = 3;
+}
 
 message YWorker {
   int32 wid=1;
@@ -479,35 +453,30 @@ message YWorker {
   string machine_ip=3;
   int32 port_loader = 4;
   int32 port_max = 5;
-  int32 process_id=10;
-
+  int32 process_id=6;
   ServingStatus status = 7;
-  enum WorkerType {
-    FREE = 0;
-    MAIN_WORKER = 1;
-    SUB_WORKER = 2;
-  }
   WorkerType wtype=8;
-  bool no_app = 9; // crash or waiting for app
+  // bool no_app = 9; // crash or waiting for app
+  int32 net_state=10; // 0:crash, 1:co loader, 2: co loader va max service, 4:moi tao ma chua co loader
 }
-
-message YSubWorker {
-  int32 sid = 1;
-  string sname =2;
-  string asset_folder=3;
-  YWorker worker = 4;
-}
-
-message YMainWorker {
-  YSubWorker main_worker = 1;
-  repeated YSubWorker workers = 2;
-  string working_project = 3;
-}
-
 
 message YWorkerList {
   // YWorker master = 1;
   repeated YWorker workers=1;
+}
+message WorkerParam {
+  oneof wtype {
+    int32 wid=1;
+    string wname = 2;    
+    YWorker worker = 3;
+    string ip = 4;
+  }
+}
+
+message AllWorkerParam {
+  int32 status=1;
+  bool refresh=2;
+  YMachine machine=3;
 }
 
 message YWorkerRequest {
@@ -515,6 +484,8 @@ message YWorkerRequest {
   bool slient=2;
   WorkerApp app=3;
   YMachine machine=4;
+  // bool other_machine=5;
+  WorkerType wtype=5;
 }
 
 message WorkerApp {
@@ -538,9 +509,144 @@ message MasterServerInfo {
   string shared_folder = 3;
   // repeated YMainWorker main_workers = 4;
 }
-
+// ------------------------------ User,
 message YMachine {
   string mname = 1;
-  string uname = 2;
-  string ip_address = 3;
+  // string uname = 2;
+  string ip_address = 2;
+  string working_folder=3;
+}
+
+message YUser {
+  string id=1;
+  string username=2;
+  string password=3;
+  string apikey=4;
+  enum YUserRole {
+    ADMIN = 0;
+    LEADER = 1;
+    DEFAULT = 2;
+  }
+  YUserRole role=5;
+  UserSetting settings = 6;
+}
+
+message UserSetting {
+  string workspace=2;
+  string nickname = 3;
+  string master_ip = 4;
+  map<string,ProjectInfo> projects=5;
+  map<string,WorkerApp> apps=1;
+}
+
+// message YClientData {
+//   map<string,ProjectInfo> projects=1;
+//   string master_ip = 2;
+// }
+
+message UserParam {
+  string uname = 1;
+  string password = 2;
+  string token=3;
+  UserSetting usetting=4;
+}
+
+message UserResponse {
+  YUser user = 1;
+  ResultReply rep = 2;
+  YWorkerList wlist = 3;
+  UserSetting usetting = 4;
+}
+
+
+// ------------------------------ VERSION, TEST
+
+message VerTest {
+  string id=1;
+  string vnote = 2;
+  oneof tname {
+    string oname=4;// is object
+    string gname=5;// is group
+  }
+  YMat mat = 7;
+  YMultiMat mmat = 8;
+  repeated string uvmap = 9;
+  YBaseMap map_out = 10;
+}
+
+// message VerTestParam {
+//   string id=1;
+//   string apikey=2;
+//   string project_name = 3;  
+//   oneof tname {
+//     string oname=4;// is object
+//     string gname=5;// is group
+//   }
+// }
+
+// message VerTestResponse {
+//   string new_id = 1;
+//   ResultReply rep = 2;
+// }
+
+message YListTest {
+  repeated VerTest otests=1;
+  repeated VerTest gtests=2;
+}
+
+message UserTestData {
+  map<string,YListTest> utests = 1;
+  map<string,YListTest> versions = 2;
+}
+
+message YItemMesh {
+  YMat bake_mat=1;
+  YBaseMap map=2;
+  YMesh mesh=3;
+  repeated YMesh meshes=4;
+}
+
+message TestObject {
+  bool active=1;
+  YMat original_mat=2;
+  string tname=3;
+  string oname=4;
+  // string name_low=3;
+  // string name_high=4;  
+  // string name_cage=5;  
+  // string obj_low= 6;  
+  // string obj_high=7;  
+  // string obj_cage=8;  
+  string save_path=9;
+  YItemMesh out=10;
+}
+
+message Make4TestParam {
+  string oname=1;
+  repeated ELowpoly lowpoly=2;
+}
+
+message TestOParam {
+  int32 id = 1;
+  string oname=2;
+  float low_ratio=3;
+}
+
+message InitTestParam {
+  string tname=1;
+  string tid = 2;
+  string test_folder = 3;
+  ELowpoly lowpoly = 4;
+  EUnwrap unwrap = 5;
+  EPacking pack = 6;
+  ENormal bake_normal = 7;
+}
+
+message InitTestResponse {
+  ResultReply rep = 1;
+  bool has_unwrap = 2;
+  bool has_pack = 3;
+  bool has_low = 4;
+  bool has_normal = 5;
+  bool hss_bake_full = 6;
 }

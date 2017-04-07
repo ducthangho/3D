@@ -83,10 +83,36 @@ namespace YMaxServer.rpc
             var error_code = Marshal.GetLastWin32Error();
             return handleError(msg, error_code);
         }
-      
+
+        public void init()
+        {
+            if (pDll == 0)
+                pDll = NativeMethods.LoadLibrary(SERVICE_DLL_PATH);
+
+            if (pDll == 0)
+            {
+                MessageBox.Show("Failed to load plugin " + SERVICE_DLL_PATH);
+                return;
+            };
+
+            IntPtr pAddressOfFunctionToCall = NativeMethods.GetProcAddress(pDll, "startService");
+            //oh dear, error handling here
+            if (pAddressOfFunctionToCall == IntPtr.Zero)
+            {
+                MessageBox.Show("Failed to load function startService");
+                return;
+            };
+
+
+            StartService startService = (StartService)Marshal.GetDelegateForFunctionPointer(
+                                                                                    pAddressOfFunctionToCall,
+                                                                                    typeof(StartService));
+            if (startService != null) startService();
+        }
+
         public override Task<ResultType> Shutdown(LibInfo request, ServerCallContext context)
         {
-            log.LOG("Shutting down\n");
+                log.LOG("Shutting down\n");
                 var rs = new ResultType();
                 if (pDll == 0)
                     return Task.FromResult(rs);
@@ -195,7 +221,20 @@ namespace YMaxServer.rpc
         public const string MASTER_IP = "127.0.0.1:38000";
         public static YWorker worker = null;
         public static Server server;
-        public static LogClient log = LogClient.Instance;
+		public static LogClient log = LogClient.Instance;
+        public static string GetLocalIPAddress()
+        {
+            var host = System.Net.Dns.GetHostEntry(System.Net.Dns.GetHostName());
+            foreach (var ip in host.AddressList)
+            {
+                if (ip.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)
+                {
+                    return ip.ToString();
+                }
+            }
+            return "";
+
+        }
         public static void Start()
         {       
             var MasterClient = new y3d.s.YServiceMaster.YServiceMasterClient(new Channel(MASTER_IP, ChannelCredentials.Insecure));
@@ -203,7 +242,7 @@ namespace YMaxServer.rpc
             req.CallInApp = true;
 
             req.Machine = new YMachine();
-            req.Machine.IpAddress = "127.0.0.1";
+            req.Machine.IpAddress = GetLocalIPAddress();
             req.Machine.Mname = "";
             if (MasterClient == null) return;
             var rep = MasterClient.AddWorkerAsync(req);

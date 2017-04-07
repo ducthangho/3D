@@ -7,8 +7,54 @@
 #include "xnormal.pb.h"
 #include "xNormalSettings.h"
 #include "YProjectUtils.h"
+#include "LogClient.h"
+#include "impexp.h"
 
 //std::promise<void> exit_requested;
+
+Status YServiceImpl::Init4Test(ServerContext* context, const InitTestParam* request, InitTestResponse* reply)
+{
+	Invoke([request]() -> void {
+		auto* ip = GetCOREInterface();
+		auto n = ip->GetINodeByName(s2ws(request->tname()).c_str());
+
+		INodeTab nt1, nt2, nt3, nt4, nt5;
+		nt1.AppendNode(n);
+		ip->CloneNodes(nt1, n->GetObjOffsetPos(), true, NODE_COPY, &nt2, &nt2);
+		ip->CloneNodes(nt1, n->GetObjOffsetPos(), true, NODE_COPY, &nt3, &nt3);
+		ip->CloneNodes(nt1, n->GetObjOffsetPos(), true, NODE_COPY, &nt4, &nt4);
+
+		std::wstring tmp = n->GetName();
+		auto lowStr = tmp + L"_low";
+		auto hiStr = tmp + L"_high";
+		auto cageStr = tmp + L"_cage";
+		nt2[0]->SetName(lowStr.c_str());
+		nt3[0]->SetName(hiStr.c_str());
+		nt4[0]->SetName(cageStr.c_str());
+
+		
+		ip->SelectNodeTab(nt1, TRUE, FALSE);
+		ip->FileSaveNodes(&nt1, formatWS("{0}\\{1}_o.max", request->test_folder(), ws2s(n->GetName()).c_str()).c_str());
+
+		ip->SelectNodeTab(nt2, TRUE, FALSE);
+		ip->ExportToFile(formatWS("{0}\\{1}_low.obj", request->test_folder(), ws2s(n->GetName()).c_str()).c_str(), TRUE, SCENE_EXPORT_SELECTED, new Class_ID(1371343970L, 1730353346L));
+
+		ip->SelectNodeTab(nt3, TRUE, FALSE);
+		ip->ExportToFile(formatWS("{0}\\{1}_high.obj", request->test_folder(), ws2s(n->GetName()).c_str()).c_str(), TRUE, SCENE_EXPORT_SELECTED, new Class_ID(1371343970L, 1730353346L));
+
+		ip->SelectNodeTab(nt4, TRUE, FALSE);
+		ip->ExportToFile(formatWS("{0}\\{1}_cage.obj", request->test_folder(), ws2s(n->GetName()).c_str()).c_str(), TRUE, SCENE_EXPORT_SELECTED, new Class_ID(1371343970L, 1730353346L));
+
+		nt2.AppendNode(nt3[0]);
+		nt2.AppendNode(nt4[0]);
+
+		ip->SelectNodeTab(nt2, TRUE);
+		auto cmd = L"actionMan.executeAction 0 \"197\";";
+		ExecuteMAXScriptScript(cmd);
+	});
+	//waitForReturn(ret);
+	return Status::OK;
+}
 
 Status YServiceImpl::MakeNode4Edit(ServerContext* context, const Make4TestParam* request, ResultReply* reply)
 {
@@ -142,51 +188,46 @@ Status YServiceImpl::GetObjectFromMax(ServerContext* context, const EmptyParam* 
 	return Status::OK;
 }
 //
-//Status YServiceImpl::NewProject(ServerContext* context, const NewProjectParam* np, ResponseNProject* rnp)
-//{
-//	Invoke([np, rnp]() -> void {
-//		bool noProject = true;
-//		for (int i = 0; i < YSys.projects_size(); i++)
-//		{
-//			auto pi = YSys.projects(i);
-//			if ((pi.pname() == np->fname()) && (pi.project_path() == np->folder())) {
-//				rnp->mutable_pinfo()->CopyFrom(pi);
-//				LoadNProject(rnp);
-//				//MessageBoxW(NULL, L"Load project cu....(chua lam)", L"Oh", MB_OK);
-//				noProject = false;
-//				break;
-//			}
-//		}
-//		if (noProject) {
-//			rnp->mutable_pinfo()->set_project_path(np->folder());
-//			rnp->mutable_pinfo()->set_pname(np->fname());
-//			NewYProject(np, rnp);
-//		}
-//
-//	});
-//	return Status::OK;
-//}
-//
-//Status YServiceImpl::LoadProject(ServerContext* context, const ProjectInfo* pi, ResponseNProject* rnp)
-//{
-//	Invoke([pi, rnp]() -> void {
-//		//rnp->mutable_pinfo = pi;
-//		rnp->mutable_pinfo()->CopyFrom(*pi);
-//		//rnp->mutable_pinfo()->set_path(np->folder());
-//		//rnp->mutable_pinfo()->set_pname(np->fname());
-//		LoadNProject(rnp);
-//	});
-//	return Status::OK;
-//}
-//
-//Status YServiceImpl::DeleteProject(ServerContext* context, const ProjectInfo* pi, ResponseNProject* rnp)
-//{
-//	Invoke([pi, rnp]() -> void {
-//		rnp->mutable_pinfo()->CopyFrom(*pi);
-//		DeleteYProject(rnp);
-//	});
-//	return Status::OK;
-//}
+Status YServiceImpl::NewProject(ServerContext* context, const NewProjectParam* np, ResponseNProject* rnp)
+{
+	Invoke([np, rnp]() -> void {
+		//bool noProject = true;
+		//for (int i = 0; i < YSys.projects_size(); i++)
+		//{
+		//	auto pi = YSys.projects(i);
+		//	if ((pi.pname() == np->fname()) && (pi.project_path() == np->folder())) {
+		//		rnp->mutable_pinfo()->CopyFrom(pi);
+		//		LoadNProject(rnp);
+		//		//MessageBoxW(NULL, L"Load project cu....(chua lam)", L"Oh", MB_OK);
+		//		noProject = false;
+		//		break;
+		//	}
+		//}
+		//if (noProject) {
+		//	rnp->mutable_pinfo()->set_project_path(np->folder());
+		//	rnp->mutable_pinfo()->set_pname(np->fname());
+		//	NewYProject(np, rnp);
+		//}
+		rnp->mutable_pinfo()->set_project_path(np->project_path());
+		auto opath = fmt::format("{0}\\{1}.max", np->folder(), np->fname());
+		logserver::LOG(opath);
+		rnp->mutable_pinfo()->set_original_path(opath);
+		rnp->mutable_pinfo()->set_pname(np->fname());
+		NewYProject(np, rnp);
+	});
+	return Status::OK;
+}
+
+Status YServiceImpl::LoadProject(ServerContext* context, const ProjectInfo* pi, ResponseNProject* rnp)
+{
+	Invoke([pi, rnp]() -> void {
+		rnp->mutable_pinfo()->CopyFrom(*pi);
+		//rnp->mutable_pinfo()->set_path(np->folder());
+		//rnp->mutable_pinfo()->set_pname(np->fname());
+		LoadNProject(rnp);
+	});
+	return Status::OK;
+}
 
 Status YServiceImpl::DoAction(ServerContext* context, grpc::ServerReaderWriter<YEvent, YEvent>* stream)
 {
@@ -285,18 +326,11 @@ YSERVICE_API ServiceSharedPtr APIENTRY getServicePtr()
 	return std::shared_ptr<AbstractService>(new YServiceImpl);
 }
 
-void YServiceImpl::Helloworld()
-{
-	Invoke([]() {
-		mprintf(L"Hello world.\n");
-	});
-}
-
 void YServiceImpl::Initialize(void* codegen, void* gli)
 {
 	grpc::g_core_codegen_interface = (grpc::CoreCodegenInterface*)codegen;
 	grpc::g_glip = (grpc::GrpcLibraryInterface*)gli;
-	//registerCB();
+	registerCB();
 }
 
 Status YServiceImpl::Shutdown(::grpc::ServerContext* context, const ::y3d::EmptyParam* request, ::y3d::ResultReply* response)

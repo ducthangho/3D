@@ -274,18 +274,19 @@ if yms_init != true then
 
 		fn xref_low oFileDir oFileName= 
 		(
+			print (oFileDir +"\\"+ oFileName);
 			oNames = #()
 			for ss in selection do 
 				(
 					append oNames ss.name
 				)
 			objXRefMgr.dupObjNameAction  = #deleteOld
-			xref_b = objXRefMgr.AddXRefItemsFromFile (oFileDir +"\\"+oFileName+"_y3d\\"+ oFileName + "_low0.max") objNames:oNames
+			xref_b = objXRefMgr.AddXRefItemsFromFile (oFileDir +"\\"+ oFileName + "_low0.max") objNames:oNames
 			items = #()
 			xref_b.GetItems #XRefObjectType &items
 			for item in items do 
 				(
-					objXRefMgr.SetProxyItemSrcFile item (oFileDir +"\\"+oFileName+"_y3d\\"+ oFileName + "_high.max")
+					objXRefMgr.SetProxyItemSrcFile item (oFileDir +"\\"+ oFileName + "_high.max")
 					item.proxyItemName = item.objectName
 				)		
 			-- delete not HL
@@ -348,7 +349,7 @@ if yms_init != true then
 			
 		),
 
-		fn pre_optimize oFileDir oFileName= 
+		fn pre_optimize oFileDir oFileName projectPath = 
 		(
 			-- fname = substring maxFileName 1 (maxFileName.count-4)
 			-- path = maxFilePath + fname + "_"
@@ -358,6 +359,7 @@ if yms_init != true then
 			--oFileName = "phongkhach 1";
 			BatchProOptimizer.SourceFileMode = 0;
 			BatchProOptimizer.SourceFileFiles = oFileDir +"\\"+ oFileName + ".max";
+
 			BatchProOptimizer.OptimizationLevel1 = 90;
 			BatchProOptimizer.OptimizationLevel2 = 0;
 			BatchProOptimizer.OptimizationLevel3 = 0;
@@ -369,9 +371,10 @@ if yms_init != true then
 			BatchProOptimizer.AutoRename = false;
 			BatchProOptimizer.DestFileNameMode = 1;
 			BatchProOptimizer.DestFolderMode = 2;
-			BatchProOptimizer.DestFolderName = ".\\"+oFileName+"_y3d";
+			--BatchProOptimizer.DestFolderName = ".\\"+oFileName+"_y3d";
+			BatchProOptimizer.DestFolderName = projectPath;
 			BatchProOptimizer.batch();
-			loadMaxFile (oFileDir + "\\"+oFileName+"_y3d\\" + oFileName + "90.max") useFileUnits:true quiet:true
+			loadMaxFile (projectPath+"\\" + oFileName + "90.max") useFileUnits:true quiet:true
 			-- MessageBox "load xong"
 		),
 
