@@ -88,7 +88,7 @@ namespace logserver {
 		}
 	}
 
-	inline void LOG(wchar_t* str) {
+	inline void LOG(const wchar_t* str) {
 		std::string a = ws2s(std::wstring(str));
 		LogClient* logClient = getLogClientInstance();
 		if (!logClient->log(a)) {
