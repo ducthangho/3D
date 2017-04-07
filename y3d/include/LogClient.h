@@ -52,7 +52,7 @@ extern std::mutex checkProcessRunning;
 
 namespace logserver {
 
-	inline void SetLogServerTerminalAdress(std::string address) {
+	inline void SetLogServerTerminalAdress(const std::string address) {
 		//logServerTerminalAddress.compare_exchange_strong(address, address);
 		//logServerTerminalAddress = &address;
 		//std::lock_guard<std::mutex> lock(lock_setServerAddress);
@@ -62,7 +62,7 @@ namespace logserver {
 	}
 
 	//expect stub_->Log(&context, messageSend, &messageRec) is thread safe
-	inline void LOG(std::string a) {
+	inline void LOG(const std::string a) {
 		LogClient* logClient = getLogClientInstance();
 		if (!logClient->log(a)) {
 			logClient = getLogClientInstance();
@@ -71,7 +71,7 @@ namespace logserver {
 		//logClient->log("ha ha, i got a new habit");
 	};
 
-	inline void LOG(char* a) {
+	inline void LOG(const char* a) {
 		LogClient* logClient = getLogClientInstance();
 		if (!logClient->log(a)) {
 			logClient = getLogClientInstance();
@@ -79,7 +79,7 @@ namespace logserver {
 		}
 	}
 
-	inline void LOG(std::wstring& str) {
+	inline void LOG(const std::wstring& str) {
 		std::string a = ws2s(str);
 		LogClient* logClient = getLogClientInstance();
 		if (!logClient->log(a)) {
@@ -98,7 +98,7 @@ namespace logserver {
 	}
 
 	template <typename... Args>
-	inline void LOG(std::string& format_str, const Args ... args) {
+	inline void LOG(const std::string& format_str, const Args ... args) {
 		fmt::MemoryWriter w;
 		w.write(format_str, args...);
 		LogClient* logClient = getLogClientInstance();
@@ -110,7 +110,7 @@ namespace logserver {
 	}
 
 	template <typename... Args>
-	inline void LOG(char* format_str, const Args& ... args) {
+	inline void LOG(const char* format_str, const Args& ... args) {
 		fmt::MemoryWriter w;
 		w.write(format_str, args...);
 		LogClient* logClient = getLogClientInstance();
@@ -122,7 +122,7 @@ namespace logserver {
 	}
 
 	template <typename... Args>
-	inline void LOG(std::wstring& format_str, const Args&  ... args) {
+	inline void LOG(const std::wstring& format_str, const Args&  ... args) {
 		fmt::MemoryWriter w;
 		w.write(format_str, args...);
 		LogClient* logClient = getLogClientInstance();
@@ -134,7 +134,7 @@ namespace logserver {
 	}
 
 	template <typename... Args>
-	inline void LOG(wchar_t* format_str, const Args & ... args) {
+	inline void LOG(const wchar_t* format_str, const Args & ... args) {
 		fmt::MemoryWriter w;
 		w.write(format_str, args...);
 		LogClient* logClient = getLogClientInstance();
@@ -152,7 +152,7 @@ namespace logserver {
 	}
 
 
-	inline void Printf(std::string a) {
+	inline void Printf(const std::string a) {
 		LogClient* logClient = getLogClientInstance();
 		if (!logClient->log(a)) {
 			logClient = getLogClientInstance();
@@ -161,7 +161,7 @@ namespace logserver {
 		//logClient->log("ha ha, i got a new habit");
 	};
 
-	inline void Printf(char* a) {
+	inline void Printf(const char* a) {
 		LogClient* logClient = getLogClientInstance();
 		if (!logClient->log(a)) {
 			logClient = getLogClientInstance();
@@ -169,7 +169,7 @@ namespace logserver {
 		}
 	}
 
-	inline void Printf(std::wstring& str) {
+	inline void Printf(const std::wstring& str) {
 		std::string a = ws2s(str);
 		LogClient* logClient = getLogClientInstance();
 		if (!logClient->log(a)) {
@@ -178,7 +178,7 @@ namespace logserver {
 		}
 	}
 
-	inline void Printf(wchar_t* str) {
+	inline void Printf(const wchar_t* str) {
 		std::string a = ws2s(std::wstring(str));
 		LogClient* logClient = getLogClientInstance();
 		if (!logClient->log(a)) {
@@ -208,7 +208,7 @@ namespace logserver {
 	}
 
 	template <typename... Args>
-	inline void Printf(std::string& format_str, const Args ... args) {
+	inline void Printf(const std::string& format_str, const Args ... args) {
 		//fmt::MemoryWriter w;
 		//w.write(format_str, args...);
 		std::string a = string_format(format_str, args...);
@@ -221,7 +221,7 @@ namespace logserver {
 	}
 
 	template <typename... Args>
-	inline void Printf(char* format_str, const Args& ... args) {
+	inline void Printf(const char* format_str, const Args& ... args) {
 		/*fmt::MemoryWriter w;
 		w.write(format_str, args...);*/
 		std::string a = string_format(format_str, args...);
@@ -234,7 +234,7 @@ namespace logserver {
 	}
 
 	template <typename... Args>
-	inline void Printf(std::wstring& format_str, const Args&  ... args) {
+	inline void Printf(const std::wstring& format_str, const Args&  ... args) {
 		//fmt::MemoryWriter w;
 		//w.write(format_str, args...);
 		std::string a = string_format(ws2s(format_str), args...);
@@ -247,7 +247,7 @@ namespace logserver {
 	}
 
 	template <typename... Args>
-	inline void Printf(wchar_t* format_str, const Args & ... args) {
+	inline void Printf(const wchar_t* format_str, const Args & ... args) {
 		//fmt::MemoryWriter w;
 		//w.write(format_str, args...);
 		std::string a = string_format(ws2s(format_str), args...);
