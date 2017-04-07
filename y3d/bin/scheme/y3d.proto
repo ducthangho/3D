@@ -129,7 +129,8 @@ message YObject {
     YCamera camera=11;
     YMesh mesh=12;
   }
-  TestObject ver_obj=13;
+  string current_ver = 13;
+  // TestObject ver_obj=13;
 }
 
 message YArea {
@@ -199,16 +200,7 @@ message RenameParam {
   bool use_select=1;
 }
 
-message Make4TestParam {
-  string oname=1;
-  repeated ELowpoly lowpoly=2;
-}
 
-message TestOParam {
-  int32 id = 1;
-  string oname=2;
-  float low_ratio=3;
-}
 
 message OptimizeParam {
     float ratio =1;
@@ -433,27 +425,7 @@ message YJobAction {
     ENormal bake_normal = 4;
   }  
 }
-message YItemMesh {
-  YMat bake_mat=1;
-  YBaseMap map=2;
-  YMesh mesh=3;
-  repeated YMesh meshes=4;
-}
 
-message TestObject {
-  bool active=1;
-  YMat original_mat=2;
-  string tname=3;
-  string oname=4;
-  // string name_low=3;
-  // string name_high=4;  
-  // string name_cage=5;  
-  // string obj_low= 6;  
-  // string obj_high=7;  
-  // string obj_cage=8;  
-  string save_path=9;
-  YItemMesh out=10;
-}
 
 message YJob {
   string jname = 1;
@@ -602,17 +574,79 @@ message VerTest {
   YBaseMap map_out = 10;
 }
 
-message VerTestParam {
-  string id=1;
-  string apikey=2;
-  string project_name = 3;  
-  oneof tname {
-    string oname=4;// is object
-    string gname=5;// is group
-  }
+// message VerTestParam {
+//   string id=1;
+//   string apikey=2;
+//   string project_name = 3;  
+//   oneof tname {
+//     string oname=4;// is object
+//     string gname=5;// is group
+//   }
+// }
+
+// message VerTestResponse {
+//   string new_id = 1;
+//   ResultReply rep = 2;
+// }
+
+message YListTest {
+  repeated VerTest otests=1;
+  repeated VerTest gtests=2;
 }
 
-message VerTestResponse {
-  string new_id = 1;
-  ResultReply rep = 2;
+message UserTestData {
+  map<string,YListTest> utests = 1;
+  map<string,YListTest> versions = 2;
+}
+
+message YItemMesh {
+  YMat bake_mat=1;
+  YBaseMap map=2;
+  YMesh mesh=3;
+  repeated YMesh meshes=4;
+}
+
+message TestObject {
+  bool active=1;
+  YMat original_mat=2;
+  string tname=3;
+  string oname=4;
+  // string name_low=3;
+  // string name_high=4;  
+  // string name_cage=5;  
+  // string obj_low= 6;  
+  // string obj_high=7;  
+  // string obj_cage=8;  
+  string save_path=9;
+  YItemMesh out=10;
+}
+
+message Make4TestParam {
+  string oname=1;
+  repeated ELowpoly lowpoly=2;
+}
+
+message TestOParam {
+  int32 id = 1;
+  string oname=2;
+  float low_ratio=3;
+}
+
+message InitTestParam {
+  string tname=1;
+  string tid = 2;
+  string test_folder = 3;
+  ELowpoly lowpoly = 4;
+  EUnwrap unwrap = 5;
+  EPacking pack = 6;
+  ENormal bake_normal = 7;
+}
+
+message InitTestResponse {
+  ResultReply rep = 1;
+  bool has_unwrap = 2;
+  bool has_pack = 3;
+  bool has_low = 4;
+  bool has_normal = 5;
+  bool hss_bake_full = 6;
 }

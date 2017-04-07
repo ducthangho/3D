@@ -43,6 +43,8 @@ public:
 	virtual Status Shutdown(ServerContext* context, const ::y3d::EmptyParam* request, ::y3d::ResultReply* response) = 0;
 	virtual Status NewProject(ServerContext* context, const ::y3d::NewProjectParam* request, ResponseNProject* response) = 0;
 	virtual Status LoadProject(ServerContext* context, const ::y3d::ProjectInfo* request, ::y3d::ResponseNProject* response) = 0;
+
+	virtual Status Init4Test(ServerContext* context, const InitTestParam* request, InitTestResponse* reply) = 0;
 };
 
 class YServiceImpl final : public AbstractService {
@@ -60,6 +62,8 @@ public:
 	Status Shutdown(::grpc::ServerContext* context, const ::y3d::EmptyParam* request, ::y3d::ResultReply* response) override;
 	Status NewProject(ServerContext* context, const ::y3d::NewProjectParam* request, ::y3d::ResponseNProject* response) override;
 	Status LoadProject(ServerContext* context, const ::y3d::ProjectInfo* request, ::y3d::ResponseNProject* response) override;
+
+	Status Init4Test(ServerContext* context, const InitTestParam* request, InitTestResponse* reply) override;
 	~YServiceImpl() override;
 };
 

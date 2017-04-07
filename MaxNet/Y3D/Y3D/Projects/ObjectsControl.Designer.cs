@@ -42,7 +42,7 @@
             this.miniToolStrip = new System.Windows.Forms.ToolStrip();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.fastObjectListView1 = new BrightIdeasSoftware.FastObjectListView();
+            this.olvLocalTest = new BrightIdeasSoftware.FastObjectListView();
             this.btnTestLoad = new System.Windows.Forms.Button();
             this.btnAddJob = new System.Windows.Forms.Button();
             this.btnAddTest = new System.Windows.Forms.Button();
@@ -66,12 +66,15 @@
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.button8 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.olvId = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.olvNote = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.tabNavLeft.SuspendLayout();
             this.tabArea.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gtreeListView)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.fastObjectListView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.olvLocalTest)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.objectListCtrl)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -221,17 +224,22 @@
             this.panel2.Size = new System.Drawing.Size(351, 180);
             this.panel2.TabIndex = 8;
             // 
-            // fastObjectListView1
+            // olvLocalTest
             // 
-            this.fastObjectListView1.CellEditUseWholeCell = false;
-            this.fastObjectListView1.Location = new System.Drawing.Point(3, 3);
-            this.fastObjectListView1.Name = "fastObjectListView1";
-            this.fastObjectListView1.ShowGroups = false;
-            this.fastObjectListView1.Size = new System.Drawing.Size(184, 90);
-            this.fastObjectListView1.TabIndex = 3;
-            this.fastObjectListView1.UseCompatibleStateImageBehavior = false;
-            this.fastObjectListView1.View = System.Windows.Forms.View.Details;
-            this.fastObjectListView1.VirtualMode = true;
+            this.olvLocalTest.AllColumns.Add(this.olvId);
+            this.olvLocalTest.AllColumns.Add(this.olvNote);
+            this.olvLocalTest.CellEditUseWholeCell = false;
+            this.olvLocalTest.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.olvId,
+            this.olvNote});
+            this.olvLocalTest.Location = new System.Drawing.Point(3, 3);
+            this.olvLocalTest.Name = "olvLocalTest";
+            this.olvLocalTest.ShowGroups = false;
+            this.olvLocalTest.Size = new System.Drawing.Size(184, 90);
+            this.olvLocalTest.TabIndex = 3;
+            this.olvLocalTest.UseCompatibleStateImageBehavior = false;
+            this.olvLocalTest.View = System.Windows.Forms.View.Details;
+            this.olvLocalTest.VirtualMode = true;
             // 
             // btnTestLoad
             // 
@@ -264,6 +272,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.button7);
             this.groupBox1.Controls.Add(this.button6);
             this.groupBox1.Controls.Add(this.button2);
@@ -272,10 +281,10 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(143, 175);
+            this.groupBox1.Size = new System.Drawing.Size(143, 176);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Version Info";
+            this.groupBox1.Text = "Info";
             // 
             // button7
             // 
@@ -288,7 +297,7 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(71, 44);
+            this.button6.Location = new System.Drawing.Point(5, 70);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(60, 20);
             this.button6.TabIndex = 2;
@@ -297,7 +306,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(5, 44);
+            this.button2.Location = new System.Drawing.Point(71, 45);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(60, 20);
             this.button2.TabIndex = 1;
@@ -310,7 +319,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(60, 20);
             this.button1.TabIndex = 0;
-            this.button1.Text = "UV Map";
+            this.button1.Text = "Unwrap";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // checkBoxIsolate
@@ -409,7 +418,7 @@
             // 
             // tabPageTest
             // 
-            this.tabPageTest.Controls.Add(this.fastObjectListView1);
+            this.tabPageTest.Controls.Add(this.olvLocalTest);
             this.tabPageTest.Location = new System.Drawing.Point(4, 22);
             this.tabPageTest.Name = "tabPageTest";
             this.tabPageTest.Padding = new System.Windows.Forms.Padding(3);
@@ -465,6 +474,27 @@
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(5, 44);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(60, 20);
+            this.button3.TabIndex = 4;
+            this.button3.Text = "Pack";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // olvId
+            // 
+            this.olvId.AspectName = "Id";
+            this.olvId.Text = "ID";
+            this.olvId.Width = 90;
+            // 
+            // olvNote
+            // 
+            this.olvNote.AspectName = "Vnote";
+            this.olvNote.FillsFreeSpace = true;
+            this.olvNote.Text = "Note";
+            // 
             // ObjectsControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -481,7 +511,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.fastObjectListView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.olvLocalTest)).EndInit();
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.objectListCtrl)).EndInit();
             this.toolStrip1.ResumeLayout(false);
@@ -518,7 +548,7 @@
         private System.Windows.Forms.Button btnAddTest;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
-        private BrightIdeasSoftware.FastObjectListView fastObjectListView1;
+        private BrightIdeasSoftware.FastObjectListView olvLocalTest;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
@@ -531,5 +561,8 @@
         private System.Windows.Forms.TabPage tabPageTest;
         private System.Windows.Forms.TabPage tabPageVersion;
         private System.Windows.Forms.Button btnTestDel;
+        private System.Windows.Forms.Button button3;
+        private BrightIdeasSoftware.OLVColumn olvId;
+        private BrightIdeasSoftware.OLVColumn olvNote;
     }
 }

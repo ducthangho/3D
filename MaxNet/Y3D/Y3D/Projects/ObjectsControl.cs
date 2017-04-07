@@ -131,6 +131,19 @@ namespace Y3D.Projects
             {
 
                 var y = (YObject)x;
+                if (Utils.TestData.Utests!=null)
+                {
+                    if (Utils.TestData.Utests.ContainsKey(y.Name))
+                    {
+                        olvLocalTest.SetObjects(Utils.TestData.Utests[y.Name].Otests);
+                    } else
+                    {
+                        // reset
+                    }
+                } else
+                {
+                    //reset
+                }
                 if (checkBoxIsolate.Checked)
                 {
                     YEvent ye = new YEvent();
@@ -143,6 +156,7 @@ namespace Y3D.Projects
                     YEvent ye = new YEvent();
                     ye.Select = new ESelect();
                     ye.Select.Name = y.Name;
+                    ye.Select.Isolate = checkBoxIsolate.Checked;
                     Y3D.Projects.Utils.MaxClient.DoEventAsync(ye);
                 }
 
@@ -177,12 +191,17 @@ namespace Y3D.Projects
 
         private void btnAddTest_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void groupBox2_Enter(object sender, EventArgs e)
-        {
-
+            Object x = objectListCtrl.SelectedObject;
+            if (x is YObject)
+            {
+                var y = (YObject)x;
+                if (Projects.Utils.CreateNewTest(y.Name))
+                {
+                    MessageBox.Show("Create ok");
+                    olvLocalTest.SetObjects(Utils.TestData.Utests[y.Name].Otests);
+                }
+            }
+      
         }
 
         private void checkBoxInGroup_CheckedChanged(object sender, EventArgs e)

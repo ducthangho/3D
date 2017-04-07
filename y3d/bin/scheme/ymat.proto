@@ -70,9 +70,13 @@ message YBaseMap {
     YMatMap ao=4;
     YMatMap specular=5;
     YMatMap displacement=6;
-    YMatMap transclucency=79;
+    YMatMap transclucency=7;
     YMatMap roughness=8;
     YMatMap opactity=9;
+    YMatMap full = 10;
+
+    repeated YMatMap normal_s = 20; // if has many version for normal map
+    repeated YMatMap full_s = 21;
 }
 
 message YMatStandard {

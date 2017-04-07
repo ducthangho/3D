@@ -32,7 +32,9 @@ namespace Y3D.Projects
 
         public static YAreaList CurrentYAL = null;
         public static ProjectInfo CurrentP = null;
+        public static UserTestData TestData = new UserTestData();
         public static Forms.YMainForm mainform = null;
+
         //public static YSystem YSys = new YSystem();
 
         public static void initSystem()
@@ -358,6 +360,36 @@ namespace Y3D.Projects
                 return true;
             }
             return false;
+        }
+
+        public static bool CreateNewTest(string tname)
+        {
+            if (TestData == null) TestData = new UserTestData();
+            if (!TestData.Utests.ContainsKey(tname))
+            {
+                TestData.Utests.Add(tname, new YListTest());
+            }
+            var ListTest = TestData.Utests[tname];
+            VerTest vt = new VerTest();
+            //vt.Id = Guid.NewGuid().ToString();
+            vt.Id = Convert.ToBase64String(Guid.NewGuid().ToByteArray()).Substring(0, 8);
+            var test_path = System.IO.Path.Combine(CurrentP.ProjectPath, "test",(tname+"_" + vt.Id));
+            var count = 0;
+            while (Directory.Exists(test_path))
+            {
+                count++;
+                vt.Id = Convert.ToBase64String(Guid.NewGuid().ToByteArray()).Substring(0, 8);
+                test_path = System.IO.Path.Combine(CurrentP.ProjectPath, "test", (tname + "_" + vt.Id));
+                if (count > 10) return false;
+            }
+            System.IO.Directory.CreateDirectory(test_path);
+
+            InitTestParam itp = new InitTestParam();
+            itp.Tname = tname;
+            itp.TestFolder = test_path;
+            var x = Y3D.Projects.Utils.MaxClient.Init4Test(itp);
+            TestData.Utests[tname].Otests.Add(vt);
+            return true;
         }
 
     }
