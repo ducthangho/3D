@@ -549,6 +549,7 @@ message YUser {
   string id=1;
   string username=2;
   string password=3;
+  string apikey=4;
   enum YUserRole {
     ADMIN = 0;
     LEADER = 1;
@@ -583,4 +584,35 @@ message UserResponse {
   ResultReply rep = 2;
   YWorkerList wlist = 3;
   UserSetting usetting = 4;
+}
+
+
+// ------------------------------ VERSION, TEST
+
+message VerTest {
+  string id=1;
+  string vnote = 2;
+  oneof tname {
+    string oname=4;// is object
+    string gname=5;// is group
+  }
+  YMat mat = 7;
+  YMultiMat mmat = 8;
+  repeated string uvmap = 9;
+  YBaseMap map_out = 10;
+}
+
+message VerTestParam {
+  string id=1;
+  string apikey=2;
+  string project_name = 3;  
+  oneof tname {
+    string oname=4;// is object
+    string gname=5;// is group
+  }
+}
+
+message VerTestResponse {
+  string new_id = 1;
+  ResultReply rep = 2;
 }

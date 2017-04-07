@@ -1,9 +1,18 @@
 #include "common.h"
 #include "YLibs.h"
 #include "YProjectUtils.h"
-
 #include "LogClient.h"
 using namespace logserver;
+
+const std::string FM_ORGINAL_FILE = "{0}\\{1}_o.max";
+const std::string FM_YAREA_FILE = "{0}\\yal.y3d";
+//const std::string FM_WORKING_FILE_PREFIX = "{0}{1}";
+NameTab low_nametab;
+NameTab high_nametab;
+INodeTab low_nodes;
+INodeTab high_nodes;
+int current_worker_id = 0;
+
 
 void getObjInfo(INode* node, YObject* yo) {
 	auto* oo = getObject(node);
@@ -45,6 +54,17 @@ void getObjInfo(INode* node, YObject* yo) {
 		//auto cname = node->clas
 		ym.set_mtype(mtype);
 		yo->mutable_mesh()->CopyFrom(ym);
+
+		if (mtype != y3d::YMesh::MeshType::YMesh_MeshType_Unknown) {
+			if (ym.num_faces() > 1000) {
+				high_nametab.AddName(node->GetName());
+				high_nodes.AppendNode(node, true);
+			}
+			else {
+				low_nametab.AddName(node->GetName());
+				low_nodes.AppendNode(node, true);
+			}
+		}
 	}
 	else if (t == CAMERA_T) {
 		yo->set_otype(y3d::ObjectType::CAMERA);
@@ -110,6 +130,12 @@ void ObjectFromMax(YAreaList* yal) {
 	auto ya = yal->add_areas();
 	ya->set_name("Area 1");
 	auto root = GetCOREInterface()->GetRootNode();
+
+	high_nametab.SetCount(0, TRUE);
+	low_nametab.SetCount(0, TRUE);
+	low_nodes.SetCount(0, TRUE);
+	high_nodes.SetCount(0, TRUE);
+
 	buildGroup(root, ya);
 	// switch to camera 1, Maximize Viewport Toggle, Views: Perspective User View, Viewport Visual Style Wireframe
 	ExecuteMAXScriptScript(L"actionMan.executeAction 0 \"160\"");
@@ -131,7 +157,7 @@ void NewYProject(const NewProjectParam* pp, ResponseNProject* rnp) {
 	//std::string path;
 	//path = pp->project_path();
 	//path += "\\yal.y3d";
-	auto path = fmt::format("{0}\\yal.y3d",pp->project_path());
+	auto path = fmt::format(FM_YAREA_FILE,pp->project_path());
 	//auto pi = YSys.add_projects();
 	//pi->CopyFrom(rnp->pinfo());
 	//saveSystem();
@@ -140,13 +166,16 @@ void NewYProject(const NewProjectParam* pp, ResponseNProject* rnp) {
 	if (!yal.SerializePartialToOstream(&output)) {
 		MessageBoxW(NULL, L"Can not create List Area Object file!", L"Error", MB_OK);
 	}
+	ProjectInfo* pi = new ProjectInfo();
+	pi->CopyFrom(rnp->pinfo());
+	DoXrefHigh(pi);
 	rnp->mutable_yal()->CopyFrom(yal);
 }
 
 void LoadNProject(ResponseNProject* rnp) {
 	auto* ip = GetCOREInterface();
 	auto s90 = fmt::format("{0}\\{1}90.max", rnp->pinfo().project_path(), rnp->pinfo().pname());
-	auto yal_path = fmt::format("{0}\\yal.y3d", rnp->pinfo().project_path());
+	auto yal_path = fmt::format(FM_YAREA_FILE, rnp->pinfo().project_path());
 	rnp->set_err(false);
 
 	if (ip->LoadFromFile(s2ws(s90).c_str()) == 0) {
@@ -173,20 +202,64 @@ void LoadNProject(ResponseNProject* rnp) {
 }
 //
 
+inline void DoXrefHigh(ProjectInfo* pi) {
+	auto* ip = GetCOREInterface();
+	std::wstring low_file = formatWS("{0}\\{1}_low0.max", pi->project_path(), pi->pname());
+	ip->FileSaveNodes(&high_nodes, low_file.c_str());
+	//std::wstring original_file = formatWS(FM_ORGINAL_FILE, pi->project_path(), pi->pname());
+	std::wstring original_file = formatWS("{}", pi->original_path());
+
+	logserver::LOG(original_file);
+	//log(original_file);
+	//ip->SelectNodeTab(high_nodes, true, false);
+	for (int i = 0; i < high_nodes.Count(); i++)
+	{
+		auto na = high_nodes[i]->NodeName();
+		ip->DeleteNode(high_nodes[i], true);
+	}
+
+	ip->MergeFromFile(original_file.c_str(), true, true, false, 3, &high_nametab, 1, 1);
+	std::wstring high_file = formatWS("{0}\\{1}_high.max", pi->project_path(), pi->pname());
+
+	INodeTab xreftab;
+	getSelNodeTab(xreftab);
+
+	ip->FileSaveNodes(&xreftab, high_file.c_str());
+	std::wstring cmd = formatWS("yms.xref_low \"{0}\" \"{1}\"", pi->project_path(), pi->pname());
+
+	ExecuteMAXScriptScript(cmd.c_str());
+	ip->MergeFromFile(original_file.c_str(), true, true, false, 3, &low_nametab, 1, 1);
+	ip->FileSave();
+}
+
+
 void DoYEvent(YEvent ye) {
+	auto* ip = GetCOREInterface();
 	if (ye.has_select()) {
 		auto name_select = ye.select().name();
-		std::string cmd = "select $" + name_select + ";";
-		//MessageBoxW(NULL, s2ws(cmd).c_str(), L"TEST", MB_OK);
-		ExecuteMAXScriptScript(s2ws(cmd).c_str());
-		return;
+		auto n = ip->GetINodeByName(s2ws(name_select).c_str());
+		ip->SelectNode(n);
+		//std::string cmd = "select $" + name_select + ";";
+		//ExecuteMAXScriptScript(s2ws(cmd).c_str());
 	}
-	if (ye.has_close()) {
+	else if (ye.has_isolate()) {
+		if (ye.isolate().endisolate()) {
+			auto cmd = L"IsolateSelection.ExitIsolateSelectionMode()";
+			ExecuteMAXScriptScript(cmd);
+		}
+		else {
+			auto name_select = ye.isolate().name();
+			auto n = ip->GetINodeByName(s2ws(name_select).c_str());
+			ip->SelectNode(n);
+			auto cmd = L"actionMan.executeAction 0 \"197\";";
+			ExecuteMAXScriptScript(cmd);
+		}
+	}
+	else if (ye.has_close()) {
 		if (ye.close().bypass())
 			ExecuteMAXScriptScript(L"actionMan.executeAction 0 \"16\"");
 			//"resetMaxFile #noPrompt"
 		else {
-
 		}
 	}
 }

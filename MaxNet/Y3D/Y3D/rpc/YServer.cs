@@ -20,6 +20,15 @@ namespace Y3D.rpc
             }
             return Task.FromResult(new EmptyParam());
         }
+
+        public override Task<ResponseEvent> DoEvent(YEvent request, ServerCallContext context)
+        {
+            if (request.Select!=null)
+            {
+                MessageBox.Show("da chon:" + request.Select.Name);
+            }
+            return Task.FromResult(new ResponseEvent());
+        }
     };
 
 
@@ -32,8 +41,6 @@ namespace Y3D.rpc
             return Y3D.Projects.Utils.getMainWorker().ContinueWith(
                 (task) =>
                 {
-                    if (task.IsCompleted)
-                    {
                         if (Y3D.Projects.Utils.worker!=null)
                         {
                             server = new Server
@@ -43,7 +50,6 @@ namespace Y3D.rpc
                             };
                             server.Start();
                         }
-                    }
                 }
             );
         }

@@ -274,18 +274,19 @@ if yms_init != true then
 
 		fn xref_low oFileDir oFileName= 
 		(
+			print (oFileDir +"\\"+ oFileName);
 			oNames = #()
 			for ss in selection do 
 				(
 					append oNames ss.name
 				)
 			objXRefMgr.dupObjNameAction  = #deleteOld
-			xref_b = objXRefMgr.AddXRefItemsFromFile (oFileDir +"\\"+oFileName+"_y3d\\"+ oFileName + "_low0.max") objNames:oNames
+			xref_b = objXRefMgr.AddXRefItemsFromFile (oFileDir +"\\"+ oFileName + "_low0.max") objNames:oNames
 			items = #()
 			xref_b.GetItems #XRefObjectType &items
 			for item in items do 
 				(
-					objXRefMgr.SetProxyItemSrcFile item (oFileDir +"\\"+oFileName+"_y3d\\"+ oFileName + "_high.max")
+					objXRefMgr.SetProxyItemSrcFile item (oFileDir +"\\"+ oFileName + "_high.max")
 					item.proxyItemName = item.objectName
 				)		
 			-- delete not HL

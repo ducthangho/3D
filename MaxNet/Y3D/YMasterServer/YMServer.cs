@@ -387,7 +387,7 @@ namespace YMasterServer
 
         public static Task<YWorker> check_worker(YWorker yw, bool check_loader_only=false)
         {
-            Console.WriteLine("checking worker " + yw.Wid + " ...");
+            Console.WriteLine(String.Format("checking worker {0} (NetState = {1})..",yw.Wid,yw.NetState));
             if (yw.NetState == 4) return Task.FromResult(yw);
             yw.NetState = 0;
             var ip = (yw.MachineIp == YMServer.MASTER_IP_LAN) ? "127.0.0.1" : yw.MachineIp;
@@ -447,6 +447,7 @@ namespace YMasterServer
         public static bool testConnection(String ip, int port)
         {
             var channel = new Channel(String.Format(ip + ":{0}", port), ChannelCredentials.Insecure);
+            //if (channel.State == ChannelState.Idle) return false;
             return (!channel.ConnectAsync(deadline: DateTime.UtcNow.AddMilliseconds(3000)).ContinueWith<bool>((t) => t.IsCanceled || t.IsFaulted).Result);
         }
 
@@ -458,112 +459,97 @@ namespace YMasterServer
 
         public static Task<YWorker> GiveMeAFreeWorker(YWorkerRequest req)
         {
-            if (req.Wtype==WorkerType.MainWorker || req.Wtype==WorkerType.SubWorker) // get worker from same machine
-            {
-                var ww = YRedis.getWorkersByMachine(req.Machine);
-                foreach (var w in ww)
+            var t = refreshWorkers();
+            return t.ContinueWith<YWorker>(_ => {
+                if (req.Wtype == WorkerType.MainWorker || req.Wtype == WorkerType.SubWorker) // get worker from same machine
                 {
-                    if (w.Wtype == WorkerType.Free)
+                    var ww = YRedis.getWorkersByMachine(req.Machine);
+                    foreach (var w in ww)
                     {
-                        w.Wtype = req.Wtype;
-                        YRedis.updateWorker(w);
-                        return Task.FromResult(w);
-                    } else
-                    {
-                        if (req.Wtype == WorkerType.MainWorker && w.Wtype == WorkerType.MainWorker)
+                        if (w.Wtype == WorkerType.Free)
                         {
+                            w.Wtype = req.Wtype;
                             YRedis.updateWorker(w);
-                            return Task.FromResult(w);
+                            return w;
+                        }
+                        else
+                        {
+                            if (req.Wtype == WorkerType.MainWorker && w.Wtype == WorkerType.MainWorker)
+                            {
+                                YRedis.updateWorker(w);
+                                return w;
+                            }
+                        }
+
+                    }
+                }
+                else if (req.Wtype == WorkerType.RemoteWorker) // get worker from other machine
+                {
+                    //var ww = YRedis.getAllWorker();
+                    var ww = YRedis.getWorkersByMachine(req.Machine, false);
+                    foreach (var w in ww)
+                    {
+                        if (w.Wtype == WorkerType.Free)
+                        {
+                            w.Wtype = req.Wtype;
+                            YRedis.updateWorker(w);
+                            return w;
                         }
                     }
+                }
+
+                var new_id = YRedis.incrWorkerId();
+                var nw = createDefaultWorker(req.Machine.IpAddress, new_id);
+                nw.NetState = 4;
+                nw.Wtype = req.Wtype;
+                YRedis.addWorker(nw);
+                return nw;
+            });
+
+            //if (req.Wtype==WorkerType.MainWorker || req.Wtype==WorkerType.SubWorker) // get worker from same machine
+            //{
+            //    var ww = YRedis.getWorkersByMachine(req.Machine);
+            //    foreach (var w in ww)
+            //    {
+            //        if (w.Wtype == WorkerType.Free)
+            //        {
+            //            w.Wtype = req.Wtype;
+            //            YRedis.updateWorker(w);
+            //            return Task.FromResult(w);
+            //        } else
+            //        {
+            //            if (req.Wtype == WorkerType.MainWorker && w.Wtype == WorkerType.MainWorker)
+            //            {
+            //                YRedis.updateWorker(w);
+            //                return Task.FromResult(w);
+            //            }
+            //        }
             
-                }
-            } else if (req.Wtype==WorkerType.RemoteWorker) // get worker from other machine
-            {
-                //var ww = YRedis.getAllWorker();
-                var ww = YRedis.getWorkersByMachine(req.Machine,false); 
-                foreach (var w in ww)
-                {
-                    if (w.Wtype == WorkerType.Free)
-                    {
-                        w.Wtype = req.Wtype;
-                        YRedis.updateWorker(w);
-                        return Task.FromResult(w);
-                    }
-                }
-            }
-
-            var new_id = YRedis.incrWorkerId();
-            var nw = createDefaultWorker(req.Machine.IpAddress, new_id);
-            nw.NetState = 4;
-            YRedis.addWorker(nw);
-            return Task.FromResult(nw);
-            // not found any free worker
-
-
-            //var index = YRedis.getMaxWorkerId() + 1;
-
-            //if (testConnection(MASTER_IP_DEFAULT,index,38000))
+            //    }
+            //} else if (req.Wtype==WorkerType.RemoteWorker) // get worker from other machine
             //{
-            //    var tmp = createDefaultWorker(MASTER_IP_DEFAULT,index);
-            //    if (testConnection(MASTER_IP_DEFAULT, index, 39000))
-            //        tmp.Status = ServingStatus.Serving;
-            //    else tmp.Status = ServingStatus.NotServing;
-            //    tmp.Wtype = WorkerType.MainWorker;
-            //    YRedis.updateWorker(tmp);
-            //    return Task.FromResult(tmp);
-            //}
-
-            //if (StartApp("MAX3D"))
-            //{
-            //    var channel = new Channel(String.Format("127.0.0.1:{0}", index + 38000), ChannelCredentials.Insecure);
-
-            //    if (channel.State != Grpc.Core.ChannelState.Ready)
+            //    //var ww = YRedis.getAllWorker();
+            //    var ww = YRedis.getWorkersByMachine(req.Machine,false); 
+            //    foreach (var w in ww)
             //    {
-            //        return Task.Factory.StartNew(
-            //            () =>
-            //            {
-            //                int count = 0;
-            //                while (channel.ConnectAsync(deadline: DateTime.UtcNow.AddMilliseconds(5000)).ContinueWith<bool>((t) => t.IsCanceled || t.IsFaulted).Result && count++ < 20)
-            //                {
-            //                    Console.WriteLine("5s. Retry");
-            //                }//*/                   
-            //                Console.WriteLine("Connected!!!");
-            //            }
-            //        ).ContinueWith<YWorker>((tt) =>
+            //        if (w.Wtype == WorkerType.Free)
             //        {
-            //            YWorker tmp = YRedis.getWorkerById(index);
-            //            if (tmp!=null)
-            //            {
-            //                tmp.Wtype = WorkerType.MainWorker;
-            //                YRedis.updateWorker(tmp);
-            //                return tmp;
-            //            }
-            //            return null;
-            //        });
-            //    };
-
-            //    YWorker rt = YRedis.getWorkerById(index); 
-            //    if (rt != null)
-            //        return Task.FromResult<YWorker>(rt);
-            //}
-
-            return Task.FromResult<YWorker>(null);
-
-            //for (int j = 1; j <= index; ++j)
-            //{
-            //    if (YMServer.workers[index] == null && testConnection(MASTER_IP_DEFAULT, index))
-            //    {
-            //        var tmp = createDefaultWorker(MASTER_IP_DEFAULT, index);
-            //        if (YMServer.workers.TryAdd(index, tmp))
-            //        {
-            //            tmp.Wtype = YWorker.Types.WorkerType.MainWorker;
-            //            tmp.NoApp = false;
-            //            YMServer.workers[index] = tmp;
-            //            return Task.FromResult(tmp);
+            //            w.Wtype = req.Wtype;
+            //            YRedis.updateWorker(w);
+            //            return Task.FromResult(w);
             //        }
             //    }
             //}
+
+            //var new_id = YRedis.incrWorkerId();
+            //var nw = createDefaultWorker(req.Machine.IpAddress, new_id);
+            //nw.NetState = 4;
+            //nw.Wtype = req.Wtype;
+            //YRedis.addWorker(nw);
+            //return Task.FromResult(nw);
+            // not found any free worker
+
+            
         }
 
 
@@ -760,13 +746,13 @@ namespace YMasterServer
                         var o = YRedis.getWorkerById((int)wid);
                         if (t.IsFaulted || t.IsCanceled)
                         {
-                            if (o!=null) Console.WriteLine(String.Format("{0} App Server can not start on {1}", o.Wname, o.MachineIp + ":" + o.PortMax));
+                            if (o!=null) Console.WriteLine(String.Format("{0} App Server can not start on {1}:{2}", o.Wname, ip, o.PortMax));
                             return;
                         }
 
                         if (t.IsCompleted && o!=null)
                         {
-                            Console.WriteLine(String.Format("{0} App Server is ready on {1}", o.Wname, o.MachineIp + ":" + o.PortMax));                          
+                            Console.WriteLine(String.Format("{0} App Server is ready on {1}:{2}", o.Wname, o.MachineIp, o.PortMax));                          
                             o.Status = y3d.e.ServingStatus.Serving;
                             o.NetState = 3;
                             YRedis.updateWorker(o);
@@ -847,6 +833,7 @@ namespace YMasterServer
                     var client = new YServiceMainWorker.YServiceMainWorkerClient(channel);
                     if (client != null)
                     {
+                        Console.WriteLine(ip);
                         YWorkerResponse wr = new YWorkerResponse();
                         wr.Worker = yw;
                         wr.Wlist = new YWorkerList();

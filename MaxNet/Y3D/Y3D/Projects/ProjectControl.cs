@@ -21,6 +21,7 @@ namespace Y3D.Projects
                 ProjectInfo t = (ProjectInfo)x;
                 return t.OriginalPath + "\\" + t.Pname + ".max";
             };
+            if (Users.Auth.usetting == null) return;
             if (Users.Auth.usetting.Projects.Count>0)
                 this.dlvListProject.SetObjects(Users.Auth.usetting.Projects.Values);
         }
@@ -74,6 +75,9 @@ namespace Y3D.Projects
                 if (Utils.LoadProject(pi))
                 {
                     Utils.mainform.switch2OManager();
+                } else
+                {
+                    MessageBox.Show("Can not load this project!");
                 }
             }
         }

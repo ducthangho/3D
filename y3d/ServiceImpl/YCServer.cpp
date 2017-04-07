@@ -285,7 +285,7 @@ void YServiceImpl::Initialize(void* codegen, void* gli)
 {
 	grpc::g_core_codegen_interface = (grpc::CoreCodegenInterface*)codegen;
 	grpc::g_glip = (grpc::GrpcLibraryInterface*)gli;
-	//registerCB();
+	registerCB();
 }
 
 Status YServiceImpl::Shutdown(::grpc::ServerContext* context, const ::y3d::EmptyParam* request, ::y3d::ResultReply* response)

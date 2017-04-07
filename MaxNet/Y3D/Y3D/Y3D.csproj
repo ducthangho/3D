@@ -256,7 +256,9 @@
   <ItemGroup>
     <None Include="Resources\user24.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\trash16.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>rem xcopy /Y "$(TargetPath)" "$(SolutionDir)..\..\y3d\bin"</PostBuildEvent>

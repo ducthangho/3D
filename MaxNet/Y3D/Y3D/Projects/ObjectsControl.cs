@@ -143,7 +143,7 @@ namespace Y3D.Projects
                     YEvent ye = new YEvent();
                     ye.Select = new ESelect();
                     ye.Select.Name = y.Name;
-                    Y3D.Projects.Utils.MaxClient.DoEvent(ye);
+                    Y3D.Projects.Utils.MaxClient.DoEventAsync(ye);
                 }
 
                 
@@ -176,6 +176,16 @@ namespace Y3D.Projects
         }
 
         private void btnAddTest_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBoxInGroup_CheckedChanged(object sender, EventArgs e)
         {
 
         }

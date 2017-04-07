@@ -60,6 +60,7 @@ message YMatMap {
     YImage image=1;
     float scale=2;
     string name=3;
+    string res_id = 4;
 }
 
 message YBaseMap {

@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ObjectsControl));
             this.tabNavLeft = new System.Windows.Forms.TabControl();
             this.tabArea = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.gtreeListView = new BrightIdeasSoftware.TreeListView();
@@ -40,29 +41,43 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.miniToolStrip = new System.Windows.Forms.ToolStrip();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.fastObjectListView1 = new BrightIdeasSoftware.FastObjectListView();
+            this.btnTestLoad = new System.Windows.Forms.Button();
             this.btnAddJob = new System.Windows.Forms.Button();
             this.btnAddTest = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.checkBoxInGroup = new System.Windows.Forms.CheckBox();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.checkBoxIsolate = new System.Windows.Forms.CheckBox();
+            this.checkBoxInGroup = new System.Windows.Forms.CheckBox();
             this.listCheck = new System.Windows.Forms.CheckBox();
             this.objectListCtrl = new BrightIdeasSoftware.FastObjectListView();
             this.olvColNameO = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.olvColFace = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.olvColTypeO = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPageTest = new System.Windows.Forms.TabPage();
+            this.tabPageVersion = new System.Windows.Forms.TabPage();
+            this.btnTestDel = new System.Windows.Forms.Button();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.button8 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabNavLeft.SuspendLayout();
             this.tabArea.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gtreeListView)).BeginInit();
             this.panel1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fastObjectListView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.objectListCtrl)).BeginInit();
             this.toolStrip1.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabPageTest.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabNavLeft
@@ -78,6 +93,9 @@
             // tabArea
             // 
             this.tabArea.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tabArea.Controls.Add(this.button8);
+            this.tabArea.Controls.Add(this.label1);
+            this.tabArea.Controls.Add(this.pictureBox1);
             this.tabArea.Controls.Add(this.button5);
             this.tabArea.Controls.Add(this.button4);
             this.tabArea.Controls.Add(this.gtreeListView);
@@ -87,6 +105,15 @@
             this.tabArea.Size = new System.Drawing.Size(188, 518);
             this.tabArea.TabIndex = 0;
             this.tabArea.Text = "Area";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(7, 352);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(45, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Preview";
             // 
             // button5
             // 
@@ -169,9 +196,10 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.groupBox3);
-            this.panel1.Controls.Add(this.groupBox2);
-            this.panel1.Controls.Add(this.groupBox1);
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Controls.Add(this.checkBoxIsolate);
+            this.panel1.Controls.Add(this.checkBoxInGroup);
+            this.panel1.Controls.Add(this.listCheck);
             this.panel1.Controls.Add(this.objectListCtrl);
             this.panel1.Controls.Add(this.toolStrip1);
             this.panel1.Location = new System.Drawing.Point(205, 3);
@@ -179,39 +207,44 @@
             this.panel1.Size = new System.Drawing.Size(354, 544);
             this.panel1.TabIndex = 1;
             // 
-            // groupBox3
+            // panel2
             // 
-            this.groupBox3.Location = new System.Drawing.Point(3, 440);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(348, 100);
-            this.groupBox3.TabIndex = 5;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Object";
+            this.panel2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel2.Controls.Add(this.btnTestDel);
+            this.panel2.Controls.Add(this.btnTestLoad);
+            this.panel2.Controls.Add(this.tabControl1);
+            this.panel2.Controls.Add(this.btnAddJob);
+            this.panel2.Controls.Add(this.btnAddTest);
+            this.panel2.Controls.Add(this.groupBox1);
+            this.panel2.Location = new System.Drawing.Point(0, 361);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(351, 180);
+            this.panel2.TabIndex = 8;
             // 
-            // groupBox2
+            // fastObjectListView1
             // 
-            this.groupBox2.Controls.Add(this.button3);
-            this.groupBox2.Controls.Add(this.btnAddJob);
-            this.groupBox2.Controls.Add(this.btnAddTest);
-            this.groupBox2.Location = new System.Drawing.Point(3, 379);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(348, 55);
-            this.groupBox2.TabIndex = 4;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Actions";
+            this.fastObjectListView1.CellEditUseWholeCell = false;
+            this.fastObjectListView1.Location = new System.Drawing.Point(3, 3);
+            this.fastObjectListView1.Name = "fastObjectListView1";
+            this.fastObjectListView1.ShowGroups = false;
+            this.fastObjectListView1.Size = new System.Drawing.Size(184, 90);
+            this.fastObjectListView1.TabIndex = 3;
+            this.fastObjectListView1.UseCompatibleStateImageBehavior = false;
+            this.fastObjectListView1.View = System.Windows.Forms.View.Details;
+            this.fastObjectListView1.VirtualMode = true;
             // 
-            // button3
+            // btnTestLoad
             // 
-            this.button3.Location = new System.Drawing.Point(110, 20);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(79, 23);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Load Version";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnTestLoad.Location = new System.Drawing.Point(61, 127);
+            this.btnTestLoad.Name = "btnTestLoad";
+            this.btnTestLoad.Size = new System.Drawing.Size(44, 23);
+            this.btnTestLoad.TabIndex = 2;
+            this.btnTestLoad.Text = "Load";
+            this.btnTestLoad.UseVisualStyleBackColor = true;
             // 
             // btnAddJob
             // 
-            this.btnAddJob.Location = new System.Drawing.Point(60, 20);
+            this.btnAddJob.Location = new System.Drawing.Point(153, 127);
             this.btnAddJob.Name = "btnAddJob";
             this.btnAddJob.Size = new System.Drawing.Size(44, 23);
             this.btnAddJob.TabIndex = 1;
@@ -220,7 +253,8 @@
             // 
             // btnAddTest
             // 
-            this.btnAddTest.Location = new System.Drawing.Point(7, 20);
+            this.btnAddTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddTest.Location = new System.Drawing.Point(8, 127);
             this.btnAddTest.Name = "btnAddTest";
             this.btnAddTest.Size = new System.Drawing.Size(47, 23);
             this.btnAddTest.TabIndex = 0;
@@ -230,33 +264,59 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.checkBoxInGroup);
-            this.groupBox1.Controls.Add(this.checkBoxIsolate);
-            this.groupBox1.Controls.Add(this.listCheck);
-            this.groupBox1.Location = new System.Drawing.Point(2, 333);
+            this.groupBox1.Controls.Add(this.button7);
+            this.groupBox1.Controls.Add(this.button6);
+            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Location = new System.Drawing.Point(206, 3);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(349, 41);
+            this.groupBox1.Size = new System.Drawing.Size(143, 175);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Setting";
+            this.groupBox1.Text = "Version Info";
             // 
-            // checkBoxInGroup
+            // button7
             // 
-            this.checkBoxInGroup.AutoSize = true;
-            this.checkBoxInGroup.Location = new System.Drawing.Point(81, 17);
-            this.checkBoxInGroup.Margin = new System.Windows.Forms.Padding(2);
-            this.checkBoxInGroup.Name = "checkBoxInGroup";
-            this.checkBoxInGroup.Size = new System.Drawing.Size(97, 17);
-            this.checkBoxInGroup.TabIndex = 7;
-            this.checkBoxInGroup.Text = "Select in group";
-            this.checkBoxInGroup.UseVisualStyleBackColor = true;
+            this.button7.Location = new System.Drawing.Point(5, 18);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(60, 20);
+            this.button7.TabIndex = 3;
+            this.button7.Text = "Low poly";
+            this.button7.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(71, 44);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(60, 20);
+            this.button6.TabIndex = 2;
+            this.button6.Text = "Bake";
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(5, 44);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(60, 20);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "Normal Map";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(71, 19);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(60, 20);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "UV Map";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // checkBoxIsolate
             // 
             this.checkBoxIsolate.AutoSize = true;
-            this.checkBoxIsolate.Location = new System.Drawing.Point(179, 17);
+            this.checkBoxIsolate.Location = new System.Drawing.Point(192, 339);
             this.checkBoxIsolate.Margin = new System.Windows.Forms.Padding(2);
             this.checkBoxIsolate.Name = "checkBoxIsolate";
             this.checkBoxIsolate.Size = new System.Drawing.Size(88, 17);
@@ -265,10 +325,22 @@
             this.checkBoxIsolate.UseVisualStyleBackColor = true;
             this.checkBoxIsolate.CheckedChanged += new System.EventHandler(this.checkBoxIsolate_CheckedChanged);
             // 
+            // checkBoxInGroup
+            // 
+            this.checkBoxInGroup.AutoSize = true;
+            this.checkBoxInGroup.Location = new System.Drawing.Point(91, 339);
+            this.checkBoxInGroup.Margin = new System.Windows.Forms.Padding(2);
+            this.checkBoxInGroup.Name = "checkBoxInGroup";
+            this.checkBoxInGroup.Size = new System.Drawing.Size(97, 17);
+            this.checkBoxInGroup.TabIndex = 7;
+            this.checkBoxInGroup.Text = "Select in group";
+            this.checkBoxInGroup.UseVisualStyleBackColor = true;
+            this.checkBoxInGroup.CheckedChanged += new System.EventHandler(this.checkBoxInGroup_CheckedChanged);
+            // 
             // listCheck
             // 
             this.listCheck.AutoSize = true;
-            this.listCheck.Location = new System.Drawing.Point(4, 17);
+            this.listCheck.Location = new System.Drawing.Point(9, 339);
             this.listCheck.Margin = new System.Windows.Forms.Padding(2);
             this.listCheck.Name = "listCheck";
             this.listCheck.Size = new System.Drawing.Size(78, 17);
@@ -325,6 +397,46 @@
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPageTest);
+            this.tabControl1.Controls.Add(this.tabPageVersion);
+            this.tabControl1.Location = new System.Drawing.Point(3, 3);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(198, 122);
+            this.tabControl1.TabIndex = 4;
+            // 
+            // tabPageTest
+            // 
+            this.tabPageTest.Controls.Add(this.fastObjectListView1);
+            this.tabPageTest.Location = new System.Drawing.Point(4, 22);
+            this.tabPageTest.Name = "tabPageTest";
+            this.tabPageTest.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageTest.Size = new System.Drawing.Size(190, 96);
+            this.tabPageTest.TabIndex = 0;
+            this.tabPageTest.Text = "Local Test";
+            this.tabPageTest.UseVisualStyleBackColor = true;
+            // 
+            // tabPageVersion
+            // 
+            this.tabPageVersion.Location = new System.Drawing.Point(4, 22);
+            this.tabPageVersion.Name = "tabPageVersion";
+            this.tabPageVersion.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageVersion.Size = new System.Drawing.Size(190, 96);
+            this.tabPageVersion.TabIndex = 1;
+            this.tabPageVersion.Text = "Version";
+            this.tabPageVersion.UseVisualStyleBackColor = true;
+            // 
+            // btnTestDel
+            // 
+            this.btnTestDel.Image = global::Y3D.Properties.Resources.trash16;
+            this.btnTestDel.Location = new System.Drawing.Point(111, 127);
+            this.btnTestDel.Name = "btnTestDel";
+            this.btnTestDel.Size = new System.Drawing.Size(23, 23);
+            this.btnTestDel.TabIndex = 5;
+            this.btnTestDel.UseVisualStyleBackColor = true;
+            // 
             // toolStripButton1
             // 
             this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -334,6 +446,24 @@
             this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton1.Text = "toolStripButton1";
             this.toolStripButton1.ToolTipText = "Tags";
+            // 
+            // button8
+            // 
+            this.button8.Image = global::Y3D.Properties.Resources.start;
+            this.button8.Location = new System.Drawing.Point(58, 348);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(20, 20);
+            this.button8.TabIndex = 5;
+            this.button8.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox1.Location = new System.Drawing.Point(7, 371);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(175, 141);
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
             // 
             // ObjectsControl
             // 
@@ -346,15 +476,19 @@
             this.Load += new System.EventHandler(this.ObjectsControl_Load);
             this.tabNavLeft.ResumeLayout(false);
             this.tabArea.ResumeLayout(false);
+            this.tabArea.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gtreeListView)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.fastObjectListView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.objectListCtrl)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPageTest.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -379,12 +513,23 @@
         private System.Windows.Forms.CheckBox checkBoxInGroup;
         private System.Windows.Forms.CheckBox checkBoxIsolate;
         private System.Windows.Forms.CheckBox listCheck;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnTestLoad;
         private System.Windows.Forms.Button btnAddJob;
         private System.Windows.Forms.Button btnAddTest;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
+        private BrightIdeasSoftware.FastObjectListView fastObjectListView1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPageTest;
+        private System.Windows.Forms.TabPage tabPageVersion;
+        private System.Windows.Forms.Button btnTestDel;
     }
 }

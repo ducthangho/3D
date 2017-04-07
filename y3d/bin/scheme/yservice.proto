@@ -64,6 +64,7 @@ service YServiceMaster {
   rpc UserRegister(UserParam) returns (UserResponse) {}
   rpc UpdateUserSetting(UserParam) returns (ResultReply) {}
   
+  rpc CreateVerTest(VerTestParam) returns (VerTestResponse) {}
 }
 
 service YServiceMainWorker { // server for 3dsmax send actions request, run in mainworker app

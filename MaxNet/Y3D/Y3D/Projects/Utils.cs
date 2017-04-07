@@ -102,57 +102,86 @@ namespace Y3D.Projects
                                 if (Y3D.Users.Auth.StartApp("MAX3D"))
                                 {
                                     var channel = new Channel(String.Format("127.0.0.1:{0}", w.PortLoader), ChannelCredentials.Insecure);
-
-                                    if (channel.State != Grpc.Core.ChannelState.Ready)
+                                    int count = 0;
+                                    while (channel.ConnectAsync(deadline: DateTime.UtcNow.AddMilliseconds(5000)).ContinueWith<bool>((t) => t.IsCanceled || t.IsFaulted).Result && count++ < 50)
                                     {
-                                        Task.Factory.StartNew(
-                                            () =>
-                                            {
-                                                int count = 0;
-                                                while (channel.ConnectAsync(deadline: DateTime.UtcNow.AddMilliseconds(5000)).ContinueWith<bool>((t) => t.IsCanceled || t.IsFaulted).Result && count++ < 20)
-                                                {
-                                                    Console.WriteLine("5s. Retry"); // hien loading
-                                                    if (count == 30) break;
-                                                }//*/                   
-                                                if (count < 30)
-                                                {
-                                                    Console.WriteLine("Connected!!!");
-                                                }
-                                            }
-                                        ).ContinueWith(_ =>
+                                        Console.WriteLine("5s. Retry"); // hien loading
+                                    }
+                                    if (count==50)
+                                    {
+                                        MessageBox.Show(String.Format("Can not connect to {0}:{1}", w.MachineIp, w.PortLoader));
+                                        return Task.FromResult(false);
+                                    }
+                                    else
+                                    {
+                                        // start worker
+                                        y3d.e.WorkerParam wp = new y3d.e.WorkerParam();
+                                        wp.Wid = w.Wid;
+                                        var rr = Y3D.Projects.Utils.MasterClient.StartWorkerAsync(wp).ResponseAsync;
+                                        return rr.ContinueWith<bool>((wk) =>
                                         {
-                                            if (_.IsFaulted || _.IsCanceled)
+                                            if (wk.IsFaulted || wk.IsCanceled || wk.Result.Error)
                                             {
-                                                MessageBox.Show(String.Format("Can not connect to {0}:{1}", w.MachineIp, w.PortLoader));
-                                                return Task.FromResult(false);
+                                                MessageBox.Show("Can not start worker!");
+                                                return false;
                                             }
-                                            // start worker
-                                            y3d.e.WorkerParam wp = new y3d.e.WorkerParam();
-                                            wp.Wid = w.Wid;
-                                            var rr = Y3D.Projects.Utils.MasterClient.StartWorkerAsync(wp).ResponseAsync;
-                                            return rr.ContinueWith<bool>((wk) =>
+                                            if (wk.IsCompleted)
                                             {
-                                                if (wk.IsFaulted || wk.IsCanceled || wk.Result.Error)
-                                                {
-                                                    MessageBox.Show("Can not start worker!");
-                                                    return false;
-                                                }
-
-                                                if (wk.IsCompleted)
-                                                {
-                                                    worker = wk.Result.Worker;
-                                                    updateClient();
-                                                }
-
+                                                worker = wk.Result.Worker;
+                                                updateClient();
                                                 return true;
-                                            });
+                                            }
+                                            return false;
                                         });
-                                    };
+                                    }
+
+                                    //var channel = new Channel(String.Format("127.0.0.1:{0}", w.PortLoader), ChannelCredentials.Insecure);
+
+                                    //if (channel.State != Grpc.Core.ChannelState.Ready)
+                                    //{
+                                    //    Task.Factory.StartNew(
+                                    //        () =>
+                                    //        {
+                                    //            int count = 0;
+                                    //            while (channel.ConnectAsync(deadline: DateTime.UtcNow.AddMilliseconds(5000)).ContinueWith<bool>((t) => t.IsCanceled || t.IsFaulted).Result && count++ < 50)
+                                    //            {
+                                    //                Console.WriteLine("5s. Retry"); // hien loading
+                                    //            }//*/                   
+                                    //        }
+                                    //    ).ContinueWith(_ =>
+                                    //    {
+                                    //        if (_.IsFaulted || _.IsCanceled)
+                                    //        {
+                                    //            MessageBox.Show(String.Format("Can not connect to {0}:{1}", w.MachineIp, w.PortLoader));
+                                    //            return Task.FromResult(false);
+                                    //        }
+                                    //        // start worker
+                                    //        y3d.e.WorkerParam wp = new y3d.e.WorkerParam();
+                                    //        wp.Wid = w.Wid;
+                                    //        var rr = Y3D.Projects.Utils.MasterClient.StartWorkerAsync(wp).ResponseAsync;
+                                    //        return rr.ContinueWith<bool>((wk) =>
+                                    //        {
+                                    //            if (wk.IsFaulted || wk.IsCanceled || wk.Result.Error)
+                                    //            {
+                                    //                MessageBox.Show("Can not start worker!");
+                                    //                return false;
+                                    //            }
+
+                                    //            if (wk.IsCompleted)
+                                    //            {
+                                    //                worker = wk.Result.Worker;
+                                    //                updateClient();
+                                    //            }
+
+                                    //            return true;
+                                    //        });
+                                    //    });
+                                    //};
                                 }
                             }
                             else 
                             {
-                                if (w.NetState == 1)
+                                if (w.NetState!=2)
                                 {
                                     y3d.e.WorkerParam wp = new y3d.e.WorkerParam();
                                     wp.Wid = w.Wid;
@@ -171,14 +200,14 @@ namespace Y3D.Projects
                                         }
                                         return true;
                                     });
-                                } else if (w.NetState==2)
+                                } else 
                                 {
                                     worker = w;
+                                    updateClient();
                                     return Task.FromResult(true);
                                 }
                             }
                         }
-
                         return Task.FromResult(false);
                     });
                 return x.Unwrap();
@@ -282,6 +311,7 @@ namespace Y3D.Projects
 
         public static bool LoadProject(ProjectInfo pi)
         {
+            if (Y3D.Projects.Utils.MaxClient == null) return false;
             var rnp = Y3D.Projects.Utils.MaxClient.LoadProject(pi);
             if (!rnp.Err)
             {
