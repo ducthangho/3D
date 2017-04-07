@@ -1,0 +1,50 @@
+
+syntax = "proto3";
+// import "y3d.proto";
+package y3d;
+
+message IBatchProOptimizer{
+    int32 SourceFileMode = 1;
+    repeated string SourceFileFiles = 2;
+    string SourceFileDir = 3;
+    bool SourceFileSubDir = 4;
+    int32 OptimizationLevel1 = 5;
+    int32 OptimizationLevel2 = 6;
+    int32 OptimizationLevel5 = 7;
+    int32 OptimizationLevel4 = 8;
+    int32 OptimizationLevel3 = 9;
+    int32 OptimizationLevelSteps = 10;
+    int32 OptimizationLevelMode =11;
+    int32 OptimizeBordersMode =12;
+    bool OptimizeHidden =13;
+    bool MergePoints =14;
+    float MergePointsThreshold =15;
+    bool MergeFaces =16;
+    float MergeFacesThreshold = 17;
+    bool KeepMaterialBoundaries =18;
+    bool CompactFaces = 19;
+    bool PreventFlippedNormals =20;
+    bool KeepVertexColors = 21;
+    bool KeepVertexColorsBoundaries = 22;
+    int32 VertexColorsTolerance =23;
+    bool KeepTexture = 24;
+    bool KeepUVBoundaries = 25;
+    float UVTolerance =26;
+    bool KeepNormals = 27;
+    int32 NormalMode = 28;
+    float NormalThreshold = 29;
+    int32 SymmetryMode = 30;
+    int32 SymmetryTolerance = 31;
+    int32 DestFileNameMode = 32;
+    bool AutoRename = 33;
+    string DestFileNamePrefix = 34;
+    string DestFileNameSuffix = 35;
+    int32 DestFolderMode = 36;
+    string DestFolderName = 37;
+    bool RecreateFolderTree = 38;
+    int32 DestFormatMode = 39;
+    string DestFormatExt = 40;
+    string LogFilePath = 41;
+    bool ApplyModifier = 42;
+    bool ValidateDialogs = 43;
+}

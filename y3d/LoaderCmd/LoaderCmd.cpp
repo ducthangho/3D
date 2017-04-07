@@ -91,7 +91,7 @@ int stop_all_worker() {
 	return resp.error();
 }
 
-int test1() {
+int test4() {
 	tbb::task_group tg;
 	for (int i = 0; i < 20; ++i) {
 		tg.run([i]() {
@@ -133,12 +133,17 @@ void test3() {
 	IsProcessIsRunning(L"LogServer.exe");
 }
 
+void test5()
+{
+	logserver::LOG("Hello world with fmt like format i={0}","dddddddddd");
+}
+
 void loadDll()
 {
 
 }
 
-void test4() {	
+void test1() {	
 	//auto client = y3d::Tools::NewStub(grpc::CreateChannel(service_ip, grpc::InsecureChannelCredentials()));
 	std::string ip = "127.0.0.1:39001";
 	auto client = y3d::YServiceTest::NewStub(grpc::CreateChannel(ip, grpc::InsecureChannelCredentials()));
@@ -254,6 +259,10 @@ int main(int argc, char** argv)
 			else if (t == 4)
 			{
 				test4();
+			}
+			else if (t == 5)
+			{
+				test5();
 			}
 		}
 	}

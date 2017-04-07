@@ -154,6 +154,7 @@
     <ClCompile Include="ymat.pb.cc" />
     <ClCompile Include="ymax.grpc.pb.cc" />
     <ClCompile Include="ymax.pb.cc" />
+    <ClCompile Include="ymaxcoreinterface.pb.cc" />
     <ClCompile Include="YProjectUtils.cpp" />
     <ClCompile Include="yservice.grpc.pb.cc" />
     <ClCompile Include="yservice.pb.cc" />
