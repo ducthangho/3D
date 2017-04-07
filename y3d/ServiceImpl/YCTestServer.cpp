@@ -12,6 +12,7 @@
 #include "YLibs.h"
 #include "tab.h"
 #include "ymaxcoreinterface.pb.h"
+#include "convert.h"
 
 using namespace logserver;
 
@@ -49,7 +50,6 @@ void MakeBentCylinder()
 	//// Note that COREInterface12 derives from Interface7
 	//GetCOREInterface12()->AddModifier(*node, *bend);
 }
-
 
 void addbend()
 {
@@ -150,9 +150,6 @@ void addUnwrap() {
 	log("new height value in getvaluebyname is {}\n", height);
 }
 
-void toUpper(MSTR a) {
-
-}
 
 
 void generateInterFacesID()
@@ -586,6 +583,75 @@ void BatchProOptimizer(y3d::IBatchProOptimizer ibatchProOptimizer)
 	//fpInterface->Invoke(SOURCEFILEFILES_IBATCHPROOPTIMIZER_GETTER, result);
 }
 
+inline void setInterFacePropertyTInt(int typeParam, FPInterface* fpInterface, int funcID, int value)
+{
+	FPParams p(1, typeParam, value);
+	fpInterface->Invoke(funcID, &p);
+}
+
+inline void setInterFacePropertyTBool(int typeParam, FPInterface* fpInterface,int funcID, bool value)
+{
+	FPParams p(1, typeParam, value);
+	fpInterface->Invoke(funcID,&p);
+}
+
+inline void setInterFacePropertyTString(int typeParam, FPInterface* fpInterface, int funcID, std::string value)
+{
+	MCHAR* desVal = const_cast<wchar_t*>((s2ws(value)).c_str());
+	FPParams p(1, typeParam, desVal);
+	fpInterface->Invoke(funcID, &p);
+}
+
+void pre_optimize(std::string oFileDir,std::string oFileName)
+{
+	FPInterface* fpInterface = GetCOREInterface(BATCHPROOPTIMIZER_INTERFACE_ID);
+
+	FPParams pSourceFileMode(1, TYPE_INT, 0);
+	fpInterface->Invoke(SOURCEFILEMODE_IBATCHPROOPTIMIZER_SETTER, &pSourceFileMode);
+
+	std::string file1 = oFileDir + "\\" + oFileName + ".max";
+	Tab<MCHAR*> sourceFile_Files;
+	auto file = const_cast<wchar_t*>(s2ws(file1).c_str());
+	sourceFile_Files.Append(1, &file);
+	FPParams pSourceFileFiles(1, SOURCEFILEFILES_IBATCHPROOPTIMIZER_TYPEPARAM, sourceFile_Files);
+	fpInterface->Invoke(SOURCEFILEFILES_IBATCHPROOPTIMIZER_SETTER, &pSourceFileFiles);
+
+	FPParams OptimizationLevel1(1, OPTIMIZATIONLEVEL1_IBATCHPROOPTIMIZER_TYPEPARAM, 90);
+	fpInterface->Invoke(OPTIMIZATIONLEVEL1_IBATCHPROOPTIMIZER_SETTER, &OptimizationLevel1);
+
+	FPParams OptimizationLevel2(1, OPTIMIZATIONLEVEL2_IBATCHPROOPTIMIZER_TYPEPARAM, 0);
+	fpInterface->Invoke(OPTIMIZATIONLEVEL2_IBATCHPROOPTIMIZER_SETTER, &OptimizationLevel2);
+
+	FPParams OptimizationLevel3(1, OPTIMIZATIONLEVEL3_IBATCHPROOPTIMIZER_TYPEPARAM, 0);
+	fpInterface->Invoke(OPTIMIZATIONLEVEL3_IBATCHPROOPTIMIZER_SETTER, &OptimizationLevel3);
+
+	FPParams OptimizationLevel4(1, OPTIMIZATIONLEVEL4_IBATCHPROOPTIMIZER_TYPEPARAM, 0);
+	fpInterface->Invoke(OPTIMIZATIONLEVEL4_IBATCHPROOPTIMIZER_SETTER, &OptimizationLevel4);
+
+	FPParams OptimizationLevel5(1, OPTIMIZATIONLEVEL5_IBATCHPROOPTIMIZER_TYPEPARAM, 0);
+	fpInterface->Invoke(OPTIMIZATIONLEVEL5_IBATCHPROOPTIMIZER_SETTER, &OptimizationLevel5);
+
+	FPParams OptimizationLevelMode(1, OPTIMIZATIONLEVELMODE_IBATCHPROOPTIMIZER_TYPEPARAM, 0);
+	fpInterface->Invoke(OPTIMIZATIONLEVELMODE_IBATCHPROOPTIMIZER_SETTER, &OptimizationLevelMode);
+
+	setInterFacePropertyTInt(OPTIMIZEBORDERSMODE_IBATCHPROOPTIMIZER_TYPEPARAM, fpInterface, OPTIMIZEBORDERSMODE_IBATCHPROOPTIMIZER_SETTER,1);
+	setInterFacePropertyTBool(AUTORENAME_IBATCHPROOPTIMIZER_TYPEPARAM, fpInterface, AUTORENAME_IBATCHPROOPTIMIZER_SETTER, false);
+	setInterFacePropertyTInt(DESTFILENAMEMODE_IBATCHPROOPTIMIZER_TYPEPARAM, fpInterface, DESTFILENAMEMODE_IBATCHPROOPTIMIZER_SETTER, 1);
+	setInterFacePropertyTInt(DESTFOLDERMODE_IBATCHPROOPTIMIZER_TYPEPARAM, fpInterface, DESTFOLDERMODE_IBATCHPROOPTIMIZER_SETTER, 2);
+
+	std::string desDir = ".\\" + oFileName + "_y3d";
+	setInterFacePropertyTString(DESTFOLDERNAME_IBATCHPROOPTIMIZER_TYPEPARAM, fpInterface, DESTFOLDERNAME_IBATCHPROOPTIMIZER_SETTER, desDir);
+	
+	fpInterface->Invoke(BATCH_IBATCHPROOPTIMIZER);
+	//fpvalue result;
+	//fpinterface->invoke(destfoldername_ibatchprooptimizer_getter, result);
+	//const wchar_t* a = result.s;
+	//mprintf(a);
+	//logserver::LOG("the result is {0}", a);
+	
+
+}
+
 Status YServiceTestImpl::MTest1(ServerContext* context, const EmptyParam* request, EmptyParam* reply)
 {
 	Invoke([]() {
@@ -609,8 +675,12 @@ Status YServiceTestImpl::MTest1(ServerContext* context, const EmptyParam* reques
 		
 		//generateInterFacesID();
 		//generateInterfaceFuntionsID2(BATCHPROOPTIMIZER_INTERFACE_ID);
-		y3d::IBatchProOptimizer y;
-		BatchProOptimizer(y);
+		//y3d::IBatchProOptimizer y;
+		//BatchProOptimizer(y);
+		/*GetCOREInterface16()->load*/
+		std::string oFileDir = "F:\\WorkSpace\\3Ds Max\\Building Phong Tam Project\\scenes\\TestProOptimizerScene";
+		std::string oFileName = "001";
+		pre_optimize(oFileDir, oFileName);
 
 		//MSTR internal_name = fpInterfaceDesc->internal_name;
 		//logserver::LOG("Internal name is {0}\n", internal_name);
