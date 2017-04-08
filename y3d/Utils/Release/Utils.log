@@ -1,2 +1,0 @@
-﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppClean.targets(76,5): warning : The process cannot access the file 'd:\code\github\3d\y3d\utils\release\utils.pch' because it is being used by another process.
-C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppCommon.targets(249,5): error MSB3061: Unable to delete file "Release\Utils.pch". The process cannot access the file 'D:\Code\Github\3D\y3d\Utils\Release\Utils.pch' because it is being used by another process.

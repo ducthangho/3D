@@ -398,6 +398,7 @@ namespace YMasterServer
                 if (testConnection(ip, yw.PortMax))
                 {
                     yw.NetState = 2;
+                    yw.Status = ServingStatus.Serving;
                 }
             }
             return Task.FromResult(yw);
