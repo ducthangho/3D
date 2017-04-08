@@ -642,14 +642,13 @@ void pre_optimize(std::string oFileDir,std::string oFileName)
 	std::string desDir = ".\\" + oFileName + "_y3d";
 	setInterFacePropertyTString(DESTFOLDERNAME_IBATCHPROOPTIMIZER_TYPEPARAM, fpInterface, DESTFOLDERNAME_IBATCHPROOPTIMIZER_SETTER, desDir);
 	
-	fpInterface->Invoke(BATCH_IBATCHPROOPTIMIZER);
-	//fpvalue result;
-	//fpinterface->invoke(destfoldername_ibatchprooptimizer_getter, result);
-	//const wchar_t* a = result.s;
-	//mprintf(a);
-	//logserver::LOG("the result is {0}", a);
-	
+	//fpInterface->Invoke(BATCH_IBATCHPROOPTIMIZER);
 
+	FPValue result;
+	fpInterface->Invoke(DESTFOLDERNAME_IBATCHPROOPTIMIZER_GETTER, result);
+	const wchar_t* a = result.s;	
+	logserver::LOG(a);
+	//logserver::LOG(b);
 }
 
 Status YServiceTestImpl::MTest1(ServerContext* context, const EmptyParam* request, EmptyParam* reply)

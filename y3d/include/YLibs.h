@@ -111,6 +111,7 @@ inline void log(char* str) {
 #ifdef YCDEBUG 
 	std::wstring wstr = s2ws(str);
 	mprintf(wstr.c_str());
+	mflush();
 #else
 #endif
 }
