@@ -32,7 +32,7 @@ y3d/include/*.pb.*
 y3d/include/*.grpc.pb.*
 y3d/ServiceImpl/*.pb.*
 y3d/ServiceImpl/*.grpc.pb.*
-y3d/Y3D/Y3D.Entities/*.cs
+y3d/Y3D.Entities/*.cs
 y3d_max/hiddencmdout.tmp
 rac/**
 *.suo
