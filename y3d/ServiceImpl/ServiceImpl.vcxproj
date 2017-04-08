@@ -35,7 +35,7 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="PropertySheets">
     <Import Project="$(MaxSDK)\ProjectSettings\PropertySheets\3dsmax.cpp.props" />
-    <Import Project="..\..\MaxNet\Y3D\packages\fmt.greedy.3.0.0.1\build\native\fmt.greedy.targets" Condition="Exists('..\..\MaxNet\Y3D\packages\fmt.greedy.3.0.0.1\build\native\fmt.greedy.targets')" />
+    <Import Project="..\packages\fmt.greedy.3.0.0.1\build\native\fmt.greedy.targets" Condition="Exists('..\packages\fmt.greedy.3.0.0.1\build\native\fmt.greedy.targets')" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Import Project="y3d.props" />
@@ -83,7 +83,7 @@
       <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(MSBuildProjectDirectory)\..\include\export_dll.h;$(MSBuildProjectDirectory)\..\include\import_log_dll.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(MsBuildProjectDirectory)\..\..\MaxNet\Y3D\x64\$(Configuration);$(MaxSdkLib)..\Release;$(MsBuildProjectDirectory)\..\lib\tbb;$(MsBuildProjectDirectory)\..\lib;$(MsBuildProjectDirectory)\..\lib\grpc\$(Configuration);$(MsBuildProjectDirectory)\..\lib\protobuf\$(Configuration);$(MsBuildProjectDirectory)\..\lib\protobuf\Release;$(MsBuildProjectDirectory)\..\lib\grpc\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(MsBuildProjectDirectory)\..\x64\$(Configuration);$(MaxSdkLib)..\Release;$(MsBuildProjectDirectory)\..\lib\tbb;$(MsBuildProjectDirectory)\..\lib;$(MsBuildProjectDirectory)\..\lib\grpc\$(Configuration);$(MsBuildProjectDirectory)\..\lib\protobuf\$(Configuration);$(MsBuildProjectDirectory)\..\lib\protobuf\Release;$(MsBuildProjectDirectory)\..\lib\grpc\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>LogClient.lib;gpr.lib;grpc_dll.lib;tbb.lib;tbbmalloc.lib;core.lib;geom.lib;gfx.lib;mesh.lib;maxutil.lib;maxscrpt.lib;gup.lib;paramblk2.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ModuleDefinitionFile>
       </ModuleDefinitionFile>
@@ -177,6 +177,6 @@
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\..\MaxNet\Y3D\packages\fmt.greedy.3.0.0.1\build\native\fmt.greedy.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\MaxNet\Y3D\packages\fmt.greedy.3.0.0.1\build\native\fmt.greedy.targets'))" />
+    <Error Condition="!Exists('..\packages\fmt.greedy.3.0.0.1\build\native\fmt.greedy.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\fmt.greedy.3.0.0.1\build\native\fmt.greedy.targets'))" />
   </Target>
 </Project>

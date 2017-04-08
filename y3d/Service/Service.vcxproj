@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\..\MaxNet\Y3D\packages\grpc.dependencies.openssl.1.0.204.1\build\native\grpc.dependencies.openssl.props" Condition="Exists('..\..\MaxNet\Y3D\packages\grpc.dependencies.openssl.1.0.204.1\build\native\grpc.dependencies.openssl.props')" />
+  <Import Project="..\packages\grpc.dependencies.openssl.1.0.204.1\build\native\grpc.dependencies.openssl.props" Condition="Exists('..\packages\grpc.dependencies.openssl.1.0.204.1\build\native\grpc.dependencies.openssl.props')" />
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|x64">
       <Configuration>Debug</Configuration>
@@ -31,12 +31,12 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="PropertySheets">
     <Import Project="$(MaxSDK)\ProjectSettings\PropertySheets\3dsmax.cpp.props" />
-    <Import Project="..\..\MaxNet\Y3D\packages\grpc.dependencies.openssl.redist.1.0.204.1\build\native\grpc.dependencies.openssl.redist.targets" Condition="Exists('..\..\MaxNet\Y3D\packages\grpc.dependencies.openssl.redist.1.0.204.1\build\native\grpc.dependencies.openssl.redist.targets')" />
-    <Import Project="..\..\MaxNet\Y3D\packages\grpc.dependencies.zlib.redist.1.2.8.10\build\native\grpc.dependencies.zlib.redist.targets" Condition="Exists('..\..\MaxNet\Y3D\packages\grpc.dependencies.zlib.redist.1.2.8.10\build\native\grpc.dependencies.zlib.redist.targets')" />
-    <Import Project="..\..\MaxNet\Y3D\packages\grpc.dependencies.zlib.1.2.8.10\build\native\grpc.dependencies.zlib.targets" Condition="Exists('..\..\MaxNet\Y3D\packages\grpc.dependencies.zlib.1.2.8.10\build\native\grpc.dependencies.zlib.targets')" />
-    <Import Project="..\..\MaxNet\Y3D\packages\grpc.dependencies.openssl.1.0.204.1\build\native\grpc.dependencies.openssl.targets" Condition="Exists('..\..\MaxNet\Y3D\packages\grpc.dependencies.openssl.1.0.204.1\build\native\grpc.dependencies.openssl.targets')" />
-    <Import Project="..\..\MaxNet\Y3D\packages\pugixml.1.8.0\build\native\pugixml.targets" Condition="Exists('..\..\MaxNet\Y3D\packages\pugixml.1.8.0\build\native\pugixml.targets')" />
-    <Import Project="..\..\MaxNet\Y3D\packages\fmt.greedy.3.0.0.1\build\native\fmt.greedy.targets" Condition="Exists('..\..\MaxNet\Y3D\packages\fmt.greedy.3.0.0.1\build\native\fmt.greedy.targets')" />
+    <Import Project="..\packages\grpc.dependencies.openssl.redist.1.0.204.1\build\native\grpc.dependencies.openssl.redist.targets" Condition="Exists('..\packages\grpc.dependencies.openssl.redist.1.0.204.1\build\native\grpc.dependencies.openssl.redist.targets')" />
+    <Import Project="..\packages\grpc.dependencies.zlib.redist.1.2.8.10\build\native\grpc.dependencies.zlib.redist.targets" Condition="Exists('..\packages\grpc.dependencies.zlib.redist.1.2.8.10\build\native\grpc.dependencies.zlib.redist.targets')" />
+    <Import Project="..\packages\grpc.dependencies.zlib.1.2.8.10\build\native\grpc.dependencies.zlib.targets" Condition="Exists('..\packages\grpc.dependencies.zlib.1.2.8.10\build\native\grpc.dependencies.zlib.targets')" />
+    <Import Project="..\packages\grpc.dependencies.openssl.1.0.204.1\build\native\grpc.dependencies.openssl.targets" Condition="Exists('..\packages\grpc.dependencies.openssl.1.0.204.1\build\native\grpc.dependencies.openssl.targets')" />
+    <Import Project="..\packages\pugixml.1.8.0\build\native\pugixml.targets" Condition="Exists('..\packages\pugixml.1.8.0\build\native\pugixml.targets')" />
+    <Import Project="..\packages\fmt.greedy.3.0.0.1\build\native\fmt.greedy.targets" Condition="Exists('..\packages\fmt.greedy.3.0.0.1\build\native\fmt.greedy.targets')" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'" />
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" />
@@ -88,7 +88,7 @@
       <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(MSBuildProjectDirectory)\..\include\import_dll.h;$(MSBuildProjectDirectory)\..\include\import_log_dll.h</ForcedIncludeFiles>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(MsBuildProjectDirectory)\..\lib\tbb;$(MsBuildProjectDirectory)\..\..\MaxNet\Y3D\x64\$(Configuration);$(MsBuildProjectDirectory)\..\lib;$(MsBuildProjectDirectory)\..\lib\grpc\$(Configuration);$(MsBuildProjectDirectory)\..\lib\protobuf\$(Configuration);$(MsBuildProjectDirectory)\..\lib\protobuf\Release;$(MsBuildProjectDirectory)\..\lib\grpc\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(MsBuildProjectDirectory)\..\lib\tbb;$(MsBuildProjectDirectory)\..\x64\$(Configuration);$(MsBuildProjectDirectory)\..\lib;$(MsBuildProjectDirectory)\..\lib\grpc\$(Configuration);$(MsBuildProjectDirectory)\..\lib\protobuf\$(Configuration);$(MsBuildProjectDirectory)\..\lib\protobuf\Release;$(MsBuildProjectDirectory)\..\lib\grpc\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>LogClient.lib;grpc_dll.lib;ws2_32.lib;tbb.lib;tbbmalloc.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ModuleDefinitionFile>
       </ModuleDefinitionFile>
@@ -662,12 +662,12 @@ call "$(ProjectDir)..\bin\start_workers.cmd"</Command>
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\..\MaxNet\Y3D\packages\grpc.dependencies.openssl.redist.1.0.204.1\build\native\grpc.dependencies.openssl.redist.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\MaxNet\Y3D\packages\grpc.dependencies.openssl.redist.1.0.204.1\build\native\grpc.dependencies.openssl.redist.targets'))" />
-    <Error Condition="!Exists('..\..\MaxNet\Y3D\packages\grpc.dependencies.zlib.redist.1.2.8.10\build\native\grpc.dependencies.zlib.redist.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\MaxNet\Y3D\packages\grpc.dependencies.zlib.redist.1.2.8.10\build\native\grpc.dependencies.zlib.redist.targets'))" />
-    <Error Condition="!Exists('..\..\MaxNet\Y3D\packages\grpc.dependencies.zlib.1.2.8.10\build\native\grpc.dependencies.zlib.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\MaxNet\Y3D\packages\grpc.dependencies.zlib.1.2.8.10\build\native\grpc.dependencies.zlib.targets'))" />
-    <Error Condition="!Exists('..\..\MaxNet\Y3D\packages\grpc.dependencies.openssl.1.0.204.1\build\native\grpc.dependencies.openssl.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\MaxNet\Y3D\packages\grpc.dependencies.openssl.1.0.204.1\build\native\grpc.dependencies.openssl.props'))" />
-    <Error Condition="!Exists('..\..\MaxNet\Y3D\packages\grpc.dependencies.openssl.1.0.204.1\build\native\grpc.dependencies.openssl.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\MaxNet\Y3D\packages\grpc.dependencies.openssl.1.0.204.1\build\native\grpc.dependencies.openssl.targets'))" />
-    <Error Condition="!Exists('..\..\MaxNet\Y3D\packages\pugixml.1.8.0\build\native\pugixml.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\MaxNet\Y3D\packages\pugixml.1.8.0\build\native\pugixml.targets'))" />
-    <Error Condition="!Exists('..\..\MaxNet\Y3D\packages\fmt.greedy.3.0.0.1\build\native\fmt.greedy.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\MaxNet\Y3D\packages\fmt.greedy.3.0.0.1\build\native\fmt.greedy.targets'))" />
+    <Error Condition="!Exists('..\packages\grpc.dependencies.openssl.redist.1.0.204.1\build\native\grpc.dependencies.openssl.redist.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\grpc.dependencies.openssl.redist.1.0.204.1\build\native\grpc.dependencies.openssl.redist.targets'))" />
+    <Error Condition="!Exists('..\packages\grpc.dependencies.zlib.redist.1.2.8.10\build\native\grpc.dependencies.zlib.redist.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\grpc.dependencies.zlib.redist.1.2.8.10\build\native\grpc.dependencies.zlib.redist.targets'))" />
+    <Error Condition="!Exists('..\packages\grpc.dependencies.zlib.1.2.8.10\build\native\grpc.dependencies.zlib.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\grpc.dependencies.zlib.1.2.8.10\build\native\grpc.dependencies.zlib.targets'))" />
+    <Error Condition="!Exists('..\packages\grpc.dependencies.openssl.1.0.204.1\build\native\grpc.dependencies.openssl.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\grpc.dependencies.openssl.1.0.204.1\build\native\grpc.dependencies.openssl.props'))" />
+    <Error Condition="!Exists('..\packages\grpc.dependencies.openssl.1.0.204.1\build\native\grpc.dependencies.openssl.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\grpc.dependencies.openssl.1.0.204.1\build\native\grpc.dependencies.openssl.targets'))" />
+    <Error Condition="!Exists('..\packages\pugixml.1.8.0\build\native\pugixml.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\pugixml.1.8.0\build\native\pugixml.targets'))" />
+    <Error Condition="!Exists('..\packages\fmt.greedy.3.0.0.1\build\native\fmt.greedy.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\fmt.greedy.3.0.0.1\build\native\fmt.greedy.targets'))" />
   </Target>
 </Project>

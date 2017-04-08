@@ -215,87 +215,6 @@
             "Cancel" semantics of invoking <c>Dispose</c>.
             </remarks>
         </member>
-        <member name="T:Grpc.Core.AuthContext">
-            <summary>
-            Authentication context for a call.
-            AuthContext is the only reliable source of truth when it comes to authenticating calls.
-            Using any other call/context properties for authentication purposes is wrong and inherently unsafe.
-            Note: experimental API that can change or be removed without any prior notice.
-            </summary>
-        </member>
-        <member name="M:Grpc.Core.AuthContext.#ctor(System.String,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{Grpc.Core.AuthProperty}})">
-            <summary>
-            Initializes a new instance of the <see cref="T:Grpc.Core.AuthContext"/> class.
-            </summary>
-            <param name="peerIdentityPropertyName">Peer identity property name.</param>
-            <param name="properties">Multimap of auth properties by name.</param>
-        </member>
-        <member name="P:Grpc.Core.AuthContext.IsPeerAuthenticated">
-            <summary>
-            Returns <c>true</c> if the peer is authenticated.
-            </summary>
-        </member>
-        <member name="P:Grpc.Core.AuthContext.PeerIdentityPropertyName">
-            <summary>
-            Gets the name of the property that indicates the peer identity. Returns <c>null</c>
-            if the peer is not authenticated.
-            </summary>
-        </member>
-        <member name="P:Grpc.Core.AuthContext.PeerIdentity">
-            <summary>
-            Gets properties that represent the peer identity (there can be more than one). Returns an empty collection
-            if the peer is not authenticated.
-            </summary>
-        </member>
-        <member name="P:Grpc.Core.AuthContext.Properties">
-            <summary>
-            Gets the auth properties of this context.
-            </summary>
-        </member>
-        <member name="M:Grpc.Core.AuthContext.FindPropertiesByName(System.String)">
-            <summary>
-            Returns the auth properties with given name (there can be more than one).
-            If no properties of given name exist, an empty collection will be returned.
-            </summary>
-        </member>
-        <member name="T:Grpc.Core.AuthProperty">
-            <summary>
-            A property of an <see cref="T:Grpc.Core.AuthContext"/>.
-            Note: experimental API that can change or be removed without any prior notice.
-            </summary>
-        </member>
-        <member name="P:Grpc.Core.AuthProperty.Name">
-            <summary>
-            Gets the name of the property.
-            </summary>
-        </member>
-        <member name="P:Grpc.Core.AuthProperty.Value">
-            <summary>
-            Gets the string value of the property.
-            </summary>
-        </member>
-        <member name="P:Grpc.Core.AuthProperty.ValueBytes">
-            <summary>
-            Gets the binary value of the property.
-            </summary>
-        </member>
-        <member name="M:Grpc.Core.AuthProperty.Create(System.String,System.Byte[])">
-            <summary>
-            Creates an instance of <c>AuthProperty</c>.
-            </summary>
-            <param name="name">the name</param>
-            <param name="valueBytes">the binary value of the property</param>
-        </member>
-        <member name="P:Grpc.Core.AuthProperty.ValueBytesUnsafe">
-            <summary>
-            Gets the binary value of the property (without making a defensive copy).
-            </summary>
-        </member>
-        <member name="M:Grpc.Core.AuthProperty.CreateUnsafe(System.String,System.Byte[])">
-            <summary>
-            Creates and instance of <c>AuthProperty</c> without making a defensive copy of <c>valueBytes</c>.
-            </summary>
-        </member>
         <member name="T:Grpc.Core.CallCredentials">
             <summary>
             Client-side call credentials. Provide authorization with per-call granularity.
@@ -504,18 +423,6 @@
             Credentials to use for this call.
             </summary>
         </member>
-        <member name="P:Grpc.Core.CallOptions.IsWaitForReady">
-            <summary>
-            If <c>true</c> and and channel is in <c>ChannelState.TransientFailure</c>, the call will attempt waiting for the channel to recover
-            instead of failing immediately (which is the default "FailFast" semantics).
-            Note: experimental API that can change or be removed without any prior notice.
-            </summary>
-        </member>
-        <member name="P:Grpc.Core.CallOptions.Flags">
-            <summary>
-            Flags to use for this call.
-            </summary>
-        </member>
         <member name="M:Grpc.Core.CallOptions.WithHeaders(Grpc.Core.Metadata)">
             <summary>
             Returns new instance of <see cref="T:Grpc.Core.CallOptions"/> with
@@ -557,20 +464,6 @@
             <c>Credentials</c> set to the value provided. Values of all other fields are preserved.
             </summary>
             <param name="credentials">The call credentials.</param>
-        </member>
-        <member name="M:Grpc.Core.CallOptions.WithWaitForReady(System.Boolean)">
-            <summary>
-            Returns new instance of <see cref="T:Grpc.Core.CallOptions"/> with "WaitForReady" semantics enabled/disabled.
-            <see cref="P:Grpc.Core.CallOptions.IsWaitForReady"/>.
-            Note: experimental API that can change or be removed without any prior notice.
-            </summary>
-        </member>
-        <member name="M:Grpc.Core.CallOptions.WithFlags(Grpc.Core.Internal.CallFlags)">
-            <summary>
-            Returns new instance of <see cref="T:Grpc.Core.CallOptions"/> with
-            <c>Flags</c> set to the value provided. Values of all other fields are preserved.
-            </summary>
-            <param name="flags">The call flags.</param>
         </member>
         <member name="M:Grpc.Core.CallOptions.Normalize">
             <summary>
@@ -878,14 +771,8 @@
         <member name="F:Grpc.Core.ChannelOptions.MaxConcurrentStreams">
             <summary>Maximum number of concurrent incoming streams to allow on a http2 connection</summary>
         </member>
-        <member name="F:Grpc.Core.ChannelOptions.MaxReceiveMessageLength">
-            <summary>Maximum message length that the channel can receive</summary>
-        </member>
-        <member name="F:Grpc.Core.ChannelOptions.MaxSendMessageLength">
-            <summary>Maximum message length that the channel can send</summary>
-        </member>
         <member name="F:Grpc.Core.ChannelOptions.MaxMessageLength">
-            <summary>Obsolete, for backward compatibility only.</summary>
+            <summary>Maximum message length that the channel can receive</summary>
         </member>
         <member name="F:Grpc.Core.ChannelOptions.Http2InitialSequenceNumber">
             <summary>Initial sequence number for http2 transports</summary>
@@ -1163,9 +1050,6 @@
             The response stream is completely independent and both side can be sending messages at the same time.
             </summary>
         </member>
-        <member name="M:Grpc.Core.DefaultCallInvoker.CreateCall``2(Grpc.Core.Method{``0,``1},System.String,Grpc.Core.CallOptions)">
-            <summary>Creates call invocation details for given method.</summary>
-        </member>
         <member name="T:Grpc.Core.GrpcEnvironment">
             <summary>
             Encapsulates initialization and shutdown of gRPC library.
@@ -1412,76 +1296,6 @@
             </summary>
             <returns>this object</returns>
         </member>
-        <member name="M:Grpc.Core.Metadata.IndexOf(Grpc.Core.Metadata.Entry)">
-            <summary>
-            <see cref="T:IList`1"/>
-            </summary>
-        </member>
-        <member name="M:Grpc.Core.Metadata.Insert(System.Int32,Grpc.Core.Metadata.Entry)">
-            <summary>
-            <see cref="T:IList`1"/>
-            </summary>
-        </member>
-        <member name="M:Grpc.Core.Metadata.RemoveAt(System.Int32)">
-            <summary>
-            <see cref="T:IList`1"/>
-            </summary>
-        </member>
-        <member name="P:Grpc.Core.Metadata.Item(System.Int32)">
-            <summary>
-            <see cref="T:IList`1"/>
-            </summary>
-        </member>
-        <member name="M:Grpc.Core.Metadata.Add(Grpc.Core.Metadata.Entry)">
-            <summary>
-            <see cref="T:IList`1"/>
-            </summary>
-        </member>
-        <member name="M:Grpc.Core.Metadata.Add(System.String,System.String)">
-            <summary>
-            <see cref="T:IList`1"/>
-            </summary>
-        </member>
-        <member name="M:Grpc.Core.Metadata.Add(System.String,System.Byte[])">
-            <summary>
-            <see cref="T:IList`1"/>
-            </summary>
-        </member>
-        <member name="M:Grpc.Core.Metadata.Clear">
-            <summary>
-            <see cref="T:IList`1"/>
-            </summary>
-        </member>
-        <member name="M:Grpc.Core.Metadata.Contains(Grpc.Core.Metadata.Entry)">
-            <summary>
-            <see cref="T:IList`1"/>
-            </summary>
-        </member>
-        <member name="M:Grpc.Core.Metadata.CopyTo(Grpc.Core.Metadata.Entry[],System.Int32)">
-            <summary>
-            <see cref="T:IList`1"/>
-            </summary>
-        </member>
-        <member name="P:Grpc.Core.Metadata.Count">
-            <summary>
-            <see cref="T:IList`1"/>
-            </summary>
-        </member>
-        <member name="P:Grpc.Core.Metadata.IsReadOnly">
-            <summary>
-            <see cref="T:IList`1"/>
-            </summary>
-        </member>
-        <member name="M:Grpc.Core.Metadata.Remove(Grpc.Core.Metadata.Entry)">
-            <summary>
-            <see cref="T:IList`1"/>
-            </summary>
-        </member>
-        <member name="M:Grpc.Core.Metadata.GetEnumerator">
-            <summary>
-            <see cref="T:IList`1"/>
-            </summary>
-        </member>
         <member name="T:Grpc.Core.Metadata.Entry">
             <summary>
             Metadata entry
@@ -1536,11 +1350,6 @@
             <summary>
             Creates a binary value or ascii value metadata entry from data received from the native layer.
             We trust C core to give us well-formed data, so we don't perform any checks or defensive copying.
-            </summary>
-        </member>
-        <member name="M:Grpc.Core.Metadata.Entry.HasBinaryHeaderSuffix(System.String)">
-            <summary>
-            Returns <c>true</c> if the key has "-bin" binary header suffix.
             </summary>
         </member>
         <member name="T:Grpc.Core.MethodType">
@@ -1695,12 +1504,6 @@
             To allow awaiting termination of the server.
             </summary>
         </member>
-        <member name="P:Grpc.Core.Server.RequestCallTokensPerCompletionQueue">
-            <summary>
-            Experimental API. Might anytime change without prior notice.
-            Number or calls requested via grpc_server_request_call at any given time for each completion queue.
-            </summary>
-        </member>
         <member name="M:Grpc.Core.Server.Start">
             <summary>
             Starts the server.
@@ -1751,12 +1554,12 @@
             Allows one new RPC call to be received by server.
             </summary>
         </member>
-        <member name="M:Grpc.Core.Server.HandleCallAsync(Grpc.Core.Internal.ServerRpcNew,Grpc.Core.Internal.CompletionQueueSafeHandle,System.Action)">
+        <member name="M:Grpc.Core.Server.HandleCallAsync(Grpc.Core.Internal.ServerRpcNew,Grpc.Core.Internal.CompletionQueueSafeHandle)">
             <summary>
             Selects corresponding handler for given call and handles the call.
             </summary>
         </member>
-        <member name="M:Grpc.Core.Server.HandleNewServerRpc(System.Boolean,Grpc.Core.Internal.RequestCallContextSafeHandle,Grpc.Core.Internal.CompletionQueueSafeHandle)">
+        <member name="M:Grpc.Core.Server.HandleNewServerRpc(System.Boolean,Grpc.Core.Internal.BatchContextSafeHandle,Grpc.Core.Internal.CompletionQueueSafeHandle)">
             <summary>
             Handles the native callback.
             </summary>
@@ -1856,12 +1659,6 @@
             Allows setting write options for the following write.
             For streaming response calls, this property is also exposed as on IServerStreamWriter for convenience.
             Both properties are backed by the same underlying value.
-            </summary>
-        </member>
-        <member name="P:Grpc.Core.ServerCallContext.AuthContext">
-            <summary>
-            Gets the <c>AuthContext</c> associated with this call.
-            Note: Access to AuthContext is an experimental API that can change without any prior notice.
             </summary>
         </member>
         <member name="T:Grpc.Core.IHasWriteOptions">
@@ -2317,9 +2114,9 @@
             Only one pending send action is allowed at any given time.
             </summary>
         </member>
-        <member name="P:Grpc.Core.Internal.AsyncCall`2.StreamingResponseCallFinishedTask">
+        <member name="P:Grpc.Core.Internal.AsyncCall`2.StreamingCallFinishedTask">
             <summary>
-            Get the task that completes once if streaming response call finishes with ok status and throws RpcException with given status otherwise.
+            Get the task that completes once if streaming call finishes with ok status and throws RpcException with given status otherwise.
             </summary>
         </member>
         <member name="P:Grpc.Core.Internal.AsyncCall`2.ResponseHeadersAsync">
@@ -2389,12 +2186,6 @@
             <summary>
             If there are no more pending actions and no new actions can be started, releases
             the underlying native resources.
-            </summary>
-        </member>
-        <member name="M:Grpc.Core.Internal.AsyncCallBase`2.GetRpcExceptionClientOnly">
-            <summary>
-            Returns an exception to throw for a failed send operation.
-            It is only allowed to call this method for a call that has already finished.
             </summary>
         </member>
         <member name="M:Grpc.Core.Internal.AsyncCallBase`2.CheckSendAllowedOrEarlyResult">
@@ -2467,26 +2258,6 @@
             Handles the server side close completion.
             </summary>
         </member>
-        <member name="T:Grpc.Core.Internal.AuthContextSafeHandle">
-            <summary>
-            grpc_auth_context
-            </summary>
-        </member>
-        <member name="M:Grpc.Core.Internal.AuthContextSafeHandle.ToAuthContext">
-            <summary>
-            Copies contents of the native auth context into a new <c>AuthContext</c> instance.
-            </summary>
-        </member>
-        <member name="T:Grpc.Core.Internal.AuthContextSafeHandle.NativeAuthProperty">
-            <summary>
-            grpc_auth_property
-            </summary>
-        </member>
-        <member name="T:Grpc.Core.Internal.AuthContextSafeHandle.NativeAuthPropertyIterator">
-            <summary>
-            grpc_auth_property_iterator
-            </summary>
-        </member>
         <member name="T:Grpc.Core.Internal.BatchContextSafeHandle">
             <summary>
             grpcsharp_batch_context
@@ -2505,27 +2276,6 @@
         <member name="M:Grpc.Core.Internal.CallErrorExtensions.CheckOk(Grpc.Core.Internal.CallError)">
             <summary>
             Checks the call API invocation's result is OK.
-            </summary>
-        </member>
-        <member name="T:Grpc.Core.Internal.CallFlags">
-            <summary>
-            Flags to enable special call behaviors (client-side only).
-            </summary>
-        </member>
-        <member name="F:Grpc.Core.Internal.CallFlags.IdempotentRequest">
-            <summary>
-            The call is idempotent (retrying the call doesn't change the outcome of the operation).
-            </summary>
-        </member>
-        <member name="F:Grpc.Core.Internal.CallFlags.WaitForReady">
-            <summary>
-            If channel is in <c>ChannelState.TransientFailure</c>, attempt waiting for the channel to recover
-            instead of failing the call immediately.
-            </summary>
-        </member>
-        <member name="F:Grpc.Core.Internal.CallFlags.CacheableRequest">
-            <summary>
-            The call is cacheable. gRPC is free to use GET verb */
             </summary>
         </member>
         <member name="T:Grpc.Core.Internal.CallSafeHandle">
@@ -2633,7 +2383,7 @@
             going to exit.
             </summary>
         </member>
-        <member name="M:Grpc.Core.Internal.GrpcThreadPool.RunHandlerLoop(Grpc.Core.Internal.CompletionQueueSafeHandle,Grpc.Core.Profiling.IProfiler)">
+        <member name="M:Grpc.Core.Internal.GrpcThreadPool.RunHandlerLoop(Grpc.Core.Internal.CompletionQueueSafeHandle)">
             <summary>
             Body of the polling thread.
             </summary>
@@ -2650,7 +2400,7 @@
         </member>
         <member name="M:Grpc.Core.Internal.InterceptingCallInvoker.#ctor(Grpc.Core.CallInvoker,System.Func{System.String,System.String},System.Func{Grpc.Core.CallOptions,Grpc.Core.CallOptions})">
             <summary>
-            Initializes a new instance of the <see cref="T:Grpc.Core.Internal.InterceptingCallInvoker"/> class.
+            Initializes a new instance of the <see cref="!:Grpc.Core.InterceptingCallInvoker"/> class.
             </summary>
         </member>
         <member name="M:Grpc.Core.Internal.InterceptingCallInvoker.BlockingUnaryCall``2(Grpc.Core.Method{``0,``1},System.String,Grpc.Core.CallOptions,``0)">
@@ -2680,36 +2430,6 @@
             Invokes a duplex streaming call asynchronously.
             In duplex streaming scenario, client sends a stream of requests and server responds with a stream of responses.
             The response stream is completely independent and both side can be sending messages at the same time.
-            </summary>
-        </member>
-        <member name="T:Grpc.Core.Internal.MarshalUtils">
-            <summary>
-            Useful methods for native/managed marshalling.
-            </summary>
-        </member>
-        <member name="M:Grpc.Core.Internal.MarshalUtils.PtrToStringUTF8(System.IntPtr,System.Int32)">
-            <summary>
-            Converts <c>IntPtr</c> pointing to a UTF-8 encoded byte array to <c>string</c>.
-            </summary>
-        </member>
-        <member name="M:Grpc.Core.Internal.MarshalUtils.GetBytesUTF8(System.String)">
-            <summary>
-            Returns byte array containing UTF-8 encoding of given string.
-            </summary>
-        </member>
-        <member name="M:Grpc.Core.Internal.MarshalUtils.GetStringUTF8(System.Byte[])">
-            <summary>
-            Get string from a UTF8 encoded byte array.
-            </summary>
-        </member>
-        <member name="M:Grpc.Core.Internal.MarshalUtils.GetBytesASCII(System.String)">
-            <summary>
-            Returns byte array containing ASCII encoding of given string.
-            </summary>
-        </member>
-        <member name="M:Grpc.Core.Internal.MarshalUtils.GetStringASCII(System.Byte[])">
-            <summary>
-            Get string from an ASCII encoded byte array.
             </summary>
         </member>
         <member name="T:Grpc.Core.Internal.MetadataArraySafeHandle">
@@ -2781,19 +2501,9 @@
             true if running on .NET Core (CoreCLR), false otherwise.
             </summary>
         </member>
-        <member name="T:Grpc.Core.Internal.RequestCallContextSafeHandle">
-            <summary>
-            grpcsharp_request_call_context
-            </summary>
-        </member>
         <member name="T:Grpc.Core.Internal.SafeHandleZeroIsInvalid">
             <summary>
             Safe handle to wrap native objects.
-            </summary>
-        </member>
-        <member name="M:Grpc.Core.Internal.UnimplementedMethodCallHandler.UnimplementedMethod(Grpc.Core.IAsyncStreamReader{System.Byte[]},Grpc.Core.IServerStreamWriter{System.Byte[]},Grpc.Core.ServerCallContext)">
-            <summary>
-            Handler used for unimplemented method.
             </summary>
         </member>
         <member name="T:Grpc.Core.Internal.ServerCredentialsSafeHandle">
@@ -3236,16 +2946,6 @@
             </summary>
             <param name="condition">The condition.</param>
             <param name="errorMessage">The error message.</param>
-        </member>
-        <member name="T:Grpc.Core.Utils.TaskUtils">
-            <summary>
-            Utility methods for task parallel library.
-            </summary>
-        </member>
-        <member name="P:Grpc.Core.Utils.TaskUtils.CompletedTask">
-            <summary>
-            Framework independent equivalent of <c>Task.CompletedTask</c>.
-            </summary>
         </member>
     </members>
 </doc>

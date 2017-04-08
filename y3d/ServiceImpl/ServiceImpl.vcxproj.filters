@@ -71,6 +71,7 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\Service\grpc\src\cpp\common\version_cc.cc" />
+    <ClCompile Include="ymaxcoreinterface.pb.cc" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">

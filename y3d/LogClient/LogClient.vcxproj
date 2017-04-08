@@ -213,12 +213,12 @@
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
-    <Import Project="..\..\MaxNet\Y3D\packages\fmt.greedy.3.0.0.1\build\native\fmt.greedy.targets" Condition="Exists('..\..\MaxNet\Y3D\packages\fmt.greedy.3.0.0.1\build\native\fmt.greedy.targets')" />
+    <Import Project="..\packages\fmt.greedy.3.0.0.1\build\native\fmt.greedy.targets" Condition="Exists('..\packages\fmt.greedy.3.0.0.1\build\native\fmt.greedy.targets')" />
   </ImportGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\..\MaxNet\Y3D\packages\fmt.greedy.3.0.0.1\build\native\fmt.greedy.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\MaxNet\Y3D\packages\fmt.greedy.3.0.0.1\build\native\fmt.greedy.targets'))" />
+    <Error Condition="!Exists('..\packages\fmt.greedy.3.0.0.1\build\native\fmt.greedy.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\fmt.greedy.3.0.0.1\build\native\fmt.greedy.targets'))" />
   </Target>
 </Project>
