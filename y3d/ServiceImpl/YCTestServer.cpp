@@ -224,13 +224,13 @@ void generateInterfaceFuntionsID(Interface_ID id)
 	}
 }
 
-std::map<int, std::string>* map = nullptr;
+//std::map<int, std::string>* map = nullptr;
 std::map<int, std::string> generateParamType()
 {
-	//static std::map<int, std::string> map;
-	if (map != nullptr)
-		return *map;
-	map = new std::map<int, std::string>();
+	static std::map<int, std::string> map;
+	//if (map != nullptr)
+	//	return *map;
+	//map = new std::map<int, std::string>();
 	map[ParamType2::TYPE_PCNT_FRAC] = "ParamType2::TYPE_PCNT_FRAC";
 	map[ParamType2::TYPE_WORLD] = "ParamType2::TYPE_WORLD";
 	map[ParamType2::TYPE_STRING] = "ParamType2::TYPE_STRING";
