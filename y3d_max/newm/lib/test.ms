@@ -22,3 +22,15 @@ fn getCoreInterface =
 	)
 )
 
+
+fn testLayer = 
+(
+	for i = 0 to layerManager.count-1 do
+	(
+		  ilayer = layerManager.getLayer i
+		  layerName = ilayer.name
+		  layer = ILayerManager.getLayerObject i
+		  layerNodes = refs.dependents layer
+		  format "Layer: %; nodes: %\n" layerName layerNodes
+	)
+)

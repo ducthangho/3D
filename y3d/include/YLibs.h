@@ -98,7 +98,7 @@ extern TCHAR *GetString(int id);
 #define WM_ToStrRIGGER_CALLBACK WM_USER+4764
 
 
-inline void log(std::string& str) {
+inline void log(const std::string& str) {
 #ifdef YCDEBUG 
 	std::wstring wstr = s2ws(str);
 	mprintf(wstr.c_str());
@@ -107,7 +107,7 @@ inline void log(std::string& str) {
 #endif
 }
 
-inline void log(char* str) {
+inline void log(const char* str) {
 #ifdef YCDEBUG 
 	std::wstring wstr = s2ws(str);
 	mprintf(wstr.c_str());
@@ -117,7 +117,7 @@ inline void log(char* str) {
 }
 
 
-inline void log(std::wstring& str) {
+inline void log(const std::wstring& str) {
 #ifdef YCDEBUG 	
 	mprintf(str.c_str());
 	mflush();
@@ -125,7 +125,7 @@ inline void log(std::wstring& str) {
 #endif
 }
 
-inline void log(wchar_t* str) {
+inline void log(const wchar_t* str) {
 #ifdef YCDEBUG 	
 	mprintf(str);
 	mflush();
@@ -135,7 +135,7 @@ inline void log(wchar_t* str) {
 
 
 template <typename... Args>
-inline void log(std::string& format_str, const Args ... args) {
+inline void log(const std::string& format_str, const Args ... args) {
 #ifdef YCDEBUG 	
 	fmt::MemoryWriter w;
 	w.write(format_str, args...);
@@ -147,7 +147,7 @@ inline void log(std::string& format_str, const Args ... args) {
 }
 
 template <typename... Args>
-inline void log(char* format_str, const Args& ... args) {
+inline void log(const char* format_str, const Args& ... args) {
 #ifdef YCDEBUG 	
 	fmt::MemoryWriter w;
 	w.write(format_str, args...);
@@ -160,7 +160,7 @@ inline void log(char* format_str, const Args& ... args) {
 
 
 template <typename... Args>
-inline void log(std::wstring& format_str, const Args&  ... args) {
+inline void log(const std::wstring& format_str, const Args&  ... args) {
 #ifdef YCDEBUG 	
 	fmt::MemoryWriter w;
 	w.write(format_str, args...);
@@ -171,7 +171,7 @@ inline void log(std::wstring& format_str, const Args&  ... args) {
 }
 
 template <typename... Args>
-inline void log(wchar_t* format_str, const Args & ... args) {
+inline void log(const wchar_t* format_str, const Args & ... args) {
 #ifdef YCDEBUG 	
 	std::wstring s = fmt::format(format_str, args...);
 	mprintf(s.c_str());
@@ -741,135 +741,696 @@ inline void* createBatchProOptimizer() {
 #define INODEMENTALRAYPROPERTIES_INTERFACE_ID  Interface_ID(0x1c763921,0x4d542752)
 
 
+// --------------------list functions of core interface BATCHPROOPTIMIZER--------------------------
+// Number function of BATCHPROOPTIMIZER core interface is 1
 #define IBATCHPROOPTIMIZER_NUMFUCNTIONS 1
+// function ID of function BATCH of core interface BATCHPROOPTIMIZER is 86
 #define BATCH_IBATCHPROOPTIMIZER 86
+  // Result Type of function BATCH of core interface BATCHPROOPTIMIZER is ParamType2::TYPE_VOID
+  #define BATCH_IBATCHPROOPTIMIZER_RESULTTYPE ParamType2::TYPE_VOID
+  // number parameter of fucntion BATCH of core interface BATCHPROOPTIMIZER is 0
+  #define BATCH_IBATCHPROOPTIMIZER_NUMPARAMS 0
+// ---------------------- List Properties of core interface BATCHPROOPTIMIZER ----------------------
 #define IBATCHPROOPTIMIZER_NUMPROPS 43
+// function_id of for get property SOURCEFILEMODE of core interface BATCHPROOPTIMIZER is 0
 #define SOURCEFILEMODE_IBATCHPROOPTIMIZER_GETTER 0
+// function_id of for set property SOURCEFILEMODE of core interface BATCHPROOPTIMIZER is 1
 #define SOURCEFILEMODE_IBATCHPROOPTIMIZER_SETTER 1
+// parameter type of properties SOURCEFILEMODE of core interface BATCHPROOPTIMIZER is ParamType::TYPE_INT
 #define SOURCEFILEMODE_IBATCHPROOPTIMIZER_TYPEPARAM ParamType::TYPE_INT
+// function_id of for get property SOURCEFILEFILES of core interface BATCHPROOPTIMIZER is 2
 #define SOURCEFILEFILES_IBATCHPROOPTIMIZER_GETTER 2
+// function_id of for set property SOURCEFILEFILES of core interface BATCHPROOPTIMIZER is 3
 #define SOURCEFILEFILES_IBATCHPROOPTIMIZER_SETTER 3
+// parameter type of properties SOURCEFILEFILES of core interface BATCHPROOPTIMIZER is ParamType2::TYPE_FILENAME_TAB_BV
 #define SOURCEFILEFILES_IBATCHPROOPTIMIZER_TYPEPARAM ParamType2::TYPE_FILENAME_TAB_BV
+// function_id of for get property SOURCEFILEDIR of core interface BATCHPROOPTIMIZER is 4
 #define SOURCEFILEDIR_IBATCHPROOPTIMIZER_GETTER 4
+// function_id of for set property SOURCEFILEDIR of core interface BATCHPROOPTIMIZER is 5
 #define SOURCEFILEDIR_IBATCHPROOPTIMIZER_SETTER 5
+// parameter type of properties SOURCEFILEDIR of core interface BATCHPROOPTIMIZER is ParamType2::TYPE_STRING
 #define SOURCEFILEDIR_IBATCHPROOPTIMIZER_TYPEPARAM ParamType2::TYPE_STRING
+// function_id of for get property SOURCEFILESUBDIR of core interface BATCHPROOPTIMIZER is 6
 #define SOURCEFILESUBDIR_IBATCHPROOPTIMIZER_GETTER 6
+// function_id of for set property SOURCEFILESUBDIR of core interface BATCHPROOPTIMIZER is 7
 #define SOURCEFILESUBDIR_IBATCHPROOPTIMIZER_SETTER 7
+// parameter type of properties SOURCEFILESUBDIR of core interface BATCHPROOPTIMIZER is ParamType2::TYPE_bool
 #define SOURCEFILESUBDIR_IBATCHPROOPTIMIZER_TYPEPARAM ParamType2::TYPE_bool
+// function_id of for get property OPTIMIZATIONLEVEL1 of core interface BATCHPROOPTIMIZER is 8
 #define OPTIMIZATIONLEVEL1_IBATCHPROOPTIMIZER_GETTER 8
+// function_id of for set property OPTIMIZATIONLEVEL1 of core interface BATCHPROOPTIMIZER is 9
 #define OPTIMIZATIONLEVEL1_IBATCHPROOPTIMIZER_SETTER 9
+// parameter type of properties OPTIMIZATIONLEVEL1 of core interface BATCHPROOPTIMIZER is ParamType::TYPE_INT
 #define OPTIMIZATIONLEVEL1_IBATCHPROOPTIMIZER_TYPEPARAM ParamType::TYPE_INT
+// function_id of for get property OPTIMIZATIONLEVEL2 of core interface BATCHPROOPTIMIZER is 10
 #define OPTIMIZATIONLEVEL2_IBATCHPROOPTIMIZER_GETTER 10
+// function_id of for set property OPTIMIZATIONLEVEL2 of core interface BATCHPROOPTIMIZER is 11
 #define OPTIMIZATIONLEVEL2_IBATCHPROOPTIMIZER_SETTER 11
+// parameter type of properties OPTIMIZATIONLEVEL2 of core interface BATCHPROOPTIMIZER is ParamType::TYPE_INT
 #define OPTIMIZATIONLEVEL2_IBATCHPROOPTIMIZER_TYPEPARAM ParamType::TYPE_INT
+// function_id of for get property OPTIMIZATIONLEVEL3 of core interface BATCHPROOPTIMIZER is 12
 #define OPTIMIZATIONLEVEL3_IBATCHPROOPTIMIZER_GETTER 12
+// function_id of for set property OPTIMIZATIONLEVEL3 of core interface BATCHPROOPTIMIZER is 13
 #define OPTIMIZATIONLEVEL3_IBATCHPROOPTIMIZER_SETTER 13
+// parameter type of properties OPTIMIZATIONLEVEL3 of core interface BATCHPROOPTIMIZER is ParamType::TYPE_INT
 #define OPTIMIZATIONLEVEL3_IBATCHPROOPTIMIZER_TYPEPARAM ParamType::TYPE_INT
+// function_id of for get property OPTIMIZATIONLEVEL4 of core interface BATCHPROOPTIMIZER is 14
 #define OPTIMIZATIONLEVEL4_IBATCHPROOPTIMIZER_GETTER 14
+// function_id of for set property OPTIMIZATIONLEVEL4 of core interface BATCHPROOPTIMIZER is 15
 #define OPTIMIZATIONLEVEL4_IBATCHPROOPTIMIZER_SETTER 15
+// parameter type of properties OPTIMIZATIONLEVEL4 of core interface BATCHPROOPTIMIZER is ParamType::TYPE_INT
 #define OPTIMIZATIONLEVEL4_IBATCHPROOPTIMIZER_TYPEPARAM ParamType::TYPE_INT
+// function_id of for get property OPTIMIZATIONLEVEL5 of core interface BATCHPROOPTIMIZER is 16
 #define OPTIMIZATIONLEVEL5_IBATCHPROOPTIMIZER_GETTER 16
+// function_id of for set property OPTIMIZATIONLEVEL5 of core interface BATCHPROOPTIMIZER is 17
 #define OPTIMIZATIONLEVEL5_IBATCHPROOPTIMIZER_SETTER 17
+// parameter type of properties OPTIMIZATIONLEVEL5 of core interface BATCHPROOPTIMIZER is ParamType::TYPE_INT
 #define OPTIMIZATIONLEVEL5_IBATCHPROOPTIMIZER_TYPEPARAM ParamType::TYPE_INT
+// function_id of for get property OPTIMIZATIONLEVELSTEPS of core interface BATCHPROOPTIMIZER is 18
 #define OPTIMIZATIONLEVELSTEPS_IBATCHPROOPTIMIZER_GETTER 18
+// function_id of for set property OPTIMIZATIONLEVELSTEPS of core interface BATCHPROOPTIMIZER is 19
 #define OPTIMIZATIONLEVELSTEPS_IBATCHPROOPTIMIZER_SETTER 19
+// parameter type of properties OPTIMIZATIONLEVELSTEPS of core interface BATCHPROOPTIMIZER is ParamType::TYPE_INT
 #define OPTIMIZATIONLEVELSTEPS_IBATCHPROOPTIMIZER_TYPEPARAM ParamType::TYPE_INT
+// function_id of for get property OPTIMIZATIONLEVELMODE of core interface BATCHPROOPTIMIZER is 20
 #define OPTIMIZATIONLEVELMODE_IBATCHPROOPTIMIZER_GETTER 20
+// function_id of for set property OPTIMIZATIONLEVELMODE of core interface BATCHPROOPTIMIZER is 21
 #define OPTIMIZATIONLEVELMODE_IBATCHPROOPTIMIZER_SETTER 21
+// parameter type of properties OPTIMIZATIONLEVELMODE of core interface BATCHPROOPTIMIZER is ParamType::TYPE_INT
 #define OPTIMIZATIONLEVELMODE_IBATCHPROOPTIMIZER_TYPEPARAM ParamType::TYPE_INT
+// function_id of for get property OPTIMIZEBORDERSMODE of core interface BATCHPROOPTIMIZER is 22
 #define OPTIMIZEBORDERSMODE_IBATCHPROOPTIMIZER_GETTER 22
+// function_id of for set property OPTIMIZEBORDERSMODE of core interface BATCHPROOPTIMIZER is 23
 #define OPTIMIZEBORDERSMODE_IBATCHPROOPTIMIZER_SETTER 23
+// parameter type of properties OPTIMIZEBORDERSMODE of core interface BATCHPROOPTIMIZER is ParamType::TYPE_INT
 #define OPTIMIZEBORDERSMODE_IBATCHPROOPTIMIZER_TYPEPARAM ParamType::TYPE_INT
+// function_id of for get property OPTIMIZEHIDDEN of core interface BATCHPROOPTIMIZER is 24
 #define OPTIMIZEHIDDEN_IBATCHPROOPTIMIZER_GETTER 24
+// function_id of for set property OPTIMIZEHIDDEN of core interface BATCHPROOPTIMIZER is 25
 #define OPTIMIZEHIDDEN_IBATCHPROOPTIMIZER_SETTER 25
+// parameter type of properties OPTIMIZEHIDDEN of core interface BATCHPROOPTIMIZER is ParamType2::TYPE_bool
 #define OPTIMIZEHIDDEN_IBATCHPROOPTIMIZER_TYPEPARAM ParamType2::TYPE_bool
+// function_id of for get property MERGEPOINTS of core interface BATCHPROOPTIMIZER is 26
 #define MERGEPOINTS_IBATCHPROOPTIMIZER_GETTER 26
+// function_id of for set property MERGEPOINTS of core interface BATCHPROOPTIMIZER is 27
 #define MERGEPOINTS_IBATCHPROOPTIMIZER_SETTER 27
+// parameter type of properties MERGEPOINTS of core interface BATCHPROOPTIMIZER is ParamType2::TYPE_bool
 #define MERGEPOINTS_IBATCHPROOPTIMIZER_TYPEPARAM ParamType2::TYPE_bool
+// function_id of for get property MERGEPOINTSTHRESHOLD of core interface BATCHPROOPTIMIZER is 28
 #define MERGEPOINTSTHRESHOLD_IBATCHPROOPTIMIZER_GETTER 28
+// function_id of for set property MERGEPOINTSTHRESHOLD of core interface BATCHPROOPTIMIZER is 29
 #define MERGEPOINTSTHRESHOLD_IBATCHPROOPTIMIZER_SETTER 29
+// parameter type of properties MERGEPOINTSTHRESHOLD of core interface BATCHPROOPTIMIZER is ParamType::TYPE_FLOAT
 #define MERGEPOINTSTHRESHOLD_IBATCHPROOPTIMIZER_TYPEPARAM ParamType::TYPE_FLOAT
+// function_id of for get property MERGEFACES of core interface BATCHPROOPTIMIZER is 30
 #define MERGEFACES_IBATCHPROOPTIMIZER_GETTER 30
+// function_id of for set property MERGEFACES of core interface BATCHPROOPTIMIZER is 31
 #define MERGEFACES_IBATCHPROOPTIMIZER_SETTER 31
+// parameter type of properties MERGEFACES of core interface BATCHPROOPTIMIZER is ParamType2::TYPE_bool
 #define MERGEFACES_IBATCHPROOPTIMIZER_TYPEPARAM ParamType2::TYPE_bool
+// function_id of for get property MERGEFACESTHRESHOLD of core interface BATCHPROOPTIMIZER is 32
 #define MERGEFACESTHRESHOLD_IBATCHPROOPTIMIZER_GETTER 32
+// function_id of for set property MERGEFACESTHRESHOLD of core interface BATCHPROOPTIMIZER is 33
 #define MERGEFACESTHRESHOLD_IBATCHPROOPTIMIZER_SETTER 33
+// parameter type of properties MERGEFACESTHRESHOLD of core interface BATCHPROOPTIMIZER is ParamType::TYPE_FLOAT
 #define MERGEFACESTHRESHOLD_IBATCHPROOPTIMIZER_TYPEPARAM ParamType::TYPE_FLOAT
+// function_id of for get property KEEPMATERIALBOUNDARIES of core interface BATCHPROOPTIMIZER is 34
 #define KEEPMATERIALBOUNDARIES_IBATCHPROOPTIMIZER_GETTER 34
+// function_id of for set property KEEPMATERIALBOUNDARIES of core interface BATCHPROOPTIMIZER is 35
 #define KEEPMATERIALBOUNDARIES_IBATCHPROOPTIMIZER_SETTER 35
+#define KEEPMATERIALBOUNDARIES_IBATC// parameter type of properties KEEPMATERIALBOUNDARIES of core interface BATCHPROOPTIMIZER is ParamType2::TYPE_bool
 #define KEEPMATERIALBOUNDARIES_IBATCHPROOPTIMIZER_TYPEPARAM ParamType2::TYPE_bool
+// function_id of for get property COMPACTFACES of core interface BATCHPROOPTIMIZER is 36
 #define COMPACTFACES_IBATCHPROOPTIMIZER_GETTER 36
+// function_id of for set property COMPACTFACES of core interface BATCHPROOPTIMIZER is 37
 #define COMPACTFACES_IBATCHPROOPTIMIZER_SETTER 37
+// parameter type of properties COMPACTFACES of core interface BATCHPROOPTIMIZER is ParamType2::TYPE_bool
 #define COMPACTFACES_IBATCHPROOPTIMIZER_TYPEPARAM ParamType2::TYPE_bool
+// function_id of for get property PREVENTFLIPPEDNORMALS of core interface BATCHPROOPTIMIZER is 38
 #define PREVENTFLIPPEDNORMALS_IBATCHPROOPTIMIZER_GETTER 38
+// function_id of for set property PREVENTFLIPPEDNORMALS of core interface BATCHPROOPTIMIZER is 39
 #define PREVENTFLIPPEDNORMALS_IBATCHPROOPTIMIZER_SETTER 39
+// parameter type of properties PREVENTFLIPPEDNORMALS of core interface BATCHPROOPTIMIZER is ParamType2::TYPE_bool
 #define PREVENTFLIPPEDNORMALS_IBATCHPROOPTIMIZER_TYPEPARAM ParamType2::TYPE_bool
+// function_id of for get property KEEPVERTEXCOLORS of core interface BATCHPROOPTIMIZER is 40
 #define KEEPVERTEXCOLORS_IBATCHPROOPTIMIZER_GETTER 40
+// function_id of for set property KEEPVERTEXCOLORS of core interface BATCHPROOPTIMIZER is 41
 #define KEEPVERTEXCOLORS_IBATCHPROOPTIMIZER_SETTER 41
+// parameter type of properties KEEPVERTEXCOLORS of core interface BATCHPROOPTIMIZER is ParamType2::TYPE_bool
 #define KEEPVERTEXCOLORS_IBATCHPROOPTIMIZER_TYPEPARAM ParamType2::TYPE_bool
+// function_id of for get property KEEPVERTEXCOLORSBOUNDARIES of core interface BATCHPROOPTIMIZER is 42
 #define KEEPVERTEXCOLORSBOUNDARIES_IBATCHPROOPTIMIZER_GETTER 42
+// function_id of for set property KEEPVERTEXCOLORSBOUNDARIES of core interface BATCHPROOPTIMIZER is 43
 #define KEEPVERTEXCOLORSBOUNDARIES_IBATCHPROOPTIMIZER_SETTER 43
+// parameter type of properties KEEPVERTEXCOLORSBOUNDARIES of core interface BATCHPROOPTIMIZER is ParamType2::TYPE_bool
 #define KEEPVERTEXCOLORSBOUNDARIES_IBATCHPROOPTIMIZER_TYPEPARAM ParamType2::TYPE_bool
+// function_id of for get property VERTEXCOLORSTOLERANCE of core interface BATCHPROOPTIMIZER is 44
 #define VERTEXCOLORSTOLERANCE_IBATCHPROOPTIMIZER_GETTER 44
+// function_id of for set property VERTEXCOLORSTOLERANCE of core interface BATCHPROOPTIMIZER is 45
 #define VERTEXCOLORSTOLERANCE_IBATCHPROOPTIMIZER_SETTER 45
+// parameter type of properties VERTEXCOLORSTOLERANCE of core interface BATCHPROOPTIMIZER is ParamType::TYPE_INT
 #define VERTEXCOLORSTOLERANCE_IBATCHPROOPTIMIZER_TYPEPARAM ParamType::TYPE_INT
+// function_id of for get property KEEPTEXTURE of core interface BATCHPROOPTIMIZER is 46
 #define KEEPTEXTURE_IBATCHPROOPTIMIZER_GETTER 46
+// function_id of for set property KEEPTEXTURE of core interface BATCHPROOPTIMIZER is 47
 #define KEEPTEXTURE_IBATCHPROOPTIMIZER_SETTER 47
+// parameter type of properties KEEPTEXTURE of core interface BATCHPROOPTIMIZER is ParamType2::TYPE_bool
 #define KEEPTEXTURE_IBATCHPROOPTIMIZER_TYPEPARAM ParamType2::TYPE_bool
+// function_id of for get property KEEPUVBOUNDARIES of core interface BATCHPROOPTIMIZER is 48
 #define KEEPUVBOUNDARIES_IBATCHPROOPTIMIZER_GETTER 48
+// function_id of for set property KEEPUVBOUNDARIES of core interface BATCHPROOPTIMIZER is 49
 #define KEEPUVBOUNDARIES_IBATCHPROOPTIMIZER_SETTER 49
+// parameter type of properties KEEPUVBOUNDARIES of core interface BATCHPROOPTIMIZER is ParamType2::TYPE_bool
 #define KEEPUVBOUNDARIES_IBATCHPROOPTIMIZER_TYPEPARAM ParamType2::TYPE_bool
+// function_id of for get property UVTOLERANCE of core interface BATCHPROOPTIMIZER is 50
 #define UVTOLERANCE_IBATCHPROOPTIMIZER_GETTER 50
+// function_id of for set property UVTOLERANCE of core interface BATCHPROOPTIMIZER is 51
 #define UVTOLERANCE_IBATCHPROOPTIMIZER_SETTER 51
+// parameter type of properties UVTOLERANCE of core interface BATCHPROOPTIMIZER is ParamType::TYPE_FLOAT
 #define UVTOLERANCE_IBATCHPROOPTIMIZER_TYPEPARAM ParamType::TYPE_FLOAT
+// function_id of for get property KEEPNORMALS of core interface BATCHPROOPTIMIZER is 52
 #define KEEPNORMALS_IBATCHPROOPTIMIZER_GETTER 52
+// function_id of for set property KEEPNORMALS of core interface BATCHPROOPTIMIZER is 53
 #define KEEPNORMALS_IBATCHPROOPTIMIZER_SETTER 53
+// parameter type of properties KEEPNORMALS of core interface BATCHPROOPTIMIZER is ParamType2::TYPE_bool
 #define KEEPNORMALS_IBATCHPROOPTIMIZER_TYPEPARAM ParamType2::TYPE_bool
+// function_id of for get property NORMALMODE of core interface BATCHPROOPTIMIZER is 54
 #define NORMALMODE_IBATCHPROOPTIMIZER_GETTER 54
+// function_id of for set property NORMALMODE of core interface BATCHPROOPTIMIZER is 55
 #define NORMALMODE_IBATCHPROOPTIMIZER_SETTER 55
+// parameter type of properties NORMALMODE of core interface BATCHPROOPTIMIZER is ParamType::TYPE_INT
 #define NORMALMODE_IBATCHPROOPTIMIZER_TYPEPARAM ParamType::TYPE_INT
+// function_id of for get property NORMALTHRESHOLD of core interface BATCHPROOPTIMIZER is 56
 #define NORMALTHRESHOLD_IBATCHPROOPTIMIZER_GETTER 56
+// function_id of for set property NORMALTHRESHOLD of core interface BATCHPROOPTIMIZER is 57
 #define NORMALTHRESHOLD_IBATCHPROOPTIMIZER_SETTER 57
+// parameter type of properties NORMALTHRESHOLD of core interface BATCHPROOPTIMIZER is ParamType::TYPE_FLOAT
 #define NORMALTHRESHOLD_IBATCHPROOPTIMIZER_TYPEPARAM ParamType::TYPE_FLOAT
+// function_id of for get property SYMMETRYMODE of core interface BATCHPROOPTIMIZER is 58
 #define SYMMETRYMODE_IBATCHPROOPTIMIZER_GETTER 58
+// function_id of for set property SYMMETRYMODE of core interface BATCHPROOPTIMIZER is 59
 #define SYMMETRYMODE_IBATCHPROOPTIMIZER_SETTER 59
+// parameter type of properties SYMMETRYMODE of core interface BATCHPROOPTIMIZER is ParamType::TYPE_INT
 #define SYMMETRYMODE_IBATCHPROOPTIMIZER_TYPEPARAM ParamType::TYPE_INT
+// function_id of for get property SYMMETRYTOLERANCE of core interface BATCHPROOPTIMIZER is 60
 #define SYMMETRYTOLERANCE_IBATCHPROOPTIMIZER_GETTER 60
+// function_id of for set property SYMMETRYTOLERANCE of core interface BATCHPROOPTIMIZER is 61
 #define SYMMETRYTOLERANCE_IBATCHPROOPTIMIZER_SETTER 61
+// parameter type of properties SYMMETRYTOLERANCE of core interface BATCHPROOPTIMIZER is ParamType::TYPE_INT
 #define SYMMETRYTOLERANCE_IBATCHPROOPTIMIZER_TYPEPARAM ParamType::TYPE_INT
+// function_id of for get property DESTFILENAMEMODE of core interface BATCHPROOPTIMIZER is 62
 #define DESTFILENAMEMODE_IBATCHPROOPTIMIZER_GETTER 62
+// function_id of for set property DESTFILENAMEMODE of core interface BATCHPROOPTIMIZER is 63
 #define DESTFILENAMEMODE_IBATCHPROOPTIMIZER_SETTER 63
+// parameter type of properties DESTFILENAMEMODE of core interface BATCHPROOPTIMIZER is ParamType::TYPE_INT
 #define DESTFILENAMEMODE_IBATCHPROOPTIMIZER_TYPEPARAM ParamType::TYPE_INT
+// function_id of for get property AUTORENAME of core interface BATCHPROOPTIMIZER is 64
 #define AUTORENAME_IBATCHPROOPTIMIZER_GETTER 64
+// function_id of for set property AUTORENAME of core interface BATCHPROOPTIMIZER is 65
 #define AUTORENAME_IBATCHPROOPTIMIZER_SETTER 65
+// parameter type of properties AUTORENAME of core interface BATCHPROOPTIMIZER is ParamType2::TYPE_bool
 #define AUTORENAME_IBATCHPROOPTIMIZER_TYPEPARAM ParamType2::TYPE_bool
+// function_id of for get property DESTFILENAMEPREFIX of core interface BATCHPROOPTIMIZER is 66
 #define DESTFILENAMEPREFIX_IBATCHPROOPTIMIZER_GETTER 66
+// function_id of for set property DESTFILENAMEPREFIX of core interface BATCHPROOPTIMIZER is 67
 #define DESTFILENAMEPREFIX_IBATCHPROOPTIMIZER_SETTER 67
+// parameter type of properties DESTFILENAMEPREFIX of core interface BATCHPROOPTIMIZER is ParamType2::TYPE_STRING
 #define DESTFILENAMEPREFIX_IBATCHPROOPTIMIZER_TYPEPARAM ParamType2::TYPE_STRING
+// function_id of for get property DESTFILENAMESUFFIX of core interface BATCHPROOPTIMIZER is 68
 #define DESTFILENAMESUFFIX_IBATCHPROOPTIMIZER_GETTER 68
+// function_id of for set property DESTFILENAMESUFFIX of core interface BATCHPROOPTIMIZER is 69
 #define DESTFILENAMESUFFIX_IBATCHPROOPTIMIZER_SETTER 69
+// parameter type of properties DESTFILENAMESUFFIX of core interface BATCHPROOPTIMIZER is ParamType2::TYPE_STRING
 #define DESTFILENAMESUFFIX_IBATCHPROOPTIMIZER_TYPEPARAM ParamType2::TYPE_STRING
+// function_id of for get property DESTFOLDERMODE of core interface BATCHPROOPTIMIZER is 70
 #define DESTFOLDERMODE_IBATCHPROOPTIMIZER_GETTER 70
+// function_id of for set property DESTFOLDERMODE of core interface BATCHPROOPTIMIZER is 71
 #define DESTFOLDERMODE_IBATCHPROOPTIMIZER_SETTER 71
+// parameter type of properties DESTFOLDERMODE of core interface BATCHPROOPTIMIZER is ParamType::TYPE_INT
 #define DESTFOLDERMODE_IBATCHPROOPTIMIZER_TYPEPARAM ParamType::TYPE_INT
+// function_id of for get property DESTFOLDERNAME of core interface BATCHPROOPTIMIZER is 72
 #define DESTFOLDERNAME_IBATCHPROOPTIMIZER_GETTER 72
+// function_id of for set property DESTFOLDERNAME of core interface BATCHPROOPTIMIZER is 73
 #define DESTFOLDERNAME_IBATCHPROOPTIMIZER_SETTER 73
+// parameter type of properties DESTFOLDERNAME of core interface BATCHPROOPTIMIZER is ParamType2::TYPE_STRING
 #define DESTFOLDERNAME_IBATCHPROOPTIMIZER_TYPEPARAM ParamType2::TYPE_STRING
+// function_id of for get property RECREATEFOLDERTREE of core interface BATCHPROOPTIMIZER is 74
 #define RECREATEFOLDERTREE_IBATCHPROOPTIMIZER_GETTER 74
+// function_id of for set property RECREATEFOLDERTREE of core interface BATCHPROOPTIMIZER is 75
 #define RECREATEFOLDERTREE_IBATCHPROOPTIMIZER_SETTER 75
+// parameter type of properties RECREATEFOLDERTREE of core interface BATCHPROOPTIMIZER is ParamType2::TYPE_bool
 #define RECREATEFOLDERTREE_IBATCHPROOPTIMIZER_TYPEPARAM ParamType2::TYPE_bool
+// function_id of for get property DESTFORMATMODE of core interface BATCHPROOPTIMIZER is 76
 #define DESTFORMATMODE_IBATCHPROOPTIMIZER_GETTER 76
+// function_id of for set property DESTFORMATMODE of core interface BATCHPROOPTIMIZER is 77
 #define DESTFORMATMODE_IBATCHPROOPTIMIZER_SETTER 77
+// parameter type of properties DESTFORMATMODE of core interface BATCHPROOPTIMIZER is ParamType::TYPE_INT
 #define DESTFORMATMODE_IBATCHPROOPTIMIZER_TYPEPARAM ParamType::TYPE_INT
+// function_id of for get property DESTFORMATEXT of core interface BATCHPROOPTIMIZER is 78
 #define DESTFORMATEXT_IBATCHPROOPTIMIZER_GETTER 78
+// function_id of for set property DESTFORMATEXT of core interface BATCHPROOPTIMIZER is 79
 #define DESTFORMATEXT_IBATCHPROOPTIMIZER_SETTER 79
+// parameter type of properties DESTFORMATEXT of core interface BATCHPROOPTIMIZER is ParamType2::TYPE_STRING
 #define DESTFORMATEXT_IBATCHPROOPTIMIZER_TYPEPARAM ParamType2::TYPE_STRING
+// function_id of for get property LOGFILEPATH of core interface BATCHPROOPTIMIZER is 80
 #define LOGFILEPATH_IBATCHPROOPTIMIZER_GETTER 80
+// function_id of for set property LOGFILEPATH of core interface BATCHPROOPTIMIZER is 81
 #define LOGFILEPATH_IBATCHPROOPTIMIZER_SETTER 81
+// parameter type of properties LOGFILEPATH of core interface BATCHPROOPTIMIZER is ParamType2::TYPE_STRING
 #define LOGFILEPATH_IBATCHPROOPTIMIZER_TYPEPARAM ParamType2::TYPE_STRING
+// function_id of for get property APPLYMODIFIER of core interface BATCHPROOPTIMIZER is 83
 #define APPLYMODIFIER_IBATCHPROOPTIMIZER_GETTER 83
+// function_id of for set property APPLYMODIFIER of core interface BATCHPROOPTIMIZER is 82
 #define APPLYMODIFIER_IBATCHPROOPTIMIZER_SETTER 82
+// parameter type of properties APPLYMODIFIER of core interface BATCHPROOPTIMIZER is ParamType::TYPE_BOOL
 #define APPLYMODIFIER_IBATCHPROOPTIMIZER_TYPEPARAM ParamType::TYPE_BOOL
+// function_id of for get property VALIDATEDIALOGS of core interface BATCHPROOPTIMIZER is 85
 #define VALIDATEDIALOGS_IBATCHPROOPTIMIZER_GETTER 85
+// function_id of for set property VALIDATEDIALOGS of core interface BATCHPROOPTIMIZER is 84
 #define VALIDATEDIALOGS_IBATCHPROOPTIMIZER_SETTER 84
+// parameter type of properties VALIDATEDIALOGS of core interface BATCHPROOPTIMIZER is ParamType::TYPE_BOOL
 #define VALIDATEDIALOGS_IBATCHPROOPTIMIZER_TYPEPARAM ParamType::TYPE_BOOL
+
+
+// --------------------list functions of core interface LAYERMANAGER--------------------------
+// Number function of LAYERMANAGER core interface is 14
+#define ILAYERMANAGER_NUMFUCNTIONS 14
+// function ID of function GETLAYER of core interface LAYERMANAGER is 0
+#define GETLAYER_ILAYERMANAGER 0
+  // Result Type of function GETLAYER of core interface LAYERMANAGER is ParamType2::TYPE_INTERFACE
+  #define GETLAYER_ILAYERMANAGER_RESULTTYPE ParamType2::TYPE_INTERFACE
+  // number parameter of fucntion GETLAYER of core interface LAYERMANAGER is 1
+  #define GETLAYER_ILAYERMANAGER_NUMPARAMS 1
+  // WHICH, which is parameter number 1 of function
+// GETLAYER of core interface LAYERMANAGER have param type is ParamType::TYPE_INT
+  #define WHICH_GETLAYER_ILAYERMANAGER_PARAM1_TYPE ParamType::TYPE_INT
+// function ID of function NEWLAYER of core interface LAYERMANAGER is 1
+#define NEWLAYER_ILAYERMANAGER 1
+  // Result Type of function NEWLAYER of core interface LAYERMANAGER is ParamType2::TYPE_INTERFACE
+  #define NEWLAYER_ILAYERMANAGER_RESULTTYPE ParamType2::TYPE_INTERFACE
+  // number parameter of fucntion NEWLAYER of core interface LAYERMANAGER is 0
+  #define NEWLAYER_ILAYERMANAGER_NUMPARAMS 0
+// function ID of function GETLAYERFROMNAME of core interface LAYERMANAGER is 2
+#define GETLAYERFROMNAME_ILAYERMANAGER 2
+  // Result Type of function GETLAYERFROMNAME of core interface LAYERMANAGER is ParamType2::TYPE_INTERFACE
+  #define GETLAYERFROMNAME_ILAYERMANAGER_RESULTTYPE ParamType2::TYPE_INTERFACE
+  // number parameter of fucntion GETLAYERFROMNAME of core interface LAYERMANAGER is 1
+  #define GETLAYERFROMNAME_ILAYERMANAGER_NUMPARAMS 1
+  // NAME, which is parameter number 1 of function
+// GETLAYERFROMNAME of core interface LAYERMANAGER have param type is ParamType2::TYPE_STRING
+  #define NAME_GETLAYERFROMNAME_ILAYERMANAGER_PARAM1_TYPE ParamType2::TYPE_STRING
+// function ID of function NEWLAYERFROMNAME of core interface LAYERMANAGER is 3
+#define NEWLAYERFROMNAME_ILAYERMANAGER 3
+  // Result Type of function NEWLAYERFROMNAME of core interface LAYERMANAGER is ParamType2::TYPE_INTERFACE
+  #define NEWLAYERFROMNAME_ILAYERMANAGER_RESULTTYPE ParamType2::TYPE_INTERFACE
+  // number parameter of fucntion NEWLAYERFROMNAME of core interface LAYERMANAGER is 1
+  #define NEWLAYERFROMNAME_ILAYERMANAGER_NUMPARAMS 1
+  // NAME, which is parameter number 1 of function
+// NEWLAYERFROMNAME of core interface LAYERMANAGER have param type is ParamType2::TYPE_STRING
+  #define NAME_NEWLAYERFROMNAME_ILAYERMANAGER_PARAM1_TYPE ParamType2::TYPE_STRING
+// function ID of function EDITLAYERBYNAME of core interface LAYERMANAGER is 8
+#define EDITLAYERBYNAME_ILAYERMANAGER 8
+  // Result Type of function EDITLAYERBYNAME of core interface LAYERMANAGER is ParamType2::TYPE_VOID
+  #define EDITLAYERBYNAME_ILAYERMANAGER_RESULTTYPE ParamType2::TYPE_VOID
+  // number parameter of fucntion EDITLAYERBYNAME of core interface LAYERMANAGER is 1
+  #define EDITLAYERBYNAME_ILAYERMANAGER_NUMPARAMS 1
+  // NAME, which is parameter number 1 of function
+// EDITLAYERBYNAME of core interface LAYERMANAGER have param type is ParamType2::TYPE_STRING
+  #define NAME_EDITLAYERBYNAME_ILAYERMANAGER_PARAM1_TYPE ParamType2::TYPE_STRING
+// function ID of function DELETELAYERBYNAME of core interface LAYERMANAGER is 9
+#define DELETELAYERBYNAME_ILAYERMANAGER 9
+  // Result Type of function DELETELAYERBYNAME of core interface LAYERMANAGER is ParamType2::TYPE_bool
+  #define DELETELAYERBYNAME_ILAYERMANAGER_RESULTTYPE ParamType2::TYPE_bool
+  // number parameter of fucntion DELETELAYERBYNAME of core interface LAYERMANAGER is 1
+  #define DELETELAYERBYNAME_ILAYERMANAGER_NUMPARAMS 1
+  // NAME, which is parameter number 1 of function
+// DELETELAYERBYNAME of core interface LAYERMANAGER have param type is ParamType2::TYPE_STRING
+  #define NAME_DELETELAYERBYNAME_ILAYERMANAGER_PARAM1_TYPE ParamType2::TYPE_STRING
+// function ID of function CLOSEDIALOG of core interface LAYERMANAGER is 10
+#define CLOSEDIALOG_ILAYERMANAGER 10
+  // Result Type of function CLOSEDIALOG of core interface LAYERMANAGER is ParamType2::TYPE_VOID
+  #define CLOSEDIALOG_ILAYERMANAGER_RESULTTYPE ParamType2::TYPE_VOID
+  // number parameter of fucntion CLOSEDIALOG of core interface LAYERMANAGER is 0
+  #define CLOSEDIALOG_ILAYERMANAGER_NUMPARAMS 0
+// function ID of function ISDIALOGOPEN of core interface LAYERMANAGER is 11
+#define ISDIALOGOPEN_ILAYERMANAGER 11
+  // Result Type of function ISDIALOGOPEN of core interface LAYERMANAGER is ParamType2::TYPE_bool
+  #define ISDIALOGOPEN_ILAYERMANAGER_RESULTTYPE ParamType2::TYPE_bool
+  // number parameter of fucntion ISDIALOGOPEN of core interface LAYERMANAGER is 0
+  #define ISDIALOGOPEN_ILAYERMANAGER_NUMPARAMS 0
+// function ID of function LAYERPROPDIALOG of core interface LAYERMANAGER is 12
+#define LAYERPROPDIALOG_ILAYERMANAGER 12
+  // Result Type of function LAYERPROPDIALOG of core interface LAYERMANAGER is ParamType2::TYPE_VOID
+  #define LAYERPROPDIALOG_ILAYERMANAGER_RESULTTYPE ParamType2::TYPE_VOID
+  // number parameter of fucntion LAYERPROPDIALOG of core interface LAYERMANAGER is 1
+  #define LAYERPROPDIALOG_ILAYERMANAGER_NUMPARAMS 1
+  // LAYERLIST, which is parameter number 1 of function
+// LAYERPROPDIALOG of core interface LAYERMANAGER have param type is ParamType2::TYPE_REFTARG_TAB_BR
+  #define LAYERLIST_LAYERPROPDIALOG_ILAYERMANAGER_PARAM1_TYPE ParamType2::TYPE_REFTARG_TAB_BR
+// function ID of function GETNEXTDEFAULTLAYERNAME of core interface LAYERMANAGER is 13
+#define GETNEXTDEFAULTLAYERNAME_ILAYERMANAGER 13
+  // Result Type of function GETNEXTDEFAULTLAYERNAME of core interface LAYERMANAGER is ParamType2::TYPE_TSTR_BV
+  #define GETNEXTDEFAULTLAYERNAME_ILAYERMANAGER_RESULTTYPE ParamType2::TYPE_TSTR_BV
+  // number parameter of fucntion GETNEXTDEFAULTLAYERNAME of core interface LAYERMANAGER is 0
+  #define GETNEXTDEFAULTLAYERNAME_ILAYERMANAGER_NUMPARAMS 0
+// function ID of function DOESLAYERHIERARCHYCONTAINNODES of core interface LAYERMANAGER is 18
+#define DOESLAYERHIERARCHYCONTAINNODES_ILAYERMANAGER 18
+  // Result Type of function DOESLAYERHIERARCHYCONTAINNODES of core interface LAYERMANAGER is ParamType2::TYPE_bool
+  #define DOESLAYERHIERARCHYCONTAINNODES_ILAYERMANAGER_RESULTTYPE ParamType2::TYPE_bool
+  // number parameter of fucntion DOESLAYERHIERARCHYCONTAINNODES of core interface LAYERMANAGER is 1
+  #define DOESLAYERHIERARCHYCONTAINNODES_ILAYERMANAGER_NUMPARAMS 1
+  // NAME, which is parameter number 1 of function
+// DOESLAYERHIERARCHYCONTAINNODES of core interface LAYERMANAGER have param type is ParamType2::TYPE_STRING
+  #define NAME_DOESLAYERHIERARCHYCONTAINNODES_ILAYERMANAGER_PARAM1_TYPE ParamType2::TYPE_STRING
+// function ID of function DELETELAYERHIERARCHY of core interface LAYERMANAGER is 19
+#define DELETELAYERHIERARCHY_ILAYERMANAGER 19
+  // Result Type of function DELETELAYERHIERARCHY of core interface LAYERMANAGER is ParamType::TYPE_INT
+  #define DELETELAYERHIERARCHY_ILAYERMANAGER_RESULTTYPE ParamType::TYPE_INT
+  // number parameter of fucntion DELETELAYERHIERARCHY of core interface LAYERMANAGER is 2
+  #define DELETELAYERHIERARCHY_ILAYERMANAGER_NUMPARAMS 2
+  // NAME, which is parameter number 1 of function
+// DELETELAYERHIERARCHY of core interface LAYERMANAGER have param type is ParamType2::TYPE_STRING
+  #define NAME_DELETELAYERHIERARCHY_ILAYERMANAGER_PARAM1_TYPE ParamType2::TYPE_STRING
+  // FORCEDELETE, which is parameter number 2 of function
+// DELETELAYERHIERARCHY of core interface LAYERMANAGER have param type is ParamType2::TYPE_bool
+  #define FORCEDELETE_DELETELAYERHIERARCHY_ILAYERMANAGER_PARAM2_TYPE ParamType2::TYPE_bool
+// function ID of function GETDUPLICATELAYERWITHOUTSAMEHIERARCHYONMERGE of core interface LAYERMANAGER is 6
+#define GETDUPLICATELAYERWITHOUTSAMEHIERARCHYONMERGE_ILAYERMANAGER 6
+  // Result Type of function GETDUPLICATELAYERWITHOUTSAMEHIERARCHYONMERGE of core interface LAYERMANAGER is ParamType2::TYPE_bool
+  #define GETDUPLICATELAYERWITHOUTSAMEHIERARCHYONMERGE_ILAYERMANAGER_RESULTTYPE ParamType2::TYPE_bool
+  // number parameter of fucntion GETDUPLICATELAYERWITHOUTSAMEHIERARCHYONMERGE of core interface LAYERMANAGER is 0
+  #define GETDUPLICATELAYERWITHOUTSAMEHIERARCHYONMERGE_ILAYERMANAGER_NUMPARAMS 0
+// function ID of function SETDUPLICATELAYERWITHOUTSAMEHIERARCHYONMERGE of core interface LAYERMANAGER is 7
+#define SETDUPLICATELAYERWITHOUTSAMEHIERARCHYONMERGE_ILAYERMANAGER 7
+  // Result Type of function SETDUPLICATELAYERWITHOUTSAMEHIERARCHYONMERGE of core interface LAYERMANAGER is ParamType2::TYPE_VOID
+  #define SETDUPLICATELAYERWITHOUTSAMEHIERARCHYONMERGE_ILAYERMANAGER_RESULTTYPE ParamType2::TYPE_VOID
+  // number parameter of fucntion SETDUPLICATELAYERWITHOUTSAMEHIERARCHYONMERGE of core interface LAYERMANAGER is 2
+  #define SETDUPLICATELAYERWITHOUTSAMEHIERARCHYONMERGE_ILAYERMANAGER_NUMPARAMS 2
+  // DUPLICATELAYERWITHOUTSAMEHIERARCHYONMERGE, which is parameter number 1 of function
+// SETDUPLICATELAYERWITHOUTSAMEHIERARCHYONMERGE of core interface LAYERMANAGER have param type is ParamType2::TYPE_bool
+  #define DUPLICATELAYERWITHOUTSAMEHIERARCHYONMERGE_SETDUPLICATELAYERWITHOUTSAMEHIERARCHYONMERGE_ILAYERMANAGER_PARAM1_TYPE ParamType2::TYPE_bool
+  // PERSIST, which is parameter number 2 of function
+// SETDUPLICATELAYERWITHOUTSAMEHIERARCHYONMERGE of core interface LAYERMANAGER have param type is ParamType2::TYPE_bool
+  #define PERSIST_SETDUPLICATELAYERWITHOUTSAMEHIERARCHYONMERGE_ILAYERMANAGER_PARAM2_TYPE ParamType2::TYPE_bool
+// ---------------------- List Properties of core interface LAYERMANAGER ----------------------
+#define ILAYERMANAGER_NUMPROPS 2
+// function_id of for get property COUNT of core interface LAYERMANAGER is 4
+#define COUNT_ILAYERMANAGER_GETTER 4
+// function_id of for set property COUNT of core interface LAYERMANAGER is -1
+#define COUNT_ILAYERMANAGER_SETTER -1
+// parameter type of properties COUNT of core interface LAYERMANAGER is ParamType::TYPE_INT
+#define COUNT_ILAYERMANAGER_TYPEPARAM ParamType::TYPE_INT
+// function_id of for get property CURRENT of core interface LAYERMANAGER is 5
+#define CURRENT_ILAYERMANAGER_GETTER 5
+// function_id of for set property CURRENT of core interface LAYERMANAGER is -1
+#define CURRENT_ILAYERMANAGER_SETTER -1
+// parameter type of properties CURRENT of core interface LAYERMANAGER is ParamType2::TYPE_INTERFACE
+#define CURRENT_ILAYERMANAGER_TYPEPARAM ParamType2::TYPE_INTERFACE
+
+// --------------------list functions of core interface LAYERPROPERTIES--------------------------
+// Number function of LAYERPROPERTIES core interface is 11
+#define ILAYERPROPERTIES_NUMFUCNTIONS 11
+// function ID of function ADDNODE of core interface LAYERPROPERTIES is 0
+#define ADDNODE_ILAYERPROPERTIES 0
+  // Result Type of function ADDNODE of core interface LAYERPROPERTIES is ParamType2::TYPE_VOID
+  #define ADDNODE_ILAYERPROPERTIES_RESULTTYPE ParamType2::TYPE_VOID
+  // number parameter of fucntion ADDNODE of core interface LAYERPROPERTIES is 1
+  #define ADDNODE_ILAYERPROPERTIES_NUMPARAMS 1
+  // NODE, which is parameter number 1 of function
+// ADDNODE of core interface LAYERPROPERTIES have param type is ParamType2::TYPE_INODE
+  #define NODE_ADDNODE_ILAYERPROPERTIES_PARAM1_TYPE ParamType2::TYPE_INODE
+// function ID of function SELECT of core interface LAYERPROPERTIES is 1
+#define SELECT_ILAYERPROPERTIES 1
+  // Result Type of function SELECT of core interface LAYERPROPERTIES is ParamType2::TYPE_VOID
+  #define SELECT_ILAYERPROPERTIES_RESULTTYPE ParamType2::TYPE_VOID
+  // number parameter of fucntion SELECT of core interface LAYERPROPERTIES is 1
+  #define SELECT_ILAYERPROPERTIES_NUMPARAMS 1
+  // ONOFF, which is parameter number 1 of function
+// SELECT of core interface LAYERPROPERTIES have param type is ParamType::TYPE_BOOL
+  #define ONOFF_SELECT_ILAYERPROPERTIES_PARAM1_TYPE ParamType::TYPE_BOOL
+// function ID of function SETNAME of core interface LAYERPROPERTIES is 13
+#define SETNAME_ILAYERPROPERTIES 13
+  // Result Type of function SETNAME of core interface LAYERPROPERTIES is ParamType::TYPE_BOOL
+  #define SETNAME_ILAYERPROPERTIES_RESULTTYPE ParamType::TYPE_BOOL
+  // number parameter of fucntion SETNAME of core interface LAYERPROPERTIES is 1
+  #define SETNAME_ILAYERPROPERTIES_NUMPARAMS 1
+  // NAME, which is parameter number 1 of function
+// SETNAME of core interface LAYERPROPERTIES have param type is ParamType2::TYPE_STRING
+  #define NAME_SETNAME_ILAYERPROPERTIES_PARAM1_TYPE ParamType2::TYPE_STRING
+// function ID of function NODES of core interface LAYERPROPERTIES is 65
+#define NODES_ILAYERPROPERTIES 65
+  // Result Type of function NODES of core interface LAYERPROPERTIES is ParamType::TYPE_BOOL
+  #define NODES_ILAYERPROPERTIES_RESULTTYPE ParamType::TYPE_BOOL
+  // number parameter of fucntion NODES of core interface LAYERPROPERTIES is 1
+  #define NODES_ILAYERPROPERTIES_NUMPARAMS 1
+  // LAYERNODES, which is parameter number 1 of function
+// NODES of core interface LAYERPROPERTIES have param type is ParamType2::TYPE_INODE_TAB_BR
+  #define LAYERNODES_NODES_ILAYERPROPERTIES_PARAM1_TYPE ParamType2::TYPE_INODE_TAB_BR
+// function ID of function GETPARENT of core interface LAYERPROPERTIES is 67
+#define GETPARENT_ILAYERPROPERTIES 67
+  // Result Type of function GETPARENT of core interface LAYERPROPERTIES is ParamType2::TYPE_INTERFACE
+  #define GETPARENT_ILAYERPROPERTIES_RESULTTYPE ParamType2::TYPE_INTERFACE
+  // number parameter of fucntion GETPARENT of core interface LAYERPROPERTIES is 0
+  #define GETPARENT_ILAYERPROPERTIES_NUMPARAMS 0
+// function ID of function SETPARENT of core interface LAYERPROPERTIES is 68
+#define SETPARENT_ILAYERPROPERTIES 68
+  // Result Type of function SETPARENT of core interface LAYERPROPERTIES is ParamType::TYPE_BOOL
+  #define SETPARENT_ILAYERPROPERTIES_RESULTTYPE ParamType::TYPE_BOOL
+  // number parameter of fucntion SETPARENT of core interface LAYERPROPERTIES is 1
+  #define SETPARENT_ILAYERPROPERTIES_NUMPARAMS 1
+  // PARENT, which is parameter number 1 of function
+// SETPARENT of core interface LAYERPROPERTIES have param type is ParamType2::TYPE_INTERFACE
+  #define PARENT_SETPARENT_ILAYERPROPERTIES_PARAM1_TYPE ParamType2::TYPE_INTERFACE
+// function ID of function GETCHILD of core interface LAYERPROPERTIES is 69
+#define GETCHILD_ILAYERPROPERTIES 69
+  // Result Type of function GETCHILD of core interface LAYERPROPERTIES is ParamType2::TYPE_INTERFACE
+  #define GETCHILD_ILAYERPROPERTIES_RESULTTYPE ParamType2::TYPE_INTERFACE
+  // number parameter of fucntion GETCHILD of core interface LAYERPROPERTIES is 1
+  #define GETCHILD_ILAYERPROPERTIES_NUMPARAMS 1
+  // INDEX, which is parameter number 1 of function
+// GETCHILD of core interface LAYERPROPERTIES have param type is ParamType2::TYPE_INDEX
+  #define INDEX_GETCHILD_ILAYERPROPERTIES_PARAM1_TYPE ParamType2::TYPE_INDEX
+// function ID of function GETNUMCHILDREN of core interface LAYERPROPERTIES is 70
+#define GETNUMCHILDREN_ILAYERPROPERTIES 70
+  // Result Type of function GETNUMCHILDREN of core interface LAYERPROPERTIES is ParamType::TYPE_INT
+  #define GETNUMCHILDREN_ILAYERPROPERTIES_RESULTTYPE ParamType::TYPE_INT
+  // number parameter of fucntion GETNUMCHILDREN of core interface LAYERPROPERTIES is 0
+  #define GETNUMCHILDREN_ILAYERPROPERTIES_NUMPARAMS 0
+// function ID of function CANDELETE of core interface LAYERPROPERTIES is 71
+#define CANDELETE_ILAYERPROPERTIES 71
+  // Result Type of function CANDELETE of core interface LAYERPROPERTIES is ParamType2::TYPE_bool
+  #define CANDELETE_ILAYERPROPERTIES_RESULTTYPE ParamType2::TYPE_bool
+  // number parameter of fucntion CANDELETE of core interface LAYERPROPERTIES is 0
+  #define CANDELETE_ILAYERPROPERTIES_NUMPARAMS 0
+// function ID of function GETNUMNODES of core interface LAYERPROPERTIES is 72
+#define GETNUMNODES_ILAYERPROPERTIES 72
+  // Result Type of function GETNUMNODES of core interface LAYERPROPERTIES is ParamType::TYPE_INT
+  #define GETNUMNODES_ILAYERPROPERTIES_RESULTTYPE ParamType::TYPE_INT
+  // number parameter of fucntion GETNUMNODES of core interface LAYERPROPERTIES is 0
+  #define GETNUMNODES_ILAYERPROPERTIES_NUMPARAMS 0
+// function ID of function HASSCENEXREFNODESINHIERARCHY of core interface LAYERPROPERTIES is 73
+#define HASSCENEXREFNODESINHIERARCHY_ILAYERPROPERTIES 73
+  // Result Type of function HASSCENEXREFNODESINHIERARCHY of core interface LAYERPROPERTIES is ParamType2::TYPE_bool
+  #define HASSCENEXREFNODESINHIERARCHY_ILAYERPROPERTIES_RESULTTYPE ParamType2::TYPE_bool
+  // number parameter of fucntion HASSCENEXREFNODESINHIERARCHY of core interface LAYERPROPERTIES is 0
+  #define HASSCENEXREFNODESINHIERARCHY_ILAYERPROPERTIES_NUMPARAMS 0
+// ---------------------- List Properties of core interface LAYERPROPERTIES ----------------------
+#define ILAYERPROPERTIES_NUMPROPS 33
+// function_id of for get property ON of core interface LAYERPROPERTIES is 2
+#define ON_ILAYERPROPERTIES_GETTER 2
+// function_id of for set property ON of core interface LAYERPROPERTIES is 3
+#define ON_ILAYERPROPERTIES_SETTER 3
+// parameter type of properties ON of core interface LAYERPROPERTIES is ParamType::TYPE_BOOL
+#define ON_ILAYERPROPERTIES_TYPEPARAM ParamType::TYPE_BOOL
+// function_id of for get property LOCK of core interface LAYERPROPERTIES is 4
+#define LOCK_ILAYERPROPERTIES_GETTER 4
+// function_id of for set property LOCK of core interface LAYERPROPERTIES is 5
+#define LOCK_ILAYERPROPERTIES_SETTER 5
+// parameter type of properties LOCK of core interface LAYERPROPERTIES is ParamType::TYPE_BOOL
+#define LOCK_ILAYERPROPERTIES_TYPEPARAM ParamType::TYPE_BOOL
+// function_id of for get property CURRENT of core interface LAYERPROPERTIES is 6
+#define CURRENT_ILAYERPROPERTIES_GETTER 6
+// function_id of for set property CURRENT of core interface LAYERPROPERTIES is 7
+#define CURRENT_ILAYERPROPERTIES_SETTER 7
+// parameter type of properties CURRENT of core interface LAYERPROPERTIES is ParamType::TYPE_BOOL
+#define CURRENT_ILAYERPROPERTIES_TYPEPARAM ParamType::TYPE_BOOL
+// function_id of for get property WIRECOLOR of core interface LAYERPROPERTIES is 8
+#define WIRECOLOR_ILAYERPROPERTIES_GETTER 8
+// function_id of for set property WIRECOLOR of core interface LAYERPROPERTIES is 9
+#define WIRECOLOR_ILAYERPROPERTIES_SETTER 9
+// parameter type of properties WIRECOLOR of core interface LAYERPROPERTIES is ParamType2::TYPE_COLOR_BV
+#define WIRECOLOR_ILAYERPROPERTIES_TYPEPARAM ParamType2::TYPE_COLOR_BV
+// function_id of for get property ISGIEXCLUDED of core interface LAYERPROPERTIES is 10
+#define ISGIEXCLUDED_ILAYERPROPERTIES_GETTER 10
+// function_id of for set property ISGIEXCLUDED of core interface LAYERPROPERTIES is 11
+#define ISGIEXCLUDED_ILAYERPROPERTIES_SETTER 11
+// parameter type of properties ISGIEXCLUDED of core interface LAYERPROPERTIES is ParamType::TYPE_BOOL
+#define ISGIEXCLUDED_ILAYERPROPERTIES_TYPEPARAM ParamType::TYPE_BOOL
+// function_id of for get property NAME of core interface LAYERPROPERTIES is 12
+#define NAME_ILAYERPROPERTIES_GETTER 12
+// function_id of for set property NAME of core interface LAYERPROPERTIES is -1
+#define NAME_ILAYERPROPERTIES_SETTER -1
+// parameter type of properties NAME of core interface LAYERPROPERTIES is ParamType2::TYPE_STRING
+#define NAME_ILAYERPROPERTIES_TYPEPARAM ParamType2::TYPE_STRING
+// function_id of for get property RENDERABLE of core interface LAYERPROPERTIES is 14
+#define RENDERABLE_ILAYERPROPERTIES_GETTER 14
+// function_id of for set property RENDERABLE of core interface LAYERPROPERTIES is 15
+#define RENDERABLE_ILAYERPROPERTIES_SETTER 15
+// parameter type of properties RENDERABLE of core interface LAYERPROPERTIES is ParamType2::TYPE_bool
+#define RENDERABLE_ILAYERPROPERTIES_TYPEPARAM ParamType2::TYPE_bool
+// function_id of for get property INHERITVISIBILITY of core interface LAYERPROPERTIES is 16
+#define INHERITVISIBILITY_ILAYERPROPERTIES_GETTER 16
+// function_id of for set property INHERITVISIBILITY of core interface LAYERPROPERTIES is 17
+#define INHERITVISIBILITY_ILAYERPROPERTIES_SETTER 17
+// parameter type of properties INHERITVISIBILITY of core interface LAYERPROPERTIES is ParamType2::TYPE_bool
+#define INHERITVISIBILITY_ILAYERPROPERTIES_TYPEPARAM ParamType2::TYPE_bool
+// function_id of for get property PRIMARYVISIBILITY of core interface LAYERPROPERTIES is 18
+#define PRIMARYVISIBILITY_ILAYERPROPERTIES_GETTER 18
+// function_id of for set property PRIMARYVISIBILITY of core interface LAYERPROPERTIES is 19
+#define PRIMARYVISIBILITY_ILAYERPROPERTIES_SETTER 19
+// parameter type of properties PRIMARYVISIBILITY of core interface LAYERPROPERTIES is ParamType2::TYPE_bool
+#define PRIMARYVISIBILITY_ILAYERPROPERTIES_TYPEPARAM ParamType2::TYPE_bool
+// function_id of for get property SECONDARYVISIBILITY of core interface LAYERPROPERTIES is 20
+#define SECONDARYVISIBILITY_ILAYERPROPERTIES_GETTER 20
+// function_id of for set property SECONDARYVISIBILITY of core interface LAYERPROPERTIES is 21
+#define SECONDARYVISIBILITY_ILAYERPROPERTIES_SETTER 21
+// parameter type of properties SECONDARYVISIBILITY of core interface LAYERPROPERTIES is ParamType2::TYPE_bool
+#define SECONDARYVISIBILITY_ILAYERPROPERTIES_TYPEPARAM ParamType2::TYPE_bool
+// function_id of for get property RECEIVESHADOWS of core interface LAYERPROPERTIES is 22
+#define RECEIVESHADOWS_ILAYERPROPERTIES_GETTER 22
+// function_id of for set property RECEIVESHADOWS of core interface LAYERPROPERTIES is 23
+#define RECEIVESHADOWS_ILAYERPROPERTIES_SETTER 23
+// parameter type of properties RECEIVESHADOWS of core interface LAYERPROPERTIES is ParamType2::TYPE_bool
+#define RECEIVESHADOWS_ILAYERPROPERTIES_TYPEPARAM ParamType2::TYPE_bool
+// function_id of for get property CASTSHADOWS of core interface LAYERPROPERTIES is 24
+#define CASTSHADOWS_ILAYERPROPERTIES_GETTER 24
+// function_id of for set property CASTSHADOWS of core interface LAYERPROPERTIES is 25
+#define CASTSHADOWS_ILAYERPROPERTIES_SETTER 25
+// parameter type of properties CASTSHADOWS of core interface LAYERPROPERTIES is ParamType2::TYPE_bool
+#define CASTSHADOWS_ILAYERPROPERTIES_TYPEPARAM ParamType2::TYPE_bool
+// function_id of for get property APPLYATMOSPHERICS of core interface LAYERPROPERTIES is 26
+#define APPLYATMOSPHERICS_ILAYERPROPERTIES_GETTER 26
+// function_id of for set property APPLYATMOSPHERICS of core interface LAYERPROPERTIES is 27
+#define APPLYATMOSPHERICS_ILAYERPROPERTIES_SETTER 27
+// parameter type of properties APPLYATMOSPHERICS of core interface LAYERPROPERTIES is ParamType2::TYPE_bool
+#define APPLYATMOSPHERICS_ILAYERPROPERTIES_TYPEPARAM ParamType2::TYPE_bool
+// function_id of for get property RENDEROCCLUDED of core interface LAYERPROPERTIES is 28
+#define RENDEROCCLUDED_ILAYERPROPERTIES_GETTER 28
+// function_id of for set property RENDEROCCLUDED of core interface LAYERPROPERTIES is 29
+#define RENDEROCCLUDED_ILAYERPROPERTIES_SETTER 29
+// parameter type of properties RENDEROCCLUDED of core interface LAYERPROPERTIES is ParamType2::TYPE_bool
+#define RENDEROCCLUDED_ILAYERPROPERTIES_TYPEPARAM ParamType2::TYPE_bool
+// function_id of for get property ISHIDDEN of core interface LAYERPROPERTIES is 30
+#define ISHIDDEN_ILAYERPROPERTIES_GETTER 30
+// function_id of for set property ISHIDDEN of core interface LAYERPROPERTIES is 31
+#define ISHIDDEN_ILAYERPROPERTIES_SETTER 31
+// parameter type of properties ISHIDDEN of core interface LAYERPROPERTIES is ParamType2::TYPE_bool
+#define ISHIDDEN_ILAYERPROPERTIES_TYPEPARAM ParamType2::TYPE_bool
+// function_id of for get property ISFROZEN of core interface LAYERPROPERTIES is 32
+#define ISFROZEN_ILAYERPROPERTIES_GETTER 32
+// function_id of for set property ISFROZEN of core interface LAYERPROPERTIES is 33
+#define ISFROZEN_ILAYERPROPERTIES_SETTER 33
+// parameter type of properties ISFROZEN of core interface LAYERPROPERTIES is ParamType2::TYPE_bool
+#define ISFROZEN_ILAYERPROPERTIES_TYPEPARAM ParamType2::TYPE_bool
+// function_id of for get property BOXMODE of core interface LAYERPROPERTIES is 34
+#define BOXMODE_ILAYERPROPERTIES_GETTER 34
+// function_id of for set property BOXMODE of core interface LAYERPROPERTIES is 35
+#define BOXMODE_ILAYERPROPERTIES_SETTER 35
+// parameter type of properties BOXMODE of core interface LAYERPROPERTIES is ParamType2::TYPE_bool
+#define BOXMODE_ILAYERPROPERTIES_TYPEPARAM ParamType2::TYPE_bool
+// function_id of for get property BACKFACECULL of core interface LAYERPROPERTIES is 36
+#define BACKFACECULL_ILAYERPROPERTIES_GETTER 36
+// function_id of for set property BACKFACECULL of core interface LAYERPROPERTIES is 37
+#define BACKFACECULL_ILAYERPROPERTIES_SETTER 37
+// parameter type of properties BACKFACECULL of core interface LAYERPROPERTIES is ParamType2::TYPE_bool
+#define BACKFACECULL_ILAYERPROPERTIES_TYPEPARAM ParamType2::TYPE_bool
+// function_id of for get property ALLEDGES of core interface LAYERPROPERTIES is 38
+#define ALLEDGES_ILAYERPROPERTIES_GETTER 38
+// function_id of for set property ALLEDGES of core interface LAYERPROPERTIES is 39
+#define ALLEDGES_ILAYERPROPERTIES_SETTER 39
+// parameter type of properties ALLEDGES of core interface LAYERPROPERTIES is ParamType2::TYPE_bool
+#define ALLEDGES_ILAYERPROPERTIES_TYPEPARAM ParamType2::TYPE_bool
+// function_id of for get property VERTEXTICKS of core interface LAYERPROPERTIES is 40
+#define VERTEXTICKS_ILAYERPROPERTIES_GETTER 40
+// function_id of for set property VERTEXTICKS of core interface LAYERPROPERTIES is 41
+#define VERTEXTICKS_ILAYERPROPERTIES_SETTER 41
+// parameter type of properties VERTEXTICKS of core interface LAYERPROPERTIES is ParamType2::TYPE_bool
+#define VERTEXTICKS_ILAYERPROPERTIES_TYPEPARAM ParamType2::TYPE_bool
+// function_id of for get property SHOWTRAJECTORY of core interface LAYERPROPERTIES is 42
+#define SHOWTRAJECTORY_ILAYERPROPERTIES_GETTER 42
+// function_id of for set property SHOWTRAJECTORY of core interface LAYERPROPERTIES is 43
+#define SHOWTRAJECTORY_ILAYERPROPERTIES_SETTER 43
+// parameter type of properties SHOWTRAJECTORY of core interface LAYERPROPERTIES is ParamType2::TYPE_bool
+#define SHOWTRAJECTORY_ILAYERPROPERTIES_TYPEPARAM ParamType2::TYPE_bool
+// function_id of for get property XRAY of core interface LAYERPROPERTIES is 44
+#define XRAY_ILAYERPROPERTIES_GETTER 44
+// function_id of for set property XRAY of core interface LAYERPROPERTIES is 45
+#define XRAY_ILAYERPROPERTIES_SETTER 45
+// parameter type of properties XRAY of core interface LAYERPROPERTIES is ParamType2::TYPE_bool
+#define XRAY_ILAYERPROPERTIES_TYPEPARAM ParamType2::TYPE_bool
+// function_id of for get property IGNOREEXTENTS of core interface LAYERPROPERTIES is 46
+#define IGNOREEXTENTS_ILAYERPROPERTIES_GETTER 46
+// function_id of for set property IGNOREEXTENTS of core interface LAYERPROPERTIES is 47
+#define IGNOREEXTENTS_ILAYERPROPERTIES_SETTER 47
+// parameter type of properties IGNOREEXTENTS of core interface LAYERPROPERTIES is ParamType2::TYPE_bool
+#define IGNOREEXTENTS_ILAYERPROPERTIES_TYPEPARAM ParamType2::TYPE_bool
+// function_id of for get property SHOWFROZENINGRAY of core interface LAYERPROPERTIES is 48
+#define SHOWFROZENINGRAY_ILAYERPROPERTIES_GETTER 48
+// function_id of for set property SHOWFROZENINGRAY of core interface LAYERPROPERTIES is 49
+#define SHOWFROZENINGRAY_ILAYERPROPERTIES_SETTER 49
+// parameter type of properties SHOWFROZENINGRAY of core interface LAYERPROPERTIES is ParamType2::TYPE_bool
+#define SHOWFROZENINGRAY_ILAYERPROPERTIES_TYPEPARAM ParamType2::TYPE_bool
+// function_id of for get property SHOWVERTEXCOLORS of core interface LAYERPROPERTIES is 50
+#define SHOWVERTEXCOLORS_ILAYERPROPERTIES_GETTER 50
+// function_id of for set property SHOWVERTEXCOLORS of core interface LAYERPROPERTIES is 51
+#define SHOWVERTEXCOLORS_ILAYERPROPERTIES_SETTER 51
+// parameter type of properties SHOWVERTEXCOLORS of core interface LAYERPROPERTIES is ParamType2::TYPE_bool
+#define SHOWVERTEXCOLORS_ILAYERPROPERTIES_TYPEPARAM ParamType2::TYPE_bool
+// function_id of for get property VERTEXCOLORSSHADED of core interface LAYERPROPERTIES is 52
+#define VERTEXCOLORSSHADED_ILAYERPROPERTIES_GETTER 52
+// function_id of for set property VERTEXCOLORSSHADED of core interface LAYERPROPERTIES is 53
+#define VERTEXCOLORSSHADED_ILAYERPROPERTIES_SETTER 53
+// parameter type of properties VERTEXCOLORSSHADED of core interface LAYERPROPERTIES is ParamType2::TYPE_bool
+#define VERTEXCOLORSSHADED_ILAYERPROPERTIES_TYPEPARAM ParamType2::TYPE_bool
+// function_id of for get property VISIBILITY of core interface LAYERPROPERTIES is 54
+#define VISIBILITY_ILAYERPROPERTIES_GETTER 54
+// function_id of for set property VISIBILITY of core interface LAYERPROPERTIES is 55
+#define VISIBILITY_ILAYERPROPERTIES_SETTER 55
+// parameter type of properties VISIBILITY of core interface LAYERPROPERTIES is ParamType::TYPE_FLOAT
+#define VISIBILITY_ILAYERPROPERTIES_TYPEPARAM ParamType::TYPE_FLOAT
+// function_id of for get property IMAGEMOTIONBLURMULTIPLIER of core interface LAYERPROPERTIES is 56
+#define IMAGEMOTIONBLURMULTIPLIER_ILAYERPROPERTIES_GETTER 56
+// function_id of for set property IMAGEMOTIONBLURMULTIPLIER of core interface LAYERPROPERTIES is 57
+#define IMAGEMOTIONBLURMULTIPLIER_ILAYERPROPERTIES_SETTER 57
+// parameter type of properties IMAGEMOTIONBLURMULTIPLIER of core interface LAYERPROPERTIES is ParamType::TYPE_FLOAT
+#define IMAGEMOTIONBLURMULTIPLIER_ILAYERPROPERTIES_TYPEPARAM ParamType::TYPE_FLOAT
+// function_id of for get property MOTIONBLURON of core interface LAYERPROPERTIES is 58
+#define MOTIONBLURON_ILAYERPROPERTIES_GETTER 58
+// function_id of for set property MOTIONBLURON of core interface LAYERPROPERTIES is 59
+#define MOTIONBLURON_ILAYERPROPERTIES_SETTER 59
+// parameter type of properties MOTIONBLURON of core interface LAYERPROPERTIES is ParamType2::TYPE_bool
+#define MOTIONBLURON_ILAYERPROPERTIES_TYPEPARAM ParamType2::TYPE_bool
+// function_id of for get property MOTIONBLUR of core interface LAYERPROPERTIES is 60
+#define MOTIONBLUR_ILAYERPROPERTIES_GETTER 60
+// function_id of for set property MOTIONBLUR of core interface LAYERPROPERTIES is 61
+#define MOTIONBLUR_ILAYERPROPERTIES_SETTER 61
+// parameter type of properties MOTIONBLUR of core interface LAYERPROPERTIES is ParamType2::TYPE_ENUM
+#define MOTIONBLUR_ILAYERPROPERTIES_TYPEPARAM ParamType2::TYPE_ENUM
+// function_id of for get property DISPLAY of core interface LAYERPROPERTIES is 62
+#define DISPLAY_ILAYERPROPERTIES_GETTER 62
+// function_id of for set property DISPLAY of core interface LAYERPROPERTIES is 63
+#define DISPLAY_ILAYERPROPERTIES_SETTER 63
+// parameter type of properties DISPLAY of core interface LAYERPROPERTIES is ParamType2::TYPE_ENUM
+#define DISPLAY_ILAYERPROPERTIES_TYPEPARAM ParamType2::TYPE_ENUM
+// function_id of for get property INODEGIPROPERTIES of core interface LAYERPROPERTIES is 64
+#define INODEGIPROPERTIES_ILAYERPROPERTIES_GETTER 64
+// function_id of for set property INODEGIPROPERTIES of core interface LAYERPROPERTIES is -1
+#define INODEGIPROPERTIES_ILAYERPROPERTIES_SETTER -1
+// parameter type of properties INODEGIPROPERTIES of core interface LAYERPROPERTIES is ParamType2::TYPE_INTERFACE
+#define INODEGIPROPERTIES_ILAYERPROPERTIES_TYPEPARAM ParamType2::TYPE_INTERFACE
+// function_id of for get property LAYERASREFTARG of core interface LAYERPROPERTIES is 66
+#define LAYERASREFTARG_ILAYERPROPERTIES_GETTER 66
+// function_id of for set property LAYERASREFTARG of core interface LAYERPROPERTIES is -1
+#define LAYERASREFTARG_ILAYERPROPERTIES_SETTER -1
+// parameter type of properties LAYERASREFTARG of core interface LAYERPROPERTIES is ParamType2::TYPE_REFTARG
+#define LAYERASREFTARG_ILAYERPROPERTIES_TYPEPARAM ParamType2::TYPE_REFTARG

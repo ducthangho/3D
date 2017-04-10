@@ -13,6 +13,7 @@
 #include "tab.h"
 #include "ymaxcoreinterface.pb.h"
 #include "convert.h"
+#define LOG_ENABLE
 
 using namespace logserver;
 
@@ -182,6 +183,22 @@ void generateInterFacesID()
 	}
 }
 
+inline std::string InterFaceID2S(Interface_ID interfaceID)
+{
+	std::stringstream buffer;	
+	ULONG a = interfaceID.PartA();
+	ULONG b = interfaceID.PartB();
+	std::stringstream stream;
+	stream << std::hex << a;
+	std::string hexa(stream.str());
+	stream.str("");
+	stream << std::hex << b;
+	std::string hexb(stream.str());
+	buffer << "Interface_ID(0x"<<hexa<<",0x" <<hexb<<")"<<std::endl;
+	return buffer.str();
+	//logserver::LOG("#define {0}_INTERFACE_ID  Interface_ID(0x{1},0x{2})\n", internal_name, hexa, hexb);
+}
+
 void generateInterfaceFuntionsID(Interface_ID id)
 {
 	FPInterface* fpInterface = GetCOREInterface(id);
@@ -224,13 +241,12 @@ void generateInterfaceFuntionsID(Interface_ID id)
 	}
 }
 
-//std::map<int, std::string>* map = nullptr;
+std::map<int, std::string>  map;
 std::map<int, std::string> generateParamType()
 {
-	static std::map<int, std::string> map;
-	//if (map != nullptr)
-	//	return *map;
-	//map = new std::map<int, std::string>();
+	//static std::map<int, std::string> map;
+	if (!map.empty())   //wn: not thread safe
+		return map;
 	map[ParamType2::TYPE_PCNT_FRAC] = "ParamType2::TYPE_PCNT_FRAC";
 	map[ParamType2::TYPE_WORLD] = "ParamType2::TYPE_WORLD";
 	map[ParamType2::TYPE_STRING] = "ParamType2::TYPE_STRING";
@@ -517,35 +533,66 @@ std::map<int, std::string> generateParamType()
 	return map;
 }
 
-void generateInterfaceFuntionsID2(Interface_ID id)
+void generateInterfaceFuntionsID2(FPInterfaceDesc* fpInterfaceDesc)
 {
-	FPInterface* fpInterface = GetCOREInterface(id);
-	FPInterfaceDesc* fpInterfaceDesc = fpInterface->GetDesc();
 	MSTR internal_name = fpInterfaceDesc->internal_name;
 	internal_name.toUpper();
 	Tab<FPFunctionDef*> functions = fpInterfaceDesc->functions;
+	auto map = generateParamType();
 	auto numFunction = functions.Count();
 	//define number of functions
+	LOG("// --------------------list functions of core interface {0}--------------------------\n", internal_name);
+	log("// --------------------list functions of core interface {0}--------------------------\n", internal_name);
+	LOG("// Number function of {0} core interface is {1}\n", internal_name, numFunction);
+	log("// Number function of {0} core interface is {1}\n", internal_name, numFunction);
 	LOG("#define I{0}_NUMFUCNTIONS {1}\n", internal_name, numFunction);
-
+	log("#define I{0}_NUMFUCNTIONS {1}\n", internal_name, numFunction);
 	//LOG("- Num functions is {0}\n", numFunction);
 	for (int i = 0; i < numFunction; i++)
 	{
 		auto f = functions[i];
 		auto func_internalname = f->internal_name;
-		func_internalname.toUpper();
+		func_internalname.toUpper();  //hello
 		auto func_id = f->ID;
 		//define function ID
+		LOG("// function ID of function {0} of core interface {1} is {2}\n", func_internalname, internal_name, func_id);
+		log("// function ID of function {0} of core interface {1} is {2}\n", func_internalname, internal_name, func_id);
 		LOG("#define {0}_I{1} {2}\n", func_internalname, internal_name, func_id);
+		log("#define {0}_I{1} {2}\n", func_internalname, internal_name, func_id);
+		auto params = f->params;
+		auto numParams = params.Count();
+		auto resultType = f->result_type;
+		auto resultTypeEnumFormat = map[resultType];
+		LOG("  // Result Type of function {0} of core interface {1} is {2}\n", func_internalname, internal_name, resultTypeEnumFormat);
+		log("  // Result Type of function {0} of core interface {1} is {2}\n", func_internalname, internal_name, resultTypeEnumFormat);
+		LOG("  #define {0}_I{1}_RESULTTYPE {2}\n", func_internalname, internal_name, resultTypeEnumFormat);
+		log("  #define {0}_I{1}_RESULTTYPE {2}\n", func_internalname, internal_name, resultTypeEnumFormat);
+		LOG("  // number parameter of fucntion {0} of core interface {1} is {2}\n", func_internalname, internal_name, numParams);
+		log("  // number parameter of fucntion {0} of core interface {1} is {2}\n", func_internalname, internal_name, numParams);
+		LOG("  #define {0}_I{1}_NUMPARAMS {2}\n", func_internalname, internal_name, numParams);
+		log("  #define {0}_I{1}_NUMPARAMS {2}\n", func_internalname, internal_name, numParams);
+		for (int i = 0; i < numParams; i++)
+		{
+			auto param = params[i];
+			auto param_internal_name = param->internal_name;
+			param_internal_name.toUpper();
+			auto paramType = param->type;
+			auto paramTypeEnumFormat = map[paramType];
+			LOG("  // {0}, which is parameter number {1} of function\n// {2} of core interface {3} have param type is {4}\n", param_internal_name, i + 1, func_internalname, internal_name, paramTypeEnumFormat);
+			log("  // {0}, which is parameter number {1} of function\n// {2} of core interface {3} have param type is {4}\n", param_internal_name, i + 1, func_internalname, internal_name, paramTypeEnumFormat);
+			LOG("  #define {0}_{1}_I{2}_PARAM{3}_TYPE {4}\n", param_internal_name, func_internalname, internal_name, i + 1, paramTypeEnumFormat);
+			log("  #define {0}_{1}_I{2}_PARAM{3}_TYPE {4}\n", param_internal_name, func_internalname, internal_name, i + 1, paramTypeEnumFormat);
+			//LOG("  -- Param number {0} have internal name is {1}, paramType is {2}\n", i, finternal_name, paramTypeEnumFormat);
+		}
 		//log(" + function number {0} have internal name is {1}, id is {2}\n", i, func_internalname, func_id);
 	}
 
 	Tab<FPPropDef*> props = fpInterfaceDesc->props;
 	auto numProps = props.Count();
+	LOG("// ---------------------- List Properties of core interface {0} ----------------------\n", internal_name);
+	log("// ---------------------- List Properties of core interface {0} ----------------------\n", internal_name);
 	LOG("#define I{0}_NUMPROPS {1}\n", internal_name, numProps);
-	//LOG("- Num Properties is {0}\n", numProps);
-	auto map = generateParamType();
-
+	log("#define I{0}_NUMPROPS {1}\n", internal_name, numProps);
 	for (int i = 0; i < numProps; i++)
 	{
 		auto f = props[i];
@@ -555,14 +602,41 @@ void generateInterfaceFuntionsID2(Interface_ID id)
 		auto func_getterid = f->getter_ID;
 		ParamType2 propTypes = f->prop_type;
 		auto propTypes_enumFormat = map[(int)propTypes];
-
+		//if (propTypes_enumFormat.empty()) propTypes_enumFormat ";
+		LOG("// function_id of for get property {0} of core interface {1} is {2}\n", prop_internalname, internal_name, func_getterid);
+		log("// function_id of for get property {0} of core interface {1} is {2}\n", prop_internalname, internal_name, func_getterid);
 		LOG("#define {0}_I{1}_GETTER {2}\n", prop_internalname, internal_name, func_getterid);
+		log("#define {0}_I{1}_GETTER {2}\n", prop_internalname, internal_name, func_getterid);
+		LOG("// function_id of for set property {0} of core interface {1} is {2}\n", prop_internalname, internal_name, fucn_setterid);
+		log("// function_id of for set property {0} of core interface {1} is {2}\n", prop_internalname, internal_name, fucn_setterid);
 		LOG("#define {0}_I{1}_SETTER {2}\n", prop_internalname, internal_name, fucn_setterid);
+		log("#define {0}_I{1}_SETTER {2}\n", prop_internalname, internal_name, fucn_setterid);
 		//LOG("#define {0","ddd");
-		LOG("#define {0}_I{1}_TYPEPARAM {2}\n", prop_internalname, internal_name, propTypes_enumFormat);
+		if (!propTypes_enumFormat.empty()) {
+			LOG("// parameter type of properties {0} of core interface {1} is {2}\n", prop_internalname, internal_name, propTypes_enumFormat);
+			log("// parameter type of properties {0} of core interface {1} is {2}\n", prop_internalname, internal_name, propTypes_enumFormat);
+			LOG("#define {0}_I{1}_TYPEPARAM {2}\n", prop_internalname, internal_name, propTypes_enumFormat);
+			log("#define {0}_I{1}_TYPEPARAM {2}\n", prop_internalname, internal_name, propTypes_enumFormat);
+		}
+		else {
+			LOG("#define {0}_I{1}_TYPEPARAM_VOID {2}\n", prop_internalname, internal_name, propTypes_enumFormat);
+			log("#define {0}_I{1}_TYPEPARAM_VOID {2}\n", prop_internalname, internal_name, propTypes_enumFormat);
+		}
 		/*log(" + properties number {0} have internal name is {1},"
 		" setterid is {2}, getterid is {3}\n", i, prop_internalname, fucn_setterid, func_getterid);*/
 	}
+}
+
+/************************************************************************/
+/* generate core interface info with the interface_id
+wn: this function only work if the provided interface_id is of "core" interface
+*/
+/************************************************************************/
+void generateInterfaceFuntionsID2(Interface_ID id)
+{
+	FPInterface* fpInterface = GetCOREInterface(id);
+	FPInterfaceDesc* fpInterfaceDesc = fpInterface->GetDesc();
+	generateInterfaceFuntionsID2(fpInterfaceDesc);
 }
 
 void BatchProOptimizer(y3d::IBatchProOptimizer ibatchProOptimizer)
@@ -653,6 +727,57 @@ void pre_optimize(std::string oFileDir,std::string oFileName)
 	//logserver::LOG(b);
 }
 
+void LayerInterfaceExample()
+{
+	FPInterface* fpInterface = GetCOREInterface(LAYERMANAGER_INTERFACE_ID);
+
+	FPValue result;
+	fpInterface->Invoke(COUNT_ILAYERMANAGER_GETTER, result);
+	auto numLayer = result.i;
+	LOG("number layer is {0}\n", numLayer);
+
+	for (int i = 0; i < numLayer; i++)
+	{
+		FPParams pWHICH(1, WHICH_GETLAYER_ILAYERMANAGER_PARAM1_TYPE, i);
+		fpInterface->Invoke(GETLAYER_ILAYERMANAGER, result, &pWHICH);
+
+		auto fp = result.fpi;
+
+		FPValue r;
+		fp->Invoke(NAME_ILAYERPROPERTIES_GETTER, r);
+		auto layerName = r.s;
+		LOG("Layer number {} have layer name is ", i + 1); LOG(layerName); LOG("\n");
+
+		//auto interfaceID = fp->GetID();
+		//int fn_id = fp->FindFn(L"select");
+		//LOG("fn_id is {}\n", fn_id);
+		//LOG("Interface_ID is {}",InterFaceID2S(interfaceID));
+		//LOG("Interface_ID is of LAYERMANAGER INTERFACE is {}", InterFaceID2S(LAYERMANAGER_INTERFACE_ID));
+
+		//FPMixinInterface* ppmixinInterface = dynamic_cast<FPMixinInterface*>(fp);
+		//if (ppmixinInterface != NULL)
+		//	LOG("fp is instance of class FPMixinInterface\n");
+
+		//FPMixinInterface* ppmixinInterface2 = dynamic_cast<FPMixinInterface*>(fpInterface);
+		//if (ppmixinInterface2 == NULL)
+		//	LOG("fpInterface is not instance of class FPMixinInterface\n");
+
+		//auto fpInterfaceDesc = fp->GetDesc();
+		//auto id = fpInterfaceDesc->GetID();
+		//LOG("Interface_ID is {}\n", InterFaceID2S(id));
+
+		////auto id = fpInterfaceDesc->ID;
+		//auto internal_name = fpInterfaceDesc->internal_name;
+		//LOG("interface internal_name is{0}\n", internal_name);
+		//Tab<FPFunctionDef*> functions = fpInterfaceDesc->functions;
+		//auto numFunction = functions.Count();
+		//LOG("function numbers of interface {0} is {1}\n", internal_name, numFunction);
+
+		//generateInterfaceFuntionsID2(fpInterfaceDesc);
+
+	}
+}
+
 Status YServiceTestImpl::MTest1(ServerContext* context, const EmptyParam* request, EmptyParam* reply)
 {
 	Invoke([]() {
@@ -675,13 +800,16 @@ Status YServiceTestImpl::MTest1(ServerContext* context, const EmptyParam* reques
 		TimeValue time = ip->GetTime();*/
 		
 		//generateInterFacesID();
+		//Interface_ID a(539887512, 898175643);
+		//generateInterfaceFuntionsID2(a);
 		//generateInterfaceFuntionsID2(BATCHPROOPTIMIZER_INTERFACE_ID);
+		LayerInterfaceExample();
 		//y3d::IBatchProOptimizer y;
 		//BatchProOptimizer(y);
 		/*GetCOREInterface16()->load*/
-		std::string oFileDir = "F:\\WorkSpace\\3Ds Max\\Building Phong Tam Project\\scenes\\TestProOptimizerScene";
-		std::string oFileName = "001";
-		pre_optimize(oFileDir, oFileName);
+		//std::string oFileDir = "F:\\WorkSpace\\3Ds Max\\Building Phong Tam Project\\scenes\\TestProOptimizerScene";
+		//std::string oFileName = "001";
+		//pre_optimize(oFileDir, oFileName);
 
 		//MSTR internal_name = fpInterfaceDesc->internal_name;
 		//logserver::LOG("Internal name is {0}\n", internal_name);
