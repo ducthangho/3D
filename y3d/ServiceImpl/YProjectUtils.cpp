@@ -1,11 +1,12 @@
 #include "common.h"
 #include "YLibs.h"
 #include "YProjectUtils.h"
-#include "LogClient.h"
-using namespace logserver;
+
+
 
 const std::string FM_ORGINAL_FILE = "{0}\\{1}_o.max";
 const std::string FM_YAREA_FILE = "{0}\\yal.y3d";
+MyNodeEventCB mcb;
 //const std::string FM_WORKING_FILE_PREFIX = "{0}{1}";
 NameTab low_nametab;
 NameTab high_nametab;

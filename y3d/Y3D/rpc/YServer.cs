@@ -23,6 +23,7 @@ namespace Y3D.rpc
 
         public override Task<ResponseEvent> DoEvent(YEvent request, ServerCallContext context)
         {
+            MessageBox.Show("da chon:");
             if (request.Select!=null)
             {
                 MessageBox.Show("da chon:" + request.Select.Name);

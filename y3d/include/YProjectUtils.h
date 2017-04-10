@@ -3,10 +3,12 @@
 #include "yservice.pb.h"
 #include "yservice.grpc.pb.h"
 #include <inode.h>
+#include "LogClient.h"
 //#include "yloader.pb.h"
 ////#include "yloader.grpc.pb.h"
 
 using namespace y3d;
+using namespace logserver;
 //extern YSystem YSys;
 //static std::vector<YEvent> received_e;
 //YEvent current_e;
@@ -26,13 +28,15 @@ class MyNodeEventCB : public INodeEventCallback {
 public:
 	void SelectionChanged(NodeKeyTab & 	nodes)
 	{
+		LOG("zz");
 		if (nodes.Count() > 0) {
+			auto client = y3d::YServiceMainWorker::NewStub(grpc::CreateChannel("127.0.0.1:37001", grpc::InsecureChannelCredentials()));
 			for (int i = 0; i < nodes.Count(); i++)
 			{
 				auto n = NodeEventNamespace::GetNodeByKey(nodes[i]);
 				if (n == NULL) continue;
 				if (n->Selected()) {
-					auto client = y3d::YServiceMainWorker::NewStub(grpc::CreateChannel("127.0.0.1:37001", grpc::InsecureChannelCredentials()));
+					
 					YEvent ye;
 					//ESelect es;
 					//es.set_name(ws2s(n->GetName()));
@@ -40,14 +44,15 @@ public:
 					ye.mutable_select()->set_name(ws2s(n->GetName()));
 					ye.mutable_select()->set_isolate(false);
 					grpc::ClientContext context;
-					//y3d::ResponseEvent rep;
+					y3d::ResponseEvent rep;
 					//Status* status;
 					// thay = async
 					grpc::CompletionQueue cq_;
-					client->AsyncDoEvent(&context, ye, &cq_);
+					LOG("abc\n");
+					//client->AsyncDoEvent(&context, ye, &cq_);
 
-					//auto status = client->DoEvent(&context, ye, &rep);
-
+					auto status = client->DoEvent(&context, ye, &rep);
+					LOG("xong\n");
 
 					/*		YEvent ye;
 					ESelect es;
@@ -65,8 +70,7 @@ public:
 	}
 };
 
-
+extern MyNodeEventCB mcb;
 inline void registerCB() {
-	auto mcb = new MyNodeEventCB();
-	GetISceneEventManager()->RegisterCallback(mcb, 0, 0, 0);
+	GetISceneEventManager()->RegisterCallback(&mcb, 0, 0, 0);
 }

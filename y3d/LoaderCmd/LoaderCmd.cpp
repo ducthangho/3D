@@ -135,7 +135,25 @@ void test3() {
 
 void test5()
 {
-	logserver::LOG("Hello world with fmt like format i={0}","dddddddddd");
+	logserver::LOG("Hello world with fmt like format i={0}\n","dddddddddd");
+	auto client = y3d::YServiceMainWorker::NewStub(grpc::CreateChannel("127.0.0.1:37001", grpc::InsecureChannelCredentials()));
+	y3d::YEvent ye;
+	//ESelect es;
+	//es.set_name(ws2s(n->GetName()));
+	//es.set_isolate(false);
+	ye.mutable_select()->set_name("aa");
+	ye.mutable_select()->set_isolate(false);
+	grpc::ClientContext context;
+	y3d::ResponseEvent rep;
+	//Status* status;
+	// thay = async
+	grpc::CompletionQueue cq_;
+	logserver::LOG("abc\n");
+	//client->AsyncDoEvent(&context, ye, &cq_);
+
+	auto status = client->DoEvent(&context, ye, &rep);
+	logserver::LOG("xong\n");
+
 }
 
 void loadDll()
@@ -208,7 +226,7 @@ int main(int argc, char** argv)
 		cmd.add(lsArg);
 
 
-		TCLAP::ValueArg<int> testArg("t", "test", "1 = test1; 2 = test2; 3 = test3; 4 = test4", false, 2, "integer");
+		TCLAP::ValueArg<int> testArg("t", "test", "1 = test1; 2 = test2; 3 = test3; 4 = test4; 5 = test5", false, 2, "integer");
 		cmd.add(testArg);
 
 		// Parse the argv array.
