@@ -138,12 +138,17 @@ namespace Y3D.Projects
                         olvLocalTest.SetObjects(Utils.TestData.Utests[y.Name].Otests);
                     } else
                     {
+                        olvLocalTest.SetObjects(new List<VerTest>());
                         // reset
                     }
                 } else
                 {
+                    //MessageBox.Show("xxx");
+                    olvLocalTest.SetObjects(new List<VerTest>());
                     //reset
+                    //olvLocalTest.Clear();
                 }
+
                 if (checkBoxIsolate.Checked)
                 {
                     YEvent ye = new YEvent();
@@ -156,7 +161,7 @@ namespace Y3D.Projects
                     YEvent ye = new YEvent();
                     ye.Select = new ESelect();
                     ye.Select.Name = y.Name;
-                    ye.Select.Isolate = checkBoxIsolate.Checked;
+                    ye.Select.Isolate = false;
                     Y3D.Projects.Utils.MaxClient.DoEventAsync(ye);
                 }
 
@@ -168,6 +173,12 @@ namespace Y3D.Projects
                 //MessageBox.Show(y.Name);
             }
         }
+
+        private void objectListCtrl_ItemsChanged(object sender, BrightIdeasSoftware.ItemsChangedEventArgs e)
+        {
+
+        }
+
 
         private void checkBoxIsolate_CheckedChanged(object sender, EventArgs e)
         {
@@ -208,5 +219,7 @@ namespace Y3D.Projects
         {
 
         }
+
+
     }
 }

@@ -11,6 +11,8 @@ using System.Net;
 using System.IO;
 using System.Diagnostics;
 
+using Google.Protobuf;
+
 using Y3D.Users;
 
 namespace Y3D.Projects
@@ -36,6 +38,30 @@ namespace Y3D.Projects
         public static Forms.YMainForm mainform = null;
 
         //public static YSystem YSys = new YSystem();
+
+        public static void saveTestData()
+        { 
+            if (CurrentP == null) return;
+            var test_path = System.IO.Path.Combine(CurrentP.ProjectPath, "test","ytest.y3d");
+            using (Stream output = File.OpenWrite(test_path))
+            {
+                TestData.WriteTo(output);
+            }
+        }
+        public static void loadTestData()
+        {
+            if (CurrentP == null) return;
+            var test_path = System.IO.Path.Combine(CurrentP.ProjectPath, "test", "ytest.y3d");
+            if (File.Exists(test_path))
+            {
+                using (Stream file = File.OpenRead(test_path))
+                {
+                    var a = Google.Protobuf.CodedInputStream.CreateWithLimits(file, 1024 << 20, 10);
+                    TestData = UserTestData.Parser.ParseFrom(a);
+                }
+            }
+        }
+
 
         public static void initSystem()
         {
@@ -298,6 +324,7 @@ namespace Y3D.Projects
                             File.Copy(openFileProject.FileName, o_file);
                             CurrentYAL = rnp.Yal;
                             CurrentP = rnp.PInfo;
+                            Projects.Utils.loadTestData();
                             Auth.usetting.Projects.Add(rnp.PInfo.Pname,rnp.PInfo);
                             Auth.updateUSetting();
                             return true;
@@ -321,6 +348,7 @@ namespace Y3D.Projects
                 {
                     CurrentYAL = rnp.Yal;
                     CurrentP = pi;
+                    Projects.Utils.loadTestData();
                     return true;
                 }
                 else
@@ -389,6 +417,7 @@ namespace Y3D.Projects
             itp.TestFolder = test_path;
             var x = Y3D.Projects.Utils.MaxClient.Init4Test(itp);
             TestData.Utests[tname].Otests.Add(vt);
+            Projects.Utils.saveTestData();
             return true;
         }
 

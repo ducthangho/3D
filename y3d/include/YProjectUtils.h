@@ -28,7 +28,7 @@ class MyNodeEventCB : public INodeEventCallback {
 public:
 	void SelectionChanged(NodeKeyTab & 	nodes)
 	{
-		LOG("zz");
+		LOG("select callback");
 		if (nodes.Count() > 0) {
 			auto client = y3d::YServiceMainWorker::NewStub(grpc::CreateChannel("127.0.0.1:37001", grpc::InsecureChannelCredentials()));
 			for (int i = 0; i < nodes.Count(); i++)
@@ -48,11 +48,9 @@ public:
 					//Status* status;
 					// thay = async
 					grpc::CompletionQueue cq_;
-					LOG("abc\n");
 					//client->AsyncDoEvent(&context, ye, &cq_);
-
-					auto status = client->DoEvent(&context, ye, &rep);
-					LOG("xong\n");
+					LOG("Select object:{0}",ye.select().name());
+					//auto status = client->DoEvent(&context, ye, &rep);
 
 					/*		YEvent ye;
 					ESelect es;

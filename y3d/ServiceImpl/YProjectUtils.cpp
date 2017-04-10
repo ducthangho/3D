@@ -240,8 +240,14 @@ void DoYEvent(YEvent ye) {
 		auto name_select = ye.select().name();
 		auto n = ip->GetINodeByName(s2ws(name_select).c_str());
 		ip->SelectNode(n);
-		//std::string cmd = "select $" + name_select + ";";
-		//ExecuteMAXScriptScript(s2ws(cmd).c_str());
+		if (!ye.select().isolate()) {
+			auto cmd = L"IsolateSelection.EnterIsolateSelectionMode()";
+			ExecuteMAXScriptScript(cmd);
+		}
+		else {
+			auto cmd = L"IsolateSelection.ExitIsolateSelectionMode()";
+			ExecuteMAXScriptScript(cmd);
+		}
 	}
 	else if (ye.has_isolate()) {
 		if (ye.isolate().endisolate()) {

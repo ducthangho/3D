@@ -32,7 +32,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ObjectsControl));
             this.tabNavLeft = new System.Windows.Forms.TabControl();
             this.tabArea = new System.Windows.Forms.TabPage();
+            this.button8 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.gtreeListView = new BrightIdeasSoftware.TreeListView();
@@ -42,11 +44,18 @@
             this.miniToolStrip = new System.Windows.Forms.ToolStrip();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.olvLocalTest = new BrightIdeasSoftware.FastObjectListView();
+            this.btnTestDel = new System.Windows.Forms.Button();
             this.btnTestLoad = new System.Windows.Forms.Button();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPageTest = new System.Windows.Forms.TabPage();
+            this.olvLocalTest = new BrightIdeasSoftware.FastObjectListView();
+            this.olvId = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.olvNote = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.tabPageVersion = new System.Windows.Forms.TabPage();
             this.btnAddJob = new System.Windows.Forms.Button();
             this.btnAddTest = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button3 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -59,28 +68,19 @@
             this.olvColFace = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.olvColTypeO = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPageTest = new System.Windows.Forms.TabPage();
-            this.tabPageVersion = new System.Windows.Forms.TabPage();
-            this.btnTestDel = new System.Windows.Forms.Button();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.button8 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.olvId = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
-            this.olvNote = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.tabNavLeft.SuspendLayout();
             this.tabArea.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gtreeListView)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabPageTest.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.olvLocalTest)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.objectListCtrl)).BeginInit();
             this.toolStrip1.SuspendLayout();
-            this.tabControl1.SuspendLayout();
-            this.tabPageTest.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabNavLeft
@@ -109,6 +109,15 @@
             this.tabArea.TabIndex = 0;
             this.tabArea.Text = "Area";
             // 
+            // button8
+            // 
+            this.button8.Image = global::Y3D.Properties.Resources.start;
+            this.button8.Location = new System.Drawing.Point(58, 348);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(20, 20);
+            this.button8.TabIndex = 5;
+            this.button8.UseVisualStyleBackColor = true;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -117,6 +126,15 @@
             this.label1.Size = new System.Drawing.Size(45, 13);
             this.label1.TabIndex = 4;
             this.label1.Text = "Preview";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox1.Location = new System.Drawing.Point(7, 371);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(175, 141);
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
             // 
             // button5
             // 
@@ -224,6 +242,45 @@
             this.panel2.Size = new System.Drawing.Size(351, 180);
             this.panel2.TabIndex = 8;
             // 
+            // btnTestDel
+            // 
+            this.btnTestDel.Image = global::Y3D.Properties.Resources.trash16;
+            this.btnTestDel.Location = new System.Drawing.Point(111, 127);
+            this.btnTestDel.Name = "btnTestDel";
+            this.btnTestDel.Size = new System.Drawing.Size(23, 23);
+            this.btnTestDel.TabIndex = 5;
+            this.btnTestDel.UseVisualStyleBackColor = true;
+            // 
+            // btnTestLoad
+            // 
+            this.btnTestLoad.Location = new System.Drawing.Point(61, 127);
+            this.btnTestLoad.Name = "btnTestLoad";
+            this.btnTestLoad.Size = new System.Drawing.Size(44, 23);
+            this.btnTestLoad.TabIndex = 2;
+            this.btnTestLoad.Text = "Load";
+            this.btnTestLoad.UseVisualStyleBackColor = true;
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPageTest);
+            this.tabControl1.Controls.Add(this.tabPageVersion);
+            this.tabControl1.Location = new System.Drawing.Point(3, 3);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(198, 122);
+            this.tabControl1.TabIndex = 4;
+            // 
+            // tabPageTest
+            // 
+            this.tabPageTest.Controls.Add(this.olvLocalTest);
+            this.tabPageTest.Location = new System.Drawing.Point(4, 22);
+            this.tabPageTest.Name = "tabPageTest";
+            this.tabPageTest.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageTest.Size = new System.Drawing.Size(190, 96);
+            this.tabPageTest.TabIndex = 0;
+            this.tabPageTest.Text = "Local Test";
+            this.tabPageTest.UseVisualStyleBackColor = true;
+            // 
             // olvLocalTest
             // 
             this.olvLocalTest.AllColumns.Add(this.olvId);
@@ -241,14 +298,27 @@
             this.olvLocalTest.View = System.Windows.Forms.View.Details;
             this.olvLocalTest.VirtualMode = true;
             // 
-            // btnTestLoad
+            // olvId
             // 
-            this.btnTestLoad.Location = new System.Drawing.Point(61, 127);
-            this.btnTestLoad.Name = "btnTestLoad";
-            this.btnTestLoad.Size = new System.Drawing.Size(44, 23);
-            this.btnTestLoad.TabIndex = 2;
-            this.btnTestLoad.Text = "Load";
-            this.btnTestLoad.UseVisualStyleBackColor = true;
+            this.olvId.AspectName = "Id";
+            this.olvId.Text = "ID";
+            this.olvId.Width = 90;
+            // 
+            // olvNote
+            // 
+            this.olvNote.AspectName = "Vnote";
+            this.olvNote.FillsFreeSpace = true;
+            this.olvNote.Text = "Note";
+            // 
+            // tabPageVersion
+            // 
+            this.tabPageVersion.Location = new System.Drawing.Point(4, 22);
+            this.tabPageVersion.Name = "tabPageVersion";
+            this.tabPageVersion.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageVersion.Size = new System.Drawing.Size(190, 96);
+            this.tabPageVersion.TabIndex = 1;
+            this.tabPageVersion.Text = "Version";
+            this.tabPageVersion.UseVisualStyleBackColor = true;
             // 
             // btnAddJob
             // 
@@ -285,6 +355,15 @@
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Info";
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(5, 44);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(60, 20);
+            this.button3.TabIndex = 4;
+            this.button3.Text = "Pack";
+            this.button3.UseVisualStyleBackColor = true;
             // 
             // button7
             // 
@@ -378,6 +457,7 @@
             this.objectListCtrl.UseCompatibleStateImageBehavior = false;
             this.objectListCtrl.View = System.Windows.Forms.View.Details;
             this.objectListCtrl.VirtualMode = true;
+            this.objectListCtrl.ItemsChanged += new System.EventHandler<BrightIdeasSoftware.ItemsChangedEventArgs>(this.objectListCtrl_ItemsChanged);
             this.objectListCtrl.Click += new System.EventHandler(this.objectListCtrl_Click);
             // 
             // olvColNameO
@@ -406,46 +486,6 @@
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tabPageTest);
-            this.tabControl1.Controls.Add(this.tabPageVersion);
-            this.tabControl1.Location = new System.Drawing.Point(3, 3);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(198, 122);
-            this.tabControl1.TabIndex = 4;
-            // 
-            // tabPageTest
-            // 
-            this.tabPageTest.Controls.Add(this.olvLocalTest);
-            this.tabPageTest.Location = new System.Drawing.Point(4, 22);
-            this.tabPageTest.Name = "tabPageTest";
-            this.tabPageTest.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageTest.Size = new System.Drawing.Size(190, 96);
-            this.tabPageTest.TabIndex = 0;
-            this.tabPageTest.Text = "Local Test";
-            this.tabPageTest.UseVisualStyleBackColor = true;
-            // 
-            // tabPageVersion
-            // 
-            this.tabPageVersion.Location = new System.Drawing.Point(4, 22);
-            this.tabPageVersion.Name = "tabPageVersion";
-            this.tabPageVersion.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageVersion.Size = new System.Drawing.Size(190, 96);
-            this.tabPageVersion.TabIndex = 1;
-            this.tabPageVersion.Text = "Version";
-            this.tabPageVersion.UseVisualStyleBackColor = true;
-            // 
-            // btnTestDel
-            // 
-            this.btnTestDel.Image = global::Y3D.Properties.Resources.trash16;
-            this.btnTestDel.Location = new System.Drawing.Point(111, 127);
-            this.btnTestDel.Name = "btnTestDel";
-            this.btnTestDel.Size = new System.Drawing.Size(23, 23);
-            this.btnTestDel.TabIndex = 5;
-            this.btnTestDel.UseVisualStyleBackColor = true;
-            // 
             // toolStripButton1
             // 
             this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -455,45 +495,6 @@
             this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton1.Text = "toolStripButton1";
             this.toolStripButton1.ToolTipText = "Tags";
-            // 
-            // button8
-            // 
-            this.button8.Image = global::Y3D.Properties.Resources.start;
-            this.button8.Location = new System.Drawing.Point(58, 348);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(20, 20);
-            this.button8.TabIndex = 5;
-            this.button8.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Location = new System.Drawing.Point(7, 371);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(175, 141);
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(5, 44);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(60, 20);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Pack";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // olvId
-            // 
-            this.olvId.AspectName = "Id";
-            this.olvId.Text = "ID";
-            this.olvId.Width = 90;
-            // 
-            // olvNote
-            // 
-            this.olvNote.AspectName = "Vnote";
-            this.olvNote.FillsFreeSpace = true;
-            this.olvNote.Text = "Note";
             // 
             // ObjectsControl
             // 
@@ -507,18 +508,18 @@
             this.tabNavLeft.ResumeLayout(false);
             this.tabArea.ResumeLayout(false);
             this.tabArea.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gtreeListView)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
+            this.tabControl1.ResumeLayout(false);
+            this.tabPageTest.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.olvLocalTest)).EndInit();
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.objectListCtrl)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            this.tabControl1.ResumeLayout(false);
-            this.tabPageTest.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
