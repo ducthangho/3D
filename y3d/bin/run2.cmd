@@ -34,12 +34,12 @@ if "%ERRORLEVEL%"=="0" (
 	start /D %YMasterServer-path% YMasterServer.exe
 )
 
-REM tasklist /FI "IMAGENAME eq 3dsmax.exe" 2>NUL | find /I /N "3dsmax.exe">NUL
-REM if "%ERRORLEVEL%"=="0" (
-REM 	echo 3dsmax.exe is running	
-REM )else (
-REM 	start /D %threedsmax-path% 3dsmax.exe
-REM )
+tasklist /FI "IMAGENAME eq 3dsmax.exe" 2>NUL | find /I /N "3dsmax.exe">NUL
+if "%ERRORLEVEL%"=="0" (
+ 	echo 3dsmax.exe is running	
+)else (
+ 	start /D %threedsmax-path% 3dsmax.exe
+)
 
 tasklist /FI "IMAGENAME eq Y3D.exe" 2>NUL | find /I /N "Y3D.exe">NUL
 if "%ERRORLEVEL%"=="0" (	
@@ -49,9 +49,9 @@ if "%ERRORLEVEL%"=="0" (
 )
 
 
-tasklist /FI "IMAGENAME eq LoaderCmd.exe" 2>NUL | find /I /N "LoaderCmd.exe">NUL
-if "%ERRORLEVEL%"=="0" (
-	echo LoaderCmd.exe is running
-)else (
-	start "??" /D %LoaderCmd-path% LoaderCmd.exe
-)
+rem tasklist /FI "IMAGENAME eq LoaderCmd.exe" 2>NUL | find /I /N "LoaderCmd.exe">NUL
+rem if "%ERRORLEVEL%"=="0" (
+rem 	echo LoaderCmd.exe is running
+rem )else (
+rem 	start "??" /D %LoaderCmd-path% LoaderCmd.exe
+rem )
