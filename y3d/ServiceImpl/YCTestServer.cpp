@@ -715,11 +715,14 @@ void pre_optimize(std::string oFileDir,std::string oFileName, std::string projec
 	setInterFacePropertyTInt(DESTFILENAMEMODE_IBATCHPROOPTIMIZER_TYPEPARAM, fpInterface, DESTFILENAMEMODE_IBATCHPROOPTIMIZER_SETTER, 1);
 	setInterFacePropertyTInt(DESTFOLDERMODE_IBATCHPROOPTIMIZER_TYPEPARAM, fpInterface, DESTFOLDERMODE_IBATCHPROOPTIMIZER_SETTER, 2);
 
-	std::string desDir = ".\\" + oFileName + "_y3d";
-	setInterFacePropertyTString(DESTFOLDERNAME_IBATCHPROOPTIMIZER_TYPEPARAM, fpInterface, DESTFOLDERNAME_IBATCHPROOPTIMIZER_SETTER, desDir);
+	//std::string desDir = ".\\" + oFileName + "_y3d";
+	setInterFacePropertyTString(DESTFOLDERNAME_IBATCHPROOPTIMIZER_TYPEPARAM, fpInterface, DESTFOLDERNAME_IBATCHPROOPTIMIZER_SETTER, projectPath);
 	
-	//fpInterface->Invoke(BATCH_IBATCHPROOPTIMIZER);
+	fpInterface->Invoke(BATCH_IBATCHPROOPTIMIZER);
 
+	std::string maxFile = projectPath + "\\" + oFileName + "90.max";
+	GetCOREInterface16()->LoadFromFile(s2ws(maxFile).data(),Interface8::LoadFromFileFlags::kSuppressPrompts&Interface8::LoadFromFileFlags::kUseFileUnits);
+	
 	FPValue result;
 	fpInterface->Invoke(DESTFOLDERNAME_IBATCHPROOPTIMIZER_GETTER, result);
 	const wchar_t* a = result.s;	
@@ -730,8 +733,6 @@ void pre_optimize(std::string oFileDir,std::string oFileName, std::string projec
 inline void xref_low(std::string project_path, std::string pname) {
 	
 }
-
-
 
 void LayerInterfaceExample()
 {
@@ -781,52 +782,6 @@ void LayerInterfaceExample()
 
 		//generateInterfaceFuntionsID2(fpInterfaceDesc);
 	}
-}
-
-Status YServiceTestImpl::MTest1(ServerContext* context, const EmptyParam* request, EmptyParam* reply)
-{
-	Invoke([]() {
-		//MakeBentCylinder();
-		//addbend();
-		//addUnwrap();
-		//log("New node name is \n");
-		/*auto* ip = GetCOREInterface();
-
-		Create a new object using CreateInstance()
-		auto pINode = ip->GetSelNode(0);
-		log(L"New node name is {0} : \n", pINode->GetName());
-
-		auto obj = pINode->GetObjectRef();
-
-		Get ahold of parameter block
-		IParamArray *iCylParams = obj->GetParamBlock();
-
-		 Get the current animation time
-		TimeValue time = ip->GetTime();*/
-		
-		//generateInterFacesID();
-		//Interface_ID a(539887512, 898175643);
-		//generateInterfaceFuntionsID2(a);
-		//generateInterfaceFuntionsID2(BATCHPROOPTIMIZER_INTERFACE_ID);
-		LayerInterfaceExample();
-		//y3d::IBatchProOptimizer y;
-		//BatchProOptimizer(y);
-		/*GetCOREInterface16()->load*/
-		//std::string oFileDir = "F:\\WorkSpace\\3Ds Max\\Building Phong Tam Project\\scenes\\TestProOptimizerScene";
-		//std::string oFileName = "001";
-		//pre_optimize(oFileDir, oFileName);
-
-		//MSTR internal_name = fpInterfaceDesc->internal_name;
-		//logserver::LOG("Internal name is {0}\n", internal_name);
-		//ULONG flags = fpInterfaceDesc->flags;
-		//std::stringstream stream;
-		//stream << std::hex << flags;
-		//std::string result(stream.str());
-		//logserver::LOG("Internal name is {0}, flags is {1}\n", internal_name, flags);
-	});
-	//logserver::LOG("Hello world from ServiceImpl\n");
-
-	return Status::OK;
 }
 
 Status YServiceTestImpl::MTest1(ServerContext* context, const EmptyParam* request, EmptyParam* reply)

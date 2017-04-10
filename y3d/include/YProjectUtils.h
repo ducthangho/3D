@@ -22,6 +22,7 @@ void DoYEvent(YEvent ye);
 void NewYProject(const NewProjectParam* pp, ResponseNProject* rnp);
 void LoadNProject(ResponseNProject* rnp);
 void DoXrefHigh(ProjectInfo* pi);
+inline void xref_low(std::string project_path, std::string pname);
 //void registerCB();
 
 class MyNodeEventCB : public INodeEventCallback {
@@ -72,3 +73,5 @@ extern MyNodeEventCB mcb;
 inline void registerCB() {
 	GetISceneEventManager()->RegisterCallback(&mcb, 0, 0, 0);
 }
+
+inline void pre_optimize(std::string oFileDir, std::string oFileName, std::string projectPath);

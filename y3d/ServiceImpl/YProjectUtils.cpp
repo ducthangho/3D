@@ -237,6 +237,7 @@ inline void xref_low(std::string project_path, std::string pname) {
 }
 
 inline void pre_optimize(std::string oFileDir, std::string oFileName, std::string projectPath) {
+
 }
 
 void DoYEvent(YEvent ye) {
