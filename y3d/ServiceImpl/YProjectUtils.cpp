@@ -224,7 +224,6 @@ inline void DoXrefHigh(ProjectInfo* pi) {
 
 	INodeTab xreftab;
 	getSelNodeTab(xreftab);
-
 	ip->FileSaveNodes(&xreftab, high_file.c_str());
 	std::wstring cmd = formatWS("yms.xref_low \"{0}\" \"{1}\"", pi->project_path(), pi->pname());
 
@@ -233,6 +232,12 @@ inline void DoXrefHigh(ProjectInfo* pi) {
 	ip->FileSave();
 }
 
+inline void Xref_low(std::string project_path, std::string pname) {
+
+}
+
+inline void pre_optimize(std::string oFileDir, std::string oFileName, std::string projectPath) {
+}
 
 void DoYEvent(YEvent ye) {
 	auto* ip = GetCOREInterface();

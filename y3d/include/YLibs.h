@@ -364,6 +364,7 @@ inline int GetSceneNodes(INodeTab& i_nodeTab, INode* i_currentNode /*=NULL*/)
 
 inline void getSelNodeTab(INodeTab& i_nodeTab) {
 	auto* ip = GetCOREInterface();
+
 	for (int i = 0; i < ip->GetSelNodeCount(); i++)
 	{
 		auto* node = ip->GetSelNode(i);
@@ -459,6 +460,23 @@ inline void Collapse(INode *node)
 		theHold.Accept(_T("Collapsed"));
 #endif
 	}
+}
+
+
+// isolate=TRUE : display this layer only and hide other
+// return name of new layer. Automatically rename it If (layer_name) already exists
+inline std::wstring CreateLayer(INodeTab *nodes, std::wstring layer_name, BOOL isolate=TRUE) {
+	//
+	//
+	
+	return L""; 
+}
+
+
+// isolate=TRUE : IsolateSelection.EnterIsolateSelectionMode() 
+// isolate=FALSE : IsolateSelection.ExitIsolateSelectionMode() 
+inline void setIsolate(BOOL isolate=TRUE) {
+	
 }
 
 #define createLight(x) CreateInstance(LIGHT_CLASS_ID,x)
