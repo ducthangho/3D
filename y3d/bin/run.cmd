@@ -6,6 +6,7 @@ set log-server-path="%Y3D_ROOT%\bin"
 set YMasterServer-path="%Y3D_ROOT%\bin\mserver\"
 set threedsmax-path="C:\Program Files\Autodesk\3ds Max 2017\"
 set LoaderCmd-path="%Y3D_ROOT%\bin"
+set Y3D-path="%Y3D_ROOT%\y3d\bin\Release"
 echo %threedsmax-path%
 
 rem set a=
@@ -39,6 +40,14 @@ if "%ERRORLEVEL%"=="0" (
 )else (
 	start /D %threedsmax-path% 3dsmax.exe
 )
+
+tasklist /FI "IMAGENAME eq Y3D.exe" 2>NUL | find /I /N "Y3D.exe">NUL
+if "%ERRORLEVEL%"=="0" (	
+	echo Y3D.exe is running	
+)else (
+	start /D %Y3D-path% Y3D.exe
+)
+
 
 rem tasklist /FI "IMAGENAME eq LoaderCmd.exe" 2>NUL | find /I /N "LoaderCmd.exe">NUL
 rem if "%ERRORLEVEL%"=="0" (
