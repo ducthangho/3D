@@ -27,6 +27,7 @@ public:
 	virtual void Initialize(void* codegen, void* gli) = 0;//This function used initialize static variable needed to run grpc in dll mode. See Service.cpp for an example
 	Status MTest1(ServerContext* context, const EmptyParam* request, EmptyParam* reply) = 0;
 	Status MTest2(ServerContext* context, const EmptyParam* request, EmptyParam* reply) = 0;
+	Status GenerateInterfaceInfo(ServerContext* context, const EmptyParam* request, EmptyParam* reply) = 0;
 };
 
 class YServiceTestImpl final : public AbstractTestService {
@@ -34,6 +35,7 @@ public:
 	virtual void Initialize(void* codegen, void* gli) override;//This function used initialize static variable needed to run grpc in dll mode. See Service.cpp for an example
 	Status MTest1(ServerContext* context, const EmptyParam* request, EmptyParam* reply) override;
 	Status MTest2(ServerContext* context, const EmptyParam* request, EmptyParam* reply) override;
+	Status GenerateInterfaceInfo(ServerContext* context, const EmptyParam* request, EmptyParam* reply) override;
 	~YServiceTestImpl() override;
 };
 

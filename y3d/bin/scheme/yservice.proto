@@ -41,6 +41,7 @@ service YServiceMaxTools {
 service YServiceTest {
   rpc MTest1(EmptyParam) returns (EmptyParam) {}
   rpc MTest2(EmptyParam) returns (EmptyParam) {}
+  rpc GenerateInterfaceInfo(EmptyParam) returns (EmptyParam) {}
 }
 
 service YServiceMaster {

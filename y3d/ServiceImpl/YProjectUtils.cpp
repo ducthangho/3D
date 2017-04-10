@@ -232,7 +232,7 @@ inline void DoXrefHigh(ProjectInfo* pi) {
 	ip->FileSave();
 }
 
-inline void Xref_low(std::string project_path, std::string pname) {
+inline void xref_low(std::string project_path, std::string pname) {
 
 }
 

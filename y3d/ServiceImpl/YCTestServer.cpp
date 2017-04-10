@@ -678,7 +678,7 @@ inline void setInterFacePropertyTString(int typeParam, FPInterface* fpInterface,
 	fpInterface->Invoke(funcID, &p);
 }
 
-void pre_optimize(std::string oFileDir,std::string oFileName)
+void pre_optimize(std::string oFileDir,std::string oFileName, std::string projectPath)
 {
 	FPInterface* fpInterface = GetCOREInterface(BATCHPROOPTIMIZER_INTERFACE_ID);
 
@@ -727,6 +727,12 @@ void pre_optimize(std::string oFileDir,std::string oFileName)
 	//logserver::LOG(b);
 }
 
+inline void xref_low(std::string project_path, std::string pname) {
+	
+}
+
+
+
 void LayerInterfaceExample()
 {
 	FPInterface* fpInterface = GetCOREInterface(LAYERMANAGER_INTERFACE_ID);
@@ -774,8 +780,53 @@ void LayerInterfaceExample()
 		//LOG("function numbers of interface {0} is {1}\n", internal_name, numFunction);
 
 		//generateInterfaceFuntionsID2(fpInterfaceDesc);
-
 	}
+}
+
+Status YServiceTestImpl::MTest1(ServerContext* context, const EmptyParam* request, EmptyParam* reply)
+{
+	Invoke([]() {
+		//MakeBentCylinder();
+		//addbend();
+		//addUnwrap();
+		//log("New node name is \n");
+		/*auto* ip = GetCOREInterface();
+
+		Create a new object using CreateInstance()
+		auto pINode = ip->GetSelNode(0);
+		log(L"New node name is {0} : \n", pINode->GetName());
+
+		auto obj = pINode->GetObjectRef();
+
+		Get ahold of parameter block
+		IParamArray *iCylParams = obj->GetParamBlock();
+
+		 Get the current animation time
+		TimeValue time = ip->GetTime();*/
+		
+		//generateInterFacesID();
+		//Interface_ID a(539887512, 898175643);
+		//generateInterfaceFuntionsID2(a);
+		//generateInterfaceFuntionsID2(BATCHPROOPTIMIZER_INTERFACE_ID);
+		LayerInterfaceExample();
+		//y3d::IBatchProOptimizer y;
+		//BatchProOptimizer(y);
+		/*GetCOREInterface16()->load*/
+		//std::string oFileDir = "F:\\WorkSpace\\3Ds Max\\Building Phong Tam Project\\scenes\\TestProOptimizerScene";
+		//std::string oFileName = "001";
+		//pre_optimize(oFileDir, oFileName);
+
+		//MSTR internal_name = fpInterfaceDesc->internal_name;
+		//logserver::LOG("Internal name is {0}\n", internal_name);
+		//ULONG flags = fpInterfaceDesc->flags;
+		//std::stringstream stream;
+		//stream << std::hex << flags;
+		//std::string result(stream.str());
+		//logserver::LOG("Internal name is {0}, flags is {1}\n", internal_name, flags);
+	});
+	//logserver::LOG("Hello world from ServiceImpl\n");
+
+	return Status::OK;
 }
 
 Status YServiceTestImpl::MTest1(ServerContext* context, const EmptyParam* request, EmptyParam* reply)
@@ -828,6 +879,14 @@ Status YServiceTestImpl::MTest2(ServerContext* context, const EmptyParam* reques
 {
 	Invoke([]() {
 		log("This is MTest 2\n");
+	});
+	return Status::OK;
+}
+
+Status YServiceTestImpl::GenerateInterfaceInfo(ServerContext * context, const EmptyParam * request, EmptyParam * reply)
+{
+	Invoke([]() {
+		generateInterfaceFuntionsID2(OBJXREFMGR_INTERFACE_ID);
 	});
 	return Status::OK;
 }
