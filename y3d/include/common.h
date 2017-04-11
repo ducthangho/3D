@@ -150,9 +150,9 @@ inline std::wstring s2ws(const std::string& str)
 // wide char to multi byte:
 inline std::string ws2s(const std::wstring& wstr)
 {
-	int size_needed = WideCharToMultiByte(CP_ACP, 0, wstr.c_str(), int(wstr.length() + 1), 0, 0, 0, 0);
+	int size_needed = WideCharToMultiByte(CP_ACP, 0, wstr.c_str(), int(wstr.length()), 0, 0, 0, 0);
 	std::string strTo(size_needed, 0);
-	WideCharToMultiByte(CP_ACP, 0, wstr.c_str(), int(wstr.length() + 1), &strTo[0], size_needed, 0, 0);
+	WideCharToMultiByte(CP_ACP, 0, wstr.c_str(), int(wstr.length()), &strTo[0], size_needed, 0, 0);
 	return strTo;
 }
 
