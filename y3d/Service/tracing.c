@@ -1,6 +1,6 @@
 /*
  *
- * Copyright 2015, Google Inc.
+ * Copyright 2016, Google Inc.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -31,19 +31,57 @@
  *
  */
 
-//#include "src/core/ext/census/tracing.h"
+#include "src/core/ext/census/tracing.h"
 
 #include <grpc/census.h>
+#include <grpc/support/alloc.h>
+#include <grpc/support/log.h>
+#include <openssl/rand.h>
+#include "src/core/ext/census/mlog.h"
 
-/* TODO(aveitch): These are all placeholder implementations. */
+void trace_start_span(const trace_span_context *span_ctxt,
+                      const trace_string name, const start_span_options *opts,
+                      trace_span_context *new_span_ctxt,
+                      bool has_remote_parent) {
+  // Noop implementation.
+}
 
- int census_trace_mask(const census_context *context) {
-   return CENSUS_TRACE_MASK_NONE;
- }
+void trace_add_span_annotation(const trace_string description,
+                               const trace_label *labels, const size_t n_labels,
+                               trace_span_context *span_ctxt) {
+  // Noop implementation.
+}
 
- void census_set_trace_mask(int trace_mask) {}
+void trace_add_span_network_event_annotation(const trace_string description,
+                                             const trace_label *labels,
+                                             const size_t n_labels,
+                                             const gpr_timespec timestamp,
+                                             bool sent, uint64_t id,
+                                             trace_span_context *span_ctxt) {
+  // Noop implementation.
+}
 
- void census_trace_print(census_context *context, uint32_t type,
-                         const char *buffer, size_t n) {}
+void trace_add_span_labels(const trace_label *labels, const size_t n_labels,
+                           trace_span_context *span_ctxt) {
+  // Noop implementation.
+}
 
-// void SetTracerParams(const Params& params);
+void trace_end_span(const trace_status *status, trace_span_context *span_ctxt) {
+  // Noop implementation.
+}
+
+int census_trace_mask(const census_context *context) {
+	return CENSUS_TRACE_MASK_NONE;
+}
+
+void census_set_trace_mask(int trace_mask) {}
+
+void census_trace_print(census_context *context, uint32_t type,
+	const char *buffer, size_t n) {}
+
+int grpc_slice_buf_cmp(grpc_slice a, const void *b, size_t blen){
+	size_t b_length = strlen(b);
+	int d = (int)(GRPC_SLICE_LENGTH(a) - b_length);
+	if (d != 0) return d;
+	return memcmp(GRPC_SLICE_START_PTR(a), b, b_length);
+};

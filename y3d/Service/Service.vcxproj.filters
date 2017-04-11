@@ -57,7 +57,6 @@
     <ClCompile Include="grpc\src\core\ext\transport\chttp2\transport\huffsyms.c" />
     <ClCompile Include="grpc\src\core\ext\transport\chttp2\transport\incoming_metadata.c" />
     <ClCompile Include="grpc\src\core\ext\transport\chttp2\transport\parsing.c" />
-    <ClCompile Include="grpc\src\core\ext\transport\chttp2\transport\status_conversion.c" />
     <ClCompile Include="grpc\src\core\ext\transport\chttp2\transport\stream_lists.c" />
     <ClCompile Include="grpc\src\core\ext\transport\chttp2\transport\stream_map.c" />
     <ClCompile Include="grpc\src\core\ext\transport\chttp2\transport\varint.c" />
@@ -235,7 +234,6 @@
     <ClCompile Include="grpc\src\core\lib\surface\version.c" />
     <ClCompile Include="grpc\src\core\lib\transport\byte_stream.c" />
     <ClCompile Include="grpc\src\core\lib\transport\connectivity_state.c" />
-    <ClCompile Include="grpc\src\core\lib\transport\mdstr_hash_table.c" />
     <ClCompile Include="grpc\src\core\lib\transport\metadata.c" />
     <ClCompile Include="grpc\src\core\lib\transport\metadata_batch.c" />
     <ClCompile Include="grpc\src\core\lib\transport\pid_controller.c" />
@@ -291,6 +289,20 @@
     <ClCompile Include="grpc\src\core\lib\channel\handshaker_factory.c" />
     <ClCompile Include="grpc\src\cpp\common\insecure_create_auth_context.cc" />
     <ClCompile Include="grpc\src\cpp\common\secure_auth_context.cc" />
+    <ClCompile Include="grpc\src\core\lib\transport\error_utils.c" />
+    <ClCompile Include="grpc\src\core\lib\transport\bdp_estimator.c" />
+    <ClCompile Include="grpc\src\core\lib\transport\status_conversion.c" />
+    <ClCompile Include="grpc\src\core\lib\slice\slice_hash_table.c" />
+    <ClCompile Include="grpc\src\core\lib\slice\slice_intern.c" />
+    <ClCompile Include="grpc\src\core\ext\client_channel\http_proxy.c" />
+    <ClCompile Include="grpc\src\core\ext\client_channel\proxy_mapper.c" />
+    <ClCompile Include="grpc\src\core\ext\client_channel\proxy_mapper_registry.c" />
+    <ClCompile Include="grpc\src\core\lib\security\transport\lb_targets_info.c" />
+    <ClCompile Include="grpc\src\core\ext\lb_policy\grpclb\grpclb_channel.c" />
+    <ClCompile Include="grpc\src\cpp\server\health\default_health_check_service.cc" />
+    <ClCompile Include="grpc\src\cpp\server\health\health.pb.c" />
+    <ClCompile Include="grpc\src\cpp\server\health\health_check_service.cc" />
+    <ClCompile Include="grpc\src\cpp\server\health\health_check_service_server_builder_option.cc" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\ServiceImpl.h" />
@@ -342,7 +354,6 @@
     <ClInclude Include="grpc\src\core\ext\transport\chttp2\transport\huffsyms.h" />
     <ClInclude Include="grpc\src\core\ext\transport\chttp2\transport\incoming_metadata.h" />
     <ClInclude Include="grpc\src\core\ext\transport\chttp2\transport\internal.h" />
-    <ClInclude Include="grpc\src\core\ext\transport\chttp2\transport\status_conversion.h" />
     <ClInclude Include="grpc\src\core\ext\transport\chttp2\transport\stream_map.h" />
     <ClInclude Include="grpc\src\core\ext\transport\chttp2\transport\varint.h" />
     <ClInclude Include="grpc\src\core\lib\channel\channel_args.h" />
@@ -466,7 +477,6 @@
     <ClInclude Include="grpc\src\core\lib\surface\server.h" />
     <ClInclude Include="grpc\src\core\lib\transport\byte_stream.h" />
     <ClInclude Include="grpc\src\core\lib\transport\connectivity_state.h" />
-    <ClInclude Include="grpc\src\core\lib\transport\mdstr_hash_table.h" />
     <ClInclude Include="grpc\src\core\lib\transport\metadata.h" />
     <ClInclude Include="grpc\src\core\lib\transport\metadata_batch.h" />
     <ClInclude Include="grpc\src\core\lib\transport\pid_controller.h" />
