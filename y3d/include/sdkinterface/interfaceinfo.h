@@ -948,3 +948,332 @@
 #define LAYERASREFTARG_ILAYERPROPERTIES_SETTER -1
 // parameter type of properties LAYERASREFTARG of core interface LAYERPROPERTIES is ParamType2::TYPE_REFTARG
 #define LAYERASREFTARG_ILAYERPROPERTIES_TYPEPARAM ParamType2::TYPE_REFTARG
+
+
+// --------------------list functions of core interface OBJXREFMGR--------------------------
+// Number function of OBJXREFMGR core interface is 21
+#define IOBJXREFMGR_NUMFUCNTIONS 21
+// function ID of function GETRECORD of core interface OBJXREFMGR is 1
+#define GETRECORD_IOBJXREFMGR 1
+  // Result Type of function GETRECORD of core interface OBJXREFMGR is ParamType2::TYPE_INTERFACE
+  #define GETRECORD_IOBJXREFMGR_RESULTTYPE ParamType2::TYPE_INTERFACE
+  // number parameter of fucntion GETRECORD of core interface OBJXREFMGR is 1
+  #define GETRECORD_IOBJXREFMGR_NUMPARAMS 1
+  // INDEX, which is parameter number 1 of function
+// GETRECORD of core interface OBJXREFMGR have param type is ParamType2::TYPE_INDEX
+  #define INDEX_GETRECORD_IOBJXREFMGR_PARAM1_TYPE ParamType2::TYPE_INDEX
+// function ID of function FINDRECORD of core interface OBJXREFMGR is 2
+#define FINDRECORD_IOBJXREFMGR 2
+  // Result Type of function FINDRECORD of core interface OBJXREFMGR is ParamType2::TYPE_INTERFACE
+  #define FINDRECORD_IOBJXREFMGR_RESULTTYPE ParamType2::TYPE_INTERFACE
+  // number parameter of fucntion FINDRECORD of core interface OBJXREFMGR is 1
+  #define FINDRECORD_IOBJXREFMGR_NUMPARAMS 1
+  // HANDLE, which is parameter number 1 of function
+// FINDRECORD of core interface OBJXREFMGR have param type is ParamType2::TYPE_DWORD
+  #define HANDLE_FINDRECORD_IOBJXREFMGR_PARAM1_TYPE ParamType2::TYPE_DWORD
+// function ID of function REMOVERECORDFROMSCENE of core interface OBJXREFMGR is 3
+#define REMOVERECORDFROMSCENE_IOBJXREFMGR 3
+  // Result Type of function REMOVERECORDFROMSCENE of core interface OBJXREFMGR is ParamType2::TYPE_bool
+  #define REMOVERECORDFROMSCENE_IOBJXREFMGR_RESULTTYPE ParamType2::TYPE_bool
+  // number parameter of fucntion REMOVERECORDFROMSCENE of core interface OBJXREFMGR is 1
+  #define REMOVERECORDFROMSCENE_IOBJXREFMGR_NUMPARAMS 1
+  // RECORD, which is parameter number 1 of function
+// REMOVERECORDFROMSCENE of core interface OBJXREFMGR have param type is ParamType2::TYPE_INTERFACE
+  #define RECORD_REMOVERECORDFROMSCENE_IOBJXREFMGR_PARAM1_TYPE ParamType2::TYPE_INTERFACE
+// function ID of function MERGERECORDINTOSCENE of core interface OBJXREFMGR is 4
+#define MERGERECORDINTOSCENE_IOBJXREFMGR 4
+  // Result Type of function MERGERECORDINTOSCENE of core interface OBJXREFMGR is ParamType2::TYPE_bool
+  #define MERGERECORDINTOSCENE_IOBJXREFMGR_RESULTTYPE ParamType2::TYPE_bool
+  // number parameter of fucntion MERGERECORDINTOSCENE of core interface OBJXREFMGR is 1
+  #define MERGERECORDINTOSCENE_IOBJXREFMGR_NUMPARAMS 1
+  // RECORD, which is parameter number 1 of function
+// MERGERECORDINTOSCENE of core interface OBJXREFMGR have param type is ParamType2::TYPE_INTERFACE
+  #define RECORD_MERGERECORDINTOSCENE_IOBJXREFMGR_PARAM1_TYPE ParamType2::TYPE_INTERFACE
+// function ID of function SETRECORDSRCFILE of core interface OBJXREFMGR is 5
+#define SETRECORDSRCFILE_IOBJXREFMGR 5
+  // Result Type of function SETRECORDSRCFILE of core interface OBJXREFMGR is ParamType2::TYPE_bool
+  #define SETRECORDSRCFILE_IOBJXREFMGR_RESULTTYPE ParamType2::TYPE_bool
+  // number parameter of fucntion SETRECORDSRCFILE of core interface OBJXREFMGR is 2
+  #define SETRECORDSRCFILE_IOBJXREFMGR_NUMPARAMS 2
+  // XREFRECORD, which is parameter number 1 of function
+// SETRECORDSRCFILE of core interface OBJXREFMGR have param type is ParamType2::TYPE_INTERFACE
+  #define XREFRECORD_SETRECORDSRCFILE_IOBJXREFMGR_PARAM1_TYPE ParamType2::TYPE_INTERFACE
+  // FILENAME, which is parameter number 2 of function
+// SETRECORDSRCFILE of core interface OBJXREFMGR have param type is ParamType2::TYPE_FILENAME
+  #define FILENAME_SETRECORDSRCFILE_IOBJXREFMGR_PARAM2_TYPE ParamType2::TYPE_FILENAME
+// function ID of function UPDATEALLRECORDS of core interface OBJXREFMGR is 6
+#define UPDATEALLRECORDS_IOBJXREFMGR 6
+  // Result Type of function UPDATEALLRECORDS of core interface OBJXREFMGR is ParamType2::TYPE_bool
+  #define UPDATEALLRECORDS_IOBJXREFMGR_RESULTTYPE ParamType2::TYPE_bool
+  // number parameter of fucntion UPDATEALLRECORDS of core interface OBJXREFMGR is 0
+  #define UPDATEALLRECORDS_IOBJXREFMGR_NUMPARAMS 0
+// function ID of function SETXREFITEMSRCNAME of core interface OBJXREFMGR is 7
+#define SETXREFITEMSRCNAME_IOBJXREFMGR 7
+  // Result Type of function SETXREFITEMSRCNAME of core interface OBJXREFMGR is ParamType2::TYPE_bool
+  #define SETXREFITEMSRCNAME_IOBJXREFMGR_RESULTTYPE ParamType2::TYPE_bool
+  // number parameter of fucntion SETXREFITEMSRCNAME of core interface OBJXREFMGR is 2
+  #define SETXREFITEMSRCNAME_IOBJXREFMGR_NUMPARAMS 2
+  // XREFITEM, which is parameter number 1 of function
+// SETXREFITEMSRCNAME of core interface OBJXREFMGR have param type is ParamType2::TYPE_REFTARG_BR
+  #define XREFITEM_SETXREFITEMSRCNAME_IOBJXREFMGR_PARAM1_TYPE ParamType2::TYPE_REFTARG_BR
+  // ITEMNAME, which is parameter number 2 of function
+// SETXREFITEMSRCNAME of core interface OBJXREFMGR have param type is ParamType2::TYPE_STRING
+  #define ITEMNAME_SETXREFITEMSRCNAME_IOBJXREFMGR_PARAM2_TYPE ParamType2::TYPE_STRING
+// function ID of function SETPROXYITEMSRCNAME of core interface OBJXREFMGR is 8
+#define SETPROXYITEMSRCNAME_IOBJXREFMGR 8
+  // Result Type of function SETPROXYITEMSRCNAME of core interface OBJXREFMGR is ParamType2::TYPE_bool
+  #define SETPROXYITEMSRCNAME_IOBJXREFMGR_RESULTTYPE ParamType2::TYPE_bool
+  // number parameter of fucntion SETPROXYITEMSRCNAME of core interface OBJXREFMGR is 2
+  #define SETPROXYITEMSRCNAME_IOBJXREFMGR_NUMPARAMS 2
+  // PROXYITEM, which is parameter number 1 of function
+// SETPROXYITEMSRCNAME of core interface OBJXREFMGR have param type is ParamType2::TYPE_REFTARG_BR
+  #define PROXYITEM_SETPROXYITEMSRCNAME_IOBJXREFMGR_PARAM1_TYPE ParamType2::TYPE_REFTARG_BR
+  // ITEMNAME, which is parameter number 2 of function
+// SETPROXYITEMSRCNAME of core interface OBJXREFMGR have param type is ParamType2::TYPE_STRING
+  #define ITEMNAME_SETPROXYITEMSRCNAME_IOBJXREFMGR_PARAM2_TYPE ParamType2::TYPE_STRING
+// function ID of function SETXREFITEMSRCFILE of core interface OBJXREFMGR is 9
+#define SETXREFITEMSRCFILE_IOBJXREFMGR 9
+  // Result Type of function SETXREFITEMSRCFILE of core interface OBJXREFMGR is ParamType2::TYPE_bool
+  #define SETXREFITEMSRCFILE_IOBJXREFMGR_RESULTTYPE ParamType2::TYPE_bool
+  // number parameter of fucntion SETXREFITEMSRCFILE of core interface OBJXREFMGR is 2
+  #define SETXREFITEMSRCFILE_IOBJXREFMGR_NUMPARAMS 2
+  // XREFITEM, which is parameter number 1 of function
+// SETXREFITEMSRCFILE of core interface OBJXREFMGR have param type is ParamType2::TYPE_REFTARG_BR
+  #define XREFITEM_SETXREFITEMSRCFILE_IOBJXREFMGR_PARAM1_TYPE ParamType2::TYPE_REFTARG_BR
+  // FILENAME, which is parameter number 2 of function
+// SETXREFITEMSRCFILE of core interface OBJXREFMGR have param type is ParamType2::TYPE_FILENAME
+  #define FILENAME_SETXREFITEMSRCFILE_IOBJXREFMGR_PARAM2_TYPE ParamType2::TYPE_FILENAME
+// function ID of function SETPROXYITEMSRCFILE of core interface OBJXREFMGR is 10
+#define SETPROXYITEMSRCFILE_IOBJXREFMGR 10
+  // Result Type of function SETPROXYITEMSRCFILE of core interface OBJXREFMGR is ParamType2::TYPE_bool
+  #define SETPROXYITEMSRCFILE_IOBJXREFMGR_RESULTTYPE ParamType2::TYPE_bool
+  // number parameter of fucntion SETPROXYITEMSRCFILE of core interface OBJXREFMGR is 2
+  #define SETPROXYITEMSRCFILE_IOBJXREFMGR_NUMPARAMS 2
+  // PROXYITEM, which is parameter number 1 of function
+// SETPROXYITEMSRCFILE of core interface OBJXREFMGR have param type is ParamType2::TYPE_REFTARG_BR
+  #define PROXYITEM_SETPROXYITEMSRCFILE_IOBJXREFMGR_PARAM1_TYPE ParamType2::TYPE_REFTARG_BR
+  // FILENAME, which is parameter number 2 of function
+// SETPROXYITEMSRCFILE of core interface OBJXREFMGR have param type is ParamType2::TYPE_FILENAME
+  #define FILENAME_SETPROXYITEMSRCFILE_IOBJXREFMGR_PARAM2_TYPE ParamType2::TYPE_FILENAME
+// function ID of function ADDXREFITEMSTORECORD of core interface OBJXREFMGR is 13
+#define ADDXREFITEMSTORECORD_IOBJXREFMGR 13
+  // Result Type of function ADDXREFITEMSTORECORD of core interface OBJXREFMGR is ParamType2::TYPE_bool
+  #define ADDXREFITEMSTORECORD_IOBJXREFMGR_RESULTTYPE ParamType2::TYPE_bool
+  // number parameter of fucntion ADDXREFITEMSTORECORD of core interface OBJXREFMGR is 3
+  #define ADDXREFITEMSTORECORD_IOBJXREFMGR_NUMPARAMS 3
+  // RECORD, which is parameter number 1 of function
+// ADDXREFITEMSTORECORD of core interface OBJXREFMGR have param type is ParamType2::TYPE_INTERFACE
+  #define RECORD_ADDXREFITEMSTORECORD_IOBJXREFMGR_PARAM1_TYPE ParamType2::TYPE_INTERFACE
+  // PROMPTOBJNAMES, which is parameter number 2 of function
+// ADDXREFITEMSTORECORD of core interface OBJXREFMGR have param type is ParamType2::TYPE_bool
+  #define PROMPTOBJNAMES_ADDXREFITEMSTORECORD_IOBJXREFMGR_PARAM2_TYPE ParamType2::TYPE_bool
+  // OBJNAMES, which is parameter number 3 of function
+// ADDXREFITEMSTORECORD of core interface OBJXREFMGR have param type is ParamType2::TYPE_STRING_TAB
+  #define OBJNAMES_ADDXREFITEMSTORECORD_IOBJXREFMGR_PARAM3_TYPE ParamType2::TYPE_STRING_TAB
+// function ID of function ADDXREFITEMSFROMFILE of core interface OBJXREFMGR is 14
+#define ADDXREFITEMSFROMFILE_IOBJXREFMGR 14
+  // Result Type of function ADDXREFITEMSFROMFILE of core interface OBJXREFMGR is ParamType2::TYPE_INTERFACE
+  #define ADDXREFITEMSFROMFILE_IOBJXREFMGR_RESULTTYPE ParamType2::TYPE_INTERFACE
+  // number parameter of fucntion ADDXREFITEMSFROMFILE of core interface OBJXREFMGR is 4
+  #define ADDXREFITEMSFROMFILE_IOBJXREFMGR_NUMPARAMS 4
+  // FILENAME, which is parameter number 1 of function
+// ADDXREFITEMSFROMFILE of core interface OBJXREFMGR have param type is ParamType2::TYPE_FILENAME
+  #define FILENAME_ADDXREFITEMSFROMFILE_IOBJXREFMGR_PARAM1_TYPE ParamType2::TYPE_FILENAME
+  // PROMPTOBJNAMES, which is parameter number 2 of function
+// ADDXREFITEMSFROMFILE of core interface OBJXREFMGR have param type is ParamType2::TYPE_bool
+  #define PROMPTOBJNAMES_ADDXREFITEMSFROMFILE_IOBJXREFMGR_PARAM2_TYPE ParamType2::TYPE_bool
+  // OBJNAMES, which is parameter number 3 of function
+// ADDXREFITEMSFROMFILE of core interface OBJXREFMGR have param type is ParamType2::TYPE_STRING_TAB
+  #define OBJNAMES_ADDXREFITEMSFROMFILE_IOBJXREFMGR_PARAM3_TYPE ParamType2::TYPE_STRING_TAB
+  // XREFOPTIONS, which is parameter number 4 of function
+// ADDXREFITEMSFROMFILE of core interface OBJXREFMGR have param type is ParamType2::TYPE_ENUM_TAB_BR
+  #define XREFOPTIONS_ADDXREFITEMSFROMFILE_IOBJXREFMGR_PARAM4_TYPE ParamType2::TYPE_ENUM_TAB_BR
+// function ID of function CANCOMBINERECORDS of core interface OBJXREFMGR is 15
+#define CANCOMBINERECORDS_IOBJXREFMGR 15
+  // Result Type of function CANCOMBINERECORDS of core interface OBJXREFMGR is ParamType2::TYPE_bool
+  #define CANCOMBINERECORDS_IOBJXREFMGR_RESULTTYPE ParamType2::TYPE_bool
+  // number parameter of fucntion CANCOMBINERECORDS of core interface OBJXREFMGR is 2
+  #define CANCOMBINERECORDS_IOBJXREFMGR_NUMPARAMS 2
+  // FIRSTRECORD, which is parameter number 1 of function
+// CANCOMBINERECORDS of core interface OBJXREFMGR have param type is ParamType2::TYPE_INTERFACE
+  #define FIRSTRECORD_CANCOMBINERECORDS_IOBJXREFMGR_PARAM1_TYPE ParamType2::TYPE_INTERFACE
+  // SECONDRECORD, which is parameter number 2 of function
+// CANCOMBINERECORDS of core interface OBJXREFMGR have param type is ParamType2::TYPE_INTERFACE
+  #define SECONDRECORD_CANCOMBINERECORDS_IOBJXREFMGR_PARAM2_TYPE ParamType2::TYPE_INTERFACE
+// function ID of function COMBINERECORDS of core interface OBJXREFMGR is 16
+#define COMBINERECORDS_IOBJXREFMGR 16
+  // Result Type of function COMBINERECORDS of core interface OBJXREFMGR is ParamType2::TYPE_INTERFACE
+  #define COMBINERECORDS_IOBJXREFMGR_RESULTTYPE ParamType2::TYPE_INTERFACE
+  // number parameter of fucntion COMBINERECORDS of core interface OBJXREFMGR is 1
+  #define COMBINERECORDS_IOBJXREFMGR_NUMPARAMS 1
+  // RECORDS, which is parameter number 1 of function
+// COMBINERECORDS of core interface OBJXREFMGR have param type is ParamType2::TYPE_INTERFACE_TAB_BR
+  #define RECORDS_COMBINERECORDS_IOBJXREFMGR_PARAM1_TYPE ParamType2::TYPE_INTERFACE_TAB_BR
+// function ID of function REMOVEXREFITEMSFROMSCENE of core interface OBJXREFMGR is 11
+#define REMOVEXREFITEMSFROMSCENE_IOBJXREFMGR 11
+  // Result Type of function REMOVEXREFITEMSFROMSCENE of core interface OBJXREFMGR is ParamType2::TYPE_bool
+  #define REMOVEXREFITEMSFROMSCENE_IOBJXREFMGR_RESULTTYPE ParamType2::TYPE_bool
+  // number parameter of fucntion REMOVEXREFITEMSFROMSCENE of core interface OBJXREFMGR is 1
+  #define REMOVEXREFITEMSFROMSCENE_IOBJXREFMGR_NUMPARAMS 1
+  // XREFITEMS, which is parameter number 1 of function
+// REMOVEXREFITEMSFROMSCENE of core interface OBJXREFMGR have param type is ParamType2::TYPE_REFTARG_TAB_BR
+  #define XREFITEMS_REMOVEXREFITEMSFROMSCENE_IOBJXREFMGR_PARAM1_TYPE ParamType2::TYPE_REFTARG_TAB_BR
+// function ID of function MERGEXREFITEMSINTOSCENE of core interface OBJXREFMGR is 12
+#define MERGEXREFITEMSINTOSCENE_IOBJXREFMGR 12
+  // Result Type of function MERGEXREFITEMSINTOSCENE of core interface OBJXREFMGR is ParamType2::TYPE_bool
+  #define MERGEXREFITEMSINTOSCENE_IOBJXREFMGR_RESULTTYPE ParamType2::TYPE_bool
+  // number parameter of fucntion MERGEXREFITEMSINTOSCENE of core interface OBJXREFMGR is 1
+  #define MERGEXREFITEMSINTOSCENE_IOBJXREFMGR_NUMPARAMS 1
+  // XREFITEMS, which is parameter number 1 of function
+// MERGEXREFITEMSINTOSCENE of core interface OBJXREFMGR have param type is ParamType2::TYPE_REFTARG_TAB_BR
+  #define XREFITEMS_MERGEXREFITEMSINTOSCENE_IOBJXREFMGR_PARAM1_TYPE ParamType2::TYPE_REFTARG_TAB_BR
+// function ID of function APPLYXREFMATERIALSTOXREFOBJECTS of core interface OBJXREFMGR is 17
+#define APPLYXREFMATERIALSTOXREFOBJECTS_IOBJXREFMGR 17
+  // Result Type of function APPLYXREFMATERIALSTOXREFOBJECTS of core interface OBJXREFMGR is ParamType2::TYPE_VOID
+  #define APPLYXREFMATERIALSTOXREFOBJECTS_IOBJXREFMGR_RESULTTYPE ParamType2::TYPE_VOID
+  // number parameter of fucntion APPLYXREFMATERIALSTOXREFOBJECTS of core interface OBJXREFMGR is 1
+  #define APPLYXREFMATERIALSTOXREFOBJECTS_IOBJXREFMGR_NUMPARAMS 1
+  // OBJECTXREFITEMS, which is parameter number 1 of function
+// APPLYXREFMATERIALSTOXREFOBJECTS of core interface OBJXREFMGR have param type is ParamType2::TYPE_REFTARG_TAB_BR
+  #define OBJECTXREFITEMS_APPLYXREFMATERIALSTOXREFOBJECTS_IOBJXREFMGR_PARAM1_TYPE ParamType2::TYPE_REFTARG_TAB_BR
+// function ID of function ISNODEXREFED of core interface OBJXREFMGR is 22
+#define ISNODEXREFED_IOBJXREFMGR 22
+  // Result Type of function ISNODEXREFED of core interface OBJXREFMGR is ParamType2::TYPE_INTERFACE
+  #define ISNODEXREFED_IOBJXREFMGR_RESULTTYPE ParamType2::TYPE_INTERFACE
+  // number parameter of fucntion ISNODEXREFED of core interface OBJXREFMGR is 1
+  #define ISNODEXREFED_IOBJXREFMGR_NUMPARAMS 1
+  // NODE, which is parameter number 1 of function
+// ISNODEXREFED of core interface OBJXREFMGR have param type is ParamType2::TYPE_INODE
+  #define NODE_ISNODEXREFED_IOBJXREFMGR_PARAM1_TYPE ParamType2::TYPE_INODE
+// function ID of function APPLYXREFCONTROLLERSTOXREFOBJECTS of core interface OBJXREFMGR is 23
+#define APPLYXREFCONTROLLERSTOXREFOBJECTS_IOBJXREFMGR 23
+  // Result Type of function APPLYXREFCONTROLLERSTOXREFOBJECTS of core interface OBJXREFMGR is ParamType2::TYPE_VOID
+  #define APPLYXREFCONTROLLERSTOXREFOBJECTS_IOBJXREFMGR_RESULTTYPE ParamType2::TYPE_VOID
+  // number parameter of fucntion APPLYXREFCONTROLLERSTOXREFOBJECTS of core interface OBJXREFMGR is 1
+  #define APPLYXREFCONTROLLERSTOXREFOBJECTS_IOBJXREFMGR_NUMPARAMS 1
+  // OBJECTXREFITEMS, which is parameter number 1 of function
+// APPLYXREFCONTROLLERSTOXREFOBJECTS of core interface OBJXREFMGR have param type is ParamType2::TYPE_REFTARG_TAB_BR
+  #define OBJECTXREFITEMS_APPLYXREFCONTROLLERSTOXREFOBJECTS_IOBJXREFMGR_PARAM1_TYPE ParamType2::TYPE_REFTARG_TAB_BR
+// function ID of function RESETXREFCONTROLLERSPRSOFFSET of core interface OBJXREFMGR is 24
+#define RESETXREFCONTROLLERSPRSOFFSET_IOBJXREFMGR 24
+  // Result Type of function RESETXREFCONTROLLERSPRSOFFSET of core interface OBJXREFMGR is ParamType::TYPE_BOOL
+  #define RESETXREFCONTROLLERSPRSOFFSET_IOBJXREFMGR_RESULTTYPE ParamType::TYPE_BOOL
+  // number parameter of fucntion RESETXREFCONTROLLERSPRSOFFSET of core interface OBJXREFMGR is 1
+  #define RESETXREFCONTROLLERSPRSOFFSET_IOBJXREFMGR_NUMPARAMS 1
+  // XREFITEMS, which is parameter number 1 of function
+// RESETXREFCONTROLLERSPRSOFFSET of core interface OBJXREFMGR have param type is ParamType2::TYPE_REFTARG_TAB_BR
+  #define XREFITEMS_RESETXREFCONTROLLERSPRSOFFSET_IOBJXREFMGR_PARAM1_TYPE ParamType2::TYPE_REFTARG_TAB_BR
+// function ID of function CANRESETXREFCONTROLLERSPRSOFFSET of core interface OBJXREFMGR is 25
+#define CANRESETXREFCONTROLLERSPRSOFFSET_IOBJXREFMGR 25
+  // Result Type of function CANRESETXREFCONTROLLERSPRSOFFSET of core interface OBJXREFMGR is ParamType::TYPE_BOOL
+  #define CANRESETXREFCONTROLLERSPRSOFFSET_IOBJXREFMGR_RESULTTYPE ParamType::TYPE_BOOL
+  // number parameter of fucntion CANRESETXREFCONTROLLERSPRSOFFSET of core interface OBJXREFMGR is 1
+  #define CANRESETXREFCONTROLLERSPRSOFFSET_IOBJXREFMGR_NUMPARAMS 1
+  // XREFITEM, which is parameter number 1 of function
+// CANRESETXREFCONTROLLERSPRSOFFSET of core interface OBJXREFMGR have param type is ParamType2::TYPE_REFTARG_BR
+  #define XREFITEM_CANRESETXREFCONTROLLERSPRSOFFSET_IOBJXREFMGR_PARAM1_TYPE ParamType2::TYPE_REFTARG_BR
+// ---------------------- List Properties of core interface OBJXREFMGR ----------------------
+#define IOBJXREFMGR_NUMPROPS 11
+// function_id of for get property RECORDCOUNT of core interface OBJXREFMGR is 0
+#define RECORDCOUNT_IOBJXREFMGR_GETTER 0
+// function_id of for set property RECORDCOUNT of core interface OBJXREFMGR is -1
+#define RECORDCOUNT_IOBJXREFMGR_SETTER -1
+// parameter type of properties RECORDCOUNT of core interface OBJXREFMGR is ParamType2::TYPE_DWORD
+#define RECORDCOUNT_IOBJXREFMGR_TYPEPARAM ParamType2::TYPE_DWORD
+// function_id of for get property DUPOBJNAMEACTION of core interface OBJXREFMGR is 18
+#define DUPOBJNAMEACTION_IOBJXREFMGR_GETTER 18
+// function_id of for set property DUPOBJNAMEACTION of core interface OBJXREFMGR is 19
+#define DUPOBJNAMEACTION_IOBJXREFMGR_SETTER 19
+// parameter type of properties DUPOBJNAMEACTION of core interface OBJXREFMGR is ParamType2::TYPE_ENUM
+#define DUPOBJNAMEACTION_IOBJXREFMGR_TYPEPARAM ParamType2::TYPE_ENUM
+// function_id of for get property DUPMTLNAMEACTION of core interface OBJXREFMGR is 20
+#define DUPMTLNAMEACTION_IOBJXREFMGR_GETTER 20
+// function_id of for set property DUPMTLNAMEACTION of core interface OBJXREFMGR is 21
+#define DUPMTLNAMEACTION_IOBJXREFMGR_SETTER 21
+// parameter type of properties DUPMTLNAMEACTION of core interface OBJXREFMGR is ParamType2::TYPE_ENUM
+#define DUPMTLNAMEACTION_IOBJXREFMGR_TYPEPARAM ParamType2::TYPE_ENUM
+// function_id of for get property MERGETRANSFORMS of core interface OBJXREFMGR is 26
+#define MERGETRANSFORMS_IOBJXREFMGR_GETTER 26
+// function_id of for set property MERGETRANSFORMS of core interface OBJXREFMGR is 27
+#define MERGETRANSFORMS_IOBJXREFMGR_SETTER 27
+// parameter type of properties MERGETRANSFORMS of core interface OBJXREFMGR is ParamType2::TYPE_bool
+#define MERGETRANSFORMS_IOBJXREFMGR_TYPEPARAM ParamType2::TYPE_bool
+// function_id of for get property MERGEMATERIALS of core interface OBJXREFMGR is 28
+#define MERGEMATERIALS_IOBJXREFMGR_GETTER 28
+// function_id of for set property MERGEMATERIALS of core interface OBJXREFMGR is 29
+#define MERGEMATERIALS_IOBJXREFMGR_SETTER 29
+// parameter type of properties MERGEMATERIALS of core interface OBJXREFMGR is ParamType2::TYPE_bool
+#define MERGEMATERIALS_IOBJXREFMGR_TYPEPARAM ParamType2::TYPE_bool
+// function_id of for get property MERGEMANIPULATORS of core interface OBJXREFMGR is 30
+#define MERGEMANIPULATORS_IOBJXREFMGR_GETTER 30
+// function_id of for set property MERGEMANIPULATORS of core interface OBJXREFMGR is 31
+#define MERGEMANIPULATORS_IOBJXREFMGR_SETTER 31
+// parameter type of properties MERGEMANIPULATORS of core interface OBJXREFMGR is ParamType2::TYPE_bool
+#define MERGEMANIPULATORS_IOBJXREFMGR_TYPEPARAM ParamType2::TYPE_bool
+// function_id of for get property MERGEMODIFIERS of core interface OBJXREFMGR is 32
+#define MERGEMODIFIERS_IOBJXREFMGR_GETTER 32
+// function_id of for set property MERGEMODIFIERS of core interface OBJXREFMGR is 33
+#define MERGEMODIFIERS_IOBJXREFMGR_SETTER 33
+// parameter type of properties MERGEMODIFIERS of core interface OBJXREFMGR is ParamType2::TYPE_ENUM
+#define MERGEMODIFIERS_IOBJXREFMGR_TYPEPARAM ParamType2::TYPE_ENUM
+// function_id of for get property INCLUDEALL of core interface OBJXREFMGR is 34
+#define INCLUDEALL_IOBJXREFMGR_GETTER 34
+// function_id of for set property INCLUDEALL of core interface OBJXREFMGR is 35
+#define INCLUDEALL_IOBJXREFMGR_SETTER 35
+// parameter type of properties INCLUDEALL of core interface OBJXREFMGR is ParamType2::TYPE_bool
+#define INCLUDEALL_IOBJXREFMGR_TYPEPARAM ParamType2::TYPE_bool
+// function_id of for get property GETAUTOUPDATE of core interface OBJXREFMGR is 36
+#define GETAUTOUPDATE_IOBJXREFMGR_GETTER 36
+// function_id of for set property GETAUTOUPDATE of core interface OBJXREFMGR is 37
+#define GETAUTOUPDATE_IOBJXREFMGR_SETTER 37
+// parameter type of properties GETAUTOUPDATE of core interface OBJXREFMGR is ParamType2::TYPE_bool
+#define GETAUTOUPDATE_IOBJXREFMGR_TYPEPARAM ParamType2::TYPE_bool
+// function_id of for get property ENABLEUSELOCALPROXYSETTINGS of core interface OBJXREFMGR is 256
+#define ENABLEUSELOCALPROXYSETTINGS_IOBJXREFMGR_GETTER 256
+// function_id of for set property ENABLEUSELOCALPROXYSETTINGS of core interface OBJXREFMGR is 257
+#define ENABLEUSELOCALPROXYSETTINGS_IOBJXREFMGR_SETTER 257
+// parameter type of properties ENABLEUSELOCALPROXYSETTINGS of core interface OBJXREFMGR is ParamType2::TYPE_bool
+#define ENABLEUSELOCALPROXYSETTINGS_IOBJXREFMGR_TYPEPARAM ParamType2::TYPE_bool
+// function_id of for get property TRACKSSTATUS of core interface OBJXREFMGR is 260
+#define TRACKSSTATUS_IOBJXREFMGR_GETTER 260
+// function_id of for set property TRACKSSTATUS of core interface OBJXREFMGR is 261
+#define TRACKSSTATUS_IOBJXREFMGR_SETTER 261
+// parameter type of properties TRACKSSTATUS of core interface OBJXREFMGR is ParamType2::TYPE_ENUM
+#define TRACKSSTATUS_IOBJXREFMGR_TYPEPARAM ParamType2::TYPE_ENUM
+
+// ---------------------- List Enum of interfaces  ----------------------
+/**0 - 0 Enum is asProxy have code is 1
+0 - 1 Enum is xrefModifiers have code is 0
+0 - 2 Enum is dropModifiers have code is 2
+0 - 3 Enum is mergeModifiers have code is 4
+0 - 4 Enum is mergeManipulators have code is 8
+0 - 5 Enum is selectNodes have code is 32
+0 - 6 Enum is mergeControllers have code is 64
+0 - 7 Enum is mergeMaterials have code is 128
+0 - 8 Enum is xrefControllers have code is 256
+0 - 9 Enum is localControllers have code is 512
+**/
+typedef enum class ENUM1_OBJXREFMGR {asProxy = 1,xrefModifiers = 0,dropModifiers = 2,mergeModifiers = 4,mergeManipulators = 8,selectNodes = 32,mergeControllers = 64,mergeMaterials = 128,xrefControllers = 256,localControllers = 512,} OBJXREFMGR_ENUM1;
+/**1 - 0 Enum is xrefModifiers have code is 0
+1 - 1 Enum is ignoreModifiers have code is 2
+1 - 2 Enum is mergeModifiers have code is 4
+**/
+typedef enum class ENUM2_OBJXREFMGR {xrefModifiers = 0,ignoreModifiers = 2,mergeModifiers = 4,} OBJXREFMGR_ENUM2;
+/**2 - 0 Enum is prompt have code is 0
+2 - 1 Enum is xref have code is 1
+2 - 2 Enum is skip have code is 2
+2 - 3 Enum is deleteOld have code is 3
+2 - 4 Enum is autoRename have code is 1000
+**/
+typedef enum class ENUM3_OBJXREFMGR {prompt = 0,xref = 1,skip = 2,deleteOld = 3,autoRename = 1000,} OBJXREFMGR_ENUM3;
+/**3 - 0 Enum is prompt have code is 0
+3 - 1 Enum is useXRefed have code is 3
+3 - 2 Enum is useScene have code is 2
+3 - 3 Enum is autoRename have code is 1000
+**/
+typedef enum class ENUM4_OBJXREFMGR {prompt = 0,useXRefed = 3,useScene = 2,autoRename = 1000,} OBJXREFMGR_ENUM4;
+/**4 - 0 Enum is xrefControllers have code is 256
+4 - 1 Enum is localControllers have code is 512
+4 - 2 Enum is mergeControllers have code is 64
+**/
+typedef enum class ENUM5_OBJXREFMGR {xrefControllers = 256,localControllers = 512,mergeControllers = 64,} OBJXREFMGR_ENUM5;

@@ -542,10 +542,11 @@ void generateInterfaceFuntionsID2(FPInterfaceDesc* fpInterfaceDesc)
 	auto numFunction = functions.Count();
 	//define number of functions
 	LOG("// --------------------list functions of core interface {0}--------------------------\n", internal_name);
-	log("// --------------------list functions of core interface {0}--------------------------\n", internal_name);
 	LOG("// Number function of {0} core interface is {1}\n", internal_name, numFunction);
-	log("// Number function of {0} core interface is {1}\n", internal_name, numFunction);
 	LOG("#define I{0}_NUMFUCNTIONS {1}\n", internal_name, numFunction);
+	
+	log("// --------------------list functions of core interface {0}--------------------------\n", internal_name);
+	log("// Number function of {0} core interface is {1}\n", internal_name, numFunction);
 	log("#define I{0}_NUMFUCNTIONS {1}\n", internal_name, numFunction);
 	//LOG("- Num functions is {0}\n", numFunction);
 	for (int i = 0; i < numFunction; i++)
@@ -556,20 +557,22 @@ void generateInterfaceFuntionsID2(FPInterfaceDesc* fpInterfaceDesc)
 		auto func_id = f->ID;
 		//define function ID
 		LOG("// function ID of function {0} of core interface {1} is {2}\n", func_internalname, internal_name, func_id);
-		log("// function ID of function {0} of core interface {1} is {2}\n", func_internalname, internal_name, func_id);
 		LOG("#define {0}_I{1} {2}\n", func_internalname, internal_name, func_id);
+
+		log("// function ID of function {0} of core interface {1} is {2}\n", func_internalname, internal_name, func_id);
 		log("#define {0}_I{1} {2}\n", func_internalname, internal_name, func_id);
 		auto params = f->params;
 		auto numParams = params.Count();
 		auto resultType = f->result_type;
 		auto resultTypeEnumFormat = map[resultType];
 		LOG("  // Result Type of function {0} of core interface {1} is {2}\n", func_internalname, internal_name, resultTypeEnumFormat);
-		log("  // Result Type of function {0} of core interface {1} is {2}\n", func_internalname, internal_name, resultTypeEnumFormat);
 		LOG("  #define {0}_I{1}_RESULTTYPE {2}\n", func_internalname, internal_name, resultTypeEnumFormat);
-		log("  #define {0}_I{1}_RESULTTYPE {2}\n", func_internalname, internal_name, resultTypeEnumFormat);
 		LOG("  // number parameter of fucntion {0} of core interface {1} is {2}\n", func_internalname, internal_name, numParams);
-		log("  // number parameter of fucntion {0} of core interface {1} is {2}\n", func_internalname, internal_name, numParams);
 		LOG("  #define {0}_I{1}_NUMPARAMS {2}\n", func_internalname, internal_name, numParams);
+
+		log("  // Result Type of function {0} of core interface {1} is {2}\n", func_internalname, internal_name, resultTypeEnumFormat);
+		log("  #define {0}_I{1}_RESULTTYPE {2}\n", func_internalname, internal_name, resultTypeEnumFormat);		
+		log("  // number parameter of fucntion {0} of core interface {1} is {2}\n", func_internalname, internal_name, numParams);		
 		log("  #define {0}_I{1}_NUMPARAMS {2}\n", func_internalname, internal_name, numParams);
 		for (int i = 0; i < numParams; i++)
 		{
@@ -579,9 +582,10 @@ void generateInterfaceFuntionsID2(FPInterfaceDesc* fpInterfaceDesc)
 			auto paramType = param->type;
 			auto paramTypeEnumFormat = map[paramType];
 			LOG("  // {0}, which is parameter number {1} of function\n// {2} of core interface {3} have param type is {4}\n", param_internal_name, i + 1, func_internalname, internal_name, paramTypeEnumFormat);
-			log("  // {0}, which is parameter number {1} of function\n// {2} of core interface {3} have param type is {4}\n", param_internal_name, i + 1, func_internalname, internal_name, paramTypeEnumFormat);
 			LOG("  #define {0}_{1}_I{2}_PARAM{3}_TYPE {4}\n", param_internal_name, func_internalname, internal_name, i + 1, paramTypeEnumFormat);
+
 			log("  #define {0}_{1}_I{2}_PARAM{3}_TYPE {4}\n", param_internal_name, func_internalname, internal_name, i + 1, paramTypeEnumFormat);
+			log("  // {0}, which is parameter number {1} of function\n// {2} of core interface {3} have param type is {4}\n", param_internal_name, i + 1, func_internalname, internal_name, paramTypeEnumFormat);
 			//LOG("  -- Param number {0} have internal name is {1}, paramType is {2}\n", i, finternal_name, paramTypeEnumFormat);
 		}
 		//log(" + function number {0} have internal name is {1}, id is {2}\n", i, func_internalname, func_id);
@@ -624,6 +628,45 @@ void generateInterfaceFuntionsID2(FPInterfaceDesc* fpInterfaceDesc)
 		}
 		/*log(" + properties number {0} have internal name is {1},"
 		" setterid is {2}, getterid is {3}\n", i, prop_internalname, fucn_setterid, func_getterid);*/
+	}
+
+	LOG("// ---------------------- List Enum of interfaces  ----------------------\n");
+	Tab<FPEnum *> enumerations = fpInterfaceDesc->enumerations;
+	auto numEnum = enumerations.Count();
+	
+	for (int i = 0; i < numEnum; i++)
+	{
+		auto e = enumerations[i];
+		auto enumID = e->ID;
+		auto enum_codes = e->enumeration;		
+		auto n = enum_codes.Count();		
+		
+		std::string str = fmt::format("typedef enum class ENUM{0}_{1} {{", i + 1,internal_name);
+		fmt::MemoryWriter w;
+		w << str;
+		LOG("/**");
+		log("/**");
+		for (int j = 0; j < n; j++)
+		{
+			auto enum_code = enum_codes[j];
+			const wchar_t* name = enum_code.name;
+			int code = enum_code.code;
+			std::string s = ws2s(std::wstring(name));
+			//std::string a = "ssss";
+			//LOG("ffff\n");
+			LOG("{0} - {1} Enum is {2} have code is {3}\n", i, j, s, code);
+			log("{0} - {1} Enum is {2} have code is {3}\n", i, j, s, code);
+			//w << 2;
+			w << s << " = " << code <<",";			
+			//Printf("{0} - {1} Enum is ",i,j); LOG(s);LOG(" have code is {0}\n",code);
+			//LOG("\n");
+		}	
+		LOG("**/\n");
+		log("**/\n");
+		std::string str2 = fmt::format("}} {0}_ENUM{1};\n", internal_name, i + 1);
+		w << str2;
+		LOG(w.str());
+		log(w.str());
 	}
 }
 
@@ -722,7 +765,6 @@ void pre_optimize(std::string oFileDir,std::string oFileName, std::string projec
 
 	std::string maxFile = projectPath + "\\" + oFileName + "90.max";
 	GetCOREInterface16()->LoadFromFile(s2ws(maxFile).data(),Interface8::LoadFromFileFlags::kSuppressPrompts&Interface8::LoadFromFileFlags::kUseFileUnits);
-	
 	FPValue result;
 	fpInterface->Invoke(DESTFOLDERNAME_IBATCHPROOPTIMIZER_GETTER, result);
 	const wchar_t* a = result.s;	
@@ -731,7 +773,9 @@ void pre_optimize(std::string oFileDir,std::string oFileName, std::string projec
 }
 
 inline void xref_low(std::string project_path, std::string pname) {
-	
+	FPInterface* fpInterface = GetCOREInterface(OBJXREFMGR_INTERFACE_ID);
+	/*FPParams p(1, DUPOBJNAMEACTION_IOBJXREFMGR_SETTER, );*/
+
 }
 
 void LayerInterfaceExample()
@@ -808,14 +852,15 @@ Status YServiceTestImpl::MTest1(ServerContext* context, const EmptyParam* reques
 		//generateInterFacesID();
 		//Interface_ID a(539887512, 898175643);
 		//generateInterfaceFuntionsID2(a);
-		//generateInterfaceFuntionsID2(BATCHPROOPTIMIZER_INTERFACE_ID);
-		LayerInterfaceExample();
+		generateInterfaceFuntionsID2(OBJXREFMGR_INTERFACE_ID);
+		//LayerInterfaceExample();
 		//y3d::IBatchProOptimizer y;
 		//BatchProOptimizer(y);
 		/*GetCOREInterface16()->load*/
 		//std::string oFileDir = "F:\\WorkSpace\\3Ds Max\\Building Phong Tam Project\\scenes\\TestProOptimizerScene";
+		//std::string projectPath = "F:\\WorkSpace\\3Ds Max\\Building Phong Tam Project\\scenes\\TestProOptimizerScene";
 		//std::string oFileName = "001";
-		//pre_optimize(oFileDir, oFileName);
+		//pre_optimize(oFileDir, oFileName, projectPath);
 
 		//MSTR internal_name = fpInterfaceDesc->internal_name;
 		//logserver::LOG("Internal name is {0}\n", internal_name);
