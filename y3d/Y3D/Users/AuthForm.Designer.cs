@@ -147,7 +147,7 @@
             this.groupBox1.Controls.Add(this.textLoginUser);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.textLoginPass);
-            this.groupBox1.Location = new System.Drawing.Point(13, 57);
+            this.groupBox1.Location = new System.Drawing.Point(14, 80);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(216, 153);
             this.groupBox1.TabIndex = 13;
@@ -177,7 +177,7 @@
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.textRegPass1);
-            this.groupBox2.Location = new System.Drawing.Point(235, 57);
+            this.groupBox2.Location = new System.Drawing.Point(236, 80);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(256, 153);
             this.groupBox2.TabIndex = 14;
@@ -202,24 +202,24 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(18, 9);
+            this.label6.Location = new System.Drawing.Point(145, 22);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(159, 31);
+            this.label6.Size = new System.Drawing.Size(67, 31);
             this.label6.TabIndex = 15;
-            this.label6.Text = "Y3D Project";
+            this.label6.Text = "Y3D";
             // 
             // AuthForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(503, 222);
+            this.ClientSize = new System.Drawing.Size(503, 245);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "AuthForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Authentication";
+            this.Style = MetroFramework.MetroColorStyle.Lime;
+            this.Text = "Đăng Nhập";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.AuthForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

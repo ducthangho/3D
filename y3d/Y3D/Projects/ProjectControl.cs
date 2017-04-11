@@ -11,7 +11,7 @@ using y3d.e;
 
 namespace Y3D.Projects
 {
-    public partial class ProjectControl : UserControl
+    public partial class ProjectControl : MetroFramework.Controls.MetroUserControl
     {
         public ProjectControl()
         {

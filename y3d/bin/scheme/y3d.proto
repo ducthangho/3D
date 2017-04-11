@@ -636,10 +636,15 @@ message InitTestParam {
   string tname=1;
   string tid = 2;
   string test_folder = 3;
+  InitTestPreset init_test = 4;
+}
+
+message InitTestPreset {
   ELowpoly lowpoly = 4;
   EUnwrap unwrap = 5;
   EPacking pack = 6;
-  ENormal bake_normal = 7;
+  ENormal bake_normal = 7; 
+  string mat_lib = 8;
 }
 
 message InitTestResponse {

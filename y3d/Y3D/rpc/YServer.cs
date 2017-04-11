@@ -35,11 +35,28 @@ namespace Y3D.rpc
 
     class YServer
     {
+
         public static Server server=null;
         public static Forms.WorkerForm wform = null;
-        public static Task Start()
+
+        static public void myLoading()
         {
-            return Y3D.Projects.Utils.getMainWorker().ContinueWith(
+            SplashScreen.SplashForm loadingForm = new SplashScreen.SplashForm();
+            loadingForm.AppName = "Initializing data";
+            loadingForm.Icon = Properties.Resources.wave;
+            loadingForm.ShowIcon = true;
+            loadingForm.TopMost = true;
+            loadingForm.BringToFront();
+            //    loadingForm.ShowInTaskbar = true;
+            Application.Run(loadingForm);
+        }
+
+
+        public static void Start()
+        {
+            System.Threading.Thread t = new System.Threading.Thread(new System.Threading.ThreadStart(Projects.Utils.myLoading));
+            t.Start();
+            Y3D.Projects.Utils.getMainWorker().ContinueWith(
                 (task) =>
                 {
                         if (Y3D.Projects.Utils.worker!=null)
@@ -51,8 +68,16 @@ namespace Y3D.rpc
                             };
                             server.Start();
                         }
+                    //t.Abort();
                 }
-            );
+            ).Wait();
+            Y3D.Projects.Utils.mainform = new Forms.YMainForm();
+            Y3D.Projects.Utils.mainform.Show();
+            while (t.ThreadState == System.Threading.ThreadState.Unstarted)
+            {
+                System.Threading.Thread.Sleep(1000);
+            }
+            t.Abort();
         }
 
         public static Task Stop()

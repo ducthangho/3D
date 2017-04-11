@@ -14,6 +14,7 @@ using System.Diagnostics;
 using Google.Protobuf;
 
 using Y3D.Users;
+using SplashScreen;
 
 namespace Y3D.Projects
 {
@@ -38,6 +39,18 @@ namespace Y3D.Projects
         public static Forms.YMainForm mainform = null;
 
         //public static YSystem YSys = new YSystem();
+
+        static public void myLoading()
+        {
+            SplashForm loadingForm = new SplashForm();
+            loadingForm.AppName = "Initializing data";
+            loadingForm.Icon = Properties.Resources.wave;
+            loadingForm.ShowIcon = true;
+            loadingForm.TopMost = true;
+            loadingForm.BringToFront();
+            //    loadingForm.ShowInTaskbar = true;
+            Application.Run(loadingForm);
+        }
 
         public static void saveTestData()
         { 
@@ -362,14 +375,18 @@ namespace Y3D.Projects
         public static bool DeleteProject(ProjectInfo pi)
         {
             if (pi == null) return false;
-            if (pi.Pname == CurrentP.Pname)
+            if (CurrentP!=null)
             {
-                mainform.resetOM();
-                YEvent ye = new YEvent();
-                ye.Close = new EClose();
-                ye.Close.Bypass = true;
-                Y3D.Projects.Utils.MaxClient.DoEvent(ye);
+                if (pi.Pname == CurrentP.Pname)
+                {
+                    mainform.resetOM();
+                    YEvent ye = new YEvent();
+                    ye.Close = new EClose();
+                    ye.Close.Bypass = true;
+                    Y3D.Projects.Utils.MaxClient.DoEvent(ye);
+                }
             }
+
             if (Auth.usetting.Projects.Remove(pi.Pname))
             {
                 if (System.IO.Directory.Exists(@pi.ProjectPath))

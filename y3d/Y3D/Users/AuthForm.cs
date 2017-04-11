@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Y3D.Users
 {
-    public partial class AuthForm : Form
+    public partial class AuthForm : MetroFramework.Forms.MetroForm
     {
         public AuthForm()
         {
@@ -39,8 +39,7 @@ namespace Y3D.Users
             if (!rep.Rep.Error)
             {
                 this.Hide();
-                Y3D.Projects.Utils.mainform = new Forms.YMainForm();
-                Y3D.Projects.Utils.mainform.Show();
+                rpc.YServer.Start();
             } else
             {
                 MessageBox.Show(rep.Rep.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -60,8 +59,19 @@ namespace Y3D.Users
             if (!rep.Rep.Error)
             {
                 this.Hide();
-                Y3D.Projects.Utils.mainform = new Forms.YMainForm();
-                Y3D.Projects.Utils.mainform.Show();
+                rpc.YServer.Start();
+                //System.Threading.Thread t = new System.Threading.Thread(new System.Threading.ThreadStart(Projects.Utils.myLoading));
+                //t.Start();
+                //rpc.YServer.Start().Wait();
+                //Y3D.Projects.Utils.mainform = new Forms.YMainForm();
+                //Y3D.Projects.Utils.mainform.Show();
+                //while (t.ThreadState==System.Threading.ThreadState.Unstarted)
+                //{
+                //    System.Threading.Thread.Sleep(1000);
+                //}
+                //t.Abort();
+                //Y3D.Projects.Utils.mainform = new Forms.YMainForm();
+                //Y3D.Projects.Utils.mainform.Show();
             }
             else
             {

@@ -11,7 +11,7 @@ using System.Diagnostics;
 
 namespace Y3D.Forms
 {
-    public partial class YMainForm : Form
+    public partial class YMainForm : MetroFramework.Forms.MetroForm
     {
         private List<Button> htab_buttons = new List<Button>();
 
@@ -48,11 +48,9 @@ namespace Y3D.Forms
 
         private void YMainForm_Load(object sender, EventArgs e)
         {
-            //MessageBox.Show(System.IO.Directory.GetCurrentDirectory());
-            //Utils.Tools.InitSystem();
+            //rpc.YServer.Start();
             projectControl1.Show();
             active_htab(btnTabProject);
-            rpc.YServer.Start();
         }
 
         private void objectManagerMItem_Click(object sender, EventArgs e)
@@ -72,12 +70,12 @@ namespace Y3D.Forms
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ProjectForm pf = new ProjectForm();
-            DialogResult result = pf.ShowDialog();
-            if (result == DialogResult.OK)
-            {
-                this.objectsControl1.updateYAL(Y3D.Projects.Utils.CurrentYAL);
-            }
+            //ProjectForm pf = new ProjectForm();
+            //DialogResult result = pf.ShowDialog();
+            //if (result == DialogResult.OK)
+            //{
+            //    this.objectsControl1.updateYAL(Y3D.Projects.Utils.CurrentYAL);
+            //}
         }
 
         private void workersManagerToolStripMenuItem_Click(object sender, EventArgs e)
@@ -89,6 +87,17 @@ namespace Y3D.Forms
                 
             }
         }
+
+        //private void workersManagerToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    rpc.YServer.wform = new WorkerForm();
+        //    DialogResult result = rpc.YServer.wform.ShowDialog();
+        //    if (result == DialogResult.OK)
+        //    {
+
+        //    }
+        //}
+
 
         private void btnTabTest_Click(object sender, EventArgs e)
         {

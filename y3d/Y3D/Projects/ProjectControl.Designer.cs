@@ -128,13 +128,14 @@
             // 
             // btnNewFromMax
             // 
+            this.btnNewFromMax.BackColor = System.Drawing.Color.YellowGreen;
             this.btnNewFromMax.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNewFromMax.Location = new System.Drawing.Point(285, 92);
             this.btnNewFromMax.Name = "btnNewFromMax";
             this.btnNewFromMax.Size = new System.Drawing.Size(110, 84);
             this.btnNewFromMax.TabIndex = 10;
             this.btnNewFromMax.Text = "New From 3DMAX";
-            this.btnNewFromMax.UseVisualStyleBackColor = true;
+            this.btnNewFromMax.UseVisualStyleBackColor = false;
             this.btnNewFromMax.Click += new System.EventHandler(this.btnNewFromMax_Click);
             // 
             // ProjectControl
