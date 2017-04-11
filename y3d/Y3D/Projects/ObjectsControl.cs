@@ -220,6 +220,11 @@ namespace Y3D.Projects
 
         }
 
-
+        private void toolStripExpand_Click(object sender, EventArgs e)
+        {
+            var s = this.Location;
+            s.X -= 200;
+            this.Location = s;
+        }
     }
 }

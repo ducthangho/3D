@@ -38,6 +38,26 @@ namespace Y3D.Forms
             if (n.Tag != objectsControl1.Tag) objectsControl1.Hide();
             if (n.Tag != testControl1.Tag) testControl1.Hide();
             if (n.Tag != projectControl1.Tag) projectControl1.Hide();
+
+            if (n.Tag != "omana")
+            {
+                btnExpand.Enabled = false;
+                var s = this.Size;
+                s.Width = 350;
+                this.Size = s;
+            } else
+            {
+                btnExpand.Enabled = true;
+                var s = this.Size;
+                if (btnExpand.Text == "<")
+                {
+                    s.Width = objectsControl1.PreferredSize.Width + 50;
+                } else
+                {
+                    s.Width = 350;
+                }
+                this.Size = s;
+            }
         }
 
         private void testForm1ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -76,16 +96,6 @@ namespace Y3D.Forms
             //{
             //    this.objectsControl1.updateYAL(Y3D.Projects.Utils.CurrentYAL);
             //}
-        }
-
-        private void workersManagerToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            rpc.YServer.wform = new WorkerForm();
-            DialogResult result = rpc.YServer.wform.ShowDialog();
-            if (result == DialogResult.OK)
-            {
-                
-            }
         }
 
         //private void workersManagerToolStripMenuItem_Click(object sender, EventArgs e)
@@ -141,6 +151,51 @@ namespace Y3D.Forms
             Y3D.Projects.Utils.CurrentYAL.Areas.Clear();
             objectsControl1.updateYAL(Y3D.Projects.Utils.CurrentYAL);
             Y3D.Projects.Utils.CurrentYAL = null;
+        }
+
+        private void btnMainMenu_Click(object sender, EventArgs e)
+        {
+            metroContextMenu1.Show(btnMainMenu, new Point(0, btnMainMenu.Height));
+        }
+
+        private void toggleExpand()
+        {
+
+        }
+
+        private void btnExpand_Click(object sender, EventArgs e)
+        {
+            if (btnExpand.Text==">")
+            {
+                var s = this.Size;
+                s.Width = objectsControl1.PreferredSize.Width + 50;
+                this.Size = s;
+
+                var l = objectsControl1.Location;
+                l.X = 0;
+                objectsControl1.Location = l;
+                btnExpand.Text = "<";
+            } else
+            {
+                var s = this.Size;
+                s.Width = 350;
+                this.Size = s;
+
+                var l = objectsControl1.Location;
+                l.X -= 200;
+                objectsControl1.Location = l;
+                btnExpand.Text = ">";
+            }
+        }
+
+        private void workerManagerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rpc.YServer.wform = new WorkerForm();
+            DialogResult result = rpc.YServer.wform.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+
+            }
         }
     }
 }

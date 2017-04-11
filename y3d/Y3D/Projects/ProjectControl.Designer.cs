@@ -42,7 +42,7 @@
             // 
             // btnDelP
             // 
-            this.btnDelP.Location = new System.Drawing.Point(242, 433);
+            this.btnDelP.Location = new System.Drawing.Point(198, 424);
             this.btnDelP.Name = "btnDelP";
             this.btnDelP.Size = new System.Drawing.Size(37, 23);
             this.btnDelP.TabIndex = 7;
@@ -52,7 +52,7 @@
             // 
             // btnEditP
             // 
-            this.btnEditP.Location = new System.Drawing.Point(190, 433);
+            this.btnEditP.Location = new System.Drawing.Point(146, 424);
             this.btnEditP.Name = "btnEditP";
             this.btnEditP.Size = new System.Drawing.Size(46, 23);
             this.btnEditP.TabIndex = 6;
@@ -62,7 +62,7 @@
             // 
             // btnLoadP
             // 
-            this.btnLoadP.Location = new System.Drawing.Point(108, 433);
+            this.btnLoadP.Location = new System.Drawing.Point(64, 424);
             this.btnLoadP.Name = "btnLoadP";
             this.btnLoadP.Size = new System.Drawing.Size(75, 23);
             this.btnLoadP.TabIndex = 5;
@@ -81,9 +81,9 @@
             this.dlvListProject.Cursor = System.Windows.Forms.Cursors.Default;
             this.dlvListProject.DataSource = null;
             this.dlvListProject.FullRowSelect = true;
-            this.dlvListProject.Location = new System.Drawing.Point(108, 239);
+            this.dlvListProject.Location = new System.Drawing.Point(10, 230);
             this.dlvListProject.Name = "dlvListProject";
-            this.dlvListProject.Size = new System.Drawing.Size(349, 188);
+            this.dlvListProject.Size = new System.Drawing.Size(280, 188);
             this.dlvListProject.TabIndex = 4;
             this.dlvListProject.UseCompatibleStateImageBehavior = false;
             this.dlvListProject.View = System.Windows.Forms.View.Details;
@@ -107,7 +107,7 @@
             // btnNewBlank
             // 
             this.btnNewBlank.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNewBlank.Location = new System.Drawing.Point(169, 92);
+            this.btnNewBlank.Location = new System.Drawing.Point(38, 84);
             this.btnNewBlank.Name = "btnNewBlank";
             this.btnNewBlank.Size = new System.Drawing.Size(110, 84);
             this.btnNewBlank.TabIndex = 8;
@@ -118,8 +118,9 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(258, 196);
+            this.label1.Location = new System.Drawing.Point(129, 182);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 25);
             this.label1.TabIndex = 9;
@@ -130,7 +131,7 @@
             // 
             this.btnNewFromMax.BackColor = System.Drawing.Color.YellowGreen;
             this.btnNewFromMax.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNewFromMax.Location = new System.Drawing.Point(285, 92);
+            this.btnNewFromMax.Location = new System.Drawing.Point(154, 84);
             this.btnNewFromMax.Name = "btnNewFromMax";
             this.btnNewFromMax.Size = new System.Drawing.Size(110, 84);
             this.btnNewFromMax.TabIndex = 10;
@@ -151,7 +152,7 @@
             this.Controls.Add(this.btnLoadP);
             this.Controls.Add(this.dlvListProject);
             this.Name = "ProjectControl";
-            this.Size = new System.Drawing.Size(560, 550);
+            this.Size = new System.Drawing.Size(300, 560);
             ((System.ComponentModel.ISupportInitialize)(this.dlvListProject)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

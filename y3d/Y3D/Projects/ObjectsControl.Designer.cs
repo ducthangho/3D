@@ -58,7 +58,6 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.checkBoxIsolate = new System.Windows.Forms.CheckBox();
             this.checkBoxInGroup = new System.Windows.Forms.CheckBox();
@@ -225,7 +224,7 @@
             this.panel1.Controls.Add(this.toolStrip1);
             this.panel1.Location = new System.Drawing.Point(205, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(354, 544);
+            this.panel1.Size = new System.Drawing.Size(290, 544);
             this.panel1.TabIndex = 1;
             // 
             // panel2
@@ -239,7 +238,7 @@
             this.panel2.Controls.Add(this.groupBox1);
             this.panel2.Location = new System.Drawing.Point(0, 361);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(351, 180);
+            this.panel2.Size = new System.Drawing.Size(290, 180);
             this.panel2.TabIndex = 8;
             // 
             // btnTestDel
@@ -345,22 +344,21 @@
             this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.button7);
             this.groupBox1.Controls.Add(this.button6);
-            this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Location = new System.Drawing.Point(206, 3);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(143, 176);
+            this.groupBox1.Size = new System.Drawing.Size(82, 176);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Info";
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(5, 44);
+            this.button3.Location = new System.Drawing.Point(5, 71);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(60, 20);
+            this.button3.Size = new System.Drawing.Size(72, 20);
             this.button3.TabIndex = 4;
             this.button3.Text = "Pack";
             this.button3.UseVisualStyleBackColor = true;
@@ -369,34 +367,25 @@
             // 
             this.button7.Location = new System.Drawing.Point(5, 18);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(60, 20);
+            this.button7.Size = new System.Drawing.Size(72, 20);
             this.button7.TabIndex = 3;
             this.button7.Text = "Low poly";
             this.button7.UseVisualStyleBackColor = true;
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(5, 70);
+            this.button6.Location = new System.Drawing.Point(5, 95);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(60, 20);
+            this.button6.Size = new System.Drawing.Size(72, 20);
             this.button6.TabIndex = 2;
             this.button6.Text = "Bake";
             this.button6.UseVisualStyleBackColor = true;
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(71, 45);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(60, 20);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Normal Map";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(71, 19);
+            this.button1.Location = new System.Drawing.Point(5, 45);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(60, 20);
+            this.button1.Size = new System.Drawing.Size(72, 20);
             this.button1.TabIndex = 0;
             this.button1.Text = "Unwrap";
             this.button1.UseVisualStyleBackColor = true;
@@ -451,7 +440,7 @@
             this.objectListCtrl.Location = new System.Drawing.Point(0, 28);
             this.objectListCtrl.Name = "objectListCtrl";
             this.objectListCtrl.ShowGroups = false;
-            this.objectListCtrl.Size = new System.Drawing.Size(351, 300);
+            this.objectListCtrl.Size = new System.Drawing.Size(290, 300);
             this.objectListCtrl.SmallImageList = this.imageListGroup;
             this.objectListCtrl.TabIndex = 2;
             this.objectListCtrl.UseCompatibleStateImageBehavior = false;
@@ -482,7 +471,7 @@
             this.toolStripButton1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(354, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(290, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -503,7 +492,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tabNavLeft);
             this.Name = "ObjectsControl";
-            this.Size = new System.Drawing.Size(560, 550);
+            this.Size = new System.Drawing.Size(505, 550);
             this.Load += new System.EventHandler(this.ObjectsControl_Load);
             this.tabNavLeft.ResumeLayout(false);
             this.tabArea.ResumeLayout(false);
@@ -551,7 +540,6 @@
         private System.Windows.Forms.Button button4;
         private BrightIdeasSoftware.FastObjectListView olvLocalTest;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button6;

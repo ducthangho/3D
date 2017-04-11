@@ -162,7 +162,7 @@
             this.Controls.Add(this.btnNew);
             this.Controls.Add(this.dlvWorker);
             this.Name = "WorkerForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "WorkerForm";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.WorkerForm_Load);
