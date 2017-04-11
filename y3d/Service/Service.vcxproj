@@ -165,11 +165,14 @@ call "$(ProjectDir)..\bin\start_workers.cmd"</Command>
     <ClCompile Include="grpc\src\core\ext\client_channel\connector.c" />
     <ClCompile Include="grpc\src\core\ext\client_channel\default_initial_connect_string.c" />
     <ClCompile Include="grpc\src\core\ext\client_channel\http_connect_handshaker.c" />
+    <ClCompile Include="grpc\src\core\ext\client_channel\http_proxy.c" />
     <ClCompile Include="grpc\src\core\ext\client_channel\initial_connect_string.c" />
     <ClCompile Include="grpc\src\core\ext\client_channel\lb_policy.c" />
     <ClCompile Include="grpc\src\core\ext\client_channel\lb_policy_factory.c" />
     <ClCompile Include="grpc\src\core\ext\client_channel\lb_policy_registry.c" />
     <ClCompile Include="grpc\src\core\ext\client_channel\parse_address.c" />
+    <ClCompile Include="grpc\src\core\ext\client_channel\proxy_mapper.c" />
+    <ClCompile Include="grpc\src\core\ext\client_channel\proxy_mapper_registry.c" />
     <ClCompile Include="grpc\src\core\ext\client_channel\resolver.c" />
     <ClCompile Include="grpc\src\core\ext\client_channel\resolver_factory.c" />
     <ClCompile Include="grpc\src\core\ext\client_channel\resolver_registry.c" />
@@ -177,6 +180,7 @@ call "$(ProjectDir)..\bin\start_workers.cmd"</Command>
     <ClCompile Include="grpc\src\core\ext\client_channel\subchannel_index.c" />
     <ClCompile Include="grpc\src\core\ext\client_channel\uri_parser.c" />
     <ClCompile Include="grpc\src\core\ext\lb_policy\grpclb\grpclb.c" />
+    <ClCompile Include="grpc\src\core\ext\lb_policy\grpclb\grpclb_channel.c" />
     <ClCompile Include="grpc\src\core\ext\lb_policy\grpclb\load_balancer_api.c" />
     <ClCompile Include="grpc\src\core\ext\lb_policy\grpclb\proto\grpc\lb\v1\load_balancer.pb.c" />
     <ClCompile Include="grpc\src\core\ext\lb_policy\pick_first\pick_first.c" />
@@ -210,7 +214,6 @@ call "$(ProjectDir)..\bin\start_workers.cmd"</Command>
     <ClCompile Include="grpc\src\core\ext\transport\chttp2\transport\huffsyms.c" />
     <ClCompile Include="grpc\src\core\ext\transport\chttp2\transport\incoming_metadata.c" />
     <ClCompile Include="grpc\src\core\ext\transport\chttp2\transport\parsing.c" />
-    <ClCompile Include="grpc\src\core\ext\transport\chttp2\transport\status_conversion.c" />
     <ClCompile Include="grpc\src\core\ext\transport\chttp2\transport\stream_lists.c" />
     <ClCompile Include="grpc\src\core\ext\transport\chttp2\transport\stream_map.c" />
     <ClCompile Include="grpc\src\core\ext\transport\chttp2\transport\varint.c" />
@@ -315,6 +318,7 @@ call "$(ProjectDir)..\bin\start_workers.cmd"</Command>
     <ClCompile Include="grpc\src\core\lib\security\credentials\plugin\plugin_credentials.c" />
     <ClCompile Include="grpc\src\core\lib\security\credentials\ssl\ssl_credentials.c" />
     <ClCompile Include="grpc\src\core\lib\security\transport\client_auth_filter.c" />
+    <ClCompile Include="grpc\src\core\lib\security\transport\lb_targets_info.c" />
     <ClCompile Include="grpc\src\core\lib\security\transport\secure_endpoint.c" />
     <ClCompile Include="grpc\src\core\lib\security\transport\security_connector.c" />
     <ClCompile Include="grpc\src\core\lib\security\transport\security_handshaker.c" />
@@ -325,6 +329,8 @@ call "$(ProjectDir)..\bin\start_workers.cmd"</Command>
     <ClCompile Include="grpc\src\core\lib\slice\percent_encoding.c" />
     <ClCompile Include="grpc\src\core\lib\slice\slice.c" />
     <ClCompile Include="grpc\src\core\lib\slice\slice_buffer.c" />
+    <ClCompile Include="grpc\src\core\lib\slice\slice_hash_table.c" />
+    <ClCompile Include="grpc\src\core\lib\slice\slice_intern.c" />
     <ClCompile Include="grpc\src\core\lib\slice\slice_string_helpers.c" />
     <ClCompile Include="grpc\src\core\lib\support\alloc.c" />
     <ClCompile Include="grpc\src\core\lib\support\avl.c" />
@@ -388,14 +394,16 @@ call "$(ProjectDir)..\bin\start_workers.cmd"</Command>
     <ClCompile Include="grpc\src\core\lib\surface\server.c" />
     <ClCompile Include="grpc\src\core\lib\surface\validate_metadata.c" />
     <ClCompile Include="grpc\src\core\lib\surface\version.c" />
+    <ClCompile Include="grpc\src\core\lib\transport\bdp_estimator.c" />
     <ClCompile Include="grpc\src\core\lib\transport\byte_stream.c" />
     <ClCompile Include="grpc\src\core\lib\transport\connectivity_state.c" />
-    <ClCompile Include="grpc\src\core\lib\transport\mdstr_hash_table.c" />
+    <ClCompile Include="grpc\src\core\lib\transport\error_utils.c" />
     <ClCompile Include="grpc\src\core\lib\transport\metadata.c" />
     <ClCompile Include="grpc\src\core\lib\transport\metadata_batch.c" />
     <ClCompile Include="grpc\src\core\lib\transport\pid_controller.c" />
     <ClCompile Include="grpc\src\core\lib\transport\service_config.c" />
     <ClCompile Include="grpc\src\core\lib\transport\static_metadata.c" />
+    <ClCompile Include="grpc\src\core\lib\transport\status_conversion.c" />
     <ClCompile Include="grpc\src\core\lib\transport\timeout_encoding.c" />
     <ClCompile Include="grpc\src\core\lib\transport\transport.c" />
     <ClCompile Include="grpc\src\core\lib\transport\transport_op_string.c" />
@@ -427,6 +435,10 @@ call "$(ProjectDir)..\bin\start_workers.cmd"</Command>
     <ClCompile Include="grpc\src\cpp\server\async_generic_service.cc" />
     <ClCompile Include="grpc\src\cpp\server\create_default_thread_pool.cc" />
     <ClCompile Include="grpc\src\cpp\server\dynamic_thread_pool.cc" />
+    <ClCompile Include="grpc\src\cpp\server\health\default_health_check_service.cc" />
+    <ClCompile Include="grpc\src\cpp\server\health\health.pb.c" />
+    <ClCompile Include="grpc\src\cpp\server\health\health_check_service.cc" />
+    <ClCompile Include="grpc\src\cpp\server\health\health_check_service_server_builder_option.cc" />
     <ClCompile Include="grpc\src\cpp\server\insecure_server_credentials.cc" />
     <ClCompile Include="grpc\src\cpp\server\server_builder.cc" />
     <ClCompile Include="grpc\src\cpp\server\server_cc.cc" />
@@ -499,7 +511,6 @@ call "$(ProjectDir)..\bin\start_workers.cmd"</Command>
     <ClInclude Include="grpc\src\core\ext\transport\chttp2\transport\huffsyms.h" />
     <ClInclude Include="grpc\src\core\ext\transport\chttp2\transport\incoming_metadata.h" />
     <ClInclude Include="grpc\src\core\ext\transport\chttp2\transport\internal.h" />
-    <ClInclude Include="grpc\src\core\ext\transport\chttp2\transport\status_conversion.h" />
     <ClInclude Include="grpc\src\core\ext\transport\chttp2\transport\stream_map.h" />
     <ClInclude Include="grpc\src\core\ext\transport\chttp2\transport\varint.h" />
     <ClInclude Include="grpc\src\core\lib\channel\channel_args.h" />
@@ -623,7 +634,6 @@ call "$(ProjectDir)..\bin\start_workers.cmd"</Command>
     <ClInclude Include="grpc\src\core\lib\surface\server.h" />
     <ClInclude Include="grpc\src\core\lib\transport\byte_stream.h" />
     <ClInclude Include="grpc\src\core\lib\transport\connectivity_state.h" />
-    <ClInclude Include="grpc\src\core\lib\transport\mdstr_hash_table.h" />
     <ClInclude Include="grpc\src\core\lib\transport\metadata.h" />
     <ClInclude Include="grpc\src\core\lib\transport\metadata_batch.h" />
     <ClInclude Include="grpc\src\core\lib\transport\pid_controller.h" />

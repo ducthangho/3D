@@ -26,7 +26,7 @@ rem set PATH=%PATH%;%cd%\bin
 popd
 pushd %~dp0
 
-rem copy tracing.c grpc\src\core\ext\census
+copy tracing.c grpc\src\core\ext\census
 cd grpc\third_party\protobuf\cmake
 
 del /Q CMakeCache.txt
