@@ -26,12 +26,12 @@ namespace Y3D.Projects
 
         public static YWorker mworker = null;
 
-        static public y3d.s.YServiceMaxTools.YServiceMaxToolsClient MaxClient;
-        static public y3d.s.YServiceMaxLoader.YServiceMaxLoaderClient LoaderClient;
-        static public y3d.s.YServiceTest.YServiceTestClient TestClient;
+        static public y3d.s.YServiceMaxTools.YServiceMaxToolsClient MaxClient = null;
+        static public y3d.s.YServiceMaxLoader.YServiceMaxLoaderClient LoaderClient = null;
+        static public y3d.s.YServiceTest.YServiceTestClient TestClient = null;
 
         public static string master_ip = "127.0.0.1";
-        public static y3d.s.YServiceMaster.YServiceMasterClient MasterClient;
+        public static y3d.s.YServiceMaster.YServiceMasterClient MasterClient = null;
 
         public static YAreaList CurrentYAL = null;
         public static ProjectInfo CurrentP = null;
@@ -75,10 +75,47 @@ namespace Y3D.Projects
             }
         }
 
+        public static bool checkMaster(bool force=true)
+        {
+            if (MasterClient != null && force == false) return true;
+            var channel = new Channel(master_ip + ":38000", ChannelCredentials.Insecure);
+            if (!channel.ConnectAsync(deadline: DateTime.UtcNow.AddMilliseconds(5000)).ContinueWith<bool>((t) => t.IsCanceled || t.IsFaulted).Result)
+            {
+                MasterClient = new y3d.s.YServiceMaster.YServiceMasterClient(channel);
+                return true;
+            }
+            else
+            {
+                MasterClient = null;
+                var x = MessageBox.Show("Can not connect to master server!! Do you want to retry!","Error",MessageBoxButtons.RetryCancel,MessageBoxIcon.Error);
+                if (x == DialogResult.Retry) {
+                    return checkMaster();
+                } 
+                return false;
+            }
+            return false;
+        }
+
+        public static bool checkLoader(YWorker w, bool force=true)
+        {
+            if (!checkMaster()) return false;
+            if (w == null && force==false) return false;
+            if (testConnection("127.0.0.1", w.PortLoader)) return true;
+            return false;
+        }
+
+        public static bool checkMaxTools(YWorker w, bool force = true)
+        {
+            if (!checkLoader(w,force)) return false;
+            if (w == null && force == false) return false;
+            if (testConnection("127.0.0.1", w.PortMax)) return true;
+            return false;
+        }
+
 
         public static void initSystem()
         {
-            MasterClient = new y3d.s.YServiceMaster.YServiceMasterClient(new Channel(master_ip+ ":38000", ChannelCredentials.Insecure));
+            checkMaster();
         }
 
         public static bool testConnection(String ip, int port)
@@ -118,6 +155,8 @@ namespace Y3D.Projects
 
         static public Task<bool> getMainWorker()
         {
+            if (!checkMaster()) return Task.FromResult(false);
+
             if (worker == null)
             {
                 y3d.e.YWorkerRequest req = new YWorkerRequest();
@@ -281,6 +320,7 @@ namespace Y3D.Projects
 
         static public void detach_mainworker()
         {
+            if (!Y3D.Projects.Utils.checkMaster()) return;
             if (worker != null)
             {
                 worker.Wtype = WorkerType.Free;
@@ -302,6 +342,7 @@ namespace Y3D.Projects
 
         static public bool newProjectFromMax()
         {
+
             if (worker != null)
             {
                 var openFileProject = new System.Windows.Forms.OpenFileDialog();
@@ -352,8 +393,8 @@ namespace Y3D.Projects
         }
 
         public static bool LoadProject(ProjectInfo pi)
-        {
-            if (Y3D.Projects.Utils.MaxClient == null) return false;
+        {   
+            if (!checkMaxTools(worker)) return false;
             var rnp = Y3D.Projects.Utils.MaxClient.LoadProject(pi);
             if (!rnp.Err)
             {
@@ -374,6 +415,7 @@ namespace Y3D.Projects
 
         public static bool DeleteProject(ProjectInfo pi)
         {
+            if (!checkMaxTools(worker)) return false;
             if (pi == null) return false;
             if (CurrentP!=null)
             {
@@ -409,6 +451,7 @@ namespace Y3D.Projects
 
         public static bool CreateNewTest(string tname)
         {
+            if (!checkMaxTools(worker)) return false;
             if (TestData == null) TestData = new UserTestData();
             if (!TestData.Utests.ContainsKey(tname))
             {

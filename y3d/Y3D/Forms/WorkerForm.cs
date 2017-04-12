@@ -81,6 +81,7 @@ namespace Y3D.Forms
 
         private void btnStart_Click(object sender, EventArgs e)
         {
+            if (!Projects.Utils.checkMaster()) return;
             log.LOG("Button start clicked\n.");
             YWorker yw = (YWorker)this.dlvWorker.SelectedObject;
             if (yw == null)//No object selected
@@ -132,6 +133,7 @@ namespace Y3D.Forms
 
         private void btnStop_Click(object sender, EventArgs e)
         {
+            if (!Projects.Utils.checkMaster()) return;
             YWorker yw = (YWorker)this.dlvWorker.SelectedObject;
             if (yw == null)//No object selected
             {
@@ -167,6 +169,7 @@ namespace Y3D.Forms
 
         private void btnDel_Click(object sender, EventArgs e)
         {
+            if (!Projects.Utils.checkMaster()) return;
             //Channel channel = new Channel("127.0.0.1:39001", ChannelCredentials.Insecure);
             //var toolClient = new y3d.s.Tools.ToolsClient(channel);
 

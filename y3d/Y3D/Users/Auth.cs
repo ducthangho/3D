@@ -57,6 +57,7 @@ namespace Y3D.Users
 
         static public UserResponse signUp(string uname, string pass)
         {
+            if (!Y3D.Projects.Utils.checkMaster()) return null;
             UserParam up = new UserParam();
             up.Uname = uname;
             up.Password = pass;
@@ -72,6 +73,7 @@ namespace Y3D.Users
 
         static public UserResponse signIn(string uname, string pass)
         {
+            if (!Y3D.Projects.Utils.checkMaster()) return null;
             UserParam up = new UserParam();
             up.Uname = uname;
             up.Password = pass;
@@ -87,6 +89,7 @@ namespace Y3D.Users
 
         static public bool updateUSetting()
         {
+            if (!Y3D.Projects.Utils.checkMaster()) return false;
             if (yuser == null) return false;
             UserParam up = new UserParam();
             up.Usetting = usetting;

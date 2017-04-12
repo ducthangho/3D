@@ -36,6 +36,12 @@ namespace Y3D.Users
                 return;
             }
             var rep = Auth.signUp(textRegUser.Text, textRegPass1.Text);
+            if (rep == null)
+            {
+                MessageBox.Show("Something wrong!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             if (!rep.Rep.Error)
             {
                 this.Hide();
@@ -56,22 +62,15 @@ namespace Y3D.Users
                 return;
             }
             var rep = Auth.signIn(textLoginUser.Text, textLoginPass.Text);
+            if (rep == null)
+            {
+                MessageBox.Show("Something wrong!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             if (!rep.Rep.Error)
             {
                 this.Hide();
                 rpc.YServer.Start();
-                //System.Threading.Thread t = new System.Threading.Thread(new System.Threading.ThreadStart(Projects.Utils.myLoading));
-                //t.Start();
-                //rpc.YServer.Start().Wait();
-                //Y3D.Projects.Utils.mainform = new Forms.YMainForm();
-                //Y3D.Projects.Utils.mainform.Show();
-                //while (t.ThreadState==System.Threading.ThreadState.Unstarted)
-                //{
-                //    System.Threading.Thread.Sleep(1000);
-                //}
-                //t.Abort();
-                //Y3D.Projects.Utils.mainform = new Forms.YMainForm();
-                //Y3D.Projects.Utils.mainform.Show();
             }
             else
             {
