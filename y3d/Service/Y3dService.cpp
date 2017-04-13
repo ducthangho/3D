@@ -69,8 +69,7 @@ DLLAPI void APIENTRY startService(const char* dllname, const char* ip_address)
 			}
 			else {
 				dll_path = dllname;
-			}
-			LOG("DLL path is {0}\n", dll_path);
+			}			
 			//LOG("Xin chao");
 					// load plugin and grab all the functions we need		
 			HMODULE dllHandle = 0;
@@ -82,7 +81,7 @@ DLLAPI void APIENTRY startService(const char* dllname, const char* ip_address)
 						isLoading = false;
 						return;
 					}
-					LOG("Load dduowcj roi\n");
+					
 					dllHandle = dll;
 					SYSTEM_CALL(GetServiceImplFunc getServiceImpl = (GetServiceImplFunc)GetProcAddress(dll, "getServiceImpl"));
 					SYSTEM_CALL(ReleaseObjectFunc releaseObject = (ReleaseObjectFunc)GetProcAddress(dll, "releaseObject"));
@@ -125,7 +124,7 @@ DLLAPI void APIENTRY startService(const char* dllname, const char* ip_address)
 			
 				//service->Helloworld();
 				//server->Wait();				
-				LOG("Server listening on {}\n",server_address);
+				LOG("Server is now listening on {}\n",server_address);
 				//Printf("Test printf: Hello world %d\n", 123);
 				//std::map<std::string, int> m;
 				//m["hello"] = 1;

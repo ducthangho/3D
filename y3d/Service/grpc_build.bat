@@ -85,7 +85,7 @@ msbuild /m /p:Configuration=Debug /p:Platform=x64 /p:WarningLevel=0 /p:TreatWarn
 if not %ERRORLEVEL% == 0 goto Finish
 robocopy /mir .\x64\Release ..\bin\grpc\release /XF *grpc_cpp_plugin*
 robocopy /mir .\x64\Release ..\..\..\lib\grpc\Release /XF *grpc_cpp_plugin*
-robocopy /mir .\x64\Release ..\..\..\bin /XF *grpc_cpp_plugin*
+rem robocopy /mir .\x64\Release ..\..\..\bin /XF *grpc_cpp_plugin*
 robocopy /mir .\x64\Debug ..\bin\grpc\Debug /XF *grpc_cpp_plugin*
 robocopy /mir .\x64\Debug ..\..\..\lib\grpc\Debug /XF *grpc_cpp_plugin*
 
