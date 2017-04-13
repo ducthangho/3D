@@ -101,9 +101,6 @@
     <ClCompile Include="..\ServiceImpl\ylogservice.pb.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Service\grpc\src\core\lib\support\mpscq.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

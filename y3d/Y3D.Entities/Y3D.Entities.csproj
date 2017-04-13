@@ -53,6 +53,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Xnormal.cs" />
     <Compile Include="Y3D.cs" />
+    <Compile Include="Yevent.cs" />
+    <Compile Include="YeventGrpc.cs" />
     <Compile Include="Yloader.cs" />
     <Compile Include="YloaderGrpc.cs" />
     <Compile Include="Ylogservice.cs" />

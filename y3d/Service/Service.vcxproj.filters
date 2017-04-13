@@ -502,7 +502,6 @@
     <ClInclude Include="grpc\third_party\nanopb\pb_common.h" />
     <ClInclude Include="grpc\third_party\nanopb\pb_decode.h" />
     <ClInclude Include="grpc\third_party\nanopb\pb_encode.h" />
-    <ClInclude Include="Y3dService.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="..\include\common.h" />
   </ItemGroup>

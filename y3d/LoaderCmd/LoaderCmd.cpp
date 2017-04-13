@@ -5,6 +5,9 @@
 #include "y3d.pb.h"
 #include "yservice.pb.h"
 #include "yservice.grpc.pb.h"
+#include "yevent.pb.h"
+#include "yevent.grpc.pb.h"
+
 #include "grpc++/grpc++.h"
 #include "tclap/CmdLine.h"
 #include "tbb/task_group.h"
@@ -137,14 +140,14 @@ void test5()
 {
 	logserver::LOG("Hello world with fmt like format i={0}\n","dddddddddd");
 	auto client = y3d::YServiceMainWorker::NewStub(grpc::CreateChannel("127.0.0.1:37001", grpc::InsecureChannelCredentials()));
-	y3d::YEvent ye;
+	y3d::YEvent2 ye;
 	//ESelect es;
 	//es.set_name(ws2s(n->GetName()));
 	//es.set_isolate(false);
 	ye.mutable_select()->set_name("aa");
 	ye.mutable_select()->set_isolate(false);
 	grpc::ClientContext context;
-	y3d::ResponseEvent rep;
+	y3d::ResponseEvent2 rep;
 	//Status* status;
 	// thay = async
 	grpc::CompletionQueue cq_;

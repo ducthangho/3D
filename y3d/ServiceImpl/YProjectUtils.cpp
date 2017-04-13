@@ -1,6 +1,7 @@
 #include "common.h"
 #include "YLibs.h"
 #include "YProjectUtils.h"
+#include "grpc_client.h"
 
 
 
@@ -274,5 +275,59 @@ void DoYEvent(YEvent ye) {
 			//"resetMaxFile #noPrompt"
 		else {
 		}
+	}
+}
+
+void MyNodeEventCB::SelectionChanged(NodeKeyTab & nodes)
+{	
+	if (nodes.Count() > 0) {
+		/*auto client = y3d::YServiceMainWorker::NewStub(grpc::CreateChannel("127.0.0.1:37001", grpc::InsecureChannelCredentials()));*/
+		for (int i = 0; i < nodes.Count(); i++)
+		{
+			auto n = NodeEventNamespace::GetNodeByKey(nodes[i]);
+			if (n == NULL) continue;
+			if (n->Selected()) {
+
+				YEvent2 ye;
+				//ESelect es;
+				//es.set_name(ws2s(n->GetName()));
+				//es.set_isolate(false);
+				ye.mutable_select()->set_name(ws2s(n->GetName()));
+				ye.mutable_select()->set_isolate(false);
+				grpc::ClientContext context;
+				y3d::ResponseEvent2 rep;
+				//Status* status;
+				// thay = async
+				grpc::CompletionQueue cq_;
+				//client->AsyncDoEvent(&context, ye, &cq_);
+				LOG("Select object:{0}\n", ye.select().name());
+				/*auto* client = getClientInstance();
+				if (client) {
+					grpc::Status status = client->DoEvent(&context, ye, &rep);
+					if (!status.ok()) {
+						reset();
+						client = getClientInstance();
+						status = client->DoEvent(&context, ye, &rep);
+						if (!status.ok()) logserver::LOG("Execution of method {} failed\n", "DoEvent");
+					}
+				}
+				else {
+					logserver::LOG("Cannot connect to MainWorker server\n");
+				};*/
+				GRPC_CALL(DoEvent, &context, ye, &rep);
+				//auto status = client->DoEvent(&context, ye, &rep);
+
+				/*		YEvent ye;
+				ESelect es;
+				es.set_name(ws2s(n->GetName()));
+				es.set_isolate(false);
+				ye.mutable_select()->CopyFrom(es);
+				received_e.clear();
+				received_e.push_back(ye);*/
+				//mprintf(L"Test select: %s \n", n->GetName());
+				break;
+			}
+		}
+		//MessageBoxW(NULL, n->GetName(), L"TEST", MB_OK);
 	}
 }

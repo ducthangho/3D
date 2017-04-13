@@ -149,7 +149,7 @@
       <PreprocessorDefinitions>LOG_SERVICE_STATIC;_ITERATOR_DEBUG_LEVEL=0;NOMINMAX;PROTOBUF_USE_DLLS;_CRT_SECURE_NO_WARNINGS;WIN32_LEAN_AND_MEAN;_ADESK_3DSMAX_WINDOWS_;WINVER=0x0A00;_WIN32_WINNT=0x0A00;_WIN32_WINDOWS=0x0A00;_WIN32_IE=0x0800;_WINDOWS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_DEPRECATE;_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1;_CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES=1;ISOLATION_AWARE_ENABLED=1;SECURE_SCL=0;WIN64;_UNICODE;UNICODE;_USRDLL;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>C:\Program Files\Autodesk\3ds Max 2017 SDK\maxsdk\include;$(MsBuildProjectDirectory)\..\include;$(MsBuildProjectDirectory)\..\Service\grpc\;$(MsBuildProjectDirectory)\..\Service\grpc\include;$(MsBuildProjectDirectory)\..\Service\grpc\third_party\protobuf\src;$(MsBuildProjectDirectory)\..\packages\tclap.1.2.1\build\native\include\tclap;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <ForcedIncludeFiles>$(MSBuildProjectDirectory)\..\include\ignore.h;$(MSBuildProjectDirectory)\..\include\ignore_log.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles>$(MSBuildProjectDirectory)\..\include\ignore.h;$(MSBuildProjectDirectory)\..\include\ignore_log.h;$(MSBuildProjectDirectory)\..\include\ignore_client.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -176,6 +176,8 @@
   <ItemGroup>
     <ClCompile Include="..\ServiceImpl\xnormal.pb.cc" />
     <ClCompile Include="..\ServiceImpl\y3d.pb.cc" />
+    <ClCompile Include="..\ServiceImpl\yevent.grpc.pb.cc" />
+    <ClCompile Include="..\ServiceImpl\yevent.pb.cc" />
     <ClCompile Include="..\ServiceImpl\yloader.grpc.pb.cc" />
     <ClCompile Include="..\ServiceImpl\yloader.pb.cc" />
     <ClCompile Include="..\ServiceImpl\ylogservice.grpc.pb.cc" />

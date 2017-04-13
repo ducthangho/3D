@@ -70,7 +70,7 @@ DLLAPI void APIENTRY startService(const char* dllname, const char* ip_address)
 			else {
 				dll_path = dllname;
 			}
-			//logserver::LOG("DLL path is {0}\n", dll_path);
+			LOG("DLL path is {0}\n", dll_path);
 			//LOG("Xin chao");
 					// load plugin and grab all the functions we need		
 			HMODULE dllHandle = 0;
@@ -82,7 +82,7 @@ DLLAPI void APIENTRY startService(const char* dllname, const char* ip_address)
 						isLoading = false;
 						return;
 					}
-				
+					LOG("Load dduowcj roi\n");
 					dllHandle = dll;
 					SYSTEM_CALL(GetServiceImplFunc getServiceImpl = (GetServiceImplFunc)GetProcAddress(dll, "getServiceImpl"));
 					SYSTEM_CALL(ReleaseObjectFunc releaseObject = (ReleaseObjectFunc)GetProcAddress(dll, "releaseObject"));
@@ -107,6 +107,7 @@ DLLAPI void APIENTRY startService(const char* dllname, const char* ip_address)
 				std::shared_ptr<AbstractTestService> serviceTestPtr(getServiceTestImpl(), releaseObjectTest);
 
 				servicePtr->Initialize(grpc::g_core_codegen_interface, grpc::g_glip);//This is a must have function, used to initialize static global function of grpc
+
 				grpc::ServerBuilder builder;
 				builder.AddListeningPort(server_address, grpc::InsecureServerCredentials());
 				//LOG("Log here hahahahahah {0}",server_address);
@@ -125,23 +126,23 @@ DLLAPI void APIENTRY startService(const char* dllname, const char* ip_address)
 				//service->Helloworld();
 				//server->Wait();				
 				LOG("Server listening on {}\n",server_address);
-				Printf("Test printf: Hello world %d\n", 123);
-				std::map<std::string, int> m;
-				m["hello"] = 1;
-				m["a"] = 0;
-				m["good"] = 5;
-				std::map<int, int> n;
-				n[0] = 1;
-				n[1] = 0;
-				n[3] = 5;
-				std::vector<int> vv = { 1,2,3,4,5 };
-				int arr[] = { 5,4,3,2,1 };
-				std::set<int> ss{ 1,2,3,4,5,0,57 };
-				//PrintWithDelim(", ","Test Print ",server_address,123,0x5678,3.5f);
-				//DBG(server_address);
-				setDelim(" ; ");
+				//Printf("Test printf: Hello world %d\n", 123);
+				//std::map<std::string, int> m;
+				//m["hello"] = 1;
+				//m["a"] = 0;
+				//m["good"] = 5;
+				//std::map<int, int> n;
+				//n[0] = 1;
+				//n[1] = 0;
+				//n[3] = 5;
+				//std::vector<int> vv = { 1,2,3,4,5 };
+				//int arr[] = { 5,4,3,2,1 };
+				//std::set<int> ss{ 1,2,3,4,5,0,57 };
+				////PrintWithDelim(", ","Test Print ",server_address,123,0x5678,3.5f);
+				////DBG(server_address);
+				//setDelim(" ; ");
 
-				DBG(server_address,ip_address,vv,1,n,m, pretty_print_array(arr, 5),ss);
+				//DBG(server_address,ip_address,vv,1,n,m, pretty_print_array(arr, 5),ss);
 				
 				auto serveFn = [&]() {
 					server->Wait();

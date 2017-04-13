@@ -2,34 +2,40 @@
 using System.Threading.Tasks;
 using Grpc.Core;
 using y3d.e;
-using y3d.s;
 using System.Windows.Forms;
 using System.Windows.Threading;
 using System.Diagnostics;
+using LogClientCSharp;
+using Google.Protobuf;
 
 namespace Y3D.rpc
 {
 
-    class YServiceMainWorkerImpl : y3d.s.YServiceMainWorker.YServiceMainWorkerBase
+    class YServiceMainWorkerImpl : YServiceMainWorker.YServiceMainWorkerBase
     {
-        public override Task<EmptyParam> UpdateWorkers(YWorkerResponse request, ServerCallContext context)
+        public override Task<ENone2> UpdateWorkers(Y3D.YWorkerResp request, ServerCallContext context)
         {
             if (YServer.wform!=null)
-            {
-                YServer.wform.updateWorkerList(request);
+            {                
+                YWorkerResponse req = YWorkerResponse.Parser.ParseFrom(request.ToByteArray());                
+                YServer.wform.updateWorkerList(req);
             }
-            return Task.FromResult(new EmptyParam());
+            return Task.FromResult(new ENone2() );
         }
 
-        public override Task<ResponseEvent> DoEvent(YEvent request, ServerCallContext context)
+
+        public override Task<ResponseEvent2> DoEvent(YEvent2 request, ServerCallContext context)
         {
-            MessageBox.Show("da chon:");
-            if (request.Select!=null)
+            //MessageBox.Show("da chon:");
+            if (request !=null && request.Select!=null)
             {
-                MessageBox.Show("da chon:" + request.Select.Name);
+                MessageBox.Show("Selected "+request.Select.Name);
             }
-            return Task.FromResult(new ResponseEvent());
+            return Task.FromResult(new ResponseEvent2());
         }
+        
+
+
     };
 
 
@@ -63,7 +69,7 @@ namespace Y3D.rpc
                         {
                             server = new Server
                             {
-                                Services = { y3d.s.YServiceMainWorker.BindService(new YServiceMainWorkerImpl()) },
+                                Services = { YServiceMainWorker.BindService(new YServiceMainWorkerImpl()) },
                                 Ports = { new ServerPort("127.0.0.1", Y3D.Projects.Utils.worker.Wid+37000, ServerCredentials.Insecure) }
                             };
                             server.Start();

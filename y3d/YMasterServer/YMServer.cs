@@ -831,7 +831,7 @@ namespace YMasterServer
                 {
                     var ip = (yw.MachineIp == YMServer.MASTER_IP_LAN) ? "127.0.0.1" : yw.MachineIp;
                     var channel = new Channel(ip + ":" + (yw.Wid + 37000), ChannelCredentials.Insecure);
-                    var client = new YServiceMainWorker.YServiceMainWorkerClient(channel);
+                    var client = new Y3D.YServiceMainWorker.YServiceMainWorkerClient(channel);
                     if (client != null)
                     {
                         Console.WriteLine(ip);
@@ -839,7 +839,9 @@ namespace YMasterServer
                         wr.Worker = yw;
                         wr.Wlist = new YWorkerList();
                         wr.Wlist.Workers.Add(ww);
-                        client.UpdateWorkersAsync(wr);
+                        Y3D.YWorkerResp rs = Y3D.YWorkerResp.Parser.ParseFrom(wr.ToByteArray()); 
+                            
+                        client.UpdateWorkersAsync(rs);
                     }
                 }
             }

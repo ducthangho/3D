@@ -892,7 +892,8 @@ Status YServiceTestImpl::GenerateInterfaceInfo(ServerContext * context, const Em
 }
 void YServiceTestImpl::Initialize(void* codegen, void* gli)
 {
-
+	grpc::g_core_codegen_interface = (grpc::CoreCodegenInterface*)codegen;
+	grpc::g_glip = (grpc::GrpcLibraryInterface*)gli;
 }
 
 YServiceTestImpl::~YServiceTestImpl()

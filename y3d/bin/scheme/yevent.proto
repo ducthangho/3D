@@ -1,0 +1,102 @@
+syntax = "proto3";
+//import "google/protobuf/any.proto";
+package y3d;
+
+// ------------------------------ Event
+message YEvent2 {
+  oneof event {
+    ENone2 noevent = 1;
+    ESelect2 select = 2;
+    EMove2 move = 3;
+    ERotate2 rotate = 4;
+    EDelete2 del = 5;
+    ESelectMany2 select_many=6;
+    EIsolate2 isolate=7;
+    EClose2 close=8;
+  }
+}
+
+message ENone2 {}
+
+message ESelect2 {
+  string name = 1;
+  bool isolate = 2;
+}
+
+message ESelectMany2 {
+  repeated string name = 1;
+  bool isolate = 2;
+}
+
+message EMove2 {
+  repeated float point=1;
+}
+
+message ERotate2 {
+  repeated float rotate=1;
+}
+
+message EDelete2 {
+  string name = 1;
+}
+
+message EIsolate2 {
+  string name = 1;
+  bool endIsolate=2;
+}
+
+message EClose2 {
+  bool bypass=1;
+}
+
+message ResponseEvent2 {
+  bool error = 1;
+  string msg = 2;
+}
+
+enum WorkerType2 {
+  FREE2 = 0;
+  MAIN_WORKER2 = 1;
+  SUB_WORKER2 = 2;
+  REMOTE_WORKER2 = 3;
+}
+
+enum ServingStatus2 {
+  UNKNOWN2 = 0;
+  SERVING2 = 1;
+  NOT_SERVING2 = 2;
+  NOT_CONNECT_MASTER2=3;
+}
+
+message YWorkerParam {
+  int32 wid=1;
+  string wname=2;
+  string machine_ip=3;
+  int32 port_loader = 4;
+  int32 port_max = 5;
+  int32 process_id=6;
+  ServingStatus2 status = 7;
+  WorkerType2 wtype=8;
+  // bool no_app = 9; // crash or waiting for app
+  int32 net_state=10; // 0:crash, 1:co loader, 2: co loader va max service, 4:moi tao ma chua co loader
+}
+
+message YWorkerParamList {
+  // YWorker master = 1;
+  repeated YWorkerParam workers=1;
+}
+
+message YWorkerResp {
+  YWorkerParamList wlist = 1;
+  YWorkerParam worker=2;
+  bool error=3;
+  string message = 4;
+  int32 wid=5;
+}
+
+
+service YServiceMainWorker { // server for 3dsmax send actions request, run in mainworker app
+  rpc DoEvent(YEvent2) returns (ResponseEvent2);
+  rpc UpdateWorkers(YWorkerResp) returns (ENone2);
+  rpc CloseWorkerApp(YEvent2) returns (ResponseEvent2);
+}
