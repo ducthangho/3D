@@ -29,7 +29,7 @@ namespace Y3D.rpc
             //MessageBox.Show("da chon:");
             if (request !=null && request.Select!=null)
             {
-                MessageBox.Show("Selected "+request.Select.Name);
+                LogClient.Instance.LOG("Selected {0}\n",request.Select.Name);
             }
             return Task.FromResult(new ResponseEvent2());
         }
@@ -73,7 +73,8 @@ namespace Y3D.rpc
                                 Ports = { new ServerPort("127.0.0.1", Y3D.Projects.Utils.worker.Wid+37000, ServerCredentials.Insecure) }
                             };
                             server.Start();
-                        }
+                            LogClient.Instance.LOG("Y3D Server is now listening on port {0}\n", Y3D.Projects.Utils.worker.Wid + 37000);
+                    }
                     //t.Abort();
                 }
             ).Wait();
