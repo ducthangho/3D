@@ -32,9 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ObjectsControl));
             this.tabNavLeft = new System.Windows.Forms.TabControl();
             this.tabArea = new System.Windows.Forms.TabPage();
-            this.button8 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.gtreeListView = new BrightIdeasSoftware.TreeListView();
@@ -44,21 +42,18 @@
             this.miniToolStrip = new System.Windows.Forms.ToolStrip();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnTestDel = new System.Windows.Forms.Button();
-            this.btnTestLoad = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageTest = new System.Windows.Forms.TabPage();
             this.olvLocalTest = new BrightIdeasSoftware.FastObjectListView();
             this.olvId = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.olvNote = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.tabPageVersion = new System.Windows.Forms.TabPage();
-            this.btnAddJob = new System.Windows.Forms.Button();
             this.btnAddTest = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnQuickPack = new System.Windows.Forms.Button();
+            this.btnQuickLowPoly = new System.Windows.Forms.Button();
+            this.btnQuickBake = new System.Windows.Forms.Button();
+            this.btnQuickUnwrap = new System.Windows.Forms.Button();
             this.checkBoxIsolate = new System.Windows.Forms.CheckBox();
             this.checkBoxInGroup = new System.Windows.Forms.CheckBox();
             this.listCheck = new System.Windows.Forms.CheckBox();
@@ -67,10 +62,16 @@
             this.olvColFace = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.olvColTypeO = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.btnTestLoad = new System.Windows.Forms.Button();
+            this.btnTestSetting = new System.Windows.Forms.Button();
+            this.btnTestEdit = new System.Windows.Forms.Button();
+            this.btnTestDel = new System.Windows.Forms.Button();
+            this.toolStripInfo = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.button8 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabNavLeft.SuspendLayout();
             this.tabArea.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gtreeListView)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -80,6 +81,7 @@
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.objectListCtrl)).BeginInit();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabNavLeft
@@ -108,15 +110,6 @@
             this.tabArea.TabIndex = 0;
             this.tabArea.Text = "Area";
             // 
-            // button8
-            // 
-            this.button8.Image = global::Y3D.Properties.Resources.start;
-            this.button8.Location = new System.Drawing.Point(58, 348);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(20, 20);
-            this.button8.TabIndex = 5;
-            this.button8.UseVisualStyleBackColor = true;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -125,15 +118,6 @@
             this.label1.Size = new System.Drawing.Size(45, 13);
             this.label1.TabIndex = 4;
             this.label1.Text = "Preview";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Location = new System.Drawing.Point(7, 371);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(175, 141);
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
             // 
             // button5
             // 
@@ -230,34 +214,17 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.panel2.Controls.Add(this.btnTestDel);
             this.panel2.Controls.Add(this.btnTestLoad);
+            this.panel2.Controls.Add(this.btnTestSetting);
+            this.panel2.Controls.Add(this.btnTestEdit);
+            this.panel2.Controls.Add(this.btnTestDel);
             this.panel2.Controls.Add(this.tabControl1);
-            this.panel2.Controls.Add(this.btnAddJob);
             this.panel2.Controls.Add(this.btnAddTest);
             this.panel2.Controls.Add(this.groupBox1);
             this.panel2.Location = new System.Drawing.Point(0, 361);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(290, 180);
             this.panel2.TabIndex = 8;
-            // 
-            // btnTestDel
-            // 
-            this.btnTestDel.Image = global::Y3D.Properties.Resources.trash16;
-            this.btnTestDel.Location = new System.Drawing.Point(111, 127);
-            this.btnTestDel.Name = "btnTestDel";
-            this.btnTestDel.Size = new System.Drawing.Size(23, 23);
-            this.btnTestDel.TabIndex = 5;
-            this.btnTestDel.UseVisualStyleBackColor = true;
-            // 
-            // btnTestLoad
-            // 
-            this.btnTestLoad.Location = new System.Drawing.Point(61, 127);
-            this.btnTestLoad.Name = "btnTestLoad";
-            this.btnTestLoad.Size = new System.Drawing.Size(44, 23);
-            this.btnTestLoad.TabIndex = 2;
-            this.btnTestLoad.Text = "Load";
-            this.btnTestLoad.UseVisualStyleBackColor = true;
             // 
             // tabControl1
             // 
@@ -288,6 +255,7 @@
             this.olvLocalTest.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.olvId,
             this.olvNote});
+            this.olvLocalTest.Cursor = System.Windows.Forms.Cursors.Default;
             this.olvLocalTest.Location = new System.Drawing.Point(3, 3);
             this.olvLocalTest.Name = "olvLocalTest";
             this.olvLocalTest.ShowGroups = false;
@@ -319,32 +287,26 @@
             this.tabPageVersion.Text = "Version";
             this.tabPageVersion.UseVisualStyleBackColor = true;
             // 
-            // btnAddJob
-            // 
-            this.btnAddJob.Location = new System.Drawing.Point(153, 127);
-            this.btnAddJob.Name = "btnAddJob";
-            this.btnAddJob.Size = new System.Drawing.Size(44, 23);
-            this.btnAddJob.TabIndex = 1;
-            this.btnAddJob.Text = "+ Job";
-            this.btnAddJob.UseVisualStyleBackColor = true;
-            // 
             // btnAddTest
             // 
+            this.btnAddTest.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.btnAddTest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddTest.Location = new System.Drawing.Point(8, 127);
+            this.btnAddTest.ForeColor = System.Drawing.Color.White;
+            this.btnAddTest.Location = new System.Drawing.Point(7, 127);
             this.btnAddTest.Name = "btnAddTest";
-            this.btnAddTest.Size = new System.Drawing.Size(47, 23);
+            this.btnAddTest.Size = new System.Drawing.Size(51, 23);
             this.btnAddTest.TabIndex = 0;
             this.btnAddTest.Text = "+ Test";
-            this.btnAddTest.UseVisualStyleBackColor = true;
+            this.btnAddTest.UseVisualStyleBackColor = false;
             this.btnAddTest.Click += new System.EventHandler(this.btnAddTest_Click);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button3);
-            this.groupBox1.Controls.Add(this.button7);
-            this.groupBox1.Controls.Add(this.button6);
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.btnQuickPack);
+            this.groupBox1.Controls.Add(this.btnQuickLowPoly);
+            this.groupBox1.Controls.Add(this.btnQuickBake);
+            this.groupBox1.Controls.Add(this.btnQuickUnwrap);
             this.groupBox1.Location = new System.Drawing.Point(206, 3);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
@@ -354,41 +316,45 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Info";
             // 
-            // button3
+            // btnQuickPack
             // 
-            this.button3.Location = new System.Drawing.Point(5, 71);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(72, 20);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Pack";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnQuickPack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnQuickPack.Location = new System.Drawing.Point(5, 74);
+            this.btnQuickPack.Name = "btnQuickPack";
+            this.btnQuickPack.Size = new System.Drawing.Size(72, 22);
+            this.btnQuickPack.TabIndex = 4;
+            this.btnQuickPack.Text = "Pack";
+            this.btnQuickPack.UseVisualStyleBackColor = true;
             // 
-            // button7
+            // btnQuickLowPoly
             // 
-            this.button7.Location = new System.Drawing.Point(5, 18);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(72, 20);
-            this.button7.TabIndex = 3;
-            this.button7.Text = "Low poly";
-            this.button7.UseVisualStyleBackColor = true;
+            this.btnQuickLowPoly.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnQuickLowPoly.Location = new System.Drawing.Point(5, 18);
+            this.btnQuickLowPoly.Name = "btnQuickLowPoly";
+            this.btnQuickLowPoly.Size = new System.Drawing.Size(72, 22);
+            this.btnQuickLowPoly.TabIndex = 3;
+            this.btnQuickLowPoly.Text = "Low poly";
+            this.btnQuickLowPoly.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // btnQuickBake
             // 
-            this.button6.Location = new System.Drawing.Point(5, 95);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(72, 20);
-            this.button6.TabIndex = 2;
-            this.button6.Text = "Bake";
-            this.button6.UseVisualStyleBackColor = true;
+            this.btnQuickBake.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnQuickBake.Location = new System.Drawing.Point(5, 102);
+            this.btnQuickBake.Name = "btnQuickBake";
+            this.btnQuickBake.Size = new System.Drawing.Size(72, 22);
+            this.btnQuickBake.TabIndex = 2;
+            this.btnQuickBake.Text = "Bake";
+            this.btnQuickBake.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnQuickUnwrap
             // 
-            this.button1.Location = new System.Drawing.Point(5, 45);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(72, 20);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Unwrap";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnQuickUnwrap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnQuickUnwrap.Location = new System.Drawing.Point(5, 46);
+            this.btnQuickUnwrap.Name = "btnQuickUnwrap";
+            this.btnQuickUnwrap.Size = new System.Drawing.Size(72, 22);
+            this.btnQuickUnwrap.TabIndex = 0;
+            this.btnQuickUnwrap.Text = "Unwrap";
+            this.btnQuickUnwrap.UseVisualStyleBackColor = true;
             // 
             // checkBoxIsolate
             // 
@@ -468,12 +434,59 @@
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripInfo,
             this.toolStripButton1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(290, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // btnTestLoad
+            // 
+            this.btnTestLoad.Image = global::Y3D.Properties.Resources.open_16;
+            this.btnTestLoad.Location = new System.Drawing.Point(120, 127);
+            this.btnTestLoad.Name = "btnTestLoad";
+            this.btnTestLoad.Size = new System.Drawing.Size(23, 23);
+            this.btnTestLoad.TabIndex = 8;
+            this.btnTestLoad.UseVisualStyleBackColor = true;
+            // 
+            // btnTestSetting
+            // 
+            this.btnTestSetting.Image = global::Y3D.Properties.Resources.setting_16;
+            this.btnTestSetting.Location = new System.Drawing.Point(64, 127);
+            this.btnTestSetting.Name = "btnTestSetting";
+            this.btnTestSetting.Size = new System.Drawing.Size(23, 23);
+            this.btnTestSetting.TabIndex = 7;
+            this.btnTestSetting.UseVisualStyleBackColor = true;
+            // 
+            // btnTestEdit
+            // 
+            this.btnTestEdit.Image = global::Y3D.Properties.Resources.edit_16;
+            this.btnTestEdit.Location = new System.Drawing.Point(149, 127);
+            this.btnTestEdit.Name = "btnTestEdit";
+            this.btnTestEdit.Size = new System.Drawing.Size(23, 23);
+            this.btnTestEdit.TabIndex = 6;
+            this.btnTestEdit.UseVisualStyleBackColor = true;
+            // 
+            // btnTestDel
+            // 
+            this.btnTestDel.Image = global::Y3D.Properties.Resources.trash16;
+            this.btnTestDel.Location = new System.Drawing.Point(178, 127);
+            this.btnTestDel.Name = "btnTestDel";
+            this.btnTestDel.Size = new System.Drawing.Size(23, 23);
+            this.btnTestDel.TabIndex = 5;
+            this.btnTestDel.UseVisualStyleBackColor = true;
+            // 
+            // toolStripInfo
+            // 
+            this.toolStripInfo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripInfo.Image = global::Y3D.Properties.Resources.info_16;
+            this.toolStripInfo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripInfo.Name = "toolStripInfo";
+            this.toolStripInfo.Size = new System.Drawing.Size(23, 22);
+            this.toolStripInfo.Text = "toolStripButton2";
+            this.toolStripInfo.Click += new System.EventHandler(this.toolStripInfo_Click);
             // 
             // toolStripButton1
             // 
@@ -484,6 +497,28 @@
             this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton1.Text = "toolStripButton1";
             this.toolStripButton1.ToolTipText = "Tags";
+            // 
+            // button8
+            // 
+            this.button8.Image = global::Y3D.Properties.Resources.start;
+            this.button8.Location = new System.Drawing.Point(58, 348);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(20, 20);
+            this.button8.TabIndex = 5;
+            this.button8.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox1.ImageLocation = "";
+            this.pictureBox1.InitialImage = global::Y3D.Properties.Resources.noimage;
+            this.pictureBox1.Location = new System.Drawing.Point(7, 371);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(175, 141);
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
             // 
             // ObjectsControl
             // 
@@ -497,7 +532,6 @@
             this.tabNavLeft.ResumeLayout(false);
             this.tabArea.ResumeLayout(false);
             this.tabArea.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gtreeListView)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -509,6 +543,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.objectListCtrl)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -533,16 +568,14 @@
         private System.Windows.Forms.CheckBox checkBoxInGroup;
         private System.Windows.Forms.CheckBox checkBoxIsolate;
         private System.Windows.Forms.CheckBox listCheck;
-        private System.Windows.Forms.Button btnTestLoad;
-        private System.Windows.Forms.Button btnAddJob;
         private System.Windows.Forms.Button btnAddTest;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
         private BrightIdeasSoftware.FastObjectListView olvLocalTest;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btnQuickUnwrap;
+        private System.Windows.Forms.Button btnQuickLowPoly;
+        private System.Windows.Forms.Button btnQuickBake;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button8;
@@ -550,8 +583,12 @@
         private System.Windows.Forms.TabPage tabPageTest;
         private System.Windows.Forms.TabPage tabPageVersion;
         private System.Windows.Forms.Button btnTestDel;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnQuickPack;
         private BrightIdeasSoftware.OLVColumn olvId;
         private BrightIdeasSoftware.OLVColumn olvNote;
+        private System.Windows.Forms.Button btnTestEdit;
+        private System.Windows.Forms.Button btnTestSetting;
+        private System.Windows.Forms.Button btnTestLoad;
+        private System.Windows.Forms.ToolStripButton toolStripInfo;
     }
 }

@@ -449,7 +449,7 @@ namespace Y3D.Projects
             return false;
         }
 
-        public static bool CreateNewTest(string tname)
+        public static bool CreateNewTest(string tname, string note,InitTestPreset preset)
         {
             if (!checkMaxTools(worker)) return false;
             if (TestData == null) TestData = new UserTestData();
@@ -459,6 +459,7 @@ namespace Y3D.Projects
             }
             var ListTest = TestData.Utests[tname];
             VerTest vt = new VerTest();
+            vt.Vnote = note;
             //vt.Id = Guid.NewGuid().ToString();
             vt.Id = Convert.ToBase64String(Guid.NewGuid().ToByteArray()).Substring(0, 8);
             var test_path = System.IO.Path.Combine(CurrentP.ProjectPath, "test",(tname+"_" + vt.Id));
@@ -475,6 +476,8 @@ namespace Y3D.Projects
             InitTestParam itp = new InitTestParam();
             itp.Tname = tname;
             itp.TestFolder = test_path;
+            itp.Note = note;
+            itp.InitTest = preset;
             var x = Y3D.Projects.Utils.MaxClient.Init4Test(itp);
             TestData.Utests[tname].Otests.Add(vt);
             Projects.Utils.saveTestData();

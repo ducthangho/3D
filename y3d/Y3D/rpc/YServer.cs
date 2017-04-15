@@ -29,7 +29,7 @@ namespace Y3D.rpc
             //MessageBox.Show("da chon:");
             if (request !=null && request.Select!=null)
             {
-                MessageBox.Show("Selected "+request.Select.Name);
+                //MessageBox.Show("Selected "+request.Select.Name);
             }
             return Task.FromResult(new ResponseEvent2());
         }
@@ -79,7 +79,7 @@ namespace Y3D.rpc
             ).Wait();
             Y3D.Projects.Utils.mainform = new Forms.YMainForm();
             Y3D.Projects.Utils.mainform.Show();
-            while (t.ThreadState == System.Threading.ThreadState.Unstarted)
+            while (t.ThreadState != System.Threading.ThreadState.Running)
             {
                 System.Threading.Thread.Sleep(1000);
             }

@@ -26,28 +26,9 @@ namespace Y3D.Projects
                 this.dlvListProject.SetObjects(Users.Auth.usetting.Projects.Values);
         }
 
-        private void btnNewFromMax_Click(object sender, EventArgs e)
-        {
-            if (Y3D.Projects.Utils.newProjectFromMax())
-            {
-                this.dlvListProject.SetObjects(Users.Auth.usetting.Projects.Values);
-                Utils.mainform.switch2OManager();
-            }
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnNewBlank_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnDelP_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete?", "Oh", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete?", "Remove project", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
                 ProjectInfo pi = (ProjectInfo)this.dlvListProject.SelectedObject;
@@ -95,6 +76,15 @@ namespace Y3D.Projects
         private void dlvListProject_DoubleClick(object sender, EventArgs e)
         {
             LoadP();
+        }
+
+        private void mtNew3DMax_Click(object sender, EventArgs e)
+        {
+            if (Y3D.Projects.Utils.newProjectFromMax())
+            {
+                this.dlvListProject.SetObjects(Users.Auth.usetting.Projects.Values);
+                Utils.mainform.switch2OManager();
+            }
         }
     }
 }

@@ -30,20 +30,20 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnMainMenu = new System.Windows.Forms.Button();
-            this.metroContextMenu1 = new MetroFramework.Controls.MetroContextMenu(this.components);
-            this.workerManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
             this.btnTabTest = new System.Windows.Forms.Button();
             this.btnTabObject = new System.Windows.Forms.Button();
             this.btnTabProject = new System.Windows.Forms.Button();
+            this.btnMainMenu = new System.Windows.Forms.Button();
+            this.metroContextMenu1 = new MetroFramework.Controls.MetroContextMenu(this.components);
+            this.workerManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mainPannel = new MetroFramework.Controls.MetroPanel();
             this.btnExpand = new System.Windows.Forms.Button();
             this.projectControl1 = new Y3D.Projects.ProjectControl();
             this.objectsControl1 = new Y3D.Projects.ObjectsControl();
             this.testControl1 = new Y3D.Tests.TestControl();
             this.panel1.SuspendLayout();
             this.metroContextMenu1.SuspendLayout();
-            this.metroPanel1.SuspendLayout();
+            this.mainPannel.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -56,51 +56,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(40, 584);
             this.panel1.TabIndex = 4;
-            // 
-            // btnMainMenu
-            // 
-            this.btnMainMenu.BackColor = System.Drawing.Color.YellowGreen;
-            this.btnMainMenu.ContextMenuStrip = this.metroContextMenu1;
-            this.btnMainMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMainMenu.ForeColor = System.Drawing.Color.White;
-            this.btnMainMenu.Location = new System.Drawing.Point(43, 9);
-            this.btnMainMenu.Name = "btnMainMenu";
-            this.btnMainMenu.Size = new System.Drawing.Size(50, 23);
-            this.btnMainMenu.TabIndex = 6;
-            this.btnMainMenu.Text = "Setting";
-            this.btnMainMenu.UseVisualStyleBackColor = false;
-            this.btnMainMenu.Click += new System.EventHandler(this.btnMainMenu_Click);
-            // 
-            // metroContextMenu1
-            // 
-            this.metroContextMenu1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.workerManagerToolStripMenuItem});
-            this.metroContextMenu1.Name = "metroContextMenu1";
-            this.metroContextMenu1.Size = new System.Drawing.Size(163, 48);
-            // 
-            // workerManagerToolStripMenuItem
-            // 
-            this.workerManagerToolStripMenuItem.Image = global::Y3D.Properties.Resources.net;
-            this.workerManagerToolStripMenuItem.Name = "workerManagerToolStripMenuItem";
-            this.workerManagerToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
-            this.workerManagerToolStripMenuItem.Text = "Worker manager";
-            this.workerManagerToolStripMenuItem.Click += new System.EventHandler(this.workerManagerToolStripMenuItem_Click);
-            // 
-            // metroPanel1
-            // 
-            this.metroPanel1.Controls.Add(this.projectControl1);
-            this.metroPanel1.Controls.Add(this.objectsControl1);
-            this.metroPanel1.Controls.Add(this.testControl1);
-            this.metroPanel1.HorizontalScrollbarBarColor = true;
-            this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroPanel1.HorizontalScrollbarSize = 10;
-            this.metroPanel1.Location = new System.Drawing.Point(43, 39);
-            this.metroPanel1.Name = "metroPanel1";
-            this.metroPanel1.Size = new System.Drawing.Size(505, 550);
-            this.metroPanel1.TabIndex = 8;
-            this.metroPanel1.VerticalScrollbarBarColor = true;
-            this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
-            this.metroPanel1.VerticalScrollbarSize = 10;
             // 
             // btnTabTest
             // 
@@ -147,12 +102,58 @@
             this.btnTabProject.UseVisualStyleBackColor = false;
             this.btnTabProject.Click += new System.EventHandler(this.btnTabProject_Click);
             // 
+            // btnMainMenu
+            // 
+            this.btnMainMenu.BackColor = System.Drawing.Color.YellowGreen;
+            this.btnMainMenu.ContextMenuStrip = this.metroContextMenu1;
+            this.btnMainMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMainMenu.ForeColor = System.Drawing.Color.White;
+            this.btnMainMenu.Location = new System.Drawing.Point(43, 9);
+            this.btnMainMenu.Name = "btnMainMenu";
+            this.btnMainMenu.Size = new System.Drawing.Size(50, 23);
+            this.btnMainMenu.TabIndex = 6;
+            this.btnMainMenu.Text = "Setting";
+            this.btnMainMenu.UseVisualStyleBackColor = false;
+            this.btnMainMenu.Click += new System.EventHandler(this.btnMainMenu_Click);
+            // 
+            // metroContextMenu1
+            // 
+            this.metroContextMenu1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.workerManagerToolStripMenuItem});
+            this.metroContextMenu1.Name = "metroContextMenu1";
+            this.metroContextMenu1.Size = new System.Drawing.Size(163, 26);
+            // 
+            // workerManagerToolStripMenuItem
+            // 
+            this.workerManagerToolStripMenuItem.Image = global::Y3D.Properties.Resources.net;
+            this.workerManagerToolStripMenuItem.Name = "workerManagerToolStripMenuItem";
+            this.workerManagerToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.workerManagerToolStripMenuItem.Text = "Worker manager";
+            this.workerManagerToolStripMenuItem.Click += new System.EventHandler(this.workerManagerToolStripMenuItem_Click);
+            // 
+            // mainPannel
+            // 
+            this.mainPannel.Controls.Add(this.projectControl1);
+            this.mainPannel.Controls.Add(this.objectsControl1);
+            this.mainPannel.Controls.Add(this.testControl1);
+            this.mainPannel.HorizontalScrollbarBarColor = true;
+            this.mainPannel.HorizontalScrollbarHighlightOnWheel = false;
+            this.mainPannel.HorizontalScrollbarSize = 10;
+            this.mainPannel.Location = new System.Drawing.Point(43, 39);
+            this.mainPannel.Name = "mainPannel";
+            this.mainPannel.Size = new System.Drawing.Size(505, 550);
+            this.mainPannel.TabIndex = 8;
+            this.mainPannel.VerticalScrollbarBarColor = true;
+            this.mainPannel.VerticalScrollbarHighlightOnWheel = false;
+            this.mainPannel.VerticalScrollbarSize = 10;
+            // 
             // btnExpand
             // 
-            this.btnExpand.BackColor = System.Drawing.Color.YellowGreen;
+            this.btnExpand.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnExpand.ContextMenuStrip = this.metroContextMenu1;
             this.btnExpand.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExpand.ForeColor = System.Drawing.Color.White;
+            this.btnExpand.Image = global::Y3D.Properties.Resources.sizemode_1;
             this.btnExpand.Location = new System.Drawing.Point(94, 9);
             this.btnExpand.Name = "btnExpand";
             this.btnExpand.Size = new System.Drawing.Size(23, 23);
@@ -201,7 +202,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(350, 594);
             this.Controls.Add(this.btnExpand);
-            this.Controls.Add(this.metroPanel1);
+            this.Controls.Add(this.mainPannel);
             this.Controls.Add(this.btnMainMenu);
             this.Controls.Add(this.panel1);
             this.DisplayHeader = false;
@@ -217,7 +218,7 @@
             this.Load += new System.EventHandler(this.YMainForm_Load);
             this.panel1.ResumeLayout(false);
             this.metroContextMenu1.ResumeLayout(false);
-            this.metroPanel1.ResumeLayout(false);
+            this.mainPannel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -233,7 +234,7 @@
         private System.Windows.Forms.Button btnMainMenu;
         private MetroFramework.Controls.MetroContextMenu metroContextMenu1;
         private System.Windows.Forms.ToolStripMenuItem workerManagerToolStripMenuItem;
-        private MetroFramework.Controls.MetroPanel metroPanel1;
+        private MetroFramework.Controls.MetroPanel mainPannel;
         private System.Windows.Forms.Button btnExpand;
     }
 }

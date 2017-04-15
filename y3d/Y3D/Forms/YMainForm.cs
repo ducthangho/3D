@@ -14,13 +14,63 @@ namespace Y3D.Forms
     public partial class YMainForm : MetroFramework.Forms.MetroForm
     {
         private List<Button> htab_buttons = new List<Button>();
-
+        public int size_mode = 1;
+        public int[] pannel_width = null;
         public YMainForm()
         {
             InitializeComponent();
             htab_buttons.Add(btnTabProject);
             htab_buttons.Add(btnTabObject);
             htab_buttons.Add(btnTabTest);
+        }
+
+        public void toggle_size()
+        {
+            size_mode = 1 - size_mode;
+
+            var s = mainPannel.Size;
+            s.Width = pannel_width[size_mode];
+            mainPannel.Size = s;
+
+            if (size_mode == 0)
+            {
+
+            }
+        }
+
+        private void init_htab()
+        {
+            htab_buttons.Add(btnTabProject);
+            htab_buttons.Add(btnTabObject);
+            htab_buttons.Add(btnTabTest);
+
+            pannel_width[0] = 300;
+            pannel_width[1] = 550;
+
+
+            //if (btnExpand.Text == ">")
+            //{
+            //    var s = this.Size;
+            //    s.Width = objectsControl1.PreferredSize.Width + 50;
+            //    this.Size = s;
+
+            //    var l = objectsControl1.Location;
+            //    l.X = 0;
+            //    objectsControl1.Location = l;
+            //    btnExpand.Text = "<";
+            //}
+            //else
+            //{
+            //    var s = this.Size;
+            //    s.Width = 350;
+            //    this.Size = s;
+
+            //    var l = objectsControl1.Location;
+            //    l.X -= 200;
+            //    objectsControl1.Location = l;
+            //    btnExpand.Text = ">";
+            //}
+
         }
 
         private void active_htab(Button n)
@@ -42,12 +92,14 @@ namespace Y3D.Forms
             if (n.Tag != "omana")
             {
                 btnExpand.Enabled = false;
+                btnExpand.Hide();
                 var s = this.Size;
                 s.Width = 350;
                 this.Size = s;
             } else
             {
                 btnExpand.Enabled = true;
+                btnExpand.Show();
                 var s = this.Size;
                 if (btnExpand.Text == "<")
                 {
@@ -175,6 +227,7 @@ namespace Y3D.Forms
                 l.X = 0;
                 objectsControl1.Location = l;
                 btnExpand.Text = "<";
+                btnExpand.Image = (Image)Y3D.Properties.Resources.ResourceManager.GetObject("sizemode_1");
             } else
             {
                 var s = this.Size;
@@ -185,6 +238,7 @@ namespace Y3D.Forms
                 l.X -= 200;
                 objectsControl1.Location = l;
                 btnExpand.Text = ">";
+                btnExpand.Image = (Image)Y3D.Properties.Resources.ResourceManager.GetObject("sizemode_0");
             }
         }
 

@@ -35,7 +35,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>y3d\bin\</OutputPath>
+    <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -76,6 +76,10 @@
       <HintPath>..\packages\ObjectListView.Official.2.9.1\lib\net20\ObjectListView.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="SharpDX, Version=3.1.1.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpDX.3.1.1\lib\net45\SharpDX.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="SplashScreen, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\SplashScreen.Winforms.1.0.0\lib\SplashScreen.dll</HintPath>
       <Private>True</Private>
@@ -98,7 +102,18 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Projects\TestInitForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Projects\TestInitForm.Designer.cs">
+      <DependentUpon>TestInitForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Projects\Utils.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Users\AuthForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,6 +156,9 @@
     <Compile Include="rpc\YServer.cs" />
     <Compile Include="Users\Auth.cs" />
     <Compile Include="Utils\FaceRange.cs" />
+    <EmbeddedResource Include="Projects\TestInitForm.resx">
+      <DependentUpon>TestInitForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Users\AuthForm.resx">
       <DependentUpon>AuthForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -158,14 +176,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="Forms\YMainForm.resx">
       <DependentUpon>YMainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -273,6 +286,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\expand.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\setting_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\open_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\info_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\noimage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\expand_space.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sizemode_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sizemode_1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

@@ -205,8 +205,11 @@ namespace Y3D.Projects
             Object x = objectListCtrl.SelectedObject;
             if (x is YObject)
             {
+                Projects.TestInitForm tf = new TestInitForm();
+                var r = tf.ShowDialog();
+                if (r == DialogResult.Cancel) return;
                 var y = (YObject)x;
-                if (Projects.Utils.CreateNewTest(y.Name))
+                if (Projects.Utils.CreateNewTest(y.Name,tf.note,tf.testPreset))
                 {
                     MessageBox.Show("Create ok");
                     olvLocalTest.SetObjects(Utils.TestData.Utests[y.Name].Otests);
@@ -225,6 +228,11 @@ namespace Y3D.Projects
             var s = this.Location;
             s.X -= 200;
             this.Location = s;
+        }
+
+        private void toolStripInfo_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

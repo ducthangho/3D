@@ -13,7 +13,7 @@ using LogClientCSharp;
 
 namespace Y3D.Forms
 {
-    public partial class WorkerForm : Form
+    public partial class WorkerForm : MetroFramework.Forms.MetroForm
     {
         public static LogClient log = LogClient.Instance;
         public WorkerForm()

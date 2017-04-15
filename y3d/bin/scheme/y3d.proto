@@ -636,7 +636,8 @@ message InitTestParam {
   string tname=1;
   string tid = 2;
   string test_folder = 3;
-  InitTestPreset init_test = 4;
+  string note = 4;
+  InitTestPreset init_test = 5;
 }
 
 message InitTestPreset {

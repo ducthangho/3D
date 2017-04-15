@@ -34,9 +34,8 @@
             this.dlvListProject = new BrightIdeasSoftware.DataListView();
             this.olvColumnPName = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.olvColumnPath = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
-            this.btnNewBlank = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnNewFromMax = new System.Windows.Forms.Button();
+            this.mtNew3DMax = new MetroFramework.Controls.MetroTile();
             ((System.ComponentModel.ISupportInitialize)(this.dlvListProject)).BeginInit();
             this.SuspendLayout();
             // 
@@ -104,17 +103,6 @@
             this.olvColumnPath.Groupable = false;
             this.olvColumnPath.Text = "Path";
             // 
-            // btnNewBlank
-            // 
-            this.btnNewBlank.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNewBlank.Location = new System.Drawing.Point(38, 84);
-            this.btnNewBlank.Name = "btnNewBlank";
-            this.btnNewBlank.Size = new System.Drawing.Size(110, 84);
-            this.btnNewBlank.TabIndex = 8;
-            this.btnNewBlank.Text = "New Blank Project";
-            this.btnNewBlank.UseVisualStyleBackColor = true;
-            this.btnNewBlank.Click += new System.EventHandler(this.btnNewBlank_Click);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -125,28 +113,28 @@
             this.label1.Size = new System.Drawing.Size(43, 25);
             this.label1.TabIndex = 9;
             this.label1.Text = "OR";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // btnNewFromMax
+            // mtNew3DMax
             // 
-            this.btnNewFromMax.BackColor = System.Drawing.Color.YellowGreen;
-            this.btnNewFromMax.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNewFromMax.Location = new System.Drawing.Point(154, 84);
-            this.btnNewFromMax.Name = "btnNewFromMax";
-            this.btnNewFromMax.Size = new System.Drawing.Size(110, 84);
-            this.btnNewFromMax.TabIndex = 10;
-            this.btnNewFromMax.Text = "New From 3DMAX";
-            this.btnNewFromMax.UseVisualStyleBackColor = false;
-            this.btnNewFromMax.Click += new System.EventHandler(this.btnNewFromMax_Click);
+            this.mtNew3DMax.ActiveControl = null;
+            this.mtNew3DMax.Location = new System.Drawing.Point(77, 112);
+            this.mtNew3DMax.Name = "mtNew3DMax";
+            this.mtNew3DMax.Size = new System.Drawing.Size(149, 52);
+            this.mtNew3DMax.Style = MetroFramework.MetroColorStyle.Lime;
+            this.mtNew3DMax.TabIndex = 11;
+            this.mtNew3DMax.Text = "New From 3DMAX";
+            this.mtNew3DMax.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.mtNew3DMax.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
+            this.mtNew3DMax.UseSelectable = true;
+            this.mtNew3DMax.Click += new System.EventHandler(this.mtNew3DMax_Click);
             // 
             // ProjectControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.Controls.Add(this.btnNewFromMax);
+            this.Controls.Add(this.mtNew3DMax);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnNewBlank);
             this.Controls.Add(this.btnDelP);
             this.Controls.Add(this.btnEditP);
             this.Controls.Add(this.btnLoadP);
@@ -167,8 +155,7 @@
         private BrightIdeasSoftware.DataListView dlvListProject;
         private BrightIdeasSoftware.OLVColumn olvColumnPName;
         private BrightIdeasSoftware.OLVColumn olvColumnPath;
-        private System.Windows.Forms.Button btnNewBlank;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnNewFromMax;
+        private MetroFramework.Controls.MetroTile mtNew3DMax;
     }
 }
