@@ -3,6 +3,7 @@
 #include <vector>
 #include "MyRectangle.h"
 #include "Pack.h"
+#include "ifnpub.h"
 
 const Class_ID fp_basics_CLASS_ID(0x3f869fdf, 0x63e46b8e);
 
@@ -247,10 +248,124 @@ int FP_Basic::myTestFunction2(int * i)
 	return 0;
 }
 
+void xref_low_error(std::wstring project_path, std::wstring pname) {
+
+	Tab<const MCHAR*> sourceFile_Files;
+	std::wstring filename = (project_path + L"\\" + pname + L"_low0.max");
+	const wchar_t* file = filename.c_str();
+	sourceFile_Files.Append(1, &file);
+	sourceFile_Files.Shrink();
+
+	Tab<MSTR*> tstr_tab;
+	MSTR str(filename.c_str());
+	MSTR* a = &str;
+	tstr_tab.Append(1, &a);
+	tstr_tab.Shrink();
+
+	Tab<MSTR*> tstr_tab_dynamic_allocate_items;
+	MSTR* str_dynamic_allocate_items = new MSTR(filename.c_str());
+	tstr_tab_dynamic_allocate_items.Append(1, &str_dynamic_allocate_items);
+	tstr_tab_dynamic_allocate_items.Shrink();
+
+
+	//FPValue param1;
+	//int i = 10;
+	////param1.LoadPtr(FILENAME_ADDXREFITEMSFROMFILE_IOBJXREFMGR_PARAM1_TYPE, filename.data());	
+	//param1.type = FILENAME_ADDXREFITEMSFROMFILE_IOBJXREFMGR_PARAM1_TYPE;
+	//param1.s = filename.data();
+	//param1.LoadPtr(ParamType2::TYPE_INT_BP, &i);	
+	//LOG("param1.s here= "); LOG(param1.s); LOG("\n");
+
+	//  	FPValue param1_FPValue;
+	//  	TCHAR* param1_TCHAR = _T("Test Track View");
+	// 	param1_FPValue.type = TYPE_STRING,
+	// 	param1_FPValue.s = param1_TCHAR;
+	//  	param1.type = (ParamType2)TYPE_FPVALUE;
+	//  	param1.fpv = &param1_FPValue;
+	try
+	{
+		FPValue param3;
+		//OBJNAMES_ADDXREFITEMSFROMFILE_IOBJXREFMGR_PARAM3_TYPE;
+		//param3.InitTab(ParamType2::TYPE_STRING_TAB, sourceFile_Files.Count());
+		//param3.LoadPtr(ParamType2::TYPE_STRING_TAB_BV, &sourceFile_Files);
+		//param3.Load(ParamType2::TYPE_STRING_TAB_BV,&sourceFile_Files);
+		param3.LoadPtr(ParamType2::TYPE_STRING_TAB, &sourceFile_Files);
+		//param3.LoadPtr(ParamType2::TYPE_STRING_TAB_BV, tstr_tab);
+		//param3.LoadPtr(ParamType2::TYPE_STRING_TAB_BV, &tstr_tab_dynamic_allocate_items);
+		//SYSTEM_CALL(param3.LoadPtr(ParamType2::TYPE_STRING_TAB_BV, &sourceFile_Files);)
+		//param3.Load(ParamType2::TYPE_STRING_TAB, &sourceFile_Files);
+	}
+	catch (const std::exception&)
+	{
+		//LOG("Why this is error, tell me pls");
+	};
+
+
+	//LOG("???????");
+	//  	FPValue param4;
+	//  	param4.type = ParamType2::TYPE_FPVALUE_TAB_BV;
+	// 	Tab<FPValue*> param4_fpvalues;
+	// 	FPValue param4_fpvalue;
+	// 	FPValue* pointer_param4_fpvalue;
+	// 	param4_fpvalue.type = (ParamType2)1;
+	// 	param4_fpvalue.i = 10;
+	// 	param4_fpvalues.Append(1, &pointer_param4_fpvalue);
+	// 	param4.fpv_tab = &param4_fpvalues;
+
+	FPValue param4;
+	//param4.type = ParamType2::TYPE_INT_TAB;
+	//param4.type = ParamType2::TYPE_INT_TAB_BV;
+	//param4.type = ParamType2::TYPE_INT_TAB_BR;
+	Tab<int> xrefoptions;
+	xrefoptions.Resize(1);
+	int h = 1;
+	xrefoptions.Append(1, &h);
+
+	//param4.i_tab = &xrefoptions;
+
+	//LOG("type is {0}", param4.type);
+
+
+
+
+	//FPParams fnParams;
+	//FPValue result, param1;
+	//FPValue param1_FPValue;
+	//TCHAR* param1_TCHAR = _T("Test Track View");
+	//param1_FPValue.type = TYPE_STRING,
+	//	param1_FPValue.s = param1_TCHAR;
+
+	//param1.type = (ParamType2)TYPE_FPVALUE,
+	//	param1.fpv = &param1_FPValue;
+	//fnParams.params.append(&param1,1);
+
+	//LOG("type is {0}", param1.type);
+
+	// 	auto s_tab = param3.s_tab;
+	// 	auto count = s_tab->Count();
+	// 	LOG("count here is {}\n", count);
+	// 	for (int i = 0; i < count; i++)
+	// 	{
+	// 		auto sp = (*s_tab)[i];
+	// 		LOG("Name {} from param3.s_tab ", i); LOG(sp); LOG("\n");
+	// 	}
+	// 	if (s_tab == nullptr)
+	// 		LOG("this not good\n");
+	// 	else
+	// 		LOG("uha\n");
+}
+
 int FP_Basic::myTestFunction3(int i)
 {
 	mprintf(L"Xin Chao MytestFunction3");
 	i++;
+
+	FPValue param3;
+	
+	std::wstring projectPath = L"F:\\WorkSpace\\3Ds Max\\Building Phong Tam Project\\scenes\\TestProOptimizerScene";
+	std::wstring oFileName = L"001";
+	xref_low_error(projectPath, oFileName);
+
 	return 0;
 }
 
