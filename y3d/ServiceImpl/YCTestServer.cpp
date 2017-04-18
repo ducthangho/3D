@@ -772,10 +772,374 @@ void pre_optimize(std::string oFileDir,std::string oFileName, std::string projec
 	//logserver::LOG(b);
 }
 
+inline void xref_low_old(std::wstring project_path, std::wstring pname) {
+	FPInterface* fpInterface = GetCOREInterface(OBJXREFMGR_INTERFACE_ID);
+	FPParams p(1, DUPOBJNAMEACTION_IOBJXREFMGR_TYPEPARAM, OBJXREFMGR_ENUM3::deleteOld);
+	fpInterface->Invoke(DUPOBJNAMEACTION_IOBJXREFMGR_SETTER, &p);
+
+	auto* ip = GetCOREInterface16();
+	INodeTab inodetab;
+	ip->GetSelNodeTab(inodetab);
+	Tab<MSTR*> obj_names;
+	Tab<const MCHAR*> obj_names_mchartype;
+	auto numNodeSelection = inodetab.Count();
+	obj_names_mchartype.Resize(numNodeSelection);
+	obj_names.Resize(numNodeSelection);
+	LOG("count is {}\n", numNodeSelection);
+	for (int i = 0; i < numNodeSelection; i++)
+	{
+		auto inode = inodetab[i];
+		//auto name = const_cast<wchar_t*>(inode->GetName());
+		auto name = inode->NodeName();
+		auto pname = &name;
+		obj_names.Append(1, &pname);
+		//LOG(obj_names[i]->data());
+		LOG(obj_names[i]->data()); LOG("\n");
+		auto name_wcharType = inode->GetName();
+		obj_names_mchartype.Append(1, &name_wcharType);
+		LOG(obj_names_mchartype[i]); LOG("\n");
+	}
+	//obj_names.SetCount(inodetab.Count(), true);
+	//obj_names.Shrink();
+
+	// 	FILENAME_ADDXREFITEMSFROMFILE_IOBJXREFMGR_PARAM1_TYPE;
+	FPParams fnParams;
+	//FPValue result, param1, param3;
+
+	std::wstring filename = (project_path + L"\\" + pname + L"_low0.max");
+	MSTR a = filename.data();
+
+
+	Tab<MCHAR*> sourceFile_Files;
+	auto file = const_cast<wchar_t*>(filename.c_str());
+	sourceFile_Files.Append(1, &file);
+	//FPParams pSourceFileFiles(1, TYPE_STRING_TAB_BV, sourceFile_Files);
+	//pSourceFileFiles.GetFPValue(0)->type;
+
+	//param1.tstr = &a;	
+	//FPValue param1(FILENAME_ADDXREFITEMSFROMFILE_IOBJXREFMGR_PARAM1_TYPE, s2ws(filename).data());
+	FPValue param1;
+	////	param1.Load(FILENAME_ADDXREFITEMSFROMFILE_IOBJXREFMGR_PARAM1_TYPE, s2ws(filename).data());
+	//auto isPtrType = param1.IsPointerBasedType(FILENAME_ADDXREFITEMSFROMFILE_IOBJXREFMGR_PARAM1_TYPE);
+	//LOG("is Pointer base type ?? {0}\n", isPtrType);
+	param1.LoadPtr(FILENAME_ADDXREFITEMSFROMFILE_IOBJXREFMGR_PARAM1_TYPE, filename.data());
+	////param1.type = FILENAME_ADDXREFITEMSFROMFILE_IOBJXREFMGR_PARAM1_TYPE;
+	////param1.s = s2ws(filename).data();	
+	LOG("param1.s here= "); LOG(param1.s); LOG("\n");
+	//LOG("param1.s here= "); LOG(param1.tstr->data()); LOG("\n");
+	////LOG("param1.tstr = {0}.\n",(param1.tstr==NULL));
+	////FPValue param3(ParamType2::TYPE_STRING_TAB, 20);
+	//isPtrType = param1.IsPointerBasedType(TYPE_STRING_TAB_BV);
+	//LOG("is Pointer base type ?? {0}\n", isPtrType);
+	FPValue param3;
+	//param3.InitTab(ParamType2::TYPE_STRING_TAB,numNodeSelection);
+	//param3.s_tab = &obj_names_mchartype;
+	//const wchar_t* p1 = L"dsdsdsa";	
+	OBJNAMES_ADDXREFITEMSFROMFILE_IOBJXREFMGR_PARAM3_TYPE;
+	//param3.InitTab(OBJNAMES_ADDXREFITEMSFROMFILE_IOBJXREFMGR_PARAM3_TYPE,0);
+	//param3.s_tab = &obj_names_mchartype;
+
+	//param3.LoadPtr(ParamType2::TYPE_STRING_TAB_BV, &sourceFile_Files);
+	//param3.Load(ParamType2::TYPE_STRING_TAB_BV,&sourceFile_Files);
+	param3.LoadPtr(ParamType2::TYPE_STRING_TAB, &sourceFile_Files);
+	//param3.LoadPtr(ParamType2::TYPE_STRING_TAB_BV, &sourceFile_Files);
+	//SYSTEM_CALL(param3.LoadPtr(ParamType2::TYPE_STRING_TAB_BV, &sourceFile_Files);)
+
+	//param3.Load(ParamType2::TYPE_STRING_TAB, &sourceFile_Files);
+	auto s_tab = param3.s_tab;
+	auto count = s_tab->Count();
+	LOG("count here is {}\n", count);
+	for (int i = 0; i < count; i++)
+	{
+		auto sp = (*s_tab)[i];
+		LOG("Name {} from param3.s_tab ", i); LOG(sp); LOG("\n");
+	}
+	if (s_tab == nullptr)
+		LOG("ffffffffffffffffffff\n");
+	else
+		LOG("uha\n");
+
+	//param3.Free();
+
+	//auto s_tab = param3.tstr_tab;
+	//LOG("count here is {}\n", s_tab->Count());
+	//auto mstr = (*s_tab)[0];
+	//if (mstr == nullptr)
+	//{
+	//	LOG("oh fucking shit time 1\n");
+	//	MSTR a1(p1);
+	//	mstr = &a1;
+	//}
+	//	if (mstr != nullptr){
+	//		auto str = param3.s_tab;
+	//		auto str0 = (*str)[0];
+	//		if (str0 == nullptr)
+	//			LOG("oh Ffffffffffffffff ");
+	//	}
+
+
+
+
+
+	/*auto s = (*s_tab)[0];
+	if (s == nullptr)
+	{
+	LOG("fucking shit");
+	}*/
+
+	//LOG("count here is {}\n", ws2s(std::wstring((*s_tab)[0])));
+	//param3.LoadPtr(ParamType2::TYPE_STRING_TAB,obj_names);
+	//param3.type = ParamType2::TYPE_STRING_TAB;
+	//param3.s_tab = &obj_names_mchartype;
+	// 	param3.InitTab(ParamType2::TYPE_STRING_TAB, obj_names.Count());
+	//  	Tab<MSTR*>* t = &obj_names;
+	// 	param3.tstr_tab = t;
+	//FPValue v(ParamType2::TYPE_STRING_TAB, obj_names);
+	//LOG("type is {}\n",param3.type);
+	//auto s_tab = param3.s_tab;
+
+}
+
+inline void xref_low_error(std::wstring project_path, std::wstring pname) {
+
+	Tab<const MCHAR*> sourceFile_Files;
+	std::wstring filename = (project_path + L"\\" + pname + L"_low0.max");
+	const wchar_t* file = filename.c_str();
+	sourceFile_Files.Append(1, &file);
+	sourceFile_Files.Shrink();
+
+	Tab<MSTR*> tstr_tab;
+	MSTR str(filename.c_str());
+	MSTR* a = &str;
+	tstr_tab.Append(1, &a);
+	tstr_tab.Shrink();
+
+	Tab<MSTR*> tstr_tab_dynamic_allocate_items;
+	MSTR* str_dynamic_allocate_items = new MSTR(filename.c_str());
+	tstr_tab_dynamic_allocate_items.Append(1, &str_dynamic_allocate_items);
+	tstr_tab_dynamic_allocate_items.Shrink();
+
+
+	FPValue param1;
+	int i = 10;
+	//param1.LoadPtr(FILENAME_ADDXREFITEMSFROMFILE_IOBJXREFMGR_PARAM1_TYPE, filename.data());	
+	param1.type = FILENAME_ADDXREFITEMSFROMFILE_IOBJXREFMGR_PARAM1_TYPE;
+	param1.s = filename.data();
+	//param1.LoadPtr(ParamType2::TYPE_INT_BP, &i);	
+	//LOG("param1.s here= "); LOG(param1.s); LOG("\n");
+
+//  	FPValue param1_FPValue;
+//  	TCHAR* param1_TCHAR = _T("Test Track View");
+// 	param1_FPValue.type = TYPE_STRING,
+// 	param1_FPValue.s = param1_TCHAR;
+//  	param1.type = (ParamType2)TYPE_FPVALUE;
+//  	param1.fpv = &param1_FPValue;
+	try
+	{
+		FPValue param3;
+		OBJNAMES_ADDXREFITEMSFROMFILE_IOBJXREFMGR_PARAM3_TYPE;
+		//param3.InitTab(ParamType2::TYPE_STRING_TAB, sourceFile_Files.Count());
+		//param3.LoadPtr(ParamType2::TYPE_STRING_TAB_BV, &sourceFile_Files);
+		//param3.Load(ParamType2::TYPE_STRING_TAB_BV,&sourceFile_Files);
+		//param3.LoadPtr(ParamType2::TYPE_STRING_TAB_BV, sourceFile_Files);
+		//param3.LoadPtr(ParamType2::TYPE_STRING_TAB_BV, tstr_tab);
+		param3.LoadPtr(ParamType2::TYPE_STRING_TAB, &tstr_tab_dynamic_allocate_items);
+		//SYSTEM_CALL(param3.LoadPtr(ParamType2::TYPE_STRING_TAB_BV, &sourceFile_Files);)
+		//param3.Load(ParamType2::TYPE_STRING_TAB, &sourceFile_Files);
+	}
+	catch (const std::exception&)
+	{
+		LOG("Why this is error, tell me pls");
+	};
+	
+	FPValue param4;
+	param4.type = XREFOPTIONS_ADDXREFITEMSFROMFILE_IOBJXREFMGR_PARAM4_TYPE;
+	Tab<int> xrefoptions;
+	param4.i_tab = &xrefoptions;
+
+
+// 	auto s_tab = param3.s_tab;
+// 	auto count = s_tab->Count();
+// 	LOG("count here is {}\n", count);
+// 	for (int i = 0; i < count; i++)
+// 	{
+// 		auto sp = (*s_tab)[i];
+// 		LOG("Name {} from param3.s_tab ", i); LOG(sp); LOG("\n");
+// 	}
+// 	if (s_tab == nullptr)
+// 		LOG("this not good\n");
+// 	else
+// 		LOG("uha\n");
+}
+
+//inline void xref_low_old(std::string project_path, std::string pname) {
+//	FPInterface* fpInterface = GetCOREInterface(OBJXREFMGR_INTERFACE_ID);
+//	FPParams p(1, DUPOBJNAMEACTION_IOBJXREFMGR_TYPEPARAM,OBJXREFMGR_ENUM3::deleteOld);
+//	fpInterface->Invoke(DUPOBJNAMEACTION_IOBJXREFMGR_SETTER, &p);
+//
+//	auto* ip = GetCOREInterface16();
+//	INodeTab inodetab;
+//	ip->GetSelNodeTab(inodetab);
+//	Tab<MSTR*> obj_names;
+//	Tab<const MCHAR*> obj_names_mchartype;
+//	auto numNodeSelection = inodetab.Count();
+//	obj_names_mchartype.Resize(numNodeSelection);
+//	obj_names.Resize(numNodeSelection);
+//	LOG("count is {}\n", numNodeSelection);
+//	for (int i = 0; i < numNodeSelection; i++)
+//	{
+//		auto inode = inodetab[i];
+//		//auto name = const_cast<wchar_t*>(inode->GetName());
+//		auto name = inode->NodeName();
+//		auto pname = &name;
+//		obj_names.Append(1, &pname);
+//		//LOG(obj_names[i]->data());
+//		LOG(obj_names[i]->data()); LOG("\n");
+//		auto name_wcharType = inode->GetName();
+//		obj_names_mchartype.Append(1, &name_wcharType);
+//		LOG(obj_names_mchartype[i]); LOG("\n");
+//	}
+//	//obj_names.SetCount(inodetab.Count(), true);
+//	//obj_names.Shrink();
+//	
+//// 	FILENAME_ADDXREFITEMSFROMFILE_IOBJXREFMGR_PARAM1_TYPE;
+// 	FPParams fnParams;
+// 	//FPValue result, param1, param3;
+//
+//	std::string filename = (project_path + "\\" + pname + "_low0.max");	
+//	MSTR a = s2ws(filename).data();
+//
+//
+//	Tab<MCHAR*> sourceFile_Files;
+//	auto file = const_cast<wchar_t*>(s2ws(filename).c_str());
+//	sourceFile_Files.Append(1, &file);
+//	//FPParams pSourceFileFiles(1, TYPE_STRING_TAB_BV, sourceFile_Files);
+//	//pSourceFileFiles.GetFPValue(0)->type;
+//
+//	//param1.tstr = &a;	
+//	//FPValue param1(FILENAME_ADDXREFITEMSFROMFILE_IOBJXREFMGR_PARAM1_TYPE, s2ws(filename).data());
+// 	FPValue param1;
+// ////	param1.Load(FILENAME_ADDXREFITEMSFROMFILE_IOBJXREFMGR_PARAM1_TYPE, s2ws(filename).data());
+//	//auto isPtrType = param1.IsPointerBasedType(FILENAME_ADDXREFITEMSFROMFILE_IOBJXREFMGR_PARAM1_TYPE);
+//	//LOG("is Pointer base type ?? {0}\n", isPtrType);
+//	param1.LoadPtr(FILENAME_ADDXREFITEMSFROMFILE_IOBJXREFMGR_PARAM1_TYPE, s2ws(filename).data());
+//	////param1.type = FILENAME_ADDXREFITEMSFROMFILE_IOBJXREFMGR_PARAM1_TYPE;
+//	////param1.s = s2ws(filename).data();	
+//	LOG("param1.s here= "); LOG(param1.s); LOG("\n");
+//	//LOG("param1.s here= "); LOG(param1.tstr->data()); LOG("\n");
+//	////LOG("param1.tstr = {0}.\n",(param1.tstr==NULL));
+//	////FPValue param3(ParamType2::TYPE_STRING_TAB, 20);
+//	//isPtrType = param1.IsPointerBasedType(TYPE_STRING_TAB_BV);
+//	//LOG("is Pointer base type ?? {0}\n", isPtrType);
+//	FPValue param3;
+//	//param3.InitTab(ParamType2::TYPE_STRING_TAB,numNodeSelection);
+//	//param3.s_tab = &obj_names_mchartype;
+//	//const wchar_t* p1 = L"dsdsdsa";	
+//	OBJNAMES_ADDXREFITEMSFROMFILE_IOBJXREFMGR_PARAM3_TYPE;
+//	//param3.InitTab(OBJNAMES_ADDXREFITEMSFROMFILE_IOBJXREFMGR_PARAM3_TYPE,0);
+//	//param3.s_tab = &obj_names_mchartype;
+// 	
+//	//param3.LoadPtr(ParamType2::TYPE_STRING_TAB_BV, &sourceFile_Files);
+//	//param3.Load(ParamType2::TYPE_STRING_TAB_BV,&sourceFile_Files);
+//	param3.LoadPtr(ParamType2::TYPE_STRING_TAB, &sourceFile_Files);
+//	//param3.LoadPtr(ParamType2::TYPE_STRING_TAB_BV, &sourceFile_Files);
+//	//SYSTEM_CALL(param3.LoadPtr(ParamType2::TYPE_STRING_TAB_BV, &sourceFile_Files);)
+//	
+//	//param3.Load(ParamType2::TYPE_STRING_TAB, &sourceFile_Files);
+//  	auto s_tab = param3.s_tab;
+// 	auto count = s_tab->Count();
+// 	LOG("count here is {}\n", count);
+//	for (int i = 0; i < count; i++)
+//	{
+//		auto sp = (*s_tab)[i];
+//		LOG("Name {} from param3.s_tab ", i); LOG(sp); LOG("\n");
+//	}
+// 	if (s_tab == nullptr)
+// 		LOG("oh ffffffffffffffff\n");
+// 	else
+// 		LOG("uha\n");
+//
+//	//param3.Free();
+//
+//	//auto s_tab = param3.tstr_tab;
+//	//LOG("count here is {}\n", s_tab->Count());
+//	//auto mstr = (*s_tab)[0];
+//	//if (mstr == nullptr)
+//	//{
+//	//	LOG("oh fucking shit time 1\n");
+//	//	MSTR a1(p1);
+//	//	mstr = &a1;
+//	//}
+// //	if (mstr != nullptr){
+// //		auto str = param3.s_tab;
+// //		auto str0 = (*str)[0];
+// //		if (str0 == nullptr)
+// //			LOG("oh fucking shit ");
+// //	}
+//
+//
+//
+// 	
+//
+//	/*auto s = (*s_tab)[0];
+//	if (s == nullptr)
+//	{
+//		LOG("fucking shit");
+//	}*/
+//
+//	//LOG("count here is {}\n", ws2s(std::wstring((*s_tab)[0])));
+//	//param3.LoadPtr(ParamType2::TYPE_STRING_TAB,obj_names);
+// 	//param3.type = ParamType2::TYPE_STRING_TAB;
+// 	//param3.s_tab = &obj_names_mchartype;
+//// 	param3.InitTab(ParamType2::TYPE_STRING_TAB, obj_names.Count());
+////  	Tab<MSTR*>* t = &obj_names;
+//// 	param3.tstr_tab = t;
+//	//FPValue v(ParamType2::TYPE_STRING_TAB, obj_names);
+//	//LOG("type is {}\n",param3.type);
+//	//auto s_tab = param3.s_tab;
+//	
+//}
+
 inline void xref_low(std::string project_path, std::string pname) {
 	FPInterface* fpInterface = GetCOREInterface(OBJXREFMGR_INTERFACE_ID);
-	/*FPParams p(1, DUPOBJNAMEACTION_IOBJXREFMGR_SETTER, );*/
+	FPParams p(1, DUPOBJNAMEACTION_IOBJXREFMGR_TYPEPARAM, OBJXREFMGR_ENUM3::deleteOld);
+	fpInterface->Invoke(DUPOBJNAMEACTION_IOBJXREFMGR_SETTER, &p);
 
+	auto* ip = GetCOREInterface16();
+	INodeTab selectedINodes;
+	ip->GetSelNodeTab(selectedINodes);
+	Tab<MSTR*> objNames;
+	Tab<const MCHAR*> objNames_mchartype;
+	auto numNodeSelection = selectedINodes.Count();
+	objNames.Resize(numNodeSelection);
+	objNames_mchartype.Resize(numNodeSelection);
+	LOG("count is {}\n", numNodeSelection);
+	for (int i = 0; i < numNodeSelection; i++)
+	{
+		auto inode = selectedINodes[i];
+		//auto name = const_cast<wchar_t*>(inode->GetName());
+		auto name = inode->NodeName();
+		auto pname = &name;
+		objNames.Append(1, &pname);
+		//LOG(obj_names[i]->data());
+		LOG(objNames[i]->data()); LOG("\n");
+		auto name_wcharType = inode->GetName();
+		objNames_mchartype.Append(1, &name_wcharType);
+		LOG(objNames_mchartype[i]); LOG("\n");
+	}
+	
+	std::string filename = (project_path + "\\" + pname + "_low0.max");
+	const wchar_t* vfilename = s2ws(filename).data();
+	Tab<int> a;
+	LOG(vfilename);
+	FPParams AddXRefItemsFromFile(4, FILENAME_ADDXREFITEMSFROMFILE_IOBJXREFMGR_PARAM1_TYPE, vfilename,
+		PROMPTOBJNAMES_ADDXREFITEMSTORECORD_IOBJXREFMGR_PARAM2_TYPE, false,
+		OBJNAMES_ADDXREFITEMSFROMFILE_IOBJXREFMGR_PARAM3_TYPE, obj_names_mchartype,
+		XREFOPTIONS_ADDXREFITEMSFROMFILE_IOBJXREFMGR_PARAM4_TYPE,a
+	);
+		
+	FPValue result;
+	fpInterface->Invoke(ADDXREFITEMSFROMFILE_IOBJXREFMGR, result, &AddXRefItemsFromFile);
 }
 
 void LayerInterfaceExample()
@@ -852,14 +1216,16 @@ Status YServiceTestImpl::MTest1(ServerContext* context, const EmptyParam* reques
 		//generateInterFacesID();
 		//Interface_ID a(539887512, 898175643);
 		//generateInterfaceFuntionsID2(a);
-		generateInterfaceFuntionsID2(OBJXREFMGR_INTERFACE_ID);
+		//generateInterfaceFuntionsID2(OBJXREFMGR_INTERFACE_ID);
+		
 		//LayerInterfaceExample();
 		//y3d::IBatchProOptimizer y;
 		//BatchProOptimizer(y);
 		/*GetCOREInterface16()->load*/
 		//std::string oFileDir = "F:\\WorkSpace\\3Ds Max\\Building Phong Tam Project\\scenes\\TestProOptimizerScene";
-		//std::string projectPath = "F:\\WorkSpace\\3Ds Max\\Building Phong Tam Project\\scenes\\TestProOptimizerScene";
-		//std::string oFileName = "001";
+		std::wstring projectPath = L"F:\\WorkSpace\\3Ds Max\\Building Phong Tam Project\\scenes\\TestProOptimizerScene";
+		std::wstring oFileName = L"001";
+		xref_low_error(projectPath, oFileName);
 		//pre_optimize(oFileDir, oFileName, projectPath);
 
 		//MSTR internal_name = fpInterfaceDesc->internal_name;
