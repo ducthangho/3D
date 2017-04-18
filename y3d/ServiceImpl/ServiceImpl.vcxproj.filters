@@ -89,6 +89,9 @@
     <ClInclude Include="..\include\YCTestServer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\move_lambda.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="ServiceImpl.rc">

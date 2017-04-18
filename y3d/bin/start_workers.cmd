@@ -1,4 +1,4 @@
-LoaderCmd.exe -w startall 2>NUL
+"%Y3D_ROOT%\bin\LoaderCmd.exe" -w startall 2>NUL
 if  %ERRORLEVEL% NEQ 0 (
     echo "Error level is %errorlevel%"
     exit /b 0

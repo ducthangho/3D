@@ -4,6 +4,7 @@ set YMasterServer-path="%Y3D_ROOT%\bin\mserver\"
 set threedsmax-path="C:\Program Files\Autodesk\3ds Max 2017\"
 set LoaderCmd-path="%Y3D_ROOT%\bin"
 set Y3D-path="%Y3D_ROOT%\y3d\bin\Release"
+SET PWD=%cd%
 
 REM tasklist /FI "IMAGENAME eq redis-server.exe" 2>NUL | find /I /N "redis-server.exe">NUL
 REM if "%ERRORLEVEL%"=="0" (	
@@ -40,6 +41,7 @@ goto end
 
 :end
 
+cd "%PWD%"
 tasklist /FI "IMAGENAME eq LogServer.exe" 2>NUL | find /I /N "LogServer.exe">NUL
 if "%ERRORLEVEL%"=="0" (
 	echo LogServer.exe is running	

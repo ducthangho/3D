@@ -81,6 +81,7 @@
       <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">4706;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">/GR /we4002 /we4390 /we4557 /we4546 /we4545 /we4295 /we4310 /we4130 /we4611 /we4213 /we4121 /we4715 /we4701 /w34265 /wd4244 /wd4018 /wd4819 /wd4456 /wd4457 /wd4458 /wd4459 /wd4589 /wd4702 </AdditionalOptions>
       <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(MSBuildProjectDirectory)\..\include\export_dll.h;$(MSBuildProjectDirectory)\..\include\import_log_dll.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">/await /std:c++ %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(MsBuildProjectDirectory)\..\x64\$(Configuration);$(MaxSdkLib)..\Release;$(MsBuildProjectDirectory)\..\lib\tbb;$(MsBuildProjectDirectory)\..\lib;$(MsBuildProjectDirectory)\..\lib\grpc\$(Configuration);$(MsBuildProjectDirectory)\..\lib\protobuf\$(Configuration);$(MsBuildProjectDirectory)\..\lib\protobuf\Release;$(MsBuildProjectDirectory)\..\lib\grpc\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -162,6 +163,7 @@
     <ClCompile Include="ysetting.pb.cc" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\include\move_lambda.h" />
     <ClInclude Include="..\include\YCServer.h" />
     <ClInclude Include="..\include\YCTestServer.h" />
     <ClInclude Include="..\include\YLibs.h" />

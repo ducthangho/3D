@@ -906,18 +906,18 @@ inline void xref_low_error(std::wstring project_path, std::wstring pname) {
 	std::wstring filename = (project_path + L"\\" + pname + L"_low0.max");
 	const wchar_t* file = filename.c_str();
 	sourceFile_Files.Append(1, &file);
-	sourceFile_Files.Shrink();
+	//sourceFile_Files.Shrink();
 
 	Tab<MSTR*> tstr_tab;
 	MSTR str(filename.c_str());
 	MSTR* a = &str;
 	tstr_tab.Append(1, &a);
-	tstr_tab.Shrink();
+	//tstr_tab.Shrink();
 
 	Tab<MSTR*> tstr_tab_dynamic_allocate_items;
 	MSTR* str_dynamic_allocate_items = new MSTR(filename.c_str());
 	tstr_tab_dynamic_allocate_items.Append(1, &str_dynamic_allocate_items);
-	tstr_tab_dynamic_allocate_items.Shrink();
+	//tstr_tab_dynamic_allocate_items.Shrink();
 
 
 	//FPValue param1;
@@ -941,7 +941,16 @@ inline void xref_low_error(std::wstring project_path, std::wstring pname) {
 		//param3.InitTab(ParamType2::TYPE_STRING_TAB, sourceFile_Files.Count());
 		//param3.LoadPtr(ParamType2::TYPE_STRING_TAB_BV, &sourceFile_Files);
 		//param3.Load(ParamType2::TYPE_STRING_TAB_BV,&sourceFile_Files);
+		for (int i = 0; i < sourceFile_Files.Count(); ++i) {
+			std::string s = ws2s( sourceFile_Files[i] );
+			LOG("Aha {0} {1}\n", i, s.c_str());
+		}
 		param3.LoadPtr(ParamType2::TYPE_STRING_TAB, &sourceFile_Files);
+
+		for (int i = 0; i < sourceFile_Files.Count(); ++i) {
+			std::string s = ws2s(sourceFile_Files[i]);
+			LOG("BBB {0} {1}\n", i, s.c_str());
+		}
 		//param3.LoadPtr(ParamType2::TYPE_STRING_TAB_BV, tstr_tab);
 		//param3.LoadPtr(ParamType2::TYPE_STRING_TAB_BV, &tstr_tab_dynamic_allocate_items);
 		//SYSTEM_CALL(param3.LoadPtr(ParamType2::TYPE_STRING_TAB_BV, &sourceFile_Files);)
@@ -953,7 +962,8 @@ inline void xref_low_error(std::wstring project_path, std::wstring pname) {
 	};
 	
 
-	LOG("???????");
+	LOG("???????----------- {}\n",ws2s(file).c_str());
+	
 //  	FPValue param4;
 //  	param4.type = ParamType2::TYPE_FPVALUE_TAB_BV;
 // 	Tab<FPValue*> param4_fpvalues;
