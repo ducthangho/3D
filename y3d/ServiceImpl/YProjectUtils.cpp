@@ -237,7 +237,7 @@ inline void xref_low(std::string project_path, std::string pname) {
 
 }
 
-void LayerInterfaceExample()
+inline void LayerInterfaceExample()
 {
 	FPInterface* fpInterface = GetCOREInterface(LAYERMANAGER_INTERFACE_ID);
 
@@ -285,6 +285,25 @@ void LayerInterfaceExample()
 
 		//generateInterfaceFuntionsID2(fpInterfaceDesc);
 	}
+}
+
+inline void setInterFacePropertyTInt(int typeParam, FPInterface* fpInterface, int funcID, int value)
+{
+	FPParams p(1, typeParam, value);
+	fpInterface->Invoke(funcID, &p);
+}
+
+inline void setInterFacePropertyTBool(int typeParam, FPInterface* fpInterface, int funcID, bool value)
+{
+	FPParams p(1, typeParam, value);
+	fpInterface->Invoke(funcID, &p);
+}
+
+inline void setInterFacePropertyTString(int typeParam, FPInterface* fpInterface, int funcID, std::string value)
+{
+	MCHAR* desVal = const_cast<wchar_t*>((s2ws(value)).c_str());
+	FPParams p(1, typeParam, desVal);
+	fpInterface->Invoke(funcID, &p);
 }
 
 inline void pre_optimize(std::string oFileDir, std::string oFileName, std::string projectPath)
