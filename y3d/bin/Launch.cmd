@@ -2,7 +2,7 @@ rem set redis-server-path=C:\ProgramData\chocolatey\bin\redis-server.exe
 rem set log-server-path=F:\WorkSpace\3D\y3d\bin\LogServer.exe
 rem set YMasterServer-path=F:\WorkSpace\3D\y3d\bin\mserver\YMasterServer.exe
 set redis-server-path="C:\ProgramData\chocolatey\bin\"
-set log-server-path="%Y3D_ROOT%\bin"
+set log-server-path="C:\Program Files\Autodesk\3ds Max 2017\"
 set YMasterServer-path="%Y3D_ROOT%\bin\mserver\"
 set threedsmax-path="C:\Program Files\Autodesk\3ds Max 2017\"
 set LoaderCmd-path="%Y3D_ROOT%\bin"
@@ -33,13 +33,12 @@ if "%ERRORLEVEL%"=="0" (
 )else (
 	start /D %YMasterServer-path% YMasterServer.exe
 )
-
-rem tasklist /FI "IMAGENAME eq 3dsmax.exe" 2>NUL | find /I /N "3dsmax.exe">NUL
-rem if "%ERRORLEVEL%"=="0" (
-rem  	echo 3dsmax.exe is running	
-rem )else (
-rem  	start /D %threedsmax-path% 3dsmax.exe
-rem )
+TASKLIST /FI "IMAGENAME EQ 3DSMAX.EXE" 2>NUL | FIND /I /N "3DSMAX.EXE">NUL
+IF "%ERRORLEVEL%"=="0" (
+  	ECHO 3DSMAX.EXE IS RUNNING	
+)ELSE (
+  	START /D %THREEDSMAX-PATH% 3DSMAX.EXE
+ )
 
 tasklist /FI "IMAGENAME eq Y3D.exe" 2>NUL | find /I /N "Y3D.exe">NUL
 if "%ERRORLEVEL%"=="0" (	
