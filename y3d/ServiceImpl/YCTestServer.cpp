@@ -900,7 +900,7 @@ inline void xref_low_old(std::wstring project_path, std::wstring pname) {
 
 }
 
-inline void xref_low_error(std::wstring project_path, std::wstring pname) {
+void xref_low_error(std::wstring project_path, std::wstring pname) {
 
 	Tab<const MCHAR*> sourceFile_Files;
 	std::wstring filename = (project_path + L"\\" + pname + L"_low0.max");

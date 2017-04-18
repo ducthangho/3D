@@ -4,6 +4,8 @@
 #include "MyRectangle.h"
 #include "Pack.h"
 #include "ifnpub.h"
+#include <mutex>
+//#include "common.h"
 
 const Class_ID fp_basics_CLASS_ID(0x3f869fdf, 0x63e46b8e);
 
@@ -248,13 +250,21 @@ int FP_Basic::myTestFunction2(int * i)
 	return 0;
 }
 
+std::mutex mymutex;
+Tab<const MCHAR*> sourceFile_Files;
+FPValue param3;
+
 void xref_low_error(std::wstring project_path, std::wstring pname) {
 
-	Tab<const MCHAR*> sourceFile_Files;
+	//Tab<const MCHAR*> sourceFile_Files;
+	Tab<const MCHAR*>* pointer_sourceFile_Files = new Tab<const MCHAR*>();
+
 	std::wstring filename = (project_path + L"\\" + pname + L"_low0.max");
 	const wchar_t* file = filename.c_str();
 	sourceFile_Files.Append(1, &file);
 	sourceFile_Files.Shrink();
+	pointer_sourceFile_Files->Init();
+	pointer_sourceFile_Files->Append(1, &file);
 
 	Tab<MSTR*> tstr_tab;
 	MSTR str(filename.c_str());
@@ -284,16 +294,25 @@ void xref_low_error(std::wstring project_path, std::wstring pname) {
 	//  	param1.fpv = &param1_FPValue;
 	try
 	{
-		FPValue param3;
-		//OBJNAMES_ADDXREFITEMSFROMFILE_IOBJXREFMGR_PARAM3_TYPE;
-		//param3.InitTab(ParamType2::TYPE_STRING_TAB, sourceFile_Files.Count());
-		//param3.LoadPtr(ParamType2::TYPE_STRING_TAB_BV, &sourceFile_Files);
-		//param3.Load(ParamType2::TYPE_STRING_TAB_BV,&sourceFile_Files);
-		param3.LoadPtr(ParamType2::TYPE_STRING_TAB, &sourceFile_Files);
-		//param3.LoadPtr(ParamType2::TYPE_STRING_TAB_BV, tstr_tab);
-		//param3.LoadPtr(ParamType2::TYPE_STRING_TAB_BV, &tstr_tab_dynamic_allocate_items);
-		//SYSTEM_CALL(param3.LoadPtr(ParamType2::TYPE_STRING_TAB_BV, &sourceFile_Files);)
-		//param3.Load(ParamType2::TYPE_STRING_TAB, &sourceFile_Files);
+		{
+			//std::lock_guard<std::mutex> lock(mymutex);
+			//FPValue param3;
+			param3.type = ParamType2::TYPE_STRING_TAB;
+			//param3.s_tab = pointer_sourceFile_Files;
+			param3.s_tab = &sourceFile_Files;
+			
+			//OBJNAMES_ADDXREFITEMSFROMFILE_IOBJXREFMGR_PARAM3_TYPE;
+			//param3.InitTab(ParamType2::TYPE_STRING_TAB, sourceFile_Files.Count());
+			//param3.LoadPtr(ParamType2::TYPE_STRING_TAB_BV, &sourceFile_Files);
+			//param3.Load(ParamType2::TYPE_STRING_TAB_BV,&sourceFile_Files);
+			//param3.LoadPtr(ParamType2::TYPE_STRING_TAB, &sourceFile_Files);
+			//param3.LoadPtr(ParamType2::TYPE_STRING_TAB_BV, tstr_tab);
+			//param3.LoadPtr(ParamType2::TYPE_STRING_TAB_BV, &tstr_tab_dynamic_allocate_items);
+			//SYSTEM_CALL(param3.LoadPtr(ParamType2::TYPE_STRING_TAB_BV, &sourceFile_Files);)
+			//param3.Load(ParamType2::TYPE_STRING_TAB, &sourceFile_Files);
+			mprintf((*param3.s_tab)[0]);
+			//LOG();
+		}
 	}
 	catch (const std::exception&)
 	{
@@ -301,7 +320,7 @@ void xref_low_error(std::wstring project_path, std::wstring pname) {
 	};
 
 
-	//LOG("???????");
+	
 	//  	FPValue param4;
 	//  	param4.type = ParamType2::TYPE_FPVALUE_TAB_BV;
 	// 	Tab<FPValue*> param4_fpvalues;
