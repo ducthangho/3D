@@ -920,11 +920,11 @@ inline void xref_low_error(std::wstring project_path, std::wstring pname) {
 	tstr_tab_dynamic_allocate_items.Shrink();
 
 
-	FPValue param1;
-	int i = 10;
-	//param1.LoadPtr(FILENAME_ADDXREFITEMSFROMFILE_IOBJXREFMGR_PARAM1_TYPE, filename.data());	
-	param1.type = FILENAME_ADDXREFITEMSFROMFILE_IOBJXREFMGR_PARAM1_TYPE;
-	param1.s = filename.data();
+	//FPValue param1;
+	//int i = 10;
+	////param1.LoadPtr(FILENAME_ADDXREFITEMSFROMFILE_IOBJXREFMGR_PARAM1_TYPE, filename.data());	
+	//param1.type = FILENAME_ADDXREFITEMSFROMFILE_IOBJXREFMGR_PARAM1_TYPE;
+	//param1.s = filename.data();
 	//param1.LoadPtr(ParamType2::TYPE_INT_BP, &i);	
 	//LOG("param1.s here= "); LOG(param1.s); LOG("\n");
 
@@ -941,9 +941,9 @@ inline void xref_low_error(std::wstring project_path, std::wstring pname) {
 		//param3.InitTab(ParamType2::TYPE_STRING_TAB, sourceFile_Files.Count());
 		//param3.LoadPtr(ParamType2::TYPE_STRING_TAB_BV, &sourceFile_Files);
 		//param3.Load(ParamType2::TYPE_STRING_TAB_BV,&sourceFile_Files);
-		//param3.LoadPtr(ParamType2::TYPE_STRING_TAB_BV, sourceFile_Files);
+		param3.LoadPtr(ParamType2::TYPE_STRING_TAB, &sourceFile_Files);
 		//param3.LoadPtr(ParamType2::TYPE_STRING_TAB_BV, tstr_tab);
-		param3.LoadPtr(ParamType2::TYPE_STRING_TAB, &tstr_tab_dynamic_allocate_items);
+		//param3.LoadPtr(ParamType2::TYPE_STRING_TAB_BV, &tstr_tab_dynamic_allocate_items);
 		//SYSTEM_CALL(param3.LoadPtr(ParamType2::TYPE_STRING_TAB_BV, &sourceFile_Files);)
 		//param3.Load(ParamType2::TYPE_STRING_TAB, &sourceFile_Files);
 	}
@@ -952,11 +952,46 @@ inline void xref_low_error(std::wstring project_path, std::wstring pname) {
 		LOG("Why this is error, tell me pls");
 	};
 	
-	FPValue param4;
-	param4.type = XREFOPTIONS_ADDXREFITEMSFROMFILE_IOBJXREFMGR_PARAM4_TYPE;
-	Tab<int> xrefoptions;
-	param4.i_tab = &xrefoptions;
 
+	LOG("???????");
+//  	FPValue param4;
+//  	param4.type = ParamType2::TYPE_FPVALUE_TAB_BV;
+// 	Tab<FPValue*> param4_fpvalues;
+// 	FPValue param4_fpvalue;
+// 	FPValue* pointer_param4_fpvalue;
+// 	param4_fpvalue.type = (ParamType2)1;
+// 	param4_fpvalue.i = 10;
+// 	param4_fpvalues.Append(1, &pointer_param4_fpvalue);
+// 	param4.fpv_tab = &param4_fpvalues;
+	
+	FPValue param4;
+	//param4.type = ParamType2::TYPE_INT_TAB;
+	//param4.type = ParamType2::TYPE_INT_TAB_BV;
+	//param4.type = ParamType2::TYPE_INT_TAB_BR;
+  	Tab<int> xrefoptions;
+	xrefoptions.Resize(1);
+ 	int h = 1;
+ 	xrefoptions.Append(1, &h);
+	
+  	//param4.i_tab = &xrefoptions;
+
+	//LOG("type is {0}", param4.type);
+
+
+
+
+	//FPParams fnParams;
+	//FPValue result, param1;
+	//FPValue param1_FPValue;
+	//TCHAR* param1_TCHAR = _T("Test Track View");
+	//param1_FPValue.type = TYPE_STRING,
+	//	param1_FPValue.s = param1_TCHAR;
+
+	//param1.type = (ParamType2)TYPE_FPVALUE,
+	//	param1.fpv = &param1_FPValue;
+	//fnParams.params.append(&param1,1);
+
+	//LOG("type is {0}", param1.type);
 
 // 	auto s_tab = param3.s_tab;
 // 	auto count = s_tab->Count();
@@ -1128,18 +1163,18 @@ inline void xref_low(std::string project_path, std::string pname) {
 		LOG(objNames_mchartype[i]); LOG("\n");
 	}
 	
-	std::string filename = (project_path + "\\" + pname + "_low0.max");
-	const wchar_t* vfilename = s2ws(filename).data();
-	Tab<int> a;
-	LOG(vfilename);
-	FPParams AddXRefItemsFromFile(4, FILENAME_ADDXREFITEMSFROMFILE_IOBJXREFMGR_PARAM1_TYPE, vfilename,
-		PROMPTOBJNAMES_ADDXREFITEMSTORECORD_IOBJXREFMGR_PARAM2_TYPE, false,
-		OBJNAMES_ADDXREFITEMSFROMFILE_IOBJXREFMGR_PARAM3_TYPE, objNames_mchartype,
-		XREFOPTIONS_ADDXREFITEMSFROMFILE_IOBJXREFMGR_PARAM4_TYPE,a
-	);
+	//std::string filename = (project_path + "\\" + pname + "_low0.max");
+	//const wchar_t* vfilename = s2ws(filename).data();
+	//Tab<int> a;
+	//LOG(vfilename);
+	//FPParams AddXRefItemsFromFile(4, FILENAME_ADDXREFITEMSFROMFILE_IOBJXREFMGR_PARAM1_TYPE, vfilename,
+	//	PROMPTOBJNAMES_ADDXREFITEMSTORECORD_IOBJXREFMGR_PARAM2_TYPE, false,
+	//	OBJNAMES_ADDXREFITEMSFROMFILE_IOBJXREFMGR_PARAM3_TYPE, objNames_mchartype,
+	//	XREFOPTIONS_ADDXREFITEMSFROMFILE_IOBJXREFMGR_PARAM4_TYPE,a
+	//);
 		
-	FPValue result;
-	fpInterface->Invoke(ADDXREFITEMSFROMFILE_IOBJXREFMGR, result, &AddXRefItemsFromFile);
+// 	FPValue result;
+// 	fpInterface->Invoke(ADDXREFITEMSFROMFILE_IOBJXREFMGR, result, &AddXRefItemsFromFile);
 }
 
 void LayerInterfaceExample()
