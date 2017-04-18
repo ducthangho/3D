@@ -237,8 +237,105 @@ inline void xref_low(std::string project_path, std::string pname) {
 
 }
 
-inline void pre_optimize(std::string oFileDir, std::string oFileName, std::string projectPath) {
+void LayerInterfaceExample()
+{
+	FPInterface* fpInterface = GetCOREInterface(LAYERMANAGER_INTERFACE_ID);
 
+	FPValue result;
+	fpInterface->Invoke(COUNT_ILAYERMANAGER_GETTER, result);
+	auto numLayer = result.i;
+	LOG("number layer is {0}\n", numLayer);
+
+	for (int i = 0; i < numLayer; i++)
+	{
+		FPParams pWHICH(1, WHICH_GETLAYER_ILAYERMANAGER_PARAM1_TYPE, i);
+		fpInterface->Invoke(GETLAYER_ILAYERMANAGER, result, &pWHICH);
+
+		auto fp = result.fpi;
+
+		FPValue r;
+		fp->Invoke(NAME_ILAYERPROPERTIES_GETTER, r);
+		auto layerName = r.s;
+		LOG("Layer number {} have layer name is ", i + 1); LOG(layerName); LOG("\n");
+
+		//auto interfaceID = fp->GetID();
+		//int fn_id = fp->FindFn(L"select");
+		//LOG("fn_id is {}\n", fn_id);
+		//LOG("Interface_ID is {}",InterFaceID2S(interfaceID));
+		//LOG("Interface_ID is of LAYERMANAGER INTERFACE is {}", InterFaceID2S(LAYERMANAGER_INTERFACE_ID));
+
+		//FPMixinInterface* ppmixinInterface = dynamic_cast<FPMixinInterface*>(fp);
+		//if (ppmixinInterface != NULL)
+		//	LOG("fp is instance of class FPMixinInterface\n");
+
+		//FPMixinInterface* ppmixinInterface2 = dynamic_cast<FPMixinInterface*>(fpInterface);
+		//if (ppmixinInterface2 == NULL)
+		//	LOG("fpInterface is not instance of class FPMixinInterface\n");
+
+		//auto fpInterfaceDesc = fp->GetDesc();
+		//auto id = fpInterfaceDesc->GetID();
+		//LOG("Interface_ID is {}\n", InterFaceID2S(id));
+
+		////auto id = fpInterfaceDesc->ID;
+		//auto internal_name = fpInterfaceDesc->internal_name;
+		//LOG("interface internal_name is{0}\n", internal_name);
+		//Tab<FPFunctionDef*> functions = fpInterfaceDesc->functions;
+		//auto numFunction = functions.Count();
+		//LOG("function numbers of interface {0} is {1}\n", internal_name, numFunction);
+
+		//generateInterfaceFuntionsID2(fpInterfaceDesc);
+	}
+}
+
+inline void pre_optimize(std::string oFileDir, std::string oFileName, std::string projectPath)
+{
+	FPInterface* fpInterface = GetCOREInterface(BATCHPROOPTIMIZER_INTERFACE_ID);
+
+	FPParams pSourceFileMode(1, TYPE_INT, 0);
+	fpInterface->Invoke(SOURCEFILEMODE_IBATCHPROOPTIMIZER_SETTER, &pSourceFileMode);
+
+	std::string file1 = oFileDir + "\\" + oFileName + ".max";
+	Tab<MCHAR*> sourceFile_Files;
+	auto file = const_cast<wchar_t*>(s2ws(file1).c_str());
+	sourceFile_Files.Append(1, &file);
+	FPParams pSourceFileFiles(1, SOURCEFILEFILES_IBATCHPROOPTIMIZER_TYPEPARAM, sourceFile_Files);
+	fpInterface->Invoke(SOURCEFILEFILES_IBATCHPROOPTIMIZER_SETTER, &pSourceFileFiles);
+
+	FPParams OptimizationLevel1(1, OPTIMIZATIONLEVEL1_IBATCHPROOPTIMIZER_TYPEPARAM, 90);
+	fpInterface->Invoke(OPTIMIZATIONLEVEL1_IBATCHPROOPTIMIZER_SETTER, &OptimizationLevel1);
+
+	FPParams OptimizationLevel2(1, OPTIMIZATIONLEVEL2_IBATCHPROOPTIMIZER_TYPEPARAM, 0);
+	fpInterface->Invoke(OPTIMIZATIONLEVEL2_IBATCHPROOPTIMIZER_SETTER, &OptimizationLevel2);
+
+	FPParams OptimizationLevel3(1, OPTIMIZATIONLEVEL3_IBATCHPROOPTIMIZER_TYPEPARAM, 0);
+	fpInterface->Invoke(OPTIMIZATIONLEVEL3_IBATCHPROOPTIMIZER_SETTER, &OptimizationLevel3);
+
+	FPParams OptimizationLevel4(1, OPTIMIZATIONLEVEL4_IBATCHPROOPTIMIZER_TYPEPARAM, 0);
+	fpInterface->Invoke(OPTIMIZATIONLEVEL4_IBATCHPROOPTIMIZER_SETTER, &OptimizationLevel4);
+
+	FPParams OptimizationLevel5(1, OPTIMIZATIONLEVEL5_IBATCHPROOPTIMIZER_TYPEPARAM, 0);
+	fpInterface->Invoke(OPTIMIZATIONLEVEL5_IBATCHPROOPTIMIZER_SETTER, &OptimizationLevel5);
+
+	FPParams OptimizationLevelMode(1, OPTIMIZATIONLEVELMODE_IBATCHPROOPTIMIZER_TYPEPARAM, 0);
+	fpInterface->Invoke(OPTIMIZATIONLEVELMODE_IBATCHPROOPTIMIZER_SETTER, &OptimizationLevelMode);
+
+	setInterFacePropertyTInt(OPTIMIZEBORDERSMODE_IBATCHPROOPTIMIZER_TYPEPARAM, fpInterface, OPTIMIZEBORDERSMODE_IBATCHPROOPTIMIZER_SETTER, 1);
+	setInterFacePropertyTBool(AUTORENAME_IBATCHPROOPTIMIZER_TYPEPARAM, fpInterface, AUTORENAME_IBATCHPROOPTIMIZER_SETTER, false);
+	setInterFacePropertyTInt(DESTFILENAMEMODE_IBATCHPROOPTIMIZER_TYPEPARAM, fpInterface, DESTFILENAMEMODE_IBATCHPROOPTIMIZER_SETTER, 1);
+	setInterFacePropertyTInt(DESTFOLDERMODE_IBATCHPROOPTIMIZER_TYPEPARAM, fpInterface, DESTFOLDERMODE_IBATCHPROOPTIMIZER_SETTER, 2);
+
+	//std::string desDir = ".\\" + oFileName + "_y3d";
+	setInterFacePropertyTString(DESTFOLDERNAME_IBATCHPROOPTIMIZER_TYPEPARAM, fpInterface, DESTFOLDERNAME_IBATCHPROOPTIMIZER_SETTER, projectPath);
+
+	fpInterface->Invoke(BATCH_IBATCHPROOPTIMIZER);
+
+	std::string maxFile = projectPath + "\\" + oFileName + "90.max";
+	GetCOREInterface16()->LoadFromFile(s2ws(maxFile).data(), Interface8::LoadFromFileFlags::kSuppressPrompts&Interface8::LoadFromFileFlags::kUseFileUnits);
+	FPValue result;
+	fpInterface->Invoke(DESTFOLDERNAME_IBATCHPROOPTIMIZER_GETTER, result);
+	const wchar_t* a = result.s;
+	logserver::LOG(a);
+	//logserver::LOG(b);
 }
 
 void DoYEvent(YEvent ye) {
