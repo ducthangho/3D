@@ -903,10 +903,12 @@ inline void xref_low_old(std::wstring project_path, std::wstring pname) {
 void xref_low_error(std::wstring project_path, std::wstring pname) {
 
 	Tab<const MCHAR*> sourceFile_Files;
+	Tab<const MCHAR*>* pointer_sourceFile_Files = new Tab<const MCHAR*>();
 	std::wstring filename = (project_path + L"\\" + pname + L"_low0.max");
 	const wchar_t* file = filename.c_str();
 	sourceFile_Files.Append(1, &file);
 	//sourceFile_Files.Shrink();
+	pointer_sourceFile_Files->Append(1, &file);
 
 	Tab<MSTR*> tstr_tab;
 	MSTR str(filename.c_str());
@@ -945,7 +947,7 @@ void xref_low_error(std::wstring project_path, std::wstring pname) {
 			std::string s = ws2s( sourceFile_Files[i] );
 			LOG("Aha {0} {1}\n", i, s.c_str());
 		}
-		param3.LoadPtr(ParamType2::TYPE_STRING_TAB, &sourceFile_Files);
+		param3.LoadPtr(ParamType2::TYPE_STRING_TAB, pointer_sourceFile_Files);
 
 		for (int i = 0; i < sourceFile_Files.Count(); ++i) {
 			std::string s = ws2s(sourceFile_Files[i]);
