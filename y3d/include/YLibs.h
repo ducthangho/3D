@@ -473,11 +473,28 @@ inline std::wstring CreateLayer(INodeTab *nodes, std::wstring layer_name, BOOL i
 	return L""; 
 }
 
+inline bool DeleteLayer(std::string layer_name) {
+	auto cmd = formatWS("yms.delete_layer \"{0}\"", layer_name);
+	ExecuteMAXScriptScript(cmd.c_str());
+	return true;
+}
 
 // isolate=TRUE : IsolateSelection.EnterIsolateSelectionMode() 
 // isolate=FALSE : IsolateSelection.ExitIsolateSelectionMode() 
-inline void setIsolate(BOOL isolate=TRUE) {
-	
+inline void setIsolate(bool isolate=TRUE) {
+	if (!isolate) {
+		auto cmd = L"IsolateSelection.EnterIsolateSelectionMode()";
+		ExecuteMAXScriptScript(cmd);
+	}
+	else {
+		auto cmd = L"IsolateSelection.ExitIsolateSelectionMode()";
+		ExecuteMAXScriptScript(cmd);
+	}
+}
+
+inline void setIsolateLayer(std::string layer_name) {
+	auto cmd = formatWS("yms.isolate_layer \"{0}\"", layer_name);
+	ExecuteMAXScriptScript(cmd.c_str());
 }
 
 #define createLight(x) CreateInstance(LIGHT_CLASS_ID,x)

@@ -37,12 +37,16 @@ message ERotate2 {
 }
 
 message EDelete2 {
-  string name = 1;
+  repeated string names = 1;
+  repeated string layers = 2;
+  repeated string groups = 3;
+  bool redraw =4;
 }
 
 message EIsolate2 {
   string name = 1;
   bool endIsolate=2;
+  string layer = 3;
 }
 
 message EClose2 {

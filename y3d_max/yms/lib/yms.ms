@@ -295,20 +295,6 @@ if yms_init != true then
 		),
 
 
-		fn do_lowpoly oName =
-		(
-			oo =  execute ("$'"+oName + "'")
-			select oo
-			cc = classof oo
-			max modify mode
-			if cc == XRefObject then
-				(
-					modPanel.setCurrentObject $.baseObject
-					if cc.useProxy then
-						cc.displayProxy = true
-				)
-		),
-
 		fn test_export oFileDir oName = 
 		(
 			max group open
@@ -349,6 +335,52 @@ if yms_init != true then
 			
 		),
 
+		fn set_display_proxy oname is_display =
+		(
+			oo =  execute ("$'"+oname + "'")
+			if (classof oo == XRefObject) then
+				(
+					if (is_display) then
+					(
+						oo.displayProxy = true
+					)
+					else
+					(
+						oo.displayProxy = false
+					)
+				)
+		),
+		fn isolate_layer lname =
+		(
+			for i = 0 to layerManager.count-1 do
+			(
+				ilayer = layerManager.getLayer i
+				if (ilayer.name==lname) then 
+					ilayer.ishidden = false
+				else
+					ilayer.ishidden = true
+			)				
+		),
+
+		fn delete_layer lname = 
+		(
+			LayerManager.deleteLayerByName lname
+		),
+		fn create_layer lname add_select isolate= 
+		(
+			ll = LayerManager.newLayerFromName lname
+			if (add_select) then
+			(
+				for s in selection do 
+				(
+					ll.addnode s
+				)
+			)
+			if (isolate) then
+			(
+				yms.isolate_layer lname
+			)
+		),
 		fn pre_optimize oFileDir oFileName projectPath = 
 		(
 			-- fname = substring maxFileName 1 (maxFileName.count-4)
@@ -399,7 +431,7 @@ if yms_init != true then
 			exportFile filePath #noPrompt selectedOnly:true 
 		),
 
-		fn makeLowPoly ratio = 
+		fn lowpoly_blender ratio = 
 		(	
 			tempPath = pathConfig.GetDir #temp
 			blenderPath = "\"C:\\Program Files\\Blender Foundation\\Blender\\blender.exe\""
