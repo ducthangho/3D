@@ -503,3 +503,20 @@ inline void* createBatchProOptimizer() {
 	return CreateInstance(UTILITY_CLASS_ID, BATCH_PROOPTIMIZER_CLASS_ID);
 }
 
+class QuietMode
+{
+public:
+	Interface* ip;
+	bool a;
+	QuietMode() {
+		ip = GetCOREInterface16();
+	}
+	void set(bool quiet = true)
+	{
+		ip->SetQuietMode(quiet);
+	}
+
+	~QuietMode() {
+		ip->SetQuietMode(false);
+	}
+};

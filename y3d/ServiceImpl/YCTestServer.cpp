@@ -721,6 +721,7 @@ inline void setInterFacePropertyTString(int typeParam, FPInterface* fpInterface,
 	fpInterface->Invoke(funcID, &p);
 }
 
+
 void pre_optimize(std::string oFileDir,std::string oFileName, std::string projectPath)
 {
 	FPInterface* fpInterface = GetCOREInterface(BATCHPROOPTIMIZER_INTERFACE_ID);
@@ -764,12 +765,13 @@ void pre_optimize(std::string oFileDir,std::string oFileName, std::string projec
 	fpInterface->Invoke(BATCH_IBATCHPROOPTIMIZER);
 
 	std::string maxFile = projectPath + "\\" + oFileName + "90.max";
-	GetCOREInterface16()->LoadFromFile(s2ws(maxFile).data(),Interface8::LoadFromFileFlags::kSuppressPrompts&Interface8::LoadFromFileFlags::kUseFileUnits);
-	FPValue result;
-	fpInterface->Invoke(DESTFOLDERNAME_IBATCHPROOPTIMIZER_GETTER, result);
-	const wchar_t* a = result.s;	
-	logserver::LOG(a);
-	//logserver::LOG(b);
+
+	auto ip16 = GetCOREInterface16();
+	QuietMode quietmode;
+	quietmode.set();
+	bool loadsucess = ip16->LoadFromFile(s2ws(maxFile).data(),
+		Interface8::LoadFromFileFlags::kSuppressPrompts&Interface8::LoadFromFileFlags::kUseFileUnits);
+	ip16->SaveToFile(s2ws(maxFile).data());
 }
 
 inline void xref_low_old(std::wstring project_path, std::wstring pname) {
@@ -922,13 +924,17 @@ void xref_low_error(std::wstring project_path, std::wstring pname) {
 	//tstr_tab_dynamic_allocate_items.Shrink();
 
 
-	//FPValue param1;
+	FPValue param1;
 	//int i = 10;
 	////param1.LoadPtr(FILENAME_ADDXREFITEMSFROMFILE_IOBJXREFMGR_PARAM1_TYPE, filename.data());	
-	//param1.type = FILENAME_ADDXREFITEMSFROMFILE_IOBJXREFMGR_PARAM1_TYPE;
-	//param1.s = filename.data();
+	param1.type = FILENAME_ADDXREFITEMSFROMFILE_IOBJXREFMGR_PARAM1_TYPE;
+	param1.s = filename.data();
 	//param1.LoadPtr(ParamType2::TYPE_INT_BP, &i);	
 	//LOG("param1.s here= "); LOG(param1.s); LOG("\n");
+	
+	FPValue param2;
+	param2.type = PROMPTOBJNAMES_ADDXREFITEMSFROMFILE_IOBJXREFMGR_PARAM2_TYPE;
+	param2.b = false;
 
 //  	FPValue param1_FPValue;
 //  	TCHAR* param1_TCHAR = _T("Test Track View");
@@ -940,19 +946,28 @@ void xref_low_error(std::wstring project_path, std::wstring pname) {
 	{
 		FPValue param3;
 		OBJNAMES_ADDXREFITEMSFROMFILE_IOBJXREFMGR_PARAM3_TYPE;
-		//param3.InitTab(ParamType2::TYPE_STRING_TAB, sourceFile_Files.Count());
-		//param3.LoadPtr(ParamType2::TYPE_STRING_TAB_BV, &sourceFile_Files);
-		//param3.Load(ParamType2::TYPE_STRING_TAB_BV,&sourceFile_Files);
-		for (int i = 0; i < sourceFile_Files.Count(); ++i) {
-			std::string s = ws2s( sourceFile_Files[i] );
-			LOG("Aha {0} {1}\n", i, s.c_str());
-		}
-		param3.LoadPtr(ParamType2::TYPE_STRING_TAB, pointer_sourceFile_Files);
+		param3.InitTab(ParamType2::TYPE_STRING_TAB, sourceFile_Files.Count());
 
-		for (int i = 0; i < sourceFile_Files.Count(); ++i) {
-			std::string s = ws2s(sourceFile_Files[i]);
-			LOG("BBB {0} {1}\n", i, s.c_str());
+		auto ptr = param3.s_tab;
+		for (int i = 0; i < ptr->Count(); ++i) {
+			//std::string s = ws2s(sourceFile_Files[i]);
+			//LOG("BBB {0} {1}\n", i, s.c_str());
+			(*ptr)[i] = sourceFile_Files[i];									
 		}
+
+		param3.LoadPtr(ParamType2::TYPE_STRING_TAB_BV, &sourceFile_Files);
+		//param3.Load(ParamType2::TYPE_STRING_TAB_BV,&sourceFile_Files);
+ 		for (int i = 0; i < sourceFile_Files.Count(); ++i) {
+ 			std::string s = ws2s( sourceFile_Files[i] );
+ 			LOG("Aha  {0} {1}\n", i, s.c_str());
+ 		}
+
+		//param3.LoadPtr(ParamType2::TYPE_STRING_TAB, &sourceFile_Files);
+
+// 		for (int i = 0; i < sourceFile_Files.Count(); ++i) {
+// 			std::string s = ws2s(sourceFile_Files[i]);
+// 			LOG("BBB {0} {1}\n", i, s.c_str());
+// 		}
 		//param3.LoadPtr(ParamType2::TYPE_STRING_TAB_BV, tstr_tab);
 		//param3.LoadPtr(ParamType2::TYPE_STRING_TAB_BV, &tstr_tab_dynamic_allocate_items);
 		//SYSTEM_CALL(param3.LoadPtr(ParamType2::TYPE_STRING_TAB_BV, &sourceFile_Files);)
@@ -966,8 +981,9 @@ void xref_low_error(std::wstring project_path, std::wstring pname) {
 
 	LOG("???????----------- {}\n",ws2s(file).c_str());
 	
-//  	FPValue param4;
-//  	param4.type = ParamType2::TYPE_FPVALUE_TAB_BV;
+  	FPValue param4;
+	param4.InitTab(XREFOPTIONS_ADDXREFITEMSFROMFILE_IOBJXREFMGR_PARAM4_TYPE, 0);
+  	//param4.type = ParamType2::TYPE_FPVALUE_TAB_BV;
 // 	Tab<FPValue*> param4_fpvalues;
 // 	FPValue param4_fpvalue;
 // 	FPValue* pointer_param4_fpvalue;
@@ -976,21 +992,18 @@ void xref_low_error(std::wstring project_path, std::wstring pname) {
 // 	param4_fpvalues.Append(1, &pointer_param4_fpvalue);
 // 	param4.fpv_tab = &param4_fpvalues;
 	
-	FPValue param4;
+	//FPValue param4;
 	//param4.type = ParamType2::TYPE_INT_TAB;
 	//param4.type = ParamType2::TYPE_INT_TAB_BV;
 	//param4.type = ParamType2::TYPE_INT_TAB_BR;
-  	Tab<int> xrefoptions;
-	xrefoptions.Resize(1);
- 	int h = 1;
- 	xrefoptions.Append(1, &h);
+ // 	Tab<int> xrefoptions;
+	//xrefoptions.Resize(1);
+ //	int h = 1;
+ //	xrefoptions.Append(1, &h);
 	
   	//param4.i_tab = &xrefoptions;
 
 	//LOG("type is {0}", param4.type);
-
-
-
 
 	//FPParams fnParams;
 	//FPValue result, param1;
@@ -1147,7 +1160,7 @@ void xref_low_error(std::wstring project_path, std::wstring pname) {
 //	
 //}
 
-inline void xref_low(std::string project_path, std::string pname) {
+inline void xref_low(std::wstring project_path, std::wstring pname) {
 	FPInterface* fpInterface = GetCOREInterface(OBJXREFMGR_INTERFACE_ID);
 	FPParams p(1, DUPOBJNAMEACTION_IOBJXREFMGR_TYPEPARAM, OBJXREFMGR_ENUM3::deleteOld);
 	fpInterface->Invoke(DUPOBJNAMEACTION_IOBJXREFMGR_SETTER, &p);
@@ -1174,8 +1187,42 @@ inline void xref_low(std::string project_path, std::string pname) {
 		objNames_mchartype.Append(1, &name_wcharType);
 		LOG(objNames_mchartype[i]); LOG("\n");
 	}
+
+	FPParams fnParams;
+	FPValue param1;
+	std::wstring filename = (project_path + L"\\" + pname + L"_low0.max");
+	param1.type = FILENAME_ADDXREFITEMSFROMFILE_IOBJXREFMGR_PARAM1_TYPE;
+	param1.s = filename.data();
+	fnParams.params.append(param1);
+
+	FPValue param2;
+	param2.type = PROMPTOBJNAMES_ADDXREFITEMSFROMFILE_IOBJXREFMGR_PARAM2_TYPE;
+	param2.b = false;
+	fnParams.params.append(param2);
+
+	FPValue param3;	
+	param3.InitTab(OBJNAMES_ADDXREFITEMSFROMFILE_IOBJXREFMGR_PARAM3_TYPE, numNodeSelection);
+	auto ptr = param3.s_tab;
+	for (int i = 0; i < ptr->Count(); ++i) {
+		//std::string s = ws2s(sourceFile_Files[i]);
+		//LOG("BBB {0} {1}\n", i, s.c_str());
+		(*ptr)[i] = objNames_mchartype[i];
+	}
+	param3.LoadPtr(ParamType2::TYPE_STRING_TAB_BV, &objNames_mchartype);
+	//param3.Load(ParamType2::TYPE_STRING_TAB_BV,&sourceFile_Files);
+	for (int i = 0; i < objNames_mchartype.Count(); ++i) {
+		std::string s = ws2s(objNames_mchartype[i]);
+		LOG("Aha hehe {0} {1}\n", i, s.c_str());
+	}
+	fnParams.params.append(param3);
+
+	FPValue param4;
+	param4.InitTab(XREFOPTIONS_ADDXREFITEMSFROMFILE_IOBJXREFMGR_PARAM4_TYPE, 0);
+	fnParams.params.append(param4);
 	
-	//std::string filename = (project_path + "\\" + pname + "_low0.max");
+	FPValue result;
+	fpInterface->Invoke(ADDXREFITEMSFROMFILE_IOBJXREFMGR, result, &fnParams);
+
 	//const wchar_t* vfilename = s2ws(filename).data();
 	//Tab<int> a;
 	//LOG(vfilename);
@@ -1239,6 +1286,7 @@ void LayerInterfaceExample()
 	}
 }
 
+
 Status YServiceTestImpl::MTest1(ServerContext* context, const EmptyParam* request, EmptyParam* reply)
 {
 	Invoke([]() {
@@ -1269,12 +1317,34 @@ Status YServiceTestImpl::MTest1(ServerContext* context, const EmptyParam* reques
 		//y3d::IBatchProOptimizer y;
 		//BatchProOptimizer(y);
 		/*GetCOREInterface16()->load*/
-		//std::string oFileDir = "F:\\WorkSpace\\3Ds Max\\Building Phong Tam Project\\scenes\\TestProOptimizerScene";
-		std::wstring projectPath = L"F:\\WorkSpace\\3Ds Max\\Building Phong Tam Project\\scenes\\TestProOptimizerScene";
-		std::wstring oFileName = L"001";
-		xref_low_error(projectPath, oFileName);
-		//pre_optimize(oFileDir, oFileName, projectPath);
+		//std::wstring oFileDir = L"F:\\WorkSpace\\3Ds Max\\Building Phong Tam Project\\scenes\\TestProOptimizerScene";
+		std::string oFileDir = "F:\\WorkSpace\\3Ds Max\\Building Phong Tam Project\\scenes\\TestProOptimizerScene";
+ 		//std::wstring projectPath = L"F:\\WorkSpace\\3Ds Max\\Building Phong Tam Project\\scenes\\TestProOptimizerScene";
+		std::string projectPath = "F:\\WorkSpace\\3Ds Max\\Building Phong Tam Project\\scenes\\TestProOptimizerScene";
+ 		std::string oFileName = "001";
+// 		xref_low(projectPath, oFileName);
 
+		//std::wstring low_file = formatWS("{0}\\{1}_low0.max", projectPath, oFileName);
+		//INodeTab hight_nodes;
+		//auto ip16 = GetCOREInterface16();
+		//GetCOREInterface16()->GetSelNodeTab(hight_nodes);
+		//std::wstring high_file = formatWS("{0}\\{1}_high.max", projectPath, oFileName);
+		//ip16->FileSaveNodes(&hight_nodes, high_file.c_str());
+
+		pre_optimize(oFileDir, oFileName, projectPath);
+
+ 		//std::string maxFile = projectPath + "\\" + oFileName + "90.max";
+// 		GetCOREInterface16()->LoadFromFile(s2ws(maxFile).data(), Interface8::LoadFromFileFlags::kSuppressPrompts&Interface8::LoadFromFileFlags::kUseFileUnits);
+		//auto ip16 = GetCOREInterface16();
+// 		bool isquiet = ip16->GetQuietMode();
+// 		LOG("is quiet {}", isquiet);
+// 		QuietMode a;
+// 		a.set();
+// 		bool loadsucess = ip16->LoadFromFile(s2ws(maxFile).data(),Interface8::LoadFromFileFlags::kSuppressPrompts&Interface8::LoadFromFileFlags::kUseFileUnits);
+// 
+// 		ip16->SaveToFile(s2ws(maxFile).data());
+		//ip16->ImportFromFile(s2ws(maxFile).data(), false);		
+		//LOG("is loadsuccess {0}",loadsucess);
 		//MSTR internal_name = fpInterfaceDesc->internal_name;
 		//logserver::LOG("Internal name is {0}\n", internal_name);
 		//ULONG flags = fpInterfaceDesc->flags;
