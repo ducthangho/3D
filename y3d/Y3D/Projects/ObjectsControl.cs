@@ -189,7 +189,7 @@ namespace Y3D.Projects
                 var y = (YObject)x;
                 YEvent ye = new YEvent();
                 ye.Isolate = new EIsolate();
-                ye.Isolate.EndIsolate = !((CheckBox)sender).Checked;
+                ye.Isolate.EndIsolate = (((CheckBox)sender).Checked==false);
                 ye.Isolate.Name = y.Name;
                 Y3D.Projects.Utils.MaxClient.DoEvent(ye);
             }
@@ -268,6 +268,23 @@ namespace Y3D.Projects
                     }
                 }
             }
+        }
+
+        private void btnTestEdit_Click(object sender, EventArgs e)
+        {
+            Object v = olvLocalTest.SelectedObject;
+            if (v is VerTest)
+            {
+                Utils.CurrentTest = (VerTest)v;
+                htmlTestName.Text = "Test : "+Utils.CurrentTest.Id;
+                panelEditTest.BringToFront();
+            }
+                
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            panelObjList.BringToFront();
         }
     }
 }

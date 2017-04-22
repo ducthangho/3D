@@ -36,6 +36,7 @@ namespace Y3D.Projects
         public static YAreaList CurrentYAL = null;
         public static ProjectInfo CurrentP = null;
         public static UserTestData TestData = new UserTestData();
+        public static VerTest CurrentTest = null;
         public static Forms.YMainForm mainform = null;
 
         public static string current_layer = "0";

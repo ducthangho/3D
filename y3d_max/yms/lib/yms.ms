@@ -378,7 +378,7 @@ if yms_init != true then
 			)
 			if (isolate) then
 			(
-				yms.isolate_layer lname
+				isolate_layer lname
 			)
 		),
 		fn pre_optimize oFileDir oFileName projectPath = 

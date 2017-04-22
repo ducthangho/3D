@@ -482,7 +482,7 @@ inline bool DeleteLayer(std::string layer_name) {
 // isolate=TRUE : IsolateSelection.EnterIsolateSelectionMode() 
 // isolate=FALSE : IsolateSelection.ExitIsolateSelectionMode() 
 inline void setIsolate(bool isolate=TRUE) {
-	if (!isolate) {
+	if (isolate) {
 		auto cmd = L"IsolateSelection.EnterIsolateSelectionMode()";
 		ExecuteMAXScriptScript(cmd);
 	}

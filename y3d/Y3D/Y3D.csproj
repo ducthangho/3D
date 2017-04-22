@@ -108,6 +108,12 @@
     <Compile Include="Projects\TestInitForm.Designer.cs">
       <DependentUpon>TestInitForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Projects\UnwrapControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Projects\UnwrapControl.Designer.cs">
+      <DependentUpon>UnwrapControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Projects\Utils.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -158,6 +164,9 @@
     <Compile Include="Utils\FaceRange.cs" />
     <EmbeddedResource Include="Projects\TestInitForm.resx">
       <DependentUpon>TestInitForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Projects\UnwrapControl.resx">
+      <DependentUpon>UnwrapControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Users\AuthForm.resx">
       <DependentUpon>AuthForm.cs</DependentUpon>

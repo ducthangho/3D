@@ -33,6 +33,7 @@
             this.txtNote = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.btnMakeTest = new MetroFramework.Controls.MetroTile();
+            this.btnPresetManager = new MetroFramework.Controls.MetroButton();
             this.SuspendLayout();
             // 
             // metroComboBox1
@@ -112,11 +113,21 @@
             this.btnMakeTest.UseSelectable = true;
             this.btnMakeTest.Click += new System.EventHandler(this.btnMakeTest_Click);
             // 
+            // btnPresetManager
+            // 
+            this.btnPresetManager.Location = new System.Drawing.Point(151, 93);
+            this.btnPresetManager.Name = "btnPresetManager";
+            this.btnPresetManager.Size = new System.Drawing.Size(29, 29);
+            this.btnPresetManager.TabIndex = 6;
+            this.btnPresetManager.Text = "...";
+            this.btnPresetManager.UseSelectable = true;
+            // 
             // TestInitForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(337, 243);
+            this.Controls.Add(this.btnPresetManager);
             this.Controls.Add(this.btnMakeTest);
             this.Controls.Add(this.metroLabel2);
             this.Controls.Add(this.txtNote);
@@ -137,5 +148,6 @@
         private MetroFramework.Controls.MetroTextBox txtNote;
         private MetroFramework.Controls.MetroLabel metroLabel2;
         private MetroFramework.Controls.MetroTile btnMakeTest;
+        private MetroFramework.Controls.MetroButton btnPresetManager;
     }
 }
