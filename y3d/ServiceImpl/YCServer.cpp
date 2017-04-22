@@ -15,8 +15,12 @@
 Status YServiceImpl::Init4Test(ServerContext* context, const InitTestParam* request, InitTestResponse* reply)
 {
 	Invoke([request]() -> void {
+		std::wstring cmd;
+
 		auto* ip = GetCOREInterface();
 		auto n = ip->GetINodeByName(s2ws(request->tname()).c_str());
+		n->Hide(FALSE);
+		auto it = request->init_test();
 
 		INodeTab nt1, nt2, nt3, nt4, nt5;
 		nt1.AppendNode(n);
@@ -24,33 +28,55 @@ Status YServiceImpl::Init4Test(ServerContext* context, const InitTestParam* requ
 		ip->CloneNodes(nt1, n->GetObjOffsetPos(), true, NODE_COPY, &nt3, &nt3);
 		ip->CloneNodes(nt1, n->GetObjOffsetPos(), true, NODE_COPY, &nt4, &nt4);
 
-		std::wstring tmp = n->GetName();
-		auto lowStr = tmp + L"_low";
-		auto hiStr = tmp + L"_high";
-		auto cageStr = tmp + L"_cage";
+
+		//std::wstring tmp = n->GetName();
+		//auto lowStr = tmp + L"_low";
+		//auto hiStr = tmp + L"_high";
+		//auto cageStr = tmp + L"_cage";
+		auto lowStr = formatWS("{}_{}_low", request->tname().c_str(), request->tid().c_str());
+		auto hiStr = formatWS("{}_{}_high", request->tname().c_str(), request->tid().c_str());
+		auto cageStr = formatWS("{}_{}_cage", request->tname().c_str(), request->tid().c_str());
+
 		nt2[0]->SetName(lowStr.c_str());
 		nt3[0]->SetName(hiStr.c_str());
 		nt4[0]->SetName(cageStr.c_str());
-
 		
+		cmd = formatWS("yms.set_display_proxy \"{0}\" true", ws2s(hiStr).c_str());
+		LOG(cmd.c_str());
+		ExecuteMAXScriptScript(cmd.c_str());
+		cmd = formatWS("yms.set_display_proxy \"{0}\" true", ws2s(cageStr).c_str());
+		ExecuteMAXScriptScript(cmd.c_str());
+
+
 		ip->SelectNodeTab(nt1, TRUE, FALSE);
 		ip->FileSaveNodes(&nt1, formatWS("{0}\\{1}_o.max", request->test_folder(), ws2s(n->GetName()).c_str()).c_str());
 
-		ip->SelectNodeTab(nt2, TRUE, FALSE);
+		if (it.has_lowpoly()) {
+			ip->SelectNode(nt2[0]);
+			do_lowpoly(&it.lowpoly());
+		}
+		else {
+			cmd = formatWS("yms.set_display_proxy \"{0}\" false", ws2s(lowStr).c_str());
+			ExecuteMAXScriptScript(cmd.c_str());
+		}
+
+		ip->SelectNode(nt2[0]);
+		ip->SelectNode(nt3[0],0);
+		ip->SelectNode(nt4[0],0);
+		//cmd = L"actionMan.executeAction 0 \"197\";";
+		// select and move to new layer
+		cmd = formatWS("yms.create_layer \"{0}_{1}\" true true", request->tname().c_str(), request->tid().c_str());
+		ExecuteMAXScriptScript(cmd.c_str());
+		//theHold.Begin();
+		ip->SelectNode(nt2[0]);
+		//theHold.Accept();
 		ip->ExportToFile(formatWS("{0}\\{1}_low.obj", request->test_folder(), ws2s(n->GetName()).c_str()).c_str(), TRUE, SCENE_EXPORT_SELECTED, new Class_ID(1371343970L, 1730353346L));
 
-		ip->SelectNodeTab(nt3, TRUE, FALSE);
+		ip->SelectNode(nt3[0]);
 		ip->ExportToFile(formatWS("{0}\\{1}_high.obj", request->test_folder(), ws2s(n->GetName()).c_str()).c_str(), TRUE, SCENE_EXPORT_SELECTED, new Class_ID(1371343970L, 1730353346L));
 
-		ip->SelectNodeTab(nt4, TRUE, FALSE);
+		ip->SelectNode(nt4[0]);
 		ip->ExportToFile(formatWS("{0}\\{1}_cage.obj", request->test_folder(), ws2s(n->GetName()).c_str()).c_str(), TRUE, SCENE_EXPORT_SELECTED, new Class_ID(1371343970L, 1730353346L));
-
-		nt2.AppendNode(nt3[0]);
-		nt2.AppendNode(nt4[0]);
-
-		ip->SelectNodeTab(nt2, TRUE);
-		auto cmd = L"actionMan.executeAction 0 \"197\";";
-		ExecuteMAXScriptScript(cmd);
 	});
 	//waitForReturn(ret);
 	return Status::OK;

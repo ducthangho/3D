@@ -376,34 +376,62 @@ void DoYEvent(YEvent ye) {
 	if (ye.has_select()) {
 		auto name_select = ye.select().name();
 		auto n = ip->GetINodeByName(s2ws(name_select).c_str());
+		n->Hide(FALSE);
 		ip->SelectNode(n);
-		if (!ye.select().isolate()) {
-			auto cmd = L"IsolateSelection.EnterIsolateSelectionMode()";
-			ExecuteMAXScriptScript(cmd);
-		}
-		else {
-			auto cmd = L"IsolateSelection.ExitIsolateSelectionMode()";
-			ExecuteMAXScriptScript(cmd);
-		}
+		setIsolate(ye.select().isolate());
+		//if (!ye.select().isolate()) {
+		//	auto cmd = L"IsolateSelection.EnterIsolateSelectionMode()";
+		//	ExecuteMAXScriptScript(cmd);
+		//}
+		//else {
+		//	auto cmd = L"IsolateSelection.ExitIsolateSelectionMode()";
+		//	ExecuteMAXScriptScript(cmd);
+		//}
 	}
 	else if (ye.has_isolate()) {
-		if (ye.isolate().endisolate()) {
-			auto cmd = L"IsolateSelection.ExitIsolateSelectionMode()";
-			ExecuteMAXScriptScript(cmd);
+		auto ii = ye.isolate();
+		if (ii.endisolate()) {
+			setIsolate(false);
+			//auto cmd = L"IsolateSelection.ExitIsolateSelectionMode()";
+			//ExecuteMAXScriptScript(cmd);
 		}
-		else {
-			auto name_select = ye.isolate().name();
+		else if (!ii.name().empty()) {
+			auto name_select = ii.name();
 			auto n = ip->GetINodeByName(s2ws(name_select).c_str());
 			ip->SelectNode(n);
-			auto cmd = L"actionMan.executeAction 0 \"197\";";
-			ExecuteMAXScriptScript(cmd);
+			setIsolate(true);
+			//auto cmd = L"actionMan.executeAction 0 \"197\";";
+			//ExecuteMAXScriptScript(cmd);
 		}
+		else if (!ii.layer().empty()) {
+			setIsolateLayer(ii.layer());
+		}
+
 	}
 	else if (ye.has_close()) {
 		if (ye.close().bypass())
 			ExecuteMAXScriptScript(L"actionMan.executeAction 0 \"16\"");
 			//"resetMaxFile #noPrompt"
 		else {
+		}
+	}
+	else if (ye.has_del()) {
+		auto dd = ye.del();
+		if (dd.names().size()>0) {
+			for (int i = 0; i < dd.names().size(); i++)
+			{
+				ip->DeleteNode(ip->GetINodeByName(s2ws(dd.names(i)).c_str()),1);
+			}
+		}
+		else if (dd.layers().size()>0) {
+			for (int i = 0; i < dd.layers().size(); i++)
+			{
+				//DeleteLayer(s2ws(dd.layers(i)).c_str());
+				DeleteLayer(dd.layers(i));
+			}
+		}
+		else if (dd.groups().size()>0) {
+
 		}
 	}
 }
@@ -494,5 +522,32 @@ void MyNodeEventCB::SelectionChanged(NodeKeyTab & nodes)
 		auto joinTask = when_all(begin(tasks), end(tasks));
 		joinTask.wait();
 		//MessageBoxW(NULL, n->GetName(), L"TEST", MB_OK);
+	}
+}
+
+void do_unwrap(const EUnwrap *eu) {
+	if (eu->has_max3d()) {
+		std::wstring cmd = formatWS("yms.unwrap3dmax \"{0}\" \"{1}\"", eu->max3d().angle(), eu->max3d().spacing());
+		ExecuteMAXScriptScript(cmd.c_str());
+	}
+	else if (eu->has_blender()) {
+
+	}
+}
+
+void do_lowpoly(const ELowpoly *el) {
+	if (el->has_lp_3dmax()) {
+
+	}
+	else if (el->has_lp_blender()) {
+		auto bl = el->lp_blender();
+		std::wstring cmd = formatWS("yms.makeLowPoly \"{0}\"", bl.ratio());
+		ExecuteMAXScriptScript(cmd.c_str());
+	}
+}
+
+void do_pack(const EPacking *ep) {
+	if (ep->has_packrect()) {
+		auto x = ep->packrect();
 	}
 }

@@ -264,12 +264,16 @@ message ERotate {
 }
 
 message EDelete {
-  string name = 1;
+  repeated string names = 1;
+  repeated string layers = 2;
+  repeated string groups = 3;
+  bool redraw =4;
 }
 
 message EIsolate {
   string name = 1;
   bool endIsolate=2;
+  string layer = 3;
 }
 
 message EClose {
@@ -564,6 +568,7 @@ message UserResponse {
 message VerTest {
   string id=1;
   string vnote = 2;
+  int32 tid = 3;
   oneof tname {
     string oname=4;// is object
     string gname=5;// is group
@@ -572,6 +577,7 @@ message VerTest {
   YMultiMat mmat = 8;
   repeated string uvmap = 9;
   YBaseMap map_out = 10;
+
 }
 
 // message VerTestParam {

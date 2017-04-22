@@ -524,6 +524,7 @@ inline bool DeleteLayer(std::string layer_name) {
 
 // isolate=TRUE : IsolateSelection.EnterIsolateSelectionMode() 
 // isolate=FALSE : IsolateSelection.ExitIsolateSelectionMode() 
+<<<<<<< HEAD
 
 inline void redrawViewPort()
 {
@@ -541,11 +542,22 @@ inline bool setIsolate(BOOL isolate=TRUE) {
 		redrawViewPort();
 	}
 	return result.b;
+=======
+inline void setIsolate(bool isolate=TRUE) {
+	if (isolate) {
+		auto cmd = L"IsolateSelection.EnterIsolateSelectionMode()";
+		ExecuteMAXScriptScript(cmd);
+	}
+	else {
+		auto cmd = L"IsolateSelection.ExitIsolateSelectionMode()";
+		ExecuteMAXScriptScript(cmd);
+	}
 }
 
 inline void setIsolateLayer(std::string layer_name) {
 	auto cmd = formatWS("yms.isolate_layer \"{0}\"", layer_name);
 	ExecuteMAXScriptScript(cmd.c_str());
+>>>>>>> origin/master
 }
 
 #define createLight(x) CreateInstance(LIGHT_CLASS_ID,x)
@@ -571,3 +583,20 @@ inline void* createBatchProOptimizer() {
 	return CreateInstance(UTILITY_CLASS_ID, BATCH_PROOPTIMIZER_CLASS_ID);
 }
 
+class QuietMode
+{
+public:
+	Interface* ip;
+	bool a;
+	QuietMode() {
+		ip = GetCOREInterface16();
+	}
+	void set(bool quiet = true)
+	{
+		ip->SetQuietMode(quiet);
+	}
+
+	~QuietMode() {
+		ip->SetQuietMode(false);
+	}
+};

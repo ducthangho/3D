@@ -36,9 +36,23 @@ namespace Y3D.Projects
         public static YAreaList CurrentYAL = null;
         public static ProjectInfo CurrentP = null;
         public static UserTestData TestData = new UserTestData();
+        public static VerTest CurrentTest = null;
         public static Forms.YMainForm mainform = null;
 
+        public static string current_layer = "0";
+
         //public static YSystem YSys = new YSystem();
+
+        public static void displayLayer(string lname)
+        {
+            if (current_layer == lname) return;
+            if (!checkMaxTools(worker)) return;
+            current_layer = lname;
+            YEvent ye = new YEvent();
+            ye.Isolate = new EIsolate();
+            ye.Isolate.Layer = lname;
+            Y3D.Projects.Utils.MaxClient.DoEventAsync(ye);
+        }
 
         static public void myLoading()
         {
@@ -67,10 +81,14 @@ namespace Y3D.Projects
             var test_path = System.IO.Path.Combine(CurrentP.ProjectPath, "test", "ytest.y3d");
             if (File.Exists(test_path))
             {
-                using (Stream file = File.OpenRead(test_path))
+                //using (Stream file = File.OpenRead(test_path))
+                //{
+                //    var a = Google.Protobuf.CodedInputStream.CreateWithLimits(file, 1024 << 20, 10);
+                //    TestData = UserTestData.Parser.ParseFrom(a);
+                //}
+                using (Stream stream = File.OpenRead(test_path))
                 {
-                    var a = Google.Protobuf.CodedInputStream.CreateWithLimits(file, 1024 << 20, 10);
-                    TestData = UserTestData.Parser.ParseFrom(a);
+                    TestData = UserTestData.Parser.ParseFrom(stream);
                 }
             }
         }
@@ -449,6 +467,17 @@ namespace Y3D.Projects
             return false;
         }
 
+        public static int unique_id(Google.Protobuf.Collections.RepeatedField<VerTest> arr)
+        {
+            if (arr.Count == 0) return 1;
+            var x = arr.Last();
+            if (x!=null)
+            {
+                return x.Tid + 1;
+            }
+            return -1;
+        }
+
         public static bool CreateNewTest(string tname, string note,InitTestPreset preset)
         {
             if (!checkMaxTools(worker)) return false;
@@ -460,14 +489,18 @@ namespace Y3D.Projects
             var ListTest = TestData.Utests[tname];
             VerTest vt = new VerTest();
             vt.Vnote = note;
+            vt.Oname = tname;
             //vt.Id = Guid.NewGuid().ToString();
-            vt.Id = Convert.ToBase64String(Guid.NewGuid().ToByteArray()).Substring(0, 8);
+            //vt.Id = Convert.ToBase64String(Guid.NewGuid().ToByteArray()).Substring(0, 8);
+            vt.Tid = unique_id(TestData.Utests[tname].Otests);
+            vt.Id = "ver" + vt.Tid;
             var test_path = System.IO.Path.Combine(CurrentP.ProjectPath, "test",(tname+"_" + vt.Id));
             var count = 0;
             while (Directory.Exists(test_path))
             {
                 count++;
-                vt.Id = Convert.ToBase64String(Guid.NewGuid().ToByteArray()).Substring(0, 8);
+                vt.Tid = unique_id(TestData.Utests[tname].Otests);
+                vt.Id = "ver" + vt.Tid;
                 test_path = System.IO.Path.Combine(CurrentP.ProjectPath, "test", (tname + "_" + vt.Id));
                 if (count > 10) return false;
             }
@@ -478,9 +511,43 @@ namespace Y3D.Projects
             itp.TestFolder = test_path;
             itp.Note = note;
             itp.InitTest = preset;
+            itp.Tid = vt.Id;
             var x = Y3D.Projects.Utils.MaxClient.Init4Test(itp);
             TestData.Utests[tname].Otests.Add(vt);
             Projects.Utils.saveTestData();
+            current_layer = tname + "_" + vt.Id;
+            return true;
+        }
+
+        public static bool DeleteTest(VerTest v)
+        {
+            if (!checkMaxTools(worker)) return false;
+            YListTest ListTest = null;
+            if (TestData.Utests.ContainsKey(v.Oname))
+                ListTest = TestData.Utests[v.Oname];
+            if (ListTest!=null)
+            {
+                var test_path = Path.Combine(CurrentP.ProjectPath, "test", (v.Oname + "_" + v.Id));
+                if (Directory.Exists(test_path))
+                {
+                    try
+                    {
+                        System.IO.Directory.Delete(test_path, true);
+                    }
+                    catch (System.IO.IOException ee)
+                    {
+                        Console.WriteLine(ee.Message);
+                    }
+                }
+                ListTest.Otests.Remove(v);
+                Projects.Utils.saveTestData();
+                YEvent ye = new YEvent();
+                ye.Del = new EDelete();
+                ye.Del.Layers.Add(v.Oname + "_ver" + v.Tid);
+                Y3D.Projects.Utils.MaxClient.DoEventAsync(ye);
+            }
+
+            //var ListTest = TestData.Utests[tname];
             return true;
         }
 

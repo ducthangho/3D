@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using y3d.e;
+using System.IO;
 
 namespace Y3D.Projects
 {
@@ -129,7 +130,7 @@ namespace Y3D.Projects
             Object x = objectListCtrl.SelectedObject;
             if (x is YObject)
             {
-
+                Utils.displayLayer("0");
                 var y = (YObject)x;
                 if (Utils.TestData.Utests!=null)
                 {
@@ -155,7 +156,7 @@ namespace Y3D.Projects
                     ye.Isolate = new EIsolate();
                     ye.Isolate.EndIsolate = false;
                     ye.Isolate.Name = y.Name;
-                    Y3D.Projects.Utils.MaxClient.DoEvent(ye);
+                    Y3D.Projects.Utils.MaxClient.DoEventAsync(ye);
                 } else
                 {
                     YEvent ye = new YEvent();
@@ -188,7 +189,7 @@ namespace Y3D.Projects
                 var y = (YObject)x;
                 YEvent ye = new YEvent();
                 ye.Isolate = new EIsolate();
-                ye.Isolate.EndIsolate = !((CheckBox)sender).Checked;
+                ye.Isolate.EndIsolate = (((CheckBox)sender).Checked==false);
                 ye.Isolate.Name = y.Name;
                 Y3D.Projects.Utils.MaxClient.DoEvent(ye);
             }
@@ -211,7 +212,7 @@ namespace Y3D.Projects
                 var y = (YObject)x;
                 if (Projects.Utils.CreateNewTest(y.Name,tf.note,tf.testPreset))
                 {
-                    MessageBox.Show("Create ok");
+                    //MessageBox.Show("Create ok");
                     olvLocalTest.SetObjects(Utils.TestData.Utests[y.Name].Otests);
                 }
             }
@@ -233,6 +234,57 @@ namespace Y3D.Projects
         private void toolStripInfo_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnPreview_Click(object sender, EventArgs e)
+        {
+            Object o = objectListCtrl.SelectedObject;
+            if (o is YObject)
+            {
+                var oo = (YObject)o;
+                Object v = olvLocalTest.SelectedObject;
+                if (v is VerTest)
+                {
+                    var vv = (VerTest)v;
+                    var test_path = Path.Combine(Utils.CurrentP.ProjectPath, "test", (oo.Name + "_" + vv.Id), oo.Name+"_low.obj");
+                    System.Diagnostics.Process.Start(test_path);
+                }
+            }
+        }
+
+        private void btnTestDel_Click(object sender, EventArgs e)
+        {
+            Object o = objectListCtrl.SelectedObject;
+            if (o is YObject)
+            {
+                var oo = (YObject)o;
+                Object v = olvLocalTest.SelectedObject;
+                if (v is VerTest)
+                {
+                    var vv = (VerTest)v;
+                    if (Utils.DeleteTest(vv))
+                    {
+                        olvLocalTest.SetObjects(Utils.TestData.Utests[oo.Name].Otests);
+                    }
+                }
+            }
+        }
+
+        private void btnTestEdit_Click(object sender, EventArgs e)
+        {
+            Object v = olvLocalTest.SelectedObject;
+            if (v is VerTest)
+            {
+                Utils.CurrentTest = (VerTest)v;
+                htmlTestName.Text = "Test : "+Utils.CurrentTest.Id;
+                panelEditTest.BringToFront();
+            }
+                
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            panelObjList.BringToFront();
         }
     }
 }
