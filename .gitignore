@@ -46,3 +46,4 @@ y3d/Service/obj/**
 y3d/Y3D.Entities/obj/**
 y3d/Y3D.Entities/bin/**
 y3d/x64/Release/**
+*.TMP

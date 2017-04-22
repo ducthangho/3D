@@ -467,9 +467,52 @@ inline void Collapse(INode *node)
 // isolate=TRUE : display this layer only and hide other
 // return name of new layer. Automatically rename it If (layer_name) already exists
 inline std::wstring CreateLayer(INodeTab *nodes, std::wstring layer_name, BOOL isolate=TRUE) {
-	//
-	//
-	
+	FPInterface* fpInterface = GetCOREInterface(LAYERMANAGER_INTERFACE_ID);
+
+	FPValue result;
+	fpInterface->Invoke(COUNT_ILAYERMANAGER_GETTER, result);
+	auto numLayer = result.i;
+	LOG("number layer is {0}\n", numLayer);
+
+	for (int i = 0; i < numLayer; i++)
+	{
+		FPParams pWHICH(1, WHICH_GETLAYER_ILAYERMANAGER_PARAM1_TYPE, i);
+		fpInterface->Invoke(GETLAYER_ILAYERMANAGER, result, &pWHICH);
+
+		auto fp = result.fpi;
+
+		FPValue r;
+		fp->Invoke(NAME_ILAYERPROPERTIES_GETTER, r);
+		auto layerName = r.s;
+		LOG("Layer number {} have layer name is ", i + 1); LOG(layerName); LOG("\n");
+
+		//auto interfaceID = fp->GetID();
+		//int fn_id = fp->FindFn(L"select");
+		//LOG("fn_id is {}\n", fn_id);
+		//LOG("Interface_ID is {}",InterFaceID2S(interfaceID));
+		//LOG("Interface_ID is of LAYERMANAGER INTERFACE is {}", InterFaceID2S(LAYERMANAGER_INTERFACE_ID));
+
+		//FPMixinInterface* ppmixinInterface = dynamic_cast<FPMixinInterface*>(fp);
+		//if (ppmixinInterface != NULL)
+		//	LOG("fp is instance of class FPMixinInterface\n");
+
+		//FPMixinInterface* ppmixinInterface2 = dynamic_cast<FPMixinInterface*>(fpInterface);
+		//if (ppmixinInterface2 == NULL)
+		//	LOG("fpInterface is not instance of class FPMixinInterface\n");
+
+		//auto fpInterfaceDesc = fp->GetDesc();
+		//auto id = fpInterfaceDesc->GetID();
+		//LOG("Interface_ID is {}\n", InterFaceID2S(id));
+
+		////auto id = fpInterfaceDesc->ID;
+		//auto internal_name = fpInterfaceDesc->internal_name;
+		//LOG("interface internal_name is{0}\n", internal_name);
+		//Tab<FPFunctionDef*> functions = fpInterfaceDesc->functions;
+		//auto numFunction = functions.Count();
+		//LOG("function numbers of interface {0} is {1}\n", internal_name, numFunction);
+
+		//generateInterfaceFuntionsID2(fpInterfaceDesc);
+	}
 	return L""; 
 }
 

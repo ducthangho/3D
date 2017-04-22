@@ -151,7 +151,7 @@ if yInit != true then
 	minh_init = false
 	yInclude "yms\lib\\yms.ms"
 	yInclude "newm\lib\\minh.ms"
-
+	yInclude "newm\lib\\test.ms"
 	-- r2_init = false
 	-- yInclude "r2\lib\\r2.ms"
 )

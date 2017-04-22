@@ -114,24 +114,6 @@ int test4() {
 	return 0;
 }
 
-int test2() {
-	tbb::task_group tg;
-	for (int i = 0; i < 7; ++i) {
-		tg.run([i]() {
-			printf("Client number %d is connecting\n", i);
-			for (int j = 0; j < 150; ++j) {
-				logserver::LOG("Hello world with fmt like format i={},j={}\n", i,j);
-				logserver::Printf("Hello world with printf like format i=%d,j=%d, %s\n", i, j,"successful! haha");
-			}
-		});
-	}
-	tg.wait();
-	//LogClient logClient(grpc::CreateChannel(address, grpc::InsecureChannelCredentials()));
-	//logserver::LOG("Hello world {}\n",123);
-	return 1;
-}
-
-
 void test3() {
 	IsProcessIsRunning(L"LogServer.exe");
 }
@@ -172,6 +154,34 @@ void test1() {
 	y3d::EmptyParam req;
 	y3d::EmptyParam res;
 	grpc::Status status = client->MTest1(&context, req, &res);
+}
+
+void test2() {
+	//auto client = y3d::Tools::NewStub(grpc::CreateChannel(service_ip, grpc::InsecureChannelCredentials()));
+	std::string ip = "127.0.0.1:39001";
+	auto client = y3d::YServiceTest::NewStub(grpc::CreateChannel(ip, grpc::InsecureChannelCredentials()));
+	grpc::ClientContext context;
+	y3d::EmptyParam req;
+	y3d::EmptyParam res;
+	grpc::Status status = client->MTest2(&context, req, &res);
+}
+
+
+int test6() {
+	tbb::task_group tg;
+	for (int i = 0; i < 7; ++i) {
+		tg.run([i]() {
+			printf("Client number %d is connecting\n", i);
+			for (int j = 0; j < 150; ++j) {
+				logserver::LOG("Hello world with fmt like format i={},j={}\n", i, j);
+				logserver::Printf("Hello world with printf like format i=%d,j=%d, %s\n", i, j, "successful! haha");
+			}
+		});
+	}
+	tg.wait();
+	//LogClient logClient(grpc::CreateChannel(address, grpc::InsecureChannelCredentials()));
+	//logserver::LOG("Hello world {}\n",123);
+	return 1;
 }
 
 //int shutdownService() {

@@ -2,7 +2,7 @@
 #include "YLibs.h"
 #include "YProjectUtils.h"
 #include "grpc_client.h"
-#include "move_lambda.h"
+//#include "move_lambda.h"
 #include <ppltasks.h>
 #include <array>
 
@@ -362,12 +362,13 @@ inline void pre_optimize(std::string oFileDir, std::string oFileName, std::strin
 	fpInterface->Invoke(BATCH_IBATCHPROOPTIMIZER);
 
 	std::string maxFile = projectPath + "\\" + oFileName + "90.max";
-	GetCOREInterface16()->LoadFromFile(s2ws(maxFile).data(), Interface8::LoadFromFileFlags::kSuppressPrompts&Interface8::LoadFromFileFlags::kUseFileUnits);
-	FPValue result;
-	fpInterface->Invoke(DESTFOLDERNAME_IBATCHPROOPTIMIZER_GETTER, result);
-	const wchar_t* a = result.s;
-	logserver::LOG(a);
-	//logserver::LOG(b);
+
+	auto ip16 = GetCOREInterface16();
+	QuietMode quietmode;
+	quietmode.set();
+	bool loadsucess = ip16->LoadFromFile(s2ws(maxFile).data(),
+		Interface8::LoadFromFileFlags::kSuppressPrompts&Interface8::LoadFromFileFlags::kUseFileUnits);
+	ip16->SaveToFile(s2ws(maxFile).data());
 }
 
 void DoYEvent(YEvent ye) {

@@ -1,5 +1,5 @@
 set redis-server-path="C:\ProgramData\chocolatey\lib\redis-64"
-set log-server-path="%Y3D_ROOT%\bin"
+set log-server-path="C:\Program Files\Autodesk\3ds Max 2017\"
 set YMasterServer-path="%Y3D_ROOT%\bin\mserver\"
 set threedsmax-path="C:\Program Files\Autodesk\3ds Max 2017\"
 set LoaderCmd-path="%Y3D_ROOT%\bin"
