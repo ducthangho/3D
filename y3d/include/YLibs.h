@@ -476,8 +476,23 @@ inline std::wstring CreateLayer(INodeTab *nodes, std::wstring layer_name, BOOL i
 
 // isolate=TRUE : IsolateSelection.EnterIsolateSelectionMode() 
 // isolate=FALSE : IsolateSelection.ExitIsolateSelectionMode() 
-inline void setIsolate(BOOL isolate=TRUE) {
-	
+
+inline void redrawViewPort()
+{
+	auto ip16 = GetCOREInterface16();
+	GetCOREInterface16()->RedrawViews(ip16->GetTime());
+}
+
+inline bool setIsolate(BOOL isolate=TRUE) {
+	FPInterface* fpInterface = GetCOREInterface(ISOLATESELECTION_INTERFACE_ID);
+	FPValue result;
+	if (isolate)
+		fpInterface->Invoke(ENTERISOLATESELECTIONMODE_IISOLATESELECTION,result);
+	else {
+		fpInterface->Invoke(EXITISOLATESELECTIONMODE_IISOLATESELECTION, result);
+		redrawViewPort();
+	}
+	return result.b;
 }
 
 #define createLight(x) CreateInstance(LIGHT_CLASS_ID,x)

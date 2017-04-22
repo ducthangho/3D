@@ -1312,7 +1312,10 @@ Status YServiceTestImpl::MTest1(ServerContext* context, const EmptyParam* reques
 		//Interface_ID a(539887512, 898175643);
 		//generateInterfaceFuntionsID2(a);
 		//generateInterfaceFuntionsID2(OBJXREFMGR_INTERFACE_ID);
-		
+		//generateInterfaceFuntionsID2(ISOLATESELECTION_INTERFACE_ID);
+	
+		setIsolate(true);
+
 		//LayerInterfaceExample();
 		//y3d::IBatchProOptimizer y;
 		//BatchProOptimizer(y);
@@ -1324,6 +1327,13 @@ Status YServiceTestImpl::MTest1(ServerContext* context, const EmptyParam* reques
  		std::string oFileName = "001";
 // 		xref_low(projectPath, oFileName);
 
+		//ProjectInfo pi;
+		//pi.set_project_path(projectPath);
+		//pi.set_pname(oFileName);
+		//pi.set_original_path(projectPath + oFileName + ".max");
+
+
+
 		//std::wstring low_file = formatWS("{0}\\{1}_low0.max", projectPath, oFileName);
 		//INodeTab hight_nodes;
 		//auto ip16 = GetCOREInterface16();
@@ -1331,7 +1341,7 @@ Status YServiceTestImpl::MTest1(ServerContext* context, const EmptyParam* reques
 		//std::wstring high_file = formatWS("{0}\\{1}_high.max", projectPath, oFileName);
 		//ip16->FileSaveNodes(&hight_nodes, high_file.c_str());
 
-		pre_optimize(oFileDir, oFileName, projectPath);
+		//pre_optimize(oFileDir, oFileName, projectPath);
 
  		//std::string maxFile = projectPath + "\\" + oFileName + "90.max";
 // 		GetCOREInterface16()->LoadFromFile(s2ws(maxFile).data(), Interface8::LoadFromFileFlags::kSuppressPrompts&Interface8::LoadFromFileFlags::kUseFileUnits);
@@ -1361,7 +1371,7 @@ Status YServiceTestImpl::MTest1(ServerContext* context, const EmptyParam* reques
 Status YServiceTestImpl::MTest2(ServerContext* context, const EmptyParam* request, EmptyParam* reply)
 {
 	Invoke([]() {
-		log("This is MTest 2\n");
+		setIsolate(false);
 	});
 	return Status::OK;
 }
