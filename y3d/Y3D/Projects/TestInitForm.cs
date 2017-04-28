@@ -20,15 +20,19 @@ namespace Y3D.Projects
         public InitTestPreset defaultInit()
         {
             InitTestPreset tp = new InitTestPreset();
+
             tp.Unwrap = new EUnwrap();
             tp.Unwrap.Max3D = new MaxUnwrap();
             tp.Unwrap.Max3D.Angle = 66;
 
-            //tp.Lowpoly = new ELowpoly();
-            //tp.Lowpoly.Lp3Dmax = new LPoly3DMax();
-            //tp.Lowpoly.Lp3Dmax.VertexPercent = 0.1f;
-            //tp.Lowpoly.Lp3Dmax.OptimizationMode = LPoly3DMax.Types.OpMode.ProtectBorders;
-            //tp.Lowpoly.Lp3Dmax.Normals = LPoly3DMax.Types.NormalMode.ProtectNormals;
+            tp.Lowpoly = new ELowpoly();
+
+            tp.Lowpoly.Lp3Dmax = new LPoly3DMax();
+            tp.Lowpoly.Lp3Dmax.VertexPercent = 30;
+            tp.Lowpoly.Lp3Dmax.OptimizationMode = LPoly3DMax.Types.OpMode.ProtectBorders;
+            tp.Lowpoly.Lp3Dmax.Normals = LPoly3DMax.Types.NormalMode.ProtectNormals;
+
+            //tp.Lowpoly.LpXref = new LPolyXref();
 
             return tp;
         }

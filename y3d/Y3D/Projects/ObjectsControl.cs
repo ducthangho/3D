@@ -89,6 +89,23 @@ namespace Y3D.Projects
                 return t.Otype.ToString();
             };
 
+            this.olvInScene.ImageGetter = delegate (object x) {
+                if (x is VerTest)
+                {
+                    var vv = (VerTest)x;
+                    if (!Utils.TestInScence.ContainsKey(vv.Id)) return "g_red";
+                    if (Utils.TestInScence[vv.Id])
+                    {
+                        return "g_green";
+                    } else
+                    {
+                        return "g_red";
+                    }
+                }
+                return "g_gray";
+            };
+
+
         }
 
         public void initGroup()
@@ -201,27 +218,8 @@ namespace Y3D.Projects
             this.olvColNameO.HeaderCheckBox = ((CheckBox)sender).Checked;
         }
 
-        private void btnAddTest_Click(object sender, EventArgs e)
-        {
-            Object x = objectListCtrl.SelectedObject;
-            if (x is YObject)
-            {
-                Projects.TestInitForm tf = new TestInitForm();
-                var r = tf.ShowDialog();
-                if (r == DialogResult.Cancel) return;
-                var y = (YObject)x;
-                if (Projects.Utils.CreateNewTest(y.Name,tf.note,tf.testPreset))
-                {
-                    //MessageBox.Show("Create ok");
-                    olvLocalTest.SetObjects(Utils.TestData.Utests[y.Name].Otests);
-                }
-            }
-      
-        }
-
         private void checkBoxInGroup_CheckedChanged(object sender, EventArgs e)
         {
-
         }
 
         private void toolStripExpand_Click(object sender, EventArgs e)
@@ -233,7 +231,6 @@ namespace Y3D.Projects
 
         private void toolStripInfo_Click(object sender, EventArgs e)
         {
-
         }
 
         private void btnPreview_Click(object sender, EventArgs e)
@@ -250,6 +247,24 @@ namespace Y3D.Projects
                     System.Diagnostics.Process.Start(test_path);
                 }
             }
+        }
+
+        private void btnAddTest_Click(object sender, EventArgs e)
+        {
+            Object x = objectListCtrl.SelectedObject;
+            if (x is YObject)
+            {
+                Projects.TestInitForm tf = new TestInitForm();
+                var r = tf.ShowDialog();
+                if (r == DialogResult.Cancel) return;
+                var y = (YObject)x;
+                if (Projects.Utils.CreateNewTest(y.Name, tf.note, tf.testPreset))
+                {
+                    //MessageBox.Show("Create ok");
+                    olvLocalTest.SetObjects(Utils.TestData.Utests[y.Name].Otests);
+                }
+            }
+
         }
 
         private void btnTestDel_Click(object sender, EventArgs e)
@@ -272,19 +287,27 @@ namespace Y3D.Projects
 
         private void btnTestEdit_Click(object sender, EventArgs e)
         {
-            Object v = olvLocalTest.SelectedObject;
+            object v = olvLocalTest.SelectedObject;
             if (v is VerTest)
             {
-                Utils.CurrentTest = (VerTest)v;
-                htmlTestName.Text = "Test : "+Utils.CurrentTest.Id;
+                testDetailControl1.reloadTest((VerTest)v);
                 panelEditTest.BringToFront();
             }
-                
         }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
             panelObjList.BringToFront();
+        }
+
+        private void olvLocalTest_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            Object v = olvLocalTest.SelectedObject;
+            if (v is VerTest)
+            {
+                testDetailControl1.reloadTest((VerTest)v);
+                panelEditTest.BringToFront();
+            }
         }
     }
 }

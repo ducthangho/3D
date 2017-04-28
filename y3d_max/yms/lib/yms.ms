@@ -30,22 +30,24 @@ if yms_init != true then
 			importFile filePath #noPrompt
 		),
 
-		fn unwrap3dmax angle spacing = 
+		fn unwrap3dmax oname angle spacing = 
 		(
+			oo =  execute ("$'"+oName + "'")
+			select oo
 			max modify mode
-			s1 = selection[1]
+			oo = selection[1]
 			-- if (classof s1.baseobject) != Editable_Poly then convertto s1 editable_poly
 			subobjectLevel = 0	
-			if (s1.modifiers["y3d_unwrap"]==undefined) then (
+			if (oo.modifiers["y3d_unwrap"]==undefined) then (
 				u1 = unwrap_UVW()
 				u1.name = "y3d_unwrap"
-				addModifier s1 u1
+				addModifier oo u1
 			)
-			u1 = s1.modifiers["y3d_unwrap"]
-			modPanel.setCurrentObject s1.modifiers[#y3d_unwrap]
+			u1 = oo.modifiers["y3d_unwrap"]
+			modPanel.setCurrentObject oo.modifiers[#y3d_unwrap]
 			subobjectLevel = 3
 			max select all
-			u1.flattenMap angle #() spacing true 0 true true	
+			u1.flattenMap (angle as float) #() (spacing as float) true 0 true true	
 			subobjectLevel = 0
 		),
 
@@ -281,13 +283,14 @@ if yms_init != true then
 					append oNames ss.name
 				)
 			objXRefMgr.dupObjNameAction  = #deleteOld
-			xref_b = objXRefMgr.AddXRefItemsFromFile (oFileDir +"\\"+ oFileName + "_low0.max") objNames:oNames
+			xref_b = objXRefMgr.AddXRefItemsFromFile (oFileDir +"\\"+ oFileName + "_high.max") objNames:oNames
 			items = #()
 			xref_b.GetItems #XRefObjectType &items
 			for item in items do 
 				(
-					objXRefMgr.SetProxyItemSrcFile item (oFileDir +"\\"+ oFileName + "_high.max")
+					objXRefMgr.SetProxyItemSrcFile item (oFileDir +"\\"+ oFileName + "_low0.max")
 					item.proxyItemName = item.objectName
+					--item.displayProxy = true;
 				)		
 			-- delete not HL
 			-- loadMaxFile strStudioFile useFileUnits:true --load the latest lighting file
@@ -324,12 +327,12 @@ if yms_init != true then
 					oo.displayProxy = true;
 					exportFile (eDir + oName + "_high.obj") #noPrompt selectedOnly:true 
 					oo.displayProxy = false;
-					unwrap3dmax 66 0.001
+					unwrap3dmax oName 66 0.001
 					exportFile (eDir + oName + "_low.obj") #noPrompt selectedOnly:true 
 				)
 			else 
 				(
-					unwrap3dmax 66 0.001
+					unwrap3dmax oName 66 0.001
 					exportFile (eDir + oName + ".obj") #noPrompt selectedOnly:true 
 				)
 			
@@ -431,8 +434,10 @@ if yms_init != true then
 			exportFile filePath #noPrompt selectedOnly:true 
 		),
 
-		fn lowpoly_blender ratio = 
+		fn lowpoly_blender oname ratio = 
 		(	
+			oo =  execute ("$'"+oname + "'")
+			select oo
 			tempPath = pathConfig.GetDir #temp
 			blenderPath = "\"C:\\Program Files\\Blender Foundation\\Blender\\blender.exe\""
 			exportFile (tempPath + "\\3dsNodesHightPoly.fbx") #noPrompt selectedOnly:true 
@@ -447,15 +452,48 @@ if yms_init != true then
 			-- val = DOSCommand(cmd)
 		),
 
-		fn object_test_mode oname intest=
+		fn lowpoly_3dmax oname nname ratio:20= 
 		(
-			if (intest) then
+			oo =  execute ("$'"+oname + "'")
+			if (nname!="") then
 			(
-				lowpoly =  execute ("$'"+oName + "'")
-			)else(
-
+				print nname
+			    -- if nname exists, clone it from oname
+				nn =  execute ("$'"+nname + "'")
+				if (nn==undefined) then (
+					copy oo name:nname
+					nn =  execute ("$'"+nname + "'")
+				) else (
+					if (nn.modifiers["ProOptimizer"]==undefined) then  
+					(
+						delete nn
+						copy oo name:nname
+						nn =  execute ("$'"+nname + "'")					
+					)
+				)
+			) else 
+				nn = oo
+			--local oo = getNodeByName oname exact:true all:false ignoreCase:false
+			optMod = nn.modifiers["ProOptimizer"]
+			if (optMod==undefined) then 
+			(
+				addModifier nn (ProOptimizer())
+				optMod = nn.modifiers["ProOptimizer"]
 			)
+			if (optMod.Calculate==false) then optMod.Calculate = true
+			optMod.VertexPercent = ratio as Float
+			optMod.OptimizationMode = 2
+			optMod.KeepNormals = true
+			optMod.NormalMode = 2
+			optMod.NormalThreshold = 10
+			optMod.MergePoints = true
+			optMod.MergePointsThreshold  = 0
+			optMod.MergeFaces = true
+			optMod.MergeFacesAngle = 0
+			optMod.CompactFaces = true
+			optMod.PreventFlip = true
 		),
+
 
 		fn apply_normal tex_path oname  =
 		(

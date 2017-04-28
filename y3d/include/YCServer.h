@@ -44,6 +44,11 @@ public:
 	virtual Status NewProject(ServerContext* context, const ::y3d::NewProjectParam* request, ResponseNProject* response) = 0;
 	virtual Status LoadProject(ServerContext* context, const ::y3d::ProjectInfo* request, ::y3d::ResponseNProject* response) = 0;
 
+	virtual Status LowPoly(ServerContext* context, const ::y3d::ELowpoly* request, ::y3d::ResultReply* response) = 0;
+	virtual Status Unwrap(ServerContext* context, const ::y3d::EUnwrap* request, ::y3d::ResultReply* response) = 0;
+	virtual Status Packing(ServerContext* context, const ::y3d::EPacking* request, ::y3d::ResultReply* response) = 0;
+
+
 	virtual Status Init4Test(ServerContext* context, const InitTestParam* request, InitTestResponse* reply) = 0;
 };
 
@@ -62,6 +67,10 @@ public:
 	Status Shutdown(::grpc::ServerContext* context, const ::y3d::EmptyParam* request, ::y3d::ResultReply* response) override;
 	Status NewProject(ServerContext* context, const ::y3d::NewProjectParam* request, ::y3d::ResponseNProject* response) override;
 	Status LoadProject(ServerContext* context, const ::y3d::ProjectInfo* request, ::y3d::ResponseNProject* response) override;
+
+	Status LowPoly(ServerContext* context, const ::y3d::ELowpoly* request, ::y3d::ResultReply* response) override;
+	Status Unwrap(ServerContext* context, const ::y3d::EUnwrap* request, ::y3d::ResultReply* response) override;
+	Status Packing(ServerContext* context, const ::y3d::EPacking* request, ::y3d::ResultReply* response) override;
 
 	Status Init4Test(ServerContext* context, const InitTestParam* request, InitTestResponse* reply) override;
 	~YServiceImpl() override;

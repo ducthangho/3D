@@ -35,7 +35,10 @@ namespace Y3D.Projects
 
         public static YAreaList CurrentYAL = null;
         public static ProjectInfo CurrentP = null;
+
         public static UserTestData TestData = new UserTestData();
+        public static Dictionary<string, bool> TestInScence = new Dictionary<string, bool>();
+
         public static VerTest CurrentTest = null;
         public static Forms.YMainForm mainform = null;
 
@@ -90,6 +93,7 @@ namespace Y3D.Projects
                 {
                     TestData = UserTestData.Parser.ParseFrom(stream);
                 }
+                TestInScence.Clear();
             }
         }
 
@@ -357,7 +361,6 @@ namespace Y3D.Projects
             return 0;
         }
 
-
         static public bool newProjectFromMax()
         {
 
@@ -490,6 +493,9 @@ namespace Y3D.Projects
             VerTest vt = new VerTest();
             vt.Vnote = note;
             vt.Oname = tname;
+            vt.HasNormal = false;
+            vt.HasPack = false;
+            vt.HasBake = false;
             //vt.Id = Guid.NewGuid().ToString();
             //vt.Id = Convert.ToBase64String(Guid.NewGuid().ToByteArray()).Substring(0, 8);
             vt.Tid = unique_id(TestData.Utests[tname].Otests);
@@ -512,8 +518,27 @@ namespace Y3D.Projects
             itp.Note = note;
             itp.InitTest = preset;
             itp.Tid = vt.Id;
+
+            vt.InitTest = itp.InitTest;
+            vt.HasLow = (vt.InitTest.Lowpoly != null);
+            vt.HasUnwrap = (vt.InitTest.Unwrap != null);
+            vt.HasPack = (vt.InitTest.Pack != null);
+
+            if (vt.HasLow)
+            {
+                vt.InitTest.Lowpoly.Oname = vt.Oname + "_" + vt.Id + "_high";
+                vt.InitTest.Lowpoly.Nname = vt.Oname + "_" + vt.Id + "_low";
+                //vt.InitTest.Lowpoly.Surfix = "_low";
+            }
+            if (vt.HasUnwrap)
+            {
+                vt.InitTest.Unwrap.Oname = vt.Oname + "_" + vt.Id+ "_low";
+            }
+
+            itp.InitTest = vt.InitTest;
             var x = Y3D.Projects.Utils.MaxClient.Init4Test(itp);
             TestData.Utests[tname].Otests.Add(vt);
+            TestInScence.Add(vt.Id, true);
             Projects.Utils.saveTestData();
             current_layer = tname + "_" + vt.Id;
             return true;
@@ -539,6 +564,7 @@ namespace Y3D.Projects
                         Console.WriteLine(ee.Message);
                     }
                 }
+                TestInScence.Remove(v.Id);
                 ListTest.Otests.Remove(v);
                 Projects.Utils.saveTestData();
                 YEvent ye = new YEvent();
@@ -551,5 +577,18 @@ namespace Y3D.Projects
             return true;
         }
 
+        public static bool UpdateLowPoly(ELowpoly el)
+        {
+            if (!checkMaxTools(worker)) return false;
+            Y3D.Projects.Utils.MaxClient.LowPolyAsync(el);
+            return true;
+        }
+
+        public static bool doEvent(YEvent e)
+        {
+            if (!checkMaxTools(worker)) return false;
+            Y3D.Projects.Utils.MaxClient.DoEventAsync(e);
+            return true;
+        }
     }
 }

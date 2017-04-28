@@ -10,11 +10,18 @@ using System.Windows.Forms;
 
 namespace Y3D.Projects
 {
-    public partial class UnwrapControl : UserControl
+    public partial class LowBlenderControl : UserControl
     {
-        public UnwrapControl()
+        public y3d.e.LPolyBlender setting = null;
+        public LowBlenderControl()
         {
             InitializeComponent();
+        }
+
+        public void InitData(y3d.e.LPolyBlender bb)
+        {
+            setting = bb;
+            ratio.Value = (decimal)bb.Ratio;
         }
     }
 }

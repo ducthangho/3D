@@ -90,7 +90,6 @@ message YMesh {
   };
   XrefStatus xstatus=5;
   MeshType mtype=6;
-  string vername=7;
 }
 
 
@@ -240,7 +239,12 @@ message YEvent {
     ESelectMany select_many=6;
     EIsolate isolate=7;
     EClose close=8;
+    EModifierUpdate mod=9;
   }
+}
+
+message YEventList {
+  repeated YEvent events=1;
 }
 
 message ENone {}
@@ -279,6 +283,15 @@ message EIsolate {
 message EClose {
   bool bypass=1;
 }
+
+message EModifierUpdate {
+  string oname = 1;
+  string mod_name = 2;
+  string key = 3;
+  string value=4;
+  string type=5;
+}
+
 
 message ResponseEvent {
   bool error = 1;
@@ -326,14 +339,16 @@ message Pack3DMax {
 // ------------------------------ Low Poly
 message ELowpoly {
   string oname = 1;
+  string nname = 10; // wil make a copy if nname exists
   oneof lowtype {
     LPoly3DMax lp_3dmax=2;
     LPolyBlender lp_blender=3;
     LPolyMeshlab lp_meshlab=4;
+    LPolyXref lp_xref=5;
   }
 }
 message LPoly3DMax {
-  float vertex_percent=1;
+  int32 vertex_percent=1;
   int32 vertex_count=2;
   enum OpMode {
     CRUNCH_BORDERS=0;
@@ -354,6 +369,11 @@ message LPoly3DMax {
 message LPolyBlender {
   float ratio=1;
 }
+
+message LPolyXref {
+  string lowfile = 1;
+}
+
 message LPolyMeshlab {
 }
 
@@ -437,7 +457,7 @@ message YJob {
   YObject obj = 3;
   repeated YObject objs = 4;
   YItemMesh out=5;
-  repeated TestObject tests=7;
+  // repeated TestObject tests=7;
 }
 
 message YJobList {
@@ -573,11 +593,13 @@ message VerTest {
     string oname=4;// is object
     string gname=5;// is group
   }
-  YMat mat = 7;
-  YMultiMat mmat = 8;
-  repeated string uvmap = 9;
-  YBaseMap map_out = 10;
-
+  YItemMesh mesh = 6;
+  InitTestPreset init_test = 7;
+  bool has_unwrap = 11;
+  bool has_pack = 12;
+  bool has_low = 13;
+  bool has_normal = 14;
+  bool has_bake = 15;
 }
 
 // message VerTestParam {
@@ -606,26 +628,29 @@ message UserTestData {
 }
 
 message YItemMesh {
-  YMat bake_mat=1;
-  YBaseMap map=2;
-  YMesh mesh=3;
-  repeated YMesh meshes=4;
+  YMesh mesh=1;
+  YMat mat = 2;
+  YMat bake_mat=3;
+  repeated string uvmap = 9;
+  YBaseMap map_out = 10;
+ 
+  // repeated YMesh meshes=4;
 }
 
-message TestObject {
-  bool active=1;
-  YMat original_mat=2;
-  string tname=3;
-  string oname=4;
-  // string name_low=3;
-  // string name_high=4;  
-  // string name_cage=5;  
-  // string obj_low= 6;  
-  // string obj_high=7;  
-  // string obj_cage=8;  
-  string save_path=9;
-  YItemMesh out=10;
-}
+// message TestObject {
+//   bool active=1;
+//   YMat original_mat=2;
+//   string tname=3;
+//   string oname=4;
+//   // string name_low=3;
+//   // string name_high=4;  
+//   // string name_cage=5;  
+//   // string obj_low= 6;  
+//   // string obj_high=7;  
+//   // string obj_cage=8;  
+//   string save_path=9;
+//   YItemMesh out=10;
+// }
 
 message Make4TestParam {
   string oname=1;
@@ -660,5 +685,5 @@ message InitTestResponse {
   bool has_pack = 3;
   bool has_low = 4;
   bool has_normal = 5;
-  bool hss_bake_full = 6;
+  bool has_bake = 6;
 }

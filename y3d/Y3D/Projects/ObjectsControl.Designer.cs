@@ -43,6 +43,10 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.miniToolStrip = new System.Windows.Forms.ToolStrip();
             this.panelObjList = new System.Windows.Forms.Panel();
+            this.objectListCtrl = new BrightIdeasSoftware.FastObjectListView();
+            this.olvColNameO = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.olvColFace = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.olvColTypeO = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripInfo = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
@@ -52,6 +56,7 @@
             this.olvLocalTest = new BrightIdeasSoftware.FastObjectListView();
             this.olvId = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.olvNote = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.olvInScene = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.tabPageVersion = new System.Windows.Forms.TabPage();
             this.btnTestLoad = new System.Windows.Forms.Button();
             this.btnTestSetting = new System.Windows.Forms.Button();
@@ -59,30 +64,22 @@
             this.btnTestDel = new System.Windows.Forms.Button();
             this.btnAddTest = new System.Windows.Forms.Button();
             this.checkBoxIsolate = new System.Windows.Forms.CheckBox();
-            this.objectListCtrl = new BrightIdeasSoftware.FastObjectListView();
-            this.olvColNameO = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
-            this.olvColFace = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
-            this.olvColTypeO = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.checkBoxInGroup = new System.Windows.Forms.CheckBox();
             this.listCheck = new System.Windows.Forms.CheckBox();
             this.panelEditTest = new System.Windows.Forms.Panel();
             this.btnBack = new System.Windows.Forms.Button();
-            this.htmlTestName = new MetroFramework.Drawing.Html.HtmlLabel();
-            this.btnQuickPack = new System.Windows.Forms.Button();
-            this.btnQuickLowPoly = new System.Windows.Forms.Button();
-            this.btnQuickUnwrap = new System.Windows.Forms.Button();
-            this.btnQuickBake = new System.Windows.Forms.Button();
+            this.testDetailControl1 = new Y3D.Projects.TestDetailControl();
             this.tabNavLeft.SuspendLayout();
             this.tabArea.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gtreeListView)).BeginInit();
             this.panelObjList.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.objectListCtrl)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPageTest.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.olvLocalTest)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.objectListCtrl)).BeginInit();
             this.panelEditTest.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -225,16 +222,55 @@
             // 
             // panelObjList
             // 
+            this.panelObjList.Controls.Add(this.objectListCtrl);
             this.panelObjList.Controls.Add(this.toolStrip1);
             this.panelObjList.Controls.Add(this.panel2);
             this.panelObjList.Controls.Add(this.checkBoxIsolate);
-            this.panelObjList.Controls.Add(this.objectListCtrl);
             this.panelObjList.Controls.Add(this.checkBoxInGroup);
             this.panelObjList.Controls.Add(this.listCheck);
             this.panelObjList.Location = new System.Drawing.Point(205, 0);
             this.panelObjList.Name = "panelObjList";
             this.panelObjList.Size = new System.Drawing.Size(290, 544);
             this.panelObjList.TabIndex = 1;
+            // 
+            // objectListCtrl
+            // 
+            this.objectListCtrl.AllColumns.Add(this.olvColNameO);
+            this.objectListCtrl.AllColumns.Add(this.olvColFace);
+            this.objectListCtrl.AllColumns.Add(this.olvColTypeO);
+            this.objectListCtrl.CellEditUseWholeCell = false;
+            this.objectListCtrl.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.olvColNameO,
+            this.olvColFace,
+            this.olvColTypeO});
+            this.objectListCtrl.Cursor = System.Windows.Forms.Cursors.Default;
+            this.objectListCtrl.Location = new System.Drawing.Point(3, 28);
+            this.objectListCtrl.Name = "objectListCtrl";
+            this.objectListCtrl.ShowGroups = false;
+            this.objectListCtrl.Size = new System.Drawing.Size(290, 300);
+            this.objectListCtrl.SmallImageList = this.imageListGroup;
+            this.objectListCtrl.TabIndex = 2;
+            this.objectListCtrl.UseCompatibleStateImageBehavior = false;
+            this.objectListCtrl.View = System.Windows.Forms.View.Details;
+            this.objectListCtrl.VirtualMode = true;
+            this.objectListCtrl.ItemsChanged += new System.EventHandler<BrightIdeasSoftware.ItemsChangedEventArgs>(this.objectListCtrl_ItemsChanged);
+            this.objectListCtrl.Click += new System.EventHandler(this.objectListCtrl_Click);
+            // 
+            // olvColNameO
+            // 
+            this.olvColNameO.AspectName = "Name";
+            this.olvColNameO.FillsFreeSpace = true;
+            this.olvColNameO.Text = "Object";
+            this.olvColNameO.Width = 120;
+            // 
+            // olvColFace
+            // 
+            this.olvColFace.Text = "Faces";
+            this.olvColFace.Width = 90;
+            // 
+            // olvColTypeO
+            // 
+            this.olvColTypeO.Text = "Type";
             // 
             // toolStrip1
             // 
@@ -306,19 +342,24 @@
             // 
             this.olvLocalTest.AllColumns.Add(this.olvId);
             this.olvLocalTest.AllColumns.Add(this.olvNote);
+            this.olvLocalTest.AllColumns.Add(this.olvInScene);
             this.olvLocalTest.CellEditUseWholeCell = false;
             this.olvLocalTest.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.olvId,
-            this.olvNote});
+            this.olvNote,
+            this.olvInScene});
             this.olvLocalTest.Cursor = System.Windows.Forms.Cursors.Default;
+            this.olvLocalTest.FullRowSelect = true;
             this.olvLocalTest.Location = new System.Drawing.Point(3, 3);
             this.olvLocalTest.Name = "olvLocalTest";
             this.olvLocalTest.ShowGroups = false;
             this.olvLocalTest.Size = new System.Drawing.Size(270, 90);
+            this.olvLocalTest.SmallImageList = this.imageListGroup;
             this.olvLocalTest.TabIndex = 3;
             this.olvLocalTest.UseCompatibleStateImageBehavior = false;
             this.olvLocalTest.View = System.Windows.Forms.View.Details;
             this.olvLocalTest.VirtualMode = true;
+            this.olvLocalTest.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.olvLocalTest_MouseDoubleClick);
             // 
             // olvId
             // 
@@ -332,6 +373,10 @@
             this.olvNote.FillsFreeSpace = true;
             this.olvNote.Text = "Note";
             this.olvNote.Width = 80;
+            // 
+            // olvInScene
+            // 
+            this.olvInScene.Text = "In scene";
             // 
             // tabPageVersion
             // 
@@ -407,45 +452,6 @@
             this.checkBoxIsolate.UseVisualStyleBackColor = true;
             this.checkBoxIsolate.CheckedChanged += new System.EventHandler(this.checkBoxIsolate_CheckedChanged);
             // 
-            // objectListCtrl
-            // 
-            this.objectListCtrl.AllColumns.Add(this.olvColNameO);
-            this.objectListCtrl.AllColumns.Add(this.olvColFace);
-            this.objectListCtrl.AllColumns.Add(this.olvColTypeO);
-            this.objectListCtrl.CellEditUseWholeCell = false;
-            this.objectListCtrl.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.olvColNameO,
-            this.olvColFace,
-            this.olvColTypeO});
-            this.objectListCtrl.Cursor = System.Windows.Forms.Cursors.Default;
-            this.objectListCtrl.Location = new System.Drawing.Point(3, 28);
-            this.objectListCtrl.Name = "objectListCtrl";
-            this.objectListCtrl.ShowGroups = false;
-            this.objectListCtrl.Size = new System.Drawing.Size(290, 300);
-            this.objectListCtrl.SmallImageList = this.imageListGroup;
-            this.objectListCtrl.TabIndex = 2;
-            this.objectListCtrl.UseCompatibleStateImageBehavior = false;
-            this.objectListCtrl.View = System.Windows.Forms.View.Details;
-            this.objectListCtrl.VirtualMode = true;
-            this.objectListCtrl.ItemsChanged += new System.EventHandler<BrightIdeasSoftware.ItemsChangedEventArgs>(this.objectListCtrl_ItemsChanged);
-            this.objectListCtrl.Click += new System.EventHandler(this.objectListCtrl_Click);
-            // 
-            // olvColNameO
-            // 
-            this.olvColNameO.AspectName = "Name";
-            this.olvColNameO.FillsFreeSpace = true;
-            this.olvColNameO.Text = "Object";
-            this.olvColNameO.Width = 120;
-            // 
-            // olvColFace
-            // 
-            this.olvColFace.Text = "Faces";
-            this.olvColFace.Width = 90;
-            // 
-            // olvColTypeO
-            // 
-            this.olvColTypeO.Text = "Type";
-            // 
             // checkBoxInGroup
             // 
             this.checkBoxInGroup.AutoSize = true;
@@ -472,12 +478,8 @@
             // 
             // panelEditTest
             // 
+            this.panelEditTest.Controls.Add(this.testDetailControl1);
             this.panelEditTest.Controls.Add(this.btnBack);
-            this.panelEditTest.Controls.Add(this.htmlTestName);
-            this.panelEditTest.Controls.Add(this.btnQuickPack);
-            this.panelEditTest.Controls.Add(this.btnQuickLowPoly);
-            this.panelEditTest.Controls.Add(this.btnQuickUnwrap);
-            this.panelEditTest.Controls.Add(this.btnQuickBake);
             this.panelEditTest.Location = new System.Drawing.Point(205, 3);
             this.panelEditTest.Name = "panelEditTest";
             this.panelEditTest.Size = new System.Drawing.Size(290, 538);
@@ -485,66 +487,24 @@
             // 
             // btnBack
             // 
-            this.btnBack.BackColor = System.Drawing.Color.LightBlue;
-            this.btnBack.Location = new System.Drawing.Point(10, 25);
+            this.btnBack.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.Image = global::Y3D.Properties.Resources.back16;
+            this.btnBack.Location = new System.Drawing.Point(11, 3);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(48, 23);
+            this.btnBack.Size = new System.Drawing.Size(64, 32);
             this.btnBack.TabIndex = 6;
             this.btnBack.Text = "Back";
+            this.btnBack.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
-            // htmlTestName
+            // testDetailControl1
             // 
-            this.htmlTestName.AutoScroll = true;
-            this.htmlTestName.AutoScrollMinSize = new System.Drawing.Size(38, 23);
-            this.htmlTestName.AutoSize = false;
-            this.htmlTestName.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.htmlTestName.Location = new System.Drawing.Point(64, 25);
-            this.htmlTestName.Name = "htmlTestName";
-            this.htmlTestName.Size = new System.Drawing.Size(213, 23);
-            this.htmlTestName.TabIndex = 5;
-            this.htmlTestName.Text = "Test: ";
-            // 
-            // btnQuickPack
-            // 
-            this.btnQuickPack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnQuickPack.Location = new System.Drawing.Point(166, 67);
-            this.btnQuickPack.Name = "btnQuickPack";
-            this.btnQuickPack.Size = new System.Drawing.Size(72, 22);
-            this.btnQuickPack.TabIndex = 4;
-            this.btnQuickPack.Text = "Pack";
-            this.btnQuickPack.UseVisualStyleBackColor = true;
-            // 
-            // btnQuickLowPoly
-            // 
-            this.btnQuickLowPoly.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnQuickLowPoly.Location = new System.Drawing.Point(10, 67);
-            this.btnQuickLowPoly.Name = "btnQuickLowPoly";
-            this.btnQuickLowPoly.Size = new System.Drawing.Size(72, 22);
-            this.btnQuickLowPoly.TabIndex = 3;
-            this.btnQuickLowPoly.Text = "Low poly";
-            this.btnQuickLowPoly.UseVisualStyleBackColor = true;
-            // 
-            // btnQuickUnwrap
-            // 
-            this.btnQuickUnwrap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnQuickUnwrap.Location = new System.Drawing.Point(88, 67);
-            this.btnQuickUnwrap.Name = "btnQuickUnwrap";
-            this.btnQuickUnwrap.Size = new System.Drawing.Size(72, 22);
-            this.btnQuickUnwrap.TabIndex = 0;
-            this.btnQuickUnwrap.Text = "Unwrap";
-            this.btnQuickUnwrap.UseVisualStyleBackColor = true;
-            // 
-            // btnQuickBake
-            // 
-            this.btnQuickBake.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnQuickBake.Location = new System.Drawing.Point(10, 95);
-            this.btnQuickBake.Name = "btnQuickBake";
-            this.btnQuickBake.Size = new System.Drawing.Size(72, 22);
-            this.btnQuickBake.TabIndex = 2;
-            this.btnQuickBake.Text = "Bake";
-            this.btnQuickBake.UseVisualStyleBackColor = true;
+            this.testDetailControl1.Location = new System.Drawing.Point(10, 41);
+            this.testDetailControl1.Name = "testDetailControl1";
+            this.testDetailControl1.Size = new System.Drawing.Size(276, 494);
+            this.testDetailControl1.TabIndex = 7;
             // 
             // ObjectsControl
             // 
@@ -563,13 +523,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.gtreeListView)).EndInit();
             this.panelObjList.ResumeLayout(false);
             this.panelObjList.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.objectListCtrl)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabPageTest.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.olvLocalTest)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.objectListCtrl)).EndInit();
             this.panelEditTest.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -599,9 +559,6 @@
         private System.Windows.Forms.Button button4;
         private BrightIdeasSoftware.FastObjectListView olvLocalTest;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button btnQuickUnwrap;
-        private System.Windows.Forms.Button btnQuickLowPoly;
-        private System.Windows.Forms.Button btnQuickBake;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnPreview;
@@ -609,7 +566,6 @@
         private System.Windows.Forms.TabPage tabPageTest;
         private System.Windows.Forms.TabPage tabPageVersion;
         private System.Windows.Forms.Button btnTestDel;
-        private System.Windows.Forms.Button btnQuickPack;
         private BrightIdeasSoftware.OLVColumn olvId;
         private BrightIdeasSoftware.OLVColumn olvNote;
         private System.Windows.Forms.Button btnTestEdit;
@@ -618,6 +574,7 @@
         private System.Windows.Forms.ToolStripButton toolStripInfo;
         private System.Windows.Forms.Panel panelEditTest;
         private System.Windows.Forms.Button btnBack;
-        private MetroFramework.Drawing.Html.HtmlLabel htmlTestName;
+        private BrightIdeasSoftware.OLVColumn olvInScene;
+        private TestDetailControl testDetailControl1;
     }
 }

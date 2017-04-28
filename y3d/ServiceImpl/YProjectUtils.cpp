@@ -434,6 +434,18 @@ void DoYEvent(YEvent ye) {
 
 		}
 	}
+	else if (ye.has_mod()) {
+		std::wstring cmd;
+		if (ye.mod().type() == "string") {
+			cmd = formatWS("${0}.modifiers[#{1}].{2} = \"{3}\"", ye.mod().oname(), ye.mod().mod_name(), ye.mod().value());
+		}
+		else {
+			cmd = formatWS("${0}.modifiers[#{1}].{2} = {3}", ye.mod().oname(), ye.mod().mod_name(), ye.mod().value());
+		}
+		ExecuteMAXScriptScript(cmd.c_str());
+	}
+
+
 }
 
 //template <class REQ,class RESP>
@@ -527,7 +539,7 @@ void MyNodeEventCB::SelectionChanged(NodeKeyTab & nodes)
 
 void do_unwrap(const EUnwrap *eu) {
 	if (eu->has_max3d()) {
-		std::wstring cmd = formatWS("yms.unwrap3dmax \"{0}\" \"{1}\"", eu->max3d().angle(), eu->max3d().spacing());
+		std::wstring cmd = formatWS("yms.unwrap3dmax \"{0}\" \"{1}\" \"{2}\"", eu->oname(), eu->max3d().angle(), eu->max3d().spacing());
 		ExecuteMAXScriptScript(cmd.c_str());
 	}
 	else if (eu->has_blender()) {
@@ -536,12 +548,22 @@ void do_unwrap(const EUnwrap *eu) {
 }
 
 void do_lowpoly(const ELowpoly *el) {
+	
+	if (el->has_lp_xref()) {
+	/*	auto* ip = GetCOREInterface();
+		auto n = ip->GetINodeByName(s2ws(eu->oname()).c_str());*/
+			//auto cmd = formatWS("yms.set_display_proxy \"{0}\" false", ws2s(lowStr).c_str());
+			//ExecuteMAXScriptScript(cmd.c_str());
+	}
 	if (el->has_lp_3dmax()) {
-
+		auto mm = el->lp_3dmax();
+		std::wstring cmd = formatWS("yms.lowpoly_3dmax \"{0}\" \"{1}\" {2}", el->oname(), el->nname(), mm.vertex_percent());
+		LOG("xin chao....{}.",ws2s(cmd));
+		ExecuteMAXScriptScript(cmd.c_str());
 	}
 	else if (el->has_lp_blender()) {
 		auto bl = el->lp_blender();
-		std::wstring cmd = formatWS("yms.makeLowPoly \"{0}\"", bl.ratio());
+		std::wstring cmd = formatWS("yms.lowpoly_blender \"{0}\" \"{1}\"", el->oname(), bl.ratio());
 		ExecuteMAXScriptScript(cmd.c_str());
 	}
 }
