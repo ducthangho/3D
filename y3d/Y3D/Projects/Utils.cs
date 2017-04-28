@@ -536,6 +536,7 @@ namespace Y3D.Projects
             }
 
             itp.InitTest = vt.InitTest;
+            //var x = Y3D.Projects.Utils.MaxClient.Init4TestAsync(itp);
             var x = Y3D.Projects.Utils.MaxClient.Init4Test(itp);
             TestData.Utests[tname].Otests.Add(vt);
             TestInScence.Add(vt.Id, true);

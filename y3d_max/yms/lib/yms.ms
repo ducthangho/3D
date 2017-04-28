@@ -452,7 +452,7 @@ if yms_init != true then
 			-- val = DOSCommand(cmd)
 		),
 
-		fn lowpoly_3dmax oname nname ratio:20= 
+		fn lowpoly_3dmax oname nname ratio= 
 		(
 			oo =  execute ("$'"+oname + "'")
 			if (nname!="") then
