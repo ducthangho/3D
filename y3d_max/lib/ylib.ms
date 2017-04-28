@@ -2,7 +2,7 @@ global yInit
 if yInit != true then
 (
 	--global sVer = #("v1","m1","r1","r2","newm")
-	global sVer = #("newm")
+	global sVer = #("newm","r1")
 
 	for i=1 to sVer.count do
 		(

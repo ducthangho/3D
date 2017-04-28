@@ -1326,3 +1326,303 @@ typedef enum class ENUM5_OBJXREFMGR {xrefControllers = 256,localControllers = 51
 #define ZOOMEXTENTS_IISOLATESELECTION_SETTER 6
 // parameter type of properties ZOOMEXTENTS of core interface ISOLATESELECTION is ParamType::TYPE_BOOL
 #define ZOOMEXTENTS_IISOLATESELECTION_TYPEPARAM ParamType::TYPE_BOOL
+
+
+// --------------------list functions of core interface LAYERPROPERTIES--------------------------
+// Number function of LAYERPROPERTIES core interface is 11
+#define ILAYERPROPERTIES_NUMFUCNTIONS 11
+// function ID of function ADDNODE of core interface LAYERPROPERTIES is 0
+#define ADDNODE_ILAYERPROPERTIES 0
+  // Result Type of function ADDNODE of core interface LAYERPROPERTIES is ParamType2::TYPE_VOID
+  #define ADDNODE_ILAYERPROPERTIES_RESULTTYPE ParamType2::TYPE_VOID
+  // number parameter of fucntion ADDNODE of core interface LAYERPROPERTIES is 1
+  #define ADDNODE_ILAYERPROPERTIES_NUMPARAMS 1
+  #define NODE_ADDNODE_ILAYERPROPERTIES_PARAM1_TYPE ParamType2::TYPE_INODE
+  // NODE, which is parameter number 1 of function
+// ADDNODE of core interface LAYERPROPERTIES have param type is ParamType2::TYPE_INODE
+// function ID of function SELECT of core interface LAYERPROPERTIES is 1
+#define SELECT_ILAYERPROPERTIES 1
+  // Result Type of function SELECT of core interface LAYERPROPERTIES is ParamType2::TYPE_VOID
+  #define SELECT_ILAYERPROPERTIES_RESULTTYPE ParamType2::TYPE_VOID
+  // number parameter of fucntion SELECT of core interface LAYERPROPERTIES is 1
+  #define SELECT_ILAYERPROPERTIES_NUMPARAMS 1
+  #define ONOFF_SELECT_ILAYERPROPERTIES_PARAM1_TYPE ParamType::TYPE_BOOL
+  // ONOFF, which is parameter number 1 of function
+// SELECT of core interface LAYERPROPERTIES have param type is ParamType::TYPE_BOOL
+// function ID of function SETNAME of core interface LAYERPROPERTIES is 13
+#define SETNAME_ILAYERPROPERTIES 13
+  // Result Type of function SETNAME of core interface LAYERPROPERTIES is ParamType::TYPE_BOOL
+  #define SETNAME_ILAYERPROPERTIES_RESULTTYPE ParamType::TYPE_BOOL
+  // number parameter of fucntion SETNAME of core interface LAYERPROPERTIES is 1
+  #define SETNAME_ILAYERPROPERTIES_NUMPARAMS 1
+  #define NAME_SETNAME_ILAYERPROPERTIES_PARAM1_TYPE ParamType2::TYPE_STRING
+  // NAME, which is parameter number 1 of function
+// SETNAME of core interface LAYERPROPERTIES have param type is ParamType2::TYPE_STRING
+// function ID of function NODES of core interface LAYERPROPERTIES is 65
+#define NODES_ILAYERPROPERTIES 65
+  // Result Type of function NODES of core interface LAYERPROPERTIES is ParamType::TYPE_BOOL
+  #define NODES_ILAYERPROPERTIES_RESULTTYPE ParamType::TYPE_BOOL
+  // number parameter of fucntion NODES of core interface LAYERPROPERTIES is 1
+  #define NODES_ILAYERPROPERTIES_NUMPARAMS 1
+  #define LAYERNODES_NODES_ILAYERPROPERTIES_PARAM1_TYPE ParamType2::TYPE_INODE_TAB_BR
+  // LAYERNODES, which is parameter number 1 of function
+// NODES of core interface LAYERPROPERTIES have param type is ParamType2::TYPE_INODE_TAB_BR
+// function ID of function GETPARENT of core interface LAYERPROPERTIES is 67
+#define GETPARENT_ILAYERPROPERTIES 67
+  // Result Type of function GETPARENT of core interface LAYERPROPERTIES is ParamType2::TYPE_INTERFACE
+  #define GETPARENT_ILAYERPROPERTIES_RESULTTYPE ParamType2::TYPE_INTERFACE
+  // number parameter of fucntion GETPARENT of core interface LAYERPROPERTIES is 0
+  #define GETPARENT_ILAYERPROPERTIES_NUMPARAMS 0
+// function ID of function SETPARENT of core interface LAYERPROPERTIES is 68
+#define SETPARENT_ILAYERPROPERTIES 68
+  // Result Type of function SETPARENT of core interface LAYERPROPERTIES is ParamType::TYPE_BOOL
+  #define SETPARENT_ILAYERPROPERTIES_RESULTTYPE ParamType::TYPE_BOOL
+  // number parameter of fucntion SETPARENT of core interface LAYERPROPERTIES is 1
+  #define SETPARENT_ILAYERPROPERTIES_NUMPARAMS 1
+  #define PARENT_SETPARENT_ILAYERPROPERTIES_PARAM1_TYPE ParamType2::TYPE_INTERFACE
+  // PARENT, which is parameter number 1 of function
+// SETPARENT of core interface LAYERPROPERTIES have param type is ParamType2::TYPE_INTERFACE
+// function ID of function GETCHILD of core interface LAYERPROPERTIES is 69
+#define GETCHILD_ILAYERPROPERTIES 69
+  // Result Type of function GETCHILD of core interface LAYERPROPERTIES is ParamType2::TYPE_INTERFACE
+  #define GETCHILD_ILAYERPROPERTIES_RESULTTYPE ParamType2::TYPE_INTERFACE
+  // number parameter of fucntion GETCHILD of core interface LAYERPROPERTIES is 1
+  #define GETCHILD_ILAYERPROPERTIES_NUMPARAMS 1
+  #define INDEX_GETCHILD_ILAYERPROPERTIES_PARAM1_TYPE ParamType2::TYPE_INDEX
+  // INDEX, which is parameter number 1 of function
+// GETCHILD of core interface LAYERPROPERTIES have param type is ParamType2::TYPE_INDEX
+// function ID of function GETNUMCHILDREN of core interface LAYERPROPERTIES is 70
+#define GETNUMCHILDREN_ILAYERPROPERTIES 70
+  // Result Type of function GETNUMCHILDREN of core interface LAYERPROPERTIES is ParamType::TYPE_INT
+  #define GETNUMCHILDREN_ILAYERPROPERTIES_RESULTTYPE ParamType::TYPE_INT
+  // number parameter of fucntion GETNUMCHILDREN of core interface LAYERPROPERTIES is 0
+  #define GETNUMCHILDREN_ILAYERPROPERTIES_NUMPARAMS 0
+// function ID of function CANDELETE of core interface LAYERPROPERTIES is 71
+#define CANDELETE_ILAYERPROPERTIES 71
+  // Result Type of function CANDELETE of core interface LAYERPROPERTIES is ParamType2::TYPE_bool
+  #define CANDELETE_ILAYERPROPERTIES_RESULTTYPE ParamType2::TYPE_bool
+  // number parameter of fucntion CANDELETE of core interface LAYERPROPERTIES is 0
+  #define CANDELETE_ILAYERPROPERTIES_NUMPARAMS 0
+// function ID of function GETNUMNODES of core interface LAYERPROPERTIES is 72
+#define GETNUMNODES_ILAYERPROPERTIES 72
+  // Result Type of function GETNUMNODES of core interface LAYERPROPERTIES is ParamType::TYPE_INT
+  #define GETNUMNODES_ILAYERPROPERTIES_RESULTTYPE ParamType::TYPE_INT
+  // number parameter of fucntion GETNUMNODES of core interface LAYERPROPERTIES is 0
+  #define GETNUMNODES_ILAYERPROPERTIES_NUMPARAMS 0
+// function ID of function HASSCENEXREFNODESINHIERARCHY of core interface LAYERPROPERTIES is 73
+#define HASSCENEXREFNODESINHIERARCHY_ILAYERPROPERTIES 73
+  // Result Type of function HASSCENEXREFNODESINHIERARCHY of core interface LAYERPROPERTIES is ParamType2::TYPE_bool
+  #define HASSCENEXREFNODESINHIERARCHY_ILAYERPROPERTIES_RESULTTYPE ParamType2::TYPE_bool
+  // number parameter of fucntion HASSCENEXREFNODESINHIERARCHY of core interface LAYERPROPERTIES is 0
+  #define HASSCENEXREFNODESINHIERARCHY_ILAYERPROPERTIES_NUMPARAMS 0
+// ---------------------- List Properties of core interface LAYERPROPERTIES ----------------------
+#define ILAYERPROPERTIES_NUMPROPS 33
+// function_id of for get property ON of core interface LAYERPROPERTIES is 2
+#define ON_ILAYERPROPERTIES_GETTER 2
+// function_id of for set property ON of core interface LAYERPROPERTIES is 3
+#define ON_ILAYERPROPERTIES_SETTER 3
+// parameter type of properties ON of core interface LAYERPROPERTIES is ParamType::TYPE_BOOL
+#define ON_ILAYERPROPERTIES_TYPEPARAM ParamType::TYPE_BOOL
+// function_id of for get property LOCK of core interface LAYERPROPERTIES is 4
+#define LOCK_ILAYERPROPERTIES_GETTER 4
+// function_id of for set property LOCK of core interface LAYERPROPERTIES is 5
+#define LOCK_ILAYERPROPERTIES_SETTER 5
+// parameter type of properties LOCK of core interface LAYERPROPERTIES is ParamType::TYPE_BOOL
+#define LOCK_ILAYERPROPERTIES_TYPEPARAM ParamType::TYPE_BOOL
+// function_id of for get property CURRENT of core interface LAYERPROPERTIES is 6
+#define CURRENT_ILAYERPROPERTIES_GETTER 6
+// function_id of for set property CURRENT of core interface LAYERPROPERTIES is 7
+#define CURRENT_ILAYERPROPERTIES_SETTER 7
+// parameter type of properties CURRENT of core interface LAYERPROPERTIES is ParamType::TYPE_BOOL
+#define CURRENT_ILAYERPROPERTIES_TYPEPARAM ParamType::TYPE_BOOL
+// function_id of for get property WIRECOLOR of core interface LAYERPROPERTIES is 8
+#define WIRECOLOR_ILAYERPROPERTIES_GETTER 8
+// function_id of for set property WIRECOLOR of core interface LAYERPROPERTIES is 9
+#define WIRECOLOR_ILAYERPROPERTIES_SETTER 9
+// parameter type of properties WIRECOLOR of core interface LAYERPROPERTIES is ParamType2::TYPE_COLOR_BV
+#define WIRECOLOR_ILAYERPROPERTIES_TYPEPARAM ParamType2::TYPE_COLOR_BV
+// function_id of for get property ISGIEXCLUDED of core interface LAYERPROPERTIES is 10
+#define ISGIEXCLUDED_ILAYERPROPERTIES_GETTER 10
+// function_id of for set property ISGIEXCLUDED of core interface LAYERPROPERTIES is 11
+#define ISGIEXCLUDED_ILAYERPROPERTIES_SETTER 11
+// parameter type of properties ISGIEXCLUDED of core interface LAYERPROPERTIES is ParamType::TYPE_BOOL
+#define ISGIEXCLUDED_ILAYERPROPERTIES_TYPEPARAM ParamType::TYPE_BOOL
+// function_id of for get property NAME of core interface LAYERPROPERTIES is 12
+#define NAME_ILAYERPROPERTIES_GETTER 12
+// function_id of for set property NAME of core interface LAYERPROPERTIES is -1
+#define NAME_ILAYERPROPERTIES_SETTER -1
+// parameter type of properties NAME of core interface LAYERPROPERTIES is ParamType2::TYPE_STRING
+#define NAME_ILAYERPROPERTIES_TYPEPARAM ParamType2::TYPE_STRING
+// function_id of for get property RENDERABLE of core interface LAYERPROPERTIES is 14
+#define RENDERABLE_ILAYERPROPERTIES_GETTER 14
+// function_id of for set property RENDERABLE of core interface LAYERPROPERTIES is 15
+#define RENDERABLE_ILAYERPROPERTIES_SETTER 15
+// parameter type of properties RENDERABLE of core interface LAYERPROPERTIES is ParamType2::TYPE_bool
+#define RENDERABLE_ILAYERPROPERTIES_TYPEPARAM ParamType2::TYPE_bool
+// function_id of for get property INHERITVISIBILITY of core interface LAYERPROPERTIES is 16
+#define INHERITVISIBILITY_ILAYERPROPERTIES_GETTER 16
+// function_id of for set property INHERITVISIBILITY of core interface LAYERPROPERTIES is 17
+#define INHERITVISIBILITY_ILAYERPROPERTIES_SETTER 17
+// parameter type of properties INHERITVISIBILITY of core interface LAYERPROPERTIES is ParamType2::TYPE_bool
+#define INHERITVISIBILITY_ILAYERPROPERTIES_TYPEPARAM ParamType2::TYPE_bool
+// function_id of for get property PRIMARYVISIBILITY of core interface LAYERPROPERTIES is 18
+#define PRIMARYVISIBILITY_ILAYERPROPERTIES_GETTER 18
+// function_id of for set property PRIMARYVISIBILITY of core interface LAYERPROPERTIES is 19
+#define PRIMARYVISIBILITY_ILAYERPROPERTIES_SETTER 19
+// parameter type of properties PRIMARYVISIBILITY of core interface LAYERPROPERTIES is ParamType2::TYPE_bool
+#define PRIMARYVISIBILITY_ILAYERPROPERTIES_TYPEPARAM ParamType2::TYPE_bool
+// function_id of for get property SECONDARYVISIBILITY of core interface LAYERPROPERTIES is 20
+#define SECONDARYVISIBILITY_ILAYERPROPERTIES_GETTER 20
+// function_id of for set property SECONDARYVISIBILITY of core interface LAYERPROPERTIES is 21
+#define SECONDARYVISIBILITY_ILAYERPROPERTIES_SETTER 21
+// parameter type of properties SECONDARYVISIBILITY of core interface LAYERPROPERTIES is ParamType2::TYPE_bool
+#define SECONDARYVISIBILITY_ILAYERPROPERTIES_TYPEPARAM ParamType2::TYPE_bool
+// function_id of for get property RECEIVESHADOWS of core interface LAYERPROPERTIES is 22
+#define RECEIVESHADOWS_ILAYERPROPERTIES_GETTER 22
+// function_id of for set property RECEIVESHADOWS of core interface LAYERPROPERTIES is 23
+#define RECEIVESHADOWS_ILAYERPROPERTIES_SETTER 23
+// parameter type of properties RECEIVESHADOWS of core interface LAYERPROPERTIES is ParamType2::TYPE_bool
+#define RECEIVESHADOWS_ILAYERPROPERTIES_TYPEPARAM ParamType2::TYPE_bool
+// function_id of for get property CASTSHADOWS of core interface LAYERPROPERTIES is 24
+#define CASTSHADOWS_ILAYERPROPERTIES_GETTER 24
+// function_id of for set property CASTSHADOWS of core interface LAYERPROPERTIES is 25
+#define CASTSHADOWS_ILAYERPROPERTIES_SETTER 25
+// parameter type of properties CASTSHADOWS of core interface LAYERPROPERTIES is ParamType2::TYPE_bool
+#define CASTSHADOWS_ILAYERPROPERTIES_TYPEPARAM ParamType2::TYPE_bool
+// function_id of for get property APPLYATMOSPHERICS of core interface LAYERPROPERTIES is 26
+#define APPLYATMOSPHERICS_ILAYERPROPERTIES_GETTER 26
+// function_id of for set property APPLYATMOSPHERICS of core interface LAYERPROPERTIES is 27
+#define APPLYATMOSPHERICS_ILAYERPROPERTIES_SETTER 27
+// parameter type of properties APPLYATMOSPHERICS of core interface LAYERPROPERTIES is ParamType2::TYPE_bool
+#define APPLYATMOSPHERICS_ILAYERPROPERTIES_TYPEPARAM ParamType2::TYPE_bool
+// function_id of for get property RENDEROCCLUDED of core interface LAYERPROPERTIES is 28
+#define RENDEROCCLUDED_ILAYERPROPERTIES_GETTER 28
+// function_id of for set property RENDEROCCLUDED of core interface LAYERPROPERTIES is 29
+#define RENDEROCCLUDED_ILAYERPROPERTIES_SETTER 29
+// parameter type of properties RENDEROCCLUDED of core interface LAYERPROPERTIES is ParamType2::TYPE_bool
+#define RENDEROCCLUDED_ILAYERPROPERTIES_TYPEPARAM ParamType2::TYPE_bool
+// function_id of for get property ISHIDDEN of core interface LAYERPROPERTIES is 30
+#define ISHIDDEN_ILAYERPROPERTIES_GETTER 30
+// function_id of for set property ISHIDDEN of core interface LAYERPROPERTIES is 31
+#define ISHIDDEN_ILAYERPROPERTIES_SETTER 31
+// parameter type of properties ISHIDDEN of core interface LAYERPROPERTIES is ParamType2::TYPE_bool
+#define ISHIDDEN_ILAYERPROPERTIES_TYPEPARAM ParamType2::TYPE_bool
+// function_id of for get property ISFROZEN of core interface LAYERPROPERTIES is 32
+#define ISFROZEN_ILAYERPROPERTIES_GETTER 32
+// function_id of for set property ISFROZEN of core interface LAYERPROPERTIES is 33
+#define ISFROZEN_ILAYERPROPERTIES_SETTER 33
+// parameter type of properties ISFROZEN of core interface LAYERPROPERTIES is ParamType2::TYPE_bool
+#define ISFROZEN_ILAYERPROPERTIES_TYPEPARAM ParamType2::TYPE_bool
+// function_id of for get property BOXMODE of core interface LAYERPROPERTIES is 34
+#define BOXMODE_ILAYERPROPERTIES_GETTER 34
+// function_id of for set property BOXMODE of core interface LAYERPROPERTIES is 35
+#define BOXMODE_ILAYERPROPERTIES_SETTER 35
+// parameter type of properties BOXMODE of core interface LAYERPROPERTIES is ParamType2::TYPE_bool
+#define BOXMODE_ILAYERPROPERTIES_TYPEPARAM ParamType2::TYPE_bool
+// function_id of for get property BACKFACECULL of core interface LAYERPROPERTIES is 36
+#define BACKFACECULL_ILAYERPROPERTIES_GETTER 36
+// function_id of for set property BACKFACECULL of core interface LAYERPROPERTIES is 37
+#define BACKFACECULL_ILAYERPROPERTIES_SETTER 37
+// parameter type of properties BACKFACECULL of core interface LAYERPROPERTIES is ParamType2::TYPE_bool
+#define BACKFACECULL_ILAYERPROPERTIES_TYPEPARAM ParamType2::TYPE_bool
+// function_id of for get property ALLEDGES of core interface LAYERPROPERTIES is 38
+#define ALLEDGES_ILAYERPROPERTIES_GETTER 38
+// function_id of for set property ALLEDGES of core interface LAYERPROPERTIES is 39
+#define ALLEDGES_ILAYERPROPERTIES_SETTER 39
+// parameter type of properties ALLEDGES of core interface LAYERPROPERTIES is ParamType2::TYPE_bool
+#define ALLEDGES_ILAYERPROPERTIES_TYPEPARAM ParamType2::TYPE_bool
+// function_id of for get property VERTEXTICKS of core interface LAYERPROPERTIES is 40
+#define VERTEXTICKS_ILAYERPROPERTIES_GETTER 40
+// function_id of for set property VERTEXTICKS of core interface LAYERPROPERTIES is 41
+#define VERTEXTICKS_ILAYERPROPERTIES_SETTER 41
+// parameter type of properties VERTEXTICKS of core interface LAYERPROPERTIES is ParamType2::TYPE_bool
+#define VERTEXTICKS_ILAYERPROPERTIES_TYPEPARAM ParamType2::TYPE_bool
+// function_id of for get property SHOWTRAJECTORY of core interface LAYERPROPERTIES is 42
+#define SHOWTRAJECTORY_ILAYERPROPERTIES_GETTER 42
+// function_id of for set property SHOWTRAJECTORY of core interface LAYERPROPERTIES is 43
+#define SHOWTRAJECTORY_ILAYERPROPERTIES_SETTER 43
+// parameter type of properties SHOWTRAJECTORY of core interface LAYERPROPERTIES is ParamType2::TYPE_bool
+#define SHOWTRAJECTORY_ILAYERPROPERTIES_TYPEPARAM ParamType2::TYPE_bool
+// function_id of for get property XRAY of core interface LAYERPROPERTIES is 44
+#define XRAY_ILAYERPROPERTIES_GETTER 44
+// function_id of for set property XRAY of core interface LAYERPROPERTIES is 45
+#define XRAY_ILAYERPROPERTIES_SETTER 45
+// parameter type of properties XRAY of core interface LAYERPROPERTIES is ParamType2::TYPE_bool
+#define XRAY_ILAYERPROPERTIES_TYPEPARAM ParamType2::TYPE_bool
+// function_id of for get property IGNOREEXTENTS of core interface LAYERPROPERTIES is 46
+#define IGNOREEXTENTS_ILAYERPROPERTIES_GETTER 46
+// function_id of for set property IGNOREEXTENTS of core interface LAYERPROPERTIES is 47
+#define IGNOREEXTENTS_ILAYERPROPERTIES_SETTER 47
+// parameter type of properties IGNOREEXTENTS of core interface LAYERPROPERTIES is ParamType2::TYPE_bool
+#define IGNOREEXTENTS_ILAYERPROPERTIES_TYPEPARAM ParamType2::TYPE_bool
+// function_id of for get property SHOWFROZENINGRAY of core interface LAYERPROPERTIES is 48
+#define SHOWFROZENINGRAY_ILAYERPROPERTIES_GETTER 48
+// function_id of for set property SHOWFROZENINGRAY of core interface LAYERPROPERTIES is 49
+#define SHOWFROZENINGRAY_ILAYERPROPERTIES_SETTER 49
+// parameter type of properties SHOWFROZENINGRAY of core interface LAYERPROPERTIES is ParamType2::TYPE_bool
+#define SHOWFROZENINGRAY_ILAYERPROPERTIES_TYPEPARAM ParamType2::TYPE_bool
+// function_id of for get property SHOWVERTEXCOLORS of core interface LAYERPROPERTIES is 50
+#define SHOWVERTEXCOLORS_ILAYERPROPERTIES_GETTER 50
+// function_id of for set property SHOWVERTEXCOLORS of core interface LAYERPROPERTIES is 51
+#define SHOWVERTEXCOLORS_ILAYERPROPERTIES_SETTER 51
+// parameter type of properties SHOWVERTEXCOLORS of core interface LAYERPROPERTIES is ParamType2::TYPE_bool
+#define SHOWVERTEXCOLORS_ILAYERPROPERTIES_TYPEPARAM ParamType2::TYPE_bool
+// function_id of for get property VERTEXCOLORSSHADED of core interface LAYERPROPERTIES is 52
+#define VERTEXCOLORSSHADED_ILAYERPROPERTIES_GETTER 52
+// function_id of for set property VERTEXCOLORSSHADED of core interface LAYERPROPERTIES is 53
+#define VERTEXCOLORSSHADED_ILAYERPROPERTIES_SETTER 53
+// parameter type of properties VERTEXCOLORSSHADED of core interface LAYERPROPERTIES is ParamType2::TYPE_bool
+#define VERTEXCOLORSSHADED_ILAYERPROPERTIES_TYPEPARAM ParamType2::TYPE_bool
+// function_id of for get property VISIBILITY of core interface LAYERPROPERTIES is 54
+#define VISIBILITY_ILAYERPROPERTIES_GETTER 54
+// function_id of for set property VISIBILITY of core interface LAYERPROPERTIES is 55
+#define VISIBILITY_ILAYERPROPERTIES_SETTER 55
+// parameter type of properties VISIBILITY of core interface LAYERPROPERTIES is ParamType::TYPE_FLOAT
+#define VISIBILITY_ILAYERPROPERTIES_TYPEPARAM ParamType::TYPE_FLOAT
+// function_id of for get property IMAGEMOTIONBLURMULTIPLIER of core interface LAYERPROPERTIES is 56
+#define IMAGEMOTIONBLURMULTIPLIER_ILAYERPROPERTIES_GETTER 56
+// function_id of for set property IMAGEMOTIONBLURMULTIPLIER of core interface LAYERPROPERTIES is 57
+#define IMAGEMOTIONBLURMULTIPLIER_ILAYERPROPERTIES_SETTER 57
+// parameter type of properties IMAGEMOTIONBLURMULTIPLIER of core interface LAYERPROPERTIES is ParamType::TYPE_FLOAT
+#define IMAGEMOTIONBLURMULTIPLIER_ILAYERPROPERTIES_TYPEPARAM ParamType::TYPE_FLOAT
+// function_id of for get property MOTIONBLURON of core interface LAYERPROPERTIES is 58
+#define MOTIONBLURON_ILAYERPROPERTIES_GETTER 58
+// function_id of for set property MOTIONBLURON of core interface LAYERPROPERTIES is 59
+#define MOTIONBLURON_ILAYERPROPERTIES_SETTER 59
+// parameter type of properties MOTIONBLURON of core interface LAYERPROPERTIES is ParamType2::TYPE_bool
+#define MOTIONBLURON_ILAYERPROPERTIES_TYPEPARAM ParamType2::TYPE_bool
+// function_id of for get property MOTIONBLUR of core interface LAYERPROPERTIES is 60
+#define MOTIONBLUR_ILAYERPROPERTIES_GETTER 60
+// function_id of for set property MOTIONBLUR of core interface LAYERPROPERTIES is 61
+#define MOTIONBLUR_ILAYERPROPERTIES_SETTER 61
+// parameter type of properties MOTIONBLUR of core interface LAYERPROPERTIES is ParamType2::TYPE_ENUM
+#define MOTIONBLUR_ILAYERPROPERTIES_TYPEPARAM ParamType2::TYPE_ENUM
+// function_id of for get property DISPLAY of core interface LAYERPROPERTIES is 62
+#define DISPLAY_ILAYERPROPERTIES_GETTER 62
+// function_id of for set property DISPLAY of core interface LAYERPROPERTIES is 63
+#define DISPLAY_ILAYERPROPERTIES_SETTER 63
+// parameter type of properties DISPLAY of core interface LAYERPROPERTIES is ParamType2::TYPE_ENUM
+#define DISPLAY_ILAYERPROPERTIES_TYPEPARAM ParamType2::TYPE_ENUM
+// function_id of for get property INODEGIPROPERTIES of core interface LAYERPROPERTIES is 64
+#define INODEGIPROPERTIES_ILAYERPROPERTIES_GETTER 64
+// function_id of for set property INODEGIPROPERTIES of core interface LAYERPROPERTIES is -1
+#define INODEGIPROPERTIES_ILAYERPROPERTIES_SETTER -1
+// parameter type of properties INODEGIPROPERTIES of core interface LAYERPROPERTIES is ParamType2::TYPE_INTERFACE
+#define INODEGIPROPERTIES_ILAYERPROPERTIES_TYPEPARAM ParamType2::TYPE_INTERFACE
+// function_id of for get property LAYERASREFTARG of core interface LAYERPROPERTIES is 66
+#define LAYERASREFTARG_ILAYERPROPERTIES_GETTER 66
+// function_id of for set property LAYERASREFTARG of core interface LAYERPROPERTIES is -1
+#define LAYERASREFTARG_ILAYERPROPERTIES_SETTER -1
+// parameter type of properties LAYERASREFTARG of core interface LAYERPROPERTIES is ParamType2::TYPE_REFTARG
+#define LAYERASREFTARG_ILAYERPROPERTIES_TYPEPARAM ParamType2::TYPE_REFTARG
+/**0 - 0 Enum is none have code is 0
+0 - 1 Enum is object have code is 1
+0 - 2 Enum is image have code is 2
+**/
+typedef enum class ENUM1_LAYERPROPERTIES {none = 0,object = 1,image = 2,} LAYERPROPERTIES_ENUM1;
+/**1 - 0 Enum is viewport have code is 0
+1 - 1 Enum is boundingbox have code is 1
+1 - 2 Enum is wireframe have code is 2
+1 - 3 Enum is shaded have code is 4
+**/
+typedef enum class ENUM2_LAYERPROPERTIES {viewport = 0,boundingbox = 1,wireframe = 2,shaded = 4,} LAYERPROPERTIES_ENUM2;
