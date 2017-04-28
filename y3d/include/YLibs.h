@@ -1,9 +1,10 @@
 #pragma once
 #include <condition_variable>
 #include <future>
-
+#include <regex>
 #include "tbb/concurrent_queue.h"
 #include <vector>
+#include <map>
 #include "sdkinterface/interfaceinfo.h"
 
 //#include <grpc++/grpc++.h>
@@ -35,6 +36,7 @@
 //#include <mutex>
 #include "3dsmaxUtils.h"
 #include <plugapi.h>
+#include "LogClient.h"
 
 //#include "xNormalSettings.h"
 
@@ -48,6 +50,7 @@ extern TCHAR *GetString(int id);
 #define BATCH_PROOPTIMIZER_CLASS_ID Class_ID(0x5cdb0866, 0x34ed5c0e)
 #endif
 
+using namespace logserver;
 //using grpc::Status;
 //using grpc::Server;
 //using grpc::ServerBuilder;
@@ -463,18 +466,604 @@ inline void Collapse(INode *node)
 	}
 }
 
+inline void generateInterFacesID()
+{
+	/************************************************************************/
+	/* show all the core interface id of 3ds max
+	*/
+	/************************************************************************/
+	int num = NumCOREInterfaces();
+	logserver::LOG("Num interface is {0}", num);
 
-// isolate=TRUE : display this layer only and hide other
-// return name of new layer. Automatically rename it If (layer_name) already exists
-inline std::wstring CreateLayer(INodeTab *nodes, std::wstring layer_name, BOOL isolate=TRUE) {
-	
-	return L""; 
+	int index = 127;
+	logserver::LOG("cls");
+	for (int index = 0; index < num; index++)
+	{
+		FPInterface* fpInterface = GetCOREInterfaceAt(index);
+		FPInterfaceDesc* fpInterfaceDesc = fpInterface->GetDesc();
+		MSTR internal_name = fpInterfaceDesc->internal_name;
+		//logserver::LOG("internal name of interface at index {0} is {1}\n", index, internal_name);
+		internal_name.toUpper();
+		Interface_ID interfaceID = fpInterface->GetID();
+		//logserver::LOG("internal name of interface at index {0} is {1}, interface_id is ({3},{4})\n", index, internal_name,a,b);
+		ULONG a = interfaceID.PartA();
+		ULONG b = interfaceID.PartB();
+		std::stringstream stream;
+		stream << std::hex << a;
+		std::string hexa(stream.str());
+		stream.str("");
+		stream << std::hex << b;
+		std::string hexb(stream.str());
+		logserver::LOG("#define {0}_INTERFACE_ID  Interface_ID(0x{1},0x{2})\n", internal_name, hexa, hexb);
+	}
 }
 
-inline bool DeleteLayer(std::string layer_name) {
-	auto cmd = formatWS("yms.delete_layer \"{0}\"", layer_name);
-	ExecuteMAXScriptScript(cmd.c_str());
-	return true;
+inline std::string InterFaceID2S(Interface_ID interfaceID)
+{
+	std::stringstream buffer;
+	ULONG a = interfaceID.PartA();
+	ULONG b = interfaceID.PartB();
+	std::stringstream stream;
+	stream << std::hex << a;
+	std::string hexa(stream.str());
+	stream.str("");
+	stream << std::hex << b;
+	std::string hexb(stream.str());
+	buffer << "Interface_ID(0x" << hexa << ",0x" << hexb << ")" << std::endl;
+	return buffer.str();
+	//logserver::LOG("#define {0}_INTERFACE_ID  Interface_ID(0x{1},0x{2})\n", internal_name, hexa, hexb);
+}
+
+inline void generateInterfaceFuntionsID(Interface_ID id)
+{
+	FPInterface* fpInterface = GetCOREInterface(id);
+	FPInterfaceDesc* fpInterfaceDesc = fpInterface->GetDesc();
+	MSTR internal_name = fpInterfaceDesc->internal_name;
+	internal_name.toUpper();
+	Tab<FPFunctionDef*> functions = fpInterfaceDesc->functions;
+	auto numFunction = functions.Count();
+	//define number of functions
+	LOG("#define I{0}_NUMFUCNTIONS {1}\n", internal_name, numFunction);
+
+	//LOG("- Num functions is {0}\n", numFunction);
+	for (int i = 0; i < numFunction; i++)
+	{
+		auto f = functions[i];
+		auto func_internalname = f->internal_name;
+		func_internalname.toUpper();
+		auto func_id = f->ID;
+		//define function ID
+		LOG("#define {0}_I{1} {2}\n", func_internalname, internal_name, func_id);
+		//log(" + function number {0} have internal name is {1}, id is {2}\n", i, func_internalname, func_id);
+	}
+
+	Tab<FPPropDef*> props = fpInterfaceDesc->props;
+	auto numProps = props.Count();
+	LOG("#define I{0}_NUMPROPS {1}\n", internal_name, numProps);
+	//LOG("- Num Properties is {0}\n", numProps);
+	for (int i = 0; i < numProps; i++)
+	{
+		auto f = props[i];
+		auto prop_internalname = f->internal_name;
+		prop_internalname.toUpper();
+		auto fucn_setterid = f->setter_ID;
+		auto func_getterid = f->getter_ID;
+		LOG("#define {0}_I{1}_GETTER {2}\n", prop_internalname, internal_name, func_getterid);
+		LOG("#define {0}_I{1}_SETTER {2}\n", prop_internalname, internal_name, fucn_setterid);
+
+		/*log(" + properties number {0} have internal name is {1},"
+		" setterid is {2}, getterid is {3}\n", i, prop_internalname, fucn_setterid, func_getterid);*/
+	}
+}
+
+extern std::map<int, std::string>  map;
+inline std::map<int, std::string> generateParamType()
+{
+	//static std::map<int, std::string> map;
+	if (!map.empty())   //wn: not thread safe
+		return map;
+	map[ParamType2::TYPE_PCNT_FRAC] = "ParamType2::TYPE_PCNT_FRAC";
+	map[ParamType2::TYPE_WORLD] = "ParamType2::TYPE_WORLD";
+	map[ParamType2::TYPE_STRING] = "ParamType2::TYPE_STRING";
+	map[ParamType2::TYPE_FILENAME] = "ParamType2::TYPE_FILENAME";
+	map[ParamType2::TYPE_HSV] = "ParamType2::TYPE_HSV";
+	map[ParamType2::TYPE_COLOR_CHANNEL] = "ParamType2::TYPE_COLOR_CHANNEL";
+	map[ParamType2::TYPE_TIMEVALUE] = "ParamType2::TYPE_TIMEVALUE";
+	map[ParamType2::TYPE_RADIOBTN_INDEX] = "ParamType2::TYPE_RADIOBTN_INDEX";
+	map[ParamType2::TYPE_MTL] = "ParamType2::TYPE_MTL";
+	map[ParamType2::TYPE_TEXMAP] = "ParamType2::TYPE_TEXMAP";
+	map[ParamType2::TYPE_BITMAP] = "ParamType2::TYPE_BITMAP";
+	map[ParamType2::TYPE_INODE] = "ParamType2::TYPE_INODE";
+	map[ParamType2::TYPE_REFTARG] = "ParamType2::TYPE_REFTARG";
+	map[ParamType2::TYPE_INDEX] = "ParamType2::TYPE_INDEX";
+	map[ParamType2::TYPE_MATRIX3] = "ParamType2::TYPE_MATRIX3";
+	map[ParamType2::TYPE_PBLOCK2] = "ParamType2::TYPE_PBLOCK2";
+	map[ParamType2::TYPE_POINT4] = "ParamType2::TYPE_POINT4";
+	map[ParamType2::TYPE_FRGBA] = "ParamType2::TYPE_FRGBA";
+	map[ParamType2::TYPE_ENUM] = "ParamType2::TYPE_ENUM";
+	map[ParamType2::TYPE_VOID] = "ParamType2::TYPE_VOID";
+	map[ParamType2::TYPE_INTERVAL] = "ParamType2::TYPE_INTERVAL";
+	map[ParamType2::TYPE_ANGAXIS] = "ParamType2::TYPE_ANGAXIS";
+	map[ParamType2::TYPE_QUAT] = "ParamType2::TYPE_QUAT";
+	map[ParamType2::TYPE_RAY] = "ParamType2::TYPE_RAY";
+	map[ParamType2::TYPE_POINT2] = "ParamType2::TYPE_POINT2";
+	map[ParamType2::TYPE_BITARRAY] = "ParamType2::TYPE_BITARRAY";
+	map[ParamType2::TYPE_CLASS] = "ParamType2::TYPE_CLASS";
+	map[ParamType2::TYPE_MESH] = "ParamType2::TYPE_MESH";
+	map[ParamType2::TYPE_OBJECT] = "ParamType2::TYPE_OBJECT";
+	map[ParamType2::TYPE_CONTROL] = "ParamType2::TYPE_CONTROL";
+	map[ParamType2::TYPE_POINT] = "ParamType2::TYPE_POINT";
+	map[ParamType2::TYPE_TSTR] = "ParamType2::TYPE_TSTR";
+	map[ParamType2::TYPE_IOBJECT] = "ParamType2::TYPE_IOBJECT";
+	map[ParamType2::TYPE_INTERFACE] = "ParamType2::TYPE_INTERFACE";
+	map[ParamType2::TYPE_HWND] = "ParamType2::TYPE_HWND";
+	map[ParamType2::TYPE_NAME] = "ParamType2::TYPE_NAME";
+	map[ParamType2::TYPE_COLOR] = "ParamType2::TYPE_COLOR";
+	map[ParamType2::TYPE_FPVALUE] = "ParamType2::TYPE_FPVALUE";
+	map[ParamType2::TYPE_VALUE] = "ParamType2::TYPE_VALUE";
+	map[ParamType2::TYPE_DWORD] = "ParamType2::TYPE_DWORD";
+	map[ParamType2::TYPE_bool] = "ParamType2::TYPE_bool";
+	map[ParamType2::TYPE_INTPTR] = "ParamType2::TYPE_INTPTR";
+	map[ParamType2::TYPE_INT64] = "ParamType2::TYPE_INT64";
+	map[ParamType2::TYPE_DOUBLE] = "ParamType2::TYPE_DOUBLE";
+	map[ParamType2::TYPE_BOX3] = "ParamType2::TYPE_BOX3";
+	map[ParamType2::TYPE_BEZIERSHAPE] = "ParamType2::TYPE_BEZIERSHAPE";
+	map[ParamType2::TYPE_FLOAT_TAB] = "ParamType2::TYPE_FLOAT_TAB";
+	map[ParamType2::TYPE_INT_TAB] = "ParamType2::TYPE_INT_TAB";
+	map[ParamType2::TYPE_RGBA_TAB] = "ParamType2::TYPE_RGBA_TAB";
+	map[ParamType2::TYPE_POINT3_TAB] = "ParamType2::TYPE_POINT3_TAB";
+	map[ParamType2::TYPE_BOOL_TAB] = "ParamType2::TYPE_BOOL_TAB";
+	map[ParamType2::TYPE_ANGLE_TAB] = "ParamType2::TYPE_ANGLE_TAB";
+	map[ParamType2::TYPE_PCNT_FRAC_TAB] = "ParamType2::TYPE_PCNT_FRAC_TAB";
+	map[ParamType2::TYPE_WORLD_TAB] = "ParamType2::TYPE_WORLD_TAB";
+	map[ParamType2::TYPE_STRING_TAB] = "ParamType2::TYPE_STRING_TAB";
+	map[ParamType2::TYPE_FILENAME_TAB] = "ParamType2::TYPE_FILENAME_TAB";
+	map[ParamType2::TYPE_HSV_TAB] = "ParamType2::TYPE_HSV_TAB";
+	map[ParamType2::TYPE_COLOR_CHANNEL_TAB] = "ParamType2::TYPE_COLOR_CHANNEL_TAB";
+	map[ParamType2::TYPE_TIMEVALUE_TAB] = "ParamType2::TYPE_TIMEVALUE_TAB";
+	map[ParamType2::TYPE_RADIOBTN_INDEX_TAB] = "ParamType2::TYPE_RADIOBTN_INDEX_TAB";
+	map[ParamType2::TYPE_MTL_TAB] = "ParamType2::TYPE_MTL_TAB";
+	map[ParamType2::TYPE_TEXMAP_TAB] = "ParamType2::TYPE_TEXMAP_TAB";
+	map[ParamType2::TYPE_BITMAP_TAB] = "ParamType2::TYPE_BITMAP_TAB";
+	map[ParamType2::TYPE_INODE_TAB] = "ParamType2::TYPE_INODE_TAB";
+	map[ParamType2::TYPE_REFTARG_TAB] = "ParamType2::TYPE_REFTARG_TAB";
+	map[ParamType2::TYPE_INDEX_TAB] = "ParamType2::TYPE_INDEX_TAB";
+	map[ParamType2::TYPE_MATRIX3_TAB] = "ParamType2::TYPE_MATRIX3_TAB";
+	map[ParamType2::TYPE_PBLOCK2_TAB] = "ParamType2::TYPE_PBLOCK2_TAB";
+	map[ParamType2::TYPE_POINT4_TAB] = "ParamType2::TYPE_POINT4_TAB";
+	map[ParamType2::TYPE_FRGBA_TAB] = "ParamType2::TYPE_FRGBA_TAB";
+	map[ParamType2::TYPE_VOID_TAB] = "ParamType2::TYPE_VOID_TAB";
+	map[ParamType2::TYPE_INTERVAL_TAB] = "ParamType2::TYPE_INTERVAL_TAB";
+	map[ParamType2::TYPE_ANGAXIS_TAB] = "ParamType2::TYPE_ANGAXIS_TAB";
+	map[ParamType2::TYPE_QUAT_TAB] = "ParamType2::TYPE_QUAT_TAB";
+	map[ParamType2::TYPE_RAY_TAB] = "ParamType2::TYPE_RAY_TAB";
+	map[ParamType2::TYPE_POINT2_TAB] = "ParamType2::TYPE_POINT2_TAB";
+	map[ParamType2::TYPE_BITARRAY_TAB] = "ParamType2::TYPE_BITARRAY_TAB";
+	map[ParamType2::TYPE_CLASS_TAB] = "ParamType2::TYPE_CLASS_TAB";
+	map[ParamType2::TYPE_MESH_TAB] = "ParamType2::TYPE_MESH_TAB";
+	map[ParamType2::TYPE_OBJECT_TAB] = "ParamType2::TYPE_OBJECT_TAB";
+	map[ParamType2::TYPE_CONTROL_TAB] = "ParamType2::TYPE_CONTROL_TAB";
+	map[ParamType2::TYPE_POINT_TAB] = "ParamType2::TYPE_POINT_TAB";
+	map[ParamType2::TYPE_TSTR_TAB] = "ParamType2::TYPE_TSTR_TAB";
+	map[ParamType2::TYPE_IOBJECT_TAB] = "ParamType2::TYPE_IOBJECT_TAB";
+	map[ParamType2::TYPE_INTERFACE_TAB] = "ParamType2::TYPE_INTERFACE_TAB";
+	map[ParamType2::TYPE_HWND_TAB] = "ParamType2::TYPE_HWND_TAB";
+	map[ParamType2::TYPE_NAME_TAB] = "ParamType2::TYPE_NAME_TAB";
+	map[ParamType2::TYPE_COLOR_TAB] = "ParamType2::TYPE_COLOR_TAB";
+	map[ParamType2::TYPE_FPVALUE_TAB] = "ParamType2::TYPE_FPVALUE_TAB";
+	map[ParamType2::TYPE_VALUE_TAB] = "ParamType2::TYPE_VALUE_TAB";
+	map[ParamType2::TYPE_DWORD_TAB] = "ParamType2::TYPE_DWORD_TAB";
+	map[ParamType2::TYPE_bool_TAB] = "ParamType2::TYPE_bool_TAB";
+	map[ParamType2::TYPE_INTPTR_TAB] = "ParamType2::TYPE_INTPTR_TAB";
+	map[ParamType2::TYPE_INT64_TAB] = "ParamType2::TYPE_INT64_TAB";
+	map[ParamType2::TYPE_DOUBLE_TAB] = "ParamType2::TYPE_DOUBLE_TAB";
+	map[ParamType2::TYPE_BOX3_TAB] = "ParamType2::TYPE_BOX3_TAB";
+	map[ParamType2::TYPE_BEZIERSHAPE_TAB] = "ParamType2::TYPE_BEZIERSHAPE_TAB";
+	map[ParamType2::TYPE_INT_BR] = "ParamType2::TYPE_INT_BR";
+	map[ParamType2::TYPE_BOOL_BR] = "ParamType2::TYPE_BOOL_BR";
+	map[ParamType2::TYPE_ANGLE_BR] = "ParamType2::TYPE_ANGLE_BR";
+	map[ParamType2::TYPE_PCNT_FRAC_BR] = "ParamType2::TYPE_PCNT_FRAC_BR";
+	map[ParamType2::TYPE_WORLD_BR] = "ParamType2::TYPE_WORLD_BR";
+	map[ParamType2::TYPE_COLOR_CHANNEL_BR] = "ParamType2::TYPE_COLOR_CHANNEL_BR";
+	map[ParamType2::TYPE_TIMEVALUE_BR] = "ParamType2::TYPE_TIMEVALUE_BR";
+	map[ParamType2::TYPE_RADIOBTN_INDEX_BR] = "ParamType2::TYPE_RADIOBTN_INDEX_BR";
+	map[ParamType2::TYPE_INDEX_BR] = "ParamType2::TYPE_INDEX_BR";
+	map[ParamType2::TYPE_RGBA_BR] = "ParamType2::TYPE_RGBA_BR";
+	map[ParamType2::TYPE_BITMAP_BR] = "ParamType2::TYPE_BITMAP_BR";
+	map[ParamType2::TYPE_POINT3_BR] = "ParamType2::TYPE_POINT3_BR";
+	map[ParamType2::TYPE_HSV_BR] = "ParamType2::TYPE_HSV_BR";
+	map[ParamType2::TYPE_REFTARG_BR] = "ParamType2::TYPE_REFTARG_BR";
+	map[ParamType2::TYPE_MATRIX3_BR] = "ParamType2::TYPE_MATRIX3_BR";
+	map[ParamType2::TYPE_POINT4_BR] = "ParamType2::TYPE_POINT4_BR";
+	map[ParamType2::TYPE_FRGBA_BR] = "ParamType2::TYPE_FRGBA_BR";
+	map[ParamType2::TYPE_ENUM_BR] = "ParamType2::TYPE_ENUM_BR";
+	map[ParamType2::TYPE_INTERVAL_BR] = "ParamType2::TYPE_INTERVAL_BR";
+	map[ParamType2::TYPE_ANGAXIS_BR] = "ParamType2::TYPE_ANGAXIS_BR";
+	map[ParamType2::TYPE_QUAT_BR] = "ParamType2::TYPE_QUAT_BR";
+	map[ParamType2::TYPE_RAY_BR] = "ParamType2::TYPE_RAY_BR";
+	map[ParamType2::TYPE_POINT2_BR] = "ParamType2::TYPE_POINT2_BR";
+	map[ParamType2::TYPE_BITARRAY_BR] = "ParamType2::TYPE_BITARRAY_BR";
+	map[ParamType2::TYPE_MESH_BR] = "ParamType2::TYPE_MESH_BR";
+	map[ParamType2::TYPE_POINT_BR] = "ParamType2::TYPE_POINT_BR";
+	map[ParamType2::TYPE_TSTR_BR] = "ParamType2::TYPE_TSTR_BR";
+	map[ParamType2::TYPE_COLOR_BR] = "ParamType2::TYPE_COLOR_BR";
+	map[ParamType2::TYPE_FPVALUE_BR] = "ParamType2::TYPE_FPVALUE_BR";
+	map[ParamType2::TYPE_DWORD_BR] = "ParamType2::TYPE_DWORD_BR";
+	map[ParamType2::TYPE_bool_BR] = "ParamType2::TYPE_bool_BR";
+	map[ParamType2::TYPE_INTPTR_BR] = "ParamType2::TYPE_INTPTR_BR";
+	map[ParamType2::TYPE_INT64_BR] = "ParamType2::TYPE_INT64_BR";
+	map[ParamType2::TYPE_DOUBLE_BR] = "ParamType2::TYPE_DOUBLE_BR";
+	map[ParamType2::TYPE_BOX3_BR] = "ParamType2::TYPE_BOX3_BR";
+	map[ParamType2::TYPE_BEZIERSHAPE_BR] = "ParamType2::TYPE_BEZIERSHAPE_BR";
+	map[ParamType2::TYPE_FLOAT_TAB_BR] = "ParamType2::TYPE_FLOAT_TAB_BR";
+	map[ParamType2::TYPE_INT_TAB_BR] = "ParamType2::TYPE_INT_TAB_BR";
+	map[ParamType2::TYPE_RGBA_TAB_BR] = "ParamType2::TYPE_RGBA_TAB_BR";
+	map[ParamType2::TYPE_POINT3_TAB_BR] = "ParamType2::TYPE_POINT3_TAB_BR";
+	map[ParamType2::TYPE_BOOL_TAB_BR] = "ParamType2::TYPE_BOOL_TAB_BR";
+	map[ParamType2::TYPE_ANGLE_TAB_BR] = "ParamType2::TYPE_ANGLE_TAB_BR";
+	map[ParamType2::TYPE_PCNT_FRAC_TAB_BR] = "ParamType2::TYPE_PCNT_FRAC_TAB_BR";
+	map[ParamType2::TYPE_WORLD_TAB_BR] = "ParamType2::TYPE_WORLD_TAB_BR";
+	map[ParamType2::TYPE_STRING_TAB_BR] = "ParamType2::TYPE_STRING_TAB_BR";
+	map[ParamType2::TYPE_FILENAME_TAB_BR] = "ParamType2::TYPE_FILENAME_TAB_BR";
+	map[ParamType2::TYPE_HSV_TAB_BR] = "ParamType2::TYPE_HSV_TAB_BR";
+	map[ParamType2::TYPE_COLOR_CHANNEL_TAB_BR] = "ParamType2::TYPE_COLOR_CHANNEL_TAB_BR";
+	map[ParamType2::TYPE_TIMEVALUE_TAB_BR] = "ParamType2::TYPE_TIMEVALUE_TAB_BR";
+	map[ParamType2::TYPE_RADIOBTN_INDEX_TAB_BR] = "ParamType2::TYPE_RADIOBTN_INDEX_TAB_BR";
+	map[ParamType2::TYPE_MTL_TAB_BR] = "ParamType2::TYPE_MTL_TAB_BR";
+	map[ParamType2::TYPE_TEXMAP_TAB_BR] = "ParamType2::TYPE_TEXMAP_TAB_BR";
+	map[ParamType2::TYPE_BITMAP_TAB_BR] = "ParamType2::TYPE_BITMAP_TAB_BR";
+	map[ParamType2::TYPE_INODE_TAB_BR] = "ParamType2::TYPE_INODE_TAB_BR";
+	map[ParamType2::TYPE_REFTARG_TAB_BR] = "ParamType2::TYPE_REFTARG_TAB_BR";
+	map[ParamType2::TYPE_INDEX_TAB_BR] = "ParamType2::TYPE_INDEX_TAB_BR";
+	map[ParamType2::TYPE_MATRIX3_TAB_BR] = "ParamType2::TYPE_MATRIX3_TAB_BR";
+	map[ParamType2::TYPE_POINT4_TAB_BR] = "ParamType2::TYPE_POINT4_TAB_BR";
+	map[ParamType2::TYPE_FRGBA_TAB_BR] = "ParamType2::TYPE_FRGBA_TAB_BR";
+	map[ParamType2::TYPE_TSTR_TAB_BR] = "ParamType2::TYPE_TSTR_TAB_BR";
+	map[ParamType2::TYPE_ENUM_TAB_BR] = "ParamType2::TYPE_ENUM_TAB_BR";
+	map[ParamType2::TYPE_INTERVAL_TAB_BR] = "ParamType2::TYPE_INTERVAL_TAB_BR";
+	map[ParamType2::TYPE_ANGAXIS_TAB_BR] = "ParamType2::TYPE_ANGAXIS_TAB_BR";
+	map[ParamType2::TYPE_QUAT_TAB_BR] = "ParamType2::TYPE_QUAT_TAB_BR";
+	map[ParamType2::TYPE_RAY_TAB_BR] = "ParamType2::TYPE_RAY_TAB_BR";
+	map[ParamType2::TYPE_POINT2_TAB_BR] = "ParamType2::TYPE_POINT2_TAB_BR";
+	map[ParamType2::TYPE_BITARRAY_TAB_BR] = "ParamType2::TYPE_BITARRAY_TAB_BR";
+	map[ParamType2::TYPE_CLASS_TAB_BR] = "ParamType2::TYPE_CLASS_TAB_BR";
+	map[ParamType2::TYPE_MESH_TAB_BR] = "ParamType2::TYPE_MESH_TAB_BR";
+	map[ParamType2::TYPE_OBJECT_TAB_BR] = "ParamType2::TYPE_OBJECT_TAB_BR";
+	map[ParamType2::TYPE_CONTROL_TAB_BR] = "ParamType2::TYPE_CONTROL_TAB_BR";
+	map[ParamType2::TYPE_POINT_TAB_BR] = "ParamType2::TYPE_POINT_TAB_BR";
+	map[ParamType2::TYPE_IOBJECT_TAB_BR] = "ParamType2::TYPE_IOBJECT_TAB_BR";
+	map[ParamType2::TYPE_INTERFACE_TAB_BR] = "ParamType2::TYPE_INTERFACE_TAB_BR";
+	map[ParamType2::TYPE_HWND_TAB_BR] = "ParamType2::TYPE_HWND_TAB_BR";
+	map[ParamType2::TYPE_NAME_TAB_BR] = "ParamType2::TYPE_NAME_TAB_BR";
+	map[ParamType2::TYPE_COLOR_TAB_BR] = "ParamType2::TYPE_COLOR_TAB_BR";
+	map[ParamType2::TYPE_FPVALUE_TAB_BR] = "ParamType2::TYPE_FPVALUE_TAB_BR";
+	map[ParamType2::TYPE_VALUE_TAB_BR] = "ParamType2::TYPE_VALUE_TAB_BR";
+	map[ParamType2::TYPE_DWORD_TAB_BR] = "ParamType2::TYPE_DWORD_TAB_BR";
+	map[ParamType2::TYPE_bool_TAB_BR] = "ParamType2::TYPE_bool_TAB_BR";
+	map[ParamType2::TYPE_INTPTR_TAB_BR] = "ParamType2::TYPE_INTPTR_TAB_BR";
+	map[ParamType2::TYPE_INT64_TAB_BR] = "ParamType2::TYPE_INT64_TAB_BR";
+	map[ParamType2::TYPE_DOUBLE_TAB_BR] = "ParamType2::TYPE_DOUBLE_TAB_BR";
+	map[ParamType2::TYPE_BOX3_TAB_BR] = "ParamType2::TYPE_BOX3_TAB_BR";
+	map[ParamType2::TYPE_BEZIERSHAPE_TAB_BR] = "ParamType2::TYPE_BEZIERSHAPE_TAB_BR";
+	map[ParamType2::TYPE_RGBA_BV] = "ParamType2::TYPE_RGBA_BV";
+	map[ParamType2::TYPE_POINT3_BV] = "ParamType2::TYPE_POINT3_BV";
+	map[ParamType2::TYPE_HSV_BV] = "ParamType2::TYPE_HSV_BV";
+	map[ParamType2::TYPE_INTERVAL_BV] = "ParamType2::TYPE_INTERVAL_BV";
+	map[ParamType2::TYPE_BITMAP_BV] = "ParamType2::TYPE_BITMAP_BV";
+	map[ParamType2::TYPE_MATRIX3_BV] = "ParamType2::TYPE_MATRIX3_BV";
+	map[ParamType2::TYPE_POINT4_BV] = "ParamType2::TYPE_POINT4_BV";
+	map[ParamType2::TYPE_FRGBA_BV] = "ParamType2::TYPE_FRGBA_BV";
+	map[ParamType2::TYPE_ANGAXIS_BV] = "ParamType2::TYPE_ANGAXIS_BV";
+	map[ParamType2::TYPE_QUAT_BV] = "ParamType2::TYPE_QUAT_BV";
+	map[ParamType2::TYPE_RAY_BV] = "ParamType2::TYPE_RAY_BV";
+	map[ParamType2::TYPE_POINT2_BV] = "ParamType2::TYPE_POINT2_BV";
+	map[ParamType2::TYPE_BITARRAY_BV] = "ParamType2::TYPE_BITARRAY_BV";
+	map[ParamType2::TYPE_MESH_BV] = "ParamType2::TYPE_MESH_BV";
+	map[ParamType2::TYPE_POINT_BV] = "ParamType2::TYPE_POINT_BV";
+	map[ParamType2::TYPE_TSTR_BV] = "ParamType2::TYPE_TSTR_BV";
+	map[ParamType2::TYPE_COLOR_BV] = "ParamType2::TYPE_COLOR_BV";
+	map[ParamType2::TYPE_FPVALUE_BV] = "ParamType2::TYPE_FPVALUE_BV";
+	map[ParamType2::TYPE_CLASS_BV] = "ParamType2::TYPE_CLASS_BV";
+	map[ParamType2::TYPE_BOX3_BV] = "ParamType2::TYPE_BOX3_BV";
+	map[ParamType2::TYPE_BEZIERSHAPE_BV] = "ParamType2::TYPE_BEZIERSHAPE_BV";
+	map[ParamType2::TYPE_FLOAT_TAB_BV] = "ParamType2::TYPE_FLOAT_TAB_BV";
+	map[ParamType2::TYPE_INT_TAB_BV] = "ParamType2::TYPE_INT_TAB_BV";
+	map[ParamType2::TYPE_RGBA_TAB_BV] = "ParamType2::TYPE_RGBA_TAB_BV";
+	map[ParamType2::TYPE_POINT3_TAB_BV] = "ParamType2::TYPE_POINT3_TAB_BV";
+	map[ParamType2::TYPE_BOOL_TAB_BV] = "ParamType2::TYPE_BOOL_TAB_BV";
+	map[ParamType2::TYPE_ANGLE_TAB_BV] = "ParamType2::TYPE_ANGLE_TAB_BV";
+	map[ParamType2::TYPE_PCNT_FRAC_TAB_BV] = "ParamType2::TYPE_PCNT_FRAC_TAB_BV";
+	map[ParamType2::TYPE_WORLD_TAB_BV] = "ParamType2::TYPE_WORLD_TAB_BV";
+	map[ParamType2::TYPE_STRING_TAB_BV] = "ParamType2::TYPE_STRING_TAB_BV";
+	map[ParamType2::TYPE_FILENAME_TAB_BV] = "ParamType2::TYPE_FILENAME_TAB_BV";
+	map[ParamType2::TYPE_HSV_TAB_BV] = "ParamType2::TYPE_HSV_TAB_BV";
+	map[ParamType2::TYPE_COLOR_CHANNEL_TAB_BV] = "ParamType2::TYPE_COLOR_CHANNEL_TAB_BV";
+	map[ParamType2::TYPE_TIMEVALUE_TAB_BV] = "ParamType2::TYPE_TIMEVALUE_TAB_BV";
+	map[ParamType2::TYPE_RADIOBTN_INDEX_TAB_BV] = "ParamType2::TYPE_RADIOBTN_INDEX_TAB_BV";
+	map[ParamType2::TYPE_MTL_TAB_BV] = "ParamType2::TYPE_MTL_TAB_BV";
+	map[ParamType2::TYPE_TEXMAP_TAB_BV] = "ParamType2::TYPE_TEXMAP_TAB_BV";
+	map[ParamType2::TYPE_BITMAP_TAB_BV] = "ParamType2::TYPE_BITMAP_TAB_BV";
+	map[ParamType2::TYPE_INODE_TAB_BV] = "ParamType2::TYPE_INODE_TAB_BV";
+	map[ParamType2::TYPE_REFTARG_TAB_BV] = "ParamType2::TYPE_REFTARG_TAB_BV";
+	map[ParamType2::TYPE_INDEX_TAB_BV] = "ParamType2::TYPE_INDEX_TAB_BV";
+	map[ParamType2::TYPE_MATRIX3_TAB_BV] = "ParamType2::TYPE_MATRIX3_TAB_BV";
+	map[ParamType2::TYPE_POINT4_TAB_BV] = "ParamType2::TYPE_POINT4_TAB_BV";
+	map[ParamType2::TYPE_FRGBA_TAB_BV] = "ParamType2::TYPE_FRGBA_TAB_BV";
+	map[ParamType2::TYPE_PBLOCK2_TAB_BV] = "ParamType2::TYPE_PBLOCK2_TAB_BV";
+	map[ParamType2::TYPE_VOID_TAB_BV] = "ParamType2::TYPE_VOID_TAB_BV";
+	map[ParamType2::TYPE_TSTR_TAB_BV] = "ParamType2::TYPE_TSTR_TAB_BV";
+	map[ParamType2::TYPE_ENUM_TAB_BV] = "ParamType2::TYPE_ENUM_TAB_BV";
+	map[ParamType2::TYPE_INTERVAL_TAB_BV] = "ParamType2::TYPE_INTERVAL_TAB_BV";
+	map[ParamType2::TYPE_ANGAXIS_TAB_BV] = "ParamType2::TYPE_ANGAXIS_TAB_BV";
+	map[ParamType2::TYPE_QUAT_TAB_BV] = "ParamType2::TYPE_QUAT_TAB_BV";
+	map[ParamType2::TYPE_RAY_TAB_BV] = "ParamType2::TYPE_RAY_TAB_BV";
+	map[ParamType2::TYPE_POINT2_TAB_BV] = "ParamType2::TYPE_POINT2_TAB_BV";
+	map[ParamType2::TYPE_BITARRAY_TAB_BV] = "ParamType2::TYPE_BITARRAY_TAB_BV";
+	map[ParamType2::TYPE_CLASS_TAB_BV] = "ParamType2::TYPE_CLASS_TAB_BV";
+	map[ParamType2::TYPE_MESH_TAB_BV] = "ParamType2::TYPE_MESH_TAB_BV";
+	map[ParamType2::TYPE_OBJECT_TAB_BV] = "ParamType2::TYPE_OBJECT_TAB_BV";
+	map[ParamType2::TYPE_CONTROL_TAB_BV] = "ParamType2::TYPE_CONTROL_TAB_BV";
+	map[ParamType2::TYPE_POINT_TAB_BV] = "ParamType2::TYPE_POINT_TAB_BV";
+	map[ParamType2::TYPE_IOBJECT_TAB_BV] = "ParamType2::TYPE_IOBJECT_TAB_BV";
+	map[ParamType2::TYPE_INTERFACE_TAB_BV] = "ParamType2::TYPE_INTERFACE_TAB_BV";
+	map[ParamType2::TYPE_HWND_TAB_BV] = "ParamType2::TYPE_HWND_TAB_BV";
+	map[ParamType2::TYPE_NAME_TAB_BV] = "ParamType2::TYPE_NAME_TAB_BV";
+	map[ParamType2::TYPE_COLOR_TAB_BV] = "ParamType2::TYPE_COLOR_TAB_BV";
+	map[ParamType2::TYPE_FPVALUE_TAB_BV] = "ParamType2::TYPE_FPVALUE_TAB_BV";
+	map[ParamType2::TYPE_VALUE_TAB_BV] = "ParamType2::TYPE_VALUE_TAB_BV";
+	map[ParamType2::TYPE_DWORD_TAB_BV] = "ParamType2::TYPE_DWORD_TAB_BV";
+	map[ParamType2::TYPE_bool_TAB_BV] = "ParamType2::TYPE_bool_TAB_BV";
+	map[ParamType2::TYPE_INTPTR_TAB_BV] = "ParamType2::TYPE_INTPTR_TAB_BV";
+	map[ParamType2::TYPE_INT64_TAB_BV] = "ParamType2::TYPE_INT64_TAB_BV";
+	map[ParamType2::TYPE_DOUBLE_TAB_BV] = "ParamType2::TYPE_DOUBLE_TAB_BV";
+	map[ParamType2::TYPE_BOX3_TAB_BV] = "ParamType2::TYPE_BOX3_TAB_BV";
+	map[ParamType2::TYPE_BEZIERSHAPE_TAB_BV] = "ParamType2::TYPE_BEZIERSHAPE_TAB_BV";
+	map[ParamType2::TYPE_FLOAT_BP] = "ParamType2::TYPE_FLOAT_BP";
+	map[ParamType2::TYPE_INT_BP] = "ParamType2::TYPE_INT_BP";
+	map[ParamType2::TYPE_BOOL_BP] = "ParamType2::TYPE_BOOL_BP";
+	map[ParamType2::TYPE_ANGLE_BP] = "ParamType2::TYPE_ANGLE_BP";
+	map[ParamType2::TYPE_PCNT_FRAC_BP] = "ParamType2::TYPE_PCNT_FRAC_BP";
+	map[ParamType2::TYPE_WORLD_BP] = "ParamType2::TYPE_WORLD_BP";
+	map[ParamType2::TYPE_COLOR_CHANNEL_BP] = "ParamType2::TYPE_COLOR_CHANNEL_BP";
+	map[ParamType2::TYPE_TIMEVALUE_BP] = "ParamType2::TYPE_TIMEVALUE_BP";
+	map[ParamType2::TYPE_RADIOBTN_INDEX_BP] = "ParamType2::TYPE_RADIOBTN_INDEX_BP";
+	map[ParamType2::TYPE_INDEX_BP] = "ParamType2::TYPE_INDEX_BP";
+	map[ParamType2::TYPE_ENUM_BP] = "ParamType2::TYPE_ENUM_BP";
+	map[ParamType2::TYPE_DWORD_BP] = "ParamType2::TYPE_DWORD_BP";
+	map[ParamType2::TYPE_bool_BP] = "ParamType2::TYPE_bool_BP";
+	map[ParamType2::TYPE_INTPTR_BP] = "ParamType2::TYPE_INTPTR_BP";
+	map[ParamType2::TYPE_INT64_BP] = "ParamType2::TYPE_INT64_BP";
+	map[ParamType2::TYPE_DOUBLE_BP] = "ParamType2::TYPE_DOUBLE_BP";
+	map[ParamType2::TYPE_KEYARG_MARKER] = "ParamType2::TYPE_KEYARG_MARKER";
+	map[ParamType2::TYPE_MSFLOAT] = "ParamType2::TYPE_MSFLOAT";
+	map[ParamType2::TYPE_UNSPECIFIED] = "ParamType2::TYPE_UNSPECIFIED";
+
+	map[ParamType::TYPE_FLOAT] = "ParamType::TYPE_FLOAT";
+	map[ParamType::TYPE_INT] = "ParamType::TYPE_INT";
+	map[ParamType::TYPE_RGBA] = "ParamType::TYPE_RGBA";
+	map[ParamType::TYPE_POINT3] = "ParamType::TYPE_POINT3";
+	map[ParamType::TYPE_BOOL] = "ParamType::TYPE_BOOL";
+	map[ParamType::TYPE_USER] = "ParamType::TYPE_USER";
+
+	return map;
+}
+
+inline void generateInterfaceFuntionsID2(FPInterfaceDesc* fpInterfaceDesc)
+{
+	MSTR internal_name = fpInterfaceDesc->internal_name;
+	internal_name.toUpper();
+	Tab<FPFunctionDef*> functions = fpInterfaceDesc->functions;
+	auto map = generateParamType();
+	auto numFunction = functions.Count();
+	//define number of functions
+	LOG("// --------------------list functions of core interface {0}--------------------------\n", internal_name);
+	LOG("// Number function of {0} core interface is {1}\n", internal_name, numFunction);
+	LOG("#define I{0}_NUMFUCNTIONS {1}\n", internal_name, numFunction);
+
+	log("// --------------------list functions of core interface {0}--------------------------\n", internal_name);
+	log("// Number function of {0} core interface is {1}\n", internal_name, numFunction);
+	log("#define I{0}_NUMFUCNTIONS {1}\n", internal_name, numFunction);
+	//LOG("- Num functions is {0}\n", numFunction);
+	for (int i = 0; i < numFunction; i++)
+	{
+		auto f = functions[i];
+		auto func_internalname = f->internal_name;
+		func_internalname.toUpper();  //hello
+		auto func_id = f->ID;
+		//define function ID
+		LOG("// function ID of function {0} of core interface {1} is {2}\n", func_internalname, internal_name, func_id);
+		LOG("#define {0}_I{1} {2}\n", func_internalname, internal_name, func_id);
+
+		log("// function ID of function {0} of core interface {1} is {2}\n", func_internalname, internal_name, func_id);
+		log("#define {0}_I{1} {2}\n", func_internalname, internal_name, func_id);
+		auto params = f->params;
+		auto numParams = params.Count();
+		auto resultType = f->result_type;
+		auto resultTypeEnumFormat = map[resultType];
+		LOG("  // Result Type of function {0} of core interface {1} is {2}\n", func_internalname, internal_name, resultTypeEnumFormat);
+		LOG("  #define {0}_I{1}_RESULTTYPE {2}\n", func_internalname, internal_name, resultTypeEnumFormat);
+		LOG("  // number parameter of fucntion {0} of core interface {1} is {2}\n", func_internalname, internal_name, numParams);
+		LOG("  #define {0}_I{1}_NUMPARAMS {2}\n", func_internalname, internal_name, numParams);
+
+		log("  // Result Type of function {0} of core interface {1} is {2}\n", func_internalname, internal_name, resultTypeEnumFormat);
+		log("  #define {0}_I{1}_RESULTTYPE {2}\n", func_internalname, internal_name, resultTypeEnumFormat);
+		log("  // number parameter of fucntion {0} of core interface {1} is {2}\n", func_internalname, internal_name, numParams);
+		log("  #define {0}_I{1}_NUMPARAMS {2}\n", func_internalname, internal_name, numParams);
+		for (int i = 0; i < numParams; i++)
+		{
+			auto param = params[i];
+			auto param_internal_name = param->internal_name;
+			param_internal_name.toUpper();
+			auto paramType = param->type;
+			auto paramTypeEnumFormat = map[paramType];
+			LOG("  // {0}, which is parameter number {1} of function\n// {2} of core interface {3} have param type is {4}\n", param_internal_name, i + 1, func_internalname, internal_name, paramTypeEnumFormat);
+			LOG("  #define {0}_{1}_I{2}_PARAM{3}_TYPE {4}\n", param_internal_name, func_internalname, internal_name, i + 1, paramTypeEnumFormat);
+
+			log("  #define {0}_{1}_I{2}_PARAM{3}_TYPE {4}\n", param_internal_name, func_internalname, internal_name, i + 1, paramTypeEnumFormat);
+			log("  // {0}, which is parameter number {1} of function\n// {2} of core interface {3} have param type is {4}\n", param_internal_name, i + 1, func_internalname, internal_name, paramTypeEnumFormat);
+			//LOG("  -- Param number {0} have internal name is {1}, paramType is {2}\n", i, finternal_name, paramTypeEnumFormat);
+		}
+		//log(" + function number {0} have internal name is {1}, id is {2}\n", i, func_internalname, func_id);
+	}
+
+	Tab<FPPropDef*> props = fpInterfaceDesc->props;
+	auto numProps = props.Count();
+	LOG("// ---------------------- List Properties of core interface {0} ----------------------\n", internal_name);
+	log("// ---------------------- List Properties of core interface {0} ----------------------\n", internal_name);
+	LOG("#define I{0}_NUMPROPS {1}\n", internal_name, numProps);
+	log("#define I{0}_NUMPROPS {1}\n", internal_name, numProps);
+	for (int i = 0; i < numProps; i++)
+	{
+		auto f = props[i];
+		auto prop_internalname = f->internal_name;
+		prop_internalname.toUpper();
+		auto fucn_setterid = f->setter_ID;
+		auto func_getterid = f->getter_ID;
+		ParamType2 propTypes = f->prop_type;
+		auto propTypes_enumFormat = map[(int)propTypes];
+		//if (propTypes_enumFormat.empty()) propTypes_enumFormat ";
+		LOG("// function_id of for get property {0} of core interface {1} is {2}\n", prop_internalname, internal_name, func_getterid);
+		log("// function_id of for get property {0} of core interface {1} is {2}\n", prop_internalname, internal_name, func_getterid);
+		LOG("#define {0}_I{1}_GETTER {2}\n", prop_internalname, internal_name, func_getterid);
+		log("#define {0}_I{1}_GETTER {2}\n", prop_internalname, internal_name, func_getterid);
+		LOG("// function_id of for set property {0} of core interface {1} is {2}\n", prop_internalname, internal_name, fucn_setterid);
+		log("// function_id of for set property {0} of core interface {1} is {2}\n", prop_internalname, internal_name, fucn_setterid);
+		LOG("#define {0}_I{1}_SETTER {2}\n", prop_internalname, internal_name, fucn_setterid);
+		log("#define {0}_I{1}_SETTER {2}\n", prop_internalname, internal_name, fucn_setterid);
+		//LOG("#define {0","ddd");
+		if (!propTypes_enumFormat.empty()) {
+			LOG("// parameter type of properties {0} of core interface {1} is {2}\n", prop_internalname, internal_name, propTypes_enumFormat);
+			log("// parameter type of properties {0} of core interface {1} is {2}\n", prop_internalname, internal_name, propTypes_enumFormat);
+			LOG("#define {0}_I{1}_TYPEPARAM {2}\n", prop_internalname, internal_name, propTypes_enumFormat);
+			log("#define {0}_I{1}_TYPEPARAM {2}\n", prop_internalname, internal_name, propTypes_enumFormat);
+		}
+		else {
+			LOG("#define {0}_I{1}_TYPEPARAM_VOID {2}\n", prop_internalname, internal_name, propTypes_enumFormat);
+			log("#define {0}_I{1}_TYPEPARAM_VOID {2}\n", prop_internalname, internal_name, propTypes_enumFormat);
+		}
+		/*log(" + properties number {0} have internal name is {1},"
+		" setterid is {2}, getterid is {3}\n", i, prop_internalname, fucn_setterid, func_getterid);*/
+	}
+
+	LOG("// ---------------------- List Enum of interfaces  ----------------------\n");
+	Tab<FPEnum *> enumerations = fpInterfaceDesc->enumerations;
+	auto numEnum = enumerations.Count();
+
+	for (int i = 0; i < numEnum; i++)
+	{
+		auto e = enumerations[i];
+		auto enumID = e->ID;
+		auto enum_codes = e->enumeration;
+		auto n = enum_codes.Count();
+
+		std::string str = fmt::format("typedef enum class ENUM{0}_{1} {{", i + 1, internal_name);
+		fmt::MemoryWriter w;
+		w << str;
+		LOG("/**");
+		log("/**");
+		for (int j = 0; j < n; j++)
+		{
+			auto enum_code = enum_codes[j];
+			const wchar_t* name = enum_code.name;
+			int code = enum_code.code;
+			std::string s = ws2s(std::wstring(name));
+			//std::string a = "ssss";
+			//LOG("ffff\n");
+			LOG("{0} - {1} Enum is {2} have code is {3}\n", i, j, s, code);
+			log("{0} - {1} Enum is {2} have code is {3}\n", i, j, s, code);
+			//w << 2;
+			w << s << " = " << code << ",";
+			//Printf("{0} - {1} Enum is ",i,j); LOG(s);LOG(" have code is {0}\n",code);
+			//LOG("\n");
+		}
+		LOG("**/\n");
+		log("**/\n");
+		std::string str2 = fmt::format("}} {0}_ENUM{1};\n", internal_name, i + 1);
+		w << str2;
+		LOG(w.str());
+		log(w.str());
+	}
+}
+
+/************************************************************************/
+/* generate core interface info with the interface_id
+wn: this function only work if the provided interface_id is of "core" interface
+*/
+/************************************************************************/
+inline void generateInterfaceFuntionsID2(Interface_ID id)
+{
+	FPInterface* fpInterface = GetCOREInterface(id);
+	FPInterfaceDesc* fpInterfaceDesc = fpInterface->GetDesc();
+	generateInterfaceFuntionsID2(fpInterfaceDesc);
+}
+
+
+inline void setInterFacePropertyTInt(int typeParam, FPInterface* fpInterface, int funcID, int value)
+{
+	FPParams p(1, typeParam, value);
+	fpInterface->Invoke(funcID, &p);
+}
+
+inline void setInterFacePropertyTBool(int typeParam, FPInterface* fpInterface, int funcID, bool value)
+{
+	FPParams p(1, typeParam, value);
+	fpInterface->Invoke(funcID, &p);
+}
+
+inline void setInterFacePropertyTString(int typeParam, FPInterface* fpInterface, int funcID, std::string value)
+{
+	MCHAR* desVal = const_cast<wchar_t*>((s2ws(value)).c_str());
+	FPParams p(1, typeParam, desVal);
+	fpInterface->Invoke(funcID, &p);
+}
+
+inline std::string uniquename(std::string name)
+{	
+	std::smatch m;
+
+	//const char cstr[] = "subject";
+	std::string s("subject");
+	std::regex e ("(?!0)\\d+$");
+	//std::regex e("123");
+
+	std::regex_search(name, m, e);
+	if (m.size() > 0)
+	{
+		std::string match = m.str();
+		std::string prefix = m.prefix();
+		int suffix = std::stoi(match) + 1;
+		std::string r  = prefix + std::to_string(suffix);
+		std::cout << "result is" << r << std::endl;
+		return r;
+	}
+	/*for (int i = 0; i < m.size(); i++)
+	{
+		std::cout <<"string is "<<name<< "size is : " << m.size() << " and is " << m[i] << std::endl;
+	}*/
+	return name + "001";
+}
+
+inline std::wstring uniquename(std::wstring name)
+{
+	std::wsmatch m;
+	std::wregex e(L"(?!0)\\d+$");
+	//std::regex e("123");
+
+	std::regex_search(name,m,e);
+	if (m.size() > 0)
+	{
+		std::wstring match = m.str();
+		std::wstring prefix = m.prefix();
+		int suffix = std::stoi(match) + 1;
+		std::wstring r = prefix + std::to_wstring(suffix);
+		//std::wcout << "result is :" << r << std::endl;
+		return r;
+	}
+	/*for (int i = 0; i < m.size(); i++)
+	{
+	std::cout <<"string is "<<name<< "size is : " << m.size() << " and is " << m[i] << std::endl;
+	}*/
+	return name + L"001";
 }
 
 // isolate=TRUE : IsolateSelection.EnterIsolateSelectionMode() 
@@ -486,11 +1075,11 @@ inline void redrawViewPort()
 	GetCOREInterface16()->RedrawViews(ip16->GetTime());
 }
 
-inline bool setIsolate(BOOL isolate=TRUE) {
+inline bool setIsolate(BOOL isolate = TRUE) {
 	FPInterface* fpInterface = GetCOREInterface(ISOLATESELECTION_INTERFACE_ID);
 	FPValue result;
 	if (isolate)
-		fpInterface->Invoke(ENTERISOLATESELECTIONMODE_IISOLATESELECTION,result);
+		fpInterface->Invoke(ENTERISOLATESELECTIONMODE_IISOLATESELECTION, result);
 	else {
 		fpInterface->Invoke(EXITISOLATESELECTIONMODE_IISOLATESELECTION, result);
 		redrawViewPort();
@@ -498,10 +1087,60 @@ inline bool setIsolate(BOOL isolate=TRUE) {
 	return result.b;
 }
 
+
+inline std::wstring CreateLayer(INodeTab *nodes, std::wstring layer_name, BOOL isolate = TRUE) {
+	auto iLayermanager = GetCOREInterface(LAYERMANAGER_INTERFACE_ID);
+	FPInterface * ilayerProperties = nullptr;
+	auto name = layer_name;
+
+	FPParams pLayerName(1, NAME_NEWLAYERFROMNAME_ILAYERMANAGER_PARAM1_TYPE, name.data());
+	FPValue result;
+	iLayermanager->Invoke(NEWLAYERFROMNAME_ILAYERMANAGER, result, &pLayerName);
+	ilayerProperties = result.fpi;
+
+	while (ilayerProperties == nullptr) {
+		name = uniquename(name);
+		FPValue result;
+		FPParams pLayerName(1, NAME_NEWLAYERFROMNAME_ILAYERMANAGER_PARAM1_TYPE, name.data());
+		iLayermanager->Invoke(NEWLAYERFROMNAME_ILAYERMANAGER, result, &pLayerName);
+		ilayerProperties = result.fpi;
+	};
+
+	for (int i = 0; i < nodes->Count(); i++)
+	{
+		auto inode = (*nodes)[i];
+		FPParams pAddNode(1, NODE_ADDNODE_ILAYERPROPERTIES_PARAM1_TYPE, inode);
+		ilayerProperties->Invoke(ADDNODE_ILAYERPROPERTIES, &pAddNode);
+	}
+
+	if(isolate){
+		//setIsolate(false);
+		auto ip = GetCOREInterface16();
+		ip->SelectNodeTab(*nodes, true);
+		setIsolate(true);
+	}
+
+	return name;
+}
+
+inline void TestCreateLayer()
+{
+	INodeTab nodes;
+	getSelNodeTab(nodes);
+	CreateLayer(&nodes, L"abcxyz");	
+}
+
 inline void setIsolateLayer(std::string layer_name) {
 	auto cmd = formatWS("yms.isolate_layer \"{0}\"", layer_name);
 	ExecuteMAXScriptScript(cmd.c_str());
 }
+
+inline bool DeleteLayer(std::string layer_name) {
+	auto cmd = formatWS("yms.delete_layer \"{0}\"", layer_name);
+	ExecuteMAXScriptScript(cmd.c_str());
+	return true;
+}
+
 
 #define createLight(x) CreateInstance(LIGHT_CLASS_ID,x)
 #define createMaterial(x) CreateInstance(MATERIAL_CLASS_ID,x)

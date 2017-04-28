@@ -115,7 +115,9 @@ int test4() {
 }
 
 void test3() {
-	IsProcessIsRunning(L"LogServer.exe");
+	uniquename(L"subject011023");
+	uniquename(L"subject");
+	uniquename(L"subject001");
 }
 
 void test5()

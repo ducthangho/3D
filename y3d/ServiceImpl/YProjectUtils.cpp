@@ -27,7 +27,7 @@ NameTab high_nametab;
 INodeTab low_nodes;
 INodeTab high_nodes;
 int current_worker_id = 0;
-
+std::map<int, std::string>  map;
 
 void getObjInfo(INode* node, YObject* yo) {
 	auto* oo = getObject(node);
@@ -300,25 +300,6 @@ inline void LayerInterfaceExample()
 	}
 }
 
-inline void setInterFacePropertyTInt(int typeParam, FPInterface* fpInterface, int funcID, int value)
-{
-	FPParams p(1, typeParam, value);
-	fpInterface->Invoke(funcID, &p);
-}
-
-inline void setInterFacePropertyTBool(int typeParam, FPInterface* fpInterface, int funcID, bool value)
-{
-	FPParams p(1, typeParam, value);
-	fpInterface->Invoke(funcID, &p);
-}
-
-inline void setInterFacePropertyTString(int typeParam, FPInterface* fpInterface, int funcID, std::string value)
-{
-	MCHAR* desVal = const_cast<wchar_t*>((s2ws(value)).c_str());
-	FPParams p(1, typeParam, desVal);
-	fpInterface->Invoke(funcID, &p);
-}
-
 inline void pre_optimize(std::string oFileDir, std::string oFileName, std::string projectPath)
 {
 	FPInterface* fpInterface = GetCOREInterface(BATCHPROOPTIMIZER_INTERFACE_ID);
@@ -362,13 +343,12 @@ inline void pre_optimize(std::string oFileDir, std::string oFileName, std::strin
 	fpInterface->Invoke(BATCH_IBATCHPROOPTIMIZER);
 
 	std::string maxFile = projectPath + "\\" + oFileName + "90.max";
-
-	auto ip16 = GetCOREInterface16();
-	QuietMode quietmode;
-	quietmode.set();
-	bool loadsucess = ip16->LoadFromFile(s2ws(maxFile).data(),
-		Interface8::LoadFromFileFlags::kSuppressPrompts&Interface8::LoadFromFileFlags::kUseFileUnits);
-	ip16->SaveToFile(s2ws(maxFile).data());
+	GetCOREInterface16()->LoadFromFile(s2ws(maxFile).data(), Interface8::LoadFromFileFlags::kSuppressPrompts&Interface8::LoadFromFileFlags::kUseFileUnits);
+	FPValue result;
+	fpInterface->Invoke(DESTFOLDERNAME_IBATCHPROOPTIMIZER_GETTER, result);
+	const wchar_t* a = result.s;
+	logserver::LOG(a);
+	//logserver::LOG(b);
 }
 
 void DoYEvent(YEvent ye) {

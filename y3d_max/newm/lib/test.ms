@@ -108,17 +108,40 @@ fn xref_low oFileDir oFileName=
 )
 
 
+fn CreateLayer nodes layersname isolate:true = 
+(
+	local layerProps = LayerManager.newLayerFromName layersname
+	-- if layerProps == undefined do layerProps = LayerManager.newLayerFromName (uniquename layersname)
+	for node in nodes do
+	(
+		layerProps.addnode node
+	)
+
+)
+
 fn test = 
 (
-	local oFileDir = "F:\\WorkSpace\\3Ds Max\\Building Phong Tam Project\\scenes\\TestProOptimizerScene"; 		
-	local projectPath = "F:\\WorkSpace\\3Ds Max\\Building Phong Tam Project\\scenes\\TestProOptimizerScene";
-	local oFileName = "001";
+	nodes = selection
+	CreateLayer nodes "aa001" 
+)
 
-	local maxFile = projectPath+"\\" + oFileName + "90.max";
-	xref_low oFileDir oFileName
-	print "fafa";
-	-- loadMaxFile maxFile useFileUnits:true quiet:true
-	-- saveMaxFile maxFile 
+fn LowPolyUseProOptimizer objName ratio:20= 
+(
+	local obj = getNodeByName objName exact:true all:false ignoreCase:false
+	addModifier obj (ProOptimizer())
 
-	-- pre_optimize oFileDir oFileName projectPath
+	optMod = obj.modifiers["ProOptimizer"]
+	optMod.VertexPercent = ratio
+	optMod.OptimizationMode = 2
+	optMod.KeepNormals = true
+	optMod.NormalMode = 2
+	optMod.NormalThreshold = 10
+	optMod.MergePoints = true
+	optMod.MergePointsThreshold  = 0
+	optMod.MergeFaces = true
+	optMod.MergeFacesAngle = 0
+	optMod.CompactFaces = true
+	optMod.PreventFlip = true
+	optMod.Calculate = true
+
 )
