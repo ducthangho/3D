@@ -1113,12 +1113,14 @@ inline std::wstring CreateLayer(INodeTab *nodes, std::wstring layer_name, BOOL i
 		ilayerProperties->Invoke(ADDNODE_ILAYERPROPERTIES, &pAddNode);
 	}
 
-	setIsolate(false);
-	auto ip = GetCOREInterface16();
-	ip->SelectNodeTab(*nodes, true);
-	setIsolate(true);
+	if(isolate){
+		//setIsolate(false);
+		auto ip = GetCOREInterface16();
+		ip->SelectNodeTab(*nodes, true);
+		setIsolate(true);
+	}
 
-	return L"";
+	return name;
 }
 
 inline void TestCreateLayer()
