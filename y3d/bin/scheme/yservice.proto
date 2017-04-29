@@ -41,7 +41,7 @@ service YServiceMaxTools {
 
 service YServiceTest {
   rpc MTest1(EmptyParam) returns (EmptyParam) {}
-  rpc MTest2(EmptyParam) returns (EmptyParam) {}
+  rpc MTest2(StringParam) returns (EmptyParam) {}
   rpc GenerateInterfaceInfo(EmptyParam) returns (EmptyParam) {}
 }
 
@@ -68,6 +68,4 @@ service YServiceMaster {
   rpc UserLogin(UserParam) returns (UserResponse) {}
   rpc UserRegister(UserParam) returns (UserResponse) {}
   rpc UpdateUserSetting(UserParam) returns (ResultReply) {}
-  
-  
 }

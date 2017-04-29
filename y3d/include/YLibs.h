@@ -1091,7 +1091,7 @@ inline bool setIsolate(BOOL isolate = TRUE) {
 inline std::wstring CreateLayer(INodeTab *nodes, std::wstring layer_name, BOOL isolate = TRUE) {
 	auto iLayermanager = GetCOREInterface(LAYERMANAGER_INTERFACE_ID);
 	FPInterface * ilayerProperties = nullptr;
-	auto name = layer_name;
+	std::wstring name = layer_name.data();
 
 	FPParams pLayerName(1, NAME_NEWLAYERFROMNAME_ILAYERMANAGER_PARAM1_TYPE, name.data());
 	FPValue result;
@@ -1123,22 +1123,51 @@ inline std::wstring CreateLayer(INodeTab *nodes, std::wstring layer_name, BOOL i
 	return name;
 }
 
+inline void setIsolateLayer(const std::string layer_name) {
+	//auto cmd = formatWS("yms.isolate_layer \"{0}\"", layer_name);
+	//ExecuteMAXScriptScript(cmd.c_str());
+
+
+	//auto cmd = formatWS("yms.delete_layer \"{0}\"", layer_name);
+	//ExecuteMAXScriptScript(cmd.c_str());
+	std::wstring a = s2ws(layer_name).data();
+
+	auto ilayermanager = GetCOREInterface(LAYERMANAGER_INTERFACE_ID);
+	//FPParams pDelLayerName(1, NAME_GETLAYERFROMNAME_ILAYERMANAGER_PARAM1_TYPE, L"abcxy\0aa");
+	//FPParams pDelLayerName(1, NAME_GETLAYERFROMNAME_ILAYERMANAGER_PARAM1_TYPE, layer_name2.data());
+	//FPParams pDelLayerName(1, NAME_GETLAYERFROMNAME_ILAYERMANAGER_PARAM1_TYPE, s2ws(layer_name).data());
+	FPParams pDelLayerName(1, NAME_GETLAYERFROMNAME_ILAYERMANAGER_PARAM1_TYPE, a.data());
+	FPValue result;
+	ilayermanager->Invoke(GETLAYERFROMNAME_ILAYERMANAGER, result, &pDelLayerName);
+	auto ilayperprop = result.fpi;
+	/*if (ilayperprop != nullptr)
+	{
+		LAYERNODES_NODES_ILAYERPROPERTIES_PARAM1_TYPE
+	}*/
+
+	//return result.b;
+}
+
+inline bool DeleteLayer(const std::string layer_name) {
+	//auto cmd = formatWS("yms.delete_layer \"{0}\"", layer_name);
+	//ExecuteMAXScriptScript(cmd.c_str());
+	std::wstring a = s2ws(layer_name).data();
+	
+	auto ilayermanager = GetCOREInterface(LAYERMANAGER_INTERFACE_ID);
+	//FPParams pDelLayerName(1, NAME_DELETELAYERBYNAME_ILAYERMANAGER_PARAM1_TYPE, L"abcxy\0aa");
+	//FPParams pDelLayerName(1, NAME_DELETELAYERBYNAME_ILAYERMANAGER_PARAM1_TYPE, layer_name2.data());
+	//FPParams pDelLayerName(1, NAME_DELETELAYERBYNAME_ILAYERMANAGER_PARAM1_TYPE, s2ws(layer_name).data());
+	FPParams pDelLayerName(1, NAME_DELETELAYERBYNAME_ILAYERMANAGER_PARAM1_TYPE, a.data());
+	FPValue result;	
+	ilayermanager->Invoke(DELETELAYERBYNAME_ILAYERMANAGER, result, &pDelLayerName);
+	return result.b;
+}
+
 inline void TestCreateLayer()
 {
 	INodeTab nodes;
 	getSelNodeTab(nodes);
-	CreateLayer(&nodes, L"abcxyz");	
-}
-
-inline void setIsolateLayer(std::string layer_name) {
-	auto cmd = formatWS("yms.isolate_layer \"{0}\"", layer_name);
-	ExecuteMAXScriptScript(cmd.c_str());
-}
-
-inline bool DeleteLayer(std::string layer_name) {
-	auto cmd = formatWS("yms.delete_layer \"{0}\"", layer_name);
-	ExecuteMAXScriptScript(cmd.c_str());
-	return true;
+	CreateLayer(&nodes, L"abcxy");
 }
 
 

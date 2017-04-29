@@ -34,7 +34,7 @@ namespace Y3D.Tests
                 (task) =>
                 {
                     if (!task.IsFaulted && !task.IsCanceled)
-                        Y3D.Projects.Utils.TestClient.MTest2(new y3d.e.EmptyParam());
+                        Y3D.Projects.Utils.TestClient.MTest2(new y3d.e.StringParam());
                 }
             );
             

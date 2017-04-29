@@ -158,12 +158,13 @@ void test1() {
 	grpc::Status status = client->MTest1(&context, req, &res);
 }
 
-void test2() {
+void test2(std::string p) {
 	//auto client = y3d::Tools::NewStub(grpc::CreateChannel(service_ip, grpc::InsecureChannelCredentials()));
 	std::string ip = "127.0.0.1:39001";
 	auto client = y3d::YServiceTest::NewStub(grpc::CreateChannel(ip, grpc::InsecureChannelCredentials()));
 	grpc::ClientContext context;
-	y3d::EmptyParam req;
+	y3d::StringParam req;
+	req.set_str(p);
 	y3d::EmptyParam res;
 	grpc::Status status = client->MTest2(&context, req, &res);
 }
@@ -244,6 +245,9 @@ int main(int argc, char** argv)
 		TCLAP::ValueArg<int> testArg("t", "test", "1 = test1; 2 = test2; 3 = test3; 4 = test4; 5 = test5", false, 2, "integer");
 		cmd.add(testArg);
 
+		TCLAP::ValueArg<std::string> testParam("p", "param", "", false, "", "string");
+		cmd.add(testParam);
+
 		// Parse the argv array.
 		cmd.parse(argc, argv);
 
@@ -276,14 +280,18 @@ int main(int argc, char** argv)
 				}
 			}
 		}
-		else if (testArg.isSet()) {
+		else if (testArg.isSet()) {			
+			std::string p;
+			if (testParam.isSet()){
+				p = testParam.getValue();				
+			}			
 			auto t = testArg.getValue();
 			if (t == 1) {
 				test1();
 			}
 			else if (t == 2) 
 			{ 
-				test2(); 
+				test2(p); 
 			}
 			else if (t==3)
 			{

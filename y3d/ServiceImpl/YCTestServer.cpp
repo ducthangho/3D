@@ -820,10 +820,10 @@ Status YServiceTestImpl::MTest1(ServerContext* context, const EmptyParam* reques
 	return Status::OK;
 }
 
-Status YServiceTestImpl::MTest2(ServerContext* context, const EmptyParam* request, EmptyParam* reply)
+Status YServiceTestImpl::MTest2(ServerContext* context, const StringParam* request, EmptyParam* reply)
 {
-	Invoke([]() {
-		setIsolate(false);
+	Invoke([&request]() {
+		DeleteLayer(request->str());
 	});
 	return Status::OK;
 }
