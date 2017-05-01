@@ -115,9 +115,42 @@ int test4() {
 }
 
 void test3() {
-	uniquename(L"subject011023");
-	uniquename(L"subject");
-	uniquename(L"subject001");
+// 	uniquename(L"subject011023");
+// 	uniquename(L"subject");
+// 	uniquename(L"subject001");
+	const char str[] = "mb";
+	std::string a("abcxyz");
+	std::string b("abcxyz");
+	
+	const wchar_t* a1 = s2ws(a).c_str();
+	const wchar_t* a2 = s2ws2(b);
+	std::wstring w1(s2ws(a).data());
+	 std::wstring w2(a2);
+
+	int size = a.size();
+
+	std::cout << "length is " << a.size() << std::endl;
+	std::wcout << "a1 " << a1[0] << std::endl;
+	std::wcout << "a2 " << *a2 << std::endl;
+	std::wcout << "w1 " << w1 << std::endl;
+	std::wcout << "w2 " << w2 << std::endl;
+	for (int i = 0; i <= size; i++)
+	{
+		if (a1[i] != a2[i]) {
+			std::cout << "differ at " << i << std::endl;
+			std::cout << "  a1[" << i << "] " << a1[i] << std::endl;
+			std::cout << "  a2[" << i << "] " << a2[i] << std::endl;
+		}
+	}
+
+	std::wcout << "here 1: "<<*(s2ws(a).c_str()) << std::endl;
+	a1 = s2ws(a).c_str();
+	std::wcout <<"here 2: "<< *(a1) << std::endl;
+	//std::cout << "side is " << sizeof(a) << std::endl;
+
+	wchar_t * dest;
+
+
 }
 
 void test5()

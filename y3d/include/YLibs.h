@@ -1152,14 +1152,18 @@ inline bool DeleteLayer(const std::string layer_name) {
 	//auto cmd = formatWS("yms.delete_layer \"{0}\"", layer_name);
 	//ExecuteMAXScriptScript(cmd.c_str());
 	std::wstring a = s2ws(layer_name).data();
+	std::wstring a2 = s2ws2(layer_name);
 	
 	auto ilayermanager = GetCOREInterface(LAYERMANAGER_INTERFACE_ID);
 	//FPParams pDelLayerName(1, NAME_DELETELAYERBYNAME_ILAYERMANAGER_PARAM1_TYPE, L"abcxy\0aa");
 	//FPParams pDelLayerName(1, NAME_DELETELAYERBYNAME_ILAYERMANAGER_PARAM1_TYPE, layer_name2.data());
-	//FPParams pDelLayerName(1, NAME_DELETELAYERBYNAME_ILAYERMANAGER_PARAM1_TYPE, s2ws(layer_name).data());
-	FPParams pDelLayerName(1, NAME_DELETELAYERBYNAME_ILAYERMANAGER_PARAM1_TYPE, a.data());
+	FPParams pDelLayerName(1, NAME_DELETELAYERBYNAME_ILAYERMANAGER_PARAM1_TYPE, s2ws(layer_name).data());
+	//FPParams pDelLayerName(1, NAME_DELETELAYERBYNAME_ILAYERMANAGER_PARAM1_TYPE, a.data());
+	//FPParams pDelLayerName(1, NAME_DELETELAYERBYNAME_ILAYERMANAGER_PARAM1_TYPE, a2.data());
+	//FPParams pDelLayerName(1, NAME_DELETELAYERBYNAME_ILAYERMANAGER_PARAM1_TYPE,s2ws2(layer_name));
 	FPValue result;	
 	ilayermanager->Invoke(DELETELAYERBYNAME_ILAYERMANAGER, result, &pDelLayerName);
+	LOG("co xoa duoc khongvay ? {}\n", result.b);
 	return result.b;
 }
 

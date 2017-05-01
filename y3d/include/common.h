@@ -18,6 +18,7 @@
 #include <windows.h>
 #include "map.h"
 //#include "LogClient.h"
+//#include "LogClient.h"
 //#define FMT_HEADER_ONLY
 
 #define YCDEBUG 1
@@ -139,12 +140,50 @@ inline std::string GetLastErrorAsString(DWORD errorMessageID)
 	}
 
 // multi byte to wide char:
+// inline std::wstring s2ws(const std::string& str)
+// {
+// 	int size_needed = MultiByteToWideChar(CP_UTF8, 0, &str[0], int(str.size()), NULL, 0);
+// 	std::wstring wstrTo(size_needed, 0);
+// 	MultiByteToWideChar(CP_UTF8, 0, &str[0], int(str.size()), &wstrTo[0], size_needed);
+// 	return wstrTo;
+// }
+
+
 inline std::wstring s2ws(const std::string& str)
 {
-	int size_needed = MultiByteToWideChar(CP_UTF8, 0, &str[0], int(str.size()), NULL, 0);
-	std::wstring wstrTo(size_needed, 0);
-	MultiByteToWideChar(CP_UTF8, 0, &str[0], int(str.size()), &wstrTo[0], size_needed);
+	int size_needed = MultiByteToWideChar(CP_UTF8, 0, str.data(), int(str.size()+1), NULL, 0);
+	std::wstring wstrTo(size_needed, 1);
+
+	size_needed = size_needed - 0;
+
+	MultiByteToWideChar(CP_UTF8, 0, str.data(), int(str.size()+1), &wstrTo[0], size_needed);
+
+	
+	const wchar_t* a = wstrTo.data();
+
+	std::cout << "size_needed is" << size_needed << std::endl;
+	std::cout << "is this character is \'null terminate\' character ? "<< (a[size_needed-2] == '\0') << std::endl;
+
 	return wstrTo;
+}
+
+inline const wchar_t * s2ws2(const std::string& str)
+{
+	int size_needed = MultiByteToWideChar(CP_UTF8, 0, str.data(), int(str.size()+1), NULL, 0);
+	std::wstring wstrTo(size_needed, 0);
+	std::cout << "size need is " << size_needed << std::endl;
+	size_needed = size_needed - 0;
+	wchar_t * a = new wchar_t[size_needed];
+	//MultiByteToWideChar(CP_UTF8, 0, str.data(), int(str.size()), &wstrTo[0], size_needed);
+
+	std::cout << "is this character is \'null terminate\' character ?{0}\n" << (a[size_needed - 1] == '\0') << std::endl;
+
+
+	mbstowcs(a, str.data(), size_needed);
+
+
+	//return wstrTo;
+	return a;
 }
 
 // wide char to multi byte:
