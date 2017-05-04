@@ -119,6 +119,15 @@ fn CreateLayer nodes layersname isolate:true =
 
 )
 
+fn setIsolateLayer layer_name = 
+(
+	local layerProps = LayerManager.getLayerFromName layer_name
+	layerProps.select true
+
+	IsolateSelection.EnterIsolateSelectionMode()
+) 
+
+
 fn test = 
 (
 	nodes = selection
