@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.cmbLowType = new MetroFramework.Controls.MetroComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,6 +49,26 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(273, 44);
             this.panel1.TabIndex = 2;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Image = global::Y3D.Properties.Resources.remove16;
+            this.btnDelete.Location = new System.Drawing.Point(216, 9);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(28, 28);
+            this.btnDelete.TabIndex = 4;
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Image = global::Y3D.Properties.Resources.add16;
+            this.btnAdd.Location = new System.Drawing.Point(182, 9);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(28, 28);
+            this.btnAdd.TabIndex = 3;
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // cmbLowType
             // 
@@ -87,26 +107,6 @@
             this.label2.Size = new System.Drawing.Size(133, 29);
             this.label2.TabIndex = 3;
             this.label2.Text = "(no setting)";
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Image = global::Y3D.Properties.Resources.remove16;
-            this.btnDelete.Location = new System.Drawing.Point(216, 9);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(28, 28);
-            this.btnDelete.TabIndex = 4;
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Image = global::Y3D.Properties.Resources.add16;
-            this.btnAdd.Location = new System.Drawing.Point(182, 9);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(28, 28);
-            this.btnAdd.TabIndex = 3;
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // LowControl
             // 

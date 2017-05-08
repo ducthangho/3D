@@ -41,10 +41,10 @@
             this.vertexCount = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnPreset = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btnOk = new System.Windows.Forms.Button();
             this.barPercent = new XComponent.SliderBar.MACTrackBar();
+            this.btnEditMode = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.vertexCount)).BeginInit();
             this.SuspendLayout();
             // 
@@ -169,15 +169,6 @@
             this.label2.TabIndex = 14;
             this.label2.Text = "Vertex Percent (%)";
             // 
-            // btnPreset
-            // 
-            this.btnPreset.Location = new System.Drawing.Point(80, 275);
-            this.btnPreset.Name = "btnPreset";
-            this.btnPreset.Size = new System.Drawing.Size(55, 23);
-            this.btnPreset.TabIndex = 29;
-            this.btnPreset.Text = "Preset";
-            this.btnPreset.UseVisualStyleBackColor = true;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -192,9 +183,9 @@
             // 
             this.btnOk.Image = global::Y3D.Properties.Resources.start;
             this.btnOk.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOk.Location = new System.Drawing.Point(9, 275);
+            this.btnOk.Location = new System.Drawing.Point(134, 275);
             this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(65, 23);
+            this.btnOk.Size = new System.Drawing.Size(58, 27);
             this.btnOk.TabIndex = 28;
             this.btnOk.Text = "Apply";
             this.btnOk.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -228,13 +219,26 @@
             this.barPercent.Value = 50;
             this.barPercent.ValueChanged += new XComponent.SliderBar.ValueChangedHandler(this.barPercent_ValueChanged);
             // 
+            // btnEditMode
+            // 
+            this.btnEditMode.Image = global::Y3D.Properties.Resources.edit_16;
+            this.btnEditMode.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEditMode.Location = new System.Drawing.Point(9, 275);
+            this.btnEditMode.Name = "btnEditMode";
+            this.btnEditMode.Size = new System.Drawing.Size(119, 27);
+            this.btnEditMode.TabIndex = 34;
+            this.btnEditMode.Text = "Start Edit Mode";
+            this.btnEditMode.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnEditMode.UseVisualStyleBackColor = true;
+            this.btnEditMode.Click += new System.EventHandler(this.btnEditMode_Click);
+            // 
             // LowMaxControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnEditMode);
             this.Controls.Add(this.barPercent);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnPreset);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.lockVertexPosition);
             this.Controls.Add(this.label8);
@@ -273,8 +277,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnOk;
-        private System.Windows.Forms.Button btnPreset;
         private System.Windows.Forms.Label label1;
         private XComponent.SliderBar.MACTrackBar barPercent;
+        private System.Windows.Forms.Button btnEditMode;
     }
 }

@@ -93,8 +93,9 @@ namespace Y3D.Projects
                 if (x is VerTest)
                 {
                     var vv = (VerTest)x;
-                    if (!Utils.TestInScence.ContainsKey(vv.Id)) return "g_red";
-                    if (Utils.TestInScence[vv.Id])
+                    var sk = vv.Oname + "_" + vv.Id;
+                    if (!Utils.TestInScence.ContainsKey(sk)) return "g_red";
+                    if (Utils.TestInScence[sk])
                     {
                         return "g_green";
                     } else
@@ -308,6 +309,11 @@ namespace Y3D.Projects
                 testDetailControl1.reloadTest((VerTest)v);
                 panelEditTest.BringToFront();
             }
+        }
+
+        private void btnSave2File_Click(object sender, EventArgs e)
+        {
+            // save layer to file
         }
     }
 }

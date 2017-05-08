@@ -51,7 +51,11 @@ namespace Y3D.Projects
             {
                 if (Y3D.Projects.Utils.CurrentP != null)
                 {
-                    if (pi.Pname == Utils.CurrentP.Pname) return;
+                    if (pi.Pname == Utils.CurrentP.Pname)
+                    {
+                        DialogResult dialogResult = MessageBox.Show("Do you want to reload this project?", "Reload project", MessageBoxButtons.YesNo);
+                        if (dialogResult == DialogResult.No) return;
+                    }
                 }
                 if (Utils.LoadProject(pi))
                 {

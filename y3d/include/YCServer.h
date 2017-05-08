@@ -36,9 +36,12 @@ public:
 	virtual Status BakeNormal(ServerContext* context, const ENormal* enm, ResultReply* reply) = 0;
 	virtual Status BatchOptimize(ServerContext* context, const BatchOptimizeParam* bp, ResultReply* reply) = 0;
 	virtual Status GetObjectFromMax(ServerContext* context, const EmptyParam* ep, YAreaList* yal) = 0;
+
 	virtual Status DoAction(ServerContext* context, grpc::ServerReaderWriter<YEvent, YEvent>* stream) = 0;
 	virtual Status DoStreamClient(ServerContext* context, grpc::ServerReader<YEvent>* stream, ResponseEvent* re) = 0;
 	virtual Status DoEvent(ServerContext* context, const YEvent* ye, ResponseEvent* re) = 0;
+	virtual Status DoManyEvent(ServerContext* context, const YEventList* yel, ResponseEvent* re) = 0;
+
 	virtual Status CloneObject(ServerContext* context, const ::y3d::EmptyParam* request, ::y3d::ResultReply* response) = 0;
 	virtual Status Shutdown(ServerContext* context, const ::y3d::EmptyParam* request, ::y3d::ResultReply* response) = 0;
 	virtual Status NewProject(ServerContext* context, const ::y3d::NewProjectParam* request, ResponseNProject* response) = 0;
@@ -47,7 +50,6 @@ public:
 	virtual Status LowPoly(ServerContext* context, const ::y3d::ELowpoly* request, ::y3d::ResultReply* response) = 0;
 	virtual Status Unwrap(ServerContext* context, const ::y3d::EUnwrap* request, ::y3d::ResultReply* response) = 0;
 	virtual Status Packing(ServerContext* context, const ::y3d::EPacking* request, ::y3d::ResultReply* response) = 0;
-
 
 	virtual Status Init4Test(ServerContext* context, const InitTestParam* request, InitTestResponse* reply) = 0;
 };
@@ -60,9 +62,12 @@ public:
 	Status BakeNormal(ServerContext* context, const ENormal* enm, ResultReply* reply) override;
 	Status BatchOptimize(ServerContext* context, const BatchOptimizeParam* bp, ResultReply* reply) override;
 	Status GetObjectFromMax(ServerContext* context, const EmptyParam* ep, YAreaList* yal) override;
+
 	Status DoAction(ServerContext* context, grpc::ServerReaderWriter<YEvent, YEvent>* stream) override;
 	Status DoStreamClient(ServerContext* context, grpc::ServerReader<YEvent>* stream, ResponseEvent* re) override;
 	Status DoEvent(ServerContext* context, const YEvent* ye, ResponseEvent* re) override;
+	Status DoManyEvent(ServerContext* context, const YEventList* yel, ResponseEvent* re) override;
+
 	Status CloneObject(::grpc::ServerContext* context, const ::y3d::EmptyParam* request, ::y3d::ResultReply* response) override;	
 	Status Shutdown(::grpc::ServerContext* context, const ::y3d::EmptyParam* request, ::y3d::ResultReply* response) override;
 	Status NewProject(ServerContext* context, const ::y3d::NewProjectParam* request, ::y3d::ResponseNProject* response) override;

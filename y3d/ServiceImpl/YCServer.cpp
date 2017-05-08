@@ -22,6 +22,10 @@ Status YServiceImpl::Init4Test(ServerContext* context, const InitTestParam* requ
 		n->Hide(FALSE);
 		auto it = request->init_test();
 
+		auto lowStr = formatWS("{}_{}_low", request->tname().c_str(), request->tid().c_str());
+		auto hiStr = formatWS("{}_{}_high", request->tname().c_str(), request->tid().c_str());
+		auto cageStr = formatWS("{}_{}_cage", request->tname().c_str(), request->tid().c_str());
+
 		INodeTab nt1, nt2, nt3, nt4, nt5;
 		nt1.AppendNode(n);
 		ip->CloneNodes(nt1, n->GetObjOffsetPos(), true, NODE_COPY, &nt2, &nt2);
@@ -36,19 +40,17 @@ Status YServiceImpl::Init4Test(ServerContext* context, const InitTestParam* requ
 		//auto lowStr = tmp + L"_low";
 		//auto hiStr = tmp + L"_high";
 		//auto cageStr = tmp + L"_cage";
-		auto lowStr = formatWS("{}_{}_low", request->tname().c_str(), request->tid().c_str());
-		auto hiStr = formatWS("{}_{}_high", request->tname().c_str(), request->tid().c_str());
-		auto cageStr = formatWS("{}_{}_cage", request->tname().c_str(), request->tid().c_str());
+
 
 		nt2[0]->SetName(lowStr.c_str());
 		nt3[0]->SetName(hiStr.c_str());
 		nt4[0]->SetName(cageStr.c_str());
 		
-		cmd = formatWS("yms.set_display_proxy \"{0}\" true", ws2s(hiStr).c_str());
-		LOG(cmd.c_str());
-		ExecuteMAXScriptScript(cmd.c_str());
-		cmd = formatWS("yms.set_display_proxy \"{0}\" true", ws2s(cageStr).c_str());
-		ExecuteMAXScriptScript(cmd.c_str());
+		//cmd = formatWS("yms.set_display_proxy \"{0}\" true", ws2s(hiStr).c_str());
+		//LOG(cmd.c_str());
+		//ExecuteMAXScriptScript(cmd.c_str());
+		//cmd = formatWS("yms.set_display_proxy \"{0}\" true", ws2s(cageStr).c_str());
+		//ExecuteMAXScriptScript(cmd.c_str());
 
 		ip->SelectNodeTab(nt1, TRUE, FALSE);
 		ip->FileSaveNodes(&nt1, formatWS("{0}\\{1}_o.max", request->test_folder(), ws2s(n->GetName()).c_str()).c_str());
@@ -63,16 +65,14 @@ Status YServiceImpl::Init4Test(ServerContext* context, const InitTestParam* requ
 		//}
 
 		if (it.has_lowpoly()) {
-			do_lowpoly(&it.lowpoly());
+			do_lowpoly(it.lowpoly());
 		}
 		if (it.has_unwrap()) {
-			do_unwrap(&it.unwrap());
+			do_unwrap(it.unwrap());
 		}
-
 		if (it.has_pack()) {
-			do_pack(&it.pack());
+			do_pack(it.pack());
 		}
-
 		ip->SelectNode(nt2[0]);
 		ip->SelectNode(nt3[0],0);
 		ip->SelectNode(nt4[0],0);
@@ -308,23 +308,36 @@ Status YServiceImpl::DoEvent(ServerContext* context, const YEvent* ye, ResponseE
 	return Status::OK;
 }
 
+Status YServiceImpl::DoManyEvent(ServerContext* context, const YEventList* yel, ResponseEvent* re)
+{
+	Invoke([yel]() -> void {
+		YEventList el;
+		el.CopyFrom(*yel);
+		for (auto i = 0; i < el.events().size(); i++)
+		{
+			DoYEvent(el.events(i));
+		}
+	});
+	return Status::OK;
+}
+
 Status YServiceImpl::LowPoly(ServerContext* context, const ::y3d::ELowpoly* request, ::y3d::ResultReply* response) {
 	Invoke([request]() -> void {
-		do_lowpoly(request);
+		do_lowpoly(*request);
 	});
 	return Status::OK;
 }
 
 Status YServiceImpl::Unwrap(ServerContext* context, const ::y3d::EUnwrap* request, ::y3d::ResultReply* response) {
 	Invoke([request]() -> void {
-		do_unwrap(request);
+		do_unwrap(*request);
 	});
 	return Status::OK;
 }
 
 Status YServiceImpl::Packing(ServerContext* context, const ::y3d::EPacking* request, ::y3d::ResultReply* response) {
 	Invoke([request]() -> void {
-		do_pack(request);
+		do_pack(*request);
 	});
 	return Status::OK;
 }

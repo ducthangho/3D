@@ -28,7 +28,7 @@ namespace Y3D.Projects
             tp.Lowpoly = new ELowpoly();
 
             tp.Lowpoly.Lp3Dmax = new LPoly3DMax();
-            tp.Lowpoly.Lp3Dmax.VertexPercent = 30;
+            tp.Lowpoly.Lp3Dmax.VertexPercent = 20;
             tp.Lowpoly.Lp3Dmax.OptimizationMode = LPoly3DMax.Types.OpMode.ProtectBorders;
             tp.Lowpoly.Lp3Dmax.Normals = LPoly3DMax.Types.NormalMode.ProtectNormals;
 

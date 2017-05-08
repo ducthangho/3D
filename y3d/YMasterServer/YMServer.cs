@@ -9,10 +9,15 @@ using System.IO;
 using System.Collections.Generic;
 using System.Collections.Concurrent;
 
+using System.Reactive;
+using System.Reactive.Linq;
+using System.Reactive.Disposables;
+
 namespace YMasterServer
 {
     class YServiceMasterImpl : y3d.s.YServiceMaster.YServiceMasterBase
     {
+
         public override Task<YWorkerResponse> AddWorker(YWorkerRequest req, ServerCallContext context)
         {
             var x = YMServer.GiveMeNewID(req.Machine.IpAddress);
@@ -402,6 +407,12 @@ namespace YMasterServer
                 }
             }
             return Task.FromResult(yw);
+        }
+
+        public static void check_worker()
+        {
+            var checkPerSecond = Observable.Interval(TimeSpan.FromSeconds(1));
+
         }
 
         public static Task<int> GiveMeNewID(string machine_ip)
@@ -909,6 +920,7 @@ namespace YMasterServer
 
         public static void Start()
         {
+
             //var t = RestoreAllWorkers();
             //t.ContinueWith(_ => {
             //    server = new Server

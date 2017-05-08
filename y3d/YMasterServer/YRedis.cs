@@ -169,7 +169,6 @@ namespace YMasterServer
         {
             var x = rc.Db.HashGetAll("yworker_temp");
             rc.Db.HashSet("yworkers", x);
-            var xx = 1;
             //rc.Db.H
             //rc.Db.KeyDelete("yworker_temp");
         }
@@ -213,6 +212,7 @@ namespace YMasterServer
             ur.User = yu;
             ur.User.Password = "";
             ur.Usetting = getSettingByUser(yu.Username);
+             
             return ur;
         }
 

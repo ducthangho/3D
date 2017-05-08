@@ -35,6 +35,6 @@ inline void registerCB() {
 
 inline void pre_optimize(std::string oFileDir, std::string oFileName, std::string projectPath);
 
-void do_lowpoly(const ELowpoly *el);
-void do_unwrap(const EUnwrap *eu);
-void do_pack(const EPacking *ep);
+BOOL do_lowpoly(const ELowpoly el);
+BOOL do_unwrap(const EUnwrap eu);
+BOOL do_pack(const EPacking ep);

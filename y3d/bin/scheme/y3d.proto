@@ -116,6 +116,12 @@ enum ServingStatus {
   NOT_CONNECT_MASTER=3;
 }
 
+enum ConvertType {
+  None=0;
+  Editable_Mesh=1;
+  Editable_Poly=2;
+}
+
 message YObject {
   string name = 1;
   YPoint3 pos = 3;
@@ -240,11 +246,16 @@ message YEvent {
     EIsolate isolate=7;
     EClose close=8;
     EModifierUpdate mod=9;
+    EClone yclone=10;
+    ELowpoly lowpoly = 11;
+    EUnwrap unwrap = 12;
+    ERename rename = 13;
   }
 }
 
 message YEventList {
-  repeated YEvent events=1;
+  string name = 1;
+  repeated YEvent events=2;
 }
 
 message ENone {}
@@ -292,6 +303,16 @@ message EModifierUpdate {
   string type=5;
 }
 
+message EClone {
+  string oname = 1;
+  string cname = 2;
+  ConvertType convert_type = 3;
+}
+
+message ERename {
+  string oname = 1; // old name
+  string nname = 2; // new name
+}
 
 message ResponseEvent {
   bool error = 1;
@@ -365,6 +386,7 @@ message LPoly3DMax {
   bool favor_compact_faces=5;
   bool prevent_flipped_normals=6;
   bool lock_vertex_position=7;
+  bool keep_tmp_version = 8;
 }
 message LPolyBlender {
   float ratio=1;

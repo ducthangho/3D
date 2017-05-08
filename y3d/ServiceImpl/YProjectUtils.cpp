@@ -352,6 +352,7 @@ inline void pre_optimize(std::string oFileDir, std::string oFileName, std::strin
 }
 
 void DoYEvent(YEvent ye) {
+	
 	auto* ip = GetCOREInterface();
 	if (ye.has_select()) {
 		auto name_select = ye.select().name();
@@ -415,16 +416,49 @@ void DoYEvent(YEvent ye) {
 		}
 	}
 	else if (ye.has_mod()) {
+		LOG("\nDo event MOD!");
 		std::wstring cmd;
 		if (ye.mod().type() == "string") {
-			cmd = formatWS("${0}.modifiers[#{1}].{2} = \"{3}\"", ye.mod().oname(), ye.mod().mod_name(), ye.mod().value());
+			cmd = formatWS("${0}.modifiers[#{1}].{2} = \"{3}\"", ye.mod().oname(), ye.mod().mod_name(), ye.mod().key(), ye.mod().value());
 		}
 		else {
-			cmd = formatWS("${0}.modifiers[#{1}].{2} = {3}", ye.mod().oname(), ye.mod().mod_name(), ye.mod().value());
+			cmd = formatWS("${0}.modifiers[#{1}].{2} = {3} as {4}", ye.mod().oname(), ye.mod().mod_name(), ye.mod().key(), ye.mod().value(), ye.mod().type());
 		}
+		LOG(cmd.c_str());
 		ExecuteMAXScriptScript(cmd.c_str());
 	}
-
+	else if (ye.has_yclone()) {
+		auto n = ip->GetINodeByName(s2ws(ye.yclone().oname()).c_str());
+		auto n2 = ip->GetINodeByName(s2ws(ye.yclone().cname()).c_str());
+		if (n2 != NULL||n==NULL) return;
+		INodeTab nt1, nt2;
+		nt1.AppendNode(n);
+		if (ip->CloneNodes(nt1, n->GetObjOffsetPos(), true, NODE_COPY, &nt2, &nt2)) {
+			nt2[0]->SetName(s2ws(ye.yclone().cname()).c_str());
+			switch (ye.yclone().convert_type())
+			{
+				case Editable_Mesh: {
+					auto cid = new Class_ID(3830386867L, 0L); // convert to editable_mesh
+					ip->ConvertNode(nt2[0], *cid);
+					break;
+				}
+				case Editable_Poly:
+					break;
+				default:
+					break;
+			}
+		}
+	}
+	else if (ye.has_lowpoly()) {
+		do_lowpoly(ye.lowpoly());
+	}
+	else if (ye.has_unwrap()) {
+		do_unwrap(ye.unwrap());
+	}
+	else if (ye.has_rename()) {
+		auto n = ip->GetINodeByName(s2ws(ye.rename().oname()).c_str());
+		n->SetName(s2ws(ye.rename().nname()).c_str());
+	}
 
 }
 
@@ -517,39 +551,49 @@ void MyNodeEventCB::SelectionChanged(NodeKeyTab & nodes)
 	}
 }
 
-void do_unwrap(const EUnwrap *eu) {
-	if (eu->has_max3d()) {
-		std::wstring cmd = formatWS("yms.unwrap3dmax \"{0}\" \"{1}\" \"{2}\"", eu->oname(), eu->max3d().angle(), eu->max3d().spacing());
-		ExecuteMAXScriptScript(cmd.c_str());
-	}
-	else if (eu->has_blender()) {
-
-	}
+BOOL do_clone(const EClone ec) {
+	return TRUE;
 }
 
-void do_lowpoly(const ELowpoly *el) {
-	
-	if (el->has_lp_xref()) {
-	/*	auto* ip = GetCOREInterface();
+BOOL do_unwrap(const EUnwrap eu) {
+	if (eu.has_max3d()) {
+		std::wstring cmd = formatWS("yms.unwrap3dmax \"{0}\" \"{1}\" \"{2}\"", eu.oname(), eu.max3d().angle(), eu.max3d().spacing());
+		return ExecuteMAXScriptScript(cmd.c_str());
+	}
+	else if (eu.has_blender()) {
+
+	}
+	return TRUE;
+}
+
+BOOL do_lowpoly(const ELowpoly el) {
+	if (el.has_lp_xref()) {
+		/*	auto* ip = GetCOREInterface();
 		auto n = ip->GetINodeByName(s2ws(eu->oname()).c_str());*/
-			//auto cmd = formatWS("yms.set_display_proxy \"{0}\" false", ws2s(lowStr).c_str());
-			//ExecuteMAXScriptScript(cmd.c_str());
+		//auto cmd = formatWS("yms.set_display_proxy \"{0}\" false", ws2s(lowStr).c_str());
+		//ExecuteMAXScriptScript(cmd.c_str());
 	}
-	if (el->has_lp_3dmax()) {
-		auto mm = el->lp_3dmax();
-		std::wstring cmd = formatWS("yms.lowpoly_3dmax \"{0}\" \"{1}\" {2}", el->oname(), el->nname(), mm.vertex_percent());
-		LOG("xin chao....{}.",ws2s(cmd));
-		ExecuteMAXScriptScript(cmd.c_str());
+	if (el.has_lp_3dmax()) {
+		auto mm = el.lp_3dmax();
+		std::wstring cmd = formatWS("yms.lowpoly_3dmax \"{0}\" \"{1}\" {2}", el.oname(), el.nname(), mm.vertex_percent());
+		if (ExecuteMAXScriptScript(cmd.c_str())) {
+			if (mm.keep_tmp_version()) {
+
+			}
+		}
+		return FALSE;
 	}
-	else if (el->has_lp_blender()) {
-		auto bl = el->lp_blender();
-		std::wstring cmd = formatWS("yms.lowpoly_blender \"{0}\" \"{1}\"", el->oname(), bl.ratio());
-		ExecuteMAXScriptScript(cmd.c_str());
+	else if (el.has_lp_blender()) {
+		auto bl = el.lp_blender();
+		std::wstring cmd = formatWS("yms.lowpoly_blender \"{0}\" \"{1}\"", el.oname(), bl.ratio());
+		return ExecuteMAXScriptScript(cmd.c_str());
 	}
+	return TRUE;
 }
 
-void do_pack(const EPacking *ep) {
-	if (ep->has_packrect()) {
-		auto x = ep->packrect();
+BOOL do_pack(const EPacking ep) {
+	if (ep.has_packrect()) {
+		auto x = ep.packrect();
 	}
+	return TRUE;
 }

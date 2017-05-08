@@ -67,8 +67,9 @@
             this.checkBoxInGroup = new System.Windows.Forms.CheckBox();
             this.listCheck = new System.Windows.Forms.CheckBox();
             this.panelEditTest = new System.Windows.Forms.Panel();
-            this.btnBack = new System.Windows.Forms.Button();
+            this.btnSave2File = new System.Windows.Forms.Button();
             this.testDetailControl1 = new Y3D.Projects.TestDetailControl();
+            this.btnBack = new System.Windows.Forms.Button();
             this.tabNavLeft.SuspendLayout();
             this.tabArea.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -478,12 +479,32 @@
             // 
             // panelEditTest
             // 
+            this.panelEditTest.Controls.Add(this.btnSave2File);
             this.panelEditTest.Controls.Add(this.testDetailControl1);
             this.panelEditTest.Controls.Add(this.btnBack);
             this.panelEditTest.Location = new System.Drawing.Point(205, 3);
             this.panelEditTest.Name = "panelEditTest";
             this.panelEditTest.Size = new System.Drawing.Size(290, 538);
             this.panelEditTest.TabIndex = 9;
+            // 
+            // btnSave2File
+            // 
+            this.btnSave2File.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnSave2File.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave2File.Image = global::Y3D.Properties.Resources.save;
+            this.btnSave2File.Location = new System.Drawing.Point(81, 3);
+            this.btnSave2File.Name = "btnSave2File";
+            this.btnSave2File.Size = new System.Drawing.Size(38, 32);
+            this.btnSave2File.TabIndex = 8;
+            this.btnSave2File.UseVisualStyleBackColor = false;
+            this.btnSave2File.Click += new System.EventHandler(this.btnSave2File_Click);
+            // 
+            // testDetailControl1
+            // 
+            this.testDetailControl1.Location = new System.Drawing.Point(10, 41);
+            this.testDetailControl1.Name = "testDetailControl1";
+            this.testDetailControl1.Size = new System.Drawing.Size(276, 494);
+            this.testDetailControl1.TabIndex = 7;
             // 
             // btnBack
             // 
@@ -498,13 +519,6 @@
             this.btnBack.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
-            // 
-            // testDetailControl1
-            // 
-            this.testDetailControl1.Location = new System.Drawing.Point(10, 41);
-            this.testDetailControl1.Name = "testDetailControl1";
-            this.testDetailControl1.Size = new System.Drawing.Size(276, 494);
-            this.testDetailControl1.TabIndex = 7;
             // 
             // ObjectsControl
             // 
@@ -576,5 +590,6 @@
         private System.Windows.Forms.Button btnBack;
         private BrightIdeasSoftware.OLVColumn olvInScene;
         private TestDetailControl testDetailControl1;
+        private System.Windows.Forms.Button btnSave2File;
     }
 }

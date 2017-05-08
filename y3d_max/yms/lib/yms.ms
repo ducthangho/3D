@@ -457,22 +457,25 @@ if yms_init != true then
 			oo =  execute ("$'"+oname + "'")
 			if (nname!="") then
 			(
-				print nname
 			    -- if nname exists, clone it from oname
 				nn =  execute ("$'"+nname + "'")
 				if (nn==undefined) then (
 					copy oo name:nname
 					nn =  execute ("$'"+nname + "'")
-				) else (
-					if (nn.modifiers["ProOptimizer"]==undefined) then  
-					(
-						delete nn
-						copy oo name:nname
-						nn =  execute ("$'"+nname + "'")					
-					)
-				)
+				) 
+				--else (
+				--	if (nn.modifiers["ProOptimizer"]==undefined) then  
+				--	(
+						--delete nn
+						--copy oo name:nname
+				--		nn =  execute ("$'"+nname + "'")					
+				--	)
+				--)
 			) else 
 				nn = oo
+			
+			select nn
+			max modify mode
 			--local oo = getNodeByName oname exact:true all:false ignoreCase:false
 			optMod = nn.modifiers["ProOptimizer"]
 			if (optMod==undefined) then 
@@ -480,7 +483,10 @@ if yms_init != true then
 				addModifier nn (ProOptimizer())
 				optMod = nn.modifiers["ProOptimizer"]
 			)
-			if (optMod.Calculate==false) then optMod.Calculate = true
+			if (optMod.Calculate==false) then 
+			(
+				optMod.Calculate = on
+			)
 			optMod.VertexPercent = ratio as Float
 			optMod.OptimizationMode = 2
 			optMod.KeepNormals = true

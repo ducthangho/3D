@@ -16,6 +16,12 @@ using Google.Protobuf;
 using Y3D.Users;
 using SplashScreen;
 
+
+//using System.Reactive;
+//using System.Reactive.Linq;
+//using System.Reactive.Disposables;
+
+
 namespace Y3D.Projects
 {
     class Utils
@@ -44,10 +50,9 @@ namespace Y3D.Projects
 
         public static string current_layer = "0";
 
-        //public static YSystem YSys = new YSystem();
-
         public static void displayLayer(string lname)
         {
+
             if (current_layer == lname) return;
             if (!checkMaxTools(worker)) return;
             current_layer = lname;
@@ -91,7 +96,14 @@ namespace Y3D.Projects
                 //}
                 using (Stream stream = File.OpenRead(test_path))
                 {
-                    TestData = UserTestData.Parser.ParseFrom(stream);
+                    try
+                    {
+                        TestData = UserTestData.Parser.ParseFrom(stream);
+                    }
+                    catch (Exception)
+                    {
+                        TestData = null;
+                    }
                 }
                 TestInScence.Clear();
             }
@@ -416,6 +428,7 @@ namespace Y3D.Projects
         public static bool LoadProject(ProjectInfo pi)
         {   
             if (!checkMaxTools(worker)) return false;
+            TestInScence.Clear();
             var rnp = Y3D.Projects.Utils.MaxClient.LoadProject(pi);
             if (!rnp.Err)
             {
@@ -470,13 +483,13 @@ namespace Y3D.Projects
             return false;
         }
 
-        public static int unique_id(Google.Protobuf.Collections.RepeatedField<VerTest> arr)
+        public static int unique_id(Google.Protobuf.Collections.RepeatedField<VerTest> arr, int increase=1)
         {
             if (arr.Count == 0) return 1;
             var x = arr.Last();
             if (x!=null)
             {
-                return x.Tid + 1;
+                return x.Tid + increase;
             }
             return -1;
         }
@@ -501,11 +514,11 @@ namespace Y3D.Projects
             vt.Tid = unique_id(TestData.Utests[tname].Otests);
             vt.Id = "ver" + vt.Tid;
             var test_path = System.IO.Path.Combine(CurrentP.ProjectPath, "test",(tname+"_" + vt.Id));
-            var count = 0;
+            var count = 1;
             while (Directory.Exists(test_path))
             {
                 count++;
-                vt.Tid = unique_id(TestData.Utests[tname].Otests);
+                vt.Tid = unique_id(TestData.Utests[tname].Otests, count);
                 vt.Id = "ver" + vt.Tid;
                 test_path = System.IO.Path.Combine(CurrentP.ProjectPath, "test", (tname + "_" + vt.Id));
                 if (count > 10) return false;
@@ -539,7 +552,7 @@ namespace Y3D.Projects
             //var x = Y3D.Projects.Utils.MaxClient.Init4TestAsync(itp);
             var x = Y3D.Projects.Utils.MaxClient.Init4Test(itp);
             TestData.Utests[tname].Otests.Add(vt);
-            TestInScence.Add(vt.Id, true);
+            TestInScence.Add(vt.Oname + "_" + vt.Id, true);
             Projects.Utils.saveTestData();
             current_layer = tname + "_" + vt.Id;
             return true;
@@ -565,7 +578,7 @@ namespace Y3D.Projects
                         Console.WriteLine(ee.Message);
                     }
                 }
-                TestInScence.Remove(v.Id);
+                TestInScence.Remove(v.Oname + "_" + v.Id);
                 ListTest.Otests.Remove(v);
                 Projects.Utils.saveTestData();
                 YEvent ye = new YEvent();
@@ -589,6 +602,13 @@ namespace Y3D.Projects
         {
             if (!checkMaxTools(worker)) return false;
             Y3D.Projects.Utils.MaxClient.DoEventAsync(e);
+            return true;
+        }
+
+        public static bool doManyEvent(YEventList e)
+        {
+            if (!checkMaxTools(worker)) return false;
+            Y3D.Projects.Utils.MaxClient.DoManyEventAsync(e);
             return true;
         }
     }
