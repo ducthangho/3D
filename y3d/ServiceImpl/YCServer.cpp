@@ -382,7 +382,7 @@ Status YServiceImpl::CloneObject(::grpc::ServerContext* context, const ::y3d::Em
 
 YServiceImpl::~YServiceImpl()
 {
-
+	unregisterCB();
 }
 
 ServicePtr APIENTRY getServiceImpl()
@@ -409,10 +409,10 @@ void YServiceImpl::Initialize(void* codegen, void* gli)
 
 Status YServiceImpl::Shutdown(::grpc::ServerContext* context, const ::y3d::EmptyParam* request, ::y3d::ResultReply* response)
 {	
-	//MessageBoxW(NULL, L"sac sac", L"Oh", MB_OK);
+	//MessageBoxW(NULL, L"sac sac", L"Oh", MB_OK);	
 	Invoke([]() {
 		mprintf(L"SHUTDOWN.\n");
-		ExecuteMAXScriptScript(L"quitMAX #noPrompt");
+		ExecuteMAXScriptScript(L"quitMAX #noPrompt");		
 	});
 	return Status::OK;
 }

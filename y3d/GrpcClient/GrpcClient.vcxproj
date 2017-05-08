@@ -146,7 +146,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>GRPC_CLIENT_EXPORT;NOMINMAX;PROTOBUF_USE_DLLS;_CRT_SECURE_NO_WARNINGS;WIN32_LEAN_AND_MEAN;WINVER=0x0A00;_WIN32_WINNT=0x0A00;_WIN32_WINDOWS=0x0A00;_WIN32_IE=0x0800;_WINDOWS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_DEPRECATE;_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1;_CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES=1;ISOLATION_AWARE_ENABLED=1;SECURE_SCL=0;WIN64;_UNICODE;UNICODE;_USRDLL;%(PreprocessorDefinitions);NDEBUG</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(MsBuildProjectDirectory)\..\include;$(MsBuildProjectDirectory)\..\Service\grpc\;$(MsBuildProjectDirectory)\..\Service\grpc\include;$(MsBuildProjectDirectory)\..\Service\grpc\third_party\protobuf\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(MsBuildProjectDirectory)\..\packages\rxcpp.4.0.0\build\native\include;$(MsBuildProjectDirectory)\..\include;$(MsBuildProjectDirectory)\..\Service\grpc\;$(MsBuildProjectDirectory)\..\Service\grpc\include;$(MsBuildProjectDirectory)\..\Service\grpc\third_party\protobuf\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(MSBuildProjectDirectory)\..\include\export_dll.h;$(MSBuildProjectDirectory)\..\include\export_client_dll.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
     </ClCompile>
     <Link>

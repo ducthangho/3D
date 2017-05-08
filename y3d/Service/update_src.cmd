@@ -3,7 +3,7 @@ REM xcopy .gitmodules grpc /D /Y
 xcopy .gitignore grpc /D /Y
 cd grpc
 git fetch --all --tags --prune
-git checkout tags/v1.2.3
+git checkout tags/v1.3.1
 echo "grpc release tags: "
 git describe --tags
 git submodule update --init --remote --merge --recursive
@@ -13,10 +13,10 @@ rem git checkout v3.2.0
 rem echo "protobuf release tags: "
 rem git describe --tags
 ) else (
-git clone --depth 1 --branch v1.2.3 --single-branch https://github.com/grpc/grpc.git
+git clone --depth 1 --branch v1.3.1 --single-branch https://github.com/grpc/grpc.git
 xcopy .gitignore grpc\ /Y
 cd grpc
-git checkout tags/v1.2.3
+git checkout tags/v1.3.1
 echo "grpc release tags: "
 git describe --tags
 REM xcopy .gitmodules grpc/ /D /Y

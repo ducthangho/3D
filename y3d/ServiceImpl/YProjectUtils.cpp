@@ -3,6 +3,7 @@
 #include "YProjectUtils.h"
 #include "grpc_client.h"
 //#include "move_lambda.h"
+#include <ppl.h>
 #include <ppltasks.h>
 #include <array>
 
@@ -10,9 +11,20 @@
 #include <experimental/resumable>
 #endif
 
+#include "rx.hpp"
+
 #include <future>
 //#include <pplawait.h>
 //#include <pplawait.h>
+
+namespace rx {
+	using namespace rxcpp;
+	using namespace rxcpp::sources;
+	using namespace rxcpp::operators;
+	using namespace rxcpp::subjects;
+	using namespace rxcpp::util;
+	using namespace rxcpp::schedulers;
+}
 
 using namespace concurrency;
 using namespace std::experimental;
@@ -462,91 +474,193 @@ void DoYEvent(YEvent ye) {
 
 }
 
-//template <class REQ,class RESP>
-task<void> send_request() {	
-	YEvent2 ye;
-	//ESelect es;
-	//es.set_name(ws2s(n->GetName()));
-	//es.set_isolate(false);
-	ye.mutable_select()->set_name(ws2s(L"Hello world"));
-	ye.mutable_select()->set_isolate(false);
-
-
-	//Status* status;
-	// thay = async				
-	//client->AsyncDoEvent(&context, ye, &cq_);
-	//LOG("Select object:{0}\n", ye.select().name());
-	auto* client = getClientInstance();
-	if (client) {
-		struct Result {
-			//grpc::CompletionQueue cq;
-			grpc::Status status;
-			y3d::ResponseEvent2 rep;
-			std::string name;
-		};
-		Result* rs = new Result();
-		rs->name = ws2s(L"Hello world");
-
-		//auto lambda = create_move_lambda(std::move(cq), [](std::unique_ptr<grpc::CompletionQueue>& cq) {
-
-		//});
-		auto task = create_task([rs, client, ye]() {
-			grpc::CompletionQueue cq;
-			grpc::ClientContext context;
-			auto rpc = client->AsyncDoEvent(&context, ye, &cq);
-			LOG("Async called\n");
-			rpc->Finish(&(rs->rep), &(rs->status), (void*)1);
-			void* got_tag;
-			bool ok = false;
-			LOG("Waiting...\n");
-			cq.Next(&got_tag, &ok);
-			if (ok && got_tag == (void*)1) {
-				LOG("Got tag\n");
-				return rs->status;
-			}
-			LOG("Failed\n");
-			return grpc::Status::CANCELLED;
-		}).then([rs](grpc::Status t) {
-			logserver::LOG("Done. Selected {}. Clean up. \n", rs->name);
-			delete rs;
+template<class Event, class Add, class Remove>
+auto from_event(Add&& a, Remove&& r) {
+	return create<Event>(
+		[=](subscriber<Event> out) {
+		auto token = a([=](auto const &, Event const & args) {
+			out.on_next(args);
 		});
-		return task;
-		//tasks.push_back(task);
-	}
-	else {
-		logserver::LOG("Cannot connect to MainWorker server\n");
-	};
-	return task<void>();
+		out.add([=]() {r(token); });
+	})
+		.publish()
+		.ref_count()
+		.as_dynamic();
 }
 
 void MyNodeEventCB::SelectionChanged(NodeKeyTab & nodes)
-{	
-	if (nodes.Count() > 0) {
-		/*auto client = y3d::YServiceMainWorker::NewStub(grpc::CreateChannel("127.0.0.1:37001", grpc::InsecureChannelCredentials()));*/
-		std::vector< task<grpc::Status> > tasks;
-		for (int i = 0; i < nodes.Count(); i++)
-		{
-			auto n = NodeEventNamespace::GetNodeByKey(nodes[i]);
-			if (n == NULL) continue;
-			if (n->Selected()) {
-
-				//co_await send_request();
-				//GRPC_CALL(DoEvent, &context, ye, &rep);
-				//auto status = client->DoEvent(&context, ye, &rep);
-
-				/*		YEvent ye;
-				ESelect es;
-				es.set_name(ws2s(n->GetName()));
-				es.set_isolate(false);
-				ye.mutable_select()->CopyFrom(es);
-				received_e.clear();
-				received_e.push_back(ye);*/
-				//mprintf(L"Test select: %s \n", n->GetName());
-				break;
+{		
+	if (nodes.Count() > 0) {		
+		YEvent2 ye;
+		if (nodes.Count() <= 1) {
+			auto n = NodeEventNamespace::GetNodeByKey(nodes[0]);
+			ye.mutable_select()->set_name(ws2s(n->GetName()));
+			ye.mutable_select()->set_isolate(false);
+		}
+		else {
+			auto items = ye.mutable_select_many();
+			for (int i = 0; i < nodes.Count(); i++)
+			{
+				auto n = NodeEventNamespace::GetNodeByKey(nodes[i]);
+				if (n == NULL) continue;
+				if (n->Selected()) {
+					items->add_name(ws2s(n->GetName()));
+					items->set_isolate(false);
+				};
 			}
 		}
-		auto joinTask = when_all(begin(tasks), end(tasks));
-		joinTask.wait();
+		events.observable().subscribe([](auto e) {
+			y3d::ResponseEvent2& reply = e.first;
+
+			LOG("On next {} \n",reply.msg());
+		});
+		events.publish(ye);
+		//events.complete();
+		//events.unsubscribe();
+/*		auto obv = rx::observable<>::iterate(events);		
+
+		obv.map([this](y3d::YEvent2 e) {
+			LOG("Subscribing {}  - thread {}.\n", e.select().name(), thread_to_str(std::this_thread::get_id()));
+			auto* client = getClientInstance();
+			grpc::ClientContext context;
+			void* buf = Alloc(sizeof(AsyncClientCall<y3d::ResponseEvent2>));
+			AsyncClientCall<y3d::ResponseEvent2>* call = new (buf) (AsyncClientCall<y3d::ResponseEvent2>);
+
+			call->response_reader = client->AsyncDoEvent(&call->context, e, &events.cq);
+			call->response_reader->Finish(&(call->reply), &(call->status), (void*)call);
+			return e;
+		}).observe_on(rx::observe_on_new_thread())
+			.subscribe([this](y3d::YEvent2 e) {
+				LOG("Selected {}  - thread {}.\n", e.select().name(), thread_to_str(std::this_thread::get_id()));
+				void* got_tag;
+				bool ok = false;
+
+				// Block until the next result is available in the completion queue "cq".
+				while (events.cq.Next(&got_tag, &ok)) {
+					// The tag in this example is the memory location of the call object
+					AsyncClientCall<y3d::ResponseEvent2>* call = static_cast<AsyncClientCall<y3d::ResponseEvent2>*>(got_tag);
+
+					// Verify that the request was completed successfully. Note that "ok"
+					// corresponds solely to the request for updates introduced by Finish().					
+
+					if (call->status.ok())
+						LOG("Got tag {}\n", e.select().name());
+					else
+						LOG("RPC failed\n");
+
+					// Once we're complete, deallocate the call object.
+					Free(call);
+				}
+
+		});//*/
+		//auto obv = rx::observable<>::create<YEvent2>(
+		//	[&nodes](rx::subscriber<YEvent2> s) {			
+		//		for (int i = 0; i < nodes.Count(); i++)
+		//		{
+		//			auto n = NodeEventNamespace::GetNodeByKey(nodes[i]);
+		//			if (n == NULL) continue;
+		//			if (n->Selected()) {
+
+		//				YEvent2 ye;
+		//				ye.mutable_select()->set_name(ws2s(n->GetName()));
+		//				ye.mutable_select()->set_isolate(false);
+		//				//co_await send_request();
+		//				//GRPC_CALL(DoEvent, &context, ye, &rep);
+		//				//auto status = client->DoEvent(&context, ye, &rep);
+
+		//				/*		YEvent ye;
+		//				ESelect es;
+		//				es.set_name(ws2s(n->GetName()));
+		//				es.set_isolate(false);
+		//				ye.mutable_select()->CopyFrom(es);
+		//				received_e.clear();
+		//				received_e.push_back(ye);*/
+		//				//mprintf(L"Test select: %s \n", n->GetName());
+		//				if (!s.is_subscribed())
+		//					break;
+		//				s.on_next(ye);
+		//			}
+		//		}
+		//		s.on_completed();
+		//		//LOG("Just sent on_completed()\n");
+
+		//}
+		//);
+
+		//obv.map([this](YEvent2 e) {
+		//	LOG("Subscribing {}  - thread {}.\n", e.select().name(), thread_to_str(std::this_thread::get_id()));
+		//	auto* client = getClientInstance();
+		//	grpc::ClientContext context;
+		//	y3d::ResponseEvent2 rep;
+		//	void* buf = Alloc(sizeof(AsyncClientCall<y3d::ResponseEvent2>));
+		//	AsyncClientCall<y3d::ResponseEvent2>* call = new (buf) (AsyncClientCall<y3d::ResponseEvent2>);
+		//	
+		//	call->response_reader = client->AsyncDoEvent(&call->context, e, &cq);
+		//	call->response_reader->Finish(&(call->reply), &(call->status), (void*)call);
+		//	return e;
+		//})
+		//	.observe_on(rx::observe_on_new_thread() )			
+		//	.subscribe(
+		//	[this](YEvent2 e) {
+		//		LOG("Selected {}  - thread {}.\n", e.select().name(), thread_to_str(std::this_thread::get_id()));
+		//		void* got_tag;
+		//		bool ok = false;
+
+		//		// Block until the next result is available in the completion queue "cq".
+		//		while (cq.Next(&got_tag, &ok)) {
+		//			// The tag in this example is the memory location of the call object
+		//			AsyncClientCall<y3d::ResponseEvent2>* call = static_cast<AsyncClientCall<y3d::ResponseEvent2>*>(got_tag);
+
+		//			// Verify that the request was completed successfully. Note that "ok"
+		//			// corresponds solely to the request for updates introduced by Finish().					
+
+		//			if (call->status.ok())
+		//				LOG("Got tag {}\n",e.select().name());
+		//			else
+		//				LOG("RPC failed\n");
+
+		//			// Once we're complete, deallocate the call object.
+		//			Free(call);
+		//		}
+		//		//GRPC_CALL(DoEvent, &context, e, &rep);
+		//		/*grpc::CompletionQueue cq;
+		//		auto* client = getClientInstance();
+		//		grpc::ClientContext context;
+		//		grpc::Status status;
+		//		y3d::ResponseEvent2 rep;
+		//		auto rpc = client->AsyncDoEvent(&context, e, &cq);
+		//		LOG("Async called\n");
+		//		rpc->Finish(&rep, &status, (void*)1);
+		//		void* got_tag;
+		//		bool ok = false;
+		//		LOG("Waiting...\n");
+		//		cq.Next(&got_tag, &ok);
+		//		if (ok && got_tag == (void*)1) {
+		//			LOG("Got tag\n");
+		//			return;
+		//		}
+		//		LOG("Failed\n");*/
+
+		//	},
+		//	[](std::exception_ptr ep) {
+		//		try { std::rethrow_exception(ep); }
+		//		catch (const std::exception& ex) {
+		//			LOG("OnError: %s\n", ex.what());
+		//		}
+		//	},
+		//	[]() {
+		//		LOG("OnCompleted\n");
+		//	}
+		//);
+		/*auto client = y3d::YServiceMainWorker::NewStub(grpc::CreateChannel("127.0.0.1:37001", grpc::InsecureChannelCredentials()));*/
+		//std::vector< task<grpc::Status> > tasks;
+
+
+
+
+		
+		//auto joinTask = when_all(begin(tasks), end(tasks));
+		//joinTask.wait();
 		//MessageBoxW(NULL, n->GetName(), L"TEST", MB_OK);
 	}
 }

@@ -156,7 +156,7 @@ DLLAPI void APIENTRY startService(const char* dllname, const char* ip_address)
 				f.wait();
 				isShuttingdown = true;
 				server->Shutdown();
-				serving_thread.join();
+				serving_thread.join();				
 				exit_requested.swap(std::promise<void>());//Reset exit_requested promise								
 			}
 			catch (std::exception& e) {

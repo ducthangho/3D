@@ -27,12 +27,31 @@ namespace Y3D.rpc
         public override Task<ResponseEvent2> DoEvent(YEvent2 request, ServerCallContext context)
         {
             //MessageBox.Show("da chon:");
-            if (request !=null && request.Select!=null)
+            var rs = new ResponseEvent2();
+            if (request != null)
             {
-                //MessageBox.Show("Selected "+request.Select.Name);
-                LogClient.Instance.LOG("Selected {0}\n",request.Select.Name);
+                if (request.Select != null)
+                {
+                    //MessageBox.Show("Selected "+request.Select.Name);
+                    LogClient.Instance.LOG("Selected {0}\n", request.Select.Name);
+
+                    rs.Msg = request.Select.Name + "....";
+                }
+                else if (request.SelectMany != null)
+                {
+                    var items = request.SelectMany;
+                    String s = "";
+                    for (int i = 0; i < items.Name.Count; ++i)
+                    {
+                        var it = items.Name[i];
+                        s += it + " ; ";
+                    }
+                    rs.Msg = s;
+                }
             }
-            return Task.FromResult(new ResponseEvent2());
+            
+
+            return Task.FromResult(rs);
         }
         
 

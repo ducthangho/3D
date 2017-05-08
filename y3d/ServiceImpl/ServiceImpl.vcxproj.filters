@@ -75,6 +75,19 @@
     <ClCompile Include="..\Service\grpc\src\core\lib\support\mpscq.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\Service\grpc\src\core\lib\support\time.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Service\grpc\src\core\lib\support\time_posix.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Service\grpc\src\core\lib\support\time_precise.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Service\grpc\src\core\lib\support\time_windows.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Service\grpc\src\cpp\util\time_cc.cc" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">

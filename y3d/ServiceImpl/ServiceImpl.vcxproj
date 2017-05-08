@@ -36,6 +36,7 @@
   <ImportGroup Label="PropertySheets">
     <Import Project="$(MaxSDK)\ProjectSettings\PropertySheets\3dsmax.cpp.props" />
     <Import Project="..\packages\fmt.greedy.3.0.0.1\build\native\fmt.greedy.targets" Condition="Exists('..\packages\fmt.greedy.3.0.0.1\build\native\fmt.greedy.targets')" />
+    <Import Project="..\packages\rxcpp.4.0.0\build\native\rxcpp.targets" Condition="Exists('..\packages\rxcpp.4.0.0\build\native\rxcpp.targets')" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Import Project="y3d.props" />
@@ -67,7 +68,7 @@
     <ClCompile>
       <WholeProgramOptimization>false</WholeProgramOptimization>
       <PreprocessorDefinitions>YSERVICE_EXPORT;NOMINMAX;PROTOBUF_USE_DLLS;_CRT_SECURE_NO_WARNINGS;WIN32_LEAN_AND_MEAN;_ADESK_3DSMAX_WINDOWS_;WINVER=0x0A00;_WIN32_WINNT=0x0A00;_WIN32_WINDOWS=0x0A00;_WIN32_IE=0x0800;_WINDOWS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_DEPRECATE;_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1;_CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES=1;ISOLATION_AWARE_ENABLED=1;SECURE_SCL=0;WIN64;_UNICODE;UNICODE;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(MaxSdkInc);$(MsBuildProjectDirectory)\..\include;$(MsBuildProjectDirectory)\..\Service\grpc\;$(MsBuildProjectDirectory)\..\Service\grpc\include;$(MsBuildProjectDirectory)\..\Service\grpc\third_party\protobuf\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(MsBuildProjectDirectory)\..\packages\rxcpp.4.0.0\build\native\include;$(MaxSdkInc);$(MsBuildProjectDirectory)\..\include;$(MsBuildProjectDirectory)\..\Service\grpc\;$(MsBuildProjectDirectory)\..\Service\grpc\include;$(MsBuildProjectDirectory)\..\Service\grpc\third_party\protobuf\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <WarningLevel>Level2</WarningLevel>
       <Optimization Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">Disabled</Optimization>
       <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Disabled</Optimization>
@@ -81,7 +82,7 @@
       <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">4706;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">/GR /we4002 /we4390 /we4557 /we4546 /we4545 /we4295 /we4310 /we4130 /we4611 /we4213 /we4121 /we4715 /we4701 /w34265 /wd4244 /wd4018 /wd4819 /wd4456 /wd4457 /wd4458 /wd4459 /wd4589 /wd4702 </AdditionalOptions>
       <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(MSBuildProjectDirectory)\..\include\export_dll.h;$(MSBuildProjectDirectory)\..\include\import_log_dll.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">/await /std:c++ %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">/await %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(MsBuildProjectDirectory)\..\x64\$(Configuration);$(MaxSdkLib)..\Release;$(MsBuildProjectDirectory)\..\lib\tbb;$(MsBuildProjectDirectory)\..\lib;$(MsBuildProjectDirectory)\..\lib\grpc\$(Configuration);$(MsBuildProjectDirectory)\..\lib\protobuf\$(Configuration);$(MsBuildProjectDirectory)\..\lib\protobuf\Release;$(MsBuildProjectDirectory)\..\lib\grpc\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -135,6 +136,10 @@
     <ClCompile Include="..\Service\grpc\src\core\lib\iomgr\workqueue_uv.c" />
     <ClCompile Include="..\Service\grpc\src\core\lib\iomgr\workqueue_windows.c" />
     <ClCompile Include="..\Service\grpc\src\core\lib\support\mpscq.c" />
+    <ClCompile Include="..\Service\grpc\src\core\lib\support\time.c" />
+    <ClCompile Include="..\Service\grpc\src\core\lib\support\time_posix.c" />
+    <ClCompile Include="..\Service\grpc\src\core\lib\support\time_precise.c" />
+    <ClCompile Include="..\Service\grpc\src\core\lib\support\time_windows.c" />
     <ClCompile Include="..\Service\grpc\src\cpp\client\channel_cc.cc" />
     <ClCompile Include="..\Service\grpc\src\cpp\client\client_context.cc" />
     <ClCompile Include="..\Service\grpc\src\cpp\client\create_channel.cc" />
@@ -146,6 +151,7 @@
     <ClCompile Include="..\Service\grpc\src\cpp\common\core_codegen.cc" />
     <ClCompile Include="..\Service\grpc\src\cpp\common\version_cc.cc" />
     <ClCompile Include="..\Service\grpc\src\cpp\util\status.cc" />
+    <ClCompile Include="..\Service\grpc\src\cpp\util\time_cc.cc" />
     <ClCompile Include="DllEntry.cpp" />
     <ClCompile Include="pugixml.cpp" />
     <ClCompile Include="xml_format.cc" />
@@ -181,5 +187,6 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\fmt.greedy.3.0.0.1\build\native\fmt.greedy.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\fmt.greedy.3.0.0.1\build\native\fmt.greedy.targets'))" />
+    <Error Condition="!Exists('..\packages\rxcpp.4.0.0\build\native\rxcpp.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\rxcpp.4.0.0\build\native\rxcpp.targets'))" />
   </Target>
 </Project>
