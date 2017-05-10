@@ -384,6 +384,7 @@ if yms_init != true then
 				isolate_layer lname
 			)
 		),
+
 		fn pre_optimize oFileDir oFileName projectPath = 
 		(
 			-- fname = substring maxFileName 1 (maxFileName.count-4)

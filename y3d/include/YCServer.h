@@ -52,6 +52,8 @@ public:
 	virtual Status Packing(ServerContext* context, const ::y3d::EPacking* request, ::y3d::ResultReply* response) = 0;
 
 	virtual Status Init4Test(ServerContext* context, const InitTestParam* request, InitTestResponse* reply) = 0;
+	virtual Status LoadTestData(ServerContext* context, const InitTestParam* request, ResultReply* reply) = 0;
+
 };
 
 class YServiceImpl final : public AbstractService {
@@ -78,6 +80,7 @@ public:
 	Status Packing(ServerContext* context, const ::y3d::EPacking* request, ::y3d::ResultReply* response) override;
 
 	Status Init4Test(ServerContext* context, const InitTestParam* request, InitTestResponse* reply) override;
+	Status LoadTestData(ServerContext* context, const InitTestParam* request, ResultReply* reply) override;
 	~YServiceImpl() override;
 };
 

@@ -445,7 +445,27 @@ void DoYEvent(YEvent ye) {
 		if (n2 != NULL||n==NULL) return;
 		INodeTab nt1, nt2;
 		nt1.AppendNode(n);
-		if (ip->CloneNodes(nt1, n->GetObjOffsetPos(), true, NODE_COPY, &nt2, &nt2)) {
+
+		CloneType ct = NODE_NONE;
+		switch (ye.yclone().clone_type())
+		{
+			case EClone::CloneType::EClone_CloneType_NODE_INSTANCE: {
+				ct = NODE_INSTANCE;
+				break;
+			}
+			case EClone::CloneType::EClone_CloneType_NODE_COPY: {
+				ct = NODE_COPY;
+				break;
+			}
+			case EClone::CloneType::EClone_CloneType_NODE_REFERENCE:{
+				ct = NODE_REFERENCE;
+				break;
+			}
+		default:
+			break;
+		}
+
+		if (ip->CloneNodes(nt1, n->GetObjOffsetPos(), true, ct, &nt2, &nt2)) {
 			nt2[0]->SetName(s2ws(ye.yclone().cname()).c_str());
 			switch (ye.yclone().convert_type())
 			{
@@ -459,6 +479,8 @@ void DoYEvent(YEvent ye) {
 				default:
 					break;
 			}
+
+
 		}
 	}
 	else if (ye.has_lowpoly()) {
@@ -680,7 +702,7 @@ BOOL do_unwrap(const EUnwrap eu) {
 	return TRUE;
 }
 
-BOOL do_lowpoly(const ELowpoly el) {
+BOOL do_lowpoly(const ELowpoly el, bool make_temp) {
 	if (el.has_lp_xref()) {
 		/*	auto* ip = GetCOREInterface();
 		auto n = ip->GetINodeByName(s2ws(eu->oname()).c_str());*/
@@ -689,11 +711,28 @@ BOOL do_lowpoly(const ELowpoly el) {
 	}
 	if (el.has_lp_3dmax()) {
 		auto mm = el.lp_3dmax();
+		auto name4clone = (el.nname().size() > 0) ? el.nname() : el.oname();
 		std::wstring cmd = formatWS("yms.lowpoly_3dmax \"{0}\" \"{1}\" {2}", el.oname(), el.nname(), mm.vertex_percent());
 		if (ExecuteMAXScriptScript(cmd.c_str())) {
-			if (mm.keep_tmp_version()) {
-
+			if (make_temp) {
+				YEvent ee;
+				EClone ec;
+				ec.set_oname(name4clone);
+				ec.set_cname(name4clone + "_tmp");
+				ee.mutable_yclone()->CopyFrom(ec);
+				DoYEvent(ee);
 			}
+
+			if (el.convert_type() == ConvertType::None) return TRUE;
+			auto* ip = GetCOREInterface();
+			auto n = ip->GetINodeByName(s2ws(name4clone).c_str());
+
+			if (el.convert_type() == ConvertType::Editable_Mesh) {
+				LOG("Convert : {0}",name4clone);
+				auto cid = new Class_ID(3830386867L, 0L); // convert to editable_mesh
+			    ip->ConvertNode(n, *cid);
+			}
+			return TRUE;
 		}
 		return FALSE;
 	}
@@ -709,5 +748,24 @@ BOOL do_pack(const EPacking ep) {
 	if (ep.has_packrect()) {
 		auto x = ep.packrect();
 	}
+	return TRUE;
+}
+
+BOOL save_test(InitTestParam x) {
+	auto* ip = GetCOREInterface();
+	//ip->ClearNodeSelection();
+	setIsolateLayer(fmt::format("{}_{}",x.oname(),x.id()));
+	INodeTab inodes;
+	getSelNodeTab(inodes);
+	//ip->SaveToFile()
+	ip->FileSaveNodes(&inodes, formatWS("{0}\\{1}_data.max", x.test_folder(), x.oname()).c_str());
+	return TRUE;
+}
+
+BOOL load_test(InitTestParam x) {
+	LOG("\nLoad test:{}",x.oname());
+	auto* ip = GetCOREInterface();
+	auto data_path = formatWS("{0}\\{1}_data.max", x.test_folder(), x.oname()).c_str();
+	ip->MergeFromFile(data_path, TRUE);
 	return TRUE;
 }

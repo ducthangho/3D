@@ -31,6 +31,7 @@ namespace Y3D.Projects
             tp.Lowpoly.Lp3Dmax.VertexPercent = 20;
             tp.Lowpoly.Lp3Dmax.OptimizationMode = LPoly3DMax.Types.OpMode.ProtectBorders;
             tp.Lowpoly.Lp3Dmax.Normals = LPoly3DMax.Types.NormalMode.ProtectNormals;
+            tp.Lowpoly.ConvertType = ConvertType.EditableMesh;
 
             //tp.Lowpoly.LpXref = new LPolyXref();
 
