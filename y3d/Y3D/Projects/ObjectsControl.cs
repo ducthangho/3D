@@ -308,6 +308,7 @@ namespace Y3D.Projects
             {
                 testDetailControl1.reloadTest((VerTest)v);
                 panelEditTest.BringToFront();
+                
             }
         }
 

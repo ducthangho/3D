@@ -37,6 +37,8 @@ service YServiceMaxTools {
 
   // rpc CreateVerTest(VerTestParam) returns (VerTestResponse) {}
   rpc Init4Test(InitTestParam) returns (InitTestResponse) {}
+  rpc LoadTestData(InitTestParam) returns (ResultReply) {}
+
 }
 
 service YServiceTest {

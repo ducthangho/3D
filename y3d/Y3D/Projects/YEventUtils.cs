@@ -117,9 +117,14 @@ namespace Y3D.Projects
                 rename_e.Rename.Oname = tname + surfix_tmp;
                 rename_e.Rename.Nname = tname + surfix_save_to;
 
+                YEvent clone_e = new YEvent();
+                clone_e.Yclone = new EClone();
+                clone_e.Yclone.Oname = tname + surfix_tmp;
+                clone_e.Yclone.Cname = tname + surfix_save_to;
+                clone_e.Yclone.CloneType = EClone.Types.CloneType.NodeInstance;
                 YEventList yel = new YEventList();
                 yel.Events.Add(remove_e);
-                yel.Events.Add(rename_e);
+                yel.Events.Add(clone_e);
 
                 Utils.doManyEvent(yel);
                 //await streamCall.RequestStream.WriteAsync(remove_e);
@@ -127,10 +132,10 @@ namespace Y3D.Projects
                 // remove save_to object and rename clone object to orginial object
             } else
             {
-                YEvent remove_e = new YEvent();
-                remove_e.Del = new EDelete();
-                remove_e.Del.Names.Add(tname + surfix_tmp);
-                await streamCall.RequestStream.WriteAsync(remove_e);
+                //YEvent remove_e = new YEvent();
+                //remove_e.Del = new EDelete();
+                //remove_e.Del.Names.Add(tname + surfix_tmp);
+                //await streamCall.RequestStream.WriteAsync(remove_e);
             }
 
             if (streamCall != null)

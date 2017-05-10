@@ -35,7 +35,8 @@ namespace Y3D.Projects
         public void reloadTest(y3d.e.VerTest v)
         {
             Utils.CurrentTest = (VerTest)v;
-            labelTestName.Text = v.Oname + "_" + v.Id;
+
+            Utils.loadTest();
             btnLow.BackColor = getButtonColor(v.HasLow);
             btnUnwrap.BackColor = getButtonColor(v.HasUnwrap);
             btnBake.BackColor = getButtonColor(v.HasBake);

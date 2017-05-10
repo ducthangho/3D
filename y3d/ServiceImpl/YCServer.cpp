@@ -18,13 +18,13 @@ Status YServiceImpl::Init4Test(ServerContext* context, const InitTestParam* requ
 		std::wstring cmd;
 
 		auto* ip = GetCOREInterface();
-		auto n = ip->GetINodeByName(s2ws(request->tname()).c_str());
+		auto n = ip->GetINodeByName(s2ws(request->oname()).c_str());
 		n->Hide(FALSE);
 		auto it = request->init_test();
 
-		auto lowStr = formatWS("{}_{}_low", request->tname().c_str(), request->tid().c_str());
-		auto hiStr = formatWS("{}_{}_high", request->tname().c_str(), request->tid().c_str());
-		auto cageStr = formatWS("{}_{}_cage", request->tname().c_str(), request->tid().c_str());
+		auto lowStr = formatWS("{}_{}_low", request->oname().c_str(), request->id().c_str());
+		auto hiStr = formatWS("{}_{}_high", request->oname().c_str(), request->id().c_str());
+		auto cageStr = formatWS("{}_{}_cage", request->oname().c_str(), request->id().c_str());
 
 		INodeTab nt1, nt2, nt3, nt4, nt5;
 		nt1.AppendNode(n);
@@ -35,12 +35,10 @@ Status YServiceImpl::Init4Test(ServerContext* context, const InitTestParam* requ
 		ip->CloneNodes(nt2, n->GetObjOffsetPos(), true, NODE_COPY, &nt3, &nt3);
 		ip->CloneNodes(nt2, n->GetObjOffsetPos(), true, NODE_COPY, &nt4, &nt4);
 
-
 		//std::wstring tmp = n->GetName();
 		//auto lowStr = tmp + L"_low";
 		//auto hiStr = tmp + L"_high";
 		//auto cageStr = tmp + L"_cage";
-
 
 		nt2[0]->SetName(lowStr.c_str());
 		nt3[0]->SetName(hiStr.c_str());
@@ -55,6 +53,11 @@ Status YServiceImpl::Init4Test(ServerContext* context, const InitTestParam* requ
 		ip->SelectNodeTab(nt1, TRUE, FALSE);
 		ip->FileSaveNodes(&nt1, formatWS("{0}\\{1}_o.max", request->test_folder(), ws2s(n->GetName()).c_str()).c_str());
 
+		ip->SelectNode(ip->GetINodeByName(lowStr.c_str()));
+		ip->SelectNode(ip->GetINodeByName(hiStr.c_str()),0);
+		ip->SelectNode(ip->GetINodeByName(cageStr.c_str()),0);
+		cmd = formatWS("yms.create_layer \"{0}_{1}\" true true", request->oname().c_str(), request->id().c_str());
+		ExecuteMAXScriptScript(cmd.c_str());
 		//if (it.has_lowpoly()) {
 		//	ip->SelectNode(nt2[0]);
 		//	do_lowpoly(&it.lowpoly());
@@ -65,7 +68,7 @@ Status YServiceImpl::Init4Test(ServerContext* context, const InitTestParam* requ
 		//}
 
 		if (it.has_lowpoly()) {
-			do_lowpoly(it.lowpoly());
+			do_lowpoly(it.lowpoly(),true);
 		}
 		if (it.has_unwrap()) {
 			do_unwrap(it.unwrap());
@@ -73,27 +76,32 @@ Status YServiceImpl::Init4Test(ServerContext* context, const InitTestParam* requ
 		if (it.has_pack()) {
 			do_pack(it.pack());
 		}
-		ip->SelectNode(nt2[0]);
-		ip->SelectNode(nt3[0],0);
-		ip->SelectNode(nt4[0],0);
+
+		//ip->SelectNode(nt2[0]);
+		//ip->SelectNode(nt3[0],0);
+		//ip->SelectNode(nt4[0],0);
 		//cmd = L"actionMan.executeAction 0 \"197\";";
 		// select and move to new layer
-		cmd = formatWS("yms.create_layer \"{0}_{1}\" true true", request->tname().c_str(), request->tid().c_str());
-		ExecuteMAXScriptScript(cmd.c_str());
 		//theHold.Begin();
-		ip->SelectNode(nt2[0]);
-		//theHold.Accept();
+		ip->SelectNode(ip->GetINodeByName(lowStr.c_str()));
 		ip->ExportToFile(formatWS("{0}\\{1}_low.obj", request->test_folder(), ws2s(n->GetName()).c_str()).c_str(), TRUE, SCENE_EXPORT_SELECTED, new Class_ID(1371343970L, 1730353346L));
-
-		ip->SelectNode(nt3[0]);
+		ip->SelectNode(ip->GetINodeByName(hiStr.c_str()));
 		ip->ExportToFile(formatWS("{0}\\{1}_high.obj", request->test_folder(), ws2s(n->GetName()).c_str()).c_str(), TRUE, SCENE_EXPORT_SELECTED, new Class_ID(1371343970L, 1730353346L));
-
-		ip->SelectNode(nt4[0]);
+		ip->SelectNode(ip->GetINodeByName(cageStr.c_str()));
 		ip->ExportToFile(formatWS("{0}\\{1}_cage.obj", request->test_folder(), ws2s(n->GetName()).c_str()).c_str(), TRUE, SCENE_EXPORT_SELECTED, new Class_ID(1371343970L, 1730353346L));
 
-
+		save_test(*request);
+		//theHold.Accept();
 	});
 	//waitForReturn(ret);
+	return Status::OK;
+}
+
+Status YServiceImpl::LoadTestData(ServerContext* context, const InitTestParam* request, ResultReply* reply) {
+	Invoke([request]() -> void {
+		load_test(*request);
+		//theHold.Accept();
+	});
 	return Status::OK;
 }
 
