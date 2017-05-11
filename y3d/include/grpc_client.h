@@ -82,7 +82,7 @@ struct EventBus
 			//std::function< std::unique_ptr<grpc::ClientAsyncResponseReader<RESPTYPE>>(grpc::ClientContext*, const EVENT &, grpc::CompletionQueue*) > func = &MainWorkerClient::AsyncDoEvent;
 			call->response_reader->Finish(&(call->reply), &(call->status), (void*)call);
 			return call;
-		}).observe_on(worker).map([this](AsyncClientCall<RESPTYPE>* e) {
+		}).observe_on( rx::synchronize_new_thread() ).map([this](AsyncClientCall<RESPTYPE>* e) {
 			//LOG("TAP - thread {}.\n", thread_to_str(std::this_thread::get_id()));
 
 			void* got_tag;

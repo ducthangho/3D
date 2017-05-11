@@ -122,6 +122,8 @@ namespace Y3D.Projects
                 clone_e.Yclone.Oname = tname + surfix_tmp;
                 clone_e.Yclone.Cname = tname + surfix_save_to;
                 clone_e.Yclone.CloneType = EClone.Types.CloneType.NodeInstance;
+                clone_e.Yclone.ConvertType = ConvertType.EditableMesh;
+
                 YEventList yel = new YEventList();
                 yel.Events.Add(remove_e);
                 yel.Events.Add(clone_e);

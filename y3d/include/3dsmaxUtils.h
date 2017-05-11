@@ -7,7 +7,8 @@
 class ObjManipulatorRestore : public RestoreObj {
 public:
 	BOOL mOnlyForRedo;
-	static BOOL mMode;
+	//static BOOL mMode;
+	BOOL mMode;
 	ObjManipulatorRestore(BOOL onlyForRedo = FALSE) { mOnlyForRedo = onlyForRedo; }
 	void Restore(int isUndo) {
 		if (mOnlyForRedo) {
@@ -45,7 +46,8 @@ public:
 class CollapseRestore : public RestoreObj {
 public:
 	BOOL mOnlyForRedo;
-	static BOOL mMode;
+	//static BOOL mMode;
+	BOOL mMode;
 	CollapseRestore(BOOL onlyForRedo = FALSE) { mOnlyForRedo = onlyForRedo; }
 	void Restore(int isUndo) {
 		if (mOnlyForRedo) {
@@ -82,4 +84,3 @@ public:
 
 	TSTR Description() { return TSTR(_T("Restore Manipulate State")); }
 };
-

@@ -2,6 +2,7 @@
 #define Y3D_EXPORT_MACRO
 #endif
 #include "common.h"
+//#include "3dsmaxUtils.h"
 #include "YLibs.h"
 #include "YCServer.h"
 #include "xnormal.pb.h"
@@ -29,9 +30,11 @@ Status YServiceImpl::Init4Test(ServerContext* context, const InitTestParam* requ
 		INodeTab nt1, nt2, nt3, nt4, nt5;
 		nt1.AppendNode(n);
 		ip->CloneNodes(nt1, n->GetObjOffsetPos(), true, NODE_COPY, &nt2, &nt2);
+
 		auto cid = new Class_ID(3830386867L, 0L); // convert to editable_mesh
 		ip->ConvertNode(nt2[0], *cid);
 		//Collapse(nt2[0]);
+
 		ip->CloneNodes(nt2, n->GetObjOffsetPos(), true, NODE_COPY, &nt3, &nt3);
 		ip->CloneNodes(nt2, n->GetObjOffsetPos(), true, NODE_COPY, &nt4, &nt4);
 

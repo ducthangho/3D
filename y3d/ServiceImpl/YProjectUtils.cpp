@@ -464,14 +464,14 @@ void DoYEvent(YEvent ye) {
 		default:
 			break;
 		}
-
 		if (ip->CloneNodes(nt1, n->GetObjOffsetPos(), true, ct, &nt2, &nt2)) {
 			nt2[0]->SetName(s2ws(ye.yclone().cname()).c_str());
 			switch (ye.yclone().convert_type())
 			{
 				case Editable_Mesh: {
-					auto cid = new Class_ID(3830386867L, 0L); // convert to editable_mesh
-					ip->ConvertNode(nt2[0], *cid);
+					//auto cid = new Class_ID(3830386867L, 0L); // convert to editable_mesh
+					//ip->ConvertNode(nt2[0], *cid);
+					Collapse(nt2[0]);
 					break;
 				}
 				case Editable_Poly:
@@ -729,8 +729,9 @@ BOOL do_lowpoly(const ELowpoly el, bool make_temp) {
 
 			if (el.convert_type() == ConvertType::Editable_Mesh) {
 				LOG("Convert : {0}",name4clone);
-				auto cid = new Class_ID(3830386867L, 0L); // convert to editable_mesh
-			    ip->ConvertNode(n, *cid);
+				Collapse(n);
+				//auto cid = new Class_ID(3830386867L, 0L); // convert to editable_mesh
+			 //   ip->ConvertNode(n, *cid);
 			}
 			return TRUE;
 		}
@@ -755,8 +756,11 @@ BOOL save_test(InitTestParam x) {
 	auto* ip = GetCOREInterface();
 	//ip->ClearNodeSelection();
 	setIsolateLayer(fmt::format("{}_{}",x.oname(),x.id()));
+
 	INodeTab inodes;
 	getSelNodeTab(inodes);
+	auto tmp = fmt::format("{}_{}_low_tmp", x.oname(), x.id());
+	inodes.RemoveNode(ip->GetINodeByName(s2ws(tmp).c_str()));
 	//ip->SaveToFile()
 	ip->FileSaveNodes(&inodes, formatWS("{0}\\{1}_data.max", x.test_folder(), x.oname()).c_str());
 	return TRUE;

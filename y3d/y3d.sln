@@ -33,6 +33,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LogServer", "LogServer\LogS
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GrpcClient", "GrpcClient\GrpcClient.vcxproj", "{3A479FDD-B95B-4416-AB35-451FBEB2318D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Y3DX", "Y3DX\Y3DX.csproj", "{5511660C-2767-4C82-98CC-74C6B4A11423}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -239,6 +241,24 @@ Global
 		{3A479FDD-B95B-4416-AB35-451FBEB2318D}.Release|x64.Build.0 = Release|x64
 		{3A479FDD-B95B-4416-AB35-451FBEB2318D}.Release|x86.ActiveCfg = Release|Win32
 		{3A479FDD-B95B-4416-AB35-451FBEB2318D}.Release|x86.Build.0 = Release|Win32
+		{5511660C-2767-4C82-98CC-74C6B4A11423}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5511660C-2767-4C82-98CC-74C6B4A11423}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5511660C-2767-4C82-98CC-74C6B4A11423}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{5511660C-2767-4C82-98CC-74C6B4A11423}.Debug|x64.Build.0 = Debug|Any CPU
+		{5511660C-2767-4C82-98CC-74C6B4A11423}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5511660C-2767-4C82-98CC-74C6B4A11423}.Debug|x86.Build.0 = Debug|Any CPU
+		{5511660C-2767-4C82-98CC-74C6B4A11423}.Hybrid|Any CPU.ActiveCfg = Release|Any CPU
+		{5511660C-2767-4C82-98CC-74C6B4A11423}.Hybrid|Any CPU.Build.0 = Release|Any CPU
+		{5511660C-2767-4C82-98CC-74C6B4A11423}.Hybrid|x64.ActiveCfg = Release|Any CPU
+		{5511660C-2767-4C82-98CC-74C6B4A11423}.Hybrid|x64.Build.0 = Release|Any CPU
+		{5511660C-2767-4C82-98CC-74C6B4A11423}.Hybrid|x86.ActiveCfg = Release|Any CPU
+		{5511660C-2767-4C82-98CC-74C6B4A11423}.Hybrid|x86.Build.0 = Release|Any CPU
+		{5511660C-2767-4C82-98CC-74C6B4A11423}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5511660C-2767-4C82-98CC-74C6B4A11423}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5511660C-2767-4C82-98CC-74C6B4A11423}.Release|x64.ActiveCfg = Release|Any CPU
+		{5511660C-2767-4C82-98CC-74C6B4A11423}.Release|x64.Build.0 = Release|Any CPU
+		{5511660C-2767-4C82-98CC-74C6B4A11423}.Release|x86.ActiveCfg = Release|Any CPU
+		{5511660C-2767-4C82-98CC-74C6B4A11423}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
