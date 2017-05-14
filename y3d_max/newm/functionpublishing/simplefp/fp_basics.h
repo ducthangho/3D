@@ -119,6 +119,8 @@ class IFP_Basic : public FPStaticInterface
 			em_myTestFunction3,
 			em_myFunction2,
 			em_myFunction3,
+			em_myFunction4,
+			em_myFunction5,
 			em_pack
 		};
 };
@@ -153,6 +155,8 @@ class FP_Basic : public IFP_Basic
 
 		Tab<float> myFunction2();
 		Tab<float> myFunction3(Tab<float>& listRect);
+		Tab<float> myFunction4(Tab<float>& listRect);
+		Tab<float> myFunction5(Tab<float> listRect);
 		void pack(Tab<float>& listRect, Tab<float>& enclosingRect);
 
 	// When using the function map system, your class constructor will be written 
@@ -193,7 +197,10 @@ class FP_Basic : public IFP_Basic
 		FN_1(IFP_Basic::em_myTestFunction3, TYPE_INT, myTestFunction3, TYPE_INT)
 
 		FN_0(IFP_Basic::em_myFunction2, TYPE_FLOAT_TAB, myFunction2)
-		FN_1(IFP_Basic::em_myFunction3, TYPE_FLOAT_TAB, myFunction3, TYPE_FLOAT_TAB_BV)
+		FN_1(IFP_Basic::em_myFunction3, TYPE_FLOAT_TAB, myFunction3, TYPE_FLOAT_TAB_BR)
+		FN_1(IFP_Basic::em_myFunction4, TYPE_FLOAT_TAB, myFunction4, TYPE_FLOAT_TAB_BV)
+		FN_1(IFP_Basic::em_myFunction5, TYPE_FLOAT_TAB, myFunction5, TYPE_FLOAT_TAB_BV)
+
 		VFN_2(IFP_Basic::em_pack, pack, TYPE_FLOAT_TAB_BR, TYPE_FLOAT_TAB_BR)
 	END_FUNCTION_MAP
 	#pragma warning (pop)

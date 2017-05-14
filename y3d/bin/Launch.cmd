@@ -33,6 +33,7 @@ if "%ERRORLEVEL%"=="0" (
 )else (
 	start /D %YMasterServer-path% YMasterServer.exe
 )
+
 TASKLIST /FI "IMAGENAME EQ 3DSMAX.EXE" 2>NUL | FIND /I /N "3DSMAX.EXE">NUL
 IF "%ERRORLEVEL%"=="0" (
   	ECHO 3DSMAX.EXE IS RUNNING	

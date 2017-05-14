@@ -1626,3 +1626,183 @@ typedef enum class ENUM1_LAYERPROPERTIES {none = 0,object = 1,image = 2,} LAYERP
 1 - 3 Enum is shaded have code is 4
 **/
 typedef enum class ENUM2_LAYERPROPERTIES {viewport = 0,boundingbox = 1,wireframe = 2,shaded = 4,} LAYERPROPERTIES_ENUM2;
+
+
+// --------------------list functions of core interface IXREFRECORD--------------------------
+// Number function of IXREFRECORD core interface is 8
+#define IIXREFRECORD_NUMFUCNTIONS 8
+// function ID of function ITEMCOUNT of core interface IXREFRECORD is 0
+#define ITEMCOUNT_IIXREFRECORD 0
+  // Result Type of function ITEMCOUNT of core interface IXREFRECORD is ParamType2::TYPE_DWORD
+  #define ITEMCOUNT_IIXREFRECORD_RESULTTYPE ParamType2::TYPE_DWORD
+  // number parameter of fucntion ITEMCOUNT of core interface IXREFRECORD is 1
+  #define ITEMCOUNT_IIXREFRECORD_NUMPARAMS 1
+  #define TYPES_ITEMCOUNT_IIXREFRECORD_PARAM1_TYPE ParamType2::TYPE_ENUM_TAB_BR
+  // TYPES, which is parameter number 1 of function
+// ITEMCOUNT of core interface IXREFRECORD have param type is ParamType2::TYPE_ENUM_TAB_BR
+// function ID of function GETITEM of core interface IXREFRECORD is 2
+#define GETITEM_IIXREFRECORD 2
+  // Result Type of function GETITEM of core interface IXREFRECORD is ParamType2::TYPE_REFTARG
+  #define GETITEM_IIXREFRECORD_RESULTTYPE ParamType2::TYPE_REFTARG
+  // number parameter of fucntion GETITEM of core interface IXREFRECORD is 2
+  #define GETITEM_IIXREFRECORD_NUMPARAMS 2
+  #define INDEX_GETITEM_IIXREFRECORD_PARAM1_TYPE ParamType2::TYPE_INDEX
+  // INDEX, which is parameter number 1 of function
+// GETITEM of core interface IXREFRECORD have param type is ParamType2::TYPE_INDEX
+  #define TYPE_GETITEM_IIXREFRECORD_PARAM2_TYPE ParamType2::TYPE_ENUM
+  // TYPE, which is parameter number 2 of function
+// GETITEM of core interface IXREFRECORD have param type is ParamType2::TYPE_ENUM
+// function ID of function GETITEMS of core interface IXREFRECORD is 3
+#define GETITEMS_IIXREFRECORD 3
+  // Result Type of function GETITEMS of core interface IXREFRECORD is ParamType2::TYPE_DWORD
+  #define GETITEMS_IIXREFRECORD_RESULTTYPE ParamType2::TYPE_DWORD
+  // number parameter of fucntion GETITEMS of core interface IXREFRECORD is 2
+  #define GETITEMS_IIXREFRECORD_NUMPARAMS 2
+  #define TYPES_GETITEMS_IIXREFRECORD_PARAM1_TYPE ParamType2::TYPE_ENUM_TAB_BR
+  // TYPES, which is parameter number 1 of function
+// GETITEMS of core interface IXREFRECORD have param type is ParamType2::TYPE_ENUM_TAB_BR
+  #define XREFITEMS_GETITEMS_IIXREFRECORD_PARAM2_TYPE ParamType2::TYPE_REFTARG_TAB_BR
+  // XREFITEMS, which is parameter number 2 of function
+// GETITEMS of core interface IXREFRECORD have param type is ParamType2::TYPE_REFTARG_TAB_BR
+// function ID of function GETCHILDRECORDS of core interface IXREFRECORD is 4
+#define GETCHILDRECORDS_IIXREFRECORD 4
+  // Result Type of function GETCHILDRECORDS of core interface IXREFRECORD is ParamType2::TYPE_DWORD
+  #define GETCHILDRECORDS_IIXREFRECORD_RESULTTYPE ParamType2::TYPE_DWORD
+  // number parameter of fucntion GETCHILDRECORDS of core interface IXREFRECORD is 1
+  #define GETCHILDRECORDS_IIXREFRECORD_NUMPARAMS 1
+  #define CHILDREN_GETCHILDRECORDS_IIXREFRECORD_PARAM1_TYPE ParamType2::TYPE_INTERFACE_TAB_BR
+  // CHILDREN, which is parameter number 1 of function
+// GETCHILDRECORDS of core interface IXREFRECORD have param type is ParamType2::TYPE_INTERFACE_TAB_BR
+// function ID of function GETPARENTRECORDS of core interface IXREFRECORD is 5
+#define GETPARENTRECORDS_IIXREFRECORD 5
+  // Result Type of function GETPARENTRECORDS of core interface IXREFRECORD is ParamType2::TYPE_DWORD
+  #define GETPARENTRECORDS_IIXREFRECORD_RESULTTYPE ParamType2::TYPE_DWORD
+  // number parameter of fucntion GETPARENTRECORDS of core interface IXREFRECORD is 1
+  #define GETPARENTRECORDS_IIXREFRECORD_NUMPARAMS 1
+  #define PARENTS_GETPARENTRECORDS_IIXREFRECORD_PARAM1_TYPE ParamType2::TYPE_INTERFACE_TAB_BR
+  // PARENTS, which is parameter number 1 of function
+// GETPARENTRECORDS of core interface IXREFRECORD have param type is ParamType2::TYPE_INTERFACE_TAB_BR
+// function ID of function GETROOTRECORDS of core interface IXREFRECORD is 6
+#define GETROOTRECORDS_IIXREFRECORD 6
+  // Result Type of function GETROOTRECORDS of core interface IXREFRECORD is ParamType2::TYPE_DWORD
+  #define GETROOTRECORDS_IIXREFRECORD_RESULTTYPE ParamType2::TYPE_DWORD
+  // number parameter of fucntion GETROOTRECORDS of core interface IXREFRECORD is 1
+  #define GETROOTRECORDS_IIXREFRECORD_NUMPARAMS 1
+  #define ROOTS_GETROOTRECORDS_IIXREFRECORD_PARAM1_TYPE ParamType2::TYPE_INTERFACE_TAB_BR
+  // ROOTS, which is parameter number 1 of function
+// GETROOTRECORDS of core interface IXREFRECORD have param type is ParamType2::TYPE_INTERFACE_TAB_BR
+// function ID of function CHECKSRCFILECHANGED of core interface IXREFRECORD is 16
+#define CHECKSRCFILECHANGED_IIXREFRECORD 16
+  // Result Type of function CHECKSRCFILECHANGED of core interface IXREFRECORD is ParamType2::TYPE_bool
+  #define CHECKSRCFILECHANGED_IIXREFRECORD_RESULTTYPE ParamType2::TYPE_bool
+  // number parameter of fucntion CHECKSRCFILECHANGED of core interface IXREFRECORD is 0
+  #define CHECKSRCFILECHANGED_IIXREFRECORD_NUMPARAMS 0
+// function ID of function UPDATE of core interface IXREFRECORD is 22
+#define UPDATE_IIXREFRECORD 22
+  // Result Type of function UPDATE of core interface IXREFRECORD is ParamType2::TYPE_bool
+  #define UPDATE_IIXREFRECORD_RESULTTYPE ParamType2::TYPE_bool
+  // number parameter of fucntion UPDATE of core interface IXREFRECORD is 0
+  #define UPDATE_IIXREFRECORD_NUMPARAMS 0
+// ---------------------- List Properties of core interface IXREFRECORD ----------------------
+#define IIXREFRECORD_NUMPROPS 12
+// function_id of for get property INCLUDEALL of core interface IXREFRECORD is 8
+#define INCLUDEALL_IIXREFRECORD_GETTER 8
+// function_id of for set property INCLUDEALL of core interface IXREFRECORD is 9
+#define INCLUDEALL_IIXREFRECORD_SETTER 9
+// parameter type of properties INCLUDEALL of core interface IXREFRECORD is ParamType2::TYPE_bool
+#define INCLUDEALL_IIXREFRECORD_TYPEPARAM ParamType2::TYPE_bool
+// function_id of for get property AUTOUPDATE of core interface IXREFRECORD is 10
+#define AUTOUPDATE_IIXREFRECORD_GETTER 10
+// function_id of for set property AUTOUPDATE of core interface IXREFRECORD is 11
+#define AUTOUPDATE_IIXREFRECORD_SETTER 11
+// parameter type of properties AUTOUPDATE of core interface IXREFRECORD is ParamType2::TYPE_bool
+#define AUTOUPDATE_IIXREFRECORD_TYPEPARAM ParamType2::TYPE_bool
+// function_id of for get property ENABLED of core interface IXREFRECORD is 12
+#define ENABLED_IIXREFRECORD_GETTER 12
+// function_id of for set property ENABLED of core interface IXREFRECORD is 13
+#define ENABLED_IIXREFRECORD_SETTER 13
+// parameter type of properties ENABLED of core interface IXREFRECORD is ParamType2::TYPE_bool
+#define ENABLED_IIXREFRECORD_TYPEPARAM ParamType2::TYPE_bool
+// function_id of for get property UPTODATE of core interface IXREFRECORD is 14
+#define UPTODATE_IIXREFRECORD_GETTER 14
+// function_id of for set property UPTODATE of core interface IXREFRECORD is 15
+#define UPTODATE_IIXREFRECORD_SETTER 15
+// parameter type of properties UPTODATE of core interface IXREFRECORD is ParamType2::TYPE_bool
+#define UPTODATE_IIXREFRECORD_TYPEPARAM ParamType2::TYPE_bool
+// function_id of for get property EMPTY of core interface IXREFRECORD is 1
+#define EMPTY_IIXREFRECORD_GETTER 1
+// function_id of for set property EMPTY of core interface IXREFRECORD is -1
+#define EMPTY_IIXREFRECORD_SETTER -1
+// parameter type of properties EMPTY of core interface IXREFRECORD is ParamType2::TYPE_bool
+#define EMPTY_IIXREFRECORD_TYPEPARAM ParamType2::TYPE_bool
+// function_id of for get property NESTED of core interface IXREFRECORD is 7
+#define NESTED_IIXREFRECORD_GETTER 7
+// function_id of for set property NESTED of core interface IXREFRECORD is -1
+#define NESTED_IIXREFRECORD_SETTER -1
+// parameter type of properties NESTED of core interface IXREFRECORD is ParamType2::TYPE_bool
+#define NESTED_IIXREFRECORD_TYPEPARAM ParamType2::TYPE_bool
+// function_id of for get property UNRESOLVED of core interface IXREFRECORD is 17
+#define UNRESOLVED_IIXREFRECORD_GETTER 17
+// function_id of for set property UNRESOLVED of core interface IXREFRECORD is -1
+#define UNRESOLVED_IIXREFRECORD_SETTER -1
+// parameter type of properties UNRESOLVED of core interface IXREFRECORD is ParamType2::TYPE_bool
+#define UNRESOLVED_IIXREFRECORD_TYPEPARAM ParamType2::TYPE_bool
+// function_id of for get property SRCFILENAME of core interface IXREFRECORD is 18
+#define SRCFILENAME_IIXREFRECORD_GETTER 18
+// function_id of for set property SRCFILENAME of core interface IXREFRECORD is 19
+#define SRCFILENAME_IIXREFRECORD_SETTER 19
+// parameter type of properties SRCFILENAME of core interface IXREFRECORD is ParamType2::TYPE_FILENAME
+#define SRCFILENAME_IIXREFRECORD_TYPEPARAM ParamType2::TYPE_FILENAME
+// function_id of for get property RECORDID of core interface IXREFRECORD is 23
+#define RECORDID_IIXREFRECORD_GETTER 23
+// function_id of for set property RECORDID of core interface IXREFRECORD is -1
+#define RECORDID_IIXREFRECORD_SETTER -1
+// parameter type of properties RECORDID of core interface IXREFRECORD is ParamType2::TYPE_DWORD
+#define RECORDID_IIXREFRECORD_TYPEPARAM ParamType2::TYPE_DWORD
+// function_id of for get property HANDLE of core interface IXREFRECORD is 24
+#define HANDLE_IIXREFRECORD_GETTER 24
+// function_id of for set property HANDLE of core interface IXREFRECORD is -1
+#define HANDLE_IIXREFRECORD_SETTER -1
+// parameter type of properties HANDLE of core interface IXREFRECORD is ParamType2::TYPE_DWORD
+#define HANDLE_IIXREFRECORD_TYPEPARAM ParamType2::TYPE_DWORD
+// function_id of for get property XREFOPTIONS of core interface IXREFRECORD is 25
+#define XREFOPTIONS_IIXREFRECORD_GETTER 25
+// function_id of for set property XREFOPTIONS of core interface IXREFRECORD is -1
+#define XREFOPTIONS_IIXREFRECORD_SETTER -1
+// parameter type of properties XREFOPTIONS of core interface IXREFRECORD is ParamType2::TYPE_ENUM_TAB_BV
+#define XREFOPTIONS_IIXREFRECORD_TYPEPARAM ParamType2::TYPE_ENUM_TAB_BV
+// function_id of for get property DUPLICATEMATCHINGLAYERS of core interface IXREFRECORD is 26
+#define DUPLICATEMATCHINGLAYERS_IIXREFRECORD_GETTER 26
+// function_id of for set property DUPLICATEMATCHINGLAYERS of core interface IXREFRECORD is 27
+#define DUPLICATEMATCHINGLAYERS_IIXREFRECORD_SETTER 27
+// parameter type of properties DUPLICATEMATCHINGLAYERS of core interface IXREFRECORD is ParamType2::TYPE_bool
+#define DUPLICATEMATCHINGLAYERS_IIXREFRECORD_TYPEPARAM ParamType2::TYPE_bool
+/**0 - 0 Enum is XRefObjectType have code is 1
+0 - 1 Enum is XRefMaterialType have code is 2
+0 - 2 Enum is XRefControllerType have code is 4
+0 - 3 Enum is XRefAtmosphericType have code is 8
+0 - 4 Enum is XRefAllType have code is 15
+0 - 5 Enum is XRefAllNoAtmosType have code is 7
+**/
+typedef enum class ENUM1_IXREFRECORD {XRefObjectType = 1,XRefMaterialType = 2,XRefControllerType = 4,XRefAtmosphericType = 8,XRefAllType = 15,XRefAllNoAtmosType = 7,} IXREFRECORD_ENUM1;
+/**1 - 0 Enum is XRefObjectType have code is 1
+1 - 1 Enum is XRefMaterialType have code is 2
+1 - 2 Enum is XRefControllerType have code is 4
+1 - 3 Enum is XRefAtmosphericType have code is 8
+**/
+typedef enum class ENUM2_IXREFRECORD {XRefObjectType = 1,XRefMaterialType = 2,XRefControllerType = 4,XRefAtmosphericType = 8,} IXREFRECORD_ENUM2;
+/**2 - 0 Enum is asProxy have code is 1	
+2 - 1 Enum is xrefModifiers have code is 0
+2 - 2 Enum is dropModifiers have code is 2
+2 - 3 Enum is mergeModifiers have code is 4
+2 - 4 Enum is mergeManipulators have code is 8
+2 - 5 Enum is selectNodes have code is 32
+2 - 6 Enum is mergeControllers have code is 64
+2 - 7 Enum is mergeMaterials have code is 128
+2 - 8 Enum is xrefControllers have code is 256
+2 - 9 Enum is localControllers have code is 512
+**/
+typedef enum class ENUM3_IXREFRECORD {asProxy = 1,xrefModifiers = 0,dropModifiers = 2,mergeModifiers = 4,mergeManipulators = 8,selectNodes = 32,mergeControllers = 64,mergeMaterials = 128,xrefControllers = 256,localControllers = 512,} IXREFRECORD_ENUM3;
+
+#include "fpbasics_interface_info.h"
+#include "ixrefproxy_interface_info.h"

@@ -44,6 +44,7 @@ fp_basic_gup::~fp_basic_gup()
 }
 
 DWORD fp_basic_gup::Start( ) {
+	mprintf(L"abcxyz");
 	return GUPRESULT_KEEP; // Activate and Stay Resident
 }
 
@@ -124,9 +125,14 @@ FP_Basic fp_basic_desc(
 		IFP_Basic::em_myFunction2, _T("MyFunction2"), 0, TYPE_FLOAT_TAB, 0, 0,
 		IFP_Basic::em_myFunction3, _T("MyFunction3"), 0, TYPE_FLOAT_TAB, 0, 1,
 			_T("listRect"),0, TYPE_FLOAT_TAB_BR,
+		IFP_Basic::em_myFunction4, _T("MyFunction4"), 0, TYPE_FLOAT_TAB, 0, 1,
+			_T("listRect"), 0, TYPE_FLOAT_TAB_BV,
+		IFP_Basic::em_myFunction5, _T("MyFunction5"), 0, TYPE_FLOAT_TAB, 0, 1,
+			_T("listRect"), 0, TYPE_FLOAT_TAB_BV,
 		IFP_Basic::em_pack, _T("pack"), 0, TYPE_VOID, 0, 2,
 			_T("listRect"),0, TYPE_FLOAT_TAB_BR,
 			_T("enclosingRect"),0, TYPE_FLOAT_TAB_BR,
+
 
 		//Properties ------------------------
 		//Property description that can has read / write functionality
@@ -379,11 +385,11 @@ int FP_Basic::myTestFunction3(int i)
 	mprintf(L"Xin Chao MytestFunction3");
 	i++;
 
-	FPValue param3;
-	
-	std::wstring projectPath = L"F:\\WorkSpace\\3Ds Max\\Building Phong Tam Project\\scenes\\TestProOptimizerScene";
-	std::wstring oFileName = L"001";
-	xref_low_error(projectPath, oFileName);
+// 	FPValue param3;
+// 	
+// 	std::wstring projectPath = L"F:\\WorkSpace\\3Ds Max\\Building Phong Tam Project\\scenes\\TestProOptimizerScene";
+// 	std::wstring oFileName = L"001";
+// 	xref_low_error(projectPath, oFileName);
 
 	return 0;
 }
@@ -396,13 +402,44 @@ Tab<float> FP_Basic::myFunction2()
 
 Tab<float> FP_Basic::myFunction3(Tab<float>& listRect)
 {
+	mprintf(L"xin chao mytestfunction3\n");
+	mflush();
 	for (int i = 0; i < listRect.Count(); ++i) {
 		listRect[i]++;
 		mprintf(L"listRect[%d] = %f\n", i, listRect[i]);
 	};
+	float a = 20;
+	listRect.Append(1, &a);
+	mflush();
 	//MessageBox(NULL, _T("Xin chao myFunction3!!!"), _T("Function Publishing Demonstration"), MB_OK);
 	return Tab<float>();
 }
+
+Tab<float> FP_Basic::myFunction4(Tab<float>& listRect)
+{
+	mprintf(L"xin chao mytestfunction4\n");
+	mflush();
+	for (int i = 0; i < listRect.Count(); ++i) {
+		listRect[i]++;
+		mprintf(L"listRect[%d] = %f\n", i, listRect[i]);
+	};
+	mflush();
+	return Tab<float>();
+}
+
+Tab<float> FP_Basic::myFunction5(Tab<float> listRect)
+{
+	mprintf(L"xin chao mytestfunction5\n");
+	mflush();
+	for (int i = 0; i < listRect.Count(); ++i) {
+		listRect[i]++;
+		mprintf(L"listRect[%d] = %f\n", i, listRect[i]);
+	};
+	mflush();
+	return Tab<float>();
+}
+
+
 
 void FP_Basic::pack(Tab<float>& listRect, Tab<float>& enclosingRect)
 {

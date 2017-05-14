@@ -20,12 +20,12 @@ if "%ERRORLEVEL%"=="0" (
 	echo redis-server.exe was not running
 )
 
-tasklist /FI "IMAGENAME eq LogServer.exe" 2>NUL | find /I /N "LogServer.exe">NUL
-if "%ERRORLEVEL%"=="0" (
-	taskkill /f /im  LogServer.exe
-)else (
-	echo LogServer.exe was not running	
-)
+rem tasklist /FI "IMAGENAME eq LogServer.exe" 2>NUL | find /I /N "LogServer.exe">NUL
+rem if "%ERRORLEVEL%"=="0" (
+rem 	taskkill /f /im  LogServer.exe
+rem )else (
+rem 	echo LogServer.exe was not running	
+rem )
 
 tasklist /FI "IMAGENAME eq YMasterServer.exe" 2>NUL | find /I /N "YMasterServer.exe">NUL
 if "%ERRORLEVEL%"=="0" (

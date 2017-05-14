@@ -899,8 +899,8 @@ inline void generateInterfaceFuntionsID2(FPInterfaceDesc* fpInterfaceDesc)
 			LOG("  // {0}, which is parameter number {1} of function\n// {2} of core interface {3} have param type is {4}\n", param_internal_name, i + 1, func_internalname, internal_name, paramTypeEnumFormat);
 			LOG("  #define {0}_{1}_I{2}_PARAM{3}_TYPE {4}\n", param_internal_name, func_internalname, internal_name, i + 1, paramTypeEnumFormat);
 
-			log("  #define {0}_{1}_I{2}_PARAM{3}_TYPE {4}\n", param_internal_name, func_internalname, internal_name, i + 1, paramTypeEnumFormat);
 			log("  // {0}, which is parameter number {1} of function\n// {2} of core interface {3} have param type is {4}\n", param_internal_name, i + 1, func_internalname, internal_name, paramTypeEnumFormat);
+			log("  #define {0}_{1}_I{2}_PARAM{3}_TYPE {4}\n", param_internal_name, func_internalname, internal_name, i + 1, paramTypeEnumFormat);			
 			//LOG("  -- Param number {0} have internal name is {1}, paramType is {2}\n", i, finternal_name, paramTypeEnumFormat);
 		}
 		//log(" + function number {0} have internal name is {1}, id is {2}\n", i, func_internalname, func_id);

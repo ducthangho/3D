@@ -13,6 +13,9 @@
 #include "tab.h"
 #include "ymaxcoreinterface.pb.h"
 #include "convert.h"
+#include "XRef/iXrefObjMgr.h"
+#include "XRef/iXrefProxy.h"
+#include "XRef/iXrefObj.h"
 #define LOG_ENABLE
 
 using namespace logserver;
@@ -611,68 +614,136 @@ void xref_low_error(std::wstring project_path, std::wstring pname) {
 //	
 //}
 
-inline void xref_low(std::wstring project_path, std::wstring pname) {
-	FPInterface* fpInterface = GetCOREInterface(OBJXREFMGR_INTERFACE_ID);
+template <class DstType, class SrcType>
+bool IsType(const SrcType* src)
+{
+	return dynamic_cast<const DstType*>(src) != 0;
+}
+
+inline void xref_low_2(std::wstring project_path, std::wstring pname) {
+	FPInterface* iObjXrefMGR = GetCOREInterface(OBJXREFMGR_INTERFACE_ID);
 	FPParams p(1, DUPOBJNAMEACTION_IOBJXREFMGR_TYPEPARAM, OBJXREFMGR_ENUM3::deleteOld);
-	fpInterface->Invoke(DUPOBJNAMEACTION_IOBJXREFMGR_SETTER, &p);
+	iObjXrefMGR->Invoke(DUPOBJNAMEACTION_IOBJXREFMGR_SETTER, &p);
 
 	auto* ip = GetCOREInterface16();
 	INodeTab selectedINodes;
 	ip->GetSelNodeTab(selectedINodes);
-	Tab<MSTR*> objNames;
-	Tab<const MCHAR*> objNames_mchartype;
+
+	Tab<const MCHAR*> objNames;
 	auto numNodeSelection = selectedINodes.Count();
 	objNames.Resize(numNodeSelection);
-	objNames_mchartype.Resize(numNodeSelection);
-	LOG("count is {}\n", numNodeSelection);
-	for (int i = 0; i < numNodeSelection; i++)
-	{
-		auto inode = selectedINodes[i];
-		//auto name = const_cast<wchar_t*>(inode->GetName());
-		auto name = inode->NodeName();
-		auto pname = &name;
-		objNames.Append(1, &pname);
-		//LOG(obj_names[i]->data());
-		LOG(objNames[i]->data()); LOG("\n");
-		auto name_wcharType = inode->GetName();
-		objNames_mchartype.Append(1, &name_wcharType);
-		LOG(objNames_mchartype[i]); LOG("\n");
-	}
+	
+	FPParams pAddXrefItemFromFile;
+	FPValue pFileName;
+	std::wstring filename = (project_path + L"\\" + pname + L"_high.max");
+	pFileName.type = FILENAME_ADDXREFITEMSFROMFILE_IOBJXREFMGR_PARAM1_TYPE;
+	pFileName.s = filename.data();
+	pAddXrefItemFromFile.params.append(pFileName);
 
-	FPParams fnParams;
-	FPValue param1;
-	std::wstring filename = (project_path + L"\\" + pname + L"_low0.max");
-	param1.type = FILENAME_ADDXREFITEMSFROMFILE_IOBJXREFMGR_PARAM1_TYPE;
-	param1.s = filename.data();
-	fnParams.params.append(param1);
+	FPValue pPromptObjNames;
+	pPromptObjNames.type = PROMPTOBJNAMES_ADDXREFITEMSFROMFILE_IOBJXREFMGR_PARAM2_TYPE;
+	pPromptObjNames.b = false;
+	pAddXrefItemFromFile.params.append(pPromptObjNames);
 
-	FPValue param2;
-	param2.type = PROMPTOBJNAMES_ADDXREFITEMSFROMFILE_IOBJXREFMGR_PARAM2_TYPE;
-	param2.b = false;
-	fnParams.params.append(param2);
-
-	FPValue param3;	
-	param3.InitTab(OBJNAMES_ADDXREFITEMSFROMFILE_IOBJXREFMGR_PARAM3_TYPE, numNodeSelection);
-	auto ptr = param3.s_tab;
+	FPValue pObjName;
+	pObjName.InitTab(OBJNAMES_ADDXREFITEMSFROMFILE_IOBJXREFMGR_PARAM3_TYPE, numNodeSelection);
+	auto ptr = pObjName.s_tab;
 	for (int i = 0; i < ptr->Count(); ++i) {
-		//std::string s = ws2s(sourceFile_Files[i]);
-		//LOG("BBB {0} {1}\n", i, s.c_str());
-		(*ptr)[i] = objNames_mchartype[i];
+		auto selectedNode = selectedINodes[i];		
+		(*ptr)[i] = selectedNode->GetName();
 	}
-	param3.LoadPtr(ParamType2::TYPE_STRING_TAB_BV, &objNames_mchartype);
-	//param3.Load(ParamType2::TYPE_STRING_TAB_BV,&sourceFile_Files);
-	for (int i = 0; i < objNames_mchartype.Count(); ++i) {
-		std::string s = ws2s(objNames_mchartype[i]);
-		LOG("Aha hehe {0} {1}\n", i, s.c_str());
-	}
-	fnParams.params.append(param3);
+	pAddXrefItemFromFile.params.append(pObjName);
 
-	FPValue param4;
-	param4.InitTab(XREFOPTIONS_ADDXREFITEMSFROMFILE_IOBJXREFMGR_PARAM4_TYPE, 0);
-	fnParams.params.append(param4);
+	FPValue pxrefOptions;
+	pxrefOptions.InitTab(XREFOPTIONS_ADDXREFITEMSFROMFILE_IOBJXREFMGR_PARAM4_TYPE, 0);
+	pAddXrefItemFromFile.params.append(pxrefOptions);
 	
 	FPValue result;
-	fpInterface->Invoke(ADDXREFITEMSFROMFILE_IOBJXREFMGR, result, &fnParams);
+	iObjXrefMGR->Invoke(ADDXREFITEMSFROMFILE_IOBJXREFMGR, result, &pAddXrefItemFromFile);
+
+	FPInterface* IXrefRecord = result.fpi;
+	
+	if (IXrefRecord != nullptr)
+	{
+		FPParams pGetItems;	
+		FPValue pTypes;
+
+		//FPInterfaceDesc* interfaceDesc = IXrefRecord->GetDesc();
+		//generateInterfaceFuntionsID2(interfaceDesc);
+		
+
+// 		pTypes.InitTab(TYPES_GETITEMS_IIXREFRECORD_PARAM1_TYPE, 1);		
+// 		(*pTypes.i_tab)[0] = (int)ENUM1_IXREFRECORD::XRefObjectType;
+// 		pGetItems.params.append(&pTypes,1);		
+
+		pGetItems.params.append(&pTypes, 1);	
+		auto& param1 = pGetItems.params[0];
+		param1.InitTab(TYPES_GETITEMS_IIXREFRECORD_PARAM1_TYPE, 1);
+		(*param1.i_tab)[0] = (int)ENUM1_IXREFRECORD::XRefObjectType;
+	
+//  		FPValue pXrefItems;		
+//  		pXrefItems.InitTab(XREFITEMS_GETITEMS_IIXREFRECORD_PARAM2_TYPE, 1);
+//  		pGetItems.params.append(&pXrefItems,1);
+	
+ 	//	FPValue pXrefItems;
+		//Tab<ReferenceTarget*>* tabRefTarg = new Tab<ReferenceTarget*>();
+		//tabRefTarg->SetCount(1,true);
+		////tabRefTarg->Init();
+		////tabRefTarg->ZeroCount();
+		////tabRefTarg->Delete(0, 1);
+ 	//	LOG("Count tabRefTarg element is {}\n", tabRefTarg->Count());
+ 	//	pXrefItems.type = XREFITEMS_GETITEMS_IIXREFRECORD_PARAM2_TYPE;
+ 	//	pXrefItems.r_tab = tabRefTarg;
+ 	//	pGetItems.params.append(&pXrefItems, 1);
+		//pGetItems.params[1].r_tab->Delete(0, 1);
+		//FPValue result;
+		//IXrefRecord->Invoke(GETITEMS_IIXREFRECORD, result, &pGetItems);
+		
+		FPValue pXrefItems;				
+		pGetItems.params.append(&pXrefItems,1);
+		auto& param2 = pGetItems.params[1];
+		param2.InitTab(XREFITEMS_GETITEMS_IIXREFRECORD_PARAM2_TYPE, 0);
+
+		IXrefRecord->Invoke(GETITEMS_IIXREFRECORD, result, &pGetItems);
+		//LOG("first item in original is {}\n", (*pXrefItems.r_tab)[0] != nullptr);
+		//LOG("number of item in original is {}\n", pXrefItems.r_tab->Count());
+		if (param2.r_tab != nullptr)
+		{			
+			for (int i = 0; i < param2.r_tab->Count(); i++)
+			{
+				auto item = (*param2.r_tab)[i];				
+		
+				FPParams pSetProxyItemSrcFile;
+				FPValue pitem;
+				pSetProxyItemSrcFile.params.append(&pitem, 1);
+				auto& p1 = pSetProxyItemSrcFile.params[0];
+				p1.type = PROXYITEM_SETPROXYITEMSRCFILE_IOBJXREFMGR_PARAM1_TYPE;
+				p1.r = item;
+
+				FPValue pFileName;
+				pSetProxyItemSrcFile.params.append(&pFileName,1);
+				auto& p2 = pSetProxyItemSrcFile.params[1];
+				p2.type = FILENAME_SETPROXYITEMSRCFILE_IOBJXREFMGR_PARAM2_TYPE;
+				std::wstring proxyFile = (project_path + L"\\" + pname + L"_low0.max");
+				p2.s = proxyFile.c_str();
+
+				FPValue result;
+				iObjXrefMGR->Invoke(SETPROXYITEMSRCFILE_IOBJXREFMGR, result, &pSetProxyItemSrcFile);
+				
+				
+				IXRefObject *ix = (IXRefObject8 *)item;
+
+				auto objName = ix->GetCurObjName();				
+				
+				auto iXrefProxy = IXRefProxy::GetInterface(*item);
+
+				FPParams proxyItemName(1, PROXYITEMNAME_IIXREFPROXY_TYPEPARAM, objName.data());
+				iXrefProxy->Invoke(PROXYITEMNAME_IIXREFPROXY_SETTER,&proxyItemName);
+			}
+		}
+		else LOG("r_tab is nullptr\n"); 		
+	}
+		
 
 	//const wchar_t* vfilename = s2ws(filename).data();
 	//Tab<int> a;
@@ -685,6 +756,103 @@ inline void xref_low(std::wstring project_path, std::wstring pname) {
 		
 // 	FPValue result;
 // 	fpInterface->Invoke(ADDXREFITEMSFROMFILE_IOBJXREFMGR, result, &AddXRefItemsFromFile);
+}
+
+inline void xref_low(std::wstring project_path, std::wstring pname) {
+	FPInterface* iObjXrefMGR = GetCOREInterface(OBJXREFMGR_INTERFACE_ID);
+	FPParams p(1, DUPOBJNAMEACTION_IOBJXREFMGR_TYPEPARAM, OBJXREFMGR_ENUM3::deleteOld);
+	iObjXrefMGR->Invoke(DUPOBJNAMEACTION_IOBJXREFMGR_SETTER, &p);
+
+	auto* ip = GetCOREInterface16();
+	INodeTab selectedINodes;
+	ip->GetSelNodeTab(selectedINodes);
+
+	Tab<const MCHAR*> objNames;
+	auto numNodeSelection = selectedINodes.Count();
+	objNames.Resize(numNodeSelection);
+
+	FPParams pAddXrefItemFromFile;
+	FPValue pFileName;
+	std::wstring filename = (project_path + L"\\" + pname + L"_high.max");
+	pFileName.type = FILENAME_ADDXREFITEMSFROMFILE_IOBJXREFMGR_PARAM1_TYPE;
+	pFileName.s = filename.data();
+	pAddXrefItemFromFile.params.append(pFileName);
+
+	FPValue pPromptObjNames;
+	pPromptObjNames.type = PROMPTOBJNAMES_ADDXREFITEMSFROMFILE_IOBJXREFMGR_PARAM2_TYPE;
+	pPromptObjNames.b = false;
+	pAddXrefItemFromFile.params.append(pPromptObjNames);
+
+	FPValue pObjName;
+	pObjName.InitTab(OBJNAMES_ADDXREFITEMSFROMFILE_IOBJXREFMGR_PARAM3_TYPE, numNodeSelection);
+	auto ptr = pObjName.s_tab;
+	for (int i = 0; i < ptr->Count(); ++i) {
+		auto selectedNode = selectedINodes[i];
+		(*ptr)[i] = selectedNode->GetName();
+	}
+	pAddXrefItemFromFile.params.append(pObjName);
+
+	FPValue pxrefOptions;
+	pxrefOptions.InitTab(XREFOPTIONS_ADDXREFITEMSFROMFILE_IOBJXREFMGR_PARAM4_TYPE, 0);
+	pAddXrefItemFromFile.params.append(pxrefOptions);
+
+	FPValue result;
+	iObjXrefMGR->Invoke(ADDXREFITEMSFROMFILE_IOBJXREFMGR, result, &pAddXrefItemFromFile);
+
+	FPInterface* IXrefRecord = result.fpi;
+
+	if (IXrefRecord != nullptr)
+	{
+		FPParams pGetItems;
+		FPValue pTypes;
+
+		pGetItems.params.append(&pTypes, 1);
+		auto& param1 = pGetItems.params[0];
+		param1.InitTab(TYPES_GETITEMS_IIXREFRECORD_PARAM1_TYPE, 1);
+		(*param1.i_tab)[0] = (int)ENUM1_IXREFRECORD::XRefObjectType;
+
+		FPValue pXrefItems;
+		pGetItems.params.append(&pXrefItems, 1);
+		auto& param2 = pGetItems.params[1];
+		param2.InitTab(XREFITEMS_GETITEMS_IIXREFRECORD_PARAM2_TYPE, 0);
+
+		IXrefRecord->Invoke(GETITEMS_IIXREFRECORD, result, &pGetItems);
+		if (param2.r_tab != nullptr)
+		{
+			for (int i = 0; i < param2.r_tab->Count(); i++)
+			{
+				auto item = (*param2.r_tab)[i];
+
+				FPParams pSetProxyItemSrcFile;
+				FPValue pitem;
+				pSetProxyItemSrcFile.params.append(&pitem, 1);
+				auto& p1 = pSetProxyItemSrcFile.params[0];
+				p1.type = PROXYITEM_SETPROXYITEMSRCFILE_IOBJXREFMGR_PARAM1_TYPE;
+				p1.r = item;
+
+				FPValue pFileName;
+				pSetProxyItemSrcFile.params.append(&pFileName, 1);
+				auto& p2 = pSetProxyItemSrcFile.params[1];
+				p2.type = FILENAME_SETPROXYITEMSRCFILE_IOBJXREFMGR_PARAM2_TYPE;
+				std::wstring proxyFile = (project_path + L"\\" + pname + L"_low0.max");
+				p2.s = proxyFile.c_str();
+
+				FPValue result;
+				iObjXrefMGR->Invoke(SETPROXYITEMSRCFILE_IOBJXREFMGR, result, &pSetProxyItemSrcFile);
+
+
+				IXRefObject *ix = (IXRefObject8 *)item;
+
+				auto objName = ix->GetCurObjName();
+
+				auto iXrefProxy = IXRefProxy::GetInterface(*item);
+
+				FPParams proxyItemName(1, PROXYITEMNAME_IIXREFPROXY_TYPEPARAM, objName.data());
+				iXrefProxy->Invoke(PROXYITEMNAME_IIXREFPROXY_SETTER, &proxyItemName);
+			}
+		}
+		else LOG("r_tab is nullptr\n");
+	}
 }
 
 void LayerInterfaceExample()
@@ -737,6 +905,82 @@ void LayerInterfaceExample()
 	}
 }
 
+void  TestCallMyFP()
+{
+	Interface_ID FP_BASIC_INTERFACE(0x7d0c759f, 0x7714b4b);
+	//auto iFP = GetCOREInterface(FP_BASIC_INTERFACE);
+	Class_ID fp_basics_CLASS_ID(0x3f869fdf, 0x63e46b8e);
+	auto iFP = GetInterface(0x0010e0, fp_basics_CLASS_ID, FP_BASIC_INTERFACE);
+	//LOG("is iFP == null? {}", (iFP == nullptr));
+	//generateInterfaceFuntionsID2(iFP->GetDesc());
+	
+	//FPParams pMyTestFunction3;
+	//FPValue px;
+	//px.type = (ParamType2)X_MYTESTFUNCTION3_IFPBASICS_PARAM1_TYPE;
+	//int a = 10;
+	//px.i = a;
+	//pMyTestFunction3.params.append(px);
+	//iFP->Invoke(MYTESTFUNCTION3_IFPBASICS,&pMyTestFunction3);
+
+// 	FPParams pMyTestFunction3;
+// 	FPValue px2;
+// 	px2.type = (ParamType2)X_MYTESTFUNCTION2_IFPBASICS_PARAM1_TYPE;
+// 	int a = 10;
+// 	px2.iptr = &a;
+// 	pMyTestFunction3.params.append(px2);
+// 	iFP->Invoke(MYTESTFUNCTION2_IFPBASICS, &pMyTestFunction3);
+// 	LOG("a now is {}",a);
+
+	//FPParams pMyFunction4;
+	//FPValue pListRect4;
+	//Tab<float>* a = new Tab<float>();
+	//float f = 20;
+	//a->Append(1, &f);
+	//pListRect4.type = LISTRECT_MYFUNCTION4_IFPBASICS_PARAM1_TYPE;
+	//pListRect4.f_tab = a;
+	//pMyFunction4.params.append(pListRect4);
+	//iFP->Invoke(MYFUNCTION4_IFPBASICS, &pMyFunction4);
+
+	//FPValue *pListRect3 = new FPValue();
+	//Tab<float>* a = new Tab<float>();
+	//float f = 20;
+	//a->Append(1, &f);
+	//pListRect3->type = LISTRECT_MYFUNCTION3_IFPBASICS_PARAM1_TYPE;
+	//pListRect3->f_tab = a;
+	////pListRect3->LoadPtr(LISTRECT_MYFUNCTION3_IFPBASICS_PARAM1_TYPE, a);
+	//FPParams pMyFunction3(1, LISTRECT_MYFUNCTION3_IFPBASICS_PARAM1_TYPE, a);
+	//iFP->Invoke(MYFUNCTION3_IFPBASICS, &pMyFunction3);
+	//LOG("f now is {}, f_tab !=null ?? {}\n", f, pListRect3->f_tab != nullptr);
+	//LOG("value now is {}\n", (*pListRect3->f_tab)[0]);
+
+// 	FPValue *pListRect4 = new FPValue();
+// 	Tab<float>* tabfloat = new Tab<float>();
+// 	float f = 20;
+// 	tabfloat->Append(1, &f);
+// 	pListRect4->InitTab(LISTRECT_MYFUNCTION4_IFPBASICS_PARAM1_TYPE, 1);
+// 	(*pListRect4->f_tab)[0] = 20;
+// 
+// 	FPParams pMyFunction4;
+// 	pMyFunction4.params.append(pListRect4, 1);
+// 	iFP->Invoke(MYFUNCTION4_IFPBASICS, &pMyFunction4);
+// 	LOG("value now is {}\n", (*pMyFunction4.params[0].f_tab)[0]);
+// 	LOG("value from origin FPValue is {}\n", (*(pListRect4->f_tab))[0]);
+
+
+	FPValue pListRect3;
+ 	pListRect3.InitTab(LISTRECT_MYFUNCTION3_IFPBASICS_PARAM1_TYPE, 1);
+ 	(*pListRect3.f_tab)[0] = 20;
+ 
+ 	FPParams pMyFunction3;
+ 	pMyFunction3.params.append(&pListRect3, 1);
+ 	iFP->Invoke(MYFUNCTION3_IFPBASICS, &pMyFunction3);
+
+	LOG("number item now is {}\n", (*pMyFunction3.params[0].f_tab).Count());
+	LOG("value now is {}\n", (*pMyFunction3.params[0].f_tab)[0]);
+	LOG("value from origin FPValue is {}\n", (*(pListRect3.f_tab))[0]);
+
+	
+}
 
 Status YServiceTestImpl::MTest1(ServerContext* context, const EmptyParam* request, EmptyParam* reply)
 {
@@ -765,19 +1009,19 @@ Status YServiceTestImpl::MTest1(ServerContext* context, const EmptyParam* reques
 		//generateInterfaceFuntionsID2(OBJXREFMGR_INTERFACE_ID);
 		//generateInterfaceFuntionsID2(ISOLATESELECTION_INTERFACE_ID);
 	
-		setIsolate(true);
+		//setIsolate(true);
 
 		//LayerInterfaceExample();
 		//y3d::IBatchProOptimizer y;
 		//BatchProOptimizer(y);
 		/*GetCOREInterface16()->load*/
 		//std::wstring oFileDir = L"F:\\WorkSpace\\3Ds Max\\Building Phong Tam Project\\scenes\\TestProOptimizerScene";
-		std::string oFileDir = "F:\\WorkSpace\\3Ds Max\\Building Phong Tam Project\\scenes\\TestProOptimizerScene";
+		//std::string oFileDir = "F:\\WorkSpace\\3Ds Max\\Building Phong Tam Project\\scenes\\TestProOptimizerScene";
  		//std::wstring projectPath = L"F:\\WorkSpace\\3Ds Max\\Building Phong Tam Project\\scenes\\TestProOptimizerScene";
-		std::string projectPath = "F:\\WorkSpace\\3Ds Max\\Building Phong Tam Project\\scenes\\TestProOptimizerScene";
- 		std::string oFileName = "001";
-// 		xref_low(projectPath, oFileName);
-
+ 		std::wstring projectPath = L"F:\\WorkSpace\\3Ds Max\\Building Phong Tam Project\\scenes\\TestProOptimizerScene";
+  		std::wstring pname = L"001";
+  		xref_low(projectPath, pname);
+		//TestCallMyFP();
 		//ProjectInfo pi;
 		//pi.set_project_path(projectPath);
 		//pi.set_pname(oFileName);
@@ -796,8 +1040,8 @@ Status YServiceTestImpl::MTest1(ServerContext* context, const EmptyParam* reques
 
  		//std::string maxFile = projectPath + "\\" + oFileName + "90.max";
 // 		GetCOREInterface16()->LoadFromFile(s2ws(maxFile).data(), Interface8::LoadFromFileFlags::kSuppressPrompts&Interface8::LoadFromFileFlags::kUseFileUnits);
-		auto ip16 = GetCOREInterface16();
-		TestCreateLayer();
+		//auto ip16 = GetCOREInterface16();
+		//TestCreateLayer();
 // 		bool isquiet = ip16->GetQuietMode();
 // 		LOG("is quiet {}", isquiet);
 // 		QuietMode a;

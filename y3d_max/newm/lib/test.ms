@@ -85,26 +85,27 @@ fn test2 =
 )
 
 
-fn xref_low oFileDir oFileName= 
+fn xref_low oFileDir oFileName = 
 (
-	print (oFileDir +"\\"+ oFileName);
-	oNames = #()
-	for ss in selection do 
-		(
-			append oNames ss.name
-		)
-	objXRefMgr.dupObjNameAction  = #deleteOld
-	xref_b = objXRefMgr.AddXRefItemsFromFile (oFileDir +"\\"+ oFileName + "_low0.max") objNames:oNames
-	-- items = #()
-	-- xref_b.GetItems #XRefObjectType &items
-	-- for item in items do 
-	-- 	(
-	-- 		objXRefMgr.SetProxyItemSrcFile item (oFileDir +"\\"+ oFileName + "_high.max")
-	-- 		item.proxyItemName = item.objectName
-	-- 	)		
-	-- delete not HL
-	-- loadMaxFile strStudioFile useFileUnits:true --load the latest lighting file
-	-- mergeMaxFile strFile #select #noRedraw #mergeDups #useMergedMtlDups #neverReparent --merge in everything from the hold-file
+		print (oFileDir +"\\"+ oFileName);
+		oNames = #()
+		for ss in selection do 
+			(
+				append oNames ss.name
+			)
+		objXRefMgr.dupObjNameAction  = #deleteOld
+		xref_b = objXRefMgr.AddXRefItemsFromFile (oFileDir +"\\"+ oFileName + "_high.max") objNames:oNames
+		items = #()
+		xref_b.GetItems #XRefObjectType &items
+		for item in items do 
+			(
+				objXRefMgr.SetProxyItemSrcFile item (oFileDir +"\\"+ oFileName + "_low0.max")
+				item.proxyItemName = item.objectName
+				--item.displayProxy = true;
+			)		
+		-- delete not HL
+		-- loadMaxFile strStudioFile useFileUnits:true --load the latest lighting file
+		-- mergeMaxFile strFile #select #noRedraw #mergeDups #useMergedMtlDups #neverReparent --merge in everything from the hold-file
 )
 
 
@@ -127,11 +128,12 @@ fn setIsolateLayer layer_name =
 	IsolateSelection.EnterIsolateSelectionMode()
 ) 
 
-
 fn test = 
 (
-	nodes = selection
-	CreateLayer nodes "aa001" 
+	local oFildeDir = "F:\\WorkSpace\\3Ds Max\\Building Phong Tam Project\\scenes\\TestProOptimizerScene";
+	local oFileName = "001"
+	print "here"
+	xref_low oFildeDir oFileName
 )
 
 fn LowPolyUseProOptimizer objName ratio:20= 

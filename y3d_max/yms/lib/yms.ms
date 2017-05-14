@@ -288,6 +288,7 @@ if yms_init != true then
 			xref_b.GetItems #XRefObjectType &items
 			for item in items do 
 				(
+					
 					objXRefMgr.SetProxyItemSrcFile item (oFileDir +"\\"+ oFileName + "_low0.max")
 					item.proxyItemName = item.objectName
 					--item.displayProxy = true;
