@@ -6,6 +6,9 @@
 #include <ppl.h>
 #include <ppltasks.h>
 #include <array>
+#include "XRef/iXrefObjMgr.h"
+#include "XRef/iXrefProxy.h"
+#include "XRef/iXrefObj.h"
 
 #ifdef _RESUMABLE_FUNCTIONS_SUPPORTED
 #include <experimental/resumable>
@@ -258,9 +261,103 @@ inline void DoXrefHigh(ProjectInfo* pi) {
 	ip->FileSave();
 }
 
-inline void xref_low(std::string project_path, std::string pname) {
+inline void xref_low(std::wstring project_path, std::wstring pname) {
+	FPInterface* iObjXrefMGR = GetCOREInterface(OBJXREFMGR_INTERFACE_ID);
+	FPParams p(1, DUPOBJNAMEACTION_IOBJXREFMGR_TYPEPARAM, OBJXREFMGR_ENUM3::deleteOld);
+	iObjXrefMGR->Invoke(DUPOBJNAMEACTION_IOBJXREFMGR_SETTER, &p);
 
+	auto* ip = GetCOREInterface16();
+	INodeTab selectedINodes;
+	ip->GetSelNodeTab(selectedINodes);
+
+	Tab<const MCHAR*> objNames;
+	auto numNodeSelection = selectedINodes.Count();
+	objNames.Resize(numNodeSelection);
+
+	FPParams pAddXrefItemFromFile;
+	FPValue pFileName;
+	std::wstring filename = (project_path + L"\\" + pname + L"_high.max");
+	pFileName.type = FILENAME_ADDXREFITEMSFROMFILE_IOBJXREFMGR_PARAM1_TYPE;
+	pFileName.s = filename.data();
+	pAddXrefItemFromFile.params.append(pFileName);
+
+	FPValue pPromptObjNames;
+	pPromptObjNames.type = PROMPTOBJNAMES_ADDXREFITEMSFROMFILE_IOBJXREFMGR_PARAM2_TYPE;
+	pPromptObjNames.b = false;
+	pAddXrefItemFromFile.params.append(pPromptObjNames);
+
+	FPValue pObjName;
+	pObjName.InitTab(OBJNAMES_ADDXREFITEMSFROMFILE_IOBJXREFMGR_PARAM3_TYPE, numNodeSelection);
+	auto ptr = pObjName.s_tab;
+	for (int i = 0; i < ptr->Count(); ++i) {
+		auto selectedNode = selectedINodes[i];
+		(*ptr)[i] = selectedNode->GetName();
+	}
+	pAddXrefItemFromFile.params.append(pObjName);
+
+	FPValue pxrefOptions;
+	pxrefOptions.InitTab(XREFOPTIONS_ADDXREFITEMSFROMFILE_IOBJXREFMGR_PARAM4_TYPE, 0);
+	pAddXrefItemFromFile.params.append(pxrefOptions);
+
+	FPValue result;
+	iObjXrefMGR->Invoke(ADDXREFITEMSFROMFILE_IOBJXREFMGR, result, &pAddXrefItemFromFile);
+
+	FPInterface* IXrefRecord = result.fpi;
+
+	if (IXrefRecord != nullptr)
+	{
+		FPParams pGetItems;
+		FPValue pTypes;
+
+		pGetItems.params.append(&pTypes, 1);
+		auto& param1 = pGetItems.params[0];
+		param1.InitTab(TYPES_GETITEMS_IIXREFRECORD_PARAM1_TYPE, 1);
+		(*param1.i_tab)[0] = (int)ENUM1_IXREFRECORD::XRefObjectType;
+
+		FPValue pXrefItems;
+		pGetItems.params.append(&pXrefItems, 1);
+		auto& param2 = pGetItems.params[1];
+		param2.InitTab(XREFITEMS_GETITEMS_IIXREFRECORD_PARAM2_TYPE, 0);
+
+		IXrefRecord->Invoke(GETITEMS_IIXREFRECORD, result, &pGetItems);
+		if (param2.r_tab != nullptr)
+		{
+			for (int i = 0; i < param2.r_tab->Count(); i++)
+			{
+				auto item = (*param2.r_tab)[i];
+
+				FPParams pSetProxyItemSrcFile;
+				FPValue pitem;
+				pSetProxyItemSrcFile.params.append(&pitem, 1);
+				auto& p1 = pSetProxyItemSrcFile.params[0];
+				p1.type = PROXYITEM_SETPROXYITEMSRCFILE_IOBJXREFMGR_PARAM1_TYPE;
+				p1.r = item;
+
+				FPValue pFileName;
+				pSetProxyItemSrcFile.params.append(&pFileName, 1);
+				auto& p2 = pSetProxyItemSrcFile.params[1];
+				p2.type = FILENAME_SETPROXYITEMSRCFILE_IOBJXREFMGR_PARAM2_TYPE;
+				std::wstring proxyFile = (project_path + L"\\" + pname + L"_low0.max");
+				p2.s = proxyFile.c_str();
+
+				FPValue result;
+				iObjXrefMGR->Invoke(SETPROXYITEMSRCFILE_IOBJXREFMGR, result, &pSetProxyItemSrcFile);
+
+
+				IXRefObject *ix = (IXRefObject8 *)item;
+
+				auto objName = ix->GetCurObjName();
+
+				auto iXrefProxy = IXRefProxy::GetInterface(*item);
+
+				FPParams proxyItemName(1, PROXYITEMNAME_IIXREFPROXY_TYPEPARAM, objName.data());
+				iXrefProxy->Invoke(PROXYITEMNAME_IIXREFPROXY_SETTER, &proxyItemName);
+			}
+		}
+		else LOG("r_tab is nullptr\n");
+	}
 }
+
 
 inline void LayerInterfaceExample()
 {
