@@ -479,23 +479,24 @@ void DoYEvent(YEvent ye) {
 		//}
 	}
 	else if (ye.has_isolate()) {
-		auto ii = ye.isolate();
-		if (ii.endisolate()) {
-			setIsolate(false);
-			//auto cmd = L"IsolateSelection.ExitIsolateSelectionMode()";
-			//ExecuteMAXScriptScript(cmd);
-		}
-		else if (!ii.name().empty()) {
-			auto name_select = ii.name();
-			auto n = ip->GetINodeByName(s2ws(name_select).c_str());
-			ip->SelectNode(n);
-			setIsolate(true);
-			//auto cmd = L"actionMan.executeAction 0 \"197\";";
-			//ExecuteMAXScriptScript(cmd);
-		}
-		else if (!ii.layer().empty()) {
-			setIsolateLayer(ii.layer());
-		}
+		do_isolate(ye.isolate());
+		//auto ii = ye.isolate();
+		//if (ii.endisolate()) {
+		//	setIsolate(false);
+		//	//auto cmd = L"IsolateSelection.ExitIsolateSelectionMode()";
+		//	//ExecuteMAXScriptScript(cmd);
+		//}
+		//else if (!ii.name().empty()) {
+		//	auto name_select = ii.name();
+		//	auto n = ip->GetINodeByName(s2ws(name_select).c_str());
+		//	ip->SelectNode(n);
+		//	setIsolate(true);
+		//	//auto cmd = L"actionMan.executeAction 0 \"197\";";
+		//	//ExecuteMAXScriptScript(cmd);
+		//}
+		//else if (!ii.layer().empty()) {
+		//	setIsolateLayer(ii.layer());
+		//}
 
 	}
 	else if (ye.has_close()) {
@@ -634,6 +635,8 @@ void MyNodeEventCB::SelectionChanged(NodeKeyTab & nodes)
 			LOG("On next {} \n",reply.msg());
 		});
 		events.publish(ye);
+
+
 		//events.complete();
 		//events.unsubscribe();
 /*		auto obv = rx::observable<>::iterate(events);		
@@ -867,6 +870,38 @@ BOOL load_test(InitTestParam x) {
 	LOG("\nLoad test:{}",x.oname());
 	auto* ip = GetCOREInterface();
 	auto data_path = formatWS("{0}\\{1}_data.max", x.test_folder(), x.oname()).c_str();
-	ip->MergeFromFile(data_path, TRUE);
+
+	auto xx = fmt::format("{0}\\{1}_data.max", x.test_folder(), x.oname());
+	LOG("\nTest Data Path:{}", xx);
+	ip->MergeFromFile(s2ws(xx).c_str(), TRUE);
+
+	YEvent ye;
+	EIsolate iso;
+	iso.set_endisolate(false);
+	iso.set_layer(fmt::format("{0}_{1}",x.oname(),x.id()));
+	ye.mutable_isolate()->CopyFrom(iso);
+	DoYEvent(ye);
+
+	return TRUE;
+}
+
+BOOL do_isolate(const EIsolate iso) {
+	auto* ip = GetCOREInterface();
+	if (iso.endisolate()) {
+		setIsolate(false);
+		//auto cmd = L"IsolateSelection.ExitIsolateSelectionMode()";
+		//ExecuteMAXScriptScript(cmd);
+	}
+	else if (!iso.name().empty()) {
+		auto name_select = iso.name();
+		auto n = ip->GetINodeByName(s2ws(name_select).c_str());
+		ip->SelectNode(n);
+		setIsolate(true);
+		//auto cmd = L"actionMan.executeAction 0 \"197\";";
+		//ExecuteMAXScriptScript(cmd);
+	}
+	else if (!iso.layer().empty()) {
+		setIsolateLayer(iso.layer());
+	}
 	return TRUE;
 }

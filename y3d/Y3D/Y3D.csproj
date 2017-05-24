@@ -118,6 +118,13 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Projects\TestStepPattern.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Projects\TestStepPattern.Designer.cs">
+      <DependentUpon>TestStepPattern.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Projects\TestStepPatternFactory.cs" />
     <Compile Include="Projects\YEventUtils.cs" />
     <Compile Include="Projects\LowBlenderControl.cs">
       <SubType>UserControl</SubType>
@@ -211,6 +218,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Projects\TestInitForm.resx">
       <DependentUpon>TestInitForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Projects\TestStepPattern.resx">
+      <DependentUpon>TestStepPattern.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Users\AuthForm.resx">
       <DependentUpon>AuthForm.cs</DependentUpon>

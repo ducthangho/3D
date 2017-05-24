@@ -14,6 +14,8 @@ namespace Y3D.Projects
     public partial class TestDetailControl : UserControl
     {
         public y3d.e.VerTest vtest = null;
+
+        private IDisposable _subUpdateStepButton = null;
         public TestDetailControl()
         {
             InitializeComponent();
@@ -23,6 +25,14 @@ namespace Y3D.Projects
                 Utils.CurrentTest.HasLow = has;
                 btnLow.BackColor = getButtonColor(has);
             };
+
+            _subUpdateStepButton = YEventUtils.UpdateStepButton.Subscribe(
+                b =>
+                {
+                    
+                }
+
+            );
 
         }
 

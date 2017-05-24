@@ -33,7 +33,8 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.cmbLowType = new MetroFramework.Controls.MetroComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.labelNoSetting = new System.Windows.Forms.Label();
+            this.lowSettingContainer = new System.Windows.Forms.TableLayoutPanel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -97,26 +98,41 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "App";
             // 
-            // label2
+            // labelNoSetting
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.label2.Location = new System.Drawing.Point(65, 178);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(133, 29);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "(no setting)";
+            this.labelNoSetting.AutoSize = true;
+            this.labelNoSetting.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNoSetting.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.labelNoSetting.Location = new System.Drawing.Point(65, 178);
+            this.labelNoSetting.Name = "labelNoSetting";
+            this.labelNoSetting.Size = new System.Drawing.Size(133, 29);
+            this.labelNoSetting.TabIndex = 3;
+            this.labelNoSetting.Text = "(no setting)";
+            // 
+            // lowSettingContainer
+            // 
+            this.lowSettingContainer.ColumnCount = 1;
+            this.lowSettingContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.lowSettingContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.lowSettingContainer.Location = new System.Drawing.Point(0, 43);
+            this.lowSettingContainer.Name = "lowSettingContainer";
+            this.lowSettingContainer.RowCount = 1;
+            this.lowSettingContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.lowSettingContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.lowSettingContainer.Size = new System.Drawing.Size(273, 341);
+            this.lowSettingContainer.TabIndex = 4;
             // 
             // LowControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.labelNoSetting);
+            this.Controls.Add(this.lowSettingContainer);
             this.Controls.Add(this.panel1);
             this.Name = "LowControl";
             this.Size = new System.Drawing.Size(273, 384);
+            this.Load += new System.EventHandler(this.LowControl_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -130,6 +146,7 @@
         private MetroFramework.Controls.MetroComboBox cmbLowType;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelNoSetting;
+        private System.Windows.Forms.TableLayoutPanel lowSettingContainer;
     }
 }

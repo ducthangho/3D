@@ -298,6 +298,11 @@ namespace Y3D.Projects
 
         private void btnBack_Click(object sender, EventArgs e)
         {
+            //if (YEventUtils.EditMode)
+            //{
+            //    YEventUtils.endEditMode();
+            //}
+            YEventUtils.EndEdit.OnNext(null);
             panelObjList.BringToFront();
         }
 

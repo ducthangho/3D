@@ -52,13 +52,13 @@ namespace Y3D.Projects
 
         public static void displayLayer(string lname)
         {
-
             if (current_layer == lname) return;
             if (!checkMaxTools(worker)) return;
             current_layer = lname;
             YEvent ye = new YEvent();
             ye.Isolate = new EIsolate();
             ye.Isolate.Layer = lname;
+            ye.Isolate.EndIsolate = false;
             Y3D.Projects.Utils.MaxClient.DoEventAsync(ye);
         }
 
@@ -125,7 +125,6 @@ namespace Y3D.Projects
                 if (x == DialogResult.Retry) {
                     return checkMaster();
                 } 
-                return false;
             }
             return false;
         }
@@ -613,7 +612,7 @@ namespace Y3D.Projects
         }
 
         public static bool loadTest()
-        { 
+        {
             if (CurrentTest==null) return false;
             InitTestParam lt = new InitTestParam();
             lt.Id = CurrentTest.Id;
@@ -629,12 +628,16 @@ namespace Y3D.Projects
                     Y3D.Projects.Utils.MaxClient.LoadTestData(lt);
                     TestInScence[layerName] = true;
                     return true;
+                } else
+                {
+                    displayLayer(layerName);
                 }
             } else
             {
                 if (!checkMaxTools(worker)) return false;
                 Y3D.Projects.Utils.MaxClient.LoadTestData(lt);
                 TestInScence.Add(layerName, true);
+                current_layer = layerName;
                 return true;
             }
             return false;

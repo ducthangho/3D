@@ -18,9 +18,22 @@ using System.Collections.Specialized;
 
 namespace Y3D.Projects
 {
+    public class ButtonUpdateParam
+    {
+        public int id { get; set; }
+        public string action { get; set; }
+
+        public ButtonUpdateParam (int _id, string _action)
+        {
+            id = _id;
+            action = _action;
+        }
+        
+    }
+
     class YEventUtils
     {
-        static bool EditMode = false;
+        static public bool EditMode = false;
         static public bool editInCopy = true;
         //static List<YEvent> events = new List<YEvent>();
         static ObservableCollection<YEvent> events = new ObservableCollection<YEvent>();
@@ -42,6 +55,16 @@ namespace Y3D.Projects
         static public string surfix_clone_from = "_high";
         static public string surfix_save_to = "_low";
         static public string surfix_tmp = "_low_tmp";
+
+        //static public event Action<int, bool> UpdateStepButton;
+
+
+        //static public System.Reactive.Subjects.Subject<YEventList> UnPlug = new System.Reactive.Subjects.Subject<YEventList>();
+        static public System.Reactive.Subjects.Subject<YEventList> EndEdit = new System.Reactive.Subjects.Subject<YEventList>();
+        static public System.Reactive.Subjects.Subject<ButtonUpdateParam> UpdateStepButton = new System.Reactive.Subjects.Subject<ButtonUpdateParam>();
+
+
+        //static public IObservable<int> UpdateStepButton = new
         //static public async Task doStreamEvent()
         //{
         //    streamCall = Utils.MaxClient.DoStreamClient();
@@ -59,6 +82,10 @@ namespace Y3D.Projects
         //    //var last_e = events.Select(l => events.Last());
         //}
 
+        static public void onUpdateStep(string a, bool b)
+        {
+        }
+
         static public void reload(bool mode, YEventList initEvents, bool makeCopy=true)
         {
             tname = Utils.CurrentTest.Oname + "_" + Utils.CurrentTest.Id;
@@ -66,7 +93,11 @@ namespace Y3D.Projects
             if (mode)
                 startEditMode(initEvents);
             else
-                endEditMode(initEvents);
+            {
+                EndEdit.OnNext(initEvents);
+                //endEditMode(initEvents);
+            }
+                
         }
 
         static public async Task startEditMode(YEventList el)
@@ -101,8 +132,9 @@ namespace Y3D.Projects
             }
         }
 
-        static public async Task endEditMode(YEventList el)
+        static public async Task endEditMode(YEventList el=null)
         {
+            if (!EditMode) return;
             EditMode = false;
             if (subcribe_e != null) subcribe_e.Dispose();
             DialogResult dialogResult = MessageBox.Show("Do you want to save the changes?", "Apply changes", MessageBoxButtons.YesNo);
@@ -129,6 +161,7 @@ namespace Y3D.Projects
                 yel.Events.Add(clone_e);
 
                 Utils.doManyEvent(yel);
+
                 //await streamCall.RequestStream.WriteAsync(remove_e);
                 //await streamCall.RequestStream.WriteAsync(rename_e);
                 // remove save_to object and rename clone object to orginial object
@@ -152,7 +185,13 @@ namespace Y3D.Projects
                 await streamCall.RequestStream.CompleteAsync();
                 streamCall.Dispose();
             }
-            
+
+            if (dialogResult == DialogResult.Yes)
+            {
+                UpdateStepButton.OnNext(new ButtonUpdateParam(0,"CHANGE"));
+            }
+
+
         }
 
 

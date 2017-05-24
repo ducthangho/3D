@@ -12,11 +12,19 @@ using y3d.e;
 
 namespace Y3D.Projects
 {
-    public partial class LowMaxControl : UserControl
+    public partial class LowMaxControl : TestStepPattern
     {
         public y3d.e.LPoly3DMax settings = null;
         public event Action<y3d.e.LPoly3DMax> OnApply;
         public bool editMode = false;
+
+        public override string PatternName { get { return "3DMax"; } }
+        public override string SettingType { get { return "Lp3Dmax"; } }
+        public override string PatternStepType { get { return "lowpoly"; } }
+
+        private IDisposable _subUnplug;
+        private IDisposable _subEndEdit;
+
         public LowMaxControl()
         {
             InitializeComponent();
@@ -43,8 +51,9 @@ namespace Y3D.Projects
             }
         }
 
-        public void InitData(y3d.e.LPoly3DMax s)
+        override public void InitData(object o)
         {
+            var s = ((ELowpoly)o).Lp3Dmax;
             if (s == null)
             {
                 s = new y3d.e.LPoly3DMax();
@@ -55,6 +64,8 @@ namespace Y3D.Projects
             settings = s;
             barPercent.Value = s.VertexPercent;
             vertexCount.Value = s.VertexCount;
+
+            //YEventUtils.UnPlug.Subscribe();
             updateByEditMode(editMode);
         }
 
@@ -117,6 +128,29 @@ namespace Y3D.Projects
                 YEventUtils.reload(editMode, null);
             }
 
+        }
+
+        public override void Unplug()
+        {
+            YEventUtils.EndEdit.OnNext(null);
+        }
+
+        protected override void Subscribe()
+        {
+            _subEndEdit = YEventUtils.EndEdit.Subscribe(
+                el =>
+                {
+                    YEventUtils.endEditMode(el);
+                }    
+            );
+        }
+
+        private void Unsubscribe()
+        {
+            if (_subEndEdit != null)
+                _subEndEdit.Dispose();
+            if (_subUnplug != null)
+                _subUnplug.Dispose();
         }
     }
 }

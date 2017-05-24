@@ -158,7 +158,7 @@
             this.btnExpand.Name = "btnExpand";
             this.btnExpand.Size = new System.Drawing.Size(23, 23);
             this.btnExpand.TabIndex = 9;
-            this.btnExpand.Text = "<";
+            this.btnExpand.Text = ">";
             this.btnExpand.UseVisualStyleBackColor = false;
             this.btnExpand.Click += new System.EventHandler(this.btnExpand_Click);
             // 
@@ -176,7 +176,7 @@
             // 
             // objectsControl1
             // 
-            this.objectsControl1.Location = new System.Drawing.Point(0, 0);
+            this.objectsControl1.Location = new System.Drawing.Point(-200, 0);
             this.objectsControl1.Margin = new System.Windows.Forms.Padding(4);
             this.objectsControl1.Name = "objectsControl1";
             this.objectsControl1.Size = new System.Drawing.Size(505, 550);

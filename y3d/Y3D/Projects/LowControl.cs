@@ -23,48 +23,90 @@ namespace Y3D.Projects
             InitializeComponent();
         }
 
+        private TestStepPattern LowSettingControl
+        {
+            get { return (TestStepPattern)lowSettingContainer.GetControlFromPosition(0, 0); }
+            set
+            {
+                var oldControl = LowSettingControl;
+                if (oldControl != null)
+                {
+                    lowSettingContainer.Controls.Remove(oldControl);
+                    oldControl.Dispose();
+
+                    //oldControl.RawMessage -= AddMessageToRaw;
+                    //oldControl.NotificationMessage -= AddMessageToNotification;
+                }
+                if (value!=null)
+                {
+                    value.Anchor = AnchorStyles.None;
+                    lowSettingContainer.Controls.Add(value, 0, 0);
+                }
+                //value.RawMessage += AddMessageToRaw;
+                //value.NotificationMessage += AddMessageToNotification;
+            }
+        }
+
         public void InitData(y3d.e.ELowpoly ll)
         {
             elow = ll;
             if (elow!=null)
             {
                 btnAdd.Enabled = false;
+                cmbLowType.Enabled = false;
                 btnDelete.Enabled = true;
-                if (elow.LowtypeCase == y3d.e.ELowpoly.LowtypeOneofCase.Lp3Dmax)
+                //lowSettingContainer.GetControlFromPosition(0, 0);
+                var z = ((List<TestStepPatternFactory>)cmbLowType.DataSource).Find(x => x.SettingType == elow.LowtypeCase.ToString());
+                if (z != null)
                 {
-                    if (lowmax==null)
-                    {
-                        lowmax = new LowMaxControl();
-                        lowmax.Dock = DockStyle.Fill;
-                        this.Controls.Add(lowmax);
-                        lowmax.OnApply += (setting) =>
-                        {
-                            elow.Lp3Dmax = setting;
-                            Utils.UpdateLowPoly(elow);
-                            OnUpdateButton(true);
-                        };
-                    }
-                    lowmax.Show();
-                    lowmax.BringToFront();
-                    lowmax.InitData(ll.Lp3Dmax);
-                }
-                else if (elow.LowtypeCase == y3d.e.ELowpoly.LowtypeOneofCase.LpBlender)
+                    labelNoSetting.Hide();
+                    LowSettingControl = z.CreateInstance();
+                    LowSettingControl.InitData(elow);
+                } else
                 {
-                    if (lowblender == null)
-                    {
-                        lowblender = new LowBlenderControl();
-                        lowblender.Dock = DockStyle.Fill;
-                        this.Controls.Add(lowblender);
-                    }
-                    lowblender.Show();
-                    lowblender.BringToFront();
-                    lowblender.InitData(elow.LpBlender);
+                    labelNoSetting.Show();
                 }
+                //if (elow.LowtypeCase == y3d.e.ELowpoly.LowtypeOneofCase.Lp3Dmax)
+                //{
+                //    if (lowmax==null)
+                //    {
+                //        lowmax = new LowMaxControl();
+                //        lowmax.Dock = DockStyle.Fill;
+                //        //this.Controls.Add(lowmax);
+                //        lowSettingContainer.Controls.Add(lowmax);
+                //        lowmax.OnApply += (setting) =>
+                //        {
+                //            elow.Lp3Dmax = setting;
+                //            Utils.UpdateLowPoly(elow);
+                //            OnUpdateButton(true);
+                //        };
+                //    }
+                //    lowmax.Show();
+                //    lowmax.BringToFront();
+                //    lowmax.InitData(elow);
+                //}
+                //else if (elow.LowtypeCase == y3d.e.ELowpoly.LowtypeOneofCase.LpBlender)
+                //{
+                //    if (lowblender == null)
+                //    {
+                //        lowblender = new LowBlenderControl();
+                //        lowblender.Dock = DockStyle.Fill;
+                //        this.Controls.Add(lowblender);
+                //    }
+                //    lowblender.Show();
+                //    lowblender.BringToFront();
+                //    lowblender.InitData(elow);
+                //}
             } else
             {
+
                 btnAdd.Enabled = true;
+                cmbLowType.Enabled = true;
                 btnDelete.Enabled = false;
-                if (lowmax != null) lowmax.Hide();
+
+                LowSettingControl = null;
+                labelNoSetting.Show();
+                //if (lowmax != null) lowmax.Hide();
             }
         }
 
@@ -74,30 +116,66 @@ namespace Y3D.Projects
             elow = new y3d.e.ELowpoly();
             elow.Oname = Utils.CurrentTest.Oname + "_" + Utils.CurrentTest.Id + "_high";
             elow.Nname = Utils.CurrentTest.Oname + "_" + Utils.CurrentTest.Id + "_low";
-            if (cmbLowType.Text == "3DS MAX")
-            {
-                elow.Lp3Dmax = new y3d.e.LPoly3DMax();
-                elow.Lp3Dmax.VertexCount = 0;
-                elow.Lp3Dmax.VertexPercent = 50;
-            } else if (cmbLowType.Text == "BLENDER")
-            {
-                elow = new y3d.e.ELowpoly();
-                elow.LpBlender = new y3d.e.LPolyBlender();
-            }
 
-            if (cmbLowType.Text != "(none)")
-                InitData(elow);
+            var x = (TestStepPatternFactory)cmbLowType.SelectedItem;
+
+            switch (x.SettingType)
+            {
+                case "Lp3Dmax":
+                    elow.Lp3Dmax = new y3d.e.LPoly3DMax();
+                    elow.Lp3Dmax.VertexCount = 0;
+                    elow.Lp3Dmax.VertexPercent = 50;
+                    InitData(elow);
+                    OnUpdateButton(true);
+                    break;
+                case "LpBlender":
+                    elow = new y3d.e.ELowpoly();
+                    elow.LpBlender = new y3d.e.LPolyBlender();
+                    InitData(elow);
+                    OnUpdateButton(true);
+                    break;
+                default:
+                    break;
+            }
+            //if (cmbLowType == "3DS MAX")
+            //{
+            //    elow.Lp3Dmax = new y3d.e.LPoly3DMax();
+            //    elow.Lp3Dmax.VertexCount = 0;
+            //    elow.Lp3Dmax.VertexPercent = 50;
+            //} else if (cmbLowType.Text == "BLENDER")
+            //{
+            //    elow = new y3d.e.ELowpoly();
+            //    elow.LpBlender = new y3d.e.LPolyBlender();
+            //}
+
+            //if (cmbLowType.Text != "(none)")
+            //    InitData(elow);
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (lowmax!=null)
-                lowmax.Hide();
-            if (lowblender != null)
-                lowblender.Hide();
+            //if (lowmax!=null)
+            //    lowmax.Hide();
+            //if (lowblender != null)
+            //    lowblender.Hide();
+            //LowSettingControl.Unplug();
+            LowSettingControl = null;
+
             btnAdd.Enabled = true;
+            cmbLowType.Enabled = true;
             btnDelete.Enabled = false;
+
             OnUpdateButton(false);
+        }
+
+        private void LowControl_Load(object sender, EventArgs e)
+        {
+            var allLowSetting = TestStepPatternFactory.AllLowSettings()
+            .OrderBy(pattern => pattern.PatternName)
+            .ToList();
+
+            cmbLowType.DataSource = allLowSetting;
+            cmbLowType.DisplayMember = "PatternName";
         }
     }
 }

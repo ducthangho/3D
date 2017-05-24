@@ -67,6 +67,7 @@ inline void pre_optimize(std::string oFileDir, std::string oFileName, std::strin
 BOOL do_lowpoly(const ELowpoly el, bool make_temp=false);
 BOOL do_unwrap(const EUnwrap eu);
 BOOL do_pack(const EPacking ep);
+BOOL do_isolate(const EIsolate iso);
 
 BOOL save_test(InitTestParam lt);
 BOOL load_test(InitTestParam lt);

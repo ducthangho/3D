@@ -149,7 +149,7 @@ namespace Y3D.rpc
             }
             catch (RpcException e)
             {
-                throw;
+                return;
             }
         }
 
