@@ -1,6 +1,6 @@
 ﻿namespace Y3D.Projects
 {
-    partial class TestStepPattern
+    partial class UnwrapTab
     {
         /// <summary> 
         /// Required designer variable.
@@ -11,6 +11,14 @@
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
 
         #region Component Designer generated code
 
@@ -20,17 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // TestStepPattern
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Name = "TestStepPattern";
-            this.Size = new System.Drawing.Size(267, 339);
-            this.Load += new System.EventHandler(this.TestStepPattern_Load);
-            this.ResumeLayout(false);
-
         }
 
         #endregion

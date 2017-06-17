@@ -27,9 +27,19 @@ namespace Y3D.Projects
 
         override public void InitData(object o)
         {
-            var bb = ((ELowpoly)o).LpBlender;
-            setting = bb;
-            ratio.Value = (decimal)bb.Ratio;
+            var elow = (ELowpoly)o;
+           
+            if (elow==null)
+            {
+                elow = new ELowpoly();
+                var bb = new LPolyBlender();
+                bb.Ratio = 0.5f;
+                elow.LpBlender = bb;
+                //var bb = (elow).LpBlender;
+
+            }
+            setting = elow.LpBlender;
+            ratio.Value = (decimal)setting.Ratio;
         }
     }
 }

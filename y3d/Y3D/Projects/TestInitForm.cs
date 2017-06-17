@@ -24,6 +24,7 @@ namespace Y3D.Projects
             tp.Unwrap = new EUnwrap();
             tp.Unwrap.Max3D = new MaxUnwrap();
             tp.Unwrap.Max3D.Angle = 66;
+            tp.Unwrap.Max3D.Spacing = 0.001f;
 
             tp.Lowpoly = new ELowpoly();
 

@@ -822,7 +822,6 @@ BOOL do_lowpoly(const ELowpoly el, bool make_temp) {
 				ee.mutable_yclone()->CopyFrom(ec);
 				DoYEvent(ee);
 			}
-
 			if (el.convert_type() == ConvertType::None) return TRUE;
 			auto* ip = GetCOREInterface();
 			auto n = ip->GetINodeByName(s2ws(name4clone).c_str());

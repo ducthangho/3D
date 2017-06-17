@@ -239,6 +239,162 @@ if yms_init != true then
 			)
 		),
 
+		fn pack_rect oname uname density:128 tileSize:1024 padding:5 =
+		(
+			struct SRect (x,y,width,height,index,x_old,y_old)
+			obj =  execute ("$'"+oName + "'")
+			select obj
+			if (ClassOf obj) != Editable_mesh do 
+			(
+				convertToPoly obj
+				convertToMesh obj
+			)	
+			local sf = for i in obj.selectedFaces collect i.index		
+
+			obj.EditablePoly.SetSelection #Face (sf as bitarray)
+			addmodifier obj (Unwrap_UVW ())
+			subobjectLevel = 3
+
+			local u = obj.modifiers[uname]
+			local x = 1
+			local y = 1
+			local width =1
+			local height =1
+			local area_uvw = 1
+			local areaGeom = 1
+			local f_area =1
+			local totalAreaTile_Pixel = tileSize*tileSize
+			local totalAreaTile_M2 = (totalAreaTile_Pixel as float) / density		
+
+			u.unwrap2.setTVElementMode true
+			local userSelected = sf as bitarray
+
+			local listRect = #()
+			local start = timeStamp()
+
+			local temp1
+			local temp2
+			local needScale = 1
+			local needScaleEdge = 1
+			local testWidth 
+			local testHeight				
+
+
+			while userSelected.numberSet != 0 do
+				for i in userSelected do
+				(
+					u.selectFaces #{i}
+					u.selectElement()
+					local selected = u.getSelectedFaces()
+					u.unwrap4.getArea selected &x &y &width &height &area_uvw &areaGeom
+
+					local currentAreaOfIsland_M2 = area_uvw * totalAreaTile_M2
+
+					needScale = 1
+					needScaleEdge = 1
+					
+					if currentAreaOfIsland_M2 > 0 do
+					(
+						needScale = areaGeom/currentAreaOfIsland_M2
+						needScaleEdge = sqrt needScale
+					)
+			
+					testWidth = width*needScaleEdge + padding
+					testHeight = height*needScaleEdge + padding
+
+					if needScale > 10000000 do
+						needScaleEdge = 1
+					
+					if testWidth > 1 then
+					(	
+						if testWidth > testHeight then
+						(
+							needScaleEdge = (1.0f - padding)/width
+						)
+						else 
+						(
+							needScaleEdge = (1.0f - padding)/height 
+						)
+					) else if testHeight > 1 do
+					(
+						if testHeight > testWidth then
+						(	
+							needScaleEdge = (1.0f - padding)/height
+						)					
+						else
+						(	
+							needScaleEdge = (1.0f - padding)/width
+						) 
+					)
+
+					u.unwrap2.scaleSelectedXY needScaleEdge needScaleEdge [x,y,0]
+					u.unwrap4.getArea selected &x &y &width &height &area_uvw &areaGeom
+					
+					temp1 = width + padding
+					temp2 = height + padding
+					temp1 = if (temp1 > 1) then 1 else temp1
+					temp2 = if (temp2 > 1) then 1 else temp2
+
+					local rect = SRect x:-1 y:-1 width:temp1 height:temp2 index:selected x_old:x y_old:y
+
+					append listRect rect
+					userSelected = userSelected - selected
+					exit
+				)
+			qsort listRect CompareHeight	
+			local enclosingRectArg = #(1,1)
+			local listRectArg = #()
+			for rect in listRect do
+			(
+				join listRectArg #(rect.x,rect.y,rect.width,rect.height) 
+			)			
+
+			local unFitRect = #(1)
+			local listSRect = #()
+
+			if sf.count == (getNumFaces obj) then local tileNumber = 0 else local tileNumber = 1
+			while unFitRect.count != 0 do 
+			(
+				listSRect = #()
+				unFitRect = #()
+				local j = 1
+
+				local start = timeStamp()
+				fpbasics.pack &listRectArg &enclosingRectArg
+				local end = timeStamp()
+				format "call fb pack took % seconds\n" ((end - start) / 1000.0)
+
+				for i in 1 to listRectArg.count by 4 do
+				(	
+					udim_u = mod tileNumber 10
+					udim_v = tileNumber / 10
+					if (listRectArg[i] == -1) then
+					(
+						join unFitRect #(listRectArg[i], listRectArg[i+1], listRectArg[i+2], listRectArg[i+3])
+						append listSRect listRect[j]
+					)else
+					(
+						local rect = listRect[j]
+						u.unwrap2.selectFaces rect.index
+						u.unwrap2.moveSelected [-rect.x_old, -rect.y_old, 0]
+						u.unwrap2.moveSelected [udim_u+listRectArg[i+1],udim_v+listRectArg[i],0]
+					)
+					j+=1
+				)
+
+				listRectArg = unFitRect
+				listRect = listSRect
+
+				tileNumber+=1
+
+				if TileNumber > 200 do
+				( 
+					for i in 1 to listRectArg.count by 4 do
+						format "x = %, y = %, width = %, height = %\n" listRectArg[i] listRectArg[i+1] listRectArg[i+2] listRectArg[i+3]  
+					return 1;
+				)
+			)
+		),
 
 		fn test_xref oname = 
 		(
@@ -600,6 +756,10 @@ if yms_init != true then
 	)
 
 	global yms = ymsClass()
+
+	--SceneExplorerManager.ClearAllExplorers();
+	--SceneExplorerManager.CreateExplorerFromDefault "Layer Explorer"
+	--SceneExplorerManager.OpenExplorer  "Layer Explorer"
 
 	print "yms has been loaded"
 	yms_init = true

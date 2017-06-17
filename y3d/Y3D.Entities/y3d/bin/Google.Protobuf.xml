@@ -90,6 +90,25 @@
             Constructs a <see cref="T:Google.Protobuf.ByteString" /> from the Base64 Encoded String.
             </summary>
         </member>
+        <member name="M:Google.Protobuf.ByteString.FromStream(System.IO.Stream)">
+            <summary>
+            Constructs a <see cref="T:Google.Protobuf.ByteString"/> from data in the given stream, synchronously.
+            </summary>
+            <remarks>If successful, <paramref name="stream"/> will be read completely, from the position
+            at the start of the call.</remarks>
+            <param name="stream">The stream to copy into a ByteString.</param>
+            <returns>A ByteString with content read from the given stream.</returns>
+        </member>
+        <member name="M:Google.Protobuf.ByteString.FromStreamAsync(System.IO.Stream,System.Threading.CancellationToken)">
+            <summary>
+            Constructs a <see cref="T:Google.Protobuf.ByteString"/> from data in the given stream, asynchronously.
+            </summary>
+            <remarks>If successful, <paramref name="stream"/> will be read completely, from the position
+            at the start of the call.</remarks>
+            <param name="stream">The stream to copy into a ByteString.</param>
+            <param name="cancellationToken">The cancellation token to use when reading from the stream, if any.</param>
+            <returns>A ByteString with content read from the given stream.</returns>
+        </member>
         <member name="M:Google.Protobuf.ByteString.CopyFrom(System.Byte[])">
             <summary>
             Constructs a <see cref="T:Google.Protobuf.ByteString" /> from the given array. The contents
@@ -1573,6 +1592,11 @@
             The type registry used to format <see cref="T:Google.Protobuf.WellKnownTypes.Any"/> messages.
             </summary>
         </member>
+        <member name="P:Google.Protobuf.JsonFormatter.Settings.FormatEnumsAsIntegers">
+            <summary>
+            Whether to format enums as ints. Defaults to false.
+            </summary>
+        </member>
         <member name="M:Google.Protobuf.JsonFormatter.Settings.#ctor(System.Boolean)">
             <summary>
             Creates a new <see cref="T:Google.Protobuf.JsonFormatter.Settings"/> object with the specified formatting of default values
@@ -1587,6 +1611,32 @@
             </summary>
             <param name="formatDefaultValues"><c>true</c> if default values (0, empty strings etc) should be formatted; <c>false</c> otherwise.</param>
             <param name="typeRegistry">The <see cref="P:Google.Protobuf.JsonFormatter.Settings.TypeRegistry"/> to use when formatting <see cref="T:Google.Protobuf.WellKnownTypes.Any"/> messages.</param>
+        </member>
+        <member name="M:Google.Protobuf.JsonFormatter.Settings.#ctor(System.Boolean,Google.Protobuf.Reflection.TypeRegistry,System.Boolean)">
+            <summary>
+            Creates a new <see cref="T:Google.Protobuf.JsonFormatter.Settings"/> object with the specified parameters.
+            </summary>
+            <param name="formatDefaultValues"><c>true</c> if default values (0, empty strings etc) should be formatted; <c>false</c> otherwise.</param>
+            <param name="typeRegistry">The <see cref="P:Google.Protobuf.JsonFormatter.Settings.TypeRegistry"/> to use when formatting <see cref="T:Google.Protobuf.WellKnownTypes.Any"/> messages. TypeRegistry.Empty will be used if it is null.</param>
+            <param name="formatEnumsAsIntegers"><c>true</c> to format the enums as integers; <c>false</c> to format enums as enum names.</param>
+        </member>
+        <member name="M:Google.Protobuf.JsonFormatter.Settings.WithFormatDefaultValues(System.Boolean)">
+            <summary>
+            Creates a new <see cref="T:Google.Protobuf.JsonFormatter.Settings"/> object with the specified formatting of default values and the current settings.
+            </summary>
+            <param name="formatDefaultValues"><c>true</c> if default values (0, empty strings etc) should be formatted; <c>false</c> otherwise.</param>
+        </member>
+        <member name="M:Google.Protobuf.JsonFormatter.Settings.WithTypeRegistry(Google.Protobuf.Reflection.TypeRegistry)">
+            <summary>
+            Creates a new <see cref="T:Google.Protobuf.JsonFormatter.Settings"/> object with the specified type registry and the current settings.
+            </summary>
+            <param name="typeRegistry">The <see cref="P:Google.Protobuf.JsonFormatter.Settings.TypeRegistry"/> to use when formatting <see cref="T:Google.Protobuf.WellKnownTypes.Any"/> messages.</param>
+        </member>
+        <member name="M:Google.Protobuf.JsonFormatter.Settings.WithFormatEnumsAsIntegers(System.Boolean)">
+            <summary>
+            Creates a new <see cref="T:Google.Protobuf.JsonFormatter.Settings"/> object with the specified enums formatting option and the current settings.
+            </summary>
+            <param name="formatEnumsAsIntegers"><c>true</c> to format the enums as integers; <c>false</c> to format enums as enum names.</param>
         </member>
         <member name="T:Google.Protobuf.JsonParser">
             <summary>
@@ -2735,6 +2785,194 @@
             </remarks>
             <exception cref="T:System.Reflection.AmbiguousMatchException">One type in the hierarchy declared more than one method with the same name</exception>
         </member>
+        <member name="T:Google.Protobuf.Reflection.CustomOptions">
+            <summary>
+            Container for a set of custom options specified within a message, field etc.
+            </summary>
+            <remarks>
+            <para>
+            This type is publicly immutable, but internally mutable. It is only populated
+            by the descriptor parsing code - by the time any user code is able to see an instance,
+            it will be fully initialized.
+            </para>
+            <para>
+            If an option is requested using the incorrect method, an answer may still be returned: all
+            of the numeric types are represented internally using 64-bit integers, for example. It is up to
+            the caller to ensure that they make the appropriate method call for the option they're interested in.
+            Note that enum options are simply stored as integers, so the value should be fetched using
+            <see cref="M:Google.Protobuf.Reflection.CustomOptions.TryGetInt32(System.Int32,System.Int32@)"/> and then cast appropriately.
+            </para>
+            <para>
+            Repeated options are currently not supported. Asking for a single value of an option
+            which was actually repeated will return the last value, except for message types where
+            all the set values are merged together.
+            </para>
+            </remarks>
+        </member>
+        <member name="F:Google.Protobuf.Reflection.CustomOptions.Empty">
+            <summary>
+            Singleton for all descriptors with an empty set of options.
+            </summary>
+        </member>
+        <member name="F:Google.Protobuf.Reflection.CustomOptions.valuesByField">
+            <summary>
+            A sequence of values per field. This needs to be per field rather than per tag to allow correct deserialization
+            of repeated fields which could be "int, ByteString, int" - unlikely as that is. The fact that values are boxed
+            is unfortunate; we might be able to use a struct instead, and we could combine uint and ulong values.
+            </summary>
+        </member>
+        <member name="M:Google.Protobuf.Reflection.CustomOptions.TryGetBool(System.Int32,System.Boolean@)">
+            <summary>
+            Retrieves a Boolean value for the specified option field.
+            </summary>
+            <param name="field">The field to fetch the value for.</param>
+            <param name="value">The output variable to populate.</param>
+            <returns><c>true</c> if a suitable value for the field was found; <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:Google.Protobuf.Reflection.CustomOptions.TryGetInt32(System.Int32,System.Int32@)">
+            <summary>
+            Retrieves a signed 32-bit integer value for the specified option field.
+            </summary>
+            <param name="field">The field to fetch the value for.</param>
+            <param name="value">The output variable to populate.</param>
+            <returns><c>true</c> if a suitable value for the field was found; <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:Google.Protobuf.Reflection.CustomOptions.TryGetInt64(System.Int32,System.Int64@)">
+            <summary>
+            Retrieves a signed 64-bit integer value for the specified option field.
+            </summary>
+            <param name="field">The field to fetch the value for.</param>
+            <param name="value">The output variable to populate.</param>
+            <returns><c>true</c> if a suitable value for the field was found; <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:Google.Protobuf.Reflection.CustomOptions.TryGetFixed32(System.Int32,System.UInt32@)">
+            <summary>
+            Retrieves an unsigned 32-bit integer value for the specified option field,
+            assuming a fixed-length representation.
+            </summary>
+            <param name="field">The field to fetch the value for.</param>
+            <param name="value">The output variable to populate.</param>
+            <returns><c>true</c> if a suitable value for the field was found; <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:Google.Protobuf.Reflection.CustomOptions.TryGetFixed64(System.Int32,System.UInt64@)">
+            <summary>
+            Retrieves an unsigned 64-bit integer value for the specified option field,
+            assuming a fixed-length representation.
+            </summary>
+            <param name="field">The field to fetch the value for.</param>
+            <param name="value">The output variable to populate.</param>
+            <returns><c>true</c> if a suitable value for the field was found; <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:Google.Protobuf.Reflection.CustomOptions.TryGetSFixed32(System.Int32,System.Int32@)">
+            <summary>
+            Retrieves a signed 32-bit integer value for the specified option field,
+            assuming a fixed-length representation.
+            </summary>
+            <param name="field">The field to fetch the value for.</param>
+            <param name="value">The output variable to populate.</param>
+            <returns><c>true</c> if a suitable value for the field was found; <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:Google.Protobuf.Reflection.CustomOptions.TryGetSFixed64(System.Int32,System.Int64@)">
+            <summary>
+            Retrieves a signed 64-bit integer value for the specified option field,
+            assuming a fixed-length representation.
+            </summary>
+            <param name="field">The field to fetch the value for.</param>
+            <param name="value">The output variable to populate.</param>
+            <returns><c>true</c> if a suitable value for the field was found; <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:Google.Protobuf.Reflection.CustomOptions.TryGetSInt32(System.Int32,System.Int32@)">
+            <summary>
+            Retrieves a signed 32-bit integer value for the specified option field,
+            assuming a zigzag encoding.
+            </summary>
+            <param name="field">The field to fetch the value for.</param>
+            <param name="value">The output variable to populate.</param>
+            <returns><c>true</c> if a suitable value for the field was found; <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:Google.Protobuf.Reflection.CustomOptions.TryGetSInt64(System.Int32,System.Int64@)">
+            <summary>
+            Retrieves a signed 64-bit integer value for the specified option field,
+            assuming a zigzag encoding.
+            </summary>
+            <param name="field">The field to fetch the value for.</param>
+            <param name="value">The output variable to populate.</param>
+            <returns><c>true</c> if a suitable value for the field was found; <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:Google.Protobuf.Reflection.CustomOptions.TryGetUInt32(System.Int32,System.UInt32@)">
+            <summary>
+            Retrieves an unsigned 32-bit integer value for the specified option field.
+            </summary>
+            <param name="field">The field to fetch the value for.</param>
+            <param name="value">The output variable to populate.</param>
+            <returns><c>true</c> if a suitable value for the field was found; <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:Google.Protobuf.Reflection.CustomOptions.TryGetUInt64(System.Int32,System.UInt64@)">
+            <summary>
+            Retrieves an unsigned 64-bit integer value for the specified option field.
+            </summary>
+            <param name="field">The field to fetch the value for.</param>
+            <param name="value">The output variable to populate.</param>
+            <returns><c>true</c> if a suitable value for the field was found; <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:Google.Protobuf.Reflection.CustomOptions.TryGetFloat(System.Int32,System.Single@)">
+            <summary>
+            Retrieves a 32-bit floating point value for the specified option field.
+            </summary>
+            <param name="field">The field to fetch the value for.</param>
+            <param name="value">The output variable to populate.</param>
+            <returns><c>true</c> if a suitable value for the field was found; <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:Google.Protobuf.Reflection.CustomOptions.TryGetDouble(System.Int32,System.Double@)">
+            <summary>
+            Retrieves a 64-bit floating point value for the specified option field.
+            </summary>
+            <param name="field">The field to fetch the value for.</param>
+            <param name="value">The output variable to populate.</param>
+            <returns><c>true</c> if a suitable value for the field was found; <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:Google.Protobuf.Reflection.CustomOptions.TryGetString(System.Int32,System.String@)">
+            <summary>
+            Retrieves a string value for the specified option field.
+            </summary>
+            <param name="field">The field to fetch the value for.</param>
+            <param name="value">The output variable to populate.</param>
+            <returns><c>true</c> if a suitable value for the field was found; <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:Google.Protobuf.Reflection.CustomOptions.TryGetBytes(System.Int32,Google.Protobuf.ByteString@)">
+            <summary>
+            Retrieves a bytes value for the specified option field.
+            </summary>
+            <param name="field">The field to fetch the value for.</param>
+            <param name="value">The output variable to populate.</param>
+            <returns><c>true</c> if a suitable value for the field was found; <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:Google.Protobuf.Reflection.CustomOptions.TryGetMessage``1(System.Int32,``0@)">
+            <summary>
+            Retrieves a message value for the specified option field.
+            </summary>
+            <param name="field">The field to fetch the value for.</param>
+            <param name="value">The output variable to populate.</param>
+            <returns><c>true</c> if a suitable value for the field was found; <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:Google.Protobuf.Reflection.CustomOptions.ReadOrSkipUnknownField(Google.Protobuf.CodedInputStream)">
+            <summary>
+            Reads an unknown field, either parsing it and storing it or skipping it.
+            </summary>
+            <remarks>
+            If the current set of options is empty and we manage to read a field, a new set of options
+            will be created and returned. Otherwise, the return value is <c>this</c>. This allows
+            us to start with a singleton empty set of options and just create new ones where necessary.
+            </remarks>
+            <param name="input">Input stream to read from. </param>
+            <returns>The resulting set of custom options, either <c>this</c> or a new set.</returns>
+        </member>
+        <member name="T:Google.Protobuf.Reflection.CustomOptions.FieldValue">
+            <summary>
+            All field values can be stored as a byte string or a 64-bit integer.
+            This struct avoids unnecessary boxing.
+            </summary>
+        </member>
         <member name="T:Google.Protobuf.Reflection.DescriptorReflection">
             <summary>Holder for reflection information generated from google/protobuf/descriptor.proto</summary>
         </member>
@@ -3275,6 +3513,15 @@
             replacing '.' with underscore and use that to prefix the types/symbols
             defined. When this options is provided, they will use this value instead
             to prefix the types/symbols defined.
+            </summary>
+        </member>
+        <member name="F:Google.Protobuf.Reflection.FileOptions.PhpClassPrefixFieldNumber">
+            <summary>Field number for the "php_class_prefix" field.</summary>
+        </member>
+        <member name="P:Google.Protobuf.Reflection.FileOptions.PhpClassPrefix">
+            <summary>
+            Sets the php class prefix which is prepended to all php generated classes
+            from this .proto. Default is empty.
             </summary>
         </member>
         <member name="F:Google.Protobuf.Reflection.FileOptions.UninterpretedOptionFieldNumber">
@@ -4076,6 +4323,11 @@
             <param name="name">The unqualified name of the value (e.g. "FOO").</param>
             <returns>The value's descriptor, or null if not found.</returns>
         </member>
+        <member name="P:Google.Protobuf.Reflection.EnumDescriptor.CustomOptions">
+            <summary>
+            The (possibly empty) set of custom options for this enum.
+            </summary>
+        </member>
         <member name="T:Google.Protobuf.Reflection.EnumValueDescriptor">
             <summary>
             Descriptor for a single enum value within an enum in a .proto file.
@@ -4094,6 +4346,11 @@
         <member name="P:Google.Protobuf.Reflection.EnumValueDescriptor.EnumDescriptor">
             <summary>
             Returns the enum descriptor that this value is part of.
+            </summary>
+        </member>
+        <member name="P:Google.Protobuf.Reflection.EnumValueDescriptor.CustomOptions">
+            <summary>
+            The (possibly empty) set of custom options for this enum value.
             </summary>
         </member>
         <member name="T:Google.Protobuf.Reflection.FieldAccessorBase">
@@ -4193,6 +4450,11 @@
         <member name="P:Google.Protobuf.Reflection.FieldDescriptor.MessageType">
             <summary>
             For embedded message and group fields, returns the field's type.
+            </summary>
+        </member>
+        <member name="P:Google.Protobuf.Reflection.FieldDescriptor.CustomOptions">
+            <summary>
+            The (possibly empty) set of custom options for this field.
             </summary>
         </member>
         <member name="M:Google.Protobuf.Reflection.FieldDescriptor.CrossLink">
@@ -4432,6 +4694,11 @@
             The file descriptor for <c>descriptor.proto</c>.
             </value>
         </member>
+        <member name="P:Google.Protobuf.Reflection.FileDescriptor.CustomOptions">
+            <summary>
+            The (possibly empty) set of custom options for this file.
+            </summary>
+        </member>
         <member name="T:Google.Protobuf.Reflection.GeneratedClrTypeInfo">
             <summary>
             Extra information provided by generated code when initializing a message or file descriptor.
@@ -4653,6 +4920,11 @@
             <param name="name">The unqualified name of the descriptor, e.g. "Foo"</param>
             <returns>The descriptor, or null if not found.</returns>
         </member>
+        <member name="P:Google.Protobuf.Reflection.MessageDescriptor.CustomOptions">
+            <summary>
+            The (possibly empty) set of custom options for this message.
+            </summary>
+        </member>
         <member name="M:Google.Protobuf.Reflection.MessageDescriptor.CrossLink">
             <summary>
             Looks up and cross-links all fields and nested types.
@@ -4733,6 +5005,11 @@
             Indicates if server streams multiple responses.
             </value>
         </member>
+        <member name="P:Google.Protobuf.Reflection.MethodDescriptor.CustomOptions">
+            <summary>
+            The (possibly empty) set of custom options for this method.
+            </summary>
+        </member>
         <member name="P:Google.Protobuf.Reflection.MethodDescriptor.Name">
             <summary>
             The brief name of the descriptor's target.
@@ -4797,6 +5074,11 @@
             The accessor used for reflective access.
             </value>
         </member>
+        <member name="P:Google.Protobuf.Reflection.OneofDescriptor.CustomOptions">
+            <summary>
+            The (possibly empty) set of custom options for this oneof.
+            </summary>
+        </member>
         <member name="T:Google.Protobuf.Reflection.OriginalNameAttribute">
             <summary>
             Specifies the original name (in the .proto file) of a named element,
@@ -4806,6 +5088,11 @@
         <member name="P:Google.Protobuf.Reflection.OriginalNameAttribute.Name">
             <summary>
             The name of the element in the .proto file.
+            </summary>
+        </member>
+        <member name="P:Google.Protobuf.Reflection.OriginalNameAttribute.PreferredAlias">
+            <summary>
+            If the name is preferred in the .proto file.
             </summary>
         </member>
         <member name="M:Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)">
@@ -4886,6 +5173,11 @@
             </summary>
             <param name="name">The unqualified name of the method (e.g. "Foo").</param>
             <returns>The method's decsriptor, or null if not found.</returns>
+        </member>
+        <member name="P:Google.Protobuf.Reflection.ServiceDescriptor.CustomOptions">
+            <summary>
+            The (possibly empty) set of custom options for this service.
+            </summary>
         </member>
         <member name="T:Google.Protobuf.Reflection.SingleFieldAccessor">
             <summary>
@@ -5375,6 +5667,8 @@
              two Timestamp values is a Duration and it can be added or subtracted
              from a Timestamp. Range is approximately +-10,000 years.
             
+             # Examples
+            
              Example 1: Compute Duration from two Timestamps in pseudo code.
             
                  Timestamp start = ...;
@@ -5414,6 +5708,16 @@
                  td = datetime.timedelta(days=3, minutes=10)
                  duration = Duration()
                  duration.FromTimedelta(td)
+            
+             # JSON Mapping
+            
+             In JSON format, the Duration type is encoded as a string rather than an
+             object, where the string ends in the suffix "s" (indicating seconds) and
+             is preceded by the number of seconds, with nanoseconds expressed as
+             fractional seconds. For example, 3 seconds with 0 nanoseconds should be
+             encoded in JSON format as "3s", while 3 seconds and 1 nanosecond should
+             be expressed in JSON format as "3.000000001s", and 3 seconds and 1
+             microsecond should be expressed in JSON format as "3.000001s".
              </summary>
         </member>
         <member name="F:Google.Protobuf.WellKnownTypes.Duration.SecondsFieldNumber">
@@ -5422,7 +5726,8 @@
         <member name="P:Google.Protobuf.WellKnownTypes.Duration.Seconds">
             <summary>
             Signed seconds of the span of time. Must be from -315,576,000,000
-            to +315,576,000,000 inclusive.
+            to +315,576,000,000 inclusive. Note: these bounds are computed from:
+            60 sec/min * 60 min/hr * 24 hr/day * 365.25 days/year * 10000 years
             </summary>
         </member>
         <member name="F:Google.Protobuf.WellKnownTypes.Duration.NanosFieldNumber">
@@ -6033,6 +6338,8 @@
              and from  RFC 3339 date strings.
              See [https://www.ietf.org/rfc/rfc3339.txt](https://www.ietf.org/rfc/rfc3339.txt).
             
+             # Examples
+            
              Example 1: Compute Timestamp from POSIX `time()`.
             
                  Timestamp timestamp;
@@ -6071,6 +6378,29 @@
             
                  timestamp = Timestamp()
                  timestamp.GetCurrentTime()
+            
+             # JSON Mapping
+            
+             In JSON format, the Timestamp type is encoded as a string in the
+             [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) format. That is, the
+             format is "{year}-{month}-{day}T{hour}:{min}:{sec}[.{frac_sec}]Z"
+             where {year} is always expressed using four digits while {month}, {day},
+             {hour}, {min}, and {sec} are zero-padded to two digits each. The fractional
+             seconds, which can go up to 9 digits (i.e. up to 1 nanosecond resolution),
+             are optional. The "Z" suffix indicates the timezone ("UTC"); the timezone
+             is required, though only UTC (as indicated by "Z") is presently supported.
+            
+             For example, "2017-01-15T01:30:15.01Z" encodes 15.01 seconds past
+             01:30 UTC on January 15, 2017.
+            
+             In JavaScript, one can convert a Date object to this format using the
+             standard [toISOString()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString]
+             method. In Python, a standard `datetime.datetime` object can be converted
+             to this format using [`strftime`](https://docs.python.org/2/library/time.html#time.strftime)
+             with the time format spec '%Y-%m-%dT%H:%M:%S.%fZ'. Likewise, in Java, one
+             can use the Joda Time's [`ISODateTimeFormat.dateTime()`](
+             http://joda-time.sourceforge.net/apidocs/org/joda/time/format/ISODateTimeFormat.html#dateTime())
+             to obtain a formatter capable of generating timestamps in this format.
              </summary>
         </member>
         <member name="F:Google.Protobuf.WellKnownTypes.Timestamp.SecondsFieldNumber">

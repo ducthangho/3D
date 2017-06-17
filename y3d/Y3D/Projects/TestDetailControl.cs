@@ -15,27 +15,77 @@ namespace Y3D.Projects
     {
         public y3d.e.VerTest vtest = null;
 
+        private List<Button> tab_buttons = new List<Button>();
+
         private IDisposable _subUpdateStepButton = null;
         public TestDetailControl()
         {
             InitializeComponent();
-            
-            lowControl1.OnUpdateButton += (has) =>
-            {
-                Utils.CurrentTest.HasLow = has;
-                btnLow.BackColor = getButtonColor(has);
-            };
+
+            tab_buttons.Add(btnLow);
+            tab_buttons.Add(btnUnwrap);
+            tab_buttons.Add(btnPack);
+            tab_buttons.Add(btnBake);
 
             _subUpdateStepButton = YEventUtils.UpdateStepButton.Subscribe(
-                b =>
-                {
-                    
-                }
-
+                b => updateTabButton(b)
             );
-
         }
 
+        public void updateTabButton(ButtonUpdateParam b)
+        {
+            bool state = false;
+            if (b.action=="ADD" || b.action == "CHANGE")
+            {
+                state = true;
+            } 
+            switch (b.id)
+            {
+                case 0:
+                    updateTabButtonState(0, state);
+                    updateTabButtonState(1, false);
+                    updateTabButtonState(2, false);
+                    updateTabButtonState(3, false);
+                    break;
+                case 1:
+                    updateTabButtonState(1, state);
+                    updateTabButtonState(2, false);
+                    updateTabButtonState(3, false);
+                    break;
+                case 2:
+                    updateTabButtonState(2, state);
+                    break;
+                case 3:
+                    updateTabButtonState(3, state);
+                    break;
+                default:
+                    break;
+            }
+            YEventUtils.ResetStepButton.OnNext(true);
+        }
+
+        public void updateTabButtonState(int i,bool b)
+        {
+            var bb = tab_buttons[i];
+            bb.BackColor = getButtonColor(b);
+            switch (i)
+            {
+                case 0:
+                    Utils.CurrentTest.HasLow = b;
+                    break;
+                case 1:
+                    Utils.CurrentTest.HasUnwrap = b;
+                    break;
+                case 2:
+                    Utils.CurrentTest.HasPack = b;
+                    break;
+                case 3:
+                    Utils.CurrentTest.HasBake = b;
+                    break;
+                default:
+                    break;
+            }
+        }
         private Color getButtonColor(bool has)
         {
             if (has) return Color.DarkSeaGreen;
@@ -45,21 +95,46 @@ namespace Y3D.Projects
         public void reloadTest(y3d.e.VerTest v)
         {
             Utils.CurrentTest = (VerTest)v;
-
             Utils.loadTest();
+            lbTestName.Text = "Name : " + v.Oname + "_" + v.Id;
             btnLow.BackColor = getButtonColor(v.HasLow);
             btnUnwrap.BackColor = getButtonColor(v.HasUnwrap);
-            btnBake.BackColor = getButtonColor(v.HasBake);
             btnPack.BackColor = getButtonColor(v.HasPack);
+            btnBake.BackColor = getButtonColor(v.HasBake);
+
+            YEventUtils.ResetStepButton.OnNext(true);
+
 
             if (v.InitTest != null)
             {
-                lowControl1.InitData(v.InitTest.Lowpoly);
+                if (!v.HasLow) return;
+
+                if (v.InitTest.Lowpoly != null)
+                {
+                    lowTab1.Init(v.InitTest.Lowpoly, v.InitTest.Lowpoly.LowtypeCase.ToString());
+                }
+                //else
+                //{
+                //    lowTab1.Init(null);
+                //}
+
+                if (!v.HasUnwrap) return;
+
+                if (v.InitTest.Unwrap!=null)
+                {
+                    unwrapTab1.Init(v.InitTest.Unwrap, v.InitTest.Unwrap.SettingCase.ToString());
+                }
+
+                if (!v.HasBake) return;
             }
-            else
-            {
-                lowControl1.InitData(null);
-            }
+            //if (v.InitTest != null)
+            //{
+            //    lowControl1.InitData(v.InitTest.Lowpoly);
+            //}
+            //else
+            //{
+            //    lowControl1.InitData(null);
+            //}
         }
 
         private void btnLow_Click(object sender, EventArgs e)

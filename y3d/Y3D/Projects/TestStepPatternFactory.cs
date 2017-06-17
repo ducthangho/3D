@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Y3D.Projects
 {
-    class TestStepPatternFactory
+    public class TestStepPatternFactory
     {
         public string PatternName { get; private set; }
         public string PatternStepType { get; private set; }
@@ -36,11 +36,12 @@ namespace Y3D.Projects
             return (TestStepPattern)Activator.CreateInstance(_type);
         }
 
-        public static List<TestStepPatternFactory> All()
+        public static List<TestStepPatternFactory> All(string pattern)
         {
             return Assembly.GetExecutingAssembly().GetTypes()
                 .Where(t => t.IsSubclassOf(typeof(TestStepPattern)))
                 .Select(t => new TestStepPatternFactory(t))
+                .Where(t => (t.PatternStepType == pattern))
                 .ToList();
         }
 

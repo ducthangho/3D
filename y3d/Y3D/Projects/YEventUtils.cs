@@ -35,7 +35,6 @@ namespace Y3D.Projects
     {
         static public bool EditMode = false;
         static public bool editInCopy = true;
-        //static List<YEvent> events = new List<YEvent>();
         static ObservableCollection<YEvent> events = new ObservableCollection<YEvent>();
         static IObservable<YEvent> last_e = Observable.Interval(TimeSpan.FromMilliseconds(20)).Select(l =>
         {
@@ -43,25 +42,20 @@ namespace Y3D.Projects
             var x = events.Last();
             events.Clear();
             return x;
-            //var e = events.ToObservable().Latest();
-            //if (e.Count() > 0) return e.Last();
-            //return null;
         }
         );
         static AsyncClientStreamingCall<YEvent, ResponseEvent> streamCall = null;
-        static IObservable<EventPattern<NotifyCollectionChangedEventArgs>> eventChanges = null;
+        //static IObservable<EventPattern<NotifyCollectionChangedEventArgs>> eventChanges = null;
         static IDisposable subcribe_e = null;
         static public string tname = "";
         static public string surfix_clone_from = "_high";
         static public string surfix_save_to = "_low";
         static public string surfix_tmp = "_low_tmp";
 
-        //static public event Action<int, bool> UpdateStepButton;
-
-
-        //static public System.Reactive.Subjects.Subject<YEventList> UnPlug = new System.Reactive.Subjects.Subject<YEventList>();
         static public System.Reactive.Subjects.Subject<YEventList> EndEdit = new System.Reactive.Subjects.Subject<YEventList>();
         static public System.Reactive.Subjects.Subject<ButtonUpdateParam> UpdateStepButton = new System.Reactive.Subjects.Subject<ButtonUpdateParam>();
+        static public System.Reactive.Subjects.Subject<bool> ResetStepButton = new System.Reactive.Subjects.Subject<bool>();
+        static public System.Reactive.Subjects.Subject<bool> ApplyStepButton = new System.Reactive.Subjects.Subject<bool>();
 
 
         //static public IObservable<int> UpdateStepButton = new
@@ -82,10 +76,6 @@ namespace Y3D.Projects
         //    //var last_e = events.Select(l => events.Last());
         //}
 
-        static public void onUpdateStep(string a, bool b)
-        {
-        }
-
         static public void reload(bool mode, YEventList initEvents, bool makeCopy=true)
         {
             tname = Utils.CurrentTest.Oname + "_" + Utils.CurrentTest.Id;
@@ -97,7 +87,6 @@ namespace Y3D.Projects
                 EndEdit.OnNext(initEvents);
                 //endEditMode(initEvents);
             }
-                
         }
 
         static public async Task startEditMode(YEventList el)
@@ -194,6 +183,11 @@ namespace Y3D.Projects
 
         }
 
+
+        static public async Task applyTest(YEvent ye)
+        {
+            await Utils.doEvent(ye);
+        }
 
         static public async Task addEvent(YEvent ye)
         {

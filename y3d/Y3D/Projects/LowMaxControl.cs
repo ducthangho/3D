@@ -53,29 +53,33 @@ namespace Y3D.Projects
 
         override public void InitData(object o)
         {
-            var s = ((ELowpoly)o).Lp3Dmax;
-            if (s == null)
+            var elow = (ELowpoly)o;
+            if (elow == null)
             {
-                s = new y3d.e.LPoly3DMax();
+                elow = new ELowpoly();
+                var s = new y3d.e.LPoly3DMax();
+                elow.Oname = Utils.CurrentTest.Oname + "_" + Utils.CurrentTest.Id + "_high";
+                elow.Nname = Utils.CurrentTest.Oname + "_" + Utils.CurrentTest.Id + "_low";
                 s.VertexCount = 0;
                 s.VertexPercent = 50;
                 editMode = false;
-            }
-            settings = s;
-            barPercent.Value = s.VertexPercent;
-            vertexCount.Value = s.VertexCount;
 
+                elow.Lp3Dmax = s;
+            }
+            settings = elow.Lp3Dmax;
+            barPercent.Value = settings.VertexPercent;
+            vertexCount.Value = settings.VertexCount;
             //YEventUtils.UnPlug.Subscribe();
             updateByEditMode(editMode);
         }
 
-        private void btnOk_Click(object sender, EventArgs e)
-        {
-            settings.VertexCount = (int)vertexCount.Value;
-            settings.VertexPercent = barPercent.Value;
-            OnApply(settings);
-            editMode = true;
-        }
+        //private void btnOk_Click(object sender, EventArgs e)
+        //{
+        //    settings.VertexCount = (int)vertexCount.Value;
+        //    settings.VertexPercent = barPercent.Value;
+        //    //OnApply(settings);
+        //    editMode = true;
+        //}
 
         private async void barPercent_ValueChanged(object sender, decimal value)
         {
@@ -132,7 +136,8 @@ namespace Y3D.Projects
 
         public override void Unplug()
         {
-            YEventUtils.EndEdit.OnNext(null);
+            YEventList ye = new YEventList();
+            YEventUtils.EndEdit.OnNext(ye);
         }
 
         protected override void Subscribe()
@@ -151,6 +156,11 @@ namespace Y3D.Projects
                 _subEndEdit.Dispose();
             if (_subUnplug != null)
                 _subUnplug.Dispose();
+        }
+
+        private void LowMaxControl_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

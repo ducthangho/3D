@@ -80,6 +80,10 @@
       <HintPath>..\packages\ObjectListView.Official.2.9.1\lib\net20\ObjectListView.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Redux, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Redux.NET.2.0.0\lib\netstandard1.1\Redux.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="SharpDX, Version=3.1.1.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
       <HintPath>..\packages\SharpDX.3.1.1\lib\net45\SharpDX.dll</HintPath>
       <Private>True</Private>
@@ -106,6 +110,10 @@
       <HintPath>..\packages\System.Reactive.Linq.3.1.1\lib\net45\System.Reactive.Linq.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Reactive.Windows.Threading, Version=3.0.0.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Reactive.Windows.Threading.3.0.0\lib\net45\System.Reactive.Windows.Threading.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -118,6 +126,19 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Flow\Actions.cs" />
+    <Compile Include="Projects\LowTab.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Projects\LowTab.Designer.cs">
+      <DependentUpon>LowTab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Projects\NormalXnormalControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Projects\NormalXnormalControl.Designer.cs">
+      <DependentUpon>NormalXnormalControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Projects\TestStepPattern.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -125,18 +146,30 @@
       <DependentUpon>TestStepPattern.cs</DependentUpon>
     </Compile>
     <Compile Include="Projects\TestStepPatternFactory.cs" />
+    <Compile Include="Projects\SettingStepControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Projects\SettingStepControl.Designer.cs">
+      <DependentUpon>SettingStepControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Projects\Unwrap3DMaxControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Projects\Unwrap3DMaxControl.Designer.cs">
+      <DependentUpon>Unwrap3DMaxControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Projects\UnwrapTab.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Projects\UnwrapTab.Designer.cs">
+      <DependentUpon>UnwrapTab.cs</DependentUpon>
+    </Compile>
     <Compile Include="Projects\YEventUtils.cs" />
     <Compile Include="Projects\LowBlenderControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Projects\LowBlenderControl.Designer.cs">
       <DependentUpon>LowBlenderControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Projects\LowControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Projects\LowControl.Designer.cs">
-      <DependentUpon>LowControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Projects\LowMaxControl.cs">
       <SubType>UserControl</SubType>
@@ -162,6 +195,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Flow\Reducers.cs" />
+    <Compile Include="Flow\ApplicationState.cs" />
+    <Compile Include="Flow\StepState.cs" />
     <Compile Include="Users\AuthForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -207,11 +243,11 @@
     <EmbeddedResource Include="Projects\LowBlenderControl.resx">
       <DependentUpon>LowBlenderControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Projects\LowControl.resx">
-      <DependentUpon>LowControl.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Projects\LowMaxControl.resx">
       <DependentUpon>LowMaxControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Projects\NormalXnormalControl.resx">
+      <DependentUpon>NormalXnormalControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Projects\TestDetailControl.resx">
       <DependentUpon>TestDetailControl.cs</DependentUpon>
@@ -221,6 +257,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Projects\TestStepPattern.resx">
       <DependentUpon>TestStepPattern.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Projects\SettingStepControl.resx">
+      <DependentUpon>SettingStepControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Projects\Unwrap3DMaxControl.resx">
+      <DependentUpon>Unwrap3DMaxControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Users\AuthForm.resx">
       <DependentUpon>AuthForm.cs</DependentUpon>
@@ -385,6 +427,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\back16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Actions\" />
+    <Folder Include="States\" />
+    <Folder Include="ViewModels\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

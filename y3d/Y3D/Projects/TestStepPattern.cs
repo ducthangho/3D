@@ -50,7 +50,10 @@ namespace Y3D.Projects
             base.Dispose(disposing);
         }
 
-        
+        public void doApply()
+        {
+
+        }
 
         private void TestStepPattern_Load(object sender, EventArgs e)
         {

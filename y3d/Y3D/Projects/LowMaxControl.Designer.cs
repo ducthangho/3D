@@ -42,7 +42,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnOk = new System.Windows.Forms.Button();
             this.barPercent = new XComponent.SliderBar.MACTrackBar();
             this.btnEditMode = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.vertexCount)).BeginInit();
@@ -179,19 +178,6 @@
             this.label1.TabIndex = 30;
             this.label1.Text = "Low Poly 3DS MAX";
             // 
-            // btnOk
-            // 
-            this.btnOk.Image = global::Y3D.Properties.Resources.start;
-            this.btnOk.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOk.Location = new System.Drawing.Point(134, 275);
-            this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(58, 27);
-            this.btnOk.TabIndex = 28;
-            this.btnOk.Text = "Apply";
-            this.btnOk.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnOk.UseVisualStyleBackColor = true;
-            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
-            // 
             // barPercent
             // 
             this.barPercent.BackColor = System.Drawing.Color.Transparent;
@@ -239,7 +225,6 @@
             this.Controls.Add(this.btnEditMode);
             this.Controls.Add(this.barPercent);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnOk);
             this.Controls.Add(this.lockVertexPosition);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.preventFlippedNormal);
@@ -254,7 +239,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Name = "LowMaxControl";
-            this.Size = new System.Drawing.Size(267, 339);
+            this.Load += new System.EventHandler(this.LowMaxControl_Load);
             ((System.ComponentModel.ISupportInitialize)(this.vertexCount)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -276,7 +261,6 @@
         private System.Windows.Forms.NumericUpDown vertexCount;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnOk;
         private System.Windows.Forms.Label label1;
         private XComponent.SliderBar.MACTrackBar barPercent;
         private System.Windows.Forms.Button btnEditMode;

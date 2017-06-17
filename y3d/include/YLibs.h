@@ -1124,11 +1124,14 @@ inline std::wstring CreateLayer(INodeTab *nodes, std::wstring layer_name, BOOL i
 }
 inline void setIsolateLayer(const std::string layer_name) {
 
-	//auto cmd = formatWS("yms.isolate_layer \"{0}\"", layer_name);
-	//ExecuteMAXScriptScript(cmd.c_str());
+	auto cmd = formatWS("yms.isolate_layer \"{0}\"", layer_name);
+	ExecuteMAXScriptScript(cmd.c_str());
+
+	return;
 
 	//auto cmd = formatWS("yms.delete_layer \"{0}\"", layer_name);
 	//ExecuteMAXScriptScript(cmd.c_str());
+
 	std::wstring a = s2ws(layer_name).data();
 
 	auto ilayermanager = GetCOREInterface(LAYERMANAGER_INTERFACE_ID);

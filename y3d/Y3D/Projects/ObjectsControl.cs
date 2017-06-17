@@ -244,8 +244,16 @@ namespace Y3D.Projects
                 if (v is VerTest)
                 {
                     var vv = (VerTest)v;
-                    var test_path = Path.Combine(Utils.CurrentP.ProjectPath, "test", (oo.Name + "_" + vv.Id), oo.Name+"_low.obj");
-                    System.Diagnostics.Process.Start(test_path);
+                    var test_path = Path.Combine(Utils.CurrentP.ProjectPath, "test", (oo.Name + "_" + vv.Id), oo.Name+"_final.obj");
+                    try
+                    {
+                        System.Diagnostics.Process.Start(test_path);
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Can not preview this object!!");
+                    }
+                    
                 }
             }
         }
@@ -302,7 +310,8 @@ namespace Y3D.Projects
             //{
             //    YEventUtils.endEditMode();
             //}
-            YEventUtils.EndEdit.OnNext(null);
+            YEventList ye = new YEventList();
+            YEventUtils.EndEdit.OnNext(ye);
             panelObjList.BringToFront();
         }
 

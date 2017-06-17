@@ -145,7 +145,6 @@ namespace Y3D.Projects
             return false;
         }
 
-
         public static void initSystem()
         {
             checkMaster();
@@ -597,10 +596,10 @@ namespace Y3D.Projects
             return true;
         }
 
-        public static bool doEvent(YEvent e)
+        public static async Task<bool> doEvent(YEvent e)
         {
             if (!checkMaxTools(worker)) return false;
-            Y3D.Projects.Utils.MaxClient.DoEventAsync(e);
+            await Y3D.Projects.Utils.MaxClient.DoEventAsync(e);
             return true;
         }
 
@@ -627,6 +626,7 @@ namespace Y3D.Projects
                     if (!checkMaxTools(worker)) return false;
                     Y3D.Projects.Utils.MaxClient.LoadTestData(lt);
                     TestInScence[layerName] = true;
+                    displayLayer(layerName);
                     return true;
                 } else
                 {
@@ -637,7 +637,8 @@ namespace Y3D.Projects
                 if (!checkMaxTools(worker)) return false;
                 Y3D.Projects.Utils.MaxClient.LoadTestData(lt);
                 TestInScence.Add(layerName, true);
-                current_layer = layerName;
+                displayLayer(layerName);
+                //current_layer = layerName;
                 return true;
             }
             return false;
