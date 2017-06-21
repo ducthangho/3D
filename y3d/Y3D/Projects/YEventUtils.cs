@@ -15,6 +15,7 @@ using System.Reactive.Disposables;
 using System.Windows.Forms;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
+using System.Reactive.Subjects;
 
 namespace Y3D.Projects
 {
@@ -44,6 +45,10 @@ namespace Y3D.Projects
             return x;
         }
         );
+
+
+        //static ReplaySubject<YEvent> event_relay_sub = new ReplaySubject<YEvent>(2);
+
         static AsyncClientStreamingCall<YEvent, ResponseEvent> streamCall = null;
         //static IObservable<EventPattern<NotifyCollectionChangedEventArgs>> eventChanges = null;
         static IDisposable subcribe_e = null;
@@ -99,13 +104,42 @@ namespace Y3D.Projects
             EditMode = true;
             if (streamCall != null) streamCall.Dispose();
             streamCall = Utils.MaxClient.DoStreamClient();
-
             if (subcribe_e != null) subcribe_e.Dispose();
-            subcribe_e = last_e.Subscribe(async e => {
-                if (e!=null)
-                    await streamCall.RequestStream.WriteAsync(e);
-            });
 
+            subcribe_e = last_e.Subscribe(async e =>
+            {
+                //if (e != null)
+                //    await streamCall.RequestStream.WriteAsync(e);
+                if (e != null)
+                {
+                    try
+                    {
+                        await streamCall.RequestStream.WriteAsync(e);
+                    }
+                    catch (System.InvalidOperationException er)
+                    {
+                    }
+                }
+            });
+            //event_relay_sub.Subscribe(async e =>
+            //{
+            //    if (e != null)
+            //    {
+            //        try
+            //        {
+            //            await streamCall.RequestStream.WriteAsync(e);
+            //        }
+            //        catch (System.InvalidOperationException er)
+            //        {
+            //        }
+            //    }
+            //});
+
+            //subcribe_e = event_relay_sub.Subscribe(async e =>
+            //{
+            //    if (e != null)
+            //        await streamCall.RequestStream.WriteAsync(e);
+            //});
             if (editInCopy)
             {
                 YEvent clone_e = new YEvent();
@@ -197,6 +231,7 @@ namespace Y3D.Projects
         static public void addObservableEvent(YEvent ye)
         {
             events.Add(ye);
+            //event_relay_sub.OnNext(ye);
         }
     } 
 }

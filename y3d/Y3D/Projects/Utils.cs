@@ -71,7 +71,14 @@ namespace Y3D.Projects
             loadingForm.TopMost = true;
             loadingForm.BringToFront();
             //    loadingForm.ShowInTaskbar = true;
-            Application.Run(loadingForm);
+            try
+            {
+                Application.Run(loadingForm);
+            }
+            catch (System.Threading.ThreadAbortException e)
+            {
+                //MessageBox.Show(e.Message);
+            }
         }
 
         public static void saveTestData()

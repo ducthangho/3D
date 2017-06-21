@@ -429,7 +429,6 @@
     <None Include="Resources\back16.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Actions\" />
     <Folder Include="States\" />
     <Folder Include="ViewModels\" />
   </ItemGroup>

@@ -85,25 +85,26 @@ namespace Y3D.rpc
             Y3D.Projects.Utils.getMainWorker().ContinueWith(
                 (task) =>
                 {
-                        if (Y3D.Projects.Utils.worker!=null)
+                    if (Y3D.Projects.Utils.worker != null)
+                    {
+                        server = new Server
                         {
-                            server = new Server
-                            {
-                                Services = { YServiceMainWorker.BindService(new YServiceMainWorkerImpl()) },
-                                Ports = { new ServerPort("127.0.0.1", Y3D.Projects.Utils.worker.Wid+37000, ServerCredentials.Insecure) }
-                            };
-                            server.Start();
-                            LogClient.Instance.LOG("Y3D Server is now listening on port {0}\n", Y3D.Projects.Utils.worker.Wid + 37000);
+                            Services = { YServiceMainWorker.BindService(new YServiceMainWorkerImpl()) },
+                            Ports = { new ServerPort("127.0.0.1", Y3D.Projects.Utils.worker.Wid + 37000, ServerCredentials.Insecure) }
+                        };
+                        server.Start();
+                        LogClient.Instance.LOG("Y3D Server is now listening on port {0}\n", Y3D.Projects.Utils.worker.Wid + 37000);
                     }
                     //t.Abort();
                 }
             ).Wait();
             Y3D.Projects.Utils.mainform = new Forms.YMainForm();
             Y3D.Projects.Utils.mainform.Show();
-            while (t.ThreadState == System.Threading.ThreadState.Unstarted)
-            {
-                System.Threading.Thread.Sleep(1000);
-            }
+            //while (t.ThreadState == System.Threading.ThreadState.Unstarted)
+            //{
+            //    System.Threading.Thread.Sleep(1000);
+            //}
+            //System.Threading.Thread.Sleep(2000);
             t.Abort();
         }
 

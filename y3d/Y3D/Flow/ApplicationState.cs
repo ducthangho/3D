@@ -12,8 +12,8 @@ namespace Y3D.Flow.States
     {
         public StepState stepState { get; set; }
         public bool isBusy { get; set; }
-        public UserTestData TestData { get; set; }
-        public Dictionary<string, bool> TestInScence;
-        public VerTest CurrentTest { get; set; }
+        public TestDetailState TestDetail;
+        public ObjectManagerState ObjectManager;
+
     }
 }

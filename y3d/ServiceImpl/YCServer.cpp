@@ -29,7 +29,7 @@ Status YServiceImpl::Init4Test(ServerContext* context, const InitTestParam* requ
 		auto cageStr = formatWS("{}_{}_cage", request->oname().c_str(), request->id().c_str());
 		auto finalStr = formatWS("{}_{}_final", request->oname().c_str(), request->id().c_str());
 
-		INodeTab nt1, nt2, nt3, nt4, nt5;
+		INodeTab nt1, nt2, nt3, nt4, nt5, nt6;
 		nt1.AppendNode(n);
 		ip->CloneNodes(nt1, n->GetObjOffsetPos(), true, NODE_COPY, &nt2, &nt2);
 
@@ -50,7 +50,12 @@ Status YServiceImpl::Init4Test(ServerContext* context, const InitTestParam* requ
 		nt3[0]->SetName(hiStr.c_str());
 		nt4[0]->SetName(cageStr.c_str());
 		nt5[0]->SetName(finalStr.c_str());
-		
+
+		nt6.AppendNode(nt2[0]);
+		nt6.AppendNode(nt3[0]);
+		nt6.AppendNode(nt4[0]);
+		nt6.AppendNode(nt5[0]);
+		ip->SelectNodeTab(nt6,true);
 		//cmd = formatWS("yms.set_display_proxy \"{0}\" true", ws2s(hiStr).c_str());
 		//LOG(cmd.c_str());
 		//ExecuteMAXScriptScript(cmd.c_str());
@@ -60,10 +65,10 @@ Status YServiceImpl::Init4Test(ServerContext* context, const InitTestParam* requ
 		//ip->SelectNodeTab(nt1, TRUE, FALSE);
 		//ip->FileSaveNodes(&nt1, formatWS("{0}\\{1}_o.max", request->test_folder(), ws2s(n->GetName()).c_str()).c_str());
 
-		ip->SelectNode(ip->GetINodeByName(lowStr.c_str()));
-		ip->SelectNode(ip->GetINodeByName(hiStr.c_str()),0);
-		ip->SelectNode(ip->GetINodeByName(cageStr.c_str()), 0);
-		ip->SelectNode(ip->GetINodeByName(finalStr.c_str()),0);
+		//ip->SelectNode(ip->GetINodeByName(lowStr.c_str()));
+		//ip->SelectNode(ip->GetINodeByName(hiStr.c_str()),0);
+		//ip->SelectNode(ip->GetINodeByName(cageStr.c_str()), 0);
+		//ip->SelectNode(ip->GetINodeByName(finalStr.c_str()),0);
 		cmd = formatWS("yms.create_layer \"{0}_{1}\" true true", request->oname().c_str(), request->id().c_str());
 		ExecuteMAXScriptScript(cmd.c_str());
 		//if (it.has_lowpoly()) {
@@ -100,9 +105,11 @@ Status YServiceImpl::Init4Test(ServerContext* context, const InitTestParam* requ
 		//ip->SelectNode(ip->GetINodeByName(cageStr.c_str()));
 		//ip->ExportToFile(formatWS("{0}\\{1}_cage.obj", request->test_folder(), ws2s(n->GetName()).c_str()).c_str(), TRUE, SCENE_EXPORT_SELECTED, new Class_ID(1371343970L, 1730353346L));
 
+
 		ip->SelectNode(ip->GetINodeByName(finalStr.c_str()));
 		ip->ExportToFile(formatWS("{0}\\{1}_final.obj", request->test_folder(), ws2s(n->GetName()).c_str()).c_str(), TRUE, SCENE_EXPORT_SELECTED, new Class_ID(1371343970L, 1730353346L));
-
+		
+		ip->SelectNodeTab(nt6, true);
 		save_test(*request);
 		//theHold.Accept();
 	});

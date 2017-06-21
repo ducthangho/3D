@@ -8,24 +8,45 @@ using y3d.e;
 
 namespace Y3D.Flow.Actions
 {
-    public class EnterTest : IAction
+    // Object Manager Actions
+    public class EnterTestAction : IAction
     {
         public VerTest vtest {get;set;} 
     }
 
-    public class BeginEdit : IAction
+    public class ExitTestAction : IAction
     {
         public VerTest vtest { get; set; }
     }
 
+    public class AddTestAction : IAction
+    {
+        public string OName;
+        public string Note;
+        public InitTestPreset Preset;
+    }
+
+    public class DeleteTestAction : IAction
+    {
+        public VerTest vtest;
+    }
+
+
+
+    public class BeginEdit : IAction
+    {
+        public YEventList EventList { get; set; }
+    }
+
     public class EndEdit : IAction
     {
-        public VerTest vtest { get; set; }
+        public YEventList EventList { get; set; }
     }
 
     public class ApplyStep : IAction
     {
         public string stepName { get; set; }
+        public YEvent StepEvent;
     }
 
     public class SetBusyAction: IAction
@@ -38,13 +59,5 @@ namespace Y3D.Flow.Actions
         public string stepName { get; set; }
     }
 
-    public class AddTestAction: IAction
-    {
-        public VerTest vtest;
-    }
 
-    public class DeleteTestAction: IAction
-    {
-        public VerTest vtest;
-    }
 }
