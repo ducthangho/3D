@@ -12,6 +12,7 @@ using System.Reactive.Disposables;
 
 using System.Reactive.Threading.Tasks;
 using System.Reactive.Concurrency;
+using System.Threading;
 
 namespace Y3D.rpc
 {
@@ -76,10 +77,12 @@ namespace Y3D.rpc
             //Projects.Utils.Store.Dispatch(new YFlow.SetBusyAction { isBusy = true });
 
             //System.Threading.Thread t = new System.Threading.Thread(new System.Threading.ThreadStart(Projects.Utils.myLoading(Projects.Utils.Store)));
+            var tokenSource = new CancellationTokenSource();
+            var token = tokenSource.Token;
 
             System.Threading.Thread t = new System.Threading.Thread(new System.Threading.ThreadStart(() =>
             {
-                Projects.Utils.myLoading();
+                Projects.Utils.myLoading(token);
             }
             ));
             t.Start();
@@ -104,14 +107,15 @@ namespace Y3D.rpc
 
             Y3D.Projects.Utils.mainform = new Forms.YMainForm();
             Y3D.Projects.Utils.mainform.Show();
-            try
-            {
-                t.Abort();
-            }
-            catch (System.Threading.ThreadAbortException)
-            {
+            tokenSource.Cancel();
+            //try
+            //{
+            //    t.Abort();
+            //}
+            //catch (System.Threading.ThreadAbortException)
+            //{
 
-            }
+            //}
 
 
 

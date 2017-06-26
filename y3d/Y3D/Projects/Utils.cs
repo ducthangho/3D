@@ -19,6 +19,7 @@ using SplashScreen;
 using YFlow;
 using Redux;
 using System.Reactive.Linq;
+using System.Threading;
 //using System.Reactive;
 //using System.Reactive.Linq;
 //using System.Reactive.Disposables;
@@ -176,8 +177,13 @@ namespace Y3D.Projects
 
         //}
 
-        static public void myLoading()
+        static public void myLoading(CancellationToken ct)
         {
+
+            if (ct.IsCancellationRequested)
+            {
+                Application.ExitThread();
+            }
 
             SplashForm loadingForm = new SplashForm();
             loadingForm.AppName = "Initializing data";
@@ -185,17 +191,27 @@ namespace Y3D.Projects
             loadingForm.ShowIcon = true;
             loadingForm.TopMost = true;
             loadingForm.BringToFront();
-            //LogClientCSharp.LogClient.Instance.LOG(t.Status.ToString() +"    "+t.IsCompleted.ToString()+ "   \n");
-            //LogClientCSharp.LogClient.Instance.LOG("State busy: " + Store.GetState().isBusy.ToString() + "   \n");
+
+
             try
             {
-                Application.Run(loadingForm);
+                if (ct.IsCancellationRequested)
+                {
+                    Application.ExitThread();
+                } else
+                {
+                    Application.Run(loadingForm);
+                }
             }
             catch (System.Threading.ThreadAbortException e)
             {
                 //MessageBox.Show(e.Message);
             }
 
+            if (ct.IsCancellationRequested)
+            {
+                Application.ExitThread();
+            }
             //Store.DistinctUntilChanged(state => new { state.isBusy }).Subscribe(
             //    state =>
             //    {
