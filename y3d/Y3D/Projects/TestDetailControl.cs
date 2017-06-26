@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using y3d.e;
+using System.Reactive.Linq;
 
 namespace Y3D.Projects
 {
@@ -29,6 +30,16 @@ namespace Y3D.Projects
 
             _subUpdateStepButton = YEventUtils.UpdateStepButton.Subscribe(
                 b => updateTabButton(b)
+            );
+
+            Utils.Store.DistinctUntilChanged(state => new { state.ObjectManager.CurrentTest }).Subscribe(
+                state =>
+                {
+                    if (state.ObjectManager.CurrentTest != null)
+                    {
+                        reloadTest(state.ObjectManager.CurrentTest);
+                    }
+                }
             );
         }
 
@@ -68,19 +79,20 @@ namespace Y3D.Projects
         {
             var bb = tab_buttons[i];
             bb.BackColor = getButtonColor(b);
+            var CurrentTest = Utils.Store.GetState().ObjectManager.CurrentTest;
             switch (i)
             {
                 case 0:
-                    Utils.CurrentTest.HasLow = b;
+                    CurrentTest.HasLow = b;
                     break;
                 case 1:
-                    Utils.CurrentTest.HasUnwrap = b;
+                    CurrentTest.HasUnwrap = b;
                     break;
                 case 2:
-                    Utils.CurrentTest.HasPack = b;
+                    CurrentTest.HasPack = b;
                     break;
                 case 3:
-                    Utils.CurrentTest.HasBake = b;
+                    CurrentTest.HasBake = b;
                     break;
                 default:
                     break;
@@ -94,8 +106,6 @@ namespace Y3D.Projects
 
         public void reloadTest(y3d.e.VerTest v)
         {
-            Utils.CurrentTest = (VerTest)v;
-            Utils.loadTest();
             lbTestName.Text = "Name : " + v.Oname + "_" + v.Id;
             btnLow.BackColor = getButtonColor(v.HasLow);
             btnUnwrap.BackColor = getButtonColor(v.HasUnwrap);
@@ -113,18 +123,12 @@ namespace Y3D.Projects
                 {
                     lowTab1.Init(v.InitTest.Lowpoly, v.InitTest.Lowpoly.LowtypeCase.ToString());
                 }
-                //else
-                //{
-                //    lowTab1.Init(null);
-                //}
-
                 if (!v.HasUnwrap) return;
 
                 if (v.InitTest.Unwrap!=null)
                 {
                     unwrapTab1.Init(v.InitTest.Unwrap, v.InitTest.Unwrap.SettingCase.ToString());
                 }
-
                 if (!v.HasBake) return;
             }
             //if (v.InitTest != null)
@@ -146,5 +150,6 @@ namespace Y3D.Projects
         {
             tabSettings.SelectedTab = tabPageUnwrap;
         }
+
     }
 }

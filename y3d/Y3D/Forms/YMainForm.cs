@@ -194,15 +194,20 @@ namespace Y3D.Forms
         public void switch2OManager()
         {
             objectsControl1.Show();
-            objectsControl1.updateYAL(Y3D.Projects.Utils.CurrentYAL);
+            //objectsControl1.updateYAL(Y3D.Projects.Utils.CurrentYAL);
+            var yal = Projects.Utils.Store.GetState().ObjectManager.CurrentYAL;
+            objectsControl1.updateYAL(yal);
             active_htab(btnTabObject);
         }
 
         public void resetOM()
         {
-            Y3D.Projects.Utils.CurrentYAL.Areas.Clear();
-            objectsControl1.updateYAL(Y3D.Projects.Utils.CurrentYAL);
-            Y3D.Projects.Utils.CurrentYAL = null;
+            //Y3D.Projects.Utils.CurrentYAL.Areas.Clear();
+            //objectsControl1.updateYAL(Y3D.Projects.Utils.CurrentYAL);
+            Projects.Utils.Store.Dispatch(new YFlow.ObjectManagerComponent.ResetYAreaAction { });
+            var yal = Projects.Utils.Store.GetState().ObjectManager.CurrentYAL;
+            objectsControl1.updateYAL(yal);
+            //Y3D.Projects.Utils.CurrentYAL = null;
         }
 
         private void btnMainMenu_Click(object sender, EventArgs e)

@@ -36,7 +36,8 @@ namespace Y3D.Projects
                 {
                     if (b)
                     {
-                        if (!Utils.CurrentTest.HasLow)
+                        var CurrentTest = Utils.Store.GetState().ObjectManager.CurrentTest;
+                        if (!CurrentTest.HasLow)
                         {
                             Init(null);
                         }

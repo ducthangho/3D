@@ -44,9 +44,11 @@ namespace Y3D.Projects
             setting.Angle = (float)nAngle.Value;
             setting.Spacing = (float)nSpacing.Value;
 
+            var CurrentTest = Utils.Store.GetState().ObjectManager.CurrentTest;
+
             YEvent unwrap_e = new YEvent();
             unwrap_e.Unwrap = new EUnwrap();
-            unwrap_e.Unwrap.Oname =  Utils.CurrentTest.Oname + "_" + Utils.CurrentTest.Id + "_low";
+            unwrap_e.Unwrap.Oname =  CurrentTest.Oname + "_" + CurrentTest.Id + "_low";
             unwrap_e.Unwrap.Max3D = setting;
 
             Utils.doEvent(unwrap_e);

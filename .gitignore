@@ -18,6 +18,8 @@ y3d/icph/**
 y3d/Y3D/packages/**
 y3d/Y3D/**/obj/**
 y3d/Y3D/**/bin/**
+y3d/YFlow/**/bin/**
+y3d/YFlow/**/obj/**
 y3d/Y3D/x64/Release/**
 **/Debug/
 *.opendb

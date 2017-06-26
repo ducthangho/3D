@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using y3d.e;
 using System.IO;
+using System.Reactive.Linq;
 
 namespace Y3D.Projects
 {
@@ -94,8 +95,8 @@ namespace Y3D.Projects
                 {
                     var vv = (VerTest)x;
                     var sk = vv.Oname + "_" + vv.Id;
-                    if (!Utils.TestInScence.ContainsKey(sk)) return "g_red";
-                    if (Utils.TestInScence[sk])
+                    if (!Utils.Store.GetState().ObjectManager.TestInScence.ContainsKey(sk)) return "g_red";
+                    if (Utils.Store.GetState().ObjectManager.TestInScence[sk])
                     {
                         return "g_green";
                     } else
@@ -107,6 +108,88 @@ namespace Y3D.Projects
             };
 
 
+            //Utils.Store.DistinctUntilChanged(state => new { state.ObjectManager.CurrentTest }).Subscribe(
+            //    state =>
+            //    {
+            //        if (state.ObjectManager.CurrentTest != null)
+            //        {
+            //            testDetailControl1.reloadTest(state.ObjectManager.CurrentTest);
+            //        }
+            //    }
+            //);
+
+            Utils.Store.DistinctUntilChanged(state => new { state.ObjectManager.ListTest }).Subscribe(
+                state =>
+                {
+                    if (state.ObjectManager.ListTest!=null)
+                    {
+                        olvLocalTest.SetObjects(state.ObjectManager.ListTest);
+                    } 
+                    else
+                    {
+                        olvLocalTest.SetObjects(new List<VerTest>());
+                    }
+                    //if (state.ObjectManager.TestData.Utests != null)
+                    //{
+                    //    if (state.ObjectManager.TestData.Utests.ContainsKey(state.ObjectManager.CurrentObject.Name))
+                    //    {
+                    //        olvLocalTest.SetObjects(state.ObjectManager.TestData.Utests[state.ObjectManager.CurrentObject.Name].Otests);
+                    //    }
+                    //    else
+                    //    {
+                    //        olvLocalTest.SetObjects(new List<VerTest>());
+                    //        // reset
+                    //    }
+                    //}
+                    //else
+                    //{
+                    //    olvLocalTest.SetObjects(new List<VerTest>());
+                    //}
+                }
+            );
+            Utils.Store.DistinctUntilChanged(state => new { state.ObjectManager.CurrentObject }).Subscribe(
+                state =>
+                {
+                    //MessageBox.Show("Test");
+
+                    //if (state.ObjectManager.CurrentObject != null)
+                    //{
+                    //    if (state.ObjectManager.TestData!=null)
+                    //    {
+                    //        if (state.ObjectManager.TestData.Utests != null)
+                    //        {
+                    //            if (state.ObjectManager.TestData.Utests.ContainsKey(state.ObjectManager.CurrentObject.Name))
+                    //            {
+                    //                olvLocalTest.SetObjects(state.ObjectManager.TestData.Utests[state.ObjectManager.CurrentObject.Name].Otests);
+                    //            }
+                    //            else
+                    //            {
+                    //                olvLocalTest.SetObjects(new List<VerTest>());
+                    //                // reset
+                    //            }
+                    //        }
+                    //        else
+                    //        {
+                    //            olvLocalTest.SetObjects(new List<VerTest>());
+                    //        }
+                    //    }
+                    //}
+                    //else
+                    //{
+                    //    olvLocalTest.SetObjects(new List<VerTest>());
+                    //}
+                }
+            );
+
+            //Utils.Store.DistinctUntilChanged(state => new { state.ObjectManager.CurrentTest }).Subscribe(
+            //    state =>
+            //    {
+            //        if (state.ObjectManager.CurrentTest != null)
+            //        {
+            //            testDetailControl1.reloadTest(state.ObjectManager.CurrentTest);
+            //        }
+            //    }
+            //);
         }
 
         public void initGroup()
@@ -148,25 +231,30 @@ namespace Y3D.Projects
             Object x = objectListCtrl.SelectedObject;
             if (x is YObject)
             {
-                Utils.displayLayer("0");
                 var y = (YObject)x;
-                if (Utils.TestData.Utests!=null)
-                {
-                    if (Utils.TestData.Utests.ContainsKey(y.Name))
-                    {
-                        olvLocalTest.SetObjects(Utils.TestData.Utests[y.Name].Otests);
-                    } else
-                    {
-                        olvLocalTest.SetObjects(new List<VerTest>());
-                        // reset
-                    }
-                } else
-                {
-                    //MessageBox.Show("xxx");
-                    olvLocalTest.SetObjects(new List<VerTest>());
-                    //reset
-                    //olvLocalTest.Clear();
-                }
+                Projects.Utils.Store.Dispatch(new YFlow.ObjectManagerComponent.ExitTestAction { });
+
+                Projects.Utils.Store.Dispatch(new YFlow.ObjectManagerComponent.SelectObjectAction {
+                    oname = y.Name
+                });
+
+                //if (Utils.TestData.Utests!=null)
+                //{
+                //    if (Utils.TestData.Utests.ContainsKey(y.Name))
+                //    {
+                //        olvLocalTest.SetObjects(Utils.TestData.Utests[y.Name].Otests);
+                //    } else
+                //    {
+                //        olvLocalTest.SetObjects(new List<VerTest>());
+                //        // reset
+                //    }
+                //} else
+                //{
+                //    //MessageBox.Show("xxx");
+                //    olvLocalTest.SetObjects(new List<VerTest>());
+                //    //reset
+                //    //olvLocalTest.Clear();
+                //}
 
                 if (checkBoxIsolate.Checked)
                 {
@@ -183,13 +271,8 @@ namespace Y3D.Projects
                     ye.Select.Isolate = false;
                     Y3D.Projects.Utils.MaxClient.DoEventAsync(ye);
                 }
-
-                
                 //if (this.checkBoxInGroup.Checked)
                 //    cmd += "max tool zoomextents all;";
-
-
-                //MessageBox.Show(y.Name);
             }
         }
 
@@ -270,8 +353,11 @@ namespace Y3D.Projects
                 if (Projects.Utils.CreateNewTest(y.Name, tf.note, tf.testPreset))
                 {
                     //MessageBox.Show("Create ok");
-                    olvLocalTest.SetObjects(Utils.TestData.Utests[y.Name].Otests);
+                    var TestData = Utils.Store.GetState().ObjectManager.TestData;
+                    olvLocalTest.SetObjects(TestData.Utests[y.Name].Otests);
                 }
+
+
             }
 
         }
@@ -288,7 +374,11 @@ namespace Y3D.Projects
                     var vv = (VerTest)v;
                     if (Utils.DeleteTest(vv))
                     {
-                        olvLocalTest.SetObjects(Utils.TestData.Utests[oo.Name].Otests);
+                        Projects.Utils.Store.Dispatch(new YFlow.ObjectManagerComponent.DeleteTestAction {
+                            vtest = vv
+                        });
+                        var TestData = Utils.Store.GetState().ObjectManager.TestData;
+                        olvLocalTest.SetObjects(TestData.Utests[oo.Name].Otests);
                     }
                 }
             }
@@ -296,10 +386,13 @@ namespace Y3D.Projects
 
         private void btnTestEdit_Click(object sender, EventArgs e)
         {
-            object v = olvLocalTest.SelectedObject;
+            Object v = olvLocalTest.SelectedObject;
             if (v is VerTest)
             {
-                testDetailControl1.reloadTest((VerTest)v);
+                Projects.Utils.Store.Dispatch(new YFlow.ObjectManagerComponent.EnterTestAction
+                {
+                    vtest = (VerTest)v
+                });
                 panelEditTest.BringToFront();
             }
         }
@@ -312,6 +405,9 @@ namespace Y3D.Projects
             //}
             YEventList ye = new YEventList();
             YEventUtils.EndEdit.OnNext(ye);
+
+            Projects.Utils.Store.Dispatch(new YFlow.ObjectManagerComponent.ExitTestAction{});
+
             panelObjList.BringToFront();
         }
 
@@ -320,9 +416,11 @@ namespace Y3D.Projects
             Object v = olvLocalTest.SelectedObject;
             if (v is VerTest)
             {
-                testDetailControl1.reloadTest((VerTest)v);
+                //testDetailControl1.reloadTest((VerTest)v);
+                Projects.Utils.Store.Dispatch(new YFlow.ObjectManagerComponent.EnterTestAction {
+                   vtest = (VerTest)v
+                });
                 panelEditTest.BringToFront();
-                
             }
         }
 

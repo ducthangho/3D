@@ -58,8 +58,9 @@ namespace Y3D.Projects
             {
                 elow = new ELowpoly();
                 var s = new y3d.e.LPoly3DMax();
-                elow.Oname = Utils.CurrentTest.Oname + "_" + Utils.CurrentTest.Id + "_high";
-                elow.Nname = Utils.CurrentTest.Oname + "_" + Utils.CurrentTest.Id + "_low";
+                var CurrentTest = Utils.Store.GetState().ObjectManager.CurrentTest;
+                elow.Oname = CurrentTest.Oname + "_" + CurrentTest.Id + "_high";
+                elow.Nname = CurrentTest.Oname + "_" + CurrentTest.Id + "_low";
                 s.VertexCount = 0;
                 s.VertexPercent = 50;
                 editMode = false;
@@ -85,11 +86,12 @@ namespace Y3D.Projects
         {
             if (editMode)
             {
-                if (Utils.CurrentTest == null) return;
+                var CurrentTest = Utils.Store.GetState().ObjectManager.CurrentTest;
+                if (CurrentTest == null) return;
                 //LogClientCSharp.LogClient.Instance.LOG("Value:{0}\n", value);
                 y3d.e.YEvent e = new y3d.e.YEvent();
                 e.Mod = new y3d.e.EModifierUpdate();
-                e.Mod.Oname = Utils.CurrentTest.Oname + "_" + Utils.CurrentTest.Id + "_low_tmp";
+                e.Mod.Oname = CurrentTest.Oname + "_" + CurrentTest.Id + "_low_tmp";
                 e.Mod.ModName = "ProOptimizer";
                 e.Mod.Key = "VertexPercent";
                 e.Mod.Value = value.ToString();
@@ -108,7 +110,8 @@ namespace Y3D.Projects
             {
                 YEventUtils.surfix_tmp = "_low_tmp";
                 //var high_name = Utils.CurrentTest.Oname + "_" + Utils.CurrentTest.Id + "_high";
-                var tmp_name = Utils.CurrentTest.Oname + "_" + Utils.CurrentTest.Id + YEventUtils.surfix_tmp;
+                var CurrentTest = Utils.Store.GetState().ObjectManager.CurrentTest;
+                var tmp_name = CurrentTest.Oname + "_" + CurrentTest.Id + YEventUtils.surfix_tmp;
                 //clone_e.Yclone.ConvertType = ConvertType.EditableMesh;
 
                 YEvent low_e = new YEvent();

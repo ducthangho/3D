@@ -83,7 +83,8 @@ namespace Y3D.Projects
 
         static public void reload(bool mode, YEventList initEvents, bool makeCopy=true)
         {
-            tname = Utils.CurrentTest.Oname + "_" + Utils.CurrentTest.Id;
+            var CurrentTest = Utils.Store.GetState().ObjectManager.CurrentTest;
+            tname = CurrentTest.Oname + "_" + CurrentTest.Id;
             editInCopy = makeCopy;
             if (mode)
                 startEditMode(initEvents);
@@ -96,7 +97,6 @@ namespace Y3D.Projects
 
         static public async Task startEditMode(YEventList el)
         {
-            
             //eventChanges = Observable.FromEventPattern((EventHandler<NotifyCollectionChangedEventArgs> ev) => new NotifyCollectionChangedEventHandler(ev),
             //    ev => events.CollectionChanged += ev,
             //    ev => events.CollectionChanged -= ev
@@ -107,21 +107,19 @@ namespace Y3D.Projects
             if (subcribe_e != null) subcribe_e.Dispose();
 
             subcribe_e = last_e.Subscribe(async e =>
-            {
-                //if (e != null)
-                //    await streamCall.RequestStream.WriteAsync(e);
+           { 
                 if (e != null)
                 {
                     try
                     {
                         await streamCall.RequestStream.WriteAsync(e);
                     }
-                    catch (System.InvalidOperationException er)
+                    catch (System.InvalidOperationException)
                     {
                     }
                 }
             });
-            //event_relay_sub.Subscribe(async e =>
+            //subcribe_e =event_relay_sub.Subscribe(async e =>
             //{
             //    if (e != null)
             //    {
@@ -135,11 +133,6 @@ namespace Y3D.Projects
             //    }
             //});
 
-            //subcribe_e = event_relay_sub.Subscribe(async e =>
-            //{
-            //    if (e != null)
-            //        await streamCall.RequestStream.WriteAsync(e);
-            //});
             if (editInCopy)
             {
                 YEvent clone_e = new YEvent();

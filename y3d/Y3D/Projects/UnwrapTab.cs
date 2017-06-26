@@ -35,7 +35,8 @@ namespace Y3D.Projects
                 {
                     if (b)
                     {
-                        if (!Utils.CurrentTest.HasUnwrap)
+                        var CurrentTest = Utils.Store.GetState().ObjectManager.CurrentTest;
+                        if (!CurrentTest.HasUnwrap)
                         {
                             Init(null);
                         }

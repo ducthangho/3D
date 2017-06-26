@@ -14,6 +14,7 @@ namespace Y3D
         [STAThread]
         static void Main()
         {
+            Projects.Utils.initState();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Users.AuthForm());
