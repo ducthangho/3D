@@ -177,41 +177,23 @@ namespace Y3D.Projects
 
         //}
 
-        static public void myLoading(CancellationToken ct)
+        static public void myLoading()
         {
-
-            if (ct.IsCancellationRequested)
-            {
-                Application.ExitThread();
-            }
-
             SplashForm loadingForm = new SplashForm();
             loadingForm.AppName = "Initializing data";
             loadingForm.Icon = Properties.Resources.wave;
             loadingForm.ShowIcon = true;
             loadingForm.TopMost = true;
             loadingForm.BringToFront();
-
-
             try
             {
-                if (ct.IsCancellationRequested)
-                {
-                    Application.ExitThread();
-                } else
-                {
-                    Application.Run(loadingForm);
-                }
+                Application.Run(loadingForm);
             }
             catch (System.Threading.ThreadAbortException e)
             {
                 //MessageBox.Show(e.Message);
             }
 
-            if (ct.IsCancellationRequested)
-            {
-                Application.ExitThread();
-            }
             //Store.DistinctUntilChanged(state => new { state.isBusy }).Subscribe(
             //    state =>
             //    {

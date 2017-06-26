@@ -77,12 +77,12 @@ namespace Y3D.rpc
             //Projects.Utils.Store.Dispatch(new YFlow.SetBusyAction { isBusy = true });
 
             //System.Threading.Thread t = new System.Threading.Thread(new System.Threading.ThreadStart(Projects.Utils.myLoading(Projects.Utils.Store)));
-            var tokenSource = new CancellationTokenSource();
-            var token = tokenSource.Token;
+            //var tokenSource = new CancellationTokenSource();
+            //var token = tokenSource.Token;
 
             System.Threading.Thread t = new System.Threading.Thread(new System.Threading.ThreadStart(() =>
             {
-                Projects.Utils.myLoading(token);
+                Projects.Utils.myLoading();
             }
             ));
             t.Start();
@@ -107,15 +107,17 @@ namespace Y3D.rpc
 
             Y3D.Projects.Utils.mainform = new Forms.YMainForm();
             Y3D.Projects.Utils.mainform.Show();
-            tokenSource.Cancel();
-            //try
-            //{
-            //    t.Abort();
-            //}
-            //catch (System.Threading.ThreadAbortException)
-            //{
+            //tokenSource.Cancel();
+            while (!t.IsAlive) ;
+            Thread.Sleep(1);
+            try
+            {
+                t.Abort();
+            }
+            catch (System.Threading.ThreadAbortException)
+            {
 
-            //}
+            }
 
 
 
