@@ -136,6 +136,8 @@
     <ClCompile Include="..\Service\grpc\src\core\lib\iomgr\socket_mutator.c" />
     <ClCompile Include="..\Service\grpc\src\core\lib\iomgr\workqueue_uv.c" />
     <ClCompile Include="..\Service\grpc\src\core\lib\iomgr\workqueue_windows.c" />
+    <ClCompile Include="..\Service\grpc\src\core\lib\slice\slice.c" />
+    <ClCompile Include="..\Service\grpc\src\core\lib\slice\slice_buffer.c" />
     <ClCompile Include="..\Service\grpc\src\core\lib\support\mpscq.c" />
     <ClCompile Include="..\Service\grpc\src\core\lib\support\time.c" />
     <ClCompile Include="..\Service\grpc\src\core\lib\support\time_posix.c" />

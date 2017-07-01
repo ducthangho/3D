@@ -36,8 +36,8 @@
     <Import Project="..\packages\grpc.dependencies.zlib.redist.1.2.8.10\build\native\grpc.dependencies.zlib.redist.targets" Condition="Exists('..\packages\grpc.dependencies.zlib.redist.1.2.8.10\build\native\grpc.dependencies.zlib.redist.targets')" />
     <Import Project="..\packages\grpc.dependencies.zlib.1.2.8.10\build\native\grpc.dependencies.zlib.targets" Condition="Exists('..\packages\grpc.dependencies.zlib.1.2.8.10\build\native\grpc.dependencies.zlib.targets')" />
     <Import Project="..\packages\grpc.dependencies.openssl.1.0.204.1\build\native\grpc.dependencies.openssl.targets" Condition="Exists('..\packages\grpc.dependencies.openssl.1.0.204.1\build\native\grpc.dependencies.openssl.targets')" />
-    <Import Project="..\packages\pugixml.1.8.0\build\native\pugixml.targets" Condition="Exists('..\packages\pugixml.1.8.0\build\native\pugixml.targets')" />
     <Import Project="..\packages\fmt.greedy.3.0.0.1\build\native\fmt.greedy.targets" Condition="Exists('..\packages\fmt.greedy.3.0.0.1\build\native\fmt.greedy.targets')" />
+    <Import Project="..\packages\pugixml.1.8.2\build\native\pugixml.targets" Condition="Exists('..\packages\pugixml.1.8.2\build\native\pugixml.targets')" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'" />
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" />
@@ -159,37 +159,50 @@ call "$(ProjectDir)..\bin\start_workers.cmd"</Command>
     <ClCompile Include="grpc\src\compiler\cpp_plugin.cc" />
     <ClCompile Include="grpc\src\core\ext\census\grpc_filter.c" />
     <ClCompile Include="grpc\src\core\ext\census\grpc_plugin.c" />
-    <ClCompile Include="grpc\src\core\ext\client_channel\channel_connectivity.c" />
-    <ClCompile Include="grpc\src\core\ext\client_channel\client_channel.c" />
-    <ClCompile Include="grpc\src\core\ext\client_channel\client_channel_factory.c" />
-    <ClCompile Include="grpc\src\core\ext\client_channel\client_channel_plugin.c" />
-    <ClCompile Include="grpc\src\core\ext\client_channel\connector.c" />
-    <ClCompile Include="grpc\src\core\ext\client_channel\default_initial_connect_string.c" />
-    <ClCompile Include="grpc\src\core\ext\client_channel\http_connect_handshaker.c" />
-    <ClCompile Include="grpc\src\core\ext\client_channel\http_proxy.c" />
-    <ClCompile Include="grpc\src\core\ext\client_channel\initial_connect_string.c" />
-    <ClCompile Include="grpc\src\core\ext\client_channel\lb_policy.c" />
-    <ClCompile Include="grpc\src\core\ext\client_channel\lb_policy_factory.c" />
-    <ClCompile Include="grpc\src\core\ext\client_channel\lb_policy_registry.c" />
-    <ClCompile Include="grpc\src\core\ext\client_channel\parse_address.c" />
-    <ClCompile Include="grpc\src\core\ext\client_channel\proxy_mapper.c" />
-    <ClCompile Include="grpc\src\core\ext\client_channel\proxy_mapper_registry.c" />
-    <ClCompile Include="grpc\src\core\ext\client_channel\resolver.c" />
-    <ClCompile Include="grpc\src\core\ext\client_channel\resolver_factory.c" />
-    <ClCompile Include="grpc\src\core\ext\client_channel\resolver_registry.c" />
-    <ClCompile Include="grpc\src\core\ext\client_channel\subchannel.c" />
-    <ClCompile Include="grpc\src\core\ext\client_channel\subchannel_index.c" />
-    <ClCompile Include="grpc\src\core\ext\client_channel\uri_parser.c" />
-    <ClCompile Include="grpc\src\core\ext\lb_policy\grpclb\grpclb.c" />
-    <ClCompile Include="grpc\src\core\ext\lb_policy\grpclb\grpclb_channel.c" />
-    <ClCompile Include="grpc\src\core\ext\lb_policy\grpclb\load_balancer_api.c" />
-    <ClCompile Include="grpc\src\core\ext\lb_policy\grpclb\proto\grpc\lb\v1\load_balancer.pb.c" />
-    <ClCompile Include="grpc\src\core\ext\lb_policy\pick_first\pick_first.c" />
-    <ClCompile Include="grpc\src\core\ext\lb_policy\round_robin\round_robin.c" />
-    <ClCompile Include="grpc\src\core\ext\load_reporting\load_reporting.c" />
-    <ClCompile Include="grpc\src\core\ext\load_reporting\load_reporting_filter.c" />
-    <ClCompile Include="grpc\src\core\ext\resolver\dns\native\dns_resolver.c" />
-    <ClCompile Include="grpc\src\core\ext\resolver\sockaddr\sockaddr_resolver.c" />
+    <ClCompile Include="grpc\src\core\ext\filters\client_channel\channel_connectivity.c" />
+    <ClCompile Include="grpc\src\core\ext\filters\client_channel\client_channel.c" />
+    <ClCompile Include="grpc\src\core\ext\filters\client_channel\client_channel_factory.c" />
+    <ClCompile Include="grpc\src\core\ext\filters\client_channel\client_channel_plugin.c" />
+    <ClCompile Include="grpc\src\core\ext\filters\client_channel\connector.c" />
+    <ClCompile Include="grpc\src\core\ext\filters\client_channel\http_connect_handshaker.c" />
+    <ClCompile Include="grpc\src\core\ext\filters\client_channel\http_proxy.c" />
+    <ClCompile Include="grpc\src\core\ext\filters\client_channel\lb_policy.c" />
+    <ClCompile Include="grpc\src\core\ext\filters\client_channel\lb_policy\grpclb\client_load_reporting_filter.c" />
+    <ClCompile Include="grpc\src\core\ext\filters\client_channel\lb_policy\grpclb\grpclb.c" />
+    <ClCompile Include="grpc\src\core\ext\filters\client_channel\lb_policy\grpclb\grpclb_channel.c" />
+    <ClCompile Include="grpc\src\core\ext\filters\client_channel\lb_policy\grpclb\grpclb_client_stats.c" />
+    <ClCompile Include="grpc\src\core\ext\filters\client_channel\lb_policy\grpclb\load_balancer_api.c" />
+    <ClCompile Include="grpc\src\core\ext\filters\client_channel\lb_policy\grpclb\proto\grpc\lb\v1\load_balancer.pb.c" />
+    <ClCompile Include="grpc\src\core\ext\filters\client_channel\lb_policy\pick_first\pick_first.c" />
+    <ClCompile Include="grpc\src\core\ext\filters\client_channel\lb_policy\round_robin\round_robin.c" />
+    <ClCompile Include="grpc\src\core\ext\filters\client_channel\lb_policy_factory.c" />
+    <ClCompile Include="grpc\src\core\ext\filters\client_channel\lb_policy_registry.c" />
+    <ClCompile Include="grpc\src\core\ext\filters\client_channel\parse_address.c" />
+    <ClCompile Include="grpc\src\core\ext\filters\client_channel\proxy_mapper.c" />
+    <ClCompile Include="grpc\src\core\ext\filters\client_channel\proxy_mapper_registry.c" />
+    <ClCompile Include="grpc\src\core\ext\filters\client_channel\resolver.c" />
+    <ClCompile Include="grpc\src\core\ext\filters\client_channel\resolver\dns\c_ares\dns_resolver_ares.c" />
+    <ClCompile Include="grpc\src\core\ext\filters\client_channel\resolver\dns\c_ares\grpc_ares_ev_driver_posix.c" />
+    <ClCompile Include="grpc\src\core\ext\filters\client_channel\resolver\dns\c_ares\grpc_ares_wrapper.c" />
+    <ClCompile Include="grpc\src\core\ext\filters\client_channel\resolver\dns\native\dns_resolver.c" />
+    <ClCompile Include="grpc\src\core\ext\filters\client_channel\resolver\sockaddr\sockaddr_resolver.c" />
+    <ClCompile Include="grpc\src\core\ext\filters\client_channel\resolver_factory.c" />
+    <ClCompile Include="grpc\src\core\ext\filters\client_channel\resolver_registry.c" />
+    <ClCompile Include="grpc\src\core\ext\filters\client_channel\retry_throttle.c" />
+    <ClCompile Include="grpc\src\core\ext\filters\client_channel\subchannel.c" />
+    <ClCompile Include="grpc\src\core\ext\filters\client_channel\subchannel_index.c" />
+    <ClCompile Include="grpc\src\core\ext\filters\client_channel\uri_parser.c" />
+    <ClCompile Include="grpc\src\core\ext\filters\deadline\deadline_filter.c" />
+    <ClCompile Include="grpc\src\core\ext\filters\http\client\http_client_filter.c" />
+    <ClCompile Include="grpc\src\core\ext\filters\http\http_filters_plugin.c" />
+    <ClCompile Include="grpc\src\core\ext\filters\http\message_compress\message_compress_filter.c" />
+    <ClCompile Include="grpc\src\core\ext\filters\http\server\http_server_filter.c" />
+    <ClCompile Include="grpc\src\core\ext\filters\load_reporting\load_reporting.c" />
+    <ClCompile Include="grpc\src\core\ext\filters\load_reporting\load_reporting_filter.c" />
+    <ClCompile Include="grpc\src\core\ext\filters\max_age\max_age_filter.c" />
+    <ClCompile Include="grpc\src\core\ext\filters\message_size\message_size_filter.c" />
+    <ClCompile Include="grpc\src\core\ext\filters\workarounds\workaround_cronet_compression_filter.c" />
+    <ClCompile Include="grpc\src\core\ext\filters\workarounds\workaround_utils.c" />
     <ClCompile Include="grpc\src\core\ext\transport\chttp2\alpn\alpn.c" />
     <ClCompile Include="grpc\src\core\ext\transport\chttp2\client\chttp2_connector.c" />
     <ClCompile Include="grpc\src\core\ext\transport\chttp2\client\insecure\channel_create.c" />
@@ -212,6 +225,7 @@ call "$(ProjectDir)..\bin\start_workers.cmd"</Command>
     <ClCompile Include="grpc\src\core\ext\transport\chttp2\transport\hpack_encoder.c" />
     <ClCompile Include="grpc\src\core\ext\transport\chttp2\transport\hpack_parser.c" />
     <ClCompile Include="grpc\src\core\ext\transport\chttp2\transport\hpack_table.c" />
+    <ClCompile Include="grpc\src\core\ext\transport\chttp2\transport\http2_settings.c" />
     <ClCompile Include="grpc\src\core\ext\transport\chttp2\transport\huffsyms.c" />
     <ClCompile Include="grpc\src\core\ext\transport\chttp2\transport\incoming_metadata.c" />
     <ClCompile Include="grpc\src\core\ext\transport\chttp2\transport\parsing.c" />
@@ -223,15 +237,10 @@ call "$(ProjectDir)..\bin\start_workers.cmd"</Command>
     <ClCompile Include="grpc\src\core\lib\channel\channel_args.c" />
     <ClCompile Include="grpc\src\core\lib\channel\channel_stack.c" />
     <ClCompile Include="grpc\src\core\lib\channel\channel_stack_builder.c" />
-    <ClCompile Include="grpc\src\core\lib\channel\compress_filter.c" />
     <ClCompile Include="grpc\src\core\lib\channel\connected_channel.c" />
-    <ClCompile Include="grpc\src\core\lib\channel\deadline_filter.c" />
     <ClCompile Include="grpc\src\core\lib\channel\handshaker.c" />
     <ClCompile Include="grpc\src\core\lib\channel\handshaker_factory.c" />
     <ClCompile Include="grpc\src\core\lib\channel\handshaker_registry.c" />
-    <ClCompile Include="grpc\src\core\lib\channel\http_client_filter.c" />
-    <ClCompile Include="grpc\src\core\lib\channel\http_server_filter.c" />
-    <ClCompile Include="grpc\src\core\lib\channel\message_size_filter.c" />
     <ClCompile Include="grpc\src\core\lib\compression\compression.c" />
     <ClCompile Include="grpc\src\core\lib\compression\message_compress.c" />
     <ClCompile Include="grpc\src\core\lib\debug\trace.c" />
@@ -246,7 +255,6 @@ call "$(ProjectDir)..\bin\start_workers.cmd"</Command>
     <ClCompile Include="grpc\src\core\lib\iomgr\endpoint_pair_uv.c" />
     <ClCompile Include="grpc\src\core\lib\iomgr\endpoint_pair_windows.c" />
     <ClCompile Include="grpc\src\core\lib\iomgr\error.c" />
-    <ClCompile Include="grpc\src\core\lib\iomgr\ev_epoll_linux.c" />
     <ClCompile Include="grpc\src\core\lib\iomgr\ev_poll_posix.c" />
     <ClCompile Include="grpc\src\core\lib\iomgr\ev_posix.c" />
     <ClCompile Include="grpc\src\core\lib\iomgr\executor.c" />
@@ -286,6 +294,7 @@ call "$(ProjectDir)..\bin\start_workers.cmd"</Command>
     <ClCompile Include="grpc\src\core\lib\iomgr\tcp_windows.c" />
     <ClCompile Include="grpc\src\core\lib\iomgr\timer_generic.c" />
     <ClCompile Include="grpc\src\core\lib\iomgr\timer_heap.c" />
+    <ClCompile Include="grpc\src\core\lib\iomgr\timer_manager.c" />
     <ClCompile Include="grpc\src\core\lib\iomgr\timer_uv.c" />
     <ClCompile Include="grpc\src\core\lib\iomgr\time_averaged_stats.c" />
     <ClCompile Include="grpc\src\core\lib\iomgr\udp_server.c" />
@@ -325,8 +334,8 @@ call "$(ProjectDir)..\bin\start_workers.cmd"</Command>
     <ClCompile Include="grpc\src\core\lib\security\transport\security_handshaker.c" />
     <ClCompile Include="grpc\src\core\lib\security\transport\server_auth_filter.c" />
     <ClCompile Include="grpc\src\core\lib\security\transport\tsi_error.c" />
-    <ClCompile Include="grpc\src\core\lib\security\util\b64.c" />
     <ClCompile Include="grpc\src\core\lib\security\util\json_util.c" />
+    <ClCompile Include="grpc\src\core\lib\slice\b64.c" />
     <ClCompile Include="grpc\src\core\lib\slice\percent_encoding.c" />
     <ClCompile Include="grpc\src\core\lib\slice\slice.c" />
     <ClCompile Include="grpc\src\core\lib\slice\slice_buffer.c" />
@@ -334,6 +343,8 @@ call "$(ProjectDir)..\bin\start_workers.cmd"</Command>
     <ClCompile Include="grpc\src\core\lib\slice\slice_intern.c" />
     <ClCompile Include="grpc\src\core\lib\slice\slice_string_helpers.c" />
     <ClCompile Include="grpc\src\core\lib\support\alloc.c" />
+    <ClCompile Include="grpc\src\core\lib\support\arena.c" />
+    <ClCompile Include="grpc\src\core\lib\support\atm.c" />
     <ClCompile Include="grpc\src\core\lib\support\avl.c" />
     <ClCompile Include="grpc\src\core\lib\support\backoff.c" />
     <ClCompile Include="grpc\src\core\lib\support\cmdline.c" />
@@ -390,7 +401,7 @@ call "$(ProjectDir)..\bin\start_workers.cmd"</Command>
     <ClCompile Include="grpc\src\core\lib\surface\event_string.c" />
     <ClCompile Include="grpc\src\core\lib\surface\init.c" />
     <ClCompile Include="grpc\src\core\lib\surface\init_unsecure.c" />
-    <ClCompile Include="grpc\src\core\lib\surface\lame_client.c" />
+    <ClCompile Include="grpc\src\core\lib\surface\lame_client.cc" />
     <ClCompile Include="grpc\src\core\lib\surface\metadata_array.c" />
     <ClCompile Include="grpc\src\core\lib\surface\server.c" />
     <ClCompile Include="grpc\src\core\lib\surface\validate_metadata.c" />
@@ -408,10 +419,11 @@ call "$(ProjectDir)..\bin\start_workers.cmd"</Command>
     <ClCompile Include="grpc\src\core\lib\transport\timeout_encoding.c" />
     <ClCompile Include="grpc\src\core\lib\transport\transport.c" />
     <ClCompile Include="grpc\src\core\lib\transport\transport_op_string.c" />
-    <ClCompile Include="grpc\src\core\lib\tsi\fake_transport_security.c" />
-    <ClCompile Include="grpc\src\core\lib\tsi\ssl_transport_security.c" />
-    <ClCompile Include="grpc\src\core\lib\tsi\transport_security.c" />
     <ClCompile Include="grpc\src\core\plugin_registry\grpc_plugin_registry.c" />
+    <ClCompile Include="grpc\src\core\tsi\fake_transport_security.c" />
+    <ClCompile Include="grpc\src\core\tsi\ssl_transport_security.c" />
+    <ClCompile Include="grpc\src\core\tsi\transport_security.c" />
+    <ClCompile Include="grpc\src\core\tsi\transport_security_adapter.c" />
     <ClCompile Include="grpc\src\cpp\client\channel_cc.cc" />
     <ClCompile Include="grpc\src\cpp\client\client_context.cc" />
     <ClCompile Include="grpc\src\cpp\client\create_channel.cc" />
@@ -434,6 +446,7 @@ call "$(ProjectDir)..\bin\start_workers.cmd"</Command>
     <ClCompile Include="grpc\src\cpp\common\secure_channel_arguments.cc" />
     <ClCompile Include="grpc\src\cpp\common\version_cc.cc" />
     <ClCompile Include="grpc\src\cpp\server\async_generic_service.cc" />
+    <ClCompile Include="grpc\src\cpp\server\channel_argument_option.cc" />
     <ClCompile Include="grpc\src\cpp\server\create_default_thread_pool.cc" />
     <ClCompile Include="grpc\src\cpp\server\dynamic_thread_pool.cc" />
     <ClCompile Include="grpc\src\cpp\server\health\default_health_check_service.cc" />
@@ -475,7 +488,6 @@ call "$(ProjectDir)..\bin\start_workers.cmd"</Command>
     <ClInclude Include="grpc\src\core\ext\client_channel\client_channel.h" />
     <ClInclude Include="grpc\src\core\ext\client_channel\client_channel_factory.h" />
     <ClInclude Include="grpc\src\core\ext\client_channel\connector.h" />
-    <ClInclude Include="grpc\src\core\ext\client_channel\http_connect_handshaker.h" />
     <ClInclude Include="grpc\src\core\ext\client_channel\initial_connect_string.h" />
     <ClInclude Include="grpc\src\core\ext\client_channel\lb_policy.h" />
     <ClInclude Include="grpc\src\core\ext\client_channel\lb_policy_factory.h" />
@@ -677,7 +689,7 @@ call "$(ProjectDir)..\bin\start_workers.cmd"</Command>
     <Error Condition="!Exists('..\packages\grpc.dependencies.zlib.1.2.8.10\build\native\grpc.dependencies.zlib.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\grpc.dependencies.zlib.1.2.8.10\build\native\grpc.dependencies.zlib.targets'))" />
     <Error Condition="!Exists('..\packages\grpc.dependencies.openssl.1.0.204.1\build\native\grpc.dependencies.openssl.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\grpc.dependencies.openssl.1.0.204.1\build\native\grpc.dependencies.openssl.props'))" />
     <Error Condition="!Exists('..\packages\grpc.dependencies.openssl.1.0.204.1\build\native\grpc.dependencies.openssl.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\grpc.dependencies.openssl.1.0.204.1\build\native\grpc.dependencies.openssl.targets'))" />
-    <Error Condition="!Exists('..\packages\pugixml.1.8.0\build\native\pugixml.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\pugixml.1.8.0\build\native\pugixml.targets'))" />
     <Error Condition="!Exists('..\packages\fmt.greedy.3.0.0.1\build\native\fmt.greedy.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\fmt.greedy.3.0.0.1\build\native\fmt.greedy.targets'))" />
+    <Error Condition="!Exists('..\packages\pugixml.1.8.2\build\native\pugixml.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\pugixml.1.8.2\build\native\pugixml.targets'))" />
   </Target>
 </Project>

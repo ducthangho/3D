@@ -33,17 +33,21 @@ inline void xref_low(std::string project_path, std::string pname);
 
 class MyNodeEventCB : public INodeEventCallback {
 public:
+	MyNodeEventCB() {
+		LOG("MyNodeEventCB initializing...\n");		
+	}
 	void SelectionChanged(NodeKeyTab & 	nodes);
 	void release() {		
 		events.complete();
 		events.release();
 	};
-	~MyNodeEventCB() {
+	~MyNodeEventCB() {		
 		LOG("~MyNodeEventCB()\n");
 	}
 	DWORD callBackKey;
-private:	
-	grpc::CompletionQueue cq;
+private:
+	//rxcpp::observable< std::pair<y3d::ResponseEvent2, grpc::Status> > stream;
+	//rxcpp::observable<y3d::YEvent2> stream;	
 	EventBus<y3d::YEvent2, y3d::ResponseEvent2> events;
 };
 

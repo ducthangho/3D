@@ -631,9 +631,13 @@ void MyNodeEventCB::SelectionChanged(NodeKeyTab & nodes)
 			}
 		}
 		events.observable().subscribe([](auto e) {
-			y3d::ResponseEvent2& reply = e.first;
+			//y3d::ResponseEvent2& reply = e.first;
 
-			LOG("On next {} \n",reply.msg());
+			LOG("On next {} \n", 1);
+		}, [](auto e) {
+			LOG("On error\n");
+		}, []() {
+			LOG("On completed\n");
 		});
 		events.publish(ye);
 
