@@ -1125,7 +1125,8 @@ inline std::wstring CreateLayer(INodeTab *nodes, std::wstring layer_name, BOOL i
 inline void setIsolateLayer(const std::string layer_name) {
 
 	auto cmd = formatWS("yms.isolate_layer \"{0}\"", layer_name);
-	ExecuteMAXScriptScript(cmd.c_str());
+	LOG("\n{}cmd:", layer_name);
+	ExecuteMAXScriptScript(cmd.c_str());;
 
 	return;
 
@@ -1153,8 +1154,12 @@ inline void setIsolateLayer(const std::string layer_name) {
 }
 
 inline bool DeleteLayer(const std::string layer_name) {
-	//auto cmd = formatWS("yms.delete_layer \"{0}\"", layer_name);
-	//ExecuteMAXScriptScript(cmd.c_str());
+	LOG("\nLayer Name:{}",layer_name);
+	auto cmd = formatWS("yms.delete_layer \"{0}\"", layer_name);
+	ExecuteMAXScriptScript(cmd.c_str());
+
+	return true;
+
 	std::wstring a(s2ws(layer_name).data());
 	std::wstring a2 = s2ws2(layer_name);
 	

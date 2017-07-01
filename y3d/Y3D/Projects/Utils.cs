@@ -20,9 +20,6 @@ using YFlow;
 using Redux;
 using System.Reactive.Linq;
 using System.Threading;
-//using System.Reactive;
-//using System.Reactive.Linq;
-//using System.Reactive.Disposables;
 
 
 namespace Y3D.Projects
@@ -40,27 +37,21 @@ namespace Y3D.Projects
         static public y3d.s.YServiceMaxTools.YServiceMaxToolsClient MaxClient = null;
         static public y3d.s.YServiceMaxLoader.YServiceMaxLoaderClient LoaderClient = null;
         static public y3d.s.YServiceTest.YServiceTestClient TestClient = null;
-
-        public static string master_ip = "127.0.0.1";
         public static y3d.s.YServiceMaster.YServiceMasterClient MasterClient = null;
 
-        //public static YAreaList CurrentYAL = null;
+        public static string master_ip = "127.0.0.1";
+    
+
         public static ProjectInfo CurrentP = null;
-
-        //public static UserTestData TestData = new UserTestData();
-        //public static Dictionary<string, bool> TestInScence = new Dictionary<string, bool>();
-        //public static VerTest CurrentTest = null;
-
         public static Forms.YMainForm mainform = null;
-
-        //public static string current_layer = "0";
 
         public static void initState()
         {
             var initialState = new ApplicationStates
             {
                 isBusy = false,
-                ObjectManager = new YFlow.ObjectManagerComponent.States()
+                ObjectManager = new YFlow.ObjectManagerComponent.States(),
+                TestState = new YFlow.TestDetailComponent.States()
             };
             initialState.ObjectManager.CurrentLayer = "0";
             initialState.ObjectManager.CurrentTest = null;
@@ -71,21 +62,15 @@ namespace Y3D.Projects
             initialState.ObjectManager.TestData = new UserTestData();
             initialState.ObjectManager.autoSave = true;
 
+            initialState.TestState.TestStepState = YFlow.TestDetailComponent.EditStateEnum.Ready;
+            initialState.TestState.CurrentStep = "lowpoly";
+            initialState.TestState.CurrentTab = 1;
+
             Store = new Store<ApplicationStates>(YFlow.ApplicationReducers.ReduceApplication, initialState);
 
             Store.DistinctUntilChanged(state => new { state.ObjectManager.CurrentTest }).Subscribe(
                 state =>
                 {
-                    //if (!state.ObjectManager.isSaved)
-                    //{
-                    //    MessageBox.Show("Unsave");
-                    //    Store.Dispatch(new YFlow.ObjectManagerComponent.SaveTestAction());
-                    //}
-                    //else
-                    //{
-                    //    MessageBox.Show("Saved");
-                    //}
-
                     if (state.ObjectManager.CurrentTest != null)
                     {
                         if (state.ObjectManager.TestInScence[state.ObjectManager.CurrentLayer] == false)
@@ -112,70 +97,30 @@ namespace Y3D.Projects
             Store.DistinctUntilChanged(state => new { state.ObjectManager.isSaved }).Subscribe(
                 state =>
                 {
-                    //MessageBox.Show("save:"+state.ObjectManager.isSaved.ToString());
                     if (state.ObjectManager.autoSave && state.ObjectManager.isSaved == false)
                     {
                         Projects.Utils.Store.Dispatch(new YFlow.ObjectManagerComponent.SaveTestAction { });
                         if (saveTestData(state.ObjectManager.TestData))
                             Projects.Utils.Store.Dispatch(new YFlow.ObjectManagerComponent.SaveTestAction { });
-                        //state.ObjectManager.isSaved = true;
                     }
                 }
             );
 
-            //Utils.Store.DistinctUntilChanged(state => new { state.ObjectManager.CurrentObject }).Subscribe(
-            //    state =>
-            //    {
-            //        //MessageBox.Show("Test");
-            //        if (state.ObjectManager.CurrentObject!=null)
-            //            MessageBox.Show(state.ObjectManager.CurrentObject.Name);
-            //    }
-            //);
         }
 
         public static void displayLayer(string lname)
         {
-            //if (current_layer == lname) return;
-            if (!checkMaxTools(worker)) return;
-            //current_layer = lname;
+            if (worker == null || MasterClient==null) return;
+            if (!checkMaxTools(worker))
+                return;
+
             YEvent ye = new YEvent();
             ye.Isolate = new EIsolate();
             ye.Isolate.Layer = lname;
             ye.Isolate.EndIsolate = false;
-            Y3D.Projects.Utils.MaxClient.DoEventAsync(ye);
+            MaxClient.DoEventAsync(ye);
+
         }
-
-        //static public Task<bool> myLoading(Task t)
-        //{
-        //    return Task.Run(
-        //        async () =>
-        //        {
-        //            SplashForm loadingForm = new SplashForm();
-        //            loadingForm.AppName = "Initializing data";
-        //            loadingForm.Icon = Properties.Resources.wave;
-        //            loadingForm.ShowIcon = true;
-        //            loadingForm.TopMost = true;
-        //            loadingForm.BringToFront();
-        //            if (!t.IsCompleted)
-        //            {
-
-        //            }
-        //            //    loadingForm.ShowInTaskbar = true;
-        //            try
-        //            {
-        //                Application.Run(loadingForm);
-        //            }
-        //            catch (System.Threading.ThreadAbortException e)
-        //            {
-        //                return false;
-        //                //MessageBox.Show(e.Message);
-        //            }
-        //            return true;
-        //        }    
-        //    );
-
-
-        //}
 
         static public void myLoading()
         {
@@ -185,27 +130,20 @@ namespace Y3D.Projects
             loadingForm.ShowIcon = true;
             loadingForm.TopMost = true;
             loadingForm.BringToFront();
-            try
+            while (Interlocked.Equals(rpc.YServer.done, 0)) { };
+            
+            if (Interlocked.Equals(rpc.YServer.done,1))
             {
-                Application.Run(loadingForm);
-            }
-            catch (System.Threading.ThreadAbortException e)
-            {
-                //MessageBox.Show(e.Message);
+                try
+                {
+                    Thread.Sleep(2000);
+                    if (Interlocked.Equals(rpc.YServer.done, 1)) Application.Run(loadingForm);
+                }
+                catch (System.Threading.ThreadAbortException e)
+                {
+                }
             }
 
-            //Store.DistinctUntilChanged(state => new { state.isBusy }).Subscribe(
-            //    state =>
-            //    {
-            //        LogClientCSharp.LogClient.Instance.LOG("State subcr: " + state.isBusy.ToString() + "   \n");
-            //        if (state.isBusy == false)
-            //        {
-            //            Application.ExitThread();
-            //            //MessageBox.Show("out nhe");
-            //        }
-
-            //    }
-            //);
         }
 
         public static bool saveTestData(UserTestData TestData)
@@ -225,9 +163,7 @@ namespace Y3D.Projects
 
                     return false;
                 }
-                //Store.GetState().ObjectManager.TestData.WriteTo(output);
             }
-            return false;
         }
         public static void loadTestData(YAreaList yal)
         {
@@ -235,16 +171,6 @@ namespace Y3D.Projects
             var test_path = System.IO.Path.Combine(CurrentP.ProjectPath, "test", "ytest.y3d");
             if (File.Exists(test_path))
             {
-                //var initialState = new ApplicationStates
-                //{
-                //    isBusy = false,
-                //    ObjectManager = new YFlow.ObjectManagerComponent.States()
-                //};
-                //using (Stream file = File.OpenRead(test_path))
-                //{
-                //    var a = Google.Protobuf.CodedInputStream.CreateWithLimits(file, 1024 << 20, 10);
-                //    TestData = UserTestData.Parser.ParseFrom(a);
-                //}
                 using (Stream stream = File.OpenRead(test_path))
                 {
                     try
@@ -257,23 +183,8 @@ namespace Y3D.Projects
                             Store.GetState().ObjectManager.TestData.Utests.Clear();
                     }
                 }
- 
-                //initialState.ObjectManager.CurrentLayer = "0";
-                //initialState.ObjectManager.CurrentTest = null;
-                //initialState.ObjectManager.TestInScence = new Dictionary<string, bool>();
-                //initialState.ObjectManager.isSaved = false;
-                //initialState.ObjectManager.CurrentYAL = yal;
-
-                //Store = null;
-                //Store = new Store<ApplicationStates>(YFlow.ApplicationReducers.ReduceApplication, initialState);
-
-
             }
             Store.GetState().ObjectManager.CurrentYAL = yal;
-            //Projects.Utils.Store.Dispatch(new YFlow.ObjectManagerComponent.SetYAreaAction
-            //{
-            //    yal = yal
-            //});
         }
 
         public static bool checkMaster(bool force=true)
@@ -455,49 +366,6 @@ namespace Y3D.Projects
                                             return false;
                                         });
                                     }
-
-                                    //var channel = new Channel(String.Format("127.0.0.1:{0}", w.PortLoader), ChannelCredentials.Insecure);
-
-                                    //if (channel.State != Grpc.Core.ChannelState.Ready)
-                                    //{
-                                    //    Task.Factory.StartNew(
-                                    //        () =>
-                                    //        {
-                                    //            int count = 0;
-                                    //            while (channel.ConnectAsync(deadline: DateTime.UtcNow.AddMilliseconds(5000)).ContinueWith<bool>((t) => t.IsCanceled || t.IsFaulted).Result && count++ < 50)
-                                    //            {
-                                    //                Console.WriteLine("5s. Retry"); // hien loading
-                                    //            }//*/                   
-                                    //        }
-                                    //    ).ContinueWith(_ =>
-                                    //    {
-                                    //        if (_.IsFaulted || _.IsCanceled)
-                                    //        {
-                                    //            MessageBox.Show(String.Format("Can not connect to {0}:{1}", w.MachineIp, w.PortLoader));
-                                    //            return Task.FromResult(false);
-                                    //        }
-                                    //        // start worker
-                                    //        y3d.e.WorkerParam wp = new y3d.e.WorkerParam();
-                                    //        wp.Wid = w.Wid;
-                                    //        var rr = Y3D.Projects.Utils.MasterClient.StartWorkerAsync(wp).ResponseAsync;
-                                    //        return rr.ContinueWith<bool>((wk) =>
-                                    //        {
-                                    //            if (wk.IsFaulted || wk.IsCanceled || wk.Result.Error)
-                                    //            {
-                                    //                MessageBox.Show("Can not start worker!");
-                                    //                return false;
-                                    //            }
-
-                                    //            if (wk.IsCompleted)
-                                    //            {
-                                    //                worker = wk.Result.Worker;
-                                    //                updateClient();
-                                    //            }
-
-                                    //            return true;
-                                    //        });
-                                    //    });
-                                    //};
                                 }
                             }
                             else 
@@ -758,15 +626,12 @@ namespace Y3D.Projects
             }
 
             itp.InitTest = vt.InitTest;
-            //var x = Y3D.Projects.Utils.MaxClient.Init4TestAsync(itp);
             var x = Y3D.Projects.Utils.MaxClient.Init4Test(itp);
 
             Projects.Utils.Store.Dispatch(new YFlow.ObjectManagerComponent.AddTestAction
             {
                 vtest = vt
             });
-            //Projects.Utils.saveTestData();
-            //current_layer = oname + "_" + vt.Id;
             return true;
         }
 
@@ -784,7 +649,6 @@ namespace Y3D.Projects
                 ye.Del = new EDelete();
                 ye.Del.Layers.Add(v.Oname + "_" + v.Id);
                 Y3D.Projects.Utils.MaxClient.DoEventAsync(ye);
-
                 var test_path = Path.Combine(CurrentP.ProjectPath, "test", (v.Oname + "_" + v.Id));
                 if (Directory.Exists(test_path))
                 {

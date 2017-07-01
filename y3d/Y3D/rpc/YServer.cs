@@ -70,10 +70,12 @@ namespace Y3D.rpc
 
         public static Server server=null;
         public static Forms.WorkerForm wform = null;
-        
 
+        public static int done = 0;
+        
         public static void Start()
         {
+            Interlocked.Exchange(ref done, 0);
             //Projects.Utils.Store.Dispatch(new YFlow.SetBusyAction { isBusy = true });
 
             //System.Threading.Thread t = new System.Threading.Thread(new System.Threading.ThreadStart(Projects.Utils.myLoading(Projects.Utils.Store)));
@@ -87,6 +89,7 @@ namespace Y3D.rpc
             ));
             t.Start();
 
+            Interlocked.Exchange(ref done, 1);
             Y3D.Projects.Utils.getMainWorker().ContinueWith(
                 (task) =>
                 {
@@ -103,16 +106,18 @@ namespace Y3D.rpc
                     //t.Abort();
                 }).Wait();
 
+            Interlocked.Exchange(ref done, 2);
+
             //Projects.Utils.Store.Dispatch(new YFlow.SetBusyAction { isBusy = false });
 
             Y3D.Projects.Utils.mainform = new Forms.YMainForm();
             Y3D.Projects.Utils.mainform.Show();
             //tokenSource.Cancel();
-            while (!t.IsAlive) ;
-            Thread.Sleep(1);
+            //while (!t.IsAlive) ;
+            //Thread.Sleep(5000);
             try
             {
-                t.Abort();
+                if (t.IsAlive) t.Abort();
             }
             catch (System.Threading.ThreadAbortException)
             {

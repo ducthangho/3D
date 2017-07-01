@@ -31,16 +31,16 @@ namespace Y3D.Projects
             _subUpdateStepButton = YEventUtils.UpdateStepButton.Subscribe(
                 b => updateTabButton(b)
             );
-
-            Utils.Store.DistinctUntilChanged(state => new { state.ObjectManager.CurrentTest }).Subscribe(
-                state =>
-                {
-                    if (state.ObjectManager.CurrentTest != null)
+            if (Utils.Store != null)
+                Utils.Store.DistinctUntilChanged(state => new { state.ObjectManager.CurrentTest }).Subscribe(
+                    state =>
                     {
-                        reloadTest(state.ObjectManager.CurrentTest);
+                        if (state.ObjectManager.CurrentTest != null)
+                        {
+                            reloadTest(state.ObjectManager.CurrentTest);
+                        }
                     }
-                }
-            );
+                );
         }
 
         public void updateTabButton(ButtonUpdateParam b)
@@ -150,6 +150,5 @@ namespace Y3D.Projects
         {
             tabSettings.SelectedTab = tabPageUnwrap;
         }
-
     }
 }

@@ -55,6 +55,9 @@ Status YServiceImpl::Init4Test(ServerContext* context, const InitTestParam* requ
 		nt6.AppendNode(nt3[0]);
 		nt6.AppendNode(nt4[0]);
 		nt6.AppendNode(nt5[0]);
+		
+		ip->ClearNodeSelection();
+
 		ip->SelectNodeTab(nt6,true);
 		//cmd = formatWS("yms.set_display_proxy \"{0}\" true", ws2s(hiStr).c_str());
 		//LOG(cmd.c_str());

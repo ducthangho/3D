@@ -14,7 +14,8 @@ namespace YFlow
             return new ApplicationStates
             {
                 isBusy = (action is SetBusyAction) ? ((SetBusyAction)action).isBusy : previousState.isBusy,
-                ObjectManager = ObjectManagerComponent.Reducers.ObjectManagerReducer(previousState.ObjectManager, action)
+                ObjectManager = ObjectManagerComponent.Reducers.ObjectManagerReducer(previousState.ObjectManager, previousState.TestState, action),
+                TestState = TestDetailComponent.Reducers.TestDetailReducer(previousState.TestState, action)
                 //TestDetail = TestDetailReducer(previousState.TestDetail, action)
                 //stepState = StepReducer(previousState,action)
             };

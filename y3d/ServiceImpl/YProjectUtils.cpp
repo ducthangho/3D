@@ -479,6 +479,7 @@ void DoYEvent(YEvent ye) {
 		//}
 	}
 	else if (ye.has_isolate()) {
+		LOG("\nXIN CHAOZZZ");
 		do_isolate(ye.isolate());
 		//auto ii = ye.isolate();
 		//if (ii.endisolate()) {
@@ -874,18 +875,19 @@ BOOL load_test(InitTestParam x) {
 	LOG("\nTest Data Path:{}", xx);
 	ip->MergeFromFile(s2ws(xx).c_str(), TRUE);
 
-	YEvent ye;
-	EIsolate iso;
-	iso.set_endisolate(false);
-	iso.set_layer(fmt::format("{0}_{1}",x.oname(),x.id()));
-	ye.mutable_isolate()->CopyFrom(iso);
-	DoYEvent(ye);
+	//YEvent ye;
+	//EIsolate iso;
+	//iso.set_endisolate(false);
+	//iso.set_layer(fmt::format("{0}_{1}",x.oname(),x.id()));
+	//ye.mutable_isolate()->CopyFrom(iso);
+	//DoYEvent(ye);
 
 	return TRUE;
 }
 
 BOOL do_isolate(const EIsolate iso) {
 	auto* ip = GetCOREInterface();
+	
 	if (iso.endisolate()) {
 		setIsolate(false);
 		//auto cmd = L"IsolateSelection.ExitIsolateSelectionMode()";
@@ -900,6 +902,7 @@ BOOL do_isolate(const EIsolate iso) {
 		//ExecuteMAXScriptScript(cmd);
 	}
 	else if (!iso.layer().empty()) {
+		LOG("\n{}Layer:", iso.layer());
 		setIsolateLayer(iso.layer());
 	}
 	return TRUE;

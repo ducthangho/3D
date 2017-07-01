@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using y3d.e;
+using System.Reactive.Linq;
+using YFlow.TestDetailComponent;
 
 namespace Y3D.Projects
 {
@@ -24,6 +26,10 @@ namespace Y3D.Projects
 
         private IDisposable _subUnplug;
         private IDisposable _subEndEdit;
+
+        static public string surfix_clone_from = "_high";
+        static public string surfix_save_to = "_low";
+        static public string surfix_tmp = "_low_tmp";
 
         public LowMaxControl()
         {
@@ -84,7 +90,7 @@ namespace Y3D.Projects
 
         private async void barPercent_ValueChanged(object sender, decimal value)
         {
-            if (editMode)
+            if (YEventUtils.EditMode)
             {
                 var CurrentTest = Utils.Store.GetState().ObjectManager.CurrentTest;
                 if (CurrentTest == null) return;
@@ -104,37 +110,14 @@ namespace Y3D.Projects
 
         private void btnEditMode_Click(object sender, EventArgs e)
         {
-            editMode = !editMode;
-            updateByEditMode(editMode);
-            if (editMode)
+            var emode = Utils.Store.GetState().TestState.TestStepState;
+            if (emode == YFlow.TestDetailComponent.EditStateEnum.Ready)
+                //Projects.Utils.Store.Dispatch(new YFlow.TestDetailComponent.BeginEdit{});
+                Projects.Utils.Store.Dispatch(new YFlow.TestDetailComponent.SwitchStateAction { NewState = EditStateEnum.Editing });
+            else if (emode == YFlow.TestDetailComponent.EditStateEnum.Editing)
             {
-                YEventUtils.surfix_tmp = "_low_tmp";
-                //var high_name = Utils.CurrentTest.Oname + "_" + Utils.CurrentTest.Id + "_high";
-                var CurrentTest = Utils.Store.GetState().ObjectManager.CurrentTest;
-                var tmp_name = CurrentTest.Oname + "_" + CurrentTest.Id + YEventUtils.surfix_tmp;
-                //clone_e.Yclone.ConvertType = ConvertType.EditableMesh;
-
-                YEvent low_e = new YEvent();
-                low_e.Lowpoly = new ELowpoly();
-                low_e.Lowpoly.Lp3Dmax = settings;
-                low_e.Lowpoly.Oname = tmp_name;
-
-                YEvent isolate_e = new YEvent();
-                isolate_e.Isolate = new EIsolate();
-                isolate_e.Isolate.Name = tmp_name;
-
-                YEventList el = new YEventList();
-                el.Events.Add(low_e);
-                el.Events.Add(isolate_e);
-
-                
-                YEventUtils.reload(editMode, el);
-                //Utils.doManyEvent(el);
-            } else
-            {
-                YEventUtils.reload(editMode, null);
+                Projects.Utils.Store.Dispatch(new YFlow.TestDetailComponent.SwitchStateAction { NewState = EditStateEnum.EndEdit });
             }
-
         }
 
         public override void Unplug()
@@ -145,25 +128,98 @@ namespace Y3D.Projects
 
         protected override void Subscribe()
         {
-            _subEndEdit = YEventUtils.EndEdit.Subscribe(
-                el =>
-                {
-                    YEventUtils.endEditMode(el);
-                }    
-            );
+            Utils.Store.DistinctUntilChanged(state => new { state.TestState.TestStepState }).Subscribe(
+                    state =>
+                    {
+                        if (state.TestState.CurrentStep == PatternStepType)
+                        {
+                            if (state.TestState.TestStepState == EditStateEnum.Editing)
+                            {
+                                updateByEditMode(true);
+                                YEventUtils.surfix_tmp = "_low_tmp";
+                             //var high_name = Utils.CurrentTest.Oname + "_" + Utils.CurrentTest.Id + "_high";
+                             var CurrentTest = Utils.Store.GetState().ObjectManager.CurrentTest;
+                                var tmp_name = CurrentTest.Oname + "_" + CurrentTest.Id + YEventUtils.surfix_tmp;
+                             //clone_e.Yclone.ConvertType = ConvertType.EditableMesh;
+
+                             YEvent low_e = new YEvent();
+                                low_e.Lowpoly = new ELowpoly();
+                                low_e.Lowpoly.Lp3Dmax = settings;
+                                low_e.Lowpoly.Oname = tmp_name;
+
+                                YEvent isolate_e = new YEvent();
+                                isolate_e.Isolate = new EIsolate();
+                                isolate_e.Isolate.Name = tmp_name;
+
+                                YEventList el = new YEventList();
+                                el.Events.Add(low_e);
+                                el.Events.Add(isolate_e);
+
+                                YEventUtils.reload(true, el);
+                            }
+                            else if (state.TestState.TestStepState == EditStateEnum.EndEdit)
+                            {
+                                DialogResult dialogResult = MessageBox.Show("Do you want to save the changes?", "Apply changes", MessageBoxButtons.YesNoCancel);
+                                if (dialogResult == DialogResult.Yes)
+                                {
+                                    updateByEditMode(false);
+                                    YEvent remove_e = new YEvent();
+                                    remove_e.Del = new EDelete();
+                                    var tname = state.ObjectManager.CurrentTest.Oname + "_" + state.ObjectManager.CurrentTest.Id;
+
+                                    remove_e.Del.Names.Add(tname + surfix_save_to);
+
+                                    YEvent rename_e = new YEvent();
+                                    rename_e.Rename = new ERename();
+                                    rename_e.Rename.Oname = tname + surfix_tmp;
+                                    rename_e.Rename.Nname = tname + surfix_save_to;
+
+                                    YEvent clone_e = new YEvent();
+                                    clone_e.Yclone = new EClone();
+                                    clone_e.Yclone.Oname = tname + surfix_tmp;
+                                    clone_e.Yclone.Cname = tname + surfix_save_to;
+                                    clone_e.Yclone.CloneType = EClone.Types.CloneType.NodeInstance;
+                                    clone_e.Yclone.ConvertType = ConvertType.EditableMesh;
+
+                                    YEventList yel = new YEventList();
+                                    yel.Events.Add(remove_e);
+                                    yel.Events.Add(clone_e);
+
+                                    Utils.doManyEvent(yel);
+
+                                    state.TestState.TestStepState = EditStateEnum.Ready;
+                                    YEventUtils.UpdateStepButton.OnNext(new ButtonUpdateParam(0, "CHANGE"));
+                                }
+                                else if (dialogResult == DialogResult.No)
+                                {
+                                    updateByEditMode(false);
+                                    YEventUtils.reload(false, null);
+                                    state.TestState.TestStepState = EditStateEnum.Ready;
+                                }
+                                else if (dialogResult == DialogResult.Cancel)
+                                {
+                                    state.TestState.TestStepState = EditStateEnum.Editing;
+                                }
+                            }
+                        }
+                    }
+                   );
+            //_subEndEdit = YEventUtils.EndEdit.Subscribe(
+            //    el =>
+            //    {
+            //        YEventUtils.endEditMode(el);
+            //    }    
+            //);
         }
 
         private void Unsubscribe()
         {
+            Utils.Store.GetState().TestState.TestStepState = EditStateEnum.Delete;
+            YEventUtils.EditMode = false;
             if (_subEndEdit != null)
                 _subEndEdit.Dispose();
             if (_subUnplug != null)
                 _subUnplug.Dispose();
-        }
-
-        private void LowMaxControl_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -86,6 +86,7 @@ namespace Y3D.Projects
             var CurrentTest = Utils.Store.GetState().ObjectManager.CurrentTest;
             tname = CurrentTest.Oname + "_" + CurrentTest.Id;
             editInCopy = makeCopy;
+            EditMode = mode;
             if (mode)
                 startEditMode(initEvents);
             else
@@ -101,7 +102,7 @@ namespace Y3D.Projects
             //    ev => events.CollectionChanged += ev,
             //    ev => events.CollectionChanged -= ev
             //);
-            EditMode = true;
+            //EditMode = true;
             if (streamCall != null) streamCall.Dispose();
             streamCall = Utils.MaxClient.DoStreamClient();
             if (subcribe_e != null) subcribe_e.Dispose();
@@ -119,20 +120,6 @@ namespace Y3D.Projects
                     }
                 }
             });
-            //subcribe_e =event_relay_sub.Subscribe(async e =>
-            //{
-            //    if (e != null)
-            //    {
-            //        try
-            //        {
-            //            await streamCall.RequestStream.WriteAsync(e);
-            //        }
-            //        catch (System.InvalidOperationException er)
-            //        {
-            //        }
-            //    }
-            //});
-
             if (editInCopy)
             {
                 YEvent clone_e = new YEvent();
@@ -148,46 +135,57 @@ namespace Y3D.Projects
             }
         }
 
-        static public async Task endEditMode(YEventList el=null)
+        static public async Task endEditMode(YEventList el)
         {
-            if (!EditMode) return;
-            EditMode = false;
+            //EditMode = false;
             if (subcribe_e != null) subcribe_e.Dispose();
-            DialogResult dialogResult = MessageBox.Show("Do you want to save the changes?", "Apply changes", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
-            {
-                YEvent remove_e = new YEvent();
-                remove_e.Del = new EDelete();
-                remove_e.Del.Names.Add(tname + surfix_save_to);
+            //DialogResult dialogResult = MessageBox.Show("Do you want to save the changes?", "Apply changes", MessageBoxButtons.YesNo);
+            //if (dialogResult == DialogResult.Yes)
+            //{
+            //    //Utils.Store.GetState().TestState.TestStepState = YFlow.TestDetailComponent.EditStateEnum.Save;
+            //    Projects.Utils.Store.Dispatch(new YFlow.TestDetailComponent.SwitchStateAction
+            //    {
+            //        NewState = YFlow.TestDetailComponent.EditStateEnum.Save
+            //    });
+            //    //YEvent remove_e = new YEvent();
+            //    //remove_e.Del = new EDelete();
+            //    //remove_e.Del.Names.Add(tname + surfix_save_to);
 
-                YEvent rename_e = new YEvent();
-                rename_e.Rename = new ERename();
-                rename_e.Rename.Oname = tname + surfix_tmp;
-                rename_e.Rename.Nname = tname + surfix_save_to;
+            //    //YEvent rename_e = new YEvent();
+            //    //rename_e.Rename = new ERename();
+            //    //rename_e.Rename.Oname = tname + surfix_tmp;
+            //    //rename_e.Rename.Nname = tname + surfix_save_to;
 
-                YEvent clone_e = new YEvent();
-                clone_e.Yclone = new EClone();
-                clone_e.Yclone.Oname = tname + surfix_tmp;
-                clone_e.Yclone.Cname = tname + surfix_save_to;
-                clone_e.Yclone.CloneType = EClone.Types.CloneType.NodeInstance;
-                clone_e.Yclone.ConvertType = ConvertType.EditableMesh;
+            //    //YEvent clone_e = new YEvent();
+            //    //clone_e.Yclone = new EClone();
+            //    //clone_e.Yclone.Oname = tname + surfix_tmp;
+            //    //clone_e.Yclone.Cname = tname + surfix_save_to;
+            //    //clone_e.Yclone.CloneType = EClone.Types.CloneType.NodeInstance;
+            //    //clone_e.Yclone.ConvertType = ConvertType.EditableMesh;
 
-                YEventList yel = new YEventList();
-                yel.Events.Add(remove_e);
-                yel.Events.Add(clone_e);
+            //    //YEventList yel = new YEventList();
+            //    //yel.Events.Add(remove_e);
+            //    //yel.Events.Add(clone_e);
 
-                Utils.doManyEvent(yel);
+            //    //Utils.doManyEvent(yel);
 
-                //await streamCall.RequestStream.WriteAsync(remove_e);
-                //await streamCall.RequestStream.WriteAsync(rename_e);
-                // remove save_to object and rename clone object to orginial object
-            } else
-            {
-                //YEvent remove_e = new YEvent();
-                //remove_e.Del = new EDelete();
-                //remove_e.Del.Names.Add(tname + surfix_tmp);
-                //await streamCall.RequestStream.WriteAsync(remove_e);
-            }
+
+
+            //    //await streamCall.RequestStream.WriteAsync(remove_e);
+            //    //await streamCall.RequestStream.WriteAsync(rename_e);
+            //    // remove save_to object and rename clone object to orginial object
+            //} else
+            //{
+            //    Projects.Utils.Store.Dispatch(new YFlow.TestDetailComponent.SwitchStateAction
+            //    {
+            //        NewState = YFlow.TestDetailComponent.EditStateEnum.NoSave
+            //    });
+            //    //Utils.Store.GetState().TestState.TestStepState = YFlow.TestDetailComponent.EditStateEnum.NoSave;
+            //    //YEvent remove_e = new YEvent();
+            //    //remove_e.Del = new EDelete();
+            //    //remove_e.Del.Names.Add(tname + surfix_tmp);
+            //    //await streamCall.RequestStream.WriteAsync(remove_e);
+            //}
 
             if (streamCall != null)
             {
@@ -202,10 +200,10 @@ namespace Y3D.Projects
                 streamCall.Dispose();
             }
 
-            if (dialogResult == DialogResult.Yes)
-            {
-                UpdateStepButton.OnNext(new ButtonUpdateParam(0,"CHANGE"));
-            }
+            //if (dr == DialogResult.Yes)
+            //{
+            //    UpdateStepButton.OnNext(new ButtonUpdateParam(0,"CHANGE"));
+            //}
 
 
         }

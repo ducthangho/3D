@@ -40,4 +40,14 @@ namespace YFlow.TestDetailComponent
         public VerTest vtest;
     }
 
+    public class SwitchStepAction : IAction
+    {
+        public string oldStep { get; set; }
+        public string newStep { get; set; }
+    }
+
+    public class SwitchStateAction : IAction
+    {
+        public EditStateEnum NewState;
+    }
 }

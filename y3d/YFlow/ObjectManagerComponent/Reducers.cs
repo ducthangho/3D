@@ -30,9 +30,9 @@ namespace YFlow.ObjectManagerComponent
              return prevState;
         }
 
-        public static States ExitTestReducer(States prevState, ExitTestAction action)
+        public static States ExitTestReducer(States prevState, YFlow.TestDetailComponent.States testState, ExitTestAction action)
         {
-            if (prevState.CurrentLayer != "0" || prevState.CurrentTest!=null)
+            if (testState.TestStepState == TestDetailComponent.EditStateEnum.Ready)
             {
                 prevState.CurrentTest = null;
                 prevState.CurrentLayer = "0";
@@ -50,6 +50,17 @@ namespace YFlow.ObjectManagerComponent
             prevState.TestData.Utests[action.vtest.Oname].Otests.Add(action.vtest);
             prevState.ListTest = prevState.TestData.Utests[action.vtest.Oname].Otests;
             prevState.isSaved = false;
+
+            prevState.CurrentTest = action.vtest;
+            prevState.CurrentLayer = action.vtest.Oname + "_" + action.vtest.Id;
+
+            if (!prevState.TestInScence.ContainsKey(prevState.CurrentLayer))
+            {
+                prevState.TestInScence.Add(prevState.CurrentLayer, true);
+            } else
+            {
+                prevState.TestInScence[prevState.CurrentLayer] = true;
+            }
             return prevState;
         }
 
@@ -123,7 +134,7 @@ namespace YFlow.ObjectManagerComponent
             return prevState;
         }
 
-        public static States ObjectManagerReducer(States prevState, IAction action)
+        public static States ObjectManagerReducer(States prevState, YFlow.TestDetailComponent.States testState, IAction action)
         {
             if (action is EnterTestAction)
             {
@@ -139,7 +150,7 @@ namespace YFlow.ObjectManagerComponent
             }
             else if (action is ExitTestAction)
             {
-                return ExitTestReducer(prevState, (ExitTestAction)action);
+                return ExitTestReducer(prevState, testState, (ExitTestAction)action);
             }
             else if (action is SaveTestAction)
             {

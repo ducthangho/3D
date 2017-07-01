@@ -524,7 +524,18 @@ if yms_init != true then
 
 		fn delete_layer lname = 
 		(
-			LayerManager.deleteLayerByName lname
+			(layermanager.getlayer 0).current = true
+			--find layer that you need to delate
+			layerToDelete = LayerManager.getLayerFromName lname
+			if layerToDelete != undefined then
+			(
+				layerToDelete.nodes &theNodes -- check if layer is empty then delete it
+				if theNodes.count != 0 then
+				(
+					delete theNodes
+				)
+				LayerManager.deleteLayerbyname lname
+			)			
 		),
 		fn create_layer lname add_select isolate= 
 		(

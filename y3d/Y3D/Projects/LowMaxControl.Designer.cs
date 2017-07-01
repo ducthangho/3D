@@ -239,7 +239,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Name = "LowMaxControl";
-            this.Load += new System.EventHandler(this.LowMaxControl_Load);
             ((System.ComponentModel.ISupportInitialize)(this.vertexCount)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
