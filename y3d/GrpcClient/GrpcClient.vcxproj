@@ -159,8 +159,7 @@
       <IgnoreSpecificDefaultLibraries>libcmt</IgnoreSpecificDefaultLibraries>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /Y "$(OutDir)$(TargetName)$(TargetExt)" "$(ADSK_3DSMAX_x64_2017)"
-xcopy /Y "$(OutDir)$(TargetName).pdb" "$(ADSK_3DSMAX_x64_2017)"</Command>
+      <Command>xcopy "$(OutDir)$(TargetName)$(TargetExt)" "$(ADSK_3DSMAX_x64_2017)" /Y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -182,6 +181,8 @@ xcopy /Y "$(OutDir)$(TargetName).pdb" "$(ADSK_3DSMAX_x64_2017)"</Command>
     <ClCompile Include="..\Service\grpc\src\core\lib\iomgr\socket_mutator.c" />
     <ClCompile Include="..\Service\grpc\src\core\lib\iomgr\workqueue_uv.c" />
     <ClCompile Include="..\Service\grpc\src\core\lib\iomgr\workqueue_windows.c" />
+    <ClCompile Include="..\Service\grpc\src\core\lib\slice\slice.c" />
+    <ClCompile Include="..\Service\grpc\src\core\lib\slice\slice_buffer.c" />
     <ClCompile Include="..\Service\grpc\src\core\lib\support\mpscq.c" />
     <ClCompile Include="..\Service\grpc\src\cpp\client\channel_cc.cc" />
     <ClCompile Include="..\Service\grpc\src\cpp\client\client_context.cc" />

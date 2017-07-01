@@ -104,6 +104,18 @@
     <ClCompile Include="..\Service\grpc\src\core\lib\support\mpscq.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\Service\grpc\src\core\lib\slice\b64.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Service\grpc\src\core\lib\slice\percent_encoding.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Service\grpc\src\core\lib\slice\slice.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Service\grpc\src\core\lib\slice\slice_buffer.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
