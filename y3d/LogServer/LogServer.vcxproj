@@ -141,7 +141,7 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>PROTOBUF_USE_DLLS;_WIN32_WINNT=0x0A00;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>GPR_WINDOWS;PROTOBUF_USE_DLLS;_WIN32_WINNT=0x0A00;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <ForcedIncludeFiles>$(MSBuildProjectDirectory)\..\include\ignore.h;$(MSBuildProjectDirectory)\..\include\ignore_log.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <AdditionalIncludeDirectories>$(MsBuildProjectDirectory)\..\include;$(MsBuildProjectDirectory)\..\Service\grpc\;$(MsBuildProjectDirectory)\..\Service\grpc\include;$(MsBuildProjectDirectory)\..\Service\grpc\third_party\protobuf\src;$(MsBuildProjectDirectory)\..\packages\tclap.1.2.1\build\native\include\tclap;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -153,7 +153,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalLibraryDirectories>$(MsBuildProjectDirectory)\..\lib\tbb;$(MsBuildProjectDirectory)\..\lib;$(MsBuildProjectDirectory)\..\lib\grpc\$(Configuration);$(MsBuildProjectDirectory)\..\lib\protobuf\$(Configuration);$(MsBuildProjectDirectory)\..\ServiceImpl\obj\x64\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>grpc_unsecure.lib;grpc.lib;grpc++.lib;grpc_dll.lib;ws2_32.lib</AdditionalDependencies>
+      <AdditionalDependencies>grpc_unsecure.lib;grpc.lib;grpc++.lib;ws2_32.lib;gpr.lib</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>xcopy /Y "$(OutDir)$(TargetName)$(TargetExt)" "$(ProjectDir)..\bin\"
@@ -164,20 +164,13 @@ xcopy /Y "$(OutDir)$(TargetName)$(TargetExt)" "$(ADSK_3DSMAX_x64_2017)"</Command
     <ClCompile Include="..\ServiceImpl\ylogservice.grpc.pb.cc" />
     <ClCompile Include="..\ServiceImpl\ylogservice.pb.cc" />
     <ClCompile Include="..\Service\grpc\src\core\lib\support\arena.c" />
-    <ClCompile Include="..\Service\grpc\src\core\lib\support\env_linux.c" />
-    <ClCompile Include="..\Service\grpc\src\core\lib\support\env_posix.c" />
-    <ClCompile Include="..\Service\grpc\src\core\lib\support\env_windows.c" />
     <ClCompile Include="..\Service\grpc\src\core\lib\support\mpscq.c" />
     <ClCompile Include="..\Service\grpc\src\core\lib\support\murmur_hash.c" />
-    <ClCompile Include="..\Service\grpc\src\core\lib\support\string.c" />
-    <ClCompile Include="..\Service\grpc\src\core\lib\support\string_util_windows.c" />
-    <ClCompile Include="..\Service\grpc\src\core\lib\support\string_windows.c" />
     <ClCompile Include="..\Service\grpc\src\cpp\server\channel_argument_option.cc" />
     <ClCompile Include="..\Service\grpc\src\cpp\server\health\default_health_check_service.cc" />
     <ClCompile Include="..\Service\grpc\src\cpp\server\health\health.pb.c" />
     <ClCompile Include="..\Service\grpc\src\cpp\server\health\health_check_service.cc" />
     <ClCompile Include="..\Service\grpc\src\cpp\server\health\health_check_service_server_builder_option.cc" />
-    <ClCompile Include="..\Service\grpc\src\cpp\server\server_builder.cc" />
     <ClCompile Include="Server.cpp" />
   </ItemGroup>
   <ItemGroup>
