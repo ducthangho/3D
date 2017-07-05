@@ -44,6 +44,28 @@ DLLAPI void APIENTRY startService(const char* dllname, const char* ip_address)
 	
 	logserver::LOG("Starting Service ... \n");
 
+	if (!AllocConsole()) {
+		MessageBox(NULL, L"The console window was not created", NULL, MB_ICONEXCLAMATION);
+	}
+	else {
+		SetConsoleTitle(L"Debug console");
+		freopen("CONOUT$", "w", stdout);
+		freopen("CONIN$", "r", stdin);
+		freopen("CONOUT$", "w", stderr);
+
+		//Clear the error state for each of the C++ standard stream objects. We need to do this, as
+		//attempts to access the standard streams before they refer to a valid target will cause the
+		//iostream objects to enter an error state. In versions of Visual Studio after 2005, this seems
+		//to always occur during startup regardless of whether anything has been read from or written to
+		//the console or not.
+		std::wcout.clear();
+		std::cout.clear();
+		std::wcerr.clear();
+		std::cerr.clear();
+		std::wcin.clear();
+		std::cin.clear();
+	}
+
 	std::unique_lock<std::mutex> lk(loading_requested);
 	if (isLoading) ready_cv.wait(lk, []() {return !isLoading; });
 //	LOG.clear();
@@ -115,6 +137,8 @@ DLLAPI void APIENTRY startService(const char* dllname, const char* ip_address)
 				builder.RegisterService(servicePtr.get());
 				builder.RegisterService(serviceTestPtr.get());
 				// finally assemble the server.
+
+				printf("Starting server nowwww\n");
 				std::unique_ptr<Server> server(builder.BuildAndStart());
 
 				//std::cout << "server listening on " << server_address << std::endl;		
@@ -124,7 +148,7 @@ DLLAPI void APIENTRY startService(const char* dllname, const char* ip_address)
 			
 				//service->Helloworld();
 				//server->Wait();				
-				LOG("Server is now listening on {}\n",server_address);
+				LOG("Server is now listening on {} ......... \n",server_address);
 				//Printf("Test printf: Hello world %d\n", 123);
 				//std::map<std::string, int> m;
 				//m["hello"] = 1;
@@ -155,6 +179,9 @@ DLLAPI void APIENTRY startService(const char* dllname, const char* ip_address)
 				auto f = exit_requested.get_future();
 				f.wait();
 				isShuttingdown = true;
+
+				LOG("Server {} is now shutting down .... \n", server_address);
+
 				server->Shutdown();
 				serving_thread.join();				
 				exit_requested.swap(std::promise<void>());//Reset exit_requested promise								

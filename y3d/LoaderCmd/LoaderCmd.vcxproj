@@ -83,6 +83,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
     <Linkage-fmt_greedy>static</Linkage-fmt_greedy>
+    <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -158,8 +159,9 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>C:\Program Files\Autodesk\3ds Max 2017 SDK\maxsdk\lib\x64\Release\..\Release;$(MsBuildProjectDirectory)\..\lib\tbb;$(MsBuildProjectDirectory)\..\lib;$(MsBuildProjectDirectory)\..\lib\grpc\$(Configuration);$(MsBuildProjectDirectory)\..\lib\protobuf\$(Configuration);$(MsBuildProjectDirectory)\..\ServiceImpl\obj\x64\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>gpr.lib;grpc_unsecure.lib;grpc++.lib;tbb.lib;tbbmalloc.lib;ws2_32.lib;core.lib;geom.lib;gfx.lib;mesh.lib;maxutil.lib;maxscrpt.lib;gup.lib;paramblk2.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>gpr.lib;grpc.lib;grpc_unsecure.lib;grpc++_unsecure.lib;tbb.lib;tbbmalloc.lib;ws2_32.lib;core.lib;geom.lib;gfx.lib;mesh.lib;maxutil.lib;maxscrpt.lib;gup.lib;paramblk2.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+      <IgnoreSpecificDefaultLibraries>MSVCRT</IgnoreSpecificDefaultLibraries>
     </Link>
     <PostBuildEvent>
       <Command>xcopy /Y "$(OutDir)$(TargetName)$(TargetExt)" "$(ProjectDir)..\bin\"</Command>
@@ -185,7 +187,9 @@
     <ClCompile Include="..\ServiceImpl\ymat.pb.cc" />
     <ClCompile Include="..\ServiceImpl\yservice.grpc.pb.cc" />
     <ClCompile Include="..\ServiceImpl\yservice.pb.cc" />
-    <ClCompile Include="..\Service\grpc\src\cpp\util\status.cc" />
+    <ClCompile Include="..\Service\grpc\src\core\lib\support\log_windows.c" />
+    <ClCompile Include="..\Service\grpc\src\core\lib\support\time_windows.c" />
+    <ClCompile Include="..\Service\grpc\src\core\lib\surface\init.c" />
     <ClCompile Include="LoaderCmd.cpp" />
     <ClCompile Include="LogClient.cpp" />
   </ItemGroup>

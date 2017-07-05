@@ -144,7 +144,7 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>GRPC_CLIENT_EXPORT;NOMINMAX;PROTOBUF_USE_DLLS;_CRT_SECURE_NO_WARNINGS;WIN32_LEAN_AND_MEAN;WINVER=0x0A00;_WIN32_WINNT=0x0A00;_WIN32_WINDOWS=0x0A00;_WIN32_IE=0x0800;_WINDOWS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_DEPRECATE;_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1;_CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES=1;ISOLATION_AWARE_ENABLED=1;SECURE_SCL=0;WIN64;_UNICODE;UNICODE;_USRDLL;%(PreprocessorDefinitions);NDEBUG</PreprocessorDefinitions>
+      <PreprocessorDefinitions>ASIO_STANDALONE;WITHOUT_BOOST;GRPC_CLIENT_EXPORT;NOMINMAX;PROTOBUF_USE_DLLS;_CRT_SECURE_NO_WARNINGS;WIN32_LEAN_AND_MEAN;WINVER=0x0A00;_WIN32_WINNT=0x0A00;_WIN32_WINDOWS=0x0A00;_WIN32_IE=0x0800;_WINDOWS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_DEPRECATE;_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1;_CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES=1;ISOLATION_AWARE_ENABLED=1;SECURE_SCL=0;WIN64;_UNICODE;UNICODE;_USRDLL;%(PreprocessorDefinitions);NDEBUG</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>$(MsBuildProjectDirectory)\..\packages\rxcpp.4.0.0\build\native\include;$(MsBuildProjectDirectory)\..\include;$(MsBuildProjectDirectory)\..\Service\grpc\;$(MsBuildProjectDirectory)\..\Service\grpc\include;$(MsBuildProjectDirectory)\..\Service\grpc\third_party\protobuf\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(MSBuildProjectDirectory)\..\include\export_dll.h;$(MSBuildProjectDirectory)\..\include\export_client_dll.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
@@ -166,7 +166,6 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\include\map.h" />
     <ClInclude Include="..\include\prettyprint.hpp" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
@@ -174,27 +173,17 @@
   <ItemGroup>
     <ClCompile Include="..\ServiceImpl\yevent.grpc.pb.cc" />
     <ClCompile Include="..\ServiceImpl\yevent.pb.cc" />
-    <ClCompile Include="..\Service\grpc\src\core\lib\iomgr\closure.c" />
-    <ClCompile Include="..\Service\grpc\src\core\lib\iomgr\combiner.c" />
     <ClCompile Include="..\Service\grpc\src\core\lib\iomgr\error.c" />
     <ClCompile Include="..\Service\grpc\src\core\lib\iomgr\exec_ctx.c" />
-    <ClCompile Include="..\Service\grpc\src\core\lib\iomgr\socket_mutator.c" />
-    <ClCompile Include="..\Service\grpc\src\core\lib\iomgr\workqueue_uv.c" />
-    <ClCompile Include="..\Service\grpc\src\core\lib\iomgr\workqueue_windows.c" />
     <ClCompile Include="..\Service\grpc\src\core\lib\slice\slice.c" />
-    <ClCompile Include="..\Service\grpc\src\core\lib\slice\slice_buffer.c" />
-    <ClCompile Include="..\Service\grpc\src\core\lib\support\mpscq.c" />
     <ClCompile Include="..\Service\grpc\src\cpp\client\channel_cc.cc" />
     <ClCompile Include="..\Service\grpc\src\cpp\client\client_context.cc" />
     <ClCompile Include="..\Service\grpc\src\cpp\client\create_channel.cc" />
-    <ClCompile Include="..\Service\grpc\src\cpp\client\create_channel_internal.cc" />
     <ClCompile Include="..\Service\grpc\src\cpp\client\credentials_cc.cc" />
     <ClCompile Include="..\Service\grpc\src\cpp\client\insecure_credentials.cc" />
     <ClCompile Include="..\Service\grpc\src\cpp\common\channel_arguments.cc" />
     <ClCompile Include="..\Service\grpc\src\cpp\common\completion_queue_cc.cc" />
     <ClCompile Include="..\Service\grpc\src\cpp\common\core_codegen.cc" />
-    <ClCompile Include="..\Service\grpc\src\cpp\common\version_cc.cc" />
-    <ClCompile Include="..\Service\grpc\src\cpp\util\status.cc" />
     <ClCompile Include="grpc_client.cpp" />
     <ClCompile Include="dllmain.cpp">
       <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>

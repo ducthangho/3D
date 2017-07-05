@@ -32,9 +32,6 @@
     <ClCompile Include="LoaderCmd.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Service\grpc\src\cpp\util\status.cc">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\ServiceImpl\yloader.grpc.pb.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -69,6 +66,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\ServiceImpl\yevent.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Service\grpc\src\core\lib\support\log_windows.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Service\grpc\src\core\lib\support\time_windows.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Service\grpc\src\core\lib\surface\init.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

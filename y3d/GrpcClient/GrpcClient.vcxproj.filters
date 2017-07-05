@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\ServiceImpl\yevent.grpc.pb.cc" />
+    <ClCompile Include="..\ServiceImpl\yevent.pb.cc" />
+    <ClCompile Include="grpc_client.cpp" />
+    <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="..\Service\grpc\src\cpp\common\channel_arguments.cc">
+      <Filter>grpc_client\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Service\grpc\src\cpp\client\client_context.cc">
+      <Filter>grpc_client\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Service\grpc\src\cpp\common\core_codegen.cc">
+      <Filter>grpc_client\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Service\grpc\src\cpp\client\create_channel.cc">
+      <Filter>grpc_client\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Service\grpc\src\cpp\client\credentials_cc.cc">
+      <Filter>grpc_client\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Service\grpc\src\core\lib\iomgr\error.c">
+      <Filter>grpc_client\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Service\grpc\src\core\lib\iomgr\exec_ctx.c">
+      <Filter>grpc_client\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Service\grpc\src\cpp\client\insecure_credentials.cc">
+      <Filter>grpc_client\src</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="..\Service\grpc\src\cpp\client\channel_cc.cc">
+      <Filter>grpc_client\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Service\grpc\src\core\lib\slice\slice.c">
+      <Filter>grpc_client\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Service\grpc\src\cpp\common\completion_queue_cc.cc">
+      <Filter>grpc_client\src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\include\prettyprint.hpp" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="grpc_client">
+      <UniqueIdentifier>{044a06dc-5c61-4624-80f3-a3748ff32090}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="grpc_client\src">
+      <UniqueIdentifier>{167ffaf4-f40c-40ec-9b16-afc42c59469f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

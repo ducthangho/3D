@@ -13,6 +13,30 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{c0ab23da-5169-4165-a98a-8468625a2167}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\compiler">
+      <UniqueIdentifier>{d33f2b5f-6a5a-4743-93f6-62038808d0eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\cpp">
+      <UniqueIdentifier>{d8f2d7b0-a66d-4729-841d-ca61f04da1e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\cpp\server">
+      <UniqueIdentifier>{dd9bb89a-6ef8-44da-ab82-e635d61447ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\cpp\server\health">
+      <UniqueIdentifier>{bb7dba77-3d00-4b75-a8a2-1c1a57d6e93a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\core">
+      <UniqueIdentifier>{30cd0acd-c7e0-46a9-95a4-0e80333b604e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\core\lib">
+      <UniqueIdentifier>{4ba68a34-cd27-4e4a-99cd-2e391b9a7ebb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\core\lib\support">
+      <UniqueIdentifier>{e6902b3d-59c1-4589-bb27-2e2227e04755}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\ServiceImpl\ylogservice.grpc.pb.cc">
@@ -25,33 +49,39 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\Service\grpc\src\cpp\server\health\default_health_check_service.cc">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Service\grpc\src\cpp\server\health\health.pb.c">
-      <Filter>Source Files</Filter>
+      <Filter>src\cpp\server\health</Filter>
     </ClCompile>
     <ClCompile Include="..\Service\grpc\src\cpp\server\health\health_check_service.cc">
-      <Filter>Source Files</Filter>
+      <Filter>src\cpp\server\health</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Service\grpc\src\cpp\server\health\health.pb.c">
+      <Filter>src\cpp\server\health</Filter>
     </ClCompile>
     <ClCompile Include="..\Service\grpc\src\cpp\server\health\health_check_service_server_builder_option.cc">
-      <Filter>Source Files</Filter>
+      <Filter>src\cpp\server\health</Filter>
     </ClCompile>
     <ClCompile Include="..\Service\grpc\src\cpp\server\channel_argument_option.cc">
-      <Filter>Source Files</Filter>
+      <Filter>src\cpp\server</Filter>
     </ClCompile>
-    <ClCompile Include="..\Service\grpc\src\core\lib\support\mpscq.c">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="..\Service\grpc\src\core\lib\support\log_windows.c">
+      <Filter>src\core\lib\support</Filter>
     </ClCompile>
-    <ClCompile Include="..\Service\grpc\src\core\lib\support\murmur_hash.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Service\grpc\src\core\lib\support\arena.c">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="..\Service\grpc\src\core\lib\support\time_windows.c">
+      <Filter>src\core\lib\support</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Service\grpc\src\compiler\config.h">
+      <Filter>src\compiler</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Service\grpc\src\cpp\server\health\default_health_check_service.h">
+      <Filter>src\cpp\server\health</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Service\grpc\src\cpp\server\health\health.pb.h">
+      <Filter>src\cpp\server\health</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -7,6 +7,7 @@
 #include <chrono>
 #include "rx.hpp"
 #include <sstream>
+#include "rx-asio.hpp"
 
 #ifdef GRPC_CLIENT_EXPORT
 #define GRPC_CLIENT_EXPORT_API __declspec( dllexport )   
@@ -56,13 +57,16 @@ template <class EVENT, class RESPTYPE>
 struct EventBus
 {
 
-	EventBus() : _subscriber(s.get_subscriber()), worker(rxcpp::observe_on_new_thread()) {
+	EventBus() : work(io_service),_subscriber(s.get_subscriber()), worker(rxcpp::observe_on_asio(io_service) ),  init(false) {
 	};
 
 	~EventBus() {
 		_subscriber.on_completed();
 		_subscriber.unsubscribe();
 		cq.Shutdown();
+		io_service.stop();
+		for (int i = 0; i < pools.size(); ++i)
+			pools[i].join();
 	};
 
 	bool is_subscribed() {
@@ -71,8 +75,39 @@ struct EventBus
 
 	auto observable()
 	{
+		if (!init) {
+			if (AllocConsole()) {				
+				SetConsoleTitle(L"Debug console");
+				freopen("CONOUT$", "w", stdout);
+				freopen("CONIN$", "r", stdin);
+				freopen("CONOUT$", "w", stderr);
+
+				//Clear the error state for each of the C++ standard stream objects. We need to do this, as
+				//attempts to access the standard streams before they refer to a valid target will cause the
+				//iostream objects to enter an error state. In versions of Visual Studio after 2005, this seems
+				//to always occur during startup regardless of whether anything has been read from or written to
+				//the console or not.
+				std::wcout.clear();
+				std::cout.clear();
+				std::wcerr.clear();
+				std::cerr.clear();
+				std::wcin.clear();
+				std::cin.clear();
+			}
+			
+			
+			init = true;
+			for (int i = 0; i < 4; ++i) {
+				pools.emplace_back([this, i]() {
+					LOG("Thread {} initialized\n", i);
+					io_service.run();
+					LOG("Thread {} exited\n", i);
+				});
+			}
+		}
+		
 		return s.get_observable().map([this](EVENT e) {
-			//LOG("Subscribing - thread {}.\n", thread_to_str(std::this_thread::get_id()));
+			LOG("Subscribing - thread {}.\n", thread_to_str(std::this_thread::get_id()));
 			auto* client = getClientInstance();
 			grpc::ClientContext context;
 			void* buf = Alloc(sizeof(AsyncClientCall<RESPTYPE>));
@@ -82,8 +117,9 @@ struct EventBus
 			//std::function< std::unique_ptr<grpc::ClientAsyncResponseReader<RESPTYPE>>(grpc::ClientContext*, const EVENT &, grpc::CompletionQueue*) > func = &MainWorkerClient::AsyncDoEvent;
 			call->response_reader->Finish(&(call->reply), &(call->status), (void*)call);
 			return call;
-		}).observe_on( rx::synchronize_new_thread() ).map([this](AsyncClientCall<RESPTYPE>* e) {
-			//LOG("TAP - thread {}.\n", thread_to_str(std::this_thread::get_id()));
+		}).observe_on( worker )
+			.map([this](AsyncClientCall<RESPTYPE>* e) {
+			LOG("TAP - thread {}.\n", thread_to_str(std::this_thread::get_id()));
 
 			void* got_tag;
 			bool ok = false;
@@ -136,7 +172,7 @@ struct EventBus
 
 
 			return rs;
-		}).take(1);
+		});
 	}
 
 	auto publish(EVENT e) {
@@ -149,10 +185,14 @@ struct EventBus
 
 	void complete() { _subscriber.on_completed(); };
 private:
+	asio::io_service io_service;
+	asio::io_service::work work;
+	std::vector<std::thread> pools;
 	rxcpp::observe_on_one_worker worker;
 	grpc::CompletionQueue cq;
 	rxcpp::subjects::subject<EVENT> s;
 	rxcpp::subscriber<EVENT> _subscriber;
+	bool init;
 };
 
 

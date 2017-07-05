@@ -288,6 +288,7 @@ namespace Y3D.Projects
             var ip = "127.0.0.1";
             ChannelLoader = new Channel(ip + ":" + worker.PortLoader, ChannelCredentials.Insecure);
             ChannelMax = new Channel(ip + ":" + worker.PortMax, ChannelCredentials.Insecure);
+            LogClientCSharp.LogClient.Instance.LOG("ChannelMax IP = {0}\n", ip + ":" + worker.PortMax);            
             LoaderClient = new YServiceMaxLoader.YServiceMaxLoaderClient(ChannelLoader);
             MaxClient = new YServiceMaxTools.YServiceMaxToolsClient(ChannelMax);
             TestClient = new YServiceTest.YServiceTestClient(ChannelMax);

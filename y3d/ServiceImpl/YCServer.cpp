@@ -262,6 +262,7 @@ Status YServiceImpl::GetObjectFromMax(ServerContext* context, const EmptyParam* 
 //
 Status YServiceImpl::NewProject(ServerContext* context, const NewProjectParam* np, ResponseNProject* rnp)
 {
+	logserver::LOG("NewProject request received\n");
 	Invoke([np, rnp]() -> void {
 		//bool noProject = true;
 		//for (int i = 0; i < YSys.projects_size(); i++)

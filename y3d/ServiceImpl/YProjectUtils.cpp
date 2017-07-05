@@ -611,6 +611,7 @@ auto from_event(Add&& a, Remove&& r) {
 
 void MyNodeEventCB::SelectionChanged(NodeKeyTab & nodes)
 {		
+	static bool init = false;
 	if (nodes.Count() > 0) {		
 		YEvent2 ye;
 		if (nodes.Count() <= 1) {
@@ -630,16 +631,21 @@ void MyNodeEventCB::SelectionChanged(NodeKeyTab & nodes)
 				};
 			}
 		}
-		events.observable().subscribe([](auto e) {
-			//y3d::ResponseEvent2& reply = e.first;
+		if (!init) {
+			init = true;
+			LOG("INIT first time\n");
+			events.observable().subscribe([](auto e) {
+				//y3d::ResponseEvent2& reply = e.first;
 
-			LOG("On next {} \n", 1);
-		}, [](auto e) {
-			LOG("On error\n");
-		}, []() {
-			LOG("On completed\n");
-		});
-		events.publish(ye);
+				LOG("On next {} \n", 1);
+			}, [](auto e) {
+				LOG("On error\n");
+			}, []() {
+				LOG("On completed\n");
+			});
+		}
+		
+		events.publish(ye);		
 
 
 		//events.complete();

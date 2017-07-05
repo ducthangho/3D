@@ -116,6 +116,20 @@ int test4() {
 	return 0;
 }
 
+void testNewProject()
+{	
+	logserver::LOG("testNewProject\n");
+	auto client = y3d::YServiceMaxTools::NewStub(grpc::CreateChannel("127.0.0.1:39001", grpc::InsecureChannelCredentials()));
+	y3d::NewProjectParam param;
+	param.set_fname("abcd");
+	param.set_folder("xyz");
+	y3d::ResponseNProject resp;
+	grpc::ClientContext context;
+	auto status = client->NewProject(&context, param, &resp);
+	logserver::LOG("Doneeee\n");
+}
+
+
 void test5()
 {
 	logserver::LOG("Hello world with fmt like format i={0}\n","dddddddddd");
@@ -279,7 +293,7 @@ int main(int argc, char** argv)
 		cmd.add(lsArg);
 
 
-		TCLAP::ValueArg<int> testArg("t", "test", "1 = test1; 2 = test2; 3 = test3; 4 = test4; 5 = test5", false, 2, "integer");
+		TCLAP::ValueArg<int> testArg("t", "test", "1 = test1; 2 = test2; 3 = test3; 4 = test4; 5 = test5; 6 = testNewPorject", false, 2, "integer");
 		cmd.add(testArg);
 
 		TCLAP::ValueArg<std::string> testParam("p", "param", "", false, "", "string");
@@ -341,6 +355,10 @@ int main(int argc, char** argv)
 			else if (t == 5)
 			{
 				test5();
+			}
+			else if (t == 6)
+			{
+				testNewProject();
 			}
 		}
 	}

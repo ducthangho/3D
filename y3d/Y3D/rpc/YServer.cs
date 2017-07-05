@@ -39,7 +39,7 @@ namespace Y3D.rpc
                 if (request.Select != null)
                 {
                     //MessageBox.Show("Selected "+request.Select.Name);
-                    LogClient.Instance.LOG("Selected {0}\n", request.Select.Name);
+                    LogClient.Instance.LOG("Selected {0} .... \n", request.Select.Name);
 
                     rs.Msg = request.Select.Name + "....";
                 }
