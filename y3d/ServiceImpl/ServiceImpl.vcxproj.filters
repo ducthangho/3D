@@ -32,7 +32,7 @@
     <ClCompile Include="YCServer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Service\grpc\src\cpp\util\status.cc" />
+    <ClCompile Include="..\third_party\grpc\src\cpp\util\status.cc" />
     <ClCompile Include="YProjectUtils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -40,58 +40,58 @@
     <ClCompile Include="YCTestServer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Service\grpc\src\cpp\client\client_context.cc" />
-    <ClCompile Include="..\Service\grpc\src\cpp\client\create_channel.cc" />
-    <ClCompile Include="..\Service\grpc\src\cpp\client\insecure_credentials.cc" />
-    <ClCompile Include="..\Service\grpc\src\cpp\client\create_channel_internal.cc" />
-    <ClCompile Include="..\Service\grpc\src\cpp\client\credentials_cc.cc" />
-    <ClCompile Include="..\Service\grpc\src\cpp\client\channel_cc.cc" />
-    <ClCompile Include="..\Service\grpc\src\cpp\common\channel_arguments.cc" />
-    <ClCompile Include="..\Service\grpc\src\cpp\common\completion_queue_cc.cc" />
-    <ClCompile Include="..\Service\grpc\src\cpp\common\core_codegen.cc" />
-    <ClCompile Include="..\Service\grpc\src\core\lib\iomgr\socket_mutator.c">
+    <ClCompile Include="..\third_party\grpc\src\cpp\client\client_context.cc" />
+    <ClCompile Include="..\third_party\grpc\src\cpp\client\create_channel.cc" />
+    <ClCompile Include="..\third_party\grpc\src\cpp\client\insecure_credentials.cc" />
+    <ClCompile Include="..\third_party\grpc\src\cpp\client\create_channel_internal.cc" />
+    <ClCompile Include="..\third_party\grpc\src\cpp\client\credentials_cc.cc" />
+    <ClCompile Include="..\third_party\grpc\src\cpp\client\channel_cc.cc" />
+    <ClCompile Include="..\third_party\grpc\src\cpp\common\channel_arguments.cc" />
+    <ClCompile Include="..\third_party\grpc\src\cpp\common\completion_queue_cc.cc" />
+    <ClCompile Include="..\third_party\grpc\src\cpp\common\core_codegen.cc" />
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\socket_mutator.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Service\grpc\src\core\lib\iomgr\exec_ctx.c">
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\exec_ctx.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Service\grpc\src\core\lib\iomgr\error.c">
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\error.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Service\grpc\src\core\lib\iomgr\closure.c">
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\closure.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Service\grpc\src\core\lib\iomgr\combiner.c">
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\combiner.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Service\grpc\src\core\lib\iomgr\workqueue_uv.c">
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\workqueue_uv.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Service\grpc\src\core\lib\iomgr\workqueue_windows.c">
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\workqueue_windows.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Service\grpc\src\cpp\common\version_cc.cc" />
+    <ClCompile Include="..\third_party\grpc\src\cpp\common\version_cc.cc" />
     <ClCompile Include="ymaxcoreinterface.pb.cc" />
-    <ClCompile Include="..\Service\grpc\src\core\lib\support\mpscq.c">
+    <ClCompile Include="..\third_party\grpc\src\core\lib\support\mpscq.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Service\grpc\src\core\lib\support\time.c">
+    <ClCompile Include="..\third_party\grpc\src\core\lib\support\time.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Service\grpc\src\core\lib\support\time_posix.c">
+    <ClCompile Include="..\third_party\grpc\src\core\lib\support\time_posix.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Service\grpc\src\core\lib\support\time_precise.c">
+    <ClCompile Include="..\third_party\grpc\src\core\lib\support\time_precise.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Service\grpc\src\core\lib\support\time_windows.c">
+    <ClCompile Include="..\third_party\grpc\src\core\lib\support\time_windows.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Service\grpc\src\cpp\util\time_cc.cc" />
-    <ClCompile Include="..\Service\grpc\src\core\lib\slice\slice.c">
+    <ClCompile Include="..\third_party\grpc\src\cpp\util\time_cc.cc" />
+    <ClCompile Include="..\third_party\grpc\src\core\lib\slice\slice.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Service\grpc\src\core\lib\slice\slice_buffer.c">
+    <ClCompile Include="..\third_party\grpc\src\core\lib\slice\slice_buffer.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

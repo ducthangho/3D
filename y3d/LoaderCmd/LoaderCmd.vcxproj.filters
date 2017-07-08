@@ -21,9 +21,6 @@
     <ClInclude Include="stdafx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="targetver.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\include\LogClient.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -68,13 +65,73 @@
     <ClCompile Include="..\ServiceImpl\yevent.pb.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Service\grpc\src\core\lib\support\log_windows.c">
+    <ClCompile Include="..\third_party\grpc\src\core\lib\support\log_windows.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Service\grpc\src\core\lib\support\time_windows.c">
+    <ClCompile Include="..\third_party\grpc\src\core\lib\support\time_windows.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Service\grpc\src\core\lib\surface\init.c">
+    <ClCompile Include="..\third_party\grpc\src\core\lib\surface\init.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\filters\client_channel\lb_policy\grpclb\load_balancer_api.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\filters\client_channel\parse_address.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\filters\http\http_filters_plugin.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\filters\max_age\max_age_filter.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\filters\workarounds\workaround_cronet_compression_filter.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\transport\chttp2\transport\chttp2_transport.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\cpp\client\channel_cc.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\cpp\client\client_context.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\cpp\client\create_channel.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\cpp\client\credentials_cc.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\cpp\client\insecure_credentials.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\cpp\codegen\codegen_init.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\cpp\common\channel_arguments.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\cpp\common\completion_queue_cc.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\cpp\common\core_codegen.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\cpp\common\version_cc.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\cpp\util\status.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\load_file.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\compression\message_compress.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\cpp\client\create_channel_internal.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

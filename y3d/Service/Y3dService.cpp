@@ -137,8 +137,7 @@ DLLAPI void APIENTRY startService(const char* dllname, const char* ip_address)
 				builder.RegisterService(servicePtr.get());
 				builder.RegisterService(serviceTestPtr.get());
 				// finally assemble the server.
-
-				printf("Starting server nowwww\n");
+				
 				std::unique_ptr<Server> server(builder.BuildAndStart());
 
 				//std::cout << "server listening on " << server_address << std::endl;		

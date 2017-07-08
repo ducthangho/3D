@@ -32,7 +32,6 @@ namespace rx {
 using namespace concurrency;
 using namespace std::experimental;
 
-
 const std::string FM_ORGINAL_FILE = "{0}\\{1}_o.max";
 const std::string FM_YAREA_FILE = "{0}\\yal.y3d";
 MyNodeEventCB mcb;
@@ -618,19 +617,29 @@ void MyNodeEventCB::SelectionChanged(NodeKeyTab & nodes)
 			auto n = NodeEventNamespace::GetNodeByKey(nodes[0]);
 			ye.mutable_select()->set_name(ws2s(n->GetName()));
 			ye.mutable_select()->set_isolate(false);
+			printf("Sending object %s\n", ye.select().name().c_str());
 		}
 		else {
 			auto items = ye.mutable_select_many();
+			printf("Sending many objects: ");
 			for (int i = 0; i < nodes.Count(); i++)
 			{
 				auto n = NodeEventNamespace::GetNodeByKey(nodes[i]);
 				if (n == NULL) continue;
 				if (n->Selected()) {
 					items->add_name(ws2s(n->GetName()));
+					printf("%s\t", ws2s(n->GetName()) );
 					items->set_isolate(false);
 				};
+				
 			}
+			printf("\n");
 		}
+		/*y3d::ResponseEvent2 rep;
+		grpc::ClientContext context;*/
+		
+		//GRPC_CALL(DoEvent, &context, ye, &rep);
+
 		if (!init) {
 			init = true;
 			LOG("INIT first time\n");
@@ -639,7 +648,7 @@ void MyNodeEventCB::SelectionChanged(NodeKeyTab & nodes)
 
 				LOG("On next {} \n", 1);
 			}, [](auto e) {
-				LOG("On error\n");
+				LOG("On error \n");
 			}, []() {
 				LOG("On completed\n");
 			});
@@ -755,7 +764,7 @@ void MyNodeEventCB::SelectionChanged(NodeKeyTab & nodes)
 		//			// Once we're complete, deallocate the call object.
 		//			Free(call);
 		//		}
-		//		//GRPC_CALL(DoEvent, &context, e, &rep);
+		//		GRPC_CALL(DoEvent, &context, e, &rep);
 		//		/*grpc::CompletionQueue cq;
 		//		auto* client = getClientInstance();
 		//		grpc::ClientContext context;

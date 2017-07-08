@@ -10,6 +10,7 @@
 std::mutex mm_mutex;
 ClientPtr clientPtr = nullptr;
 
+
 ClientType* getClientInstance()
 {
 	ClientType* tmp = clientPtr.load();
@@ -22,7 +23,10 @@ ClientType* getClientInstance()
 		tmp = clientPtr.load();
 		if (tmp == nullptr) {
 			//auto stub(y3d::YServiceMainWorker::NewStub(grpc::CreateChannel(address, grpc::InsecureChannelCredentials())));
+			//auto channel = grpc::CreateChannel(MainWorkerServerIP, grpc::InsecureChannelCredentials());
+			//printf("Connection state = %d\n", channel->GetState(false));
 			tmp = new ClientType(grpc::CreateChannel(MainWorkerServerIP, grpc::InsecureChannelCredentials()));
+			printf("Create connection to server %s\n", MainWorkerServerIP.c_str());
 			//tmp->swap(stub);
 			clientPtr.store(tmp);
 		}

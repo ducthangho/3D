@@ -7,6 +7,8 @@
 #include <chrono>
 #include "rx.hpp"
 #include <sstream>
+#include "Threadpool.h"
+#include "rx-strand.h"
 #include "rx-asio.hpp"
 
 #ifdef GRPC_CLIENT_EXPORT
@@ -16,8 +18,6 @@
 #else
 #define GRPC_CLIENT_EXPORT_API __declspec( dllimport )   
 #endif
-
-
 
 inline std::string thread_to_str(std::thread::id myid) {
 	std::stringstream ss;
@@ -56,17 +56,15 @@ struct my_deleter
 template <class EVENT, class RESPTYPE>
 struct EventBus
 {
-
-	EventBus() : work(io_service),_subscriber(s.get_subscriber()), worker(rxcpp::observe_on_asio(io_service) ),  init(false) {
+	
+	EventBus() : _subscriber(s.get_subscriber()), init(false) {
 	};
 
 	~EventBus() {
 		_subscriber.on_completed();
 		_subscriber.unsubscribe();
 		cq.Shutdown();
-		io_service.stop();
-		for (int i = 0; i < pools.size(); ++i)
-			pools[i].join();
+		
 	};
 
 	bool is_subscribed() {
@@ -96,14 +94,7 @@ struct EventBus
 			}
 			
 			
-			init = true;
-			for (int i = 0; i < 4; ++i) {
-				pools.emplace_back([this, i]() {
-					LOG("Thread {} initialized\n", i);
-					io_service.run();
-					LOG("Thread {} exited\n", i);
-				});
-			}
+			init = true;			
 		}
 		
 		return s.get_observable().map([this](EVENT e) {
@@ -117,7 +108,8 @@ struct EventBus
 			//std::function< std::unique_ptr<grpc::ClientAsyncResponseReader<RESPTYPE>>(grpc::ClientContext*, const EVENT &, grpc::CompletionQueue*) > func = &MainWorkerClient::AsyncDoEvent;
 			call->response_reader->Finish(&(call->reply), &(call->status), (void*)call);
 			return call;
-		}).observe_on( worker )
+		}).observe_on( rxcpp::observe_on_strand(ThreadPool::shared_instance().service() ))
+			//.observe_on(rxcpp::synchronize_new_thread())
 			.map([this](AsyncClientCall<RESPTYPE>* e) {
 			LOG("TAP - thread {}.\n", thread_to_str(std::this_thread::get_id()));
 
@@ -136,11 +128,13 @@ struct EventBus
 				case grpc::CompletionQueue::SHUTDOWN:
 					rs.second = grpc::Status::CANCELLED;
 					e->~AsyncClientCall<RESPTYPE>();
+					LOG("RPC Shutdown\n");
 					Free(e);
 					break;
 				case grpc::CompletionQueue::TIMEOUT:
 					rs.second = grpc::Status::CANCELLED;
-					e->context.TryCancel();
+					LOG("RPC Timeout\n");
+					//e->context.TryCancel();
 					e->~AsyncClientCall<RESPTYPE>();
 					Free(e);
 					break;
@@ -184,11 +178,7 @@ struct EventBus
 	}
 
 	void complete() { _subscriber.on_completed(); };
-private:
-	asio::io_service io_service;
-	asio::io_service::work work;
-	std::vector<std::thread> pools;
-	rxcpp::observe_on_one_worker worker;
+private:	
 	grpc::CompletionQueue cq;
 	rxcpp::subjects::subject<EVENT> s;
 	rxcpp::subscriber<EVENT> _subscriber;

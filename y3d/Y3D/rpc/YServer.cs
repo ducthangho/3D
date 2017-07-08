@@ -53,6 +53,7 @@ namespace Y3D.rpc
                         s += it + " ; ";
                     }
                     rs.Msg = s;
+                    LogClient.Instance.LOG("Select many {0} .... \n", s);
                 }
             }
             
@@ -95,8 +96,9 @@ namespace Y3D.rpc
                 {
                     if (Y3D.Projects.Utils.worker != null)
                     {
+                        Y3D.Projects.Utils.worker.Wid = 1; //Hardcode to make it work
                         server = new Server
-                        {
+                        {                            
                             Services = { YServiceMainWorker.BindService(new YServiceMainWorkerImpl()) },
                             Ports = { new ServerPort("127.0.0.1", Y3D.Projects.Utils.worker.Wid + 37000, ServerCredentials.Insecure) }
                         };

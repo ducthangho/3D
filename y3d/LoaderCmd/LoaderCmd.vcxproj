@@ -19,6 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
+    <VcpkgTriplet Condition="'$(Platform)'=='Win32'">x86-windows</VcpkgTriplet>
+    <VcpkgTriplet Condition="'$(Platform)'=='x64'">x64-windows</VcpkgTriplet>
     <ProjectGuid>{50A337F0-1395-40AF-AD1A-8E94060DCD16}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>LoaderCmd</RootNamespace>
@@ -107,15 +109,15 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>LOG_SERVICE_STATIC;NOMINMAX;PROTOBUF_USE_DLLS;_CRT_SECURE_NO_WARNINGS;WIN32_LEAN_AND_MEAN;_ADESK_3DSMAX_WINDOWS_;WINVER=0x0A00;_WIN32_WINNT=0x0A00;_WIN32_WINDOWS=0x0A00;_WIN32_IE=0x0800;_WINDOWS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_DEPRECATE;_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1;_CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES=1;ISOLATION_AWARE_ENABLED=1;SECURE_SCL=0;WIN64;_UNICODE;UNICODE;_USRDLL;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Program Files\Autodesk\3ds Max 2017 SDK\maxsdk\include;$(MsBuildProjectDirectory)\..\include;$(MsBuildProjectDirectory)\..\Service\grpc\;$(MsBuildProjectDirectory)\..\Service\grpc\include;$(MsBuildProjectDirectory)\..\Service\grpc\third_party\protobuf\src;$(MsBuildProjectDirectory)\..\packages\tclap.1.2.1\build\native\include\tclap;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Program Files\Autodesk\3ds Max 2017 SDK\maxsdk\include;$(MsBuildProjectDirectory)\..\include;..\third_party\grpc;$(MsBuildProjectDirectory)\..\packages\tclap.1.2.1\build\native\include\tclap;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(MSBuildProjectDirectory)\..\include\ignore.h;$(MSBuildProjectDirectory)\..\include\ignore_log.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(MsBuildProjectDirectory)\..\lib\tbb;$(MsBuildProjectDirectory)\..\lib;$(MsBuildProjectDirectory)\..\lib\grpc\$(Configuration);$(MsBuildProjectDirectory)\..\lib\protobuf\$(Configuration);$(MsBuildProjectDirectory)\..\ServiceImpl\obj\x64\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>gpr.lib;grpc_unsecure.lib;grpc++.lib;tbb.lib;tbbmalloc.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(MsBuildProjectDirectory)\..\lib\tbb;$(MsBuildProjectDirectory)\..\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>tbb.lib;tbbmalloc.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>xcopy /Y "$(OutDir)$(TargetName)$(TargetExt)" "$(ProjectDir)..\bin\"</Command>
@@ -149,7 +151,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>LOG_SERVICE_STATIC;_ITERATOR_DEBUG_LEVEL=0;NOMINMAX;PROTOBUF_USE_DLLS;_CRT_SECURE_NO_WARNINGS;WIN32_LEAN_AND_MEAN;_ADESK_3DSMAX_WINDOWS_;WINVER=0x0A00;_WIN32_WINNT=0x0A00;_WIN32_WINDOWS=0x0A00;_WIN32_IE=0x0800;_WINDOWS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_DEPRECATE;_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1;_CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES=1;ISOLATION_AWARE_ENABLED=1;SECURE_SCL=0;WIN64;_UNICODE;UNICODE;_USRDLL;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Program Files\Autodesk\3ds Max 2017 SDK\maxsdk\include;$(MsBuildProjectDirectory)\..\include;$(MsBuildProjectDirectory)\..\Service\grpc\;$(MsBuildProjectDirectory)\..\Service\grpc\include;$(MsBuildProjectDirectory)\..\Service\grpc\third_party\protobuf\src;$(MsBuildProjectDirectory)\..\packages\tclap.1.2.1\build\native\include\tclap;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Program Files\Autodesk\3ds Max 2017 SDK\maxsdk\include;$(MsBuildProjectDirectory)\..\include;..\third_party\grpc;$(MsBuildProjectDirectory)\..\packages\tclap.1.2.1\build\native\include\tclap;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(MSBuildProjectDirectory)\..\include\ignore.h;$(MSBuildProjectDirectory)\..\include\ignore_log.h;$(MSBuildProjectDirectory)\..\include\ignore_client.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
@@ -158,8 +160,8 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Program Files\Autodesk\3ds Max 2017 SDK\maxsdk\lib\x64\Release\..\Release;$(MsBuildProjectDirectory)\..\lib\tbb;$(MsBuildProjectDirectory)\..\lib;$(MsBuildProjectDirectory)\..\lib\grpc\$(Configuration);$(MsBuildProjectDirectory)\..\lib\protobuf\$(Configuration);$(MsBuildProjectDirectory)\..\ServiceImpl\obj\x64\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>gpr.lib;grpc.lib;grpc_unsecure.lib;grpc++_unsecure.lib;tbb.lib;tbbmalloc.lib;ws2_32.lib;core.lib;geom.lib;gfx.lib;mesh.lib;maxutil.lib;maxscrpt.lib;gup.lib;paramblk2.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Program Files\Autodesk\3ds Max 2017 SDK\maxsdk\lib\x64\Release\..\Release;$(MsBuildProjectDirectory)\..\lib\tbb;$(MsBuildProjectDirectory)\..\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>tbb.lib;tbbmalloc.lib;ws2_32.lib;core.lib;geom.lib;gfx.lib;mesh.lib;maxutil.lib;maxscrpt.lib;gup.lib;paramblk2.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
       <IgnoreSpecificDefaultLibraries>MSVCRT</IgnoreSpecificDefaultLibraries>
     </Link>
@@ -173,9 +175,11 @@
   <ItemGroup>
     <ClInclude Include="..\include\LogClient.h" />
     <ClInclude Include="stdafx.h" />
-    <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\compression\message_compress.c" />
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\load_file.c" />
+    <ClCompile Include="..\third_party\grpc\src\cpp\client\create_channel_internal.cc" />
     <ClCompile Include="..\ServiceImpl\xnormal.pb.cc" />
     <ClCompile Include="..\ServiceImpl\y3d.pb.cc" />
     <ClCompile Include="..\ServiceImpl\yevent.grpc.pb.cc" />
@@ -187,9 +191,26 @@
     <ClCompile Include="..\ServiceImpl\ymat.pb.cc" />
     <ClCompile Include="..\ServiceImpl\yservice.grpc.pb.cc" />
     <ClCompile Include="..\ServiceImpl\yservice.pb.cc" />
-    <ClCompile Include="..\Service\grpc\src\core\lib\support\log_windows.c" />
-    <ClCompile Include="..\Service\grpc\src\core\lib\support\time_windows.c" />
-    <ClCompile Include="..\Service\grpc\src\core\lib\surface\init.c" />
+    <ClCompile Include="..\third_party\grpc\src\core\lib\support\log_windows.c" />
+    <ClCompile Include="..\third_party\grpc\src\core\lib\support\time_windows.c" />
+    <ClCompile Include="..\third_party\grpc\src\core\lib\surface\init.c" />
+    <ClCompile Include="..\third_party\grpc\src\core\ext\filters\client_channel\lb_policy\grpclb\load_balancer_api.c" />
+    <ClCompile Include="..\third_party\grpc\src\core\ext\filters\client_channel\parse_address.c" />
+    <ClCompile Include="..\third_party\grpc\src\core\ext\filters\http\http_filters_plugin.c" />
+    <ClCompile Include="..\third_party\grpc\src\core\ext\filters\max_age\max_age_filter.c" />
+    <ClCompile Include="..\third_party\grpc\src\core\ext\filters\workarounds\workaround_cronet_compression_filter.c" />
+    <ClCompile Include="..\third_party\grpc\src\core\ext\transport\chttp2\transport\chttp2_transport.c" />
+    <ClCompile Include="..\third_party\grpc\src\cpp\client\channel_cc.cc" />
+    <ClCompile Include="..\third_party\grpc\src\cpp\client\client_context.cc" />
+    <ClCompile Include="..\third_party\grpc\src\cpp\client\create_channel.cc" />
+    <ClCompile Include="..\third_party\grpc\src\cpp\client\credentials_cc.cc" />
+    <ClCompile Include="..\third_party\grpc\src\cpp\client\insecure_credentials.cc" />
+    <ClCompile Include="..\third_party\grpc\src\cpp\codegen\codegen_init.cc" />
+    <ClCompile Include="..\third_party\grpc\src\cpp\common\channel_arguments.cc" />
+    <ClCompile Include="..\third_party\grpc\src\cpp\common\completion_queue_cc.cc" />
+    <ClCompile Include="..\third_party\grpc\src\cpp\common\core_codegen.cc" />
+    <ClCompile Include="..\third_party\grpc\src\cpp\common\version_cc.cc" />
+    <ClCompile Include="..\third_party\grpc\src\cpp\util\status.cc" />
     <ClCompile Include="LoaderCmd.cpp" />
     <ClCompile Include="LogClient.cpp" />
   </ItemGroup>
@@ -198,8 +219,6 @@
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
-    <Import Project="..\packages\grpc.dependencies.zlib.redist.1.2.8.10\build\native\grpc.dependencies.zlib.redist.targets" Condition="Exists('..\packages\grpc.dependencies.zlib.redist.1.2.8.10\build\native\grpc.dependencies.zlib.redist.targets')" />
-    <Import Project="..\packages\grpc.dependencies.zlib.1.2.8.10\build\native\grpc.dependencies.zlib.targets" Condition="Exists('..\packages\grpc.dependencies.zlib.1.2.8.10\build\native\grpc.dependencies.zlib.targets')" />
     <Import Project="..\packages\tclap.1.2.1\build\native\tclap.targets" Condition="Exists('..\packages\tclap.1.2.1\build\native\tclap.targets')" />
     <Import Project="..\packages\fmt.greedy.3.0.0.1\build\native\fmt.greedy.targets" Condition="Exists('..\packages\fmt.greedy.3.0.0.1\build\native\fmt.greedy.targets')" />
   </ImportGroup>
@@ -207,8 +226,6 @@
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\grpc.dependencies.zlib.redist.1.2.8.10\build\native\grpc.dependencies.zlib.redist.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\grpc.dependencies.zlib.redist.1.2.8.10\build\native\grpc.dependencies.zlib.redist.targets'))" />
-    <Error Condition="!Exists('..\packages\grpc.dependencies.zlib.1.2.8.10\build\native\grpc.dependencies.zlib.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\grpc.dependencies.zlib.1.2.8.10\build\native\grpc.dependencies.zlib.targets'))" />
     <Error Condition="!Exists('..\packages\tclap.1.2.1\build\native\tclap.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\tclap.1.2.1\build\native\tclap.targets'))" />
     <Error Condition="!Exists('..\packages\fmt.greedy.3.0.0.1\build\native\fmt.greedy.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\fmt.greedy.3.0.0.1\build\native\fmt.greedy.targets'))" />
   </Target>

@@ -69,7 +69,7 @@
     <ClCompile>
       <WholeProgramOptimization>false</WholeProgramOptimization>
       <PreprocessorDefinitions>ASIO_STANDALONE;WITHOUT_BOOST;YSERVICE_EXPORT;NOMINMAX;PROTOBUF_USE_DLLS;_CRT_SECURE_NO_WARNINGS;WIN32_LEAN_AND_MEAN;_ADESK_3DSMAX_WINDOWS_;WINVER=0x0A00;_WIN32_WINNT=0x0A00;_WIN32_WINDOWS=0x0A00;_WIN32_IE=0x0800;_WINDOWS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_DEPRECATE;_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1;_CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES=1;ISOLATION_AWARE_ENABLED=1;SECURE_SCL=0;WIN64;_UNICODE;UNICODE;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(MsBuildProjectDirectory)\..\packages\rxcpp.4.0.0\build\native\include;$(MaxSdkInc);$(MsBuildProjectDirectory)\..\include;$(MsBuildProjectDirectory)\..\Service\grpc\;$(MsBuildProjectDirectory)\..\Service\grpc\include;$(MsBuildProjectDirectory)\..\Service\grpc\third_party\protobuf\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(MsBuildProjectDirectory)\..\packages\rxcpp.4.0.0\build\native\include;$(MaxSdkInc);$(MsBuildProjectDirectory)\..\include;..\third_party\grpc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <WarningLevel>Level2</WarningLevel>
       <Optimization Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">Disabled</Optimization>
       <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Disabled</Optimization>
@@ -86,8 +86,8 @@
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">/await %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(MsBuildProjectDirectory)\..\x64\$(Configuration);$(MaxSdkLib)..\Release;$(MsBuildProjectDirectory)\..\lib\tbb;$(MsBuildProjectDirectory)\..\lib;$(MsBuildProjectDirectory)\..\lib\grpc\$(Configuration);$(MsBuildProjectDirectory)\..\lib\protobuf\$(Configuration);$(MsBuildProjectDirectory)\..\lib\protobuf\Release;$(MsBuildProjectDirectory)\..\lib\grpc\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>LogClient.lib;GrpcClient.lib;grpc_dll.lib;tbb.lib;tbbmalloc.lib;core.lib;geom.lib;gfx.lib;mesh.lib;maxutil.lib;maxscrpt.lib;gup.lib;paramblk2.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(MsBuildProjectDirectory)\..\x64\$(Configuration);$(MaxSdkLib)..\Release;$(MsBuildProjectDirectory)\..\lib\tbb;$(MsBuildProjectDirectory)\..\lib;$(MsBuildProjectDirectory)\..\x64\$(Configuration)\GrpcClient;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>LogClient.lib;GrpcClient.lib;tbb.lib;tbbmalloc.lib;core.lib;geom.lib;gfx.lib;mesh.lib;maxutil.lib;maxscrpt.lib;gup.lib;paramblk2.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ModuleDefinitionFile>
       </ModuleDefinitionFile>
       <LinkTimeCodeGeneration Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
@@ -129,32 +129,32 @@
     </PreLinkEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\Service\grpc\src\core\lib\iomgr\closure.c" />
-    <ClCompile Include="..\Service\grpc\src\core\lib\iomgr\combiner.c" />
-    <ClCompile Include="..\Service\grpc\src\core\lib\iomgr\error.c" />
-    <ClCompile Include="..\Service\grpc\src\core\lib\iomgr\exec_ctx.c" />
-    <ClCompile Include="..\Service\grpc\src\core\lib\iomgr\socket_mutator.c" />
-    <ClCompile Include="..\Service\grpc\src\core\lib\iomgr\workqueue_uv.c" />
-    <ClCompile Include="..\Service\grpc\src\core\lib\iomgr\workqueue_windows.c" />
-    <ClCompile Include="..\Service\grpc\src\core\lib\slice\slice.c" />
-    <ClCompile Include="..\Service\grpc\src\core\lib\slice\slice_buffer.c" />
-    <ClCompile Include="..\Service\grpc\src\core\lib\support\mpscq.c" />
-    <ClCompile Include="..\Service\grpc\src\core\lib\support\time.c" />
-    <ClCompile Include="..\Service\grpc\src\core\lib\support\time_posix.c" />
-    <ClCompile Include="..\Service\grpc\src\core\lib\support\time_precise.c" />
-    <ClCompile Include="..\Service\grpc\src\core\lib\support\time_windows.c" />
-    <ClCompile Include="..\Service\grpc\src\cpp\client\channel_cc.cc" />
-    <ClCompile Include="..\Service\grpc\src\cpp\client\client_context.cc" />
-    <ClCompile Include="..\Service\grpc\src\cpp\client\create_channel.cc" />
-    <ClCompile Include="..\Service\grpc\src\cpp\client\create_channel_internal.cc" />
-    <ClCompile Include="..\Service\grpc\src\cpp\client\credentials_cc.cc" />
-    <ClCompile Include="..\Service\grpc\src\cpp\client\insecure_credentials.cc" />
-    <ClCompile Include="..\Service\grpc\src\cpp\common\channel_arguments.cc" />
-    <ClCompile Include="..\Service\grpc\src\cpp\common\completion_queue_cc.cc" />
-    <ClCompile Include="..\Service\grpc\src\cpp\common\core_codegen.cc" />
-    <ClCompile Include="..\Service\grpc\src\cpp\common\version_cc.cc" />
-    <ClCompile Include="..\Service\grpc\src\cpp\util\status.cc" />
-    <ClCompile Include="..\Service\grpc\src\cpp\util\time_cc.cc" />
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\closure.c" />
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\combiner.c" />
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\error.c" />
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\exec_ctx.c" />
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\socket_mutator.c" />
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\workqueue_uv.c" />
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\workqueue_windows.c" />
+    <ClCompile Include="..\third_party\grpc\src\core\lib\slice\slice.c" />
+    <ClCompile Include="..\third_party\grpc\src\core\lib\slice\slice_buffer.c" />
+    <ClCompile Include="..\third_party\grpc\src\core\lib\support\mpscq.c" />
+    <ClCompile Include="..\third_party\grpc\src\core\lib\support\time.c" />
+    <ClCompile Include="..\third_party\grpc\src\core\lib\support\time_posix.c" />
+    <ClCompile Include="..\third_party\grpc\src\core\lib\support\time_precise.c" />
+    <ClCompile Include="..\third_party\grpc\src\core\lib\support\time_windows.c" />
+    <ClCompile Include="..\third_party\grpc\src\cpp\client\channel_cc.cc" />
+    <ClCompile Include="..\third_party\grpc\src\cpp\client\client_context.cc" />
+    <ClCompile Include="..\third_party\grpc\src\cpp\client\create_channel.cc" />
+    <ClCompile Include="..\third_party\grpc\src\cpp\client\create_channel_internal.cc" />
+    <ClCompile Include="..\third_party\grpc\src\cpp\client\credentials_cc.cc" />
+    <ClCompile Include="..\third_party\grpc\src\cpp\client\insecure_credentials.cc" />
+    <ClCompile Include="..\third_party\grpc\src\cpp\common\channel_arguments.cc" />
+    <ClCompile Include="..\third_party\grpc\src\cpp\common\completion_queue_cc.cc" />
+    <ClCompile Include="..\third_party\grpc\src\cpp\common\core_codegen.cc" />
+    <ClCompile Include="..\third_party\grpc\src\cpp\common\version_cc.cc" />
+    <ClCompile Include="..\third_party\grpc\src\cpp\util\status.cc" />
+    <ClCompile Include="..\third_party\grpc\src\cpp\util\time_cc.cc" />
     <ClCompile Include="DllEntry.cpp" />
     <ClCompile Include="pugixml.cpp" />
     <ClCompile Include="xml_format.cc" />

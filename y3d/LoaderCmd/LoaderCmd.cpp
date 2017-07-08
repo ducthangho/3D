@@ -119,7 +119,7 @@ int test4() {
 void testNewProject()
 {	
 	logserver::LOG("testNewProject\n");
-	auto client = y3d::YServiceMaxTools::NewStub(grpc::CreateChannel("127.0.0.1:39001", grpc::InsecureChannelCredentials()));
+	auto client = y3d::YServiceMaxTools::NewStub(grpc::CreateChannel("127.0.0.1:39012", grpc::InsecureChannelCredentials()));
 	y3d::NewProjectParam param;
 	param.set_fname("abcd");
 	param.set_folder("xyz");
