@@ -56,7 +56,7 @@
     <ClCompile Include="..\third_party\grpc\src\cpp\common\channel_arguments.cc">
       <Filter>grpc++\src</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\vcpkg\buildtrees\grpc\src\grpc-1.4.1\src\cpp\client\channel_cc.cc">
+    <ClCompile Include="..\third_party\grpc\src\cpp\client\channel_cc.cc">
       <Filter>grpc++\src</Filter>
     </ClCompile>
     <ClCompile Include="..\third_party\grpc\src\cpp\common\channel_filter.cc">

@@ -147,7 +147,7 @@ DLLAPI void APIENTRY startService(const char* dllname, const char* ip_address)
 			
 				//service->Helloworld();
 				//server->Wait();				
-				LOG("Server is now listening on {} ......... \n",server_address);
+				LOG("Service server is now listening on {} .........\n",server_address);
 				//Printf("Test printf: Hello world %d\n", 123);
 				//std::map<std::string, int> m;
 				//m["hello"] = 1;
@@ -179,7 +179,7 @@ DLLAPI void APIENTRY startService(const char* dllname, const char* ip_address)
 				f.wait();
 				isShuttingdown = true;
 
-				LOG("Server {} is now shutting down .... \n", server_address);
+				LOG("Service Server {} is now shutting down ....\n", server_address);
 
 				server->Shutdown();
 				serving_thread.join();				

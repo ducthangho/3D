@@ -174,7 +174,7 @@ xcopy /Y "$(OutDir)$(TargetName).pdb" "$(ADSK_3DSMAX_x64_2017)"</Command>
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\vcpkg\buildtrees\grpc\src\grpc-1.4.1\src\cpp\client\channel_cc.cc" />
+    <ClCompile Include="..\third_party\grpc\src\cpp\client\channel_cc.cc" />
     <ClCompile Include="..\LoaderCmd\LogClient.cpp" />
     <ClCompile Include="..\ServiceImpl\ylogservice.grpc.pb.cc" />
     <ClCompile Include="..\ServiceImpl\ylogservice.pb.cc" />

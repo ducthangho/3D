@@ -173,10 +173,10 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\vcpkg\buildtrees\grpc\src\grpc-1.4.1\third_party\nanopb\pb.h" />
-    <ClInclude Include="..\..\..\vcpkg\buildtrees\grpc\src\grpc-1.4.1\third_party\nanopb\pb_common.h" />
-    <ClInclude Include="..\..\..\vcpkg\buildtrees\grpc\src\grpc-1.4.1\third_party\nanopb\pb_decode.h" />
-    <ClInclude Include="..\..\..\vcpkg\buildtrees\grpc\src\grpc-1.4.1\third_party\nanopb\pb_encode.h" />
+    <ClInclude Include="..\third_party\grpc\third_party\nanopb\pb.h" />
+    <ClInclude Include="..\third_party\grpc\third_party\nanopb\pb_common.h" />
+    <ClInclude Include="..\third_party\grpc\third_party\nanopb\pb_decode.h" />
+    <ClInclude Include="..\third_party\grpc\third_party\nanopb\pb_encode.h" />
     <ClInclude Include="..\third_party\grpc\src\cpp\client\create_channel_internal.h" />
     <ClInclude Include="..\third_party\grpc\src\cpp\client\secure_credentials.h" />
     <ClInclude Include="..\third_party\grpc\src\cpp\common\channel_filter.h" />
@@ -193,9 +193,9 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\vcpkg\buildtrees\grpc\src\grpc-1.4.1\third_party\nanopb\pb_common.c" />
-    <ClCompile Include="..\..\..\vcpkg\buildtrees\grpc\src\grpc-1.4.1\third_party\nanopb\pb_decode.c" />
-    <ClCompile Include="..\..\..\vcpkg\buildtrees\grpc\src\grpc-1.4.1\third_party\nanopb\pb_encode.c" />
+    <ClCompile Include="..\third_party\grpc\third_party\nanopb\pb_common.c" />
+    <ClCompile Include="..\third_party\grpc\third_party\nanopb\pb_decode.c" />
+    <ClCompile Include="..\third_party\grpc\third_party\nanopb\pb_encode.c" />
     <ClCompile Include="..\third_party\grpc\src\cpp\client\channel_cc.cc" />
     <ClCompile Include="..\third_party\grpc\src\cpp\client\client_context.cc" />
     <ClCompile Include="..\third_party\grpc\src\cpp\client\create_channel.cc" />

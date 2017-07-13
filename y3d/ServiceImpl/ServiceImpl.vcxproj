@@ -132,7 +132,7 @@
     </PreLinkEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\vcpkg\buildtrees\grpc\src\grpc-1.4.1\src\cpp\client\channel_cc.cc" />
+    <ClCompile Include="..\third_party\grpc\src\cpp\client\channel_cc.cc" />
     <ClCompile Include="..\third_party\grpc\src\cpp\client\client_context.cc" />
     <ClCompile Include="..\third_party\grpc\src\cpp\client\create_channel.cc" />
     <ClCompile Include="..\third_party\grpc\src\cpp\client\create_channel_internal.cc" />

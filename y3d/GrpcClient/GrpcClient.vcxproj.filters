@@ -127,13 +127,13 @@
     <ClCompile Include="..\third_party\grpc\src\cpp\server\channel_argument_option.cc">
       <Filter>src\cpp\server</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\vcpkg\buildtrees\grpc\src\grpc-1.4.1\third_party\nanopb\pb_common.c">
+    <ClCompile Include="..\third_party\grpc\third_party\nanopb\pb_common.c">
       <Filter>src\third_party\nanopb</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\vcpkg\buildtrees\grpc\src\grpc-1.4.1\third_party\nanopb\pb_decode.c">
+    <ClCompile Include="..\third_party\grpc\third_party\nanopb\pb_decode.c">
       <Filter>src\third_party\nanopb</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\vcpkg\buildtrees\grpc\src\grpc-1.4.1\third_party\nanopb\pb_encode.c">
+    <ClCompile Include="..\third_party\grpc\third_party\nanopb\pb_encode.c">
       <Filter>src\third_party\nanopb</Filter>
     </ClCompile>
     <ClCompile Include="dllmain.cpp" />
@@ -171,16 +171,16 @@
     <ClInclude Include="..\third_party\grpc\src\cpp\server\health\health.pb.h">
       <Filter>src\cpp\server\health</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\vcpkg\buildtrees\grpc\src\grpc-1.4.1\third_party\nanopb\pb.h">
+    <ClInclude Include="..\third_party\grpc\third_party\nanopb\pb.h">
       <Filter>src\third_party\nanopb</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\vcpkg\buildtrees\grpc\src\grpc-1.4.1\third_party\nanopb\pb_common.h">
+    <ClInclude Include="..\third_party\grpc\third_party\nanopb\pb_common.h">
       <Filter>src\third_party\nanopb</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\vcpkg\buildtrees\grpc\src\grpc-1.4.1\third_party\nanopb\pb_decode.h">
+    <ClInclude Include="..\third_party\grpc\third_party\nanopb\pb_decode.h">
       <Filter>src\third_party\nanopb</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\vcpkg\buildtrees\grpc\src\grpc-1.4.1\third_party\nanopb\pb_encode.h">
+    <ClInclude Include="..\third_party\grpc\third_party\nanopb\pb_encode.h">
       <Filter>src\third_party\nanopb</Filter>
     </ClInclude>
   </ItemGroup>
