@@ -15,6 +15,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
+    <VcpkgTriplet Condition="'$(Platform)'=='Win32'">x86-windows</VcpkgTriplet>
+    <VcpkgTriplet Condition="'$(Platform)'=='x64'">x64-windows</VcpkgTriplet>
     <ProjectName>ServiceImpl</ProjectName>
     <ProjectGuid>{F06B7CFD-69B6-4FA3-A203-E33A0D8DE619}</ProjectGuid>
     <ConfigurationType>DynamicLibrary</ConfigurationType>
@@ -87,7 +89,7 @@
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(MsBuildProjectDirectory)\..\x64\$(Configuration);$(MaxSdkLib)..\Release;$(MsBuildProjectDirectory)\..\lib\tbb;$(MsBuildProjectDirectory)\..\lib;$(MsBuildProjectDirectory)\..\x64\$(Configuration)\GrpcClient;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>LogClient.lib;GrpcClient.lib;tbb.lib;tbbmalloc.lib;core.lib;geom.lib;gfx.lib;mesh.lib;maxutil.lib;maxscrpt.lib;gup.lib;paramblk2.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>LogClient.lib;GrpcClient.lib;core.lib;geom.lib;gfx.lib;mesh.lib;maxutil.lib;maxscrpt.lib;gup.lib;paramblk2.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ModuleDefinitionFile>
       </ModuleDefinitionFile>
       <LinkTimeCodeGeneration Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
@@ -105,8 +107,9 @@
       <OutputFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
       <ProgramDatabaseFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(OutDir)$(TargetName).pdb</ProgramDatabaseFile>
       <ProgramDatabaseFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)$(TargetName).pdb</ProgramDatabaseFile>
-      <IgnoreSpecificDefaultLibraries Condition="'$(Configuration)|$(Platform)'=='Release|x64'">libcmt</IgnoreSpecificDefaultLibraries>
+      <IgnoreSpecificDefaultLibraries Condition="'$(Configuration)|$(Platform)'=='Release|x64'">libcmt;$(VcpkgRoot)lib\*.lib;</IgnoreSpecificDefaultLibraries>
       <IgnoreSpecificDefaultLibraries Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">LIBCMTD</IgnoreSpecificDefaultLibraries>
+      <ShowProgress Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotSet</ShowProgress>
     </Link>
     <PostBuildEvent>
       <Command Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">
@@ -129,27 +132,14 @@
     </PreLinkEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\closure.c" />
-    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\combiner.c" />
-    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\error.c" />
-    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\exec_ctx.c" />
-    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\socket_mutator.c" />
-    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\workqueue_uv.c" />
-    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\workqueue_windows.c" />
-    <ClCompile Include="..\third_party\grpc\src\core\lib\slice\slice.c" />
-    <ClCompile Include="..\third_party\grpc\src\core\lib\slice\slice_buffer.c" />
-    <ClCompile Include="..\third_party\grpc\src\core\lib\support\mpscq.c" />
-    <ClCompile Include="..\third_party\grpc\src\core\lib\support\time.c" />
-    <ClCompile Include="..\third_party\grpc\src\core\lib\support\time_posix.c" />
-    <ClCompile Include="..\third_party\grpc\src\core\lib\support\time_precise.c" />
-    <ClCompile Include="..\third_party\grpc\src\core\lib\support\time_windows.c" />
-    <ClCompile Include="..\third_party\grpc\src\cpp\client\channel_cc.cc" />
+    <ClCompile Include="..\..\..\vcpkg\buildtrees\grpc\src\grpc-1.4.1\src\cpp\client\channel_cc.cc" />
     <ClCompile Include="..\third_party\grpc\src\cpp\client\client_context.cc" />
     <ClCompile Include="..\third_party\grpc\src\cpp\client\create_channel.cc" />
     <ClCompile Include="..\third_party\grpc\src\cpp\client\create_channel_internal.cc" />
     <ClCompile Include="..\third_party\grpc\src\cpp\client\credentials_cc.cc" />
     <ClCompile Include="..\third_party\grpc\src\cpp\client\insecure_credentials.cc" />
     <ClCompile Include="..\third_party\grpc\src\cpp\common\channel_arguments.cc" />
+    <ClCompile Include="..\third_party\grpc\src\cpp\common\channel_filter.cc" />
     <ClCompile Include="..\third_party\grpc\src\cpp\common\completion_queue_cc.cc" />
     <ClCompile Include="..\third_party\grpc\src\cpp\common\core_codegen.cc" />
     <ClCompile Include="..\third_party\grpc\src\cpp\common\version_cc.cc" />

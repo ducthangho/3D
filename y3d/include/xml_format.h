@@ -13,6 +13,7 @@
 #include <google/protobuf/descriptor.h>
 
 typedef std::map<pugi::string_t, pugi::string_t> ReplacementMap;
+#define LIBPROTOBUF_EXPORTS
 
 namespace google {
 namespace protobuf {
@@ -20,7 +21,7 @@ namespace protobuf {
 // This class implements protocol buffer xml format.
 //
 // This class is really a namespace that contains only static methods.
-class LIBPROTOBUF_EXPORT XmlFormat {
+class LIBPROTOBUF_EXPORTS XmlFormat {
  public:
 
   // Like MessageToDOM(), but outputs xml directly to a string.

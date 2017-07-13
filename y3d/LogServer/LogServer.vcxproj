@@ -19,6 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
+    <VcpkgTriplet Condition="'$(Platform)'=='Win32'">x86-windows</VcpkgTriplet>
+    <VcpkgTriplet Condition="'$(Platform)'=='x64'">x64-windows</VcpkgTriplet>
     <ProjectGuid>{F4BEA3BC-07B7-4421-89B2-478CE56A8E49}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>LogServer</RootNamespace>

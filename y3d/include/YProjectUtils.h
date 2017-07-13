@@ -59,8 +59,8 @@ inline void registerCB() {
 }
 
 inline void unregisterCB() {
-	GetISceneEventManager()->UnRegisterCallback(mcb.callBackKey);	
-	mcb.release();	
+	GetISceneEventManager()->UnRegisterCallback(mcb.callBackKey);
+	mcb.release();
 	GetISceneEventManager()->ReleaseInterface();
 	LOG("Unregister CALL BACK KEY = {}\n", mcb.callBackKey);
 }

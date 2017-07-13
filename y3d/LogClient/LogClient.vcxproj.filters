@@ -13,23 +13,11 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="grpc_dll">
-      <UniqueIdentifier>{87ccaa86-3c1c-476a-89d4-db63a0e5bc6e}</UniqueIdentifier>
+    <Filter Include="grpc++">
+      <UniqueIdentifier>{8102e5a7-71d0-4a5a-a951-fde6a0893e3e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="grpc_dll\src">
-      <UniqueIdentifier>{e9d790e8-a5c2-4321-816b-2519bfbfc1ca}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="grpc++_cronet">
-      <UniqueIdentifier>{6c07fc55-694f-4ab7-aae8-e9d05980a77f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="grpc++_cronet\src">
-      <UniqueIdentifier>{ebbe05e6-f50c-4a35-9619-e16a08551fd5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="grpc">
-      <UniqueIdentifier>{12b2994a-7857-434f-a00d-d6ba3c15b284}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="grpc\src">
-      <UniqueIdentifier>{92488f1f-6abd-401f-b614-e425be8bb169}</UniqueIdentifier>
+    <Filter Include="grpc++\src">
+      <UniqueIdentifier>{99dcce74-e84a-4d2c-9303-2242a05b281e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -59,113 +47,50 @@
     <ClCompile Include="..\LoaderCmd\LogClient.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\third_party\grpc\src\cpp\client\create_channel_internal.cc">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\third_party\grpc\src\cpp\util\status.cc">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\third_party\grpc\src\cpp\common\version_cc.cc">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\closure.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\combiner.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\socket_mutator.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\workqueue_uv.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\workqueue_windows.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\ServiceImpl\ylogservice.grpc.pb.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\ServiceImpl\ylogservice.pb.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\third_party\grpc\src\core\lib\support\mpscq.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\third_party\grpc\src\core\lib\slice\b64.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\third_party\grpc\src\core\lib\slice\percent_encoding.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\third_party\grpc\src\core\lib\slice\slice_buffer.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\third_party\grpc\src\cpp\common\channel_arguments.cc">
-      <Filter>grpc_dll\src</Filter>
+      <Filter>grpc++\src</Filter>
     </ClCompile>
-    <ClCompile Include="..\third_party\grpc\src\cpp\client\channel_cc.cc">
-      <Filter>grpc_dll\src</Filter>
+    <ClCompile Include="..\..\..\vcpkg\buildtrees\grpc\src\grpc-1.4.1\src\cpp\client\channel_cc.cc">
+      <Filter>grpc++\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\cpp\common\channel_filter.cc">
+      <Filter>grpc++\src</Filter>
     </ClCompile>
     <ClCompile Include="..\third_party\grpc\src\cpp\client\client_context.cc">
-      <Filter>grpc_dll\src</Filter>
+      <Filter>grpc++\src</Filter>
     </ClCompile>
     <ClCompile Include="..\third_party\grpc\src\cpp\common\completion_queue_cc.cc">
-      <Filter>grpc_dll\src</Filter>
+      <Filter>grpc++\src</Filter>
     </ClCompile>
     <ClCompile Include="..\third_party\grpc\src\cpp\common\core_codegen.cc">
-      <Filter>grpc_dll\src</Filter>
+      <Filter>grpc++\src</Filter>
     </ClCompile>
     <ClCompile Include="..\third_party\grpc\src\cpp\client\create_channel.cc">
-      <Filter>grpc_dll\src</Filter>
+      <Filter>grpc++\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\cpp\client\create_channel_internal.cc">
+      <Filter>grpc++\src</Filter>
     </ClCompile>
     <ClCompile Include="..\third_party\grpc\src\cpp\client\credentials_cc.cc">
-      <Filter>grpc_dll\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\exec_ctx.c">
-      <Filter>grpc_dll\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\error.c">
-      <Filter>grpc_dll\src</Filter>
+      <Filter>grpc++\src</Filter>
     </ClCompile>
     <ClCompile Include="..\third_party\grpc\src\cpp\client\insecure_credentials.cc">
-      <Filter>grpc_dll\src</Filter>
+      <Filter>grpc++\src</Filter>
     </ClCompile>
-    <ClCompile Include="..\third_party\grpc\src\core\lib\slice\slice.c">
-      <Filter>grpc_dll\src</Filter>
+    <ClCompile Include="..\third_party\grpc\src\cpp\util\status.cc">
+      <Filter>grpc++\src</Filter>
     </ClCompile>
-    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\iomgr_windows.c">
-      <Filter>grpc++_cronet\src</Filter>
+    <ClCompile Include="..\third_party\grpc\src\cpp\util\time_cc.cc">
+      <Filter>grpc++\src</Filter>
     </ClCompile>
-    <ClCompile Include="..\third_party\grpc\src\core\ext\filters\client_channel\parse_address.c">
-      <Filter>grpc++_cronet\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\sockaddr_utils.c">
-      <Filter>grpc++_cronet\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\socket_windows.c">
-      <Filter>grpc++_cronet\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\tcp_client_windows.c">
-      <Filter>grpc++_cronet\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\third_party\grpc\src\core\ext\filters\client_channel\lb_policy\grpclb\grpclb.c">
-      <Filter>grpc++_cronet\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\resolve_address_windows.c">
-      <Filter>grpc\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\iocp_windows.c">
-      <Filter>grpc++_cronet\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\socket_utils_windows.c">
-      <Filter>grpc++_cronet\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\third_party\grpc\src\core\tsi\ssl_transport_security.c">
-      <Filter>grpc\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\tcp_windows.c">
-      <Filter>grpc++_cronet\src</Filter>
+    <ClCompile Include="..\third_party\grpc\src\cpp\common\version_cc.cc">
+      <Filter>grpc++\src</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

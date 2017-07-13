@@ -3,6 +3,7 @@
 #include <atomic>
 #include <mutex>
 #include <grpc++/grpc++.h>
+
 #include "yevent.grpc.pb.h"
 #include <chrono>
 #include "rx.hpp"
@@ -107,6 +108,10 @@ struct EventBus
 			call->response_reader = client->AsyncDoEvent(&call->context, e, &cq);
 			//std::function< std::unique_ptr<grpc::ClientAsyncResponseReader<RESPTYPE>>(grpc::ClientContext*, const EVENT &, grpc::CompletionQueue*) > func = &MainWorkerClient::AsyncDoEvent;
 			call->response_reader->Finish(&(call->reply), &(call->status), (void*)call);
+			//LOG("call->response_reader->Finish\n");
+			//printf("call->response_reader->Finish %d\n",0);
+			if (!call->status.ok())
+				LOG("RPC failed");
 			return call;
 		}).observe_on( rxcpp::observe_on_strand(ThreadPool::shared_instance().service() ))
 			//.observe_on(rxcpp::synchronize_new_thread())
@@ -123,6 +128,7 @@ struct EventBus
 			do {
 				auto status = cq.AsyncNext(&got_tag, &ok, deadline);
 				AsyncClientCall<RESPTYPE>* call = static_cast<AsyncClientCall<RESPTYPE>*>(got_tag);
+				
 				switch (status)
 				{
 				case grpc::CompletionQueue::SHUTDOWN:
@@ -133,7 +139,7 @@ struct EventBus
 					break;
 				case grpc::CompletionQueue::TIMEOUT:
 					rs.second = grpc::Status::CANCELLED;
-					LOG("RPC Timeout\n");
+					LOG("RPC Timeout\n");					
 					//e->context.TryCancel();
 					e->~AsyncClientCall<RESPTYPE>();
 					Free(e);
@@ -151,7 +157,7 @@ struct EventBus
 						rs.second = call->status;
 						if (call->status.ok()) {
 							rs.first = call->reply;
-							//LOG("Got tag {}\n", call->reply.msg());
+							LOG("Got tag {}\n", call->reply.msg());
 						}
 						call->~AsyncClientCall<RESPTYPE>();
 						Free(call);

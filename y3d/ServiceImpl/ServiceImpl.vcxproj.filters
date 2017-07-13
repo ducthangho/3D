@@ -13,16 +13,17 @@
       <UniqueIdentifier>{ad6e765e-4300-41dc-b185-05b019286785}</UniqueIdentifier>
       <Extensions>ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
     </Filter>
+    <Filter Include="proto">
+      <UniqueIdentifier>{c3c32669-fa90-4073-a607-4987eb029e83}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="grpc++">
+      <UniqueIdentifier>{cd0aeb83-703c-4f0b-be16-7c9052b6245f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="grpc++\src">
+      <UniqueIdentifier>{339db2e0-af4a-440f-a855-100a0d99757f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="xml_format.cc" />
-    <ClCompile Include="xnormal.pb.cc" />
-    <ClCompile Include="y3d.pb.cc" />
-    <ClCompile Include="yservice.grpc.pb.cc" />
-    <ClCompile Include="yservice.pb.cc" />
-    <ClCompile Include="ysetting.pb.cc" />
-    <ClCompile Include="ymax.grpc.pb.cc" />
-    <ClCompile Include="ymax.pb.cc" />
     <ClCompile Include="pugixml.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -32,66 +33,79 @@
     <ClCompile Include="YCServer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\third_party\grpc\src\cpp\util\status.cc" />
     <ClCompile Include="YProjectUtils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ymat.pb.cc" />
     <ClCompile Include="YCTestServer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\third_party\grpc\src\cpp\client\client_context.cc" />
-    <ClCompile Include="..\third_party\grpc\src\cpp\client\create_channel.cc" />
-    <ClCompile Include="..\third_party\grpc\src\cpp\client\insecure_credentials.cc" />
-    <ClCompile Include="..\third_party\grpc\src\cpp\client\create_channel_internal.cc" />
-    <ClCompile Include="..\third_party\grpc\src\cpp\client\credentials_cc.cc" />
-    <ClCompile Include="..\third_party\grpc\src\cpp\client\channel_cc.cc" />
-    <ClCompile Include="..\third_party\grpc\src\cpp\common\channel_arguments.cc" />
-    <ClCompile Include="..\third_party\grpc\src\cpp\common\completion_queue_cc.cc" />
-    <ClCompile Include="..\third_party\grpc\src\cpp\common\core_codegen.cc" />
-    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\socket_mutator.c">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="xnormal.pb.cc">
+      <Filter>proto</Filter>
     </ClCompile>
-    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\exec_ctx.c">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="y3d.pb.cc">
+      <Filter>proto</Filter>
     </ClCompile>
-    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\error.c">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="ymat.pb.cc">
+      <Filter>proto</Filter>
     </ClCompile>
-    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\closure.c">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="ymax.grpc.pb.cc">
+      <Filter>proto</Filter>
     </ClCompile>
-    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\combiner.c">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="ymax.pb.cc">
+      <Filter>proto</Filter>
     </ClCompile>
-    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\workqueue_uv.c">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="ymaxcoreinterface.pb.cc">
+      <Filter>proto</Filter>
     </ClCompile>
-    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\workqueue_windows.c">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="yservice.grpc.pb.cc">
+      <Filter>proto</Filter>
     </ClCompile>
-    <ClCompile Include="..\third_party\grpc\src\cpp\common\version_cc.cc" />
-    <ClCompile Include="ymaxcoreinterface.pb.cc" />
-    <ClCompile Include="..\third_party\grpc\src\core\lib\support\mpscq.c">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="yservice.pb.cc">
+      <Filter>proto</Filter>
     </ClCompile>
-    <ClCompile Include="..\third_party\grpc\src\core\lib\support\time.c">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="ysetting.pb.cc">
+      <Filter>proto</Filter>
     </ClCompile>
-    <ClCompile Include="..\third_party\grpc\src\core\lib\support\time_posix.c">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="..\third_party\grpc\src\cpp\common\channel_arguments.cc">
+      <Filter>grpc++\src</Filter>
     </ClCompile>
-    <ClCompile Include="..\third_party\grpc\src\core\lib\support\time_precise.c">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="..\..\..\vcpkg\buildtrees\grpc\src\grpc-1.4.1\src\cpp\client\channel_cc.cc">
+      <Filter>grpc++\src</Filter>
     </ClCompile>
-    <ClCompile Include="..\third_party\grpc\src\core\lib\support\time_windows.c">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="..\third_party\grpc\src\cpp\common\channel_filter.cc">
+      <Filter>grpc++\src</Filter>
     </ClCompile>
-    <ClCompile Include="..\third_party\grpc\src\cpp\util\time_cc.cc" />
-    <ClCompile Include="..\third_party\grpc\src\core\lib\slice\slice.c">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="..\third_party\grpc\src\cpp\client\client_context.cc">
+      <Filter>grpc++\src</Filter>
     </ClCompile>
-    <ClCompile Include="..\third_party\grpc\src\core\lib\slice\slice_buffer.c">
+    <ClCompile Include="..\third_party\grpc\src\cpp\common\completion_queue_cc.cc">
+      <Filter>grpc++\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\cpp\common\core_codegen.cc">
+      <Filter>grpc++\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\cpp\client\create_channel.cc">
+      <Filter>grpc++\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\cpp\client\create_channel_internal.cc">
+      <Filter>grpc++\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\cpp\client\credentials_cc.cc">
+      <Filter>grpc++\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\cpp\client\insecure_credentials.cc">
+      <Filter>grpc++\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\cpp\util\status.cc">
+      <Filter>grpc++\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\cpp\util\time_cc.cc">
+      <Filter>grpc++\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\cpp\common\version_cc.cc">
+      <Filter>grpc++\src</Filter>
+    </ClCompile>
+    <ClCompile Include="xml_format.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

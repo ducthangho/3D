@@ -1,0 +1,1864 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="dummy.c" />
+    <ClCompile Include="..\third_party\grpc\src\core\lib\profiling\basic_timers.c">
+      <Filter>gpr\src\core\lib\profiling</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\profiling\stap_timers.c">
+      <Filter>gpr\src\core\lib\profiling</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\support\alloc.c">
+      <Filter>gpr\src\core\lib\support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\support\arena.c">
+      <Filter>gpr\src\core\lib\support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\support\atm.c">
+      <Filter>gpr\src\core\lib\support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\support\avl.c">
+      <Filter>gpr\src\core\lib\support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\support\backoff.c">
+      <Filter>gpr\src\core\lib\support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\support\cmdline.c">
+      <Filter>gpr\src\core\lib\support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\support\cpu_iphone.c">
+      <Filter>gpr\src\core\lib\support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\support\cpu_linux.c">
+      <Filter>gpr\src\core\lib\support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\support\cpu_posix.c">
+      <Filter>gpr\src\core\lib\support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\support\cpu_windows.c">
+      <Filter>gpr\src\core\lib\support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\support\env_linux.c">
+      <Filter>gpr\src\core\lib\support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\support\env_posix.c">
+      <Filter>gpr\src\core\lib\support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\support\env_windows.c">
+      <Filter>gpr\src\core\lib\support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\support\histogram.c">
+      <Filter>gpr\src\core\lib\support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\support\host_port.c">
+      <Filter>gpr\src\core\lib\support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\support\log.c">
+      <Filter>gpr\src\core\lib\support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\support\log_android.c">
+      <Filter>gpr\src\core\lib\support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\support\log_linux.c">
+      <Filter>gpr\src\core\lib\support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\support\log_posix.c">
+      <Filter>gpr\src\core\lib\support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\support\log_windows.c">
+      <Filter>gpr\src\core\lib\support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\support\mpscq.c">
+      <Filter>gpr\src\core\lib\support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\support\murmur_hash.c">
+      <Filter>gpr\src\core\lib\support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\support\stack_lockfree.c">
+      <Filter>gpr\src\core\lib\support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\support\string.c">
+      <Filter>gpr\src\core\lib\support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\support\string_posix.c">
+      <Filter>gpr\src\core\lib\support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\support\string_util_windows.c">
+      <Filter>gpr\src\core\lib\support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\support\string_windows.c">
+      <Filter>gpr\src\core\lib\support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\support\subprocess_posix.c">
+      <Filter>gpr\src\core\lib\support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\support\subprocess_windows.c">
+      <Filter>gpr\src\core\lib\support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\support\sync.c">
+      <Filter>gpr\src\core\lib\support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\support\sync_posix.c">
+      <Filter>gpr\src\core\lib\support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\support\sync_windows.c">
+      <Filter>gpr\src\core\lib\support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\support\thd.c">
+      <Filter>gpr\src\core\lib\support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\support\thd_posix.c">
+      <Filter>gpr\src\core\lib\support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\support\thd_windows.c">
+      <Filter>gpr\src\core\lib\support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\support\time.c">
+      <Filter>gpr\src\core\lib\support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\support\time_posix.c">
+      <Filter>gpr\src\core\lib\support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\support\time_precise.c">
+      <Filter>gpr\src\core\lib\support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\support\time_windows.c">
+      <Filter>gpr\src\core\lib\support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\support\tls_pthread.c">
+      <Filter>gpr\src\core\lib\support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\support\tmpfile_msys.c">
+      <Filter>gpr\src\core\lib\support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\support\tmpfile_posix.c">
+      <Filter>gpr\src\core\lib\support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\support\tmpfile_windows.c">
+      <Filter>gpr\src\core\lib\support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\support\wrap_memcpy.c">
+      <Filter>gpr\src\core\lib\support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\census\base_resources.c">
+      <Filter>grpc\src\core\ext\census</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\census\context.c">
+      <Filter>grpc\src\core\ext\census</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\census\grpc_context.c">
+      <Filter>grpc\src\core\ext\census</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\census\grpc_filter.c">
+      <Filter>grpc\src\core\ext\census</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\census\grpc_plugin.c">
+      <Filter>grpc\src\core\ext\census</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\census\initialize.c">
+      <Filter>grpc\src\core\ext\census</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\census\intrusive_hash_map.c">
+      <Filter>grpc\src\core\ext\census</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\census\mlog.c">
+      <Filter>grpc\src\core\ext\census</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\census\operation.c">
+      <Filter>grpc\src\core\ext\census</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\census\placeholders.c">
+      <Filter>grpc\src\core\ext\census</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\census\resource.c">
+      <Filter>grpc\src\core\ext\census</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\census\trace_context.c">
+      <Filter>grpc\src\core\ext\census</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\census\tracing.c">
+      <Filter>grpc\src\core\ext\census</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\census\gen\census.pb.c">
+      <Filter>grpc\src\core\ext\census\gen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\census\gen\trace_context.pb.c">
+      <Filter>grpc\src\core\ext\census\gen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\filters\client_channel\channel_connectivity.c">
+      <Filter>grpc\src\core\ext\filters\client_channel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\filters\client_channel\client_channel.c">
+      <Filter>grpc\src\core\ext\filters\client_channel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\filters\client_channel\client_channel_factory.c">
+      <Filter>grpc\src\core\ext\filters\client_channel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\filters\client_channel\client_channel_plugin.c">
+      <Filter>grpc\src\core\ext\filters\client_channel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\filters\client_channel\connector.c">
+      <Filter>grpc\src\core\ext\filters\client_channel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\filters\client_channel\http_connect_handshaker.c">
+      <Filter>grpc\src\core\ext\filters\client_channel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\filters\client_channel\http_proxy.c">
+      <Filter>grpc\src\core\ext\filters\client_channel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\filters\client_channel\lb_policy.c">
+      <Filter>grpc\src\core\ext\filters\client_channel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\filters\client_channel\lb_policy_factory.c">
+      <Filter>grpc\src\core\ext\filters\client_channel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\filters\client_channel\lb_policy_registry.c">
+      <Filter>grpc\src\core\ext\filters\client_channel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\filters\client_channel\parse_address.c">
+      <Filter>grpc\src\core\ext\filters\client_channel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\filters\client_channel\proxy_mapper.c">
+      <Filter>grpc\src\core\ext\filters\client_channel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\filters\client_channel\proxy_mapper_registry.c">
+      <Filter>grpc\src\core\ext\filters\client_channel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\filters\client_channel\resolver.c">
+      <Filter>grpc\src\core\ext\filters\client_channel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\filters\client_channel\resolver_factory.c">
+      <Filter>grpc\src\core\ext\filters\client_channel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\filters\client_channel\resolver_registry.c">
+      <Filter>grpc\src\core\ext\filters\client_channel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\filters\client_channel\retry_throttle.c">
+      <Filter>grpc\src\core\ext\filters\client_channel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\filters\client_channel\subchannel.c">
+      <Filter>grpc\src\core\ext\filters\client_channel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\filters\client_channel\subchannel_index.c">
+      <Filter>grpc\src\core\ext\filters\client_channel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\filters\client_channel\uri_parser.c">
+      <Filter>grpc\src\core\ext\filters\client_channel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\filters\client_channel\lb_policy\grpclb\client_load_reporting_filter.c">
+      <Filter>grpc\src\core\ext\filters\client_channel\lb_policy\grpclb</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\filters\client_channel\lb_policy\grpclb\grpclb.c">
+      <Filter>grpc\src\core\ext\filters\client_channel\lb_policy\grpclb</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\filters\client_channel\lb_policy\grpclb\grpclb_channel.c">
+      <Filter>grpc\src\core\ext\filters\client_channel\lb_policy\grpclb</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\filters\client_channel\lb_policy\grpclb\grpclb_client_stats.c">
+      <Filter>grpc\src\core\ext\filters\client_channel\lb_policy\grpclb</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\filters\client_channel\lb_policy\grpclb\load_balancer_api.c">
+      <Filter>grpc\src\core\ext\filters\client_channel\lb_policy\grpclb</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\filters\client_channel\lb_policy\grpclb\proto\grpc\lb\v1\load_balancer.pb.c">
+      <Filter>grpc\src\core\ext\filters\client_channel\lb_policy\grpclb\proto\grpc\lb\v1</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\filters\client_channel\lb_policy\pick_first\pick_first.c">
+      <Filter>grpc\src\core\ext\filters\client_channel\lb_policy\pick_first</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\filters\client_channel\lb_policy\round_robin\round_robin.c">
+      <Filter>grpc\src\core\ext\filters\client_channel\lb_policy\round_robin</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\filters\client_channel\resolver\dns\c_ares\dns_resolver_ares.c">
+      <Filter>grpc\src\core\ext\filters\client_channel\resolver\dns\c_ares</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\filters\client_channel\resolver\dns\c_ares\grpc_ares_ev_driver_posix.c">
+      <Filter>grpc\src\core\ext\filters\client_channel\resolver\dns\c_ares</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\filters\client_channel\resolver\dns\c_ares\grpc_ares_wrapper.c">
+      <Filter>grpc\src\core\ext\filters\client_channel\resolver\dns\c_ares</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\filters\client_channel\resolver\dns\native\dns_resolver.c">
+      <Filter>grpc\src\core\ext\filters\client_channel\resolver\dns\native</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\filters\client_channel\resolver\sockaddr\sockaddr_resolver.c">
+      <Filter>grpc\src\core\ext\filters\client_channel\resolver\sockaddr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\filters\deadline\deadline_filter.c">
+      <Filter>grpc\src\core\ext\filters\deadline</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\filters\http\http_filters_plugin.c">
+      <Filter>grpc\src\core\ext\filters\http</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\filters\http\client\http_client_filter.c">
+      <Filter>grpc\src\core\ext\filters\http\client</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\filters\http\message_compress\message_compress_filter.c">
+      <Filter>grpc\src\core\ext\filters\http\message_compress</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\filters\http\server\http_server_filter.c">
+      <Filter>grpc\src\core\ext\filters\http\server</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\filters\load_reporting\load_reporting.c">
+      <Filter>grpc\src\core\ext\filters\load_reporting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\filters\load_reporting\load_reporting_filter.c">
+      <Filter>grpc\src\core\ext\filters\load_reporting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\filters\max_age\max_age_filter.c">
+      <Filter>grpc\src\core\ext\filters\max_age</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\filters\message_size\message_size_filter.c">
+      <Filter>grpc\src\core\ext\filters\message_size</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\filters\workarounds\workaround_cronet_compression_filter.c">
+      <Filter>grpc\src\core\ext\filters\workarounds</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\filters\workarounds\workaround_utils.c">
+      <Filter>grpc\src\core\ext\filters\workarounds</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\transport\chttp2\alpn\alpn.c">
+      <Filter>grpc\src\core\ext\transports\chttp2\alpn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\transport\chttp2\client\chttp2_connector.c">
+      <Filter>grpc\src\core\ext\transports\chttp2\client</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\transport\chttp2\client\insecure\channel_create.c">
+      <Filter>grpc\src\core\ext\transports\chttp2\client\insecure</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\transport\chttp2\client\insecure\channel_create_posix.c">
+      <Filter>grpc\src\core\ext\transports\chttp2\client\insecure</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\transport\chttp2\client\secure\secure_channel_create.c">
+      <Filter>grpc\src\core\ext\transports\chttp2\client\secure</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\transport\chttp2\server\chttp2_server.c">
+      <Filter>grpc\src\core\ext\transports\chttp2\server</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\transport\chttp2\server\insecure\server_chttp2.c">
+      <Filter>grpc\src\core\ext\transports\chttp2\server\insecure</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\transport\chttp2\server\insecure\server_chttp2_posix.c">
+      <Filter>grpc\src\core\ext\transports\chttp2\server\insecure</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\transport\chttp2\server\secure\server_secure_chttp2.c">
+      <Filter>grpc\src\core\ext\transports\chttp2\server\secure</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\transport\chttp2\transport\bin_decoder.c">
+      <Filter>grpc\src\core\ext\transports\chttp2\transport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\transport\chttp2\transport\bin_encoder.c">
+      <Filter>grpc\src\core\ext\transports\chttp2\transport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\transport\chttp2\transport\chttp2_plugin.c">
+      <Filter>grpc\src\core\ext\transports\chttp2\transport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\transport\chttp2\transport\chttp2_transport.c">
+      <Filter>grpc\src\core\ext\transports\chttp2\transport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\transport\chttp2\transport\frame_data.c">
+      <Filter>grpc\src\core\ext\transports\chttp2\transport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\transport\chttp2\transport\frame_goaway.c">
+      <Filter>grpc\src\core\ext\transports\chttp2\transport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\transport\chttp2\transport\frame_ping.c">
+      <Filter>grpc\src\core\ext\transports\chttp2\transport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\transport\chttp2\transport\frame_rst_stream.c">
+      <Filter>grpc\src\core\ext\transports\chttp2\transport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\transport\chttp2\transport\frame_settings.c">
+      <Filter>grpc\src\core\ext\transports\chttp2\transport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\transport\chttp2\transport\frame_window_update.c">
+      <Filter>grpc\src\core\ext\transports\chttp2\transport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\transport\chttp2\transport\hpack_encoder.c">
+      <Filter>grpc\src\core\ext\transports\chttp2\transport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\transport\chttp2\transport\hpack_parser.c">
+      <Filter>grpc\src\core\ext\transports\chttp2\transport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\transport\chttp2\transport\hpack_table.c">
+      <Filter>grpc\src\core\ext\transports\chttp2\transport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\transport\chttp2\transport\http2_settings.c">
+      <Filter>grpc\src\core\ext\transports\chttp2\transport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\transport\chttp2\transport\huffsyms.c">
+      <Filter>grpc\src\core\ext\transports\chttp2\transport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\transport\chttp2\transport\incoming_metadata.c">
+      <Filter>grpc\src\core\ext\transports\chttp2\transport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\transport\chttp2\transport\parsing.c">
+      <Filter>grpc\src\core\ext\transports\chttp2\transport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\transport\chttp2\transport\stream_lists.c">
+      <Filter>grpc\src\core\ext\transports\chttp2\transport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\transport\chttp2\transport\stream_map.c">
+      <Filter>grpc\src\core\ext\transports\chttp2\transport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\transport\chttp2\transport\varint.c">
+      <Filter>grpc\src\core\ext\transports\chttp2\transport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\ext\transport\chttp2\transport\writing.c">
+      <Filter>grpc\src\core\ext\transports\chttp2\transport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\channel\channel_args.c">
+      <Filter>grpc\src\core\lib\channel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\channel\channel_stack.c">
+      <Filter>grpc\src\core\lib\channel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\channel\channel_stack_builder.c">
+      <Filter>grpc\src\core\lib\channel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\channel\connected_channel.c">
+      <Filter>grpc\src\core\lib\channel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\channel\handshaker.c">
+      <Filter>grpc\src\core\lib\channel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\channel\handshaker_factory.c">
+      <Filter>grpc\src\core\lib\channel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\channel\handshaker_registry.c">
+      <Filter>grpc\src\core\lib\channel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\compression\compression.c">
+      <Filter>grpc\src\core\lib\compression</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\compression\message_compress.c">
+      <Filter>grpc\src\core\lib\compression</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\debug\trace.c">
+      <Filter>grpc\src\core\lib\debug</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\http\format_request.c">
+      <Filter>grpc\src\core\lib\http</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\http\httpcli.c">
+      <Filter>grpc\src\core\lib\http</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\http\httpcli_security_connector.c">
+      <Filter>grpc\src\core\lib\http</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\http\parser.c">
+      <Filter>grpc\src\core\lib\http</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\closure.c">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\combiner.c">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\endpoint.c">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\endpoint_pair_posix.c">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\endpoint_pair_uv.c">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\endpoint_pair_windows.c">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\error.c">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\ev_epoll1_linux.c">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\ev_epollex_linux.c">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\ev_epollsig_linux.c">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\ev_epoll_limited_pollers_linux.c">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\ev_epoll_thread_pool_linux.c">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\ev_poll_posix.c">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\ev_posix.c">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\ev_windows.c">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\executor.c">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\exec_ctx.c">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\iocp_windows.c">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\iomgr.c">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\iomgr_posix.c">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\iomgr_uv.c">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\iomgr_windows.c">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\is_epollexclusive_available.c">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\load_file.c">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\lockfree_event.c">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\network_status_tracker.c">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\polling_entity.c">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\pollset_set_uv.c">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\pollset_set_windows.c">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\pollset_uv.c">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\pollset_windows.c">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\resolve_address_posix.c">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\resolve_address_uv.c">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\resolve_address_windows.c">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\resource_quota.c">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\sockaddr_utils.c">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\socket_factory_posix.c">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\socket_mutator.c">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\socket_utils_common_posix.c">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\socket_utils_linux.c">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\socket_utils_posix.c">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\socket_utils_uv.c">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\socket_utils_windows.c">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\socket_windows.c">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\tcp_client_posix.c">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\tcp_client_uv.c">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\tcp_client_windows.c">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\tcp_posix.c">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\tcp_server_posix.c">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\tcp_server_utils_posix_common.c">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\tcp_server_utils_posix_ifaddrs.c">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\tcp_server_utils_posix_noifaddrs.c">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\tcp_server_uv.c">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\tcp_server_windows.c">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\tcp_uv.c">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\tcp_windows.c">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\timer_generic.c">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\timer_heap.c">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\timer_manager.c">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\timer_uv.c">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\time_averaged_stats.c">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\udp_server.c">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\unix_sockets_posix.c">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\unix_sockets_posix_noop.c">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\wakeup_fd_cv.c">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\wakeup_fd_eventfd.c">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\wakeup_fd_nospecial.c">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\wakeup_fd_pipe.c">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\wakeup_fd_posix.c">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\workqueue_uv.c">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\iomgr\workqueue_windows.c">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\json\json.c">
+      <Filter>grpc\src\core\lib\json</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\json\json_reader.c">
+      <Filter>grpc\src\core\lib\json</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\json\json_string.c">
+      <Filter>grpc\src\core\lib\json</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\json\json_writer.c">
+      <Filter>grpc\src\core\lib\json</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\security\context\security_context.c">
+      <Filter>grpc\src\core\lib\security\context</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\security\credentials\credentials.c">
+      <Filter>grpc\src\core\lib\security\credentials</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\security\credentials\credentials_metadata.c">
+      <Filter>grpc\src\core\lib\security\credentials</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\security\credentials\composite\composite_credentials.c">
+      <Filter>grpc\src\core\lib\security\credentials\composite</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\security\credentials\fake\fake_credentials.c">
+      <Filter>grpc\src\core\lib\security\credentials\fake</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\security\credentials\google_default\credentials_generic.c">
+      <Filter>grpc\src\core\lib\security\credentials\google_default</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\security\credentials\google_default\google_default_credentials.c">
+      <Filter>grpc\src\core\lib\security\credentials\google_default</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\security\credentials\iam\iam_credentials.c">
+      <Filter>grpc\src\core\lib\security\credentials\iam</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\security\credentials\jwt\json_token.c">
+      <Filter>grpc\src\core\lib\security\credentials\jwt</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\security\credentials\jwt\jwt_credentials.c">
+      <Filter>grpc\src\core\lib\security\credentials\jwt</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\security\credentials\jwt\jwt_verifier.c">
+      <Filter>grpc\src\core\lib\security\credentials\jwt</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\security\credentials\oauth2\oauth2_credentials.c">
+      <Filter>grpc\src\core\lib\security\credentials\oauth2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\security\credentials\plugin\plugin_credentials.c">
+      <Filter>grpc\src\core\lib\security\credentials\plugin</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\security\credentials\ssl\ssl_credentials.c">
+      <Filter>grpc\src\core\lib\security\credentials\ssl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\security\transport\client_auth_filter.c">
+      <Filter>grpc\src\core\lib\security\transport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\security\transport\lb_targets_info.c">
+      <Filter>grpc\src\core\lib\security\transport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\security\transport\secure_endpoint.c">
+      <Filter>grpc\src\core\lib\security\transport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\security\transport\security_connector.c">
+      <Filter>grpc\src\core\lib\security\transport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\security\transport\security_handshaker.c">
+      <Filter>grpc\src\core\lib\security\transport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\security\transport\server_auth_filter.c">
+      <Filter>grpc\src\core\lib\security\transport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\security\transport\tsi_error.c">
+      <Filter>grpc\src\core\lib\security\transport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\security\util\json_util.c">
+      <Filter>grpc\src\core\lib\security\util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\slice\b64.c">
+      <Filter>grpc\src\core\lib\slice</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\slice\percent_encoding.c">
+      <Filter>grpc\src\core\lib\slice</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\slice\slice.c">
+      <Filter>grpc\src\core\lib\slice</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\slice\slice_buffer.c">
+      <Filter>grpc\src\core\lib\slice</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\slice\slice_hash_table.c">
+      <Filter>grpc\src\core\lib\slice</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\slice\slice_intern.c">
+      <Filter>grpc\src\core\lib\slice</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\slice\slice_string_helpers.c">
+      <Filter>grpc\src\core\lib\slice</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\surface\alarm.c">
+      <Filter>grpc\src\core\lib\surface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\surface\api_trace.c">
+      <Filter>grpc\src\core\lib\surface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\surface\byte_buffer.c">
+      <Filter>grpc\src\core\lib\surface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\surface\byte_buffer_reader.c">
+      <Filter>grpc\src\core\lib\surface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\surface\call.c">
+      <Filter>grpc\src\core\lib\surface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\surface\call_details.c">
+      <Filter>grpc\src\core\lib\surface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\surface\call_log_batch.c">
+      <Filter>grpc\src\core\lib\surface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\surface\channel.c">
+      <Filter>grpc\src\core\lib\surface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\surface\channel_init.c">
+      <Filter>grpc\src\core\lib\surface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\surface\channel_ping.c">
+      <Filter>grpc\src\core\lib\surface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\surface\channel_stack_type.c">
+      <Filter>grpc\src\core\lib\surface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\surface\completion_queue.c">
+      <Filter>grpc\src\core\lib\surface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\surface\completion_queue_factory.c">
+      <Filter>grpc\src\core\lib\surface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\surface\event_string.c">
+      <Filter>grpc\src\core\lib\surface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\surface\init.c">
+      <Filter>grpc\src\core\lib\surface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\surface\init_unsecure.c">
+      <Filter>grpc\src\core\lib\surface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\surface\lame_client.cc">
+      <Filter>grpc\src\core\lib\surface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\surface\metadata_array.c">
+      <Filter>grpc\src\core\lib\surface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\surface\server.c">
+      <Filter>grpc\src\core\lib\surface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\surface\validate_metadata.c">
+      <Filter>grpc\src\core\lib\surface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\surface\version.c">
+      <Filter>grpc\src\core\lib\surface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\transport\bdp_estimator.c">
+      <Filter>grpc\src\core\lib\transport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\transport\byte_stream.c">
+      <Filter>grpc\src\core\lib\transport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\transport\connectivity_state.c">
+      <Filter>grpc\src\core\lib\transport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\transport\error_utils.c">
+      <Filter>grpc\src\core\lib\transport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\transport\metadata.c">
+      <Filter>grpc\src\core\lib\transport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\transport\metadata_batch.c">
+      <Filter>grpc\src\core\lib\transport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\transport\pid_controller.c">
+      <Filter>grpc\src\core\lib\transport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\transport\service_config.c">
+      <Filter>grpc\src\core\lib\transport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\transport\static_metadata.c">
+      <Filter>grpc\src\core\lib\transport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\transport\status_conversion.c">
+      <Filter>grpc\src\core\lib\transport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\transport\timeout_encoding.c">
+      <Filter>grpc\src\core\lib\transport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\transport\transport.c">
+      <Filter>grpc\src\core\lib\transport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\lib\transport\transport_op_string.c">
+      <Filter>grpc\src\core\lib\transport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\plugin_registry\grpc_plugin_registry.c">
+      <Filter>grpc\src\core\plugin_registry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\tsi\fake_transport_security.c">
+      <Filter>grpc\src\core\tsi</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\tsi\ssl_transport_security.c">
+      <Filter>grpc\src\core\tsi</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\tsi\transport_security.c">
+      <Filter>grpc\src\core\tsi</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\src\core\tsi\transport_security_adapter.c">
+      <Filter>grpc\src\core\tsi</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\third_party\nanopb\pb_common.c">
+      <Filter>grpc\third_party\nanopb</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\third_party\nanopb\pb_decode.c">
+      <Filter>grpc\third_party\nanopb</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third_party\grpc\third_party\nanopb\pb_encode.c">
+      <Filter>grpc\third_party\nanopb</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="grpc.def" />
+    <None Include="..\third_party\grpc\src\core\lib\iomgr\README.md">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="gpr">
+      <UniqueIdentifier>{80f68900-f06a-40d6-be35-84c4b6aa6568}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gpr\src">
+      <UniqueIdentifier>{875277ea-41c7-45c2-9686-dbe4345bc8bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gpr\src\core">
+      <UniqueIdentifier>{7f70fbe0-7e09-474c-9475-8a08bdb1369f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gpr\src\core\lib">
+      <UniqueIdentifier>{732b4a78-2b6c-4175-871c-f843ec4cd22a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gpr\src\core\lib\profiling">
+      <UniqueIdentifier>{e8ed161b-f9f2-4f7c-989c-5a1b26caacc3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gpr\src\core\lib\support">
+      <UniqueIdentifier>{6aa68966-84b6-436c-abdd-f90eb635ea43}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="grpc">
+      <UniqueIdentifier>{0a7e1fb2-e404-468f-9788-66a690a6aee8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="grpc\src">
+      <UniqueIdentifier>{5969422b-cfdb-4486-abca-7be132a4ce35}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="grpc\src\core">
+      <UniqueIdentifier>{6c9d0aa7-a515-4547-b497-aa26f1b10ca2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="grpc\src\core\ext">
+      <UniqueIdentifier>{2bdd5ccd-199f-4d64-b08a-b4ed41987c4a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="grpc\src\core\ext\census">
+      <UniqueIdentifier>{394a16ab-ae7d-49b3-b262-98795de645ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="grpc\src\core\ext\census\gen">
+      <UniqueIdentifier>{5fd36ac3-2d11-403e-a612-512216b5fb44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="grpc\src\core\ext\filters">
+      <UniqueIdentifier>{f586b189-c874-48c4-a90a-0b51a0fe8d11}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="grpc\src\core\ext\filters\client_channel">
+      <UniqueIdentifier>{889d7c4d-170a-4c87-bc2e-4119bf779002}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="grpc\src\core\ext\filters\client_channel\lb_policy">
+      <UniqueIdentifier>{4d703684-42bd-44dc-8d6e-3acb2145d5a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="grpc\src\core\ext\filters\client_channel\lb_policy\grpclb">
+      <UniqueIdentifier>{d1f6f591-4ff7-4dee-be6e-01f6643bec7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="grpc\src\core\ext\filters\client_channel\lb_policy\grpclb\proto">
+      <UniqueIdentifier>{5f98a0eb-8c77-41ce-9146-ee4ca2a88419}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="grpc\src\core\ext\filters\client_channel\lb_policy\grpclb\proto\grpc">
+      <UniqueIdentifier>{edf42ce7-b4b6-44cc-9b36-c24c463c31a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="grpc\src\core\ext\filters\client_channel\lb_policy\grpclb\proto\grpc\lb">
+      <UniqueIdentifier>{3c2d9575-853b-4f0c-9f36-d94e7bba43b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="grpc\src\core\ext\filters\client_channel\lb_policy\grpclb\proto\grpc\lb\v1">
+      <UniqueIdentifier>{7be57c35-1b8e-4556-b5db-3be3dd2d913d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="grpc\src\core\ext\filters\client_channel\lb_policy\pick_first">
+      <UniqueIdentifier>{25e1d748-85c0-41ad-aa34-d486c090f472}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="grpc\src\core\ext\filters\client_channel\lb_policy\round_robin">
+      <UniqueIdentifier>{b02673ed-d94a-4aae-92ee-6d27b3f6b689}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="grpc\src\core\ext\filters\client_channel\resolver">
+      <UniqueIdentifier>{50a3975e-ef94-4dbd-91bc-654beb43b2d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="grpc\src\core\ext\filters\client_channel\resolver\dns">
+      <UniqueIdentifier>{e0efd7d3-b061-4763-a3b7-c73877187ffe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="grpc\src\core\ext\filters\client_channel\resolver\dns\c_ares">
+      <UniqueIdentifier>{5656d9bf-b944-428c-be47-9c439d10ad24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="grpc\src\core\ext\filters\client_channel\resolver\dns\native">
+      <UniqueIdentifier>{c976d631-a32c-4c52-b5a2-832896d61ae1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="grpc\src\core\ext\filters\client_channel\resolver\sockaddr">
+      <UniqueIdentifier>{605fef9b-367d-4d30-8e99-b0b08d422dad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="grpc\src\core\ext\filters\deadline">
+      <UniqueIdentifier>{87a8a6d8-5216-4032-ba61-5fb540cc79b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="grpc\src\core\ext\filters\http">
+      <UniqueIdentifier>{6a42de0e-abcb-4af8-b98a-02a8bc350328}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="grpc\src\core\ext\filters\http\client">
+      <UniqueIdentifier>{85386079-7b7a-4405-8dd3-e0d2783110b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="grpc\src\core\ext\filters\http\message_compress">
+      <UniqueIdentifier>{50ded3a1-2d06-456a-a34d-172084162f42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="grpc\src\core\ext\filters\http\server">
+      <UniqueIdentifier>{83d3a3a8-5e61-4d7c-994e-ba1d03a72f88}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="grpc\src\core\ext\filters\load_reporting">
+      <UniqueIdentifier>{983bef39-7a43-4fde-9f9b-61cd937f8755}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="grpc\src\core\ext\filters\max_age">
+      <UniqueIdentifier>{4a7eb702-cc34-4825-9f40-0f28e64e1e1e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="grpc\src\core\ext\filters\message_size">
+      <UniqueIdentifier>{5af8dc42-be0f-42d2-a654-68759dc85ec1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="grpc\src\core\ext\filters\workarounds">
+      <UniqueIdentifier>{178c4037-4400-4498-bafa-1c73e0747fab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="grpc\src\core\ext\transports">
+      <UniqueIdentifier>{1c4be819-d95d-4b54-b541-4796530ce12c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="grpc\src\core\ext\transports\chttp2">
+      <UniqueIdentifier>{97e80ee5-3abb-4b6f-bcff-0bf895f486fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="grpc\src\core\ext\transports\chttp2\alpn">
+      <UniqueIdentifier>{d5d5baec-8865-4830-9a49-4f2ba3ea2180}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="grpc\src\core\ext\transports\chttp2\client">
+      <UniqueIdentifier>{f85deb9a-81c4-4259-ab65-802c665d802e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="grpc\src\core\ext\transports\chttp2\client\insecure">
+      <UniqueIdentifier>{95d02f06-a73b-44f0-82c2-f745519cd62d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="grpc\src\core\ext\transports\chttp2\client\secure">
+      <UniqueIdentifier>{a1e08e04-0be0-435c-8098-bb13bbb71c61}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="grpc\src\core\ext\transports\chttp2\server">
+      <UniqueIdentifier>{da77db1b-3c8c-4a30-8bf0-d00dbb1fb115}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="grpc\src\core\ext\transports\chttp2\server\insecure">
+      <UniqueIdentifier>{3ddc3994-7e99-4a9e-9e75-8beeae0ff5e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="grpc\src\core\ext\transports\chttp2\server\secure">
+      <UniqueIdentifier>{e9f17e85-3da3-4a7e-b4b6-f9beb9657344}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="grpc\src\core\ext\transports\chttp2\transport">
+      <UniqueIdentifier>{02a15f0c-c223-4810-8471-27791e864235}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="grpc\src\core\lib">
+      <UniqueIdentifier>{8347fafb-30d5-4be2-a35f-f8ce825c22b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="grpc\src\core\lib\channel">
+      <UniqueIdentifier>{dcdb4931-9506-47d5-a364-53c8c1ce4ce1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="grpc\src\core\lib\compression">
+      <UniqueIdentifier>{9ff02da8-01fc-4489-a312-b0cbbf244f5b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="grpc\src\core\lib\debug">
+      <UniqueIdentifier>{dd378974-1440-4076-bff8-8fda8076bc4d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="grpc\src\core\lib\http">
+      <UniqueIdentifier>{1bbe575f-f092-456a-95af-c7b7e4c21902}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="grpc\src\core\lib\iomgr">
+      <UniqueIdentifier>{b9283b69-4318-43f6-936d-79e3138c98fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="grpc\src\core\lib\json">
+      <UniqueIdentifier>{c521bdf7-a7af-4a45-ab43-88e9255cd7eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="grpc\src\core\lib\security">
+      <UniqueIdentifier>{28f428ec-e380-4b94-9bf3-c3e235724d65}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="grpc\src\core\lib\security\context">
+      <UniqueIdentifier>{e3629df7-fda8-4f0c-b145-c417327ee1d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="grpc\src\core\lib\security\credentials">
+      <UniqueIdentifier>{856ef1d8-cd71-4136-b3b8-3db73c45a596}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="grpc\src\core\lib\security\credentials\composite">
+      <UniqueIdentifier>{c83d9112-23c1-433b-830a-b0b6ab01bafd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="grpc\src\core\lib\security\credentials\fake">
+      <UniqueIdentifier>{228e539c-03f2-4e80-848a-ac435d110050}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="grpc\src\core\lib\security\credentials\google_default">
+      <UniqueIdentifier>{35acec19-013b-44ab-874e-d887a491cda0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="grpc\src\core\lib\security\credentials\iam">
+      <UniqueIdentifier>{3ca410a7-ae4e-4423-847f-f9479dcb6f53}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="grpc\src\core\lib\security\credentials\jwt">
+      <UniqueIdentifier>{2f284bed-0f73-4bfc-8715-fb9908cc10ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="grpc\src\core\lib\security\credentials\oauth2">
+      <UniqueIdentifier>{457c051e-c087-44bd-b2c5-bcb67966bab3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="grpc\src\core\lib\security\credentials\plugin">
+      <UniqueIdentifier>{bf0a8720-282e-409d-9cd2-208485747812}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="grpc\src\core\lib\security\credentials\ssl">
+      <UniqueIdentifier>{c1a1556a-e670-423f-8ec8-694b8bdc1135}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="grpc\src\core\lib\security\transport">
+      <UniqueIdentifier>{8f71e220-0112-4af5-acdf-aaf65c22dfc8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="grpc\src\core\lib\security\util">
+      <UniqueIdentifier>{5bcd808b-e18c-4eb6-8221-0cfc76d30369}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="grpc\src\core\lib\slice">
+      <UniqueIdentifier>{e2761b64-d4c5-47c5-a054-8022173a0af0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="grpc\src\core\lib\surface">
+      <UniqueIdentifier>{200fc80e-25bf-4005-ac19-4598e67ca661}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="grpc\src\core\lib\transport">
+      <UniqueIdentifier>{119a1ffb-83f6-470f-baaf-12e71f7d0215}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="grpc\src\core\plugin_registry">
+      <UniqueIdentifier>{05b13279-6400-4386-a987-d49e1cda51b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="grpc\src\core\tsi">
+      <UniqueIdentifier>{5c038306-8aac-427c-8102-b074891e9fdf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="grpc\third_party">
+      <UniqueIdentifier>{c1660d45-5cbb-4365-81a0-aefc8c655f17}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="grpc\third_party\nanopb">
+      <UniqueIdentifier>{e77674b7-4798-4e1d-a8ee-c5dfcaeb9e1d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\profiling\timers.h">
+      <Filter>gpr\src\core\lib\profiling</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\support\arena.h">
+      <Filter>gpr\src\core\lib\support</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\support\atomic.h">
+      <Filter>gpr\src\core\lib\support</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\support\atomic_with_atm.h">
+      <Filter>gpr\src\core\lib\support</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\support\atomic_with_std.h">
+      <Filter>gpr\src\core\lib\support</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\support\backoff.h">
+      <Filter>gpr\src\core\lib\support</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\support\block_annotate.h">
+      <Filter>gpr\src\core\lib\support</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\support\env.h">
+      <Filter>gpr\src\core\lib\support</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\support\memory.h">
+      <Filter>gpr\src\core\lib\support</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\support\mpscq.h">
+      <Filter>gpr\src\core\lib\support</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\support\murmur_hash.h">
+      <Filter>gpr\src\core\lib\support</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\support\spinlock.h">
+      <Filter>gpr\src\core\lib\support</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\support\stack_lockfree.h">
+      <Filter>gpr\src\core\lib\support</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\support\string.h">
+      <Filter>gpr\src\core\lib\support</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\support\string_windows.h">
+      <Filter>gpr\src\core\lib\support</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\support\thd_internal.h">
+      <Filter>gpr\src\core\lib\support</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\support\time_precise.h">
+      <Filter>gpr\src\core\lib\support</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\support\tmpfile.h">
+      <Filter>gpr\src\core\lib\support</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\census\aggregation.h">
+      <Filter>grpc\src\core\ext\census</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\census\base_resources.h">
+      <Filter>grpc\src\core\ext\census</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\census\census_interface.h">
+      <Filter>grpc\src\core\ext\census</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\census\census_rpc_stats.h">
+      <Filter>grpc\src\core\ext\census</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\census\grpc_filter.h">
+      <Filter>grpc\src\core\ext\census</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\census\intrusive_hash_map.h">
+      <Filter>grpc\src\core\ext\census</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\census\intrusive_hash_map_internal.h">
+      <Filter>grpc\src\core\ext\census</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\census\mlog.h">
+      <Filter>grpc\src\core\ext\census</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\census\resource.h">
+      <Filter>grpc\src\core\ext\census</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\census\rpc_metric_id.h">
+      <Filter>grpc\src\core\ext\census</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\census\trace_context.h">
+      <Filter>grpc\src\core\ext\census</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\census\trace_label.h">
+      <Filter>grpc\src\core\ext\census</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\census\trace_propagation.h">
+      <Filter>grpc\src\core\ext\census</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\census\trace_status.h">
+      <Filter>grpc\src\core\ext\census</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\census\trace_string.h">
+      <Filter>grpc\src\core\ext\census</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\census\tracing.h">
+      <Filter>grpc\src\core\ext\census</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\census\gen\census.pb.h">
+      <Filter>grpc\src\core\ext\census\gen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\census\gen\trace_context.pb.h">
+      <Filter>grpc\src\core\ext\census\gen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\client_channel\client_channel.h">
+      <Filter>grpc\src\core\ext\filters\client_channel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\client_channel\client_channel_factory.h">
+      <Filter>grpc\src\core\ext\filters\client_channel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\client_channel\lb_policy.h">
+      <Filter>grpc\src\core\ext\filters\client_channel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\client_channel\lb_policy_factory.h">
+      <Filter>grpc\src\core\ext\filters\client_channel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\client_channel\lb_policy_registry.h">
+      <Filter>grpc\src\core\ext\filters\client_channel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\client_channel\parse_address.h">
+      <Filter>grpc\src\core\ext\filters\client_channel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\client_channel\resolver.h">
+      <Filter>grpc\src\core\ext\filters\client_channel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\client_channel\resolver_factory.h">
+      <Filter>grpc\src\core\ext\filters\client_channel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\client_channel\resolver_registry.h">
+      <Filter>grpc\src\core\ext\filters\client_channel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\client_channel\subchannel.h">
+      <Filter>grpc\src\core\ext\filters\client_channel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\client_channel\subchannel_index.h">
+      <Filter>grpc\src\core\ext\filters\client_channel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\client_channel\uri_parser.h">
+      <Filter>grpc\src\core\ext\filters\client_channel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\filters\client_channel\client_channel.h">
+      <Filter>grpc\src\core\ext\filters\client_channel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\filters\client_channel\client_channel_factory.h">
+      <Filter>grpc\src\core\ext\filters\client_channel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\filters\client_channel\connector.h">
+      <Filter>grpc\src\core\ext\filters\client_channel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\filters\client_channel\http_connect_handshaker.h">
+      <Filter>grpc\src\core\ext\filters\client_channel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\filters\client_channel\http_proxy.h">
+      <Filter>grpc\src\core\ext\filters\client_channel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\filters\client_channel\lb_policy.h">
+      <Filter>grpc\src\core\ext\filters\client_channel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\filters\client_channel\lb_policy_factory.h">
+      <Filter>grpc\src\core\ext\filters\client_channel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\filters\client_channel\lb_policy_registry.h">
+      <Filter>grpc\src\core\ext\filters\client_channel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\filters\client_channel\parse_address.h">
+      <Filter>grpc\src\core\ext\filters\client_channel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\filters\client_channel\proxy_mapper.h">
+      <Filter>grpc\src\core\ext\filters\client_channel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\filters\client_channel\proxy_mapper_registry.h">
+      <Filter>grpc\src\core\ext\filters\client_channel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\filters\client_channel\resolver.h">
+      <Filter>grpc\src\core\ext\filters\client_channel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\filters\client_channel\resolver_factory.h">
+      <Filter>grpc\src\core\ext\filters\client_channel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\filters\client_channel\resolver_registry.h">
+      <Filter>grpc\src\core\ext\filters\client_channel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\filters\client_channel\retry_throttle.h">
+      <Filter>grpc\src\core\ext\filters\client_channel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\filters\client_channel\subchannel.h">
+      <Filter>grpc\src\core\ext\filters\client_channel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\filters\client_channel\subchannel_index.h">
+      <Filter>grpc\src\core\ext\filters\client_channel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\filters\client_channel\uri_parser.h">
+      <Filter>grpc\src\core\ext\filters\client_channel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\filters\client_channel\lb_policy\grpclb\client_load_reporting_filter.h">
+      <Filter>grpc\src\core\ext\filters\client_channel\lb_policy\grpclb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\filters\client_channel\lb_policy\grpclb\grpclb.h">
+      <Filter>grpc\src\core\ext\filters\client_channel\lb_policy\grpclb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\filters\client_channel\lb_policy\grpclb\grpclb_channel.h">
+      <Filter>grpc\src\core\ext\filters\client_channel\lb_policy\grpclb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\filters\client_channel\lb_policy\grpclb\grpclb_client_stats.h">
+      <Filter>grpc\src\core\ext\filters\client_channel\lb_policy\grpclb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\filters\client_channel\lb_policy\grpclb\load_balancer_api.h">
+      <Filter>grpc\src\core\ext\filters\client_channel\lb_policy\grpclb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\filters\client_channel\lb_policy\grpclb\proto\grpc\lb\v1\load_balancer.pb.h">
+      <Filter>grpc\src\core\ext\filters\client_channel\lb_policy\grpclb\proto\grpc\lb\v1</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\filters\client_channel\resolver\dns\c_ares\grpc_ares_ev_driver.h">
+      <Filter>grpc\src\core\ext\filters\client_channel\resolver\dns\c_ares</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\filters\client_channel\resolver\dns\c_ares\grpc_ares_wrapper.h">
+      <Filter>grpc\src\core\ext\filters\client_channel\resolver\dns\c_ares</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\filters\deadline\deadline_filter.h">
+      <Filter>grpc\src\core\ext\filters\deadline</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\filters\http\client\http_client_filter.h">
+      <Filter>grpc\src\core\ext\filters\http\client</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\filters\http\message_compress\message_compress_filter.h">
+      <Filter>grpc\src\core\ext\filters\http\message_compress</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\filters\http\server\http_server_filter.h">
+      <Filter>grpc\src\core\ext\filters\http\server</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\filters\load_reporting\load_reporting.h">
+      <Filter>grpc\src\core\ext\filters\load_reporting</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\filters\load_reporting\load_reporting_filter.h">
+      <Filter>grpc\src\core\ext\filters\load_reporting</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\filters\max_age\max_age_filter.h">
+      <Filter>grpc\src\core\ext\filters\max_age</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\filters\message_size\message_size_filter.h">
+      <Filter>grpc\src\core\ext\filters\message_size</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\filters\workarounds\workaround_cronet_compression_filter.h">
+      <Filter>grpc\src\core\ext\filters\workarounds</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\filters\workarounds\workaround_utils.h">
+      <Filter>grpc\src\core\ext\filters\workarounds</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\transport\chttp2\alpn\alpn.h">
+      <Filter>grpc\src\core\ext\transports\chttp2\alpn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\transport\chttp2\client\chttp2_connector.h">
+      <Filter>grpc\src\core\ext\transports\chttp2\client</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\transport\chttp2\server\chttp2_server.h">
+      <Filter>grpc\src\core\ext\transports\chttp2\server</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\transport\chttp2\transport\bin_decoder.h">
+      <Filter>grpc\src\core\ext\transports\chttp2\transport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\transport\chttp2\transport\bin_encoder.h">
+      <Filter>grpc\src\core\ext\transports\chttp2\transport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\transport\chttp2\transport\chttp2_transport.h">
+      <Filter>grpc\src\core\ext\transports\chttp2\transport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\transport\chttp2\transport\frame.h">
+      <Filter>grpc\src\core\ext\transports\chttp2\transport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\transport\chttp2\transport\frame_data.h">
+      <Filter>grpc\src\core\ext\transports\chttp2\transport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\transport\chttp2\transport\frame_goaway.h">
+      <Filter>grpc\src\core\ext\transports\chttp2\transport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\transport\chttp2\transport\frame_ping.h">
+      <Filter>grpc\src\core\ext\transports\chttp2\transport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\transport\chttp2\transport\frame_rst_stream.h">
+      <Filter>grpc\src\core\ext\transports\chttp2\transport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\transport\chttp2\transport\frame_settings.h">
+      <Filter>grpc\src\core\ext\transports\chttp2\transport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\transport\chttp2\transport\frame_window_update.h">
+      <Filter>grpc\src\core\ext\transports\chttp2\transport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\transport\chttp2\transport\hpack_encoder.h">
+      <Filter>grpc\src\core\ext\transports\chttp2\transport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\transport\chttp2\transport\hpack_parser.h">
+      <Filter>grpc\src\core\ext\transports\chttp2\transport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\transport\chttp2\transport\hpack_table.h">
+      <Filter>grpc\src\core\ext\transports\chttp2\transport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\transport\chttp2\transport\http2_settings.h">
+      <Filter>grpc\src\core\ext\transports\chttp2\transport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\transport\chttp2\transport\huffsyms.h">
+      <Filter>grpc\src\core\ext\transports\chttp2\transport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\transport\chttp2\transport\incoming_metadata.h">
+      <Filter>grpc\src\core\ext\transports\chttp2\transport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\transport\chttp2\transport\internal.h">
+      <Filter>grpc\src\core\ext\transports\chttp2\transport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\transport\chttp2\transport\stream_map.h">
+      <Filter>grpc\src\core\ext\transports\chttp2\transport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\ext\transport\chttp2\transport\varint.h">
+      <Filter>grpc\src\core\ext\transports\chttp2\transport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\channel\channel_args.h">
+      <Filter>grpc\src\core\lib\channel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\channel\channel_stack.h">
+      <Filter>grpc\src\core\lib\channel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\channel\channel_stack_builder.h">
+      <Filter>grpc\src\core\lib\channel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\channel\connected_channel.h">
+      <Filter>grpc\src\core\lib\channel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\channel\context.h">
+      <Filter>grpc\src\core\lib\channel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\channel\handshaker.h">
+      <Filter>grpc\src\core\lib\channel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\channel\handshaker_factory.h">
+      <Filter>grpc\src\core\lib\channel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\channel\handshaker_registry.h">
+      <Filter>grpc\src\core\lib\channel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\compression\algorithm_metadata.h">
+      <Filter>grpc\src\core\lib\compression</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\compression\message_compress.h">
+      <Filter>grpc\src\core\lib\compression</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\debug\trace.h">
+      <Filter>grpc\src\core\lib\debug</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\http\format_request.h">
+      <Filter>grpc\src\core\lib\http</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\http\httpcli.h">
+      <Filter>grpc\src\core\lib\http</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\http\parser.h">
+      <Filter>grpc\src\core\lib\http</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\iomgr\closure.h">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\iomgr\combiner.h">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\iomgr\endpoint.h">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\iomgr\endpoint_pair.h">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\iomgr\error.h">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\iomgr\error_internal.h">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\iomgr\ev_epoll1_linux.h">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\iomgr\ev_epollex_linux.h">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\iomgr\ev_epollsig_linux.h">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\iomgr\ev_epoll_limited_pollers_linux.h">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\iomgr\ev_epoll_thread_pool_linux.h">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\iomgr\ev_poll_posix.h">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\iomgr\ev_posix.h">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\iomgr\executor.h">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\iomgr\exec_ctx.h">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\iomgr\iocp_windows.h">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\iomgr\iomgr.h">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\iomgr\iomgr_internal.h">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\iomgr\iomgr_posix.h">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\iomgr\is_epollexclusive_available.h">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\iomgr\load_file.h">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\iomgr\lockfree_event.h">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\iomgr\network_status_tracker.h">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\iomgr\polling_entity.h">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\iomgr\pollset.h">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\iomgr\pollset_set.h">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\iomgr\pollset_set_windows.h">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\iomgr\pollset_uv.h">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\iomgr\pollset_windows.h">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\iomgr\port.h">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\iomgr\resolve_address.h">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\iomgr\resource_quota.h">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\iomgr\sockaddr.h">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\iomgr\sockaddr_posix.h">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\iomgr\sockaddr_utils.h">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\iomgr\sockaddr_windows.h">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\iomgr\socket_factory_posix.h">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\iomgr\socket_mutator.h">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\iomgr\socket_utils.h">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\iomgr\socket_utils_posix.h">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\iomgr\socket_windows.h">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\iomgr\sys_epoll_wrapper.h">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\iomgr\tcp_client.h">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\iomgr\tcp_client_posix.h">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\iomgr\tcp_posix.h">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\iomgr\tcp_server.h">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\iomgr\tcp_server_utils_posix.h">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\iomgr\tcp_uv.h">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\iomgr\tcp_windows.h">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\iomgr\timer.h">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\iomgr\timer_generic.h">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\iomgr\timer_heap.h">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\iomgr\timer_manager.h">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\iomgr\timer_uv.h">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\iomgr\time_averaged_stats.h">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\iomgr\udp_server.h">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\iomgr\unix_sockets_posix.h">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\iomgr\wakeup_fd_cv.h">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\iomgr\wakeup_fd_pipe.h">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\iomgr\wakeup_fd_posix.h">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\iomgr\workqueue.h">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\iomgr\workqueue_uv.h">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\iomgr\workqueue_windows.h">
+      <Filter>grpc\src\core\lib\iomgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\json\json.h">
+      <Filter>grpc\src\core\lib\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\json\json_common.h">
+      <Filter>grpc\src\core\lib\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\json\json_reader.h">
+      <Filter>grpc\src\core\lib\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\json\json_writer.h">
+      <Filter>grpc\src\core\lib\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\security\context\security_context.h">
+      <Filter>grpc\src\core\lib\security\context</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\security\credentials\credentials.h">
+      <Filter>grpc\src\core\lib\security\credentials</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\security\credentials\composite\composite_credentials.h">
+      <Filter>grpc\src\core\lib\security\credentials\composite</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\security\credentials\fake\fake_credentials.h">
+      <Filter>grpc\src\core\lib\security\credentials\fake</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\security\credentials\google_default\google_default_credentials.h">
+      <Filter>grpc\src\core\lib\security\credentials\google_default</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\security\credentials\iam\iam_credentials.h">
+      <Filter>grpc\src\core\lib\security\credentials\iam</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\security\credentials\jwt\json_token.h">
+      <Filter>grpc\src\core\lib\security\credentials\jwt</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\security\credentials\jwt\jwt_credentials.h">
+      <Filter>grpc\src\core\lib\security\credentials\jwt</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\security\credentials\jwt\jwt_verifier.h">
+      <Filter>grpc\src\core\lib\security\credentials\jwt</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\security\credentials\oauth2\oauth2_credentials.h">
+      <Filter>grpc\src\core\lib\security\credentials\oauth2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\security\credentials\plugin\plugin_credentials.h">
+      <Filter>grpc\src\core\lib\security\credentials\plugin</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\security\credentials\ssl\ssl_credentials.h">
+      <Filter>grpc\src\core\lib\security\credentials\ssl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\security\transport\auth_filters.h">
+      <Filter>grpc\src\core\lib\security\transport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\security\transport\lb_targets_info.h">
+      <Filter>grpc\src\core\lib\security\transport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\security\transport\secure_endpoint.h">
+      <Filter>grpc\src\core\lib\security\transport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\security\transport\security_connector.h">
+      <Filter>grpc\src\core\lib\security\transport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\security\transport\security_handshaker.h">
+      <Filter>grpc\src\core\lib\security\transport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\security\transport\tsi_error.h">
+      <Filter>grpc\src\core\lib\security\transport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\security\util\json_util.h">
+      <Filter>grpc\src\core\lib\security\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\security\util\b64.h">
+      <Filter>grpc\src\core\lib\slice</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\slice\percent_encoding.h">
+      <Filter>grpc\src\core\lib\slice</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\slice\slice_hash_table.h">
+      <Filter>grpc\src\core\lib\slice</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\slice\slice_internal.h">
+      <Filter>grpc\src\core\lib\slice</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\slice\slice_string_helpers.h">
+      <Filter>grpc\src\core\lib\slice</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\surface\api_trace.h">
+      <Filter>grpc\src\core\lib\surface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\surface\call.h">
+      <Filter>grpc\src\core\lib\surface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\surface\call_test_only.h">
+      <Filter>grpc\src\core\lib\surface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\surface\channel.h">
+      <Filter>grpc\src\core\lib\surface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\surface\channel_init.h">
+      <Filter>grpc\src\core\lib\surface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\surface\channel_stack_type.h">
+      <Filter>grpc\src\core\lib\surface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\surface\completion_queue.h">
+      <Filter>grpc\src\core\lib\surface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\surface\completion_queue_factory.h">
+      <Filter>grpc\src\core\lib\surface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\surface\event_string.h">
+      <Filter>grpc\src\core\lib\surface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\surface\init.h">
+      <Filter>grpc\src\core\lib\surface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\surface\lame_client.h">
+      <Filter>grpc\src\core\lib\surface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\surface\server.h">
+      <Filter>grpc\src\core\lib\surface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\surface\validate_metadata.h">
+      <Filter>grpc\src\core\lib\surface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\transport\bdp_estimator.h">
+      <Filter>grpc\src\core\lib\transport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\transport\byte_stream.h">
+      <Filter>grpc\src\core\lib\transport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\transport\connectivity_state.h">
+      <Filter>grpc\src\core\lib\transport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\transport\error_utils.h">
+      <Filter>grpc\src\core\lib\transport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\transport\http2_errors.h">
+      <Filter>grpc\src\core\lib\transport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\transport\metadata.h">
+      <Filter>grpc\src\core\lib\transport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\transport\metadata_batch.h">
+      <Filter>grpc\src\core\lib\transport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\transport\pid_controller.h">
+      <Filter>grpc\src\core\lib\transport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\transport\service_config.h">
+      <Filter>grpc\src\core\lib\transport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\transport\static_metadata.h">
+      <Filter>grpc\src\core\lib\transport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\transport\status_conversion.h">
+      <Filter>grpc\src\core\lib\transport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\transport\timeout_encoding.h">
+      <Filter>grpc\src\core\lib\transport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\transport\transport.h">
+      <Filter>grpc\src\core\lib\transport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\transport\transport_impl.h">
+      <Filter>grpc\src\core\lib\transport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\tsi\fake_transport_security.h">
+      <Filter>grpc\src\core\tsi</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\tsi\ssl_transport_security.h">
+      <Filter>grpc\src\core\tsi</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\tsi\ssl_types.h">
+      <Filter>grpc\src\core\tsi</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\tsi\transport_security.h">
+      <Filter>grpc\src\core\tsi</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\lib\tsi\transport_security_interface.h">
+      <Filter>grpc\src\core\tsi</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\src\core\tsi\transport_security_adapter.h">
+      <Filter>grpc\src\core\tsi</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\third_party\nanopb\pb.h">
+      <Filter>grpc\third_party\nanopb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\third_party\nanopb\pb_common.h">
+      <Filter>grpc\third_party\nanopb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\third_party\nanopb\pb_decode.h">
+      <Filter>grpc\third_party\nanopb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third_party\grpc\third_party\nanopb\pb_encode.h">
+      <Filter>grpc\third_party\nanopb</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
