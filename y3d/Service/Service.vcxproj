@@ -39,7 +39,7 @@
     <Import Project="..\packages\grpc.dependencies.zlib.1.2.8.10\build\native\grpc.dependencies.zlib.targets" Condition="Exists('..\packages\grpc.dependencies.zlib.1.2.8.10\build\native\grpc.dependencies.zlib.targets')" />
     <Import Project="..\packages\grpc.dependencies.openssl.1.0.204.1\build\native\grpc.dependencies.openssl.targets" Condition="Exists('..\packages\grpc.dependencies.openssl.1.0.204.1\build\native\grpc.dependencies.openssl.targets')" />
     <Import Project="..\packages\fmt.greedy.3.0.0.1\build\native\fmt.greedy.targets" Condition="Exists('..\packages\fmt.greedy.3.0.0.1\build\native\fmt.greedy.targets')" />
-    <Import Project="..\packages\pugixml.1.8.2\build\native\pugixml.targets" Condition="Exists('..\packages\pugixml.1.8.2\build\native\pugixml.targets')" />
+    <Import Project="..\packages\pugixml.1.8.3\build\native\pugixml.targets" Condition="Exists('..\packages\pugixml.1.8.3\build\native\pugixml.targets')" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'" />
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" />
@@ -336,8 +336,7 @@ call "$(ProjectDir)..\bin\start_workers.cmd"</Command>
     <ClInclude Include="..\third_party\grpc\include\grpc\support\useful.h" />
     <ClInclude Include="..\third_party\grpc\include\grpc\support\workaround_list.h" />
     <ClInclude Include="..\include\common.h" />
-    <ClInclude Include="..\include\ServiceImpl.h" />    
-    
+    <ClInclude Include="..\include\ServiceImpl.h" />
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
@@ -356,6 +355,6 @@ call "$(ProjectDir)..\bin\start_workers.cmd"</Command>
     <Error Condition="!Exists('..\packages\grpc.dependencies.openssl.1.0.204.1\build\native\grpc.dependencies.openssl.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\grpc.dependencies.openssl.1.0.204.1\build\native\grpc.dependencies.openssl.props'))" />
     <Error Condition="!Exists('..\packages\grpc.dependencies.openssl.1.0.204.1\build\native\grpc.dependencies.openssl.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\grpc.dependencies.openssl.1.0.204.1\build\native\grpc.dependencies.openssl.targets'))" />
     <Error Condition="!Exists('..\packages\fmt.greedy.3.0.0.1\build\native\fmt.greedy.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\fmt.greedy.3.0.0.1\build\native\fmt.greedy.targets'))" />
-    <Error Condition="!Exists('..\packages\pugixml.1.8.2\build\native\pugixml.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\pugixml.1.8.2\build\native\pugixml.targets'))" />
+    <Error Condition="!Exists('..\packages\pugixml.1.8.3\build\native\pugixml.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\pugixml.1.8.3\build\native\pugixml.targets'))" />
   </Target>
 </Project>

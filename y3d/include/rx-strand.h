@@ -19,6 +19,11 @@ namespace system_ns = ::boost::system;
 namespace rxcpp {
 
 	namespace schedulers {
+		inline std::string thread_to_str(std::thread::id myid) {
+			std::stringstream ss;
+			ss << myid;
+			return ss.str();
+		}
 
 		class strand_worker;
 
@@ -67,7 +72,7 @@ namespace rxcpp {
 						return;
 
 					auto keep_alive = shared_from_this();
-					strand_.post([=]() {
+					strand_.post([=]() {						
 						(void)(keep_alive);
 						// allow recursion
 						scbl(recursion(true).get_recurse());

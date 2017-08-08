@@ -3,6 +3,7 @@
 #include "yevent.pb.h"
 #include <inode.h>
 #include "LogClient.h"
+#include <notify.h>
 #include "grpc_client.h"
 //#include "yloader.pb.h"
 ////#include "yloader.grpc.pb.h"
@@ -30,16 +31,34 @@ void DoXrefHigh(ProjectInfo* pi);
 inline void xref_low(std::string project_path, std::string pname);
 //void registerCB();
 
-
 class MyNodeEventCB : public INodeEventCallback {
+	using delegate_type = async_delegate<y3d::YEvent2, y3d::ResponseEvent2>::type;
 public:
-	MyNodeEventCB() {
+	//std::forward<delegate_type>( delegate_type::create<ClientType, &ClientType::AsyncDoEvent>(getClientInstance()))
+	MyNodeEventCB() : client( getClientInstance()), events(DelegateList::DoEventDelegate() ) {
 		LOG("MyNodeEventCB initializing...\n");		
+		/*events.initialize([](auto e) {
+			return e.debounce(std::chrono::milliseconds(50)) ;
+		});*/
+		events.initialize();
+		//if (!init) {
+		//	init = true;
+		//	LOG("INIT first time\n");
+		//	events.observable().subscribe([](auto e) {
+		//		//y3d::ResponseEvent2& reply = e.first;
+
+		//		LOG("On next {} \n", 1);
+		//	}, [](auto e) {
+		//		LOG("On error \n");
+		//	}, []() {
+		//		LOG("On completed\n");
+		//	});
+		//}
 	}
 	void SelectionChanged(NodeKeyTab & 	nodes);
 	void release() {		
 		events.complete();
-		events.release();
+		events.release();		
 	};
 	~MyNodeEventCB() {		
 		LOG("~MyNodeEventCB()\n");
@@ -47,22 +66,26 @@ public:
 	DWORD callBackKey;
 private:
 	//rxcpp::observable< std::pair<y3d::ResponseEvent2, grpc::Status> > stream;
-	//rxcpp::observable<y3d::YEvent2> stream;	
-	EventBus<y3d::YEvent2, y3d::ResponseEvent2> events;
+	//rxcpp::observable<y3d::YEvent2> stream;
+	ClientType* client;
+	EventBus<y3d::YEvent2, y3d::ResponseEvent2,5000> events;
 };
 
-extern MyNodeEventCB mcb;
-inline void registerCB() {	
-	auto callbackKey = GetISceneEventManager()->RegisterCallback(&mcb, 0, 0, 0);
-	mcb.callBackKey = callbackKey;
+extern MyNodeEventCB* mcb;
+inline void registerCB() {
+	mcb = new MyNodeEventCB();	
+	auto callbackKey = GetISceneEventManager()->RegisterCallback(mcb, 0, 0, 0);	
+	mcb->callBackKey = callbackKey;
 	LOG("CALL BACK KEY = {}\n", callbackKey);
 }
 
 inline void unregisterCB() {
-	GetISceneEventManager()->UnRegisterCallback(mcb.callBackKey);
-	mcb.release();
-	GetISceneEventManager()->ReleaseInterface();
-	LOG("Unregister CALL BACK KEY = {}\n", mcb.callBackKey);
+	GetISceneEventManager()->UnRegisterCallback(mcb->callBackKey);
+	mcb->release();
+	//GetISceneEventManager()->ReleaseInterface();
+	LOG("Unregister CALL BACK KEY = {}\n", mcb->callBackKey);
+	delete mcb;
+	mcb = nullptr;
 }
 
 

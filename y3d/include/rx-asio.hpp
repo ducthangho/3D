@@ -16,6 +16,12 @@ namespace system_ns=::boost::system;
 
 namespace rxcpp {
     namespace schedulers {
+		/*inline std::string thread_to_str(std::thread::id myid) {
+			std::stringstream ss;
+			ss << myid;
+			return ss.str();
+		}*/
+
         class asio : public scheduler_interface
         {
             typedef asio this_type;
@@ -47,6 +53,7 @@ namespace rxcpp {
                 {
                     if (scbl.is_subscribed()) {
                         auto keep_alive = shared_from_this();						
+						//printf("Post .... from  thread %s.\n", thread_to_str(std::this_thread::get_id()).c_str());
                         ios.post([=]() {							
                             (void)(keep_alive);
                             // allow recursion

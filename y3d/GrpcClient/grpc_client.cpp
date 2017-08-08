@@ -26,7 +26,7 @@ ClientType* getClientInstance()
 			//auto channel = grpc::CreateChannel(MainWorkerServerIP, grpc::InsecureChannelCredentials());
 			//printf("Connection state = %d\n", channel->GetState(false));
 			tmp = new ClientType(grpc::CreateChannel(MainWorkerServerIP, grpc::InsecureChannelCredentials()));
-			printf("Create connection to server %s\n", MainWorkerServerIP.c_str());
+			printf("Create connection to server %s\n", MainWorkerServerIP.c_str());			
 			//tmp->swap(stub);
 			clientPtr.store(tmp);
 		}

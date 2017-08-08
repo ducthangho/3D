@@ -168,6 +168,9 @@
     <PostBuildEvent>
       <Command>xcopy "$(OutDir)$(TargetName)$(TargetExt)" "$(ADSK_3DSMAX_x64_2017)" /Y</Command>
     </PostBuildEvent>
+    <PreLinkEvent>
+      <Command>call "$(ProjectDir)..\bin\stop_workers.cmd"</Command>
+    </PreLinkEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />

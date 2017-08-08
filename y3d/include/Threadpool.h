@@ -17,7 +17,7 @@ public:
 	}
 
 	static ThreadPool& shared_instance() {
-		static ThreadPool s_shared(std::thread::hardware_concurrency());
+		static ThreadPool s_shared(std::thread::hardware_concurrency());		
 		return s_shared;
 	};
 
@@ -29,7 +29,7 @@ public:
 
 	template <typename Handler>
 	inline void post(Handler &&handler)
-	{
+	{		
 		m_service.post(handler);
 	}
 

@@ -34,7 +34,7 @@ using namespace std::experimental;
 
 const std::string FM_ORGINAL_FILE = "{0}\\{1}_o.max";
 const std::string FM_YAREA_FILE = "{0}\\yal.y3d";
-MyNodeEventCB mcb;
+MyNodeEventCB* mcb;
 //const std::string FM_WORKING_FILE_PREFIX = "{0}{1}";
 NameTab low_nametab;
 NameTab high_nametab;
@@ -639,22 +639,8 @@ void MyNodeEventCB::SelectionChanged(NodeKeyTab & nodes)
 		grpc::ClientContext context;*/
 		
 		//GRPC_CALL(DoEvent, &context, ye, &rep);
-
-		if (!init) {
-			init = true;
-			LOG("INIT first time\n");
-			events.observable().subscribe([](auto e) {
-				//y3d::ResponseEvent2& reply = e.first;
-
-				LOG("On next {} \n", 1);
-			}, [](auto e) {
-				LOG("On error \n");
-			}, []() {
-				LOG("On completed\n");
-			});
-		}
-		
-		events.publish(ye);		
+				
+		events.publish(ye);			
 
 
 		//events.complete();

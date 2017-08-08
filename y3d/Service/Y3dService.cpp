@@ -44,10 +44,7 @@ DLLAPI void APIENTRY startService(const char* dllname, const char* ip_address)
 	
 	logserver::LOG("Starting Service ... \n");
 
-	if (!AllocConsole()) {
-		MessageBox(NULL, L"The console window was not created", NULL, MB_ICONEXCLAMATION);
-	}
-	else {
+	if (AllocConsole()) {		
 		SetConsoleTitle(L"Debug console");
 		freopen("CONOUT$", "w", stdout);
 		freopen("CONIN$", "r", stdin);
@@ -69,7 +66,7 @@ DLLAPI void APIENTRY startService(const char* dllname, const char* ip_address)
 	std::unique_lock<std::mutex> lk(loading_requested);
 	if (isLoading) ready_cv.wait(lk, []() {return !isLoading; });
 //	LOG.clear();
-	if (isShuttingdown) return;//If there is a shuttingdown request, return
+	if (isShuttingdown) return;//If there is a shutting down request, return
 
 	bool notDone = false;
 
@@ -199,6 +196,7 @@ DLLAPI void APIENTRY startService(const char* dllname, const char* ip_address)
 				}
 				isShuttingdown = false;
 				shutdown_cv.notify_all();
+				LOG("Service dll has been unloaded\n");
 			}
 			//releaseObject(service);
 			//} while (1);

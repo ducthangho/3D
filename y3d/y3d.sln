@@ -11,9 +11,6 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FunctionPublishing", "..\y3d_max\newm\functionpublishing\simplefp\fp_basics.vcxproj", "{749F7777-A940-4B9E-9FD3-EA0C407950C7}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ServiceImpl", "ServiceImpl\ServiceImpl.vcxproj", "{F06B7CFD-69B6-4FA3-A203-E33A0D8DE619}"
-	ProjectSection(ProjectDependencies) = postProject
-		{3A479FDD-B95B-4416-AB35-451FBEB2318D} = {3A479FDD-B95B-4416-AB35-451FBEB2318D}
-	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LoaderCmd", "LoaderCmd\LoaderCmd.vcxproj", "{50A337F0-1395-40AF-AD1A-8E94060DCD16}"
 EndProject
